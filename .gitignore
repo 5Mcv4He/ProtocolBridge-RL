@@ -1,0 +1,36 @@
+# Local virtual environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# EDA generated files and waveform artifacts
+build/
+out/
+sim_build/
+csrc/
+simv
+simv.daidir/
+*.vcd
+*.vpd
+*.fsdb
+*.vdb/
+*.log
+
+# Secrets, environment settings and licensed third-party VIP assets
+.env
+.env.*
+!.env.example
+*.key
+*.lic
+*.lic.dat
+vendor/
+proprietary/
+licensed_vip/
+
+# OS and editor
+.DS_Store
+.idea/
+.vscode/
