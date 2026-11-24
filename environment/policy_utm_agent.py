@@ -2,9 +2,8 @@
 import argparse,hashlib,json,select,subprocess,sys,time,uuid
 from pathlib import Path
 from .reset import ROOT
-from .policy import load,canonical,policy_hash,prompt
+from .policy import load,canonical,policy_hash,prompt,parse_action
 from .policy_session import Session
-from .utm_agent import parse_action
 from verifier.campaign import sha
 
 

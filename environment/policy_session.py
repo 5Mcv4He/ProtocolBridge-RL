@@ -26,7 +26,9 @@ class Session:
         if not isinstance(action,dict):action={}
         tool=action.get('tool')
         schemas={'read':{'tool','file'},'edit':{'tool','content'},'test':{'tool'},'submit':{'tool'}}
-        if tool not in self.policy['allowed_tools']:obs={'status':'REJECTED','reason':'tool_not_allowed'}
+        if tool is None:obs={'status':'REJECTED','reason':'invalid_action_format',
+                            'instruction':'Return exactly one JSON action object, with no prose or additional actions. Wait for its result.'}
+        elif tool not in self.policy['allowed_tools']:obs={'status':'REJECTED','reason':'tool_not_allowed'}
         elif set(action)!=schemas[tool]:pass
         elif tool=='read':
             if action.get('file') in self.policy['readable_files']:

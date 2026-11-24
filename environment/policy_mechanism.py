@@ -1,7 +1,7 @@
 """Deterministic end-to-end policy acceptance using the real VCS grader (no model)."""
 import argparse,json
 from pathlib import Path
-from .policy import load
+from .policy import load,parse_action
 from .policy_session import Session
 from .reset import ROOT
 from verifier.campaign import grade,sha
@@ -19,6 +19,12 @@ def run(out,reward_path):
             calls.append({'public':kw.get('public',False),'cases_sha256':sha(reward_path) if 'cases' in kw else None})
             return grade(source,dest,**kw)
         s=Session(load(mode),work,out/mode,reward,counted,reuse=builds)
+        # A malformed/multiple-action reply must not skip an edit and execute
+        # a later test/submit. This uses the same parser as the real controller.
+        try:action=parse_action('{"tool":"edit","content":"module bridge;\nendmodule"}\n{"tool":"test"}\n{"tool":"submit"}')
+        except ValueError:action={}
+        rejected=s.handle(action)
+        checks.append(rejected.get('reason')=='invalid_action_format' and not calls and not s.submitted)
         for f in ('spec.md','bridge.sv'):s.handle({'tool':'read','file':f})
         for f in ('policy.json','fixtures/reference.sv','private/reward.json','verifier/v3/vip.sv'):
             checks.append(s.handle({'tool':'read','file':f})['status']=='REJECTED')

@@ -13,6 +13,23 @@ def canonical(value):
 def policy_hash(policy):
     return hashlib.sha256(canonical(policy).encode()).hexdigest()
 
+def parse_action(text):
+    """Decode the entire reply atomically; never scan forward to a later action.
+
+    Literal newlines/tabs in RTL strings are accepted (JSON strict=False).
+    Multiple objects, prose, fences and duplicate keys reject the whole reply.
+    """
+    if not isinstance(text,str):raise ValueError('Action reply must be text')
+    def unique(pairs):
+        out={}
+        for k,v in pairs:
+            if k in out:raise ValueError('Duplicate action field')
+            out[k]=v
+        return out
+    action=json.loads(text.strip(),strict=False,object_pairs_hook=unique)
+    if not isinstance(action,dict) or not isinstance(action.get('tool'),str):raise ValueError('One action object required')
+    return action
+
 def validate(p):
     if not isinstance(p,dict) or set(p)!=FIELDS:raise ValueError('Invalid policy fields')
     if p['policy_id'] not in ('spec_only','test_verdict','test_diagnostic'):raise ValueError('Unknown policy')
@@ -46,7 +63,9 @@ def prompt(p):
            '{"tool":"edit","content":"complete RTL"}']
     if 'test' in p['allowed_tools']:tools.append('{"tool":"test"}')
     tools.append('{"tool":"submit"}')
-    return ('Implement the RTL task. Return exactly one JSON object per turn. Allowed actions: '+', '.join(tools)+
+    return ('Implement the RTL task. Return exactly one JSON object per turn, with no prose, Markdown or additional objects. '+
+        'Wait for the tool result before choosing another action. Never combine read, edit, test or submit in one response. '+
+        'Literal newlines inside the edit content string are accepted. Allowed actions: '+', '.join(tools)+
         '. Read both files before editing or submitting. Submit even if public tests fail; public testing is optional. '+
         'You have at most 20 actions and %d public test invocations. Every started test, including ENV_ERROR, consumes one invocation. '%p['max_public_test_calls']+
         'Final verification is private and its feedback is unavailable. Only spec.md and bridge.sv can be read; only bridge.sv can be edited. '+

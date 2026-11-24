@@ -6,6 +6,7 @@
 - [功能、边界、随机与复位验证计划](../../docs/verification-plan.md)
 - [UVM Scoreboard 和系统框图](../../docs/architecture.md)
 - [真实 Agent、公开／私有测试与奖励](../../docs/agent-workflow.md)
+- [A／C／E 信息与反馈策略对照](../../docs/observation-policy.md)
 - [reset/test/submit 与复现命令](../../docs/mvp-running.md)
 - [实际验收报告](../../mvp-evaluation-report.md)
 

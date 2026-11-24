@@ -88,4 +88,31 @@ class PolicyTests(unittest.TestCase):
         s,calls=self.setup_session('test_verdict');r=s.handle({'tool':'test'})
         self.assertEqual(json.loads((s.out/'trace.json').read_text())[0]['observation'],r)
 
+
+class AtomicActionParsing(unittest.TestCase):
+    def test_multiline_rtl_is_preserved(self):
+        from environment.policy import parse_action
+        self.assertEqual(parse_action('{"tool":"edit","content":"module bridge;\nendmodule"}')['content'],'module bridge;\nendmodule')
+    def test_never_skip_broken_edit_to_later_submit_or_test(self):
+        from environment.policy import parse_action
+        for tail in ('test','submit'):
+            response='{"tool":"edit","content":"module bridge;\nendmodule"}\n{"tool":"'+tail+'"}'
+            with self.assertRaises(ValueError):parse_action(response)
+            response='{"tool":"edit","content":"unterminated\n{"tool":"'+tail+'"}'
+            with self.assertRaises(ValueError):parse_action(response)
+    def test_prose_multiple_objects_and_duplicate_keys_reject_atomically(self):
+        from environment.policy import parse_action
+        for response in ('done {"tool":"submit"}','{"tool":"read","file":"spec.md"} {"tool":"submit"}','{"tool":"edit","tool":"submit"}','[{"tool":"submit"}]'):
+            with self.assertRaises(ValueError):parse_action(response)
+    def test_rejected_reply_has_no_execution_side_effect(self):
+        from environment.policy import parse_action
+        t=PolicyTests();s,calls=t.setup_session('test_verdict')
+        try:
+            try:action=parse_action('{"tool":"test"}\n{"tool":"submit"}')
+            except ValueError:action={}
+            obs=s.handle(action)
+            self.assertEqual(obs['reason'],'invalid_action_format');self.assertEqual(calls,[])
+            self.assertFalse(s.submitted);self.assertEqual(s.tests,0);self.assertEqual(s.actions,1)
+        finally:t.doCleanups()
+
 if __name__=='__main__':unittest.main()

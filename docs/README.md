@@ -7,6 +7,7 @@
 | 项目有什么、当前完成到哪里 | [仓库首页](../README.md)、[实测报告](../mvp-evaluation-report.md) |
 | Task、环境、验证器、评分器分别是什么 | [架构与 Scoreboard](architecture.md) |
 | DSH 在哪里，Agent 能看什么，怎样生成 Reward | [Agent 工作流](agent-workflow.md) |
+| A／C／E 可见信息与反馈怎样配置、冻结和对照 | [Observation / Feedback Policy](observation-policy.md) |
 | 定向／边界／随机／复位怎样验证，覆盖是否充分 | [验证计划与缺口](verification-plan.md) |
 | 怎样安装、reset/test/submit、重放和重新调用模型 | [运行手册](mvp-running.md) |
 | OS 隔离、综合、形式验证是什么，还缺什么 | [工具与能力边界](toolchain.md) |

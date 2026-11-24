@@ -2,6 +2,8 @@
 
 [项目入口](../README.md) · [架构](architecture.md) · [验证计划](verification-plan.md) · [运行](mvp-running.md) · [实测报告](../mvp-evaluation-report.md)
 
+本页描述保留的 revision 3 原始执行入口。新增 A／C／E 信息条件对照使用独立的 [Observation / Feedback Policy 入口](observation-policy.md)，其公开测试权限、预算和提交要求由策略控制，不能套用本页旧入口的“提交前必须 test”规则。
+
 ## DSH 在哪里
 
 revision 3 的 DeepSeek Harness SDK / Runtime 0.2.2rc2 安装在 **UTM 内的 Ubuntu 22.04 用户态**，使用 Python 3.10。该用户态运行于现有 CentOS 内核，不是第二台虚拟机。模型在 DeepSeek 服务端推理，发起 API 请求的客户端进程在 UTM 内。

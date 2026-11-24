@@ -2,6 +2,8 @@
 
 [架构](architecture.md) · [真实 Agent 与奖励](agent-workflow.md) · [验证计划](verification-plan.md) · [评估报告](../mvp-evaluation-report.md)
 
+新增固定模型 A／C／E 对照请使用 [Policy 实验运行说明](observation-policy.md)。以下旧入口与 revision 3 验收保持兼容。
+
 所有命令在仓库根目录执行，输出目录必须尚不存在。运行使用 VCS / AMBA SVT；不使用 Icarus。商业安装、许可和 API key 由使用者自行准备，不随仓库发布。
 
 ## 1. EDA 环境
