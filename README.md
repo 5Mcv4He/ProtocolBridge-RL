@@ -15,28 +15,33 @@ flowchart LR
 
 ## 如何理解和讲解本项目
 
+固定的人类阅读入口：[docs/README.md](docs/README.md)。新任务和版本更新也在此维护导航、图示、用法和证据。
+
 | 想了解什么 | 阅读入口 |
 |---|---|
 | 整体结构；task、环境、验证器和评分器的分工；Scoreboard 如何工作 | [当前架构与 Scoreboard](docs/architecture.md)（含系统与 UVM 数据流框图） |
 | DSH 在哪里运行；Agent 能看什么、做什么；真实动作与奖励如何产生 | [真实 Agent 的执行与奖励](docs/agent-workflow.md)（含执行时序图、权限表和评分规则） |
 | 如何配置、手动迭代、重放提交或再跑模型 | [环境配置与复用命令](docs/mvp-running.md) |
+| 定向／随机／边界测试如何安排、是否充分 | [验证计划与覆盖](docs/verification-plan.md) |
 | 实际证明了什么、证据在哪里、还缺什么 | [评估报告](mvp-evaluation-report.md)与[验收证据](experiments/industrial-v2/README.md) |
 
 建议讲解顺序：本页概览 → 架构与 Scoreboard → Agent 执行时序 → 真实结果与限制。当前已经跑通任务和奖励闭环，尚未进行 RL 参数训练。
 
-## 已验证的结果
+## 当前进度
 
-| 项目 | 实测结果 |
+revision 3 的参考与错误对照已实际验证。DSH 已安装到 UTM，API 与隔离探针通过；新的真实 Agent 试次正在运行，尚未给它填写终局 Reward。
+
+| 检查 | 实测结果 |
 |---|---|
-| 正确参考 RTL | 128 笔 AXI/APB 事务全部匹配，UVM 零错误 |
-| 六个错误 RTL | 地址、WSTRB、PSLVERR、PREADY、读数据、背压稳定性错误全部检出 |
-| 商业 VIP 检查 | 故障注入实际触发 AXI/APB VIP 协议错误 |
-| 真实 Agent 试次 | DeepSeek Harness；公开 32 笔、独立终局 128 笔通过；Reward=1.0 |
-| 关键时序覆盖 | AW 先到／W 先到／同时到达均命中；602 个背压周期、202 个 APB 等待周期、8 次事务间复位 |
+| 正确参考 | 22 个 case 通过；2868 笔计划事务，2842 笔正常完成、26 笔复位取消 |
+| 必要交叉覆盖 | 576 / 576 个 bin 命中 |
+| 随机流 | 4 组 × 256 笔，全部实际仿真通过 |
+| 错误实现 | 10 / 10 被检出，包括两项商业 VIP 协议报错 |
+| UTM 内真实 Agent | 进行中；见[当前报告](mvp-evaluation-report.md) |
 
-这些是有限测试集合的结果，不是形式正确性证明，也不是模型成功率统计。Agent 在本次试次中测试前编辑了两次，随后一次公开测试通过；没有把空模板失败包装成设计修复能力。
+这些结果证明计划内检查通过，不是所有输入的正确性证明，也不是完整工业签核。
 
-[完整评估报告](mvp-evaluation-report.md) · [公开验收证据](experiments/industrial-v2/README.md) · [任务 Spec](tasks/axil_to_apb4_001/spec.md)
+[历史 v2 结果](experiments/industrial-v2/evaluation-report.md)对应旧版本：参考 128 笔、六个错误实现检出、一次 Agent Reward=1。它们不是新版验收证据。
 
 ## 运行
 
@@ -45,10 +50,10 @@ flowchart LR
 先按[环境配置与运行说明](docs/mvp-running.md)完成配置，然后在仓库根目录执行：
 
 ```bash
-# 参考实现及六个错误实现的回归
+# 参考实现及十个错误实现的回归
 bash environment/reproduce.sh .local/reproduction-001
 
-# 配置 DeepSeek Harness Python 和 API key 后，增加真实 Agent 试次
+# 在 UTM 安装 DSH 并提供 API key 后，增加真实 Agent 试次
 bash environment/reproduce.sh .local/reproduction-002 --agent
 ```
 
@@ -58,8 +63,8 @@ bash environment/reproduce.sh .local/reproduction-002 --agent
 
 - `tasks/`：Spec、初始 RTL 和任务元数据。
 - `environment/`：reset/test/submit、受限工具接口和 DeepSeek Harness。
-- `verifier/v2/`：当前唯一的主动 VIP／UVM 验证实现。
-- `fixtures/`：正确参考与六个故障实现。
+- `verifier/v3/`：当前主动 VIP／UVM 验证实现。
+- `fixtures/`：正确参考与十个故障实现。
 - `experiments/industrial-v2/`：结果、精简工具轨迹、最终 RTL、事件和证据哈希。
 - `scripts/`：脱敏证据导出；`docs/`：复现说明及研究资料。
 
@@ -67,9 +72,9 @@ UVM Scoreboard 通过 analysis port 接收两端 VIP monitor 事务，并与计�
 
 ## 边界
 
-尚未实现 OS 安全隔离、安全私有测试、事务中复位覆盖、完整覆盖闭合、综合／形式验证或模型训练。参考答案和测试生成器公开，因此本仓库定位为开放的任务环境基线，不是防泄漏的隐藏评测集。
+已实现求解进程的文件系统／进程／权限隔离，以及私有输入分层。仍需区分运行时文件隔离、网络限制和恶意 RTL 执行隔离；当前没有完整网络／编译器沙箱。公开参考答案还存在预训练污染风险。
 
-关键初始化失败、缺失背压覆盖及 Harness 格式失败均以 null 记录，详见报告；完整原始日志与模型响应本地保留，不随仓库发布。
+事务中复位、随机和交叉覆盖的实现与实际验收分开记录；尚无完整代码覆盖闭合、综合／形式证明或 RL 训练。详见[验证计划](docs/verification-plan.md)与[工具能力](docs/toolchain.md)。
 
 [原研究设计](docs/research-design.md) · [VIP 资源盘点](docs/vip-inventory-r2020.12.md) · [早期 VIP 审计](docs/vip-audit-2026-11-24.md)
 

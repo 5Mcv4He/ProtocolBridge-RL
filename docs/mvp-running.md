@@ -1,126 +1,109 @@
-# Industrial VIP baseline: running the bridge task
+# 配置、重复运行与证据重放
 
-The current implementation uses **active Synopsys AXI4-Lite master and APB4 slave
-VIP, with a UVM reference model and scoreboard**. Python handles lifecycle, remote
-VCS execution and machine-readable reward only. The former Python functional
-scoreboard has been removed. The evaluation report records the current baseline and summarizes important
-bring-up failures; superseded experiment files are not part of this release.
+[架构](architecture.md) · [真实 Agent 与奖励](agent-workflow.md) · [验证计划](verification-plan.md) · [评估报告](../mvp-evaluation-report.md)
 
-[Architecture and scoreboard](architecture.md) · [Agent, DSH and reward](agent-workflow.md) · [Evaluation report](../mvp-evaluation-report.md)
+所有命令在仓库根目录执行，输出目录必须尚不存在。运行使用 VCS / AMBA SVT；不使用 Icarus。商业安装、许可和 API key 由使用者自行准备，不随仓库发布。
 
-## Requirements and setup
+## 1. EDA 环境
 
-Python 3.10+, SSH/SCP, a licensed Linux VCS and AMBA SVT installation. The remote
-`~/.bashrc` initializes VCS and licensing. The tested installation is VCS
-V-2023.12-SP2 / AMBA SVT R-2020.12; no commercial code or license is distributed.
-Prepare generated VIP projects on the licensed host:
+已使用的工具：VCS V-2023.12-SP2、AMBA SVT R-2020.12、UVM 1.1d。UTM 的 shell 初始化文件需配置 VCS 和许可。宿主 Python 3.6 可执行控制器，Mac 启动端使用 Python 3；DSH 用户态使用 Python 3.10。
+
+在有许可的 Linux 内生成 VIP 项目：
 
 ```bash
 bash environment/setup-vip.sh /your/new/generated-projects
 ```
 
-Copy `environment/config.example.json` to `.local/config.json`; set `vip_root` to
-its APB project, `axi_vip_root` to its AXI project, and configure the remaining SSH
-and installation paths. For direct test/grade/submit commands, `PB_CONFIG` may
-select an alternate absolute config path. The current Agent controller clears
-most environment variables around its Harness session, including `PB_CONFIG`;
-use the default repository `.local/config.json` for real Agent trials.
-The compile command sets the required UVM packer size and single-port VIP limits.
+复制 `environment/config.example.json` 到 `.local/config.json`，填写自己的 SSH 配置、运行目录、APB/AXI 生成项目目录和 VIP 安装目录。`PB_CONFIG` 可以指定另一份绝对路径配置。`compile_cache` 是可选 VCS 编译缓存，不能代替源码哈希检查或最终重新仿真。
 
-DSH runs on the host machine; VCS runs on the licensed Linux host. Point
-`PB_AGENT_PYTHON` to a Python environment containing the tested
-`deepseek-harness-sdk` and `deepseek-harness-runtime-bin` versions, both 0.2.2rc2.
-The original trial reused an existing installation; an independent one-command
-dependency installer is not included. Each run's `dsh/` directory stores session
-state, not the SDK installation. Supply `DEEPSEEK_API_KEY` from your own secret
-store; do not put it in repository files.
+## 2. 在 UTM 安装 DSH
 
-## Running (repository root)
+为兼容现有 CentOS 用户态，使用 Ubuntu Base 22.04 amd64 的独立根文件系统。安装脚本需要可信宿主用户可 `sudo -n`，并检查本机 UID 1101、GID 1000 与目录没有冲突。默认路径仅是安装约定，不是密钥或许可位置。
+
+1. 从 [Ubuntu 官方发布目录](https://cdimage.ubuntu.com/ubuntu-base/releases/22.04/release/)取得 `ubuntu-base-22.04.5-base-amd64.tar.gz` 与 `SHA256SUMS`，核验 SHA-256。
+2. 把归档和本仓库的 `environment/` 脚本送到 UTM。
+3. 在 UTM 执行：
+
+```bash
+bash environment/setup_utm_runtime.sh /path/to/verified-ubuntu-base-archive.tar.gz
+```
+
+脚本将 SDK / Runtime 0.2.2rc2 安装进 `/opt/protocolbridge-runtime/opt/dsh`，安装 root-owned launcher，创建低权限 solver 用户，并运行隔离探针。已有但不带本项目管理标记的根目录会被拒绝覆盖。首次安装需要网络；后续 API 请求也需要网络。
+
+真实 API 探针与完整 Agent 试次是不同证据。仅成功安装、打印版本或跑隔离探针，不能声称完成 Agent 解题。
+
+## 3. 人工迭代 RTL
 
 ```bash
 python3 -m environment.reset .local/solve-001
-# Edit .local/solve-001/bridge.sv
+# 编辑 .local/solve-001/bridge.sv
 python3 -m environment.test .local/solve-001 .local/public-001
 python3 -m environment.submit .local/solve-001 .local/submission-001
-
-bash environment/reproduce.sh .local/reproduction-001
-
-# Real model trial requires DeepSeek Harness SDK/runtime 0.2.2rc2 and
-# DEEPSEEK_API_KEY supplied from your own secret store.
-export PB_AGENT_PYTHON=/path/to/harness-python
-bash environment/reproduce.sh .local/reproduction-002 --agent
 ```
 
-All output paths must be new. Public and final vector sets use different seeds.
-A repeated model trial is stochastic; replaying submitted RTL needs no model API.
+公开集 17 个 case、132 笔计划事务，含 8 笔复位取消。完整默认回归 22 个 case、2868 笔计划事务，含 26 笔复位取消。CLI `submit` 使用可复现的完整默认输入；它用于本地验证，不应被称作保密评测。
 
-## Reuse recipes
+输出 `result.json` 记录 Reward、分类、每个实际执行的 case 和计数。提交结果位于 `submission-001/grade/result.json`。遇到首个确定错误会停止，不能将未运行 case 算成已通过。
 
-Run from the repository root after setup. Choose unused output names each time.
-`reset` creates files only; each test starts a complete new simulation.
+## 4. 统一正反回归与真实 Agent
 
 ```bash
-# Edit the same workspace and run another public iteration
-python3 -m environment.test .local/solve-001 .local/public-002
+# 参考 + 10 个明确违反 Spec 的实现
+bash environment/reproduce.sh .local/reproduction-001
 
-# Replay the published Agent submission with final vectors, without a model call
-python3 -m verifier.grade experiments/industrial-v2/agent/final.sv .local/replay-001
+# 从自己的密钥管理方式向当前进程提供 DEEPSEEK_API_KEY 后：
+bash environment/reproduce.sh .local/reproduction-002 --agent
 
-# Run only a new Agent trial; this automatically creates its solver workspace
-"$PB_AGENT_PYTHON" -m environment.agent .local/agent-002 --model deepseek-flash
+# 仅发起一个新的真实 Agent 试次；Mac 不需要安装 DSH
+python3 -m environment.agent .local/agent-001 --model deepseek-flash
 ```
 
-Read `result.json` in the chosen grade/test output directory. For CLI submit it is
-under `NEW_SUBMISSION/grade/result.json`; for an Agent trial the top-level
-`NEW_AGENT_RUN/result.json` also records the model, turn count and freeze status.
-Raw compiler/simulator logs remain in the corresponding local run directories.
+真实试次会把原创运行源码部署到 UTM 的私有 evaluator 目录，生成并冻结奖励／保留评估输入，随后在隔离 worker 内调用 DSH。密钥通过 SSH stdin 传递。不要把密钥写进配置文件、命令参数或 Git。
 
-The task selector and UVM implementation currently target one bridge. Replacing
-RTL under the same Spec needs no verifier changes. Adding another protocol needs
-new task and verification code; changing `task.yaml` alone is insufficient.
+每个试次至多 20 次模型动作；模型可修改、测试、再修改、提交。终局提交后停止 solver，再对同一份 RTL 执行保留评估。结果保存到本地试次目录的 `run/`：
 
-## Verification path
+| 文件／目录 | 内容 |
+|---|---|
+| `result.json` | episode Reward、模型、轮数、冻结检查及保留评估摘要 |
+| `freeze.json` | 运行源码与私有输入哈希 |
+| `trace.json`、`harness-*.json` | 工具轨迹及真实 DSH 响应 |
+| `candidate-*.sv` | 每次编辑的 RTL |
+| `public-*/` | 每次公开测试 |
+| `submission/` | 最终 RTL 快照和私有奖励验证 |
+| `reserved-evaluation/` | 独立保留评估 |
 
-1. A constrained VIP master sequence plans one transaction and waits for its
-   completion before issuing another; AW/W are independently driven by the VIP.
-2. Active APB slave VIP supplies data, wait states and errors. Its memory receives
-   actual completed APB monitor transactions.
-3. UVM Scoreboard receives a cloned planned request, AXI VIP monitor completion,
-   and APB VIP monitor completion through analysis ports. It maintains its own
-   independent expected memory and checks payloads, strobes, errors, ordering and
-   exact completion counts.
-4. Pin-level assertions supplement VIP checks with task-specific latency,
-   response stability, reset and APB sequencing requirements. Actual pin events
-   count AW-first/W-first/simultaneous, waits, stalls, early-ready and resets.
-5. Python reads the UVM structured result and report summary. It does not compute
-   expected transaction values or compare payloads. A nominal pass with missing
-   required stimulus bins is incomplete (`reward=null`), not a functional pass.
+私有具体输入仅留在可信 UTM evaluator 目录。`deployment.json` 记录其部署位置；不能上传它来泄露机器路径。每轮模型运行有随机性和 API 成本。
 
-`1.0` requires complete UVM transaction checking and zero verification errors.
-Confirmed compile, timing, semantic and cycle-timeout errors return `0.0`.
-Tool/license failures, incomplete verification and ambiguous failures return `null`.
-Wall-clock timeout is infrastructure/indeterminate; the explicit cycle watchdog
-is a DUT progress failure when the initialized environment is functioning.
+## 5. 不调用模型的复现与诊断
 
-## Controls and isolation
+```bash
+# 完整默认回归：可重放任意符合 Spec 的提交
+python3 -m verifier.grade fixtures/reference.sv .local/reference-001
 
-Mutation regression compiles a bank of actual reference/faulty RTL modules once,
-then starts a fresh simulation for each selection. Only selected outputs reach
-VIP; the scoreboard has no access to selection and uses the same rules for all.
-This reduces repeated commercial VIP compilation under UTM. Agent submissions
-are compiled alone, never in the control bank. If the submitted source and frozen
-verification inputs match a prior public build exactly, the compiled simulation is
-copied to a fresh remote directory and run with final vectors; otherwise it is
-compiled anew. Final scoring always runs a new simulation. A configurable VCS
-`compile_cache` can provide shared incremental objects; VCS checks dependencies.
+# 单个 case 只用于诊断，不能替代完整验收
+python3 -m verifier.campaign fixtures/reference.sv .local/random-diagnostic --case random_stream_0
 
-Task, evaluator, environment and fixtures are hashed before model execution. Only
-read/edit of allowed solver files, public test and submit are exposed to the
-solver. Full external model events and simulator logs remain private; reviewed
-source, action traces, counts and result hashes are exported.
+# 自定义可重复随机 seed（Python API）
+python3 - <<'PY'
+from verifier.campaign import grade
+grade('fixtures/reference.sv', '.local/seed-12345', seed=12345)
+PY
 
-This is **not OS security isolation**, secure hidden tests, synthesis proof or
-industrial signoff. The public repository exposes test generation and fixtures.
-A hardened execution sandbox and genuinely private holdout are still needed for
-adversarial benchmarking. Mid-transaction reset/abort testing and wider protocol
-features are not silently implied by using commercial VIP.
+# 评分器与场景生成器自身的单元检查；不是 RTL 验证证据
+python3 -m unittest discover -s tests -v
+```
+
+受信任的 UTM 操作者可用 `--cases-file /private/path/reward.json` 重放某次真实试次的原输入，私有文件不交给 solver。VCS 的内部 seed 固定为 17；测试输入的随机性来自 `scenarios.py` 的种子化生成。UVM sequence 用这些输入实际驱动商业 VIP，不存在 Python 替代 DUT 的仿真。
+
+最终编译产物复用需候选和验证 SV 哈希完全一致，并复制到新的运行目录。修改设计后不能复用旧仿真结果。已确认功能错误给 0；工具中断、许可问题和验证不完整给 null。
+
+## 6. 发布什么
+
+只导出经过审阅的原创源码、说明、结果和精简轨迹：
+
+```bash
+python3 scripts/export_v3.py .local/reproduction-001/controls \
+  experiments/industrial-v3 --agent .local/agent-001/run
+```
+
+导出器不上传商业编译／仿真日志、私有向量、SDK 安装包、许可或密钥。完整本地证据由哈希关联。历史 v2 的证据需配合对应 Git 版本重放；不能把其 128 笔通过当作 revision 3 通过。

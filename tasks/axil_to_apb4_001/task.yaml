@@ -1,7 +1,9 @@
 id: axil_to_apb4_001
-version: 2
+version: 3
 module: bridge
 simulator: vcs
 vip: synopsys_amba_svt_R-2020.12
 reward: terminal_binary_with_infrastructure_null
 verification: active_axi_master_and_apb_slave_with_uvm_scoreboard
+agent_runtime: deepseek_harness_inside_utm
+test_plan: docs/verification-plan.md

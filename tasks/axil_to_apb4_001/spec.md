@@ -1,31 +1,71 @@
-# AXI4-Lite to APB4, task 001 v2
-Implement module `bridge` with the exact ports in workspace/bridge.sv.
-All signals use one rising-edge clock clk. rst_n is active-low synchronous reset;
-reset clears buffered requests and responses and drives PSEL/PENABLE/BVALID/RVALID low.
-The master must wait until the preceding B or R handshake before beginning another
-transaction. No overlapping read/write transactions. Within a write, AW and W
-are independent and may arrive in either order or together, with arbitrary gaps.
-VALID and payload remain stable until READY. READY must not depend on VALID for
-forward progress. Buffer each accepted half exactly once.
-32-bit byte addresses, aligned to 4 bytes, are passed unchanged; all address bits
-are significant. One APB target, no address decoding. 32-bit data. AWPROT/ARPROT
-are omitted; PPROT is fixed 000. No bursts, IDs, exclusives or clock crossing.
-Each request produces exactly one APB transfer: one setup cycle (PSEL=1,
-PENABLE=0), then access (PSEL=PENABLE=1) until PREADY=1. Address, direction,
-write data, strobe and protection stay stable throughout setup/access/wait.
-Writes map WDATA and all four WSTRB bits unchanged, including zero strobe.
-Reads drive PWRITE=0, PSTRB=0; PWDATA is irrelevant for reads.
-Sample PRDATA and PSLVERR only on APB completion. AXI response is OKAY (00)
-when PSLVERR=0 and SLVERR (10) otherwise; read RDATA equals PRDATA even on error.
-BVALID/RVALID may not precede APB completion, must assert within 16 cycles of it,
-and remain asserted with stable payload until BREADY/RREADY. No new APB request
-while response is stalled. Once both AW/W (or AR) are accepted, begin setup
-within 16 cycles. Once idle, accept each offered channel within 16 cycles.
-Reset during an in-flight transaction aborts it; the requester and target also
-reset and discard that transaction. This MVP tests initial and between-transaction
-reset (mid-transaction reset is a declared coverage gap).
-Tests use a deterministic memory target; error writes have no memory side effect.
-The target's error policy is testbench behavior, not bridge address decoding.
-Submit synthesizable SystemVerilog only; no testbench access, file I/O, simulation
-termination, hierarchical references or external includes. Public tests are feedback;
-final verification uses separate vectors. No access to reference or final verifier.
+# AXI4-Lite to APB4 — task 001, revision 3
+
+Implement the synthesizable SystemVerilog module `bridge` with exactly the ports
+in `bridge.sv`. This is one AXI4-Lite slave connected to one APB4 master target.
+
+## Clock, reset and supported traffic
+
+- All transfers use the rising edge of `clk`; `rst_n` is active-low synchronous reset.
+- Address and data widths are 32 bits. Addresses are byte addresses aligned to four
+  bytes; pass every address bit unchanged. There is no bridge address decoding.
+- There is one outstanding transaction. The requester starts its next transaction
+  only after the preceding B/R handshake, or after reset cancels it. Read and write
+  requests do not overlap. Repeated reads, repeated writes and arbitrary direction
+  changes between completed transactions are supported.
+- There are no bursts, IDs, exclusives, clock crossings or AWPROT/ARPROT ports.
+  Drive APB PPROT to 000.
+
+## AXI request acceptance
+
+- AW and W can arrive together or in either order, with arbitrary finite gaps.
+  Accepting AW must not require WVALID, and accepting W must not require AWVALID.
+- The requester keeps VALID and payload stable until READY. Buffer each accepted
+  write half once; do not execute a write before accepting both halves.
+- When idle and able to accept the next transaction, accept each offered channel
+  within 16 cycles. After accepting both AW/W, or accepting AR, begin APB setup
+  within 16 cycles. These bounds do not bound the gap between independently
+  offered AW and W or the target/requester's externally imposed wait time.
+
+## APB conversion and AXI response
+
+- Each non-aborted AXI request produces exactly one APB transfer: one setup cycle
+  with PSEL=1/PENABLE=0, followed by access with PSEL=PENABLE=1 until PREADY=1.
+- Address, direction, write data, strobe and protection remain stable through
+  setup/access/wait. Support any finite number of PREADY wait cycles.
+- For writes, map WDATA and all four WSTRB bits unchanged, including WSTRB=0000.
+- For reads, drive PWRITE=0 and PSTRB=0; PWDATA has no functional meaning.
+- Sample PRDATA and PSLVERR only at APB completion. Map PSLVERR=0 to OKAY (00)
+  and PSLVERR=1 to SLVERR (10). RDATA equals completed PRDATA even on an error.
+- BVALID/RVALID cannot precede APB completion and must assert within 16 cycles
+  of it. Preserve VALID and response payload until BREADY/RREADY, including long
+  backpressure. Do not launch another APB transfer while a response is pending.
+
+## Reset at any transaction stage
+
+At a rising edge with rst_n=0, clear buffered request halves and pending responses,
+and drive PSEL/PENABLE/BVALID/RVALID low. The requester and target are reset too.
+
+- A request interrupted before APB completion is discarded without an AXI response.
+- If APB completed before reset but the AXI response was still pending, discard
+  that response. A completed external APB write is not rolled back by bridge reset.
+- The test target retains already committed memory across reset; an interrupted
+  APB write has no memory side effect. This is target behavior, not bridge storage.
+- After reset release, the bridge must accept new requests without stale data,
+  ghost responses or old buffered request halves.
+
+## Target behavior and submission rules
+
+Tests use an independently modeled memory target. Successful partial writes update
+selected bytes; error writes have no memory effect. Target errors and waits are
+controlled by the environment, independently of bridge address decoding.
+
+Submit one self-contained `bridge` module. No external includes/modules, compiler
+macros, hierarchical references, string literals, initial/final blocks, DPI,
+file I/O or simulation control. System functions are limited to `$clog2` and
+`$bits`. This restricted synthesizable subset is enforced before compilation.
+
+Public tests provide representative examples and feedback. Private reward and
+reserved evaluation inputs test the same Spec, including boundary combinations;
+they add no hidden functional requirements. The solver must not access the
+reference implementation or evaluator. Performance/area optimization is not
+part of the current functional reward.

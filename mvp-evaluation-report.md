@@ -1,155 +1,70 @@
-# Active AMBA VIP / UVM baseline evaluation
+# Revision 3 验证报告
 
-Date: 2026-11-24. **Active-VIP UVM single-task baseline acceptance completed.**
-The earlier Python scoreboard was removed at the user's request. Historical v1
-results are not reused as current PASS evidence.
+日期：2026-11-24。参考与错误对照验收已完成；**UTM 真实 Agent 试次进行中，终局结果待回填**。历史 v2 的 128 笔通过仅对应[旧报告](experiments/industrial-v2/evaluation-report.md)。
 
-For implementation explanations, see [architecture and scoreboard](docs/architecture.md),
-[Agent execution and reward](docs/agent-workflow.md), and [reproduction commands](docs/mvp-running.md).
-This report records measured results; those guides explain how the current code produces them.
+## 已实现与实际证据
 
-## Implemented architecture
+- 在 UTM 内安装 DSH SDK / Runtime 0.2.2rc2、Python 3.10；真实 API 探针返回预期结果。
+- 低权限 UID、chroot、mount/PID/IPC namespace、no_new_privs 隔离探针通过。网络仍共享，未宣称完整恶意代码沙箱。
+- VCS V-2023.12-SP2 + AMBA SVT R-2020.12 + UVM 1.1d，独立预期内存与实际 APB 内存。
+- Spec revision 3 明确半请求、APB 阶段与 AXI 响应阶段复位行为。
+- 公开 17 个 case／132 笔计划事务；完整 22 个 case／2868 笔计划事务，包含 26 笔故意复位取消。完整集含四组 256 笔随机流，以及 576 个必要交叉 bin。
+- 新增四个错误实现，共 10 个故障对照，全部在实际 VCS 仿真中被检出。
 
-- VCS V-2023.12-SP2, AMBA SVT R-2020.12, active AXI4-Lite master + APB4 slave.
-- UVM sequences drive requests and target responses. Both VIP monitors feed
-  analysis ports into an original UVM scoreboard.
-- Three-way comparison: planned request, observed AXI completion, observed APB
-  transfer. Expected byte-addressed register state and actual target memory are
-  maintained separately. Addresses, direction, write data/strobes, read data,
-  response errors, order and counts are checked during simulation.
-- Supplementary pin assertions enforce task-specific stability, synchronous reset
-  and 16-cycle latency bounds. Actual signal coverage distinguishes AW/W arrival
-  order, same-cycle handshakes, APB waits, response stalls and early READY.
-- Python only generates stimulus, orchestrates VCS and maps structured UVM verdicts
-  into reward; no Python functional scoreboard remains.
+## 验证器开发中发现的问题
 
-## Verification scope
+取消通知曾被误计为正常完成；APB driver 复位时的 item_done 所有权需要由 driver 自己维护；动态调整 READY 配置曾让背压作用到后续事务。已保存原始失败记录，不能将这些开发阶段结果作为 DUT 缺陷证据。
 
-One clock, 32-bit addresses/data, aligned requests, one outstanding operation,
-independent AW/W, APB4 byte strobes, wait/error handling and AXI backpressure.
-Public/final suites have different seeds. Repeated partial writes test accumulated
-memory state; initial and between-transaction resets are included. No concurrent
-read/write traffic outside the explicit task contract is generated.
+一次交叉运行虽然 1152 笔功能比对通过，但实际背压与计划不一致，被完整性检查判为 null。这正是需要独立激励有效性检查的原因。当前改为每次仿真固定 READY 模式，再按实际引脚合并覆盖。
 
-## Measured results
+## 正确参考 RTL 的实测结果
 
-Correct reference: 128 planned requests, 128 AXI VIP completions, 128 APB VIP
-completions, 128 checked, zero UVM scoreboard errors and zero UVM errors/fatals.
-Actual pin coverage: AW-first 21, W-first 21, simultaneous 22; response-stall cycles
-602; early-ready completions 16; APB wait cycles 202; between-transaction resets 8.
-The AW/W ordering counts sum to 64 writes; waits/stalls count cycles, not cases.
-All six RTL mutants were actually rejected: address, WSTRB, PSLVERR and read-data
-mutants by UVM semantic checking; PREADY and response-stability mutants by timing
-checking. All completed 128 observed transactions on both VIP monitors.
-The address mutant generated 111 UVM scoreboard errors and no protocol errors.
-The response-instability mutant generated **301 AXI VIP protocol errors plus 301
-original timing assertion errors**. The PREADY mutant generated **7,164 APB/AXI
-VIP protocol errors**, 652 original timing errors and 24 scoreboard errors. These
-are repeated report counts, not distinct bug types or numbers of test cases.
-Thus both commercial protocol checking and cross-protocol semantic checking have
-been exercised by actual negative controls.
-A fresh model trial completed successfully after repairing a Harness response-format issue;
-[the failed Harness attempt](experiments/harness-format-failure/README.md) is
-preserved as null and is not counted as an RTL failure.
+| 项目 | 结果 |
+|---|---:|
+| 独立仿真 case | 22 / 22 通过 |
+| 计划事务 | 2868 |
+| 正常完成并由 UVM 比对 | 2842 |
+| 按计划复位取消 | 26 |
+| AXI 完成 | 2842 |
+| APB 完成 | 2850（包含 8 笔 APB 已完成、AXI 响应被复位取消） |
+| 必要交叉 bin | 576 / 576，缺失 0 |
+| 四组随机流 | 每组 256 笔，全部通过 |
+| UVM 错误／fatal | 每个参考 case 均为 0 |
+| 无外部等待／背压时的延迟 | 请求接受至 Setup 为 1～2 周期；APB 完成至 AXI VALID 为 1 周期 |
 
-The first completed integration build terminated at time zero because the AXI VIP requires
-UVM_PACKER_MAX_BYTES=1500000. It was recorded as infrastructure/null. The compile
-configuration was corrected; no zero-transaction run is considered a PASS.
-Further bring-up found the APB compile-time width default (8 bits), required
-AXI4-Lite signal-disable settings, and a slave sequence constraint conflict from
-trying to randomize observed write data. The fixes explicitly set 32-bit widths,
-validate them at startup, configure Lite-only signals, and set APB response fields
-without overwriting observed write data. These bring-up runs retain null rewards. See [bring-up records](experiments/vip-bringup.json).
+延迟统计来自引脚事件；不代表最大吞吐率或综合后频率。参考 RTL 的所有正常事务和中断事务均有账目检查。
 
-A subsequent reference run completed all 128 AXI/APB transactions with zero UVM
-scoreboard errors, but observed zero response-stall cycles. The coverage gate
-correctly returned null. READY defaults are now dynamically reconfigured through
-the VIP API, and the corrected reference has now reached all required bins and passed.
+## 错误 RTL 的实测结果
 
-## Evidence and reproduction
+控制组使用同一个 Scoreboard 和判据。已知故障优先运行对应场景，在首个确认错误处停止；不是十个错误实现都跑完了全部 22 个 case。选择编号不进入判分逻辑。
 
-See [run instructions](docs/mvp-running.md). Raw model/simulator artifacts remain
-under `.local/`; only reviewed original source, JSON results, tool traces and
-project-generated event lines are exportable. Commercial source and licensing
-material remain exclusively on the licensed host.
+| 故障实现 | 实际检出的 case | 分类 | Reward |
+|---|---|---|---:|
+| bad_address | address_data | transaction_functional_error | 0.0 |
+| bad_strobe | write_accumulate | transaction_functional_error | 0.0 |
+| bad_error | wait_error | transaction_functional_error | 0.0 |
+| bad_wait | wait_error | protocol_timing_error | 0.0 |
+| bad_read_data | address_data | transaction_functional_error | 0.0 |
+| bad_backpressure | response_backpressure | protocol_timing_error | 0.0 |
+| bad_reset_half | reset_aw_only | protocol_timing_error | 0.0 |
+| bad_reset_response | reset_b_stall | protocol_timing_error | 0.0 |
+| bad_early_read | address_data | transaction_functional_error | 0.0 |
+| bad_accept_latency | address_data | protocol_timing_error | 0.0 |
 
-## Remaining technical boundaries
+背压不稳定和复位未清响应实际触发商业 AXI VIP 检查，其他缺陷由 UVM 事务比对或任务时序断言检出。不能把手写 10 个故障全被检出推广为所有缺陷均可检出。
 
-Using industrial VIP does not establish industrial signoff. Mid-transaction
-reset/abort coverage, formal/synthesis checks, independent tool cross-checks and
-exhaustive protocol/interleaving coverage remain separate work. Multiple fresh
-model trials are needed to estimate task difficulty; a single pass is not an
-estimate of Agent reliability. OS sandboxing and secure private holdout are not
-implemented. A finite suite's reward is bounded by its checked behavior.
+## 评分规则与分类探针
 
-## Scope of the acceptance claim
+终局 1.0 要求全部必要 case 完整通过、事务账目及必要覆盖齐全；确认的编译／协议／功能／周期超时错误给 0.0；基础设施故障、输入无效、墙钟超时或检查不完整给 null。覆盖比例不是奖励。
 
-Implemented and exercised so far: active AXI/APB VIP, monitor analysis-port
-connections, UVM semantic reference/scoreboard, pin assertions, required observed
-stimulus bins, reference and six negative RTL controls. Infrastructure null paths
-were also exercised by genuine bring-up failures.
+实际语法错误编译返回 `0.0 / compile_error`；空测试集合返回 `null / infrastructure_error`。评分与计划的 14 项单元检查通过；其中合成日志仅测试解析契约，不作为 EDA 仿真证据。全局周期 watchdog 的独立故障注入尚未实测。
 
-Implemented but not separately fault-injected: submitted syntax-error classification
-and the explicit global cycle-watchdog category. A real Agent trial and final artifact-copy replay have completed successfully.
-The copied executable ran in a distinct remote directory with final vectors; source
-and UVM input hashes were unchanged, and final reward was 1.0.
+## 真实 Agent 试次
 
-Not implemented: OS sandbox/private secure holdout, mid-transaction reset-abort
-coverage, exhaustive VIP coverage closure, synthesis/formal verification, or
-statistical evaluation of Agent success rate. The supported task remains a bounded
-single-outstanding bridge; additional concurrency must first change its Spec.
+DSH SDK / Runtime 0.2.2rc2 在 UTM 内运行，请求模型 `deepseek-flash`，provider 为 DeepSeek 官方 API。当前试次已经实际读取任务、编写 RTL 并调用公开测试。第一版生成 RTL 在写后读时不能及时接受 AR，公开测试报出请求接受超过 16 周期；Agent 随后自行调整 ARREADY 及 AW/W 独立接收条件。最终公开测试、私有奖励及保留评估结果完成后回填，不沿用 v2 Reward。最初的空模板失败和两次未先读模板而被拒绝的编辑另行保留，不计作生成 RTL 的功能修复。
 
-## Completed Agent trial and evidence
+## 当前边界
 
-Model: `deepseek-flash`, official provider via DeepSeek Harness SDK/runtime
-0.2.2rc2, reasoning disabled. The solver received only the Spec, stub and public
-tool feedback. It performed six real capability actions:
+有限的随机流与定向组合不能穷尽无限长等待或所有状态；没有完整 RTL 代码覆盖闭合、复位与所有错误／字节使能组合交叉、最大吞吐率验证、综合或形式证明。当前 UTM 的 VCS/VIP 编译实测约需 8～9 分钟／构建；大规模 RL 试次仍需优化编译隔离、缓存和运行资源。工具安装需求与区别见[工具说明](docs/toolchain.md)。
 
-`read spec → read RTL → edit → edit → public test → submit`.
-
-The two edits preceded testing; there was **no failed-RTL feedback repair cycle**.
-Public test: 32 AXI/APB transactions, 136 observed stall cycles, zero errors.
-Independent final simulation: 128 AXI/APB transactions, 602 stall cycles, 202 APB
-wait cycles, all required bins reached, zero scoreboard/verification errors,
-**reward=1.0**. Final source SHA-256:
-`3acfb67892ffc8d0d504a657e38c41de4c07fa17857b10c2bff8d80ffdb49a31`.
-
-Task and evaluator hashes were unchanged across the trial. Compilation was reused
-only after input hashes matched; final simulation ran in a different directory
-with a separate vector set. This is reproducible execution separation, not OS
-security isolation. Full external Harness responses and raw VCS evidence remain
-in `.local/agent-industrial-02/` and `.local/v2-controls-05/`.
-
-Reviewed public evidence:
-
-- [Control results](experiments/industrial-v2/controls-summary.json)
-- [Agent actions and feedback (compact trace; repeated source bodies use hashes)](experiments/industrial-v2/agent/trace.json)
-- [Final reward](experiments/industrial-v2/agent/result.json)
-- [Final submitted RTL](experiments/industrial-v2/agent/final.sv)
-- [Frozen source manifest](experiments/industrial-v2/agent/freeze.json)
-- [Reference event evidence](experiments/industrial-v2/controls/reference/events.txt)
-- [AXI VIP negative-control counters](experiments/industrial-v2/controls/bad_backpressure/result.json)
-
-Each exported run includes original event lines, actual counts and raw-evidence
-hashes; commercial logs, libraries and credentials are not exported.
-
-## What this says about task difficulty
-
-A fresh model still passed after stronger verification. That is a valid result,
-not a reason to force failure. This restricted single-outstanding bridge is a
-small state-machine task that a capable coding model can solve. The six rejected
-faults establish sensitivity to those fault classes; they do not prove exhaustive
-correctness. One successful design trial cannot estimate a model success rate.
-Harder supported scenarios require explicit Spec changes and separate repeated
-trials, rather than silently testing unsupported concurrency.
-
-## Minimal reproduction
-
-Configure the licensed host following [running instructions](docs/mvp-running.md),
-then use `bash environment/reproduce.sh NEW_OUTPUT_DIRECTORY --agent` with
-`PB_AGENT_PYTHON` and `DEEPSEEK_API_KEY` configured. The control-only command omits
-`--agent`. To replay the submitted source without an API call:
-
-```bash
-python3 -m verifier.grade experiments/industrial-v2/agent/final.sv .local/replay-industrial-001
-```
+[架构](docs/architecture.md) · [Agent 与奖励](docs/agent-workflow.md) · [覆盖计划](docs/verification-plan.md) · [复现命令](docs/mvp-running.md)

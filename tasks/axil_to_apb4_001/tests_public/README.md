@@ -1,10 +1,14 @@
-# Public active-VIP suite
+# Public development tests — revision 3
 
-From the repository root: `python3 -m environment.test WORKSPACE OUTPUT`.
+Run `python3 -m environment.test WORKSPACE NEW_OUTPUT` from the repository root.
 
-32 transactions, deterministic seed 17, active AXI4-Lite master and APB4 slave
-VIP. UVM compares intended and observed transactions. Final grading uses a
-separate seed and 128 transactions. Both exercise AW/W order, zero/full/partial
-strobes, repeated partial writes, APB waits/errors, response readiness and
-between-transaction reset. Required pin coverage must be observed for reward 1.
-Commercial VIP and VCS execute only on the configured licensed host.
+17 cases, 132 planned transactions, including 8 deliberately reset-aborted
+transactions. Active AXI4-Lite/APB4 VIP drive the actual RTL; UVM checks payloads,
+responses, independent memory state, reset accounting and timing. Public vectors
+use seed 17 and include a short mixed random stream. See the
+[verification plan](../../../docs/verification-plan.md) for the full requirement map.
+
+The complete regression has 22 cases and 2868 planned transactions (26 aborted),
+including four 256-transaction random streams and 576 required cross bins. Real
+Agent episodes use separately frozen private inputs; public tests expose the same
+Spec, not every private sample. Commercial VIP and VCS remain on the licensed host.
