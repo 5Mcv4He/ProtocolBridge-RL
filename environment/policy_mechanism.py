@@ -1,0 +1,47 @@
+"""Deterministic end-to-end policy acceptance using the real VCS grader (no model)."""
+import argparse,json
+from pathlib import Path
+from .policy import load
+from .policy_session import Session
+from .reset import ROOT
+from verifier.campaign import grade,sha
+
+
+def run(out,reward_path):
+    out=Path(out);out.mkdir(parents=True,exist_ok=False)
+    reward=json.loads(Path(reward_path).read_text());builds={};runs={};checks=[]
+    for mode in ('spec_only','test_verdict','test_diagnostic'):
+        work=out/(mode+'-work');work.mkdir()
+        (work/'spec.md').write_bytes((ROOT/'tasks/axil_to_apb4_001/spec.md').read_bytes())
+        (work/'bridge.sv').write_bytes((ROOT/'fixtures/bad_address.sv').read_bytes())
+        calls=[]
+        def counted(source,dest,**kw):
+            calls.append({'public':kw.get('public',False),'cases_sha256':sha(reward_path) if 'cases' in kw else None})
+            return grade(source,dest,**kw)
+        s=Session(load(mode),work,out/mode,reward,counted,reuse=builds)
+        for f in ('spec.md','bridge.sv'):s.handle({'tool':'read','file':f})
+        for f in ('policy.json','fixtures/reference.sv','private/reward.json','verifier/v3/vip.sv'):
+            checks.append(s.handle({'tool':'read','file':f})['status']=='REJECTED')
+        obs=[]
+        if mode=='spec_only':
+            obs.append(s.handle({'tool':'test'}));checks.append(len(calls)==0)
+        else:
+            for _ in range(2):obs.append(s.handle({'tool':'test'}))
+            denied=s.handle({'tool':'test'});checks.append(denied['status']=='REJECTED' and len(calls)==2)
+            for item in obs:
+                if mode=='test_verdict':checks.append(set(item)=={'status','remaining_test_calls'})
+                else:checks.append(item['status']=='FAIL' and item['first_failed_case']=='address_data' and bool(item['diagnostic']))
+        checks.append(s.handle({'tool':'submit'})['status']=='SUBMITTED')
+        result=s.finalize();checks.append(result['reward']==0 and result['category']=='transaction_functional_error')
+        checks.append(calls[-1]['cases_sha256']==sha(reward_path) and not calls[-1]['public'])
+        builds.update(s.builds)
+        runs[mode]={'public_test_calls':s.tests,'grader_invocations':calls,'observations':obs,'terminal_reward':result['reward'],
+                    'terminal_category':result['category'],'source_sha256':sha(work/'bridge.sv')}
+        (out/'progress.json').write_text(json.dumps(runs,indent=2))
+    report={'accepted':all(checks),'check_count':len(checks),'real_vcs':True,'agent_model_used':False,
+            'private_reward_suite_sha256':sha(reward_path),'candidate':'fixtures/bad_address.sv','runs':runs}
+    (out/'result.json').write_text(json.dumps(report,indent=2));return report
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser();p.add_argument('out');p.add_argument('reward');a=p.parse_args()
+    raise SystemExit(0 if run(a.out,a.reward)['accepted'] else 1)
