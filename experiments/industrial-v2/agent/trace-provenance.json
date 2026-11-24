@@ -1,5 +1,0 @@
-{
-  "format": "compact-tool-trace-v1",
-  "full_trace_sha256": "300f4a7fca97496571bc79e619195d5dd23c951441fbc62874511c7736b2282f",
-  "omitted": "Read file bodies and edit bodies are represented by SHA-256 and byte count. Full trace and candidate snapshots are retained locally; final submitted RTL is published."
-}

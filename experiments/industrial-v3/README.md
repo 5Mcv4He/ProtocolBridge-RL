@@ -2,6 +2,8 @@
 
 2026-11-24。运行源码冻结版本：[8d55867](https://github.com/5Mcv4He/ProtocolBridge-RL/commit/8d55867)。已逐文件核对真实试次的 `freeze.json` 与该提交一致。
 
+该证据现作为唯一标准基线 001 X2P 的验收依据。旧 128 笔实现已从当前树删除；原始冻结文件和证据清单保持不变，引用的旧路径只描述当时的提交快照。[当前基线清单](../../tasks/axil_to_apb4_001/baseline.json)另行记录仍在执行的核心与原试次相同，以及当前文件的哈希。整理和一致性检查不计作新的仿真或 Agent 试次。
+
 | 验证 | 实测结果 |
 |---|---|
 | 正确参考 | 22 个 case 全过；2868 planned、2842 checked、26 aborted；576/576 cross bins |

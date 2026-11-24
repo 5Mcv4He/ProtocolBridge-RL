@@ -2,7 +2,7 @@
 
 用真实 RTL 仿真和工业协议 VIP，为编程 Agent 提供可复现的协议转换任务及程序化奖励。
 
-当前交付一个 **AXI4-Lite → APB4** 任务：单时钟、32-bit、单笔未完成事务。Agent 读取 Spec、修改 RTL、调用公开测试并提交；VCS 中的主动 AXI/APB VIP 与 UVM Scoreboard 执行验证。Python 负责调度和 Reward 封装，不承担功能比对。
+当前唯一标准基线是 **001 X2P（AXI4-Lite → APB4）** 任务：单时钟、32-bit、单笔未完成事务。Agent 读取 Spec、修改 RTL、调用公开测试并提交；VCS 中的主动 AXI/APB VIP 与 UVM Scoreboard 执行验证。Python 负责调度和 Reward 封装，不承担功能比对。
 
 ```mermaid
 flowchart LR
@@ -27,7 +27,7 @@ flowchart LR
 
 建议讲解顺序：本页概览 → 架构与 Scoreboard → Agent 执行时序 → 真实结果与限制。当前已经跑通任务和奖励闭环，尚未进行 RL 参数训练。
 
-## 当前进度
+## 标准基线
 
 revision 3 单任务闭环已实际验证。DSH 在 UTM 内运行并调用 API；真实 Agent 经公开测试失败后自行修复，私有终局 Reward=1.0，独立保留评估也通过。
 
@@ -41,7 +41,7 @@ revision 3 单任务闭环已实际验证。DSH 在 UTM 内运行并调用 API�
 
 这些结果证明计划内检查通过，不是所有输入的正确性证明，也不是完整工业签核。
 
-[历史 v2 结果](experiments/industrial-v2/evaluation-report.md)对应旧版本：参考 128 笔、六个错误实现检出、一次 Agent Reward=1。它们不是新版验收证据。
+旧 128 笔版本已废弃，其源码、向量生成器、导出脚本及交付记录已从当前版本删除。标准定义见[任务入口](tasks/axil_to_apb4_001/README.md)与[机器可读基线清单](tasks/axil_to_apb4_001/baseline.json)。
 
 ## 运行
 
@@ -50,7 +50,10 @@ revision 3 单任务闭环已实际验证。DSH 在 UTM 内运行并调用 API�
 先按[环境配置与运行说明](docs/mvp-running.md)完成配置，然后在仓库根目录执行：
 
 ```bash
-# 参考实现及十个错误实现的回归
+# 检查标准基线与已保存证据的一致性（不启动仿真）
+python3 -m environment.check_baseline
+
+# 参考实现及十个错误实现的真实 VCS 回归
 bash environment/reproduce.sh .local/reproduction-001
 
 # 在 UTM 安装 DSH 并提供 API key 后，增加真实 Agent 试次
@@ -65,7 +68,7 @@ bash environment/reproduce.sh .local/reproduction-002 --agent
 - `environment/`：reset/test/submit、受限工具接口和 DeepSeek Harness。
 - `verifier/v3/`：当前主动 VIP／UVM 验证实现。
 - `fixtures/`：正确参考与十个故障实现。
-- `experiments/industrial-v3/`：结果、精简工具轨迹、实际修复差异、最终 RTL 和证据哈希；v2 单独作为历史保存。
+- `experiments/industrial-v3/`：结果、精简工具轨迹、实际修复差异、最终 RTL 和证据哈希。
 - `scripts/`：脱敏证据导出；`docs/`：复现说明及研究资料。
 
 UVM Scoreboard 通过 analysis port 接收两端 VIP monitor 事务，并与计划请求和独立期望内存状态比较。最终评分在新的仿真目录执行；编译产物只有在代码及验证输入哈希一致时才允许复用。

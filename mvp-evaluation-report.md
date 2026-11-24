@@ -1,6 +1,6 @@
 # Revision 3 验证报告
 
-日期：2026-11-24。**revision 3 单任务闭环已实现且实际验证。** 这不是完整工业签核。运行源码冻结版本为 `8d55867`，公开证据见 [industrial-v3](experiments/industrial-v3/README.md)。历史 v2 的 128 笔通过仅对应[旧报告](experiments/industrial-v2/evaluation-report.md)。
+日期：2026-11-24。**revision 3 单任务闭环已实现且实际验证。** 这不是完整工业签核。运行源码冻结版本为 `8d55867`，公开证据见 [industrial-v3](experiments/industrial-v3/README.md)。001 X2P 以此作为唯一标准基线；旧 128 笔版本已废弃并移出当前交付。
 
 ## 已实现与实际证据
 
@@ -57,7 +57,7 @@
 
 终局 1.0 要求全部必要 case 完整通过、事务账目及必要覆盖齐全；确认的编译／协议／功能／周期超时错误给 0.0；基础设施故障、输入无效、墙钟超时或检查不完整给 null。覆盖比例不是奖励。
 
-实际语法错误编译返回 `0.0 / compile_error`；空测试集合返回 `null / infrastructure_error`。评分与计划的 14 项单元检查通过；其中合成日志仅测试解析契约，不作为 EDA 仿真证据。全局周期 watchdog 的独立故障注入尚未实测。
+实际语法错误编译返回 `0.0 / compile_error`；空测试集合返回 `null / infrastructure_error`。评分与计划的 14 项单元检查、标准基线的 4 项一致性／反向检查均通过；其中合成日志仅测试解析契约，不作为 EDA 仿真证据。全局周期 watchdog 的独立故障注入尚未实测。
 
 ## 真实 Agent 试次
 
@@ -77,6 +77,14 @@ DSH SDK / Runtime 0.2.2rc2、Python 3.10.12 在 UTM 内运行，请求模型 `de
 求解进程在保留评估前停止，评估结果没有用于修改这份提交。完整模型事件、候选、公开反馈、私有向量与仿真日志本地保存；[公开轨迹](experiments/industrial-v3/agent/trace.json)和[证据索引](experiments/industrial-v3/README.md)提供脱敏内容与哈希。
 
 ## 复现
+
+### 标准基线固化
+
+旧 128 笔后端、向量生成器、导出器及交付目录已从当前树删除，Git 历史保留审计用途。当前仅交付 001 X2P revision 3。[基线清单](tasks/axil_to_apb4_001/baseline.json)锁定当前运行文件及公开证据；`python3 -m environment.check_baseline` 实测通过，并明确返回 `simulation_executed: false`。
+
+本次固化没有重跑 EDA 或 Agent：清单中的 `proven_runtime_files` 已逐文件核对，与真实试次冻结的 Spec、RTL、场景、UVM 验证及 Agent 核心一致。新增一致性检查、复现入口的检查调用和文档／元数据不冒用旧运行证明；由本次 18 项自动检查验证。原始 `freeze.json` 与证据清单仍指向 `8d55867`，其中旧路径记录的是当时快照，不表示当前保留旧实现。
+
+### 执行真实回归
 
 先按[运行手册](docs/mvp-running.md)准备有授权的 VCS / AMBA SVT、UTM DSH 和自己的 API key，然后执行：
 

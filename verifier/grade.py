@@ -1,5 +1,5 @@
 """Canonical grading API. Functional verification is the v3 UVM campaign.
-Historical v2 results are preserved under experiments, not used for new grades.
+Task 001 X2P uses this single standard baseline; the former backend is retired.
 """
 from .campaign import grade, sha as digest
 

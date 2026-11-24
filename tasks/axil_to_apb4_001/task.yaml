@@ -1,5 +1,8 @@
 id: axil_to_apb4_001
 version: 3
+name: X2P
+status: standard_baseline
+baseline: tasks/axil_to_apb4_001/baseline.json
 module: bridge
 simulator: vcs
 vip: synopsys_amba_svt_R-2020.12

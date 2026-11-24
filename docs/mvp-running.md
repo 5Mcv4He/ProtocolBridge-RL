@@ -32,7 +32,9 @@ bash environment/setup_utm_runtime.sh /path/to/verified-ubuntu-base-archive.tar.
 
 真实 API 探针与完整 Agent 试次是不同证据。仅成功安装、打印版本或跑隔离探针，不能声称完成 Agent 解题。
 
-## 3. 人工迭代 RTL
+## 3. 标准基线检查与人工迭代 RTL
+
+先运行 `python3 -m environment.check_baseline`。它核对当前运行源码、Spec、已保存结果及轨迹的哈希和验收条件，不执行新的 EDA 仿真。`reproduce.sh` 会先执行这项检查，再运行真实 VCS 回归。修改验证契约后，应重新验收并更新 `baseline.json`，不能只刷新哈希来沿用旧结果。
 
 ```bash
 python3 -m environment.reset .local/solve-001
@@ -106,4 +108,4 @@ python3 scripts/export_v3.py .local/reproduction-001/controls \
   experiments/industrial-v3 --agent .local/agent-001/run
 ```
 
-导出器不上传商业编译／仿真日志、私有向量、SDK 安装包、许可或密钥。完整本地证据由哈希关联。历史 v2 的证据需配合对应 Git 版本重放；不能把其 128 笔通过当作 revision 3 通过。
+导出器不上传商业编译／仿真日志、私有向量、SDK 安装包、许可或密钥。完整本地证据由哈希关联。旧 128 笔版本已从当前交付删除，不再提供兼容入口。

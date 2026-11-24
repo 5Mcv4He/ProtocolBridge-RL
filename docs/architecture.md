@@ -82,7 +82,7 @@ APB completed = checked + aborted_after_apb_completion
 
 APB 完成之外的 PRDATA/PSLVERR 被刻意扰动，避免提前采样的错误设计因目标恰好保持数据而通过。逐笔核对实际等待／背压与请求激励，最终检查必要的 576 个交叉 bin。性能统计包含接受请求至 Setup、APB 完成至 AXI VALID；没有 PPA 奖励，也没有宣称最大吞吐率已验证。
 
-具体场景、随机策略、公开／私有分层和未覆盖边界见[验证计划](verification-plan.md)。旧 `verifier/v2/` 仅对应历史证据，新调用统一使用 v3。
+具体场景、随机策略、公开／私有分层和未覆盖边界见[验证计划](verification-plan.md)。当前交付仅保留 `verifier/v3/` 后端；已删除旧 128 笔实现及其生成器。
 
 ## 生命周期和复用
 
