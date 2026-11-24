@@ -1,0 +1,8 @@
+{
+  "ssh_config": "/absolute/path/to/your/ssh-config",
+  "host": "your-licensed-eda-host",
+  "remote_root": "/your/writable/bridge-runs",
+  "vip_root": "/your/dw_vip_setup/generated/project",
+  "designware_home": "/your/installed/vip",
+  "axi_vip_root": "/your/dw_vip_setup/generated/axi-project"
+}

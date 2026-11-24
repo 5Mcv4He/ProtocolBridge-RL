@@ -1,0 +1,34 @@
+{
+  "reward": 1.0,
+  "category": "pass",
+  "public": true,
+  "source_sha256": "3acfb67892ffc8d0d504a657e38c41de4c07fa17857b10c2bff8d80ffdb49a31",
+  "compile_exit": 0,
+  "simulation_exit": 0,
+  "expected_transactions": 32,
+  "observed_axi_responses": 32,
+  "observed_apb_transactions": 32,
+  "failure_details": [],
+  "timing_failures": [],
+  "coverage": {
+    "aw_first": 5,
+    "w_first": 5,
+    "together": 6,
+    "stalls": 136,
+    "early": 6,
+    "waits": 46,
+    "resets": 2
+  },
+  "scoreboard": {
+    "planned": 32,
+    "checked": 32,
+    "errors": 0,
+    "engine": "UVM VIP monitor analysis ports"
+  },
+  "verification_error_counts": {
+    "uvm_scoreboard": 0,
+    "task_timing_assertions": 0,
+    "axi_vip_protocol": 0,
+    "apb_vip_protocol": 0
+  }
+}

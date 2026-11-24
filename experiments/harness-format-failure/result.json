@@ -1,0 +1,11 @@
+{
+  "reward": null,
+  "category": "infrastructure_error",
+  "public": false,
+  "source_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+  "compile_exit": 143,
+  "model": "deepseek-flash",
+  "harness": "DeepSeek Harness",
+  "turns": 7,
+  "freeze_unchanged": true
+}

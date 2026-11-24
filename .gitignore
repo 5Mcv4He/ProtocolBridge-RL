@@ -34,3 +34,13 @@ licensed_vip/
 .DS_Store
 .idea/
 .vscode/
+.local/
+
+# Local workspace notes and superseded/unabridged experiment records
+/CLAUDE.md
+/STATUS.md
+/experiments/mvp-v1/
+/experiments/harness-format-failure/trace.json
+/experiments/harness-format-failure/freeze.json
+/experiments/industrial-v2/agent/candidate-*.sv
+/experiments/industrial-v2/control_bundle.sv

@@ -1,0 +1,29 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "public": false,
+  "source_sha256": "fca4d8a380a59fd6934b34c8b9ece5a6322e554e08496e039f0b0185daea67a0",
+  "compile_reused": true,
+  "simulation_exit": 0,
+  "expected_transactions": 128,
+  "observed_axi_responses": 128,
+  "observed_apb_transactions": 128,
+  "failure_details": [],
+  "coverage": {
+    "aw_first": 21,
+    "w_first": 21,
+    "together": 22,
+    "stalls": 602,
+    "early": 16,
+    "waits": 202,
+    "resets": 8
+  },
+  "fixture_sha256": "ec068963d9ef4b08989fba0db7b58f7b13f9ece415bd323c9795d4ea1b1a6c98",
+  "compiled_bank_selection": 6,
+  "verification_error_counts": {
+    "uvm_scoreboard": 0,
+    "task_timing_assertions": 301,
+    "axi_vip_protocol": 301,
+    "apb_vip_protocol": 0
+  }
+}

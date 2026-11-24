@@ -1,0 +1,56 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "public": false,
+  "source_sha256": "fca4d8a380a59fd6934b34c8b9ece5a6322e554e08496e039f0b0185daea67a0",
+  "compile_reused": true,
+  "simulation_exit": 0,
+  "expected_transactions": 128,
+  "observed_axi_responses": 128,
+  "observed_apb_transactions": 128,
+  "failure_details": [
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch",
+    "Read data mismatch"
+  ],
+  "coverage": {
+    "aw_first": 21,
+    "w_first": 21,
+    "together": 22,
+    "stalls": 602,
+    "early": 16,
+    "waits": 202,
+    "resets": 8
+  },
+  "scoreboard": {
+    "planned": 128,
+    "checked": 128,
+    "errors": 64,
+    "engine": "UVM VIP monitor analysis ports"
+  },
+  "fixture_sha256": "5c8ae3c9495ad9eaf3c3228b6c4074e7d62f8967d2e1609b18886ae3a4f00624",
+  "compiled_bank_selection": 5,
+  "verification_error_counts": {
+    "uvm_scoreboard": 64,
+    "task_timing_assertions": 0,
+    "axi_vip_protocol": 0,
+    "apb_vip_protocol": 0
+  }
+}

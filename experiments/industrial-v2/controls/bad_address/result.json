@@ -1,0 +1,56 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "public": false,
+  "source_sha256": "fca4d8a380a59fd6934b34c8b9ece5a6322e554e08496e039f0b0185daea67a0",
+  "compile_reused": true,
+  "simulation_exit": 0,
+  "expected_transactions": 128,
+  "observed_axi_responses": 128,
+  "observed_apb_transactions": 128,
+  "failure_details": [
+    "APB address/direction expected=d2eac900/1 actual=d2eac904/1",
+    "APB address/direction expected=2c5d6bac/1 actual=2c5d6ba8/1",
+    "Read data mismatch",
+    "APB address/direction expected=ace1a954/1 actual=ace1a950/1",
+    "Read data mismatch",
+    "APB address/direction expected=f3c95788/1 actual=f3c9578c/1",
+    "APB address/direction expected=d2eac900/1 actual=d2eac904/1",
+    "Read data mismatch",
+    "APB address/direction expected=2c5d6bac/1 actual=2c5d6ba8/1",
+    "Read data mismatch",
+    "APB address/direction expected=ace1a954/1 actual=ace1a950/1",
+    "Read data mismatch",
+    "APB address/direction expected=f3c95788/1 actual=f3c9578c/1",
+    "APB address/direction expected=d2eac900/1 actual=d2eac904/1",
+    "Read data mismatch",
+    "APB address/direction expected=2c5d6bac/1 actual=2c5d6ba8/1",
+    "Read data mismatch",
+    "APB address/direction expected=ace1a954/1 actual=ace1a950/1",
+    "Read data mismatch",
+    "APB address/direction expected=f3c95788/1 actual=f3c9578c/1"
+  ],
+  "coverage": {
+    "aw_first": 21,
+    "w_first": 21,
+    "together": 22,
+    "stalls": 602,
+    "early": 16,
+    "waits": 206,
+    "resets": 8
+  },
+  "scoreboard": {
+    "planned": 128,
+    "checked": 128,
+    "errors": 111,
+    "engine": "UVM VIP monitor analysis ports"
+  },
+  "fixture_sha256": "81f8909ad76623f15a5490da479f3f11e70f9809527b40ffa13beccf407913e4",
+  "compiled_bank_selection": 1,
+  "verification_error_counts": {
+    "uvm_scoreboard": 111,
+    "task_timing_assertions": 0,
+    "axi_vip_protocol": 0,
+    "apb_vip_protocol": 0
+  }
+}
