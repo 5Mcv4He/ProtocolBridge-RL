@@ -4,6 +4,26 @@
 
 当前交付一个 **AXI4-Lite → APB4** 任务：单时钟、32-bit、单笔未完成事务。Agent 读取 Spec、修改 RTL、调用公开测试并提交；VCS 中的主动 AXI/APB VIP 与 UVM Scoreboard 执行验证。Python 负责调度和 Reward 封装，不承担功能比对。
 
+```mermaid
+flowchart LR
+    A["Task：Spec + RTL 模板"] --> B["真实 Agent / DSH"]
+    B <-->|"read / edit / test"| C["Python 任务环境"]
+    C -->|"test / submit"| D["VCS + 主动 AMBA VIP + UVM"]
+    D --> E["事务与时序验证证据"]
+    E --> F["终局 Reward：1 / 0 / null"]
+```
+
+## 如何理解和讲解本项目
+
+| 想了解什么 | 阅读入口 |
+|---|---|
+| 整体结构；task、环境、验证器和评分器的分工；Scoreboard 如何工作 | [当前架构与 Scoreboard](docs/architecture.md)（含系统与 UVM 数据流框图） |
+| DSH 在哪里运行；Agent 能看什么、做什么；真实动作与奖励如何产生 | [真实 Agent 的执行与奖励](docs/agent-workflow.md)（含执行时序图、权限表和评分规则） |
+| 如何配置、手动迭代、重放提交或再跑模型 | [环境配置与复用命令](docs/mvp-running.md) |
+| 实际证明了什么、证据在哪里、还缺什么 | [评估报告](mvp-evaluation-report.md)与[验收证据](experiments/industrial-v2/README.md) |
+
+建议讲解顺序：本页概览 → 架构与 Scoreboard → Agent 执行时序 → 真实结果与限制。当前已经跑通任务和奖励闭环，尚未进行 RL 参数训练。
+
 ## 已验证的结果
 
 | 项目 | 实测结果 |

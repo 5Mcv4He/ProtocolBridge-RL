@@ -6,6 +6,8 @@ VCS execution and machine-readable reward only. The former Python functional
 scoreboard has been removed. The evaluation report records the current baseline and summarizes important
 bring-up failures; superseded experiment files are not part of this release.
 
+[Architecture and scoreboard](architecture.md) · [Agent, DSH and reward](agent-workflow.md) · [Evaluation report](../mvp-evaluation-report.md)
+
 ## Requirements and setup
 
 Python 3.10+, SSH/SCP, a licensed Linux VCS and AMBA SVT installation. The remote
@@ -19,8 +21,19 @@ bash environment/setup-vip.sh /your/new/generated-projects
 
 Copy `environment/config.example.json` to `.local/config.json`; set `vip_root` to
 its APB project, `axi_vip_root` to its AXI project, and configure the remaining SSH
-and installation paths. `PB_CONFIG` may select an alternate absolute config path.
+and installation paths. For direct test/grade/submit commands, `PB_CONFIG` may
+select an alternate absolute config path. The current Agent controller clears
+most environment variables around its Harness session, including `PB_CONFIG`;
+use the default repository `.local/config.json` for real Agent trials.
 The compile command sets the required UVM packer size and single-port VIP limits.
+
+DSH runs on the host machine; VCS runs on the licensed Linux host. Point
+`PB_AGENT_PYTHON` to a Python environment containing the tested
+`deepseek-harness-sdk` and `deepseek-harness-runtime-bin` versions, both 0.2.2rc2.
+The original trial reused an existing installation; an independent one-command
+dependency installer is not included. Each run's `dsh/` directory stores session
+state, not the SDK installation. Supply `DEEPSEEK_API_KEY` from your own secret
+store; do not put it in repository files.
 
 ## Running (repository root)
 
@@ -40,6 +53,31 @@ bash environment/reproduce.sh .local/reproduction-002 --agent
 
 All output paths must be new. Public and final vector sets use different seeds.
 A repeated model trial is stochastic; replaying submitted RTL needs no model API.
+
+## Reuse recipes
+
+Run from the repository root after setup. Choose unused output names each time.
+`reset` creates files only; each test starts a complete new simulation.
+
+```bash
+# Edit the same workspace and run another public iteration
+python3 -m environment.test .local/solve-001 .local/public-002
+
+# Replay the published Agent submission with final vectors, without a model call
+python3 -m verifier.grade experiments/industrial-v2/agent/final.sv .local/replay-001
+
+# Run only a new Agent trial; this automatically creates its solver workspace
+"$PB_AGENT_PYTHON" -m environment.agent .local/agent-002 --model deepseek-flash
+```
+
+Read `result.json` in the chosen grade/test output directory. For CLI submit it is
+under `NEW_SUBMISSION/grade/result.json`; for an Agent trial the top-level
+`NEW_AGENT_RUN/result.json` also records the model, turn count and freeze status.
+Raw compiler/simulator logs remain in the corresponding local run directories.
+
+The task selector and UVM implementation currently target one bridge. Replacing
+RTL under the same Spec needs no verifier changes. Adding another protocol needs
+new task and verification code; changing `task.yaml` alone is insufficient.
 
 ## Verification path
 

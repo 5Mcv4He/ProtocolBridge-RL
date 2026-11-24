@@ -4,6 +4,10 @@ Date: 2026-11-24. **Active-VIP UVM single-task baseline acceptance completed.**
 The earlier Python scoreboard was removed at the user's request. Historical v1
 results are not reused as current PASS evidence.
 
+For implementation explanations, see [architecture and scoreboard](docs/architecture.md),
+[Agent execution and reward](docs/agent-workflow.md), and [reproduction commands](docs/mvp-running.md).
+This report records measured results; those guides explain how the current code produces them.
+
 ## Implemented architecture
 
 - VCS V-2023.12-SP2, AMBA SVT R-2020.12, active AXI4-Lite master + APB4 slave.
