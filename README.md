@@ -3,23 +3,9 @@
 > **VIP-Grounded Protocol Conversion Tasks and Environments for RTL Agent Reinforcement Learning**  
 > 基于协议验证 IP 的 RTL 协议转换任务生成、Agent 交互环境与可验证奖励研究。
 
-**Project status:** Research and development. This README describes the intended architecture, methodology, and deliverable contracts. It does **not** claim that the full dataset, simulation backends, or RL environments have already been implemented or validated.
+**研究问题：如何将成熟的硬件协议知识与验证机制，系统地转化为具有真实工程意义、可执行且具有可信奖励的 Agent RL 任务？**
 
-## 当前研究进展：VIP 资源与能力审计（2026-11-24）
-
-项目已开展 R-2020.12 VIP 资源盘点与本地证据审计：
-
-- **分发资源**：本地 Agent 报告 **50/50** 个清单包存在，大小及 CRC 与本地校验表一致，标准 gzip/tar 数据段可读取，并计算 SHA-256 快照。**这不是授权、厂商真实性、完整安装或仿真可用性的证明。**
-- **文档**：49 个包有独立 release notes，共 58 份；其中 57 份封面标记 R-2020.12；`vipcc` 附带说明封面是 Q-2019.12，实际运行版本尚未确认。
-- **能力调查**：对 `amba_svt`、`tilelink_svt`、`spi_svt`、`i2c_svt`、`uart_svt` 完成**有限的本地文档能力审查**；其余 45 包待功能深审。
-- **执行验证**：I²C 存在历史正例线索，AMBA 存在历史批处理 PASS 报告，但**尚无任何包通过完整的编译、事务、Checker 和负例检测验收**。
-
-研究文档：
-
-- [R-2020.12 VIP 50 包初步盘点](docs/vip-inventory-r2020.12.md)
-- [2026-11-24 本地审计结果及证据边界](docs/vip-audit-2026-11-24.md)
-
-未核实的协议功能保持未知。后续的任务与验证器将通过独立运行证据逐步建立，不会将资料中出现的组件当作已执行成功的功能。商业 VIP 源码、专有 Sequence、许可证及其他受限制材料均不纳入公开仓库。
+[系统架构与方法](#方法概览) · [任务包规范](#计划交付的任务包规范) · [研究资料与证据](#研究资料与证据)
 
 ## 项目简介
 
@@ -171,6 +157,19 @@ protocolbridge-task/
 - 来自开源协议实现或测试框架的衍生资产保留相应许可证和来源记录。
 
 公开仓库不包含、也不提供 Synopsys 等厂商的商业验证 IP。
+
+## 研究资料与证据
+
+项目将架构设计、协议资源研究、仿真验收和任务质量实验分别记录。主页描述研究目标与方法论；**具体已完成的调查、测试条件和证据边界以带日期的研究文档及仓库中实际可检索的产物为准**。
+
+| 研究资料 | 内容与证据范围 |
+| --- | --- |
+| [R-2020.12 VIP Resource Inventory](docs/vip-inventory-r2020.12.md) | 对 50 个分发包及其协议定位进行初步分类，定义能力矩阵与待核字段 |
+| [VIP Capability Audit — 2026-11-24](docs/vip-audit-2026-11-24.md) | 本地审计报告显示 50/50 包可读取；五个重点包有文档级能力证据；I²C、AMBA 存在历史运行线索 |
+
+后续研究重点是将文档中确认的协议能力与可执行工具链连接起来，以实际事务、Checker 启用状态、正反对照和独立 Scoreboard 检验 Verifier 的有效性。**截至上述审计日期，这些材料尚不能证明完整 RL 环境已经实现，或者存在任何通过全部运行及负例验收的商业 VIP 后端。**
+
+本仓库不发布未获授权的商业 VIP、专有 Sequence、许可证文件或受限文档；来自本地环境的成果将先做证据与公开权限检查。
 
 ## 相关技术与研究
 
