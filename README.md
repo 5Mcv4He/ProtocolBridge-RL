@@ -5,6 +5,15 @@
 
 **Project status:** Research and development. This README describes the intended architecture, methodology, and deliverable contracts. It does **not** claim that the full dataset, simulation backends, or RL environments have already been implemented or validated.
 
+## 当前研究进展：VIP 资源盘点
+
+已开展 **R-2020.12 Verification IP Inventory & Capability Research**，根据项目维护者的本地资源清单，登记了 **50 个标记为已拥有的 VIP／组件包**，初步分类并梳理其协议定位、潜在 RTL 任务方向和需要核查的验证能力。
+
+- [R-2020.12 VIP 资源初步盘点与能力调查字段](docs/vip-inventory-r2020.12.md)
+- 当前已确认的是**维护者报告的资源存在状态与初步协议分类**；尚未验证每个包的具体协议版本、BFM/Monitor、Sequence、Assertion/Checker、Coverage、VCS 兼容性与实际仿真结果。
+- 下一步将根据本地、授权环境中的只读审计及最小运行记录逐项补充。能力未知时保留空白，不根据目录名称推断。
+- 商业 VIP 源码、专有验证序列、许可证及其他限制性资料不会被纳入本公开仓库。
+
 ## 项目简介
 
 ProtocolBridge-RL 旨在将数字芯片领域成熟的**协议规范、验证 IP（Verification IP, VIP）与仿真检查机制**转化为可供大语言模型（LLM）和编程 Agent 学习、评测的任务资产。
