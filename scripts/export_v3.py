@@ -62,7 +62,7 @@ def main():
                 (dst/'agent/repair.diff').write_text(''.join(difflib.unified_diff(
                     failed.read_text().splitlines(keepends=True),
                     (agent/'submission/bridge.sv').read_text().splitlines(keepends=True),
-                    fromfile='failed-tested.sv',tofile='final.sv')))
+                    fromfile='failed-tested.sv',tofile='final.sv',n=0)))
         for public in agent.glob('public-*'):export_grade(public,dst/'agent'/public.name)
         if (agent/'reserved-evaluation/result.json').exists():
             export_grade(agent/'reserved-evaluation',dst/'agent/reserved-evaluation')

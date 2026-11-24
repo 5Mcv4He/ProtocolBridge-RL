@@ -29,6 +29,37 @@
 
 常规数据场景共用底层单事务 driver，复位场景增加中断／重启流程。创建更多类本身不代表更完整；验收依据是实际执行的 case、观察到的覆盖项和错误实现检出率。
 
+## 2868 笔具体由什么组成
+
+下表来自已通过的实际结果。计划数包含故意被复位取消的事务；完整集正常完成 2842 笔、取消 26 笔，公开集正常完成 124 笔、取消 8 笔。
+
+| case | 完整集计划数 | 公开集计划数 | 完整集复位取消数 |
+|---|---:|---:|---:|
+| address_data | 142 | 8 | 0 |
+| read_only | 24 | 2 | 0 |
+| write_accumulate | 36 | 8 | 0 |
+| strobe_cross_early | 576 | — | 0 |
+| strobe_cross | 576 | 20 | 0 |
+| channel_gaps | 26 | 10 | 0 |
+| wait_error | 24 | 8 | 0 |
+| response_backpressure | 28 | 8 | 0 |
+| mixed_stream | 128 | 12 | 0 |
+| random_stream_0 | 256 | — | 0 |
+| random_stream_1 | 256 | — | 0 |
+| random_stream_2 | 256 | — | 0 |
+| random_stream_3 | 256 | — | 0 |
+| latency_baseline | 128 | 8 | 0 |
+| reset_aw_only | 24 | 6 | 4 |
+| reset_w_only | 24 | 6 | 4 |
+| reset_write_setup | 6 | 6 | 1 |
+| reset_read_setup | 6 | 6 | 1 |
+| reset_write_wait | 24 | 6 | 4 |
+| reset_read_wait | 24 | 6 | 4 |
+| reset_b_stall | 24 | 6 | 4 |
+| reset_r_stall | 24 | 6 | 4 |
+
+每个 case 单独启动仿真；四个 random_stream 是四条不同派生 seed 的流。数量是本次已执行计划的规模，不能单凭数量判断完备。
+
 ## 交叉覆盖目标
 
 最终 strobe_cross 与 strobe_cross_early 合计对以下组合做显式枚举：
