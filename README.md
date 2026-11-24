@@ -5,14 +5,21 @@
 
 **Project status:** Research and development. This README describes the intended architecture, methodology, and deliverable contracts. It does **not** claim that the full dataset, simulation backends, or RL environments have already been implemented or validated.
 
-## 当前研究进展：VIP 资源盘点
+## 当前研究进展：VIP 资源与能力审计（2026-11-24）
 
-已开展 **R-2020.12 Verification IP Inventory & Capability Research**，根据项目维护者的本地资源清单，登记了 **50 个标记为已拥有的 VIP／组件包**，初步分类并梳理其协议定位、潜在 RTL 任务方向和需要核查的验证能力。
+项目已开展 R-2020.12 VIP 资源盘点与本地证据审计：
 
-- [R-2020.12 VIP 资源初步盘点与能力调查字段](docs/vip-inventory-r2020.12.md)
-- 当前已确认的是**维护者报告的资源存在状态与初步协议分类**；尚未验证每个包的具体协议版本、BFM/Monitor、Sequence、Assertion/Checker、Coverage、VCS 兼容性与实际仿真结果。
-- 下一步将根据本地、授权环境中的只读审计及最小运行记录逐项补充。能力未知时保留空白，不根据目录名称推断。
-- 商业 VIP 源码、专有验证序列、许可证及其他限制性资料不会被纳入本公开仓库。
+- **分发资源**：本地 Agent 报告 **50/50** 个清单包存在，大小及 CRC 与本地校验表一致，标准 gzip/tar 数据段可读取，并计算 SHA-256 快照。**这不是授权、厂商真实性、完整安装或仿真可用性的证明。**
+- **文档**：49 个包有独立 release notes，共 58 份；其中 57 份封面标记 R-2020.12；`vipcc` 附带说明封面是 Q-2019.12，实际运行版本尚未确认。
+- **能力调查**：对 `amba_svt`、`tilelink_svt`、`spi_svt`、`i2c_svt`、`uart_svt` 完成**有限的本地文档能力审查**；其余 45 包待功能深审。
+- **执行验证**：I²C 存在历史正例线索，AMBA 存在历史批处理 PASS 报告，但**尚无任何包通过完整的编译、事务、Checker 和负例检测验收**。
+
+研究文档：
+
+- [R-2020.12 VIP 50 包初步盘点](docs/vip-inventory-r2020.12.md)
+- [2026-11-24 本地审计结果及证据边界](docs/vip-audit-2026-11-24.md)
+
+未核实的协议功能保持未知。后续的任务与验证器将通过独立运行证据逐步建立，不会将资料中出现的组件当作已执行成功的功能。商业 VIP 源码、专有 Sequence、许可证及其他受限制材料均不纳入公开仓库。
 
 ## 项目简介
 
