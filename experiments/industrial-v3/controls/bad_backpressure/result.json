@@ -1,0 +1,53 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "public": false,
+  "source_sha256": "ad5a56d1528309885f313db8db0ed70bce181157c902d5548f464c6ade67d3d2",
+  "cases": [
+    {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "simulation_exit": 0,
+      "planned": 28,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 1,
+        "stalls": 2,
+        "early": 0,
+        "waits": 4,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "backpressure_sequence"
+      ],
+      "vip_protocol_errors": [
+        "register_fail:AMBA:AXI3:signal_stable_rdata_when_rvalid_high_check"
+      ],
+      "simulation_cycles_including_driver_reset_and_drain": 33.5,
+      "name": "response_backpressure",
+      "requirements": [
+        "F_B_STABLE",
+        "F_R_STABLE",
+        "F_EARLY_READY"
+      ],
+      "latency_sample_count": 1,
+      "observed_cross_bin_count": 1
+    }
+  ],
+  "verification_complete": false,
+  "suite_sha256": "cf838797533dfed7df9f935afe6cdd7f8cbf06811344e67e48b1502d41b7c897",
+  "required_cases": [
+    "response_backpressure"
+  ],
+  "compile_reused": true,
+  "failed_case": "response_backpressure",
+  "verdict_determinate": true,
+  "fixture_sha256": "ec068963d9ef4b08989fba0db7b58f7b13f9ece415bd323c9795d4ea1b1a6c98",
+  "compiled_bank_selection": 6
+}

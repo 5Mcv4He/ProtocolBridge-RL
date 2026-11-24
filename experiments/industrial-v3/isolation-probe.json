@@ -1,0 +1,1 @@
+{"isolation_probe": {"uid": 1101, "pid": 1, "host_home_visible": false, "host_verifier_visible": false, "no_new_privs": "1", "effective_capabilities": "0000000000000000", "chroot_escape_denied": true, "worker_write_denied": true}}

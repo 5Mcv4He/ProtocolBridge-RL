@@ -1,0 +1,56 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "public": false,
+  "source_sha256": "ad5a56d1528309885f313db8db0ed70bce181157c902d5548f464c6ade67d3d2",
+  "cases": [
+    {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "simulation_exit": 0,
+      "planned": 24,
+      "expected_aborted": 4,
+      "failures": [],
+      "timing_failures": [
+        "AXI acceptance exceeded 16 cycles"
+      ],
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 1,
+        "stalls": 0,
+        "early": 2,
+        "waits": 0,
+        "resets": 1
+      },
+      "reset_offsets": [
+        0
+      ],
+      "reset_stages": [
+        1
+      ],
+      "sequence": [
+        "reset_abort_sequence"
+      ],
+      "simulation_cycles_including_driver_reset_and_drain": 67.5,
+      "name": "reset_aw_only",
+      "requirements": [
+        "F_RESET_AW_ONLY",
+        "F_RESET_RECOVERY"
+      ],
+      "vip_protocol_errors": [],
+      "latency_sample_count": 2,
+      "observed_cross_bin_count": 1
+    }
+  ],
+  "verification_complete": false,
+  "suite_sha256": "7d083c35a02438bf7ec67c6933fccef93f92b0dac29d7a348a5bd5fb33ea17dc",
+  "required_cases": [
+    "reset_aw_only"
+  ],
+  "compile_reused": true,
+  "failed_case": "reset_aw_only",
+  "verdict_determinate": true,
+  "fixture_sha256": "cd9756a836d3c5b290000d6af790ec9bb51029e135278734fe659edf8d0c8485",
+  "compiled_bank_selection": 7
+}

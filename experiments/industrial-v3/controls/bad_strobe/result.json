@@ -1,0 +1,54 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "public": false,
+  "source_sha256": "ad5a56d1528309885f313db8db0ed70bce181157c902d5548f464c6ade67d3d2",
+  "cases": [
+    {
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "simulation_exit": 0,
+      "planned": 36,
+      "expected_aborted": 0,
+      "failures": [
+        "APB write data/strobe mismatch"
+      ],
+      "timing_failures": [],
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 1,
+        "stalls": 0,
+        "early": 1,
+        "waits": 0,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "memory_pattern_sequence"
+      ],
+      "simulation_cycles_including_driver_reset_and_drain": 19.5,
+      "name": "write_accumulate",
+      "requirements": [
+        "F_WW",
+        "F_PARTIAL",
+        "F_ZERO_STROBE",
+        "F_RR"
+      ],
+      "vip_protocol_errors": [],
+      "latency_sample_count": 0,
+      "observed_cross_bin_count": 0
+    }
+  ],
+  "verification_complete": false,
+  "suite_sha256": "9f9d95ef03b9f1d8ceb338df92d54a8eaa382e97aedbcf2c8918fbae22d2ca66",
+  "required_cases": [
+    "write_accumulate"
+  ],
+  "compile_reused": true,
+  "failed_case": "write_accumulate",
+  "verdict_determinate": true,
+  "fixture_sha256": "4e84159cddebe88267911dc42d88ec652f2744ebda47846253fadcd7957fce53",
+  "compiled_bank_selection": 2
+}

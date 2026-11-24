@@ -1,0 +1,62 @@
+[
+  {
+    "event_file": "harness-00.json",
+    "sha256": "77ced34a8926d0c556afa262360904c0c0bdc7fa36dc95ea60fc150697f5492f",
+    "worker_uid": 1101,
+    "worker_pid": 1
+  },
+  {
+    "event_file": "harness-01.json",
+    "sha256": "c7b76594ddeb398e366883acdb20c8f9fd21971139144c5e91e8978b0858c864",
+    "worker_uid": 1101,
+    "worker_pid": 1
+  },
+  {
+    "event_file": "harness-02.json",
+    "sha256": "e694b8196919f341aa0dd53bc4086bf341272f5b6bc3c2edde767c848d12b06b",
+    "worker_uid": 1101,
+    "worker_pid": 1
+  },
+  {
+    "event_file": "harness-03.json",
+    "sha256": "3a9b2a74147cfbef08f700ff33b783123050d9b102aed2dc45cd26fee65e1563",
+    "worker_uid": 1101,
+    "worker_pid": 1
+  },
+  {
+    "event_file": "harness-04.json",
+    "sha256": "941643a5e3fee6a32f7458086c5756511a16724efdd9c319e83c32401c4bb153",
+    "worker_uid": 1101,
+    "worker_pid": 1
+  },
+  {
+    "event_file": "harness-05.json",
+    "sha256": "8d5331cc40f80e837f2de79214ba104c1d36566f63f2a6aa17c043810da7887d",
+    "worker_uid": 1101,
+    "worker_pid": 1
+  },
+  {
+    "event_file": "harness-06.json",
+    "sha256": "f20c0d7a47dd70f96be04bd8ef90ed919ad8187d946801c3c4d39d7cde271376",
+    "worker_uid": 1101,
+    "worker_pid": 1
+  },
+  {
+    "event_file": "harness-07.json",
+    "sha256": "f4a88da3abdd06ffd2602f1735e633fa5a9395208d6afeabf2ddec0ca8e2ac2d",
+    "worker_uid": 1101,
+    "worker_pid": 1
+  },
+  {
+    "event_file": "harness-08.json",
+    "sha256": "197860c2ed5b916ed1f6788827bbc2c758c217529140bcde48cd8aa30d629625",
+    "worker_uid": 1101,
+    "worker_pid": 1
+  },
+  {
+    "event_file": "harness-09.json",
+    "sha256": "472af6185c0d423f5554fced4d147163907837860e9e2f8808a25bab4f3660c5",
+    "worker_uid": 1101,
+    "worker_pid": 1
+  }
+]

@@ -1,0 +1,17 @@
+--- failed-tested.sv
++++ final.sv
+@@ -27,9 +27,11 @@
+ 
+  wire idle = (state == IDLE);
+ 
+- assign s_awready = rst_n && idle && !aw_buf_v && !w_buf_v;
+- assign s_wready  = rst_n && idle && !w_buf_v && !aw_buf_v;
+- assign s_arready = rst_n && idle && !is_write && !aw_buf_v && !w_buf_v;
++ // Write halves may be accepted independently; once both present we launch.
++ assign s_awready = rst_n && idle && !aw_buf_v;
++ assign s_wready  = rst_n && idle && !w_buf_v;
++ // Read accepted only when no write half is buffered (avoid mixing).
++ assign s_arready = rst_n && idle && !aw_buf_v && !w_buf_v;
+ 
+  assign s_bvalid = rst_n && (state == RESP) && is_write;
+  assign s_bresp  = resp_r;

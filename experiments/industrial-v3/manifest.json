@@ -1,0 +1,9 @@
+{
+  "source_commit": "8d5586777bf2e397ebdfed67c557ccb432316516",
+  "runtime_files_match_commit": true,
+  "verification": "Full reference + ten actual directed negative controls; real UTM DSH episode; private reward and reserved evaluation",
+  "agent_final_source_sha256": "0d61d85ed454f8e6a59048a019dbe4de76ac84d5c30cacd670136e7dff78d3c7",
+  "private_inputs_published": false,
+  "source_provenance": "agent/freeze.json",
+  "episodes": 1
+}

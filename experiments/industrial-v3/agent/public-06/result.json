@@ -1,0 +1,67 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "public": true,
+  "source_sha256": "b860addbb4cff28cfb8c58d0e6362c0ce46dc8edc27ba9e07a86116d23984402",
+  "cases": [
+    {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "simulation_exit": 0,
+      "planned": 8,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [
+        "AXI acceptance exceeded 16 cycles"
+      ],
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 1,
+        "stalls": 0,
+        "early": 1,
+        "waits": 0,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "address_data_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 39.5,
+      "name": "address_data",
+      "requirements": [
+        "F_ADDR",
+        "F_DATA",
+        "F_MAPPING"
+      ],
+      "latency_sample_count": 1,
+      "observed_cross_bin_count": 1
+    }
+  ],
+  "verification_complete": false,
+  "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+  "required_cases": [
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall"
+  ],
+  "compile_exit": 0,
+  "failed_case": "address_data",
+  "verdict_determinate": true
+}

@@ -1,0 +1,9 @@
+{
+  "execution": "UTM sandbox worker",
+  "worker_uid": 1101,
+  "worker_pid": 1,
+  "model_response": "{\"probe\":\"utm-api-ok\"}",
+  "raw_response_sha256": "92ab8dd45ef8aa51902ec33c33ec46bd546e086e5e48b0530ee15d72b3d6ddb5",
+  "sdk_version": "0.2.2rc2",
+  "runtime_version": "0.2.2rc2"
+}

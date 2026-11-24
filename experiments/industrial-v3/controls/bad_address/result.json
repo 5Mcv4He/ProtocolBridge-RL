@@ -1,0 +1,53 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "public": false,
+  "source_sha256": "ad5a56d1528309885f313db8db0ed70bce181157c902d5548f464c6ade67d3d2",
+  "cases": [
+    {
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "simulation_exit": 0,
+      "planned": 142,
+      "expected_aborted": 0,
+      "failures": [
+        "APB address/direction mismatch"
+      ],
+      "timing_failures": [],
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 1,
+        "stalls": 0,
+        "early": 1,
+        "waits": 0,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "address_data_sequence"
+      ],
+      "simulation_cycles_including_driver_reset_and_drain": 19.5,
+      "name": "address_data",
+      "requirements": [
+        "F_ADDR",
+        "F_DATA",
+        "F_MAPPING"
+      ],
+      "vip_protocol_errors": [],
+      "latency_sample_count": 0,
+      "observed_cross_bin_count": 0
+    }
+  ],
+  "verification_complete": false,
+  "suite_sha256": "c2ff6da70bc6364a4fa685fd193e0e321b63f879466a9ec761cc5021c6b1a151",
+  "required_cases": [
+    "address_data"
+  ],
+  "compile_reused": true,
+  "failed_case": "address_data",
+  "verdict_determinate": true,
+  "fixture_sha256": "81f8909ad76623f15a5490da479f3f11e70f9809527b40ffa13beccf407913e4",
+  "compiled_bank_selection": 1
+}

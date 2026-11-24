@@ -1,0 +1,54 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "public": false,
+  "source_sha256": "ad5a56d1528309885f313db8db0ed70bce181157c902d5548f464c6ade67d3d2",
+  "cases": [
+    {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "simulation_exit": 0,
+      "planned": 24,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [
+        "Response before APB completion"
+      ],
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 3,
+        "stalls": 0,
+        "early": 4,
+        "waits": 1,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "wait_error_sequence"
+      ],
+      "simulation_cycles_including_driver_reset_and_drain": 50.5,
+      "name": "wait_error",
+      "requirements": [
+        "F_WAIT",
+        "F_ERROR_WRITE",
+        "F_ERROR_READ",
+        "F_ERROR_NO_WRITE"
+      ],
+      "vip_protocol_errors": [],
+      "latency_sample_count": 4,
+      "observed_cross_bin_count": 2
+    }
+  ],
+  "verification_complete": false,
+  "suite_sha256": "0b53f8493809fb3008b8ed9bd3b26f204700a48488fb0c1a93a4adcc2659aba0",
+  "required_cases": [
+    "wait_error"
+  ],
+  "compile_reused": true,
+  "failed_case": "wait_error",
+  "verdict_determinate": true,
+  "fixture_sha256": "252b5d1d047f72fe9a57d861a7cb87f80db472b8f5a54908980a81a2908837d8",
+  "compiled_bank_selection": 4
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "stage": "stimulus_backpressure_mismatch",
+    "original_reward": null,
+    "original_category": "infrastructure_error",
+    "original_reason": "Observed wait/backpressure does not match requested stimulus",
+    "diagnosis": "Verifier stimulus defect; superseded by fixed READY-mode runs",
+    "scoreboard": {
+      "planned": 1152,
+      "axi": 1152,
+      "apb": 1152,
+      "checked": 1152,
+      "aborted": 0,
+      "aborted_apb": 0,
+      "errors": 0
+    },
+    "result_sha256": "c608a4110708c796b0036b2dcf310c63c7879892a4565b56f35024b9c53a32d4",
+    "simulation_sha256": "b3edd02a35efac6f56ddb79a58cf33e106e53b4c95f80284f87333219a9c198d"
+  },
+  {
+    "stage": "vip_error_unclassified",
+    "original_reward": null,
+    "original_category": "infrastructure_error",
+    "original_reason": "Incomplete or unclassified simulation",
+    "diagnosis": "Known commercial protocol error now classified and independently rerun",
+    "scoreboard": null,
+    "result_sha256": "667c6fdf6da6117aeba2486eebbbd2df09fca2d2392d94ca9f5ed392f9784841",
+    "simulation_sha256": "3504cd393b2aa60d9e8d6dfddb9f4dac54df9e1554891423a4ed5b1f5869cd5e"
+  },
+  {
+    "stage": "reset_vip_error_unclassified",
+    "original_reward": null,
+    "original_category": "infrastructure_error",
+    "original_reason": "Incomplete or unclassified simulation",
+    "diagnosis": "Known commercial reset error now classified and independently rerun",
+    "scoreboard": null,
+    "result_sha256": "fa409b505b00139bbe6c1b102058133674f6cf1cad6078d8d4a6e96ce186d581",
+    "simulation_sha256": "bf94b53aaeb31f0d043ea1ca34f897496ee0008a5c0d23e0a0a78732b67e4f71"
+  }
+]

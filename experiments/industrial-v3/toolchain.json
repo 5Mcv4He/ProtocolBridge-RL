@@ -1,0 +1,10 @@
+{
+  "worker_python": "3.10.12",
+  "deepseek_harness_sdk": "0.2.2rc2",
+  "deepseek_harness_runtime_bin": "0.2.2rc2",
+  "simulator": "VCS V-2023.12-SP2",
+  "amba_vip": "R-2020.12",
+  "uvm": "1.1d",
+  "host_os": "CentOS 7.9 x86-64",
+  "worker_userland": "Ubuntu Base 22.04.5 amd64"
+}

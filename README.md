@@ -23,13 +23,13 @@ flowchart LR
 | DSH 在哪里运行；Agent 能看什么、做什么；真实动作与奖励如何产生 | [真实 Agent 的执行与奖励](docs/agent-workflow.md)（含执行时序图、权限表和评分规则） |
 | 如何配置、手动迭代、重放提交或再跑模型 | [环境配置与复用命令](docs/mvp-running.md) |
 | 定向／随机／边界测试如何安排、是否充分 | [验证计划与覆盖](docs/verification-plan.md) |
-| 实际证明了什么、证据在哪里、还缺什么 | [评估报告](mvp-evaluation-report.md)与[验收证据](experiments/industrial-v2/README.md) |
+| 实际证明了什么、证据在哪里、还缺什么 | [评估报告](mvp-evaluation-report.md)与[验收证据](experiments/industrial-v3/README.md) |
 
 建议讲解顺序：本页概览 → 架构与 Scoreboard → Agent 执行时序 → 真实结果与限制。当前已经跑通任务和奖励闭环，尚未进行 RL 参数训练。
 
 ## 当前进度
 
-revision 3 的参考与错误对照已实际验证。DSH 已安装到 UTM，API 与隔离探针通过；新的真实 Agent 试次正在运行，尚未给它填写终局 Reward。
+revision 3 单任务闭环已实际验证。DSH 在 UTM 内运行并调用 API；真实 Agent 经公开测试失败后自行修复，私有终局 Reward=1.0，独立保留评估也通过。
 
 | 检查 | 实测结果 |
 |---|---|
@@ -37,7 +37,7 @@ revision 3 的参考与错误对照已实际验证。DSH 已安装到 UTM，API 
 | 必要交叉覆盖 | 576 / 576 个 bin 命中 |
 | 随机流 | 4 组 × 256 笔，全部实际仿真通过 |
 | 错误实现 | 10 / 10 被检出，包括两项商业 VIP 协议报错 |
-| UTM 内真实 Agent | 进行中；见[当前报告](mvp-evaluation-report.md) |
+| UTM 内真实 Agent | 10 轮动作；私有 22 case 通过，Reward=1.0；另一个保留评估集通过 |
 
 这些结果证明计划内检查通过，不是所有输入的正确性证明，也不是完整工业签核。
 
@@ -65,7 +65,7 @@ bash environment/reproduce.sh .local/reproduction-002 --agent
 - `environment/`：reset/test/submit、受限工具接口和 DeepSeek Harness。
 - `verifier/v3/`：当前主动 VIP／UVM 验证实现。
 - `fixtures/`：正确参考与十个故障实现。
-- `experiments/industrial-v2/`：结果、精简工具轨迹、最终 RTL、事件和证据哈希。
+- `experiments/industrial-v3/`：结果、精简工具轨迹、实际修复差异、最终 RTL 和证据哈希；v2 单独作为历史保存。
 - `scripts/`：脱敏证据导出；`docs/`：复现说明及研究资料。
 
 UVM Scoreboard 通过 analysis port 接收两端 VIP monitor 事务，并与计划请求和独立期望内存状态比较。最终评分在新的仿真目录执行；编译产物只有在代码及验证输入哈希一致时才允许复用。

@@ -1,0 +1,56 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "public": false,
+  "source_sha256": "ad5a56d1528309885f313db8db0ed70bce181157c902d5548f464c6ade67d3d2",
+  "cases": [
+    {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "simulation_exit": 0,
+      "planned": 24,
+      "expected_aborted": 4,
+      "failures": [],
+      "timing_failures": [],
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 2,
+        "stalls": 2,
+        "early": 0,
+        "waits": 0,
+        "resets": 1
+      },
+      "reset_offsets": [
+        0
+      ],
+      "reset_stages": [
+        7
+      ],
+      "sequence": [
+        "reset_abort_sequence"
+      ],
+      "vip_protocol_errors": [
+        "register_fail:AMBA:AXI3:bvalid_low_when_reset_is_active_check"
+      ],
+      "simulation_cycles_including_driver_reset_and_drain": 38.5,
+      "name": "reset_b_stall",
+      "requirements": [
+        "F_RESET_B_STALL",
+        "F_RESET_RECOVERY"
+      ],
+      "latency_sample_count": 2,
+      "observed_cross_bin_count": 1
+    }
+  ],
+  "verification_complete": false,
+  "suite_sha256": "4d5d680d08d0b4b1c9f9106f599babc0258dc8baa0d07f191adceb7090bb18cc",
+  "required_cases": [
+    "reset_b_stall"
+  ],
+  "compile_reused": true,
+  "failed_case": "reset_b_stall",
+  "verdict_determinate": true,
+  "fixture_sha256": "4912580653f5599b8fc220e345527a7d89a07adda379577c4087993845de4443",
+  "compiled_bank_selection": 8
+}

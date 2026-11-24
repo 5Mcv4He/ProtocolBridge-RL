@@ -1,0 +1,1526 @@
+{
+  "reward": 1.0,
+  "category": "pass",
+  "public": false,
+  "source_sha256": "0d61d85ed454f8e6a59048a019dbe4de76ac84d5c30cacd670136e7dff78d3c7",
+  "cases": [
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 142,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 142,
+        "axi": 142,
+        "apb": 142,
+        "checked": 142,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 71,
+        "stalls": 0,
+        "early": 142,
+        "waits": 0,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "address_data_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 1026.5,
+      "name": "address_data",
+      "requirements": [
+        "F_ADDR",
+        "F_DATA",
+        "F_MAPPING"
+      ],
+      "latency_sample_count": 142,
+      "observed_cross_bin_count": 1
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 24,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 24,
+        "axi": 24,
+        "apb": 24,
+        "checked": 24,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 0,
+        "stalls": 0,
+        "early": 24,
+        "waits": 0,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "memory_pattern_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 200.5,
+      "name": "read_only",
+      "requirements": [
+        "F_READ_UNWRITTEN",
+        "F_RR"
+      ],
+      "latency_sample_count": 24,
+      "observed_cross_bin_count": 0
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 36,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 36,
+        "axi": 36,
+        "apb": 36,
+        "checked": 36,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 33,
+        "stalls": 0,
+        "early": 36,
+        "waits": 0,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "memory_pattern_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 284.5,
+      "name": "write_accumulate",
+      "requirements": [
+        "F_WW",
+        "F_PARTIAL",
+        "F_ZERO_STROBE",
+        "F_RR"
+      ],
+      "latency_sample_count": 36,
+      "observed_cross_bin_count": 16
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 576,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 576,
+        "axi": 576,
+        "apb": 576,
+        "checked": 576,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 96,
+        "w_first": 96,
+        "together": 96,
+        "stalls": 0,
+        "early": 576,
+        "waits": 6336,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "strobe_cross_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 11552.5,
+      "name": "strobe_cross_early",
+      "requirements": [
+        "F_STROBE_ALL",
+        "X_STROBE_ORDER_ERROR_WAIT_STALL"
+      ],
+      "latency_sample_count": 576,
+      "observed_cross_bin_count": 288
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 576,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 576,
+        "axi": 576,
+        "apb": 576,
+        "checked": 576,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 96,
+        "w_first": 96,
+        "together": 96,
+        "stalls": 19584,
+        "early": 0,
+        "waits": 6336,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "strobe_cross_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 31136.5,
+      "name": "strobe_cross",
+      "requirements": [
+        "F_STROBE_ALL",
+        "X_STROBE_ORDER_ERROR_WAIT_STALL"
+      ],
+      "latency_sample_count": 576,
+      "observed_cross_bin_count": 288
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 26,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 26,
+        "axi": 26,
+        "apb": 26,
+        "checked": 26,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 6,
+        "w_first": 6,
+        "together": 1,
+        "stalls": 0,
+        "early": 26,
+        "waits": 0,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "channel_order_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 472.5,
+      "name": "channel_gaps",
+      "requirements": [
+        "F_AW_FIRST",
+        "F_W_FIRST",
+        "F_TOGETHER",
+        "F_HALF_BUFFER"
+      ],
+      "latency_sample_count": 26,
+      "observed_cross_bin_count": 3
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 24,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 24,
+        "axi": 24,
+        "apb": 24,
+        "checked": 24,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 12,
+        "stalls": 0,
+        "early": 24,
+        "waits": 360,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "wait_error_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 560.5,
+      "name": "wait_error",
+      "requirements": [
+        "F_WAIT",
+        "F_ERROR_WRITE",
+        "F_ERROR_READ",
+        "F_ERROR_NO_WRITE"
+      ],
+      "latency_sample_count": 24,
+      "observed_cross_bin_count": 6
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 28,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 28,
+        "axi": 28,
+        "apb": 28,
+        "checked": 28,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 14,
+        "stalls": 544,
+        "early": 0,
+        "waits": 56,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "backpressure_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 828.5,
+      "name": "response_backpressure",
+      "requirements": [
+        "F_B_STABLE",
+        "F_R_STABLE",
+        "F_EARLY_READY"
+      ],
+      "latency_sample_count": 28,
+      "observed_cross_bin_count": 2
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 128,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 128,
+        "axi": 128,
+        "apb": 128,
+        "checked": 128,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 24,
+        "w_first": 27,
+        "together": 16,
+        "stalls": 1131,
+        "early": 0,
+        "waits": 1084,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "mixed_random_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 4171.5,
+      "name": "mixed_stream",
+      "requirements": [
+        "F_MIXED",
+        "F_STATE_REUSE"
+      ],
+      "latency_sample_count": 128,
+      "observed_cross_bin_count": 57
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 256,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 256,
+        "axi": 256,
+        "apb": 256,
+        "checked": 256,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 59,
+        "w_first": 75,
+        "together": 57,
+        "stalls": 7048,
+        "early": 0,
+        "waits": 6889,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "mixed_random_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 19445.5,
+      "name": "random_stream_0",
+      "requirements": [
+        "F_RANDOM_LEGAL",
+        "F_LONG_RUN",
+        "F_INDEPENDENT_PARAMETERS"
+      ],
+      "latency_sample_count": 256,
+      "observed_cross_bin_count": 119
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 256,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 256,
+        "axi": 256,
+        "apb": 256,
+        "checked": 256,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 56,
+        "w_first": 60,
+        "together": 75,
+        "stalls": 6664,
+        "early": 0,
+        "waits": 6770,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "mixed_random_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 19135.5,
+      "name": "random_stream_1",
+      "requirements": [
+        "F_RANDOM_LEGAL",
+        "F_LONG_RUN",
+        "F_INDEPENDENT_PARAMETERS"
+      ],
+      "latency_sample_count": 256,
+      "observed_cross_bin_count": 117
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 256,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 256,
+        "axi": 256,
+        "apb": 256,
+        "checked": 256,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 67,
+        "w_first": 58,
+        "together": 64,
+        "stalls": 6236,
+        "early": 0,
+        "waits": 5530,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "mixed_random_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 17615.5,
+      "name": "random_stream_2",
+      "requirements": [
+        "F_RANDOM_LEGAL",
+        "F_LONG_RUN",
+        "F_INDEPENDENT_PARAMETERS"
+      ],
+      "latency_sample_count": 256,
+      "observed_cross_bin_count": 117
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 256,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 256,
+        "axi": 256,
+        "apb": 256,
+        "checked": 256,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 61,
+        "w_first": 65,
+        "together": 62,
+        "stalls": 6734,
+        "early": 0,
+        "waits": 5146,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "mixed_random_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 17894.5,
+      "name": "random_stream_3",
+      "requirements": [
+        "F_RANDOM_LEGAL",
+        "F_LONG_RUN",
+        "F_INDEPENDENT_PARAMETERS"
+      ],
+      "latency_sample_count": 256,
+      "observed_cross_bin_count": 122
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 128,
+      "expected_aborted": 0,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 128,
+        "axi": 128,
+        "apb": 128,
+        "checked": 128,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 64,
+        "stalls": 0,
+        "early": 128,
+        "waits": 0,
+        "resets": 0
+      },
+      "reset_offsets": [],
+      "reset_stages": [],
+      "sequence": [
+        "address_data_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 928.5,
+      "name": "latency_baseline",
+      "requirements": [
+        "F_LATENCY_BASELINE"
+      ],
+      "latency_sample_count": 128,
+      "observed_cross_bin_count": 1
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 24,
+      "expected_aborted": 4,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 24,
+        "axi": 20,
+        "apb": 20,
+        "checked": 20,
+        "aborted": 4,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 8,
+        "stalls": 0,
+        "early": 20,
+        "waits": 0,
+        "resets": 4
+      },
+      "reset_offsets": [
+        0,
+        1,
+        7,
+        31
+      ],
+      "reset_stages": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "sequence": [
+        "reset_abort_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 291.5,
+      "name": "reset_aw_only",
+      "requirements": [
+        "F_RESET_AW_ONLY",
+        "F_RESET_RECOVERY"
+      ],
+      "latency_sample_count": 20,
+      "observed_cross_bin_count": 1
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 24,
+      "expected_aborted": 4,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 24,
+        "axi": 20,
+        "apb": 20,
+        "checked": 20,
+        "aborted": 4,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 8,
+        "stalls": 0,
+        "early": 20,
+        "waits": 0,
+        "resets": 4
+      },
+      "reset_offsets": [
+        0,
+        1,
+        7,
+        31
+      ],
+      "reset_stages": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "sequence": [
+        "reset_abort_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 291.5,
+      "name": "reset_w_only",
+      "requirements": [
+        "F_RESET_W_ONLY",
+        "F_RESET_RECOVERY"
+      ],
+      "latency_sample_count": 20,
+      "observed_cross_bin_count": 1
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 6,
+      "expected_aborted": 1,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 6,
+        "axi": 5,
+        "apb": 5,
+        "checked": 5,
+        "aborted": 1,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 3,
+        "stalls": 0,
+        "early": 5,
+        "waits": 0,
+        "resets": 1
+      },
+      "reset_offsets": [
+        0
+      ],
+      "reset_stages": [
+        3
+      ],
+      "sequence": [
+        "reset_abort_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 87.5,
+      "name": "reset_write_setup",
+      "requirements": [
+        "F_RESET_WRITE_SETUP",
+        "F_RESET_RECOVERY"
+      ],
+      "latency_sample_count": 5,
+      "observed_cross_bin_count": 1
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 6,
+      "expected_aborted": 1,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 6,
+        "axi": 5,
+        "apb": 5,
+        "checked": 5,
+        "aborted": 1,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 2,
+        "stalls": 0,
+        "early": 5,
+        "waits": 0,
+        "resets": 1
+      },
+      "reset_offsets": [
+        0
+      ],
+      "reset_stages": [
+        4
+      ],
+      "sequence": [
+        "reset_abort_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 87.5,
+      "name": "reset_read_setup",
+      "requirements": [
+        "F_RESET_READ_SETUP",
+        "F_RESET_RECOVERY"
+      ],
+      "latency_sample_count": 5,
+      "observed_cross_bin_count": 1
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 24,
+      "expected_aborted": 4,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 24,
+        "axi": 20,
+        "apb": 20,
+        "checked": 20,
+        "aborted": 4,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 12,
+        "stalls": 0,
+        "early": 20,
+        "waits": 39,
+        "resets": 4
+      },
+      "reset_offsets": [
+        0,
+        1,
+        7,
+        31
+      ],
+      "reset_stages": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "sequence": [
+        "reset_abort_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 295.5,
+      "name": "reset_write_wait",
+      "requirements": [
+        "F_RESET_WRITE_WAIT",
+        "F_RESET_RECOVERY"
+      ],
+      "latency_sample_count": 20,
+      "observed_cross_bin_count": 1
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 24,
+      "expected_aborted": 4,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 24,
+        "axi": 20,
+        "apb": 20,
+        "checked": 20,
+        "aborted": 4,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 8,
+        "stalls": 0,
+        "early": 20,
+        "waits": 39,
+        "resets": 4
+      },
+      "reset_offsets": [
+        0,
+        1,
+        7,
+        31
+      ],
+      "reset_stages": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "sequence": [
+        "reset_abort_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 295.5,
+      "name": "reset_read_wait",
+      "requirements": [
+        "F_RESET_READ_WAIT",
+        "F_RESET_RECOVERY"
+      ],
+      "latency_sample_count": 20,
+      "observed_cross_bin_count": 1
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 24,
+      "expected_aborted": 4,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 24,
+        "axi": 20,
+        "apb": 24,
+        "checked": 20,
+        "aborted": 4,
+        "aborted_apb": 4,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 12,
+        "stalls": 59,
+        "early": 0,
+        "waits": 0,
+        "resets": 4
+      },
+      "reset_offsets": [
+        0,
+        1,
+        7,
+        31
+      ],
+      "reset_stages": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "sequence": [
+        "reset_abort_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 319.5,
+      "name": "reset_b_stall",
+      "requirements": [
+        "F_RESET_B_STALL",
+        "F_RESET_RECOVERY"
+      ],
+      "latency_sample_count": 20,
+      "observed_cross_bin_count": 1
+    },
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 24,
+      "expected_aborted": 4,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 24,
+        "axi": 20,
+        "apb": 24,
+        "checked": 20,
+        "aborted": 4,
+        "aborted_apb": 4,
+        "errors": 0
+      },
+      "coverage": {
+        "aw_first": 0,
+        "w_first": 0,
+        "together": 8,
+        "stalls": 59,
+        "early": 0,
+        "waits": 0,
+        "resets": 4
+      },
+      "reset_offsets": [
+        0,
+        1,
+        7,
+        31
+      ],
+      "reset_stages": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "sequence": [
+        "reset_abort_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "simulation_cycles_including_driver_reset_and_drain": 319.5,
+      "name": "reset_r_stall",
+      "requirements": [
+        "F_RESET_R_STALL",
+        "F_RESET_RECOVERY"
+      ],
+      "latency_sample_count": 20,
+      "observed_cross_bin_count": 1
+    }
+  ],
+  "verification_complete": true,
+  "suite_sha256": "f6b348425000ecea660bd878f7172551648548f8a26bf0c608138b4b935ffcee",
+  "required_cases": [
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall"
+  ],
+  "compile_reused": true,
+  "planned": 2868,
+  "checked": 2842,
+  "aborted": 26,
+  "latency_summary": {
+    "address_data": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "read_only": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "write_accumulate": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "strobe_cross_early": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 32,
+        "mean": 11.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "strobe_cross": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 32,
+        "mean": 11.0
+      },
+      "stalls": {
+        "min": 34,
+        "max": 34,
+        "mean": 34.0
+      }
+    },
+    "channel_gaps": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "wait_error": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 64,
+        "mean": 15.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "response_backpressure": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 2,
+        "max": 2,
+        "mean": 2.0
+      },
+      "stalls": {
+        "min": 1,
+        "max": 65,
+        "mean": 19.428571428571427
+      }
+    },
+    "mixed_stream": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 16,
+        "mean": 8.46875
+      },
+      "stalls": {
+        "min": 1,
+        "max": 17,
+        "mean": 8.8359375
+      }
+    },
+    "random_stream_0": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 64,
+        "mean": 26.91015625
+      },
+      "stalls": {
+        "min": 1,
+        "max": 65,
+        "mean": 27.53125
+      }
+    },
+    "random_stream_1": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 64,
+        "mean": 26.4453125
+      },
+      "stalls": {
+        "min": 1,
+        "max": 65,
+        "mean": 26.03125
+      }
+    },
+    "random_stream_2": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 64,
+        "mean": 21.6015625
+      },
+      "stalls": {
+        "min": 1,
+        "max": 65,
+        "mean": 24.359375
+      }
+    },
+    "random_stream_3": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 64,
+        "mean": 20.1015625
+      },
+      "stalls": {
+        "min": 1,
+        "max": 65,
+        "mean": 26.3046875
+      }
+    },
+    "latency_baseline": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "reset_aw_only": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "reset_w_only": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "reset_write_setup": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "reset_read_setup": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "reset_write_wait": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "reset_read_wait": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      }
+    },
+    "reset_b_stall": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      }
+    },
+    "reset_r_stall": {
+      "accept_to_setup": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "completion_to_valid": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      },
+      "waits": {
+        "min": 0,
+        "max": 0,
+        "mean": 0.0
+      },
+      "stalls": {
+        "min": 1,
+        "max": 1,
+        "mean": 1.0
+      }
+    }
+  },
+  "functional_cross": {
+    "required": 576,
+    "observed": 576,
+    "missing": []
+  },
+  "verdict_determinate": true,
+  "reserved_evaluation": {
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "source_sha256": "0d61d85ed454f8e6a59048a019dbe4de76ac84d5c30cacd670136e7dff78d3c7",
+    "suite_sha256": "da03b8bd9449294098fc547e60d11c6eda0529fd7eff90275704f3aa5aa91bb6",
+    "planned": 2868,
+    "checked": 2842,
+    "aborted": 26
+  },
+  "model": "deepseek-flash",
+  "harness": "DeepSeek Harness in UTM",
+  "turns": 10,
+  "freeze_unchanged": true,
+  "private_reward_suite_sha256": "f6b348425000ecea660bd878f7172551648548f8a26bf0c608138b4b935ffcee"
+}
