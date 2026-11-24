@@ -115,4 +115,13 @@ class AtomicActionParsing(unittest.TestCase):
             self.assertFalse(s.submitted);self.assertEqual(s.tests,0);self.assertEqual(s.actions,1)
         finally:t.doCleanups()
 
+class PolicyFileIdentity(unittest.TestCase):
+    def test_valid_policy_under_wrong_filename_is_rejected(self):
+        import environment.policy as policy_module
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d);(p/'test_verdict.json').write_text(json.dumps(load('test_diagnostic')))
+            with patch.object(policy_module,'POLICIES',p):
+                with self.assertRaises(ValueError):policy_module.load('test_verdict')
+
 if __name__=='__main__':unittest.main()

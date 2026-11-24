@@ -28,13 +28,19 @@ def analyze(root):
         if not (path/'metrics.json').exists():continue
         metrics=json.loads((path/'metrics.json').read_text())
         trace=json.loads((path/'trace.json').read_text()) if (path/'trace.json').exists() else []
-        u=usage(list(path.glob('harness-*.json')))
+        files=list(path.glob('harness-*.json'));u=usage(files)
+        events=[e for f in files for e in json.loads(f.read_text())['response'].get('events',[])]
+        starts=[e['time'] for e in events if e['type']=='turn/start' and isinstance(e.get('time'),(int,float))]
+        ends=[e['time'] for e in events if e['type']=='turn/end' and isinstance(e.get('time'),(int,float))]
+        span=round((max(ends)-min(starts))/1000.0,3) if starts and ends and max(ends)>=min(starts) else None
         (path/'usage-derived.json').write_text(json.dumps(u,indent=2))
         runs.append({'trial':trial['id'],'policy_id':metrics['policy_id'],'actions':metrics['actions'],'edits':metrics['edits'],
             'rejected_actions':sum(not e['executed'] for e in trace),'public_test_calls':metrics['public_test_calls'],
             'public_feedback':[{'action_index':e['action_index'],'delivered':e.get('observation_delivered',False),'observation':e['observation']} for e in trace if e['action'].get('tool')=='test' and e['executed']],
             'terminal':metrics['terminal'],'held_out':metrics['held_out'],'first_candidate_public':metrics['first_candidate_public'],
             'final_candidate_public':metrics['final_candidate_public'],'wall_seconds':metrics['wall_seconds'],
+            'model_session_span_seconds':span,
+            'span_definition':'First recorded SDK turn/start to last turn/end; includes public-tool waits between calls, excludes post-submit verification and offline audits.',
             'usage':u,'raw_metrics_sha256':hashlib.sha256((path/'metrics.json').read_bytes()).hexdigest()})
     report={'kind':'derived_analysis','runs':runs,'parameter_training':False,'planned_repeats':manifest['repeats']}
     (root/'analysis.json').write_text(json.dumps(report,indent=2));return report

@@ -1,0 +1,53 @@
+{
+  "policy_id": "test_verdict",
+  "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+  "model": "deepseek-flash",
+  "actions": 7,
+  "edits": 2,
+  "public_test_calls": 1,
+  "submitted": true,
+  "terminal": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "6438d7c9ed3ea1ea99dd6e1c2ca194b0e45c9b4714597216cd98d8a0eb466cff",
+    "suite_sha256": "a84bba6456b18a7ece2064f90a0d2e95463c0b011f7f9d152994569880e5cab7",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "channel_gaps"
+  },
+  "held_out": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "6438d7c9ed3ea1ea99dd6e1c2ca194b0e45c9b4714597216cd98d8a0eb466cff",
+    "suite_sha256": "917eb0ebd5c731a86453edb25196c7a3cc4a0f26263121cd47728eca22bbad48",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "channel_gaps"
+  },
+  "first_candidate_public": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "77d75777b5faa914c67f6b5808b989019039270fbb876e95021abc2a1c557da8",
+    "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "reset_w_only"
+  },
+  "first_candidate_source": "candidate-04.sv",
+  "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+  "final_candidate_public": null,
+  "freeze_unchanged": true,
+  "solver_stopped_before_evaluation": true,
+  "wall_seconds": 1263.839,
+  "api_usage": null,
+  "api_cost": null,
+  "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+  "private_reward_suite_sha256": "a84bba6456b18a7ece2064f90a0d2e95463c0b011f7f9d152994569880e5cab7",
+  "reserved_evaluation_suite_sha256": "917eb0ebd5c731a86453edb25196c7a3cc4a0f26263121cd47728eca22bbad48"
+}

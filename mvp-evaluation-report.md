@@ -2,6 +2,8 @@
 
 日期：2026-11-24。**revision 3 单任务闭环已实现且实际验证。** 这不是完整工业签核。运行源码冻结版本为 `8d55867`，公开证据见 [industrial-v3](experiments/industrial-v3/README.md)。001 X2P 以此作为唯一标准基线；旧 128 笔版本已废弃并移出当前交付。
 
+基于此基线新增的 A／C／E Observation / Feedback Policy 真实对照，见[独立实验报告](docs/policy-evaluation-report.md)及[policy-v1 证据](experiments/policy-v1/README.md)。其样本、执行版本和结果另行记录，不改写本页历史验收结论。
+
 ## 已实现与实际证据
 
 - 在 UTM 内安装 DSH SDK / Runtime 0.2.2rc2、Python 3.10；真实 API 探针返回预期结果。

@@ -1,0 +1,45 @@
+test_altered_agent_evidence_is_rejected (test_baseline.StandardBaseline.test_altered_agent_evidence_is_rejected) ... ok
+test_changed_reference_is_rejected (test_baseline.StandardBaseline.test_changed_reference_is_rejected) ... ok
+test_retired_backend_is_rejected (test_baseline.StandardBaseline.test_retired_backend_is_rejected) ... ok
+test_saved_baseline_passes_without_claiming_simulation (test_baseline.StandardBaseline.test_saved_baseline_passes_without_claiming_simulation) ... ok
+test_complete_result (test_campaign_contract.GradingContract.test_complete_result) ... ok
+test_empty_case_cannot_pass (test_campaign_contract.GradingContract.test_empty_case_cannot_pass) ... ok
+test_explicit_cycle_timeout (test_campaign_contract.GradingContract.test_explicit_cycle_timeout) ... ok
+test_infrastructure_precedes_timeout (test_campaign_contract.GradingContract.test_infrastructure_precedes_timeout) ... ok
+test_interrupted_execution_is_indeterminate (test_campaign_contract.GradingContract.test_interrupted_execution_is_indeterminate) ... ok
+test_missing_completion_is_failure (test_campaign_contract.GradingContract.test_missing_completion_is_failure) ... ok
+test_reset_accounting (test_campaign_contract.GradingContract.test_reset_accounting) ... ok
+test_stimulus_mismatch_cannot_pass (test_campaign_contract.GradingContract.test_stimulus_mismatch_cannot_pass) ... ok
+test_submission_side_effect_rejected (test_campaign_contract.GradingContract.test_submission_side_effect_rejected) ... ok
+test_vip_protocol_error_before_early_exit (test_campaign_contract.GradingContract.test_vip_protocol_error_before_early_exit) ... ok
+test_wrong_sequence_cannot_pass (test_campaign_contract.GradingContract.test_wrong_sequence_cannot_pass) ... ok
+test_all_vectors_are_legal_and_reproducible (test_campaign_contract.ScenarioContract.test_all_vectors_are_legal_and_reproducible) ... ok
+test_required_cross_is_enumerated (test_campaign_contract.ScenarioContract.test_required_cross_is_enumerated) ... ok
+test_reset_positions_and_multiple_random_streams (test_campaign_contract.ScenarioContract.test_reset_positions_and_multiple_random_streams) ... ok
+test_multiline_rtl_is_preserved (test_policy.AtomicActionParsing.test_multiline_rtl_is_preserved) ... ok
+test_never_skip_broken_edit_to_later_submit_or_test (test_policy.AtomicActionParsing.test_never_skip_broken_edit_to_later_submit_or_test) ... ok
+test_prose_multiple_objects_and_duplicate_keys_reject_atomically (test_policy.AtomicActionParsing.test_prose_multiple_objects_and_duplicate_keys_reject_atomically) ... ok
+test_rejected_reply_has_no_execution_side_effect (test_policy.AtomicActionParsing.test_rejected_reply_has_no_execution_side_effect) ... ok
+test_valid_policy_under_wrong_filename_is_rejected (test_policy.PolicyFileIdentity.test_valid_policy_under_wrong_filename_is_rejected) ... ok
+test_a_denied_before_any_grader_call_and_direct_submit (test_policy.PolicyTests.test_a_denied_before_any_grader_call_and_direct_submit) ... ok
+test_action_budget_and_after_submit_closed (test_policy.PolicyTests.test_action_budget_and_after_submit_closed) ... ok
+test_c_e_only_feedback_identity_diff_and_equal_prompt (test_policy.PolicyTests.test_c_e_only_feedback_identity_diff_and_equal_prompt) ... ok
+test_c_exact_field_whitelist (test_policy.PolicyTests.test_c_exact_field_whitelist) ... ok
+test_e_safe_specific_diagnostic (test_policy.PolicyTests.test_e_safe_specific_diagnostic) ... ok
+test_env_error_is_not_rtl_failure_and_counts_invocation (test_policy.PolicyTests.test_env_error_is_not_rtl_failure_and_counts_invocation) ... ok
+test_invalid_policy_rejected_without_widening (test_policy.PolicyTests.test_invalid_policy_rejected_without_widening) ... ok
+test_private_files_and_tools_denied (test_policy.PolicyTests.test_private_files_and_tools_denied) ... ok
+test_projection_pass_requires_complete_verification (test_policy.PolicyTests.test_projection_pass_requires_complete_verification) ... ok
+test_sensitive_injection_in_all_free_text_fields (test_policy.PolicyTests.test_sensitive_injection_in_all_free_text_fields) ... ok
+test_terminal_rules_identical_in_all_modes (test_policy.PolicyTests.test_terminal_rules_identical_in_all_modes) ... ok
+test_third_test_does_not_execute (test_policy.PolicyTests.test_third_test_does_not_execute) ... ok
+test_trace_records_exact_projected_observation (test_policy.PolicyTests.test_trace_records_exact_projected_observation) ... ok
+test_verifier_exception_not_forwarded (test_policy.PolicyTests.test_verifier_exception_not_forwarded) ... ok
+test_raw_failures_paths_vectors_and_logs_are_not_published (test_policy_export.ExportBoundary.test_raw_failures_paths_vectors_and_logs_are_not_published) ... ok
+test_duplicate_notifications_streams_and_event_repeats_not_double_counted (test_policy_export.UsageAccounting.test_duplicate_notifications_streams_and_event_repeats_not_double_counted) ... ok
+test_missing_usage_is_unknown_not_zero (test_policy_export.UsageAccounting.test_missing_usage_is_unknown_not_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 0.169s
+
+OK

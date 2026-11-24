@@ -1,0 +1,158 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "6438d7c9ed3ea1ea99dd6e1c2ca194b0e45c9b4714597216cd98d8a0eb466cff",
+  "suite_sha256": "a84bba6456b18a7ece2064f90a0d2e95463c0b011f7f9d152994569880e5cab7",
+  "required_cases": [
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall"
+  ],
+  "failed_case": "channel_gaps",
+  "compile_exit": 0,
+  "cases": [
+    {
+      "name": "address_data",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 142,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 142,
+        "axi": 142,
+        "apb": 142,
+        "checked": 142,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_ADDR",
+        "F_DATA",
+        "F_MAPPING"
+      ]
+    },
+    {
+      "name": "read_only",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 24,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 24,
+        "axi": 24,
+        "apb": 24,
+        "checked": 24,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_READ_UNWRITTEN",
+        "F_RR"
+      ]
+    },
+    {
+      "name": "write_accumulate",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 36,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 36,
+        "axi": 36,
+        "apb": 36,
+        "checked": 36,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_WW",
+        "F_PARTIAL",
+        "F_ZERO_STROBE",
+        "F_RR"
+      ]
+    },
+    {
+      "name": "strobe_cross_early",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 576,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 576,
+        "axi": 576,
+        "apb": 576,
+        "checked": 576,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_STROBE_ALL",
+        "X_STROBE_ORDER_ERROR_WAIT_STALL"
+      ]
+    },
+    {
+      "name": "strobe_cross",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 576,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 576,
+        "axi": 576,
+        "apb": 576,
+        "checked": 576,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_STROBE_ALL",
+        "X_STROBE_ORDER_ERROR_WAIT_STALL"
+      ]
+    },
+    {
+      "name": "channel_gaps",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 26,
+      "expected_aborted": 0,
+      "simulation_exit": 0,
+      "requirements": [
+        "F_AW_FIRST",
+        "F_W_FIRST",
+        "F_TOGETHER",
+        "F_HALF_BUFFER"
+      ]
+    }
+  ]
+}

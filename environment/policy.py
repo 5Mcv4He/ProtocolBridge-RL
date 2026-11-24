@@ -55,7 +55,9 @@ def load(name):
             if k in out:raise ValueError('Duplicate policy field')
             out[k]=v
         return out
-    return validate(json.loads(path.read_text(),object_pairs_hook=unique))
+    policy=validate(json.loads(path.read_text(),object_pairs_hook=unique))
+    if policy['policy_id']!=name:raise ValueError('Policy filename/identity mismatch')
+    return policy
 
 def prompt(p):
     # C/E deliberately have identical prompts. Policy identifiers are not disclosed.

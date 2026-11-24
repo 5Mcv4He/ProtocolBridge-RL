@@ -1,0 +1,36 @@
+{
+  "unit_tests": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "count": 40,
+    "status": "pass",
+    "log_sha256": "0a7208a486271d020b99ffc60ac9b82bf653acc0f0eb0201bab335b5be7f5694"
+  },
+  "pre_model_unit_test_count": 39,
+  "baseline": {
+    "baseline": "axil_to_apb4_001-x2p-standard-r3",
+    "status": "pass",
+    "check": "saved-evidence-and-source-consistency",
+    "simulation_executed": false,
+    "errors": []
+  },
+  "runtime_python_3_6_syntax": {
+    "status": "pass",
+    "files": [
+      "environment/policy.py",
+      "environment/policy_mechanism.py",
+      "environment/policy_experiment.py",
+      "environment/policy_session.py",
+      "environment/policy_utm_agent.py",
+      "environment/feedback.py"
+    ]
+  },
+  "real_vcs_mechanism": {
+    "status": "pass",
+    "checks": 31,
+    "grader_invocations": 7
+  },
+  "real_model_trials": 3,
+  "full_local_evidence_audit": true,
+  "measurement_source_commit": "1dc35011415f3ba110816ff56f18043112bf3744",
+  "post_measurement_runtime_change": "Policy filename/ID mismatch rejection only; unit tested, not a new model rollout."
+}

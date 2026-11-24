@@ -19,6 +19,8 @@ def export(source,dest):
         shutil.copyfile(str(source/name),str(dest/name))
     if (source/'runtime-probe.json').exists():
         shutil.copyfile(str(source/'runtime-probe.json'),str(dest/'runtime-probe.json'))
+    if (source/'bringup.json').exists():
+        shutil.copyfile(str(source/'bringup.json'),str(dest/'bringup.json'))
     write(dest/'mechanism/result.json',json.loads((source/'mechanism/result.json').read_text()))
     for p in (source/'mechanism').rglob('result.json'):
         if p==source/'mechanism/result.json':continue
@@ -40,8 +42,11 @@ def export(source,dest):
         for event in trace:
             action=event['action']
             if 'content' in action:
-                content=action.pop('content');action['content_sha256']=hashlib.sha256(content.encode()).hexdigest()
-                action['candidate_file']='candidate-%02d.sv'%event['action_index']
+                content=action.pop('content')
+                payload=content if isinstance(content,str) else json.dumps(content,sort_keys=True)
+                action['content_sha256']=hashlib.sha256(payload.encode()).hexdigest()
+                candidate='candidate-%02d.sv'%event['action_index']
+                action['candidate_file']=candidate if event['executed'] and (src/candidate).exists() else None
             obs=event['observation']
             if 'content' in obs:
                 content=obs.pop('content');obs['content_sha256']=hashlib.sha256(content.encode()).hexdigest();obs['content_bytes']=len(content.encode())

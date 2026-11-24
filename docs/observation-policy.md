@@ -1,6 +1,6 @@
 # Observation / Feedback Policy：固定模型对照
 
-[文档入口](README.md) · [原 v3 Agent](agent-workflow.md) · [验证计划](verification-plan.md)
+[文档入口](README.md) · [实测报告](policy-evaluation-report.md) · [原 v3 Agent](agent-workflow.md) · [验证计划](verification-plan.md)
 
 这是固定模型的推理阶段 Rollout 对照，不更新模型参数。任务仍是 revision 3 的 001 X2P；功能 Spec、VCS/VIP/UVM Scoreboard、终局判据均不改变。原 `environment.agent` 与旧证据保持原样，新实验使用独立入口。
 
@@ -39,13 +39,40 @@ flowchart LR
     H --> I
 ```
 
-`environment.policy_session.Session` 是实际执行权限的唯一调度点，确定性机制验收也调用这个类。它不接收模型指定的测试路径、私有 seed、日志路径或命令。模型没有任意 shell／文件工具，不能通过 read 访问 Policy、参考答案、Verifier 或私有输入。Policy 只存在可信侧；模型会获知必要的工具协议和预算说明。
+当前复用原项目的文本 JSON 动作协议：DSH 返回 `read`／`edit`／`test`／`submit` 对象，由可信控制器执行，并非模型直接启动 shell 或调用任意 SDK 原生工具。因此工具格式合规率也是本次系统表现的一部分，需要与 RTL 能力分开分析。
+
+动作传输按整条响应原子解析：仅接受一个对象，不从说明文字或损坏的编辑内容中继续扫描后面的 `test`／`submit`。多对象、重复字段、说明文字或解析失败都会整条拒绝，消耗一次动作额度但不执行工具。编辑字符串允许原始换行，避免多行 RTL 因 JSON 转义问题被跳过；这个兼容规则对三组相同。被拒绝时返回固定的格式说明，不包含测试信息。
+
+`environment.policy_session.Session` 是实际执行权限的唯一调度点，确定性机制验收也调用这个类。它不接收模型指定的测试路径、私有 seed、日志路径或命令。模型没有任意 shell／文件工具，不能通过 read 访问 Policy、参考答案、Verifier 或私有输入。Policy 只存在可信侧；模型会获知必要的工具协议和预算说明。SDK 另外提供固定的 `You are a helpful software engineer assistant.` 系统提示及 `/work/policy-<随机标识>` 当前目录元数据；这些对三组采用同一规则，不包含目录列表、Verifier 或测试内容。审计会检查 Harness 实际 `user/message`、`system/message`、runtime-context 与请求参数，发现额外输入则报错。
 
 `feedback.project` 从空字典构造响应。C 恰有两个字段。E 的类别、case 名和诊断均受允许列表约束；诊断来自固定文案及精确匹配，不复制原始日志、异常字符串、期望数据或模型可控字符串。未知／不完整结果投影为 ENV_ERROR。非法提交语言单独记录为 `invalid_submission`，终局 Reward 为 null；公开投影为 ENV_ERROR，E 可见其类别。它不是基础设施成功，也不是已确认的 RTL 功能错误。
 
 宿主 grader 的完整结果保存在 `public-*/`，不会作为模型工具结果直接返回。异常只返回固定状态；内部异常类型另存可信证据。求解者停止并确认冻结未变之后，才执行私有评分、保留评估和任何离线候选测量。
 
 现有隔离仍有原来的边界：root-owned worker、低权限 chroot、PID/mount namespace 和工具白名单可用；没有完整网络沙箱、独立 UID 的跨试次文件隔离或恶意 RTL 编译沙箱。全新试次创建新的工作目录、Harness home 和模型 session；不把旧候选或上下文作为输入。不能把这些说成完整的对抗性安全隔离。
+
+同一个错误地址映射实现，在真实机制验收中的首次公开反馈如下（这是固定故障对照，不是模型试次）：
+
+C：
+
+```json
+{
+  "status": "FAIL",
+  "remaining_test_calls": 1
+}
+```
+
+E：
+
+```json
+{
+  "status": "FAIL",
+  "remaining_test_calls": 1,
+  "category": "transaction_functional_error",
+  "first_failed_case": "address_data",
+  "diagnostic": "Transaction mapping, data, response or completion accounting failed."
+}
+```
 
 ## 运行与复用
 
@@ -89,4 +116,4 @@ python3 scripts/analyze_policy.py .local/policy-experiment-new
 python3 scripts/export_policy.py .local/policy-experiment-new experiments/policy-experiment-new
 ```
 
-导出保留真实投影反馈、候选、最终 RTL、结果计数、哈希和 Harness 事件元数据；不上传完整商业日志、完整模型响应、机器部署路径或私有向量。当前实验报告与实测样本量见项目 README 的 Policy 实验入口。
+导出保留真实投影反馈、候选、最终 RTL、结果计数、哈希和 Harness 事件元数据；不上传完整商业日志、完整模型响应、机器部署路径或私有向量。当前实测样本量与结果见[Policy 实验报告](policy-evaluation-report.md)。

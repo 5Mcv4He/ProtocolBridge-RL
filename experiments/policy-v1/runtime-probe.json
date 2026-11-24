@@ -1,0 +1,31 @@
+{
+  "python": "3.10.12",
+  "packages": {
+    "deepseek-harness-runtime-bin": "0.2.2rc2",
+    "deepseek-harness-sdk": "0.2.2rc2"
+  },
+  "sdk_config_fields": [
+    "provider",
+    "model",
+    "reasoning_effort",
+    "max_tokens",
+    "cwd",
+    "runtime_cwd",
+    "dsh_bin",
+    "profile",
+    "patches",
+    "dsh_home",
+    "env",
+    "initialize_timeout_seconds",
+    "request_timeout_seconds",
+    "shutdown_timeout_seconds",
+    "base_url",
+    "api_key",
+    "on_user_question",
+    "approval_requests"
+  ],
+  "vcs": "V-2023.12-SP2",
+  "amba_vip": "R-2020.12",
+  "uvm": "1.1d",
+  "eda_evidence": "mechanism/spec_only/submission/grade/{compile.log,address_data/simulation.log}"
+}

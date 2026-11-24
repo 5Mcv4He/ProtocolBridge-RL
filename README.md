@@ -24,6 +24,7 @@ flowchart LR
 | 如何配置、手动迭代、重放提交或再跑模型 | [环境配置与复用命令](docs/mvp-running.md) |
 | 定向／随机／边界测试如何安排、是否充分 | [验证计划与覆盖](docs/verification-plan.md) |
 | Agent 可见信息、工具权限和反馈粒度怎样控制 | [Observation / Feedback Policy](docs/observation-policy.md) |
+| A／C／E 真实对照怎样运行、模型收到什么、结果能说明什么 | [Policy 实验报告](docs/policy-evaluation-report.md)与[可审计证据](experiments/policy-v1/README.md) |
 | 实际证明了什么、证据在哪里、还缺什么 | [评估报告](mvp-evaluation-report.md)与[验收证据](experiments/industrial-v3/README.md) |
 
 建议讲解顺序：本页概览 → 架构与 Scoreboard → Agent 执行时序 → 真实结果与限制。当前已经跑通任务和奖励闭环，尚未进行 RL 参数训练。
@@ -44,6 +45,39 @@ revision 3 单任务闭环已实际验证。DSH 在 UTM 内运行并调用 API�
 
 旧 128 笔版本已废弃，其源码、向量生成器、导出脚本及交付记录已从当前版本删除。标准定义见[任务入口](tasks/axil_to_apb4_001/README.md)与[机器可读基线清单](tasks/axil_to_apb4_001/baseline.json)。
 
+## Observation / Feedback Policy
+
+在 revision 3 上新增独立实验入口，保留原验证器和旧复现命令。可信控制器执行文件白名单、工具权限、20 次动作预算及测试次数限制；完整结果经字段白名单投影后才返回求解者。提交后停止求解进程，再进行私有评分和独立保留评估。
+
+| 模式 | 模型可用的公开功能反馈 | 公开调用预算 |
+|---|---|---|
+| A：Spec-only | 无；可以直接提交 | 0 |
+| C：Test-verdict | PASS／FAIL／ENV_ERROR、剩余次数 | 2 |
+| E：Test-diagnostic | C 的字段，加错误类别、首个失败 case 和受控短诊断 | 2 |
+
+C／E 使用相同项目初始 prompt、工具、预算、公开集及私有判据。每个试次独立工作区和模型会话；同轮三组共享冻结的私有奖励输入和另一份保留输入。这是固定模型推理阶段对照，不是 RL 参数训练。
+
+已完成每组一次真实 `deepseek-flash` 试次：
+
+| 策略 | 公开调用／实际编辑 | 私有 Reward | 保留评估 |
+|---|---|---|---|
+| A | 0／2 | 1.0 | 1.0 |
+| C | 1／2 | 0.0 | 0.0 |
+| E | 0／0 | 0.0 | 0.0 |
+
+C 收到仅含 FAIL 的反馈后修改，但独立 W 握手错误仍在。E 的多动作回复被拒绝，最终提交未修改模板，没有实际利用诊断反馈。31 项真实 VCS 机制检查与完整轨迹审计通过；发布单元检查 40 项通过。**每组仅一次，不能据此排名策略，也未得出详细诊断是否提高成功率的统计结论。**
+
+```bash
+python3 -m environment.policy_experiment \
+  --out .local/policy-new \
+  --policies spec_only,test_verdict,test_diagnostic \
+  --model deepseek-flash --repeats 1
+python3 scripts/audit_policy.py .local/policy-new
+python3 scripts/analyze_policy.py .local/policy-new
+```
+
+配置与权限说明见 [Policy 文档](docs/observation-policy.md)；逐组真实结果、样本量、失败原因和限制见 [Policy 实验报告](docs/policy-evaluation-report.md)。
+
 ## 运行
 
 需要自行准备有授权的 VCS / AMBA SVT 环境，并配置 SSH。已实测 VCS V-2023.12-SP2、AMBA SVT R-2020.12。仓库不包含商业 VIP、许可证或密钥。
@@ -57,7 +91,7 @@ python3 -m environment.check_baseline
 # 参考实现及十个错误实现的真实 VCS 回归
 bash environment/reproduce.sh .local/reproduction-001
 
-# 在 UTM 安装 DSH 并提供 API key 后，增加真实 Agent 试次
+# 原 v3 Agent 复现入口；新的反馈对照使用上面的 policy_experiment
 bash environment/reproduce.sh .local/reproduction-002 --agent
 ```
 
@@ -70,6 +104,7 @@ bash environment/reproduce.sh .local/reproduction-002 --agent
 - `verifier/v3/`：当前主动 VIP／UVM 验证实现。
 - `fixtures/`：正确参考与十个故障实现。
 - `experiments/industrial-v3/`：结果、精简工具轨迹、实际修复差异、最终 RTL 和证据哈希。
+- `experiments/policy-v1/`：A／C／E 配置、冻结清单、真实投影反馈、候选 RTL、终局结果及审计证据。
 - `scripts/`：脱敏证据导出；`docs/`：复现说明及研究资料。
 
 UVM Scoreboard 通过 analysis port 接收两端 VIP monitor 事务，并与计划请求和独立期望内存状态比较。最终评分在新的仿真目录执行；编译产物只有在代码及验证输入哈希一致时才允许复用。

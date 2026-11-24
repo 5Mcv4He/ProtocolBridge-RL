@@ -2,7 +2,7 @@
 
 [项目入口](../README.md) · [架构](architecture.md) · [验证计划](verification-plan.md) · [运行](mvp-running.md) · [实测报告](../mvp-evaluation-report.md)
 
-本页描述保留的 revision 3 原始执行入口。新增 A／C／E 信息条件对照使用独立的 [Observation / Feedback Policy 入口](observation-policy.md)，其公开测试权限、预算和提交要求由策略控制，不能套用本页旧入口的“提交前必须 test”规则。
+本页描述保留的 revision 3 原始执行入口。新增 A／C／E 信息条件对照使用独立的 [Observation / Feedback Policy 入口](observation-policy.md)，其公开测试权限、预算和提交要求由策略控制，不能套用本页旧入口的“提交前必须 test”规则。旧入口保留原始宽松 JSON 扫描行为，仅用于历史复现；新 Policy 入口使用整条单对象解析，避免跳过损坏的编辑动作后执行后续动作。
 
 ## DSH 在哪里
 
