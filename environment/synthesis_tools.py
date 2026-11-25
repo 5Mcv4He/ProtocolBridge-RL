@@ -40,7 +40,7 @@ def run(source,out,equivalence=False,measure=False,equivalence_netlist=None):
             raw=json.dumps(request).encode();info=tarfile.TarInfo('request.json');info.size=len(raw);tar.addfile(info,io.BytesIO(raw))
         setup=shell('umask 077; mkdir -p '+shlex.quote(remote)+' && tar -xf - -C '+shlex.quote(remote),30,data.getvalue())
         if setup.returncode:raise RuntimeError('Setup failed')
-        execution=shell('cd '+shlex.quote(remote)+' || exit 125; export PB_EDA_ENV_SCRIPT='+shlex.quote(env)+'; ulimit -c 0; ulimit -f 32768; ulimit -v 2097152; python3 runner.py',610)
+        execution=shell('cd '+shlex.quote(remote)+' || exit 125; export PB_EDA_ENV_SCRIPT='+shlex.quote(env)+'; ulimit -c 0; ulimit -f 32768; ulimit -v 2097152; python3 runner.py',430)
         r['runner_exit']=execution.returncode
         # Only fixed own outputs are collected, never a tool/library installation tree.
         collect="python3 -c "+shlex.quote("import io,sys,tarfile; from pathlib import Path; t=tarfile.open(fileobj=sys.stdout.buffer,mode='w|'); [t.add(n,arcname=n) for n in ['execution.json','dc.log','fm.log','pt.log','mapped.v','mapped.sdc','mapping.svf'] if Path(n).is_file()]; t.close()")

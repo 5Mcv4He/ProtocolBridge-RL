@@ -8,7 +8,7 @@ def binding():
     return {'library_sha256':digest(lib),'library_path':str(lib.resolve()),'environment_script_sha256':digest(env),'environment_script_path':str(env.resolve())}
 def main():
     request=json.loads(Path('request.json').read_text());before=binding();rows=[]
-    for name,tool,script,budget in [('dc','dc_shell','dc.tcl',180),('fm','fm_shell','fm.tcl',300),('pt','pt_shell','pt.tcl',90)]:
+    for name,tool,script,budget in [('dc','dc_shell','dc.tcl',180),('fm','fm_shell','fm.tcl',120),('pt','pt_shell','pt.tcl',90)]:
         if name=='fm' and not request['equivalence']:continue
         if name=='pt' and not request['measure']:continue
         if name!='dc' and not Path('mapped.v').exists():break
