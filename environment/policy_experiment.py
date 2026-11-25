@@ -38,8 +38,16 @@ def summarize(out):
     (out/'summary.json').write_text(json.dumps(result,indent=2));return result
 
 
-def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14400,max_tokens=2000000,starting_rtl=None,protocol=PROTOCOLS[0],task_id='axil_to_apb4_001',admission=None):
+def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14400,max_tokens=2000000,starting_rtl=None,protocol=PROTOCOLS[0],task_id='axil_to_apb4_001',admission=None,capabilities=None,paired_inputs=None):
     if task_id not in ('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003'):raise ValueError('Unsupported task')
+    if capabilities not in (None,'engineering-tools-v1'):raise ValueError('Unknown capability profile')
+    if capabilities and (task_id!='axil_to_apb4_queue_003' or policies!=['test_diagnostic']):raise ValueError('Capability profile requires Task003 diagnostic policy')
+    def study_prompt(p):
+        text=experiment_prompt(p,bool(starting_rtl),protocol)
+        if capabilities:
+            from .engineering_session import extend_prompt
+            text=extend_prompt(text)
+        return text
     admission_record=None
     if task_id!='axil_to_apb4_001':
         if admission is None:raise ValueError('A matching Task Quality Gate admission is required')
@@ -80,8 +88,8 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
             order=policies[rep%len(policies):]+policies[:rep%len(policies)]
             for policy in order:schedule.append({'id':'r%02d-%s'%(rep+1,policy),'repeat':rep+1,'policy':policy})
         source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=str(ROOT),universal_newlines=True).strip()
-        manifest={'task_id':task_id,'task_admission':admission_record,'protocol':protocol,'study':('repair' if starting_rtl else 'independent')+('-v2' if protocol==PROTOCOLS[1] else '-v1'),'quality_watch_after_pilot':protocol==PROTOCOLS[1],'limits':{'max_seconds':max_seconds,'max_tokens':max_tokens},'toolchain':toolchain_metadata(cfg),'model':model,'repeats':repeats,'policies':{p:{'config':v,'sha256':policy_hash(v),
-            'prompt_sha256':hashlib.sha256(experiment_prompt(v,bool(starting_rtl),protocol).encode()).hexdigest()} for p,v in selected.items()},'schedule':schedule,
+        manifest={'task_id':task_id,'capabilities':capabilities,'task_admission':admission_record,'protocol':protocol,'study':('repair' if starting_rtl else 'independent')+('-v2' if protocol==PROTOCOLS[1] else '-v1'),'quality_watch_after_pilot':protocol==PROTOCOLS[1],'limits':{'max_seconds':max_seconds,'max_tokens':max_tokens},'toolchain':toolchain_metadata(cfg),'model':model,'repeats':repeats,'policies':{p:{'config':v,'sha256':policy_hash(v),
+            'prompt_sha256':hashlib.sha256(study_prompt(v).encode()).hexdigest()} for p,v in selected.items()},'schedule':schedule,
             'source_commit':source_commit,'source_files':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
             'installed_runtime_files':installed,'pairing':'same reward/evaluation inputs within each repeat; separate split seeds',
             'sampling':'fixed SDK settings; provider temperature/seed defaults, not deterministic',
@@ -97,11 +105,13 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
      hashes[str(rep)]={}
      for split in ('reward','evaluation'):
       seed=random.SystemRandom().getrandbits(64);dest=p/('r%02d-%s.json'%(rep,split))
-      dest.write_text(json.dumps(suite(False,seed),indent=2));hashes[str(rep)][split]=sha(dest)
+      cases=x['paired'][str(rep)][split] if x.get('paired') else suite(False,seed)
+      dest.write_text(json.dumps(cases,indent=2));hashes[str(rep)][split]=sha(dest)
     print(json.dumps(hashes))
     '''
         setup=__import__('textwrap').dedent(setup).replace('from verifier.scenarios import suite','from '+scenario_module+' import suite')
-        r=subprocess.run(ssh+[remote_command(cfg,'cd '+shlex.quote(release)+' && python3 -c '+shlex.quote(setup))],input=json.dumps({'config':config,'repeats':repeats})+'\n',universal_newlines=True,stdout=subprocess.PIPE,check=True)
+        paired={str(rep):{split:json.loads((Path(paired_inputs)/('r%02d-%s.json'%(rep,split))).read_text()) for split in ('reward','evaluation')} for rep in range(1,repeats+1)} if paired_inputs else None
+        r=subprocess.run(ssh+[remote_command(cfg,'cd '+shlex.quote(release)+' && python3 -c '+shlex.quote(setup))],input=json.dumps({'config':config,'repeats':repeats,'paired':paired})+'\n',universal_newlines=True,stdout=subprocess.PIPE,check=True)
         manifest['paired_suite_hashes']=json.loads(r.stdout)
         if starting_rtl:
             content=Path(starting_rtl).read_bytes();manifest['starting_rtl_sha256']=hashlib.sha256(content).hexdigest()
@@ -114,6 +124,7 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
         source_commit=manifest['source_commit'];schedule=manifest['schedule']
         if manifest.get('task_id','axil_to_apb4_001')!=task_id or manifest.get('task_admission')!=admission_record:raise ValueError('Resume task/admission mismatch')
         if model!=manifest['model'] or policies!=list(manifest['policies']) or repeats!=manifest['repeats']:raise ValueError('Resume configuration mismatch')
+        if capabilities!=manifest.get('capabilities'):raise ValueError('Resume capability mismatch')
         if protocol!=manifest.get('protocol',PROTOCOLS[0]):raise ValueError('Resume protocol mismatch')
         if (out/'quality-stop.json').exists():raise RuntimeError('This batch stopped at its quality gate; use a separately frozen study')
         for name,digest in manifest['source_files'].items():
@@ -169,7 +180,7 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
         if resources['free_disk_bytes']<4*1024**3:raise RuntimeError('Disk reserve below 4 GiB; no trial started')
         print('Starting '+trial['id'],flush=True)
         rep=trial['repeat']
-        bootstrap={'task_id':task_id,'api_key':key,'model':model,'policy':trial['policy'],'protocol':protocol,'source_commit':source_commit,
+        bootstrap={'task_id':task_id,'capabilities':capabilities,'api_key':key,'model':model,'policy':trial['policy'],'protocol':protocol,'source_commit':source_commit,
                    'private_suite':release+'/private/r%02d-reward.json'%rep,
                    'evaluation_suite':release+'/private/r%02d-evaluation.json'%rep}
         if 'starting_rtl_sha256' in manifest:bootstrap.update(starting_rtl=release+'/starting.sv',starting_rtl_sha256=manifest['starting_rtl_sha256'])
@@ -197,10 +208,11 @@ def main():
     p.add_argument('--model',default='deepseek-flash');p.add_argument('--repeats',type=int,default=1);p.add_argument('--summarize',action='store_true');p.add_argument('--resume',action='store_true');p.add_argument('--limit',type=int);p.add_argument('--max-seconds',type=int,default=14400);p.add_argument('--max-tokens',type=int,default=2000000);p.add_argument('--starting-rtl')
     p.add_argument('--protocol',choices=PROTOCOLS,default=PROTOCOLS[0])
     p.add_argument('--task',choices=('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003'),default='axil_to_apb4_001');p.add_argument('--admission')
+    p.add_argument('--capabilities',choices=['engineering-tools-v1']);p.add_argument('--paired-inputs',help='Trusted frozen suite directory; never solver visible')
     a=p.parse_args()
     import fcntl
     lock=Path(a.out).resolve().with_name(Path(a.out).name+'.lock');lock.parent.mkdir(parents=True,exist_ok=True)
     handle=lock.open('a');fcntl.flock(handle.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
-    r=summarize(a.out) if a.summarize else experiment(a.out,a.policies.split(','),a.model,a.repeats,a.resume,a.limit,a.max_seconds,a.max_tokens,a.starting_rtl,a.protocol,a.task,a.admission)
+    r=summarize(a.out) if a.summarize else experiment(a.out,a.policies.split(','),a.model,a.repeats,a.resume,a.limit,a.max_seconds,a.max_tokens,a.starting_rtl,a.protocol,a.task,a.admission,a.capabilities,a.paired_inputs)
     print(json.dumps({k:v for k,v in r.items() if k!='runs'},indent=2))
 if __name__=='__main__':main()

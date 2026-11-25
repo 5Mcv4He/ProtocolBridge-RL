@@ -30,12 +30,20 @@ def run(out,bootstrap):
     if 'starting_rtl' in bootstrap and sha(initial)!=bootstrap['starting_rtl_sha256']:raise ValueError('Repair input hash mismatch')
     for dest,src in [('spec.md',task/'spec.md'),('bridge.sv',initial)]:
         (work/dest).write_bytes(src.read_bytes());(work/dest).chmod(0o664)
+    capabilities=bootstrap.get('capabilities')
+    if capabilities is not None:
+        if capabilities!='engineering-tools-v1' or task_id!='axil_to_apb4_queue_003' or policy['policy_id']!='test_diagnostic':raise ValueError('Invalid capability profile')
+        from .engineering_session import Session as session_type
     session=session_type(policy,work,out,reward)
     session.repair=bool(bootstrap.get('starting_rtl'))
     protocol=bootstrap.get('protocol','text-json-atomic-v1')
-    initial_prompt=experiment_prompt(policy,session.repair,protocol);frozen=source_hashes()
+    initial_prompt=experiment_prompt(policy,session.repair,protocol)
+    if capabilities:
+        from .engineering_session import extend_prompt
+        initial_prompt=extend_prompt(initial_prompt)
+    frozen=source_hashes()
     session.protocol_version=2 if protocol=='text-json-atomic-v2' else 1
-    manifest={'task_id':task_id,'action_protocol':protocol,'initial_rtl_sha256':sha(initial),'files':frozen,'policy':policy,'policy_sha256':policy_hash(policy),
+    manifest={'task_id':task_id,'capabilities':capabilities,'action_protocol':protocol,'initial_rtl_sha256':sha(initial),'files':frozen,'policy':policy,'policy_sha256':policy_hash(policy),
               'policy_file_sha256':sha(ROOT/'environment/policies'/(policy['policy_id']+'.json')),
               'prompt_sha256':hashlib.sha256(initial_prompt.encode()).hexdigest(),
               'private_reward_suite_sha256':sha(reward_file),'reserved_evaluation_suite_sha256':sha(evaluation_file),
@@ -103,6 +111,7 @@ def run(out,bootstrap):
     final_hash=sha(out/'submission/bridge.sv') if session.submitted else None
     final_public=[x for x in session.public if x['source_sha256']==final_hash]
     metrics={'task_id':task_id,'policy_id':policy['policy_id'],'policy_sha256':manifest['policy_sha256'],'model':bootstrap['model'],
+        'capabilities':capabilities,'compile_calls':getattr(session,'compiles',0),'inspect_calls':getattr(session,'inspects',0),
         'actions':session.actions,'edits':session.edits,'public_test_calls':session.tests,'submitted':session.submitted,
         'terminal':brief(result),'held_out':brief(held),'first_candidate_public':brief(first),
         'first_candidate_source':session.first_candidate,'first_candidate_measurement':'post-hoc or matching actual public call; never additional solver feedback',

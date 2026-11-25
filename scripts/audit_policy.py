@@ -37,27 +37,47 @@ def audit(root,limit=None):
         require(digest(d/'initial-prompt.txt')==freeze['prompt_sha256']==experiment['policies'][entry['policy']]['prompt_sha256'],name+': prompt hash mismatch')
         protocol=experiment.get('protocol','text-json-atomic-v1')
         require(freeze.get('action_protocol','text-json-atomic-v1')==protocol,name+': action protocol mismatch')
-        if observations:require(observations[0]['prompt']==experiment_prompt(policy,'starting_rtl_sha256' in experiment,protocol),name+': unexpected initial observation')
+        expected_prompt=experiment_prompt(policy,'starting_rtl_sha256' in experiment,protocol)
+        capabilities=experiment.get('capabilities')
+        if capabilities:
+            from environment.engineering_session import extend_prompt,PROFILE
+            require(capabilities==PROFILE['id'] and task_id==PROFILE['task_id'] and policy['policy_id']=='test_diagnostic',name+': invalid capabilities')
+            expected_prompt=extend_prompt(expected_prompt)
+        require(freeze.get('capabilities')==capabilities and metrics.get('capabilities')==capabilities,name+': capabilities mismatch')
+        if observations:require(observations[0]['prompt']==expected_prompt,name+': unexpected initial observation')
         else:require(metrics['actions']==0 and metrics['terminal']['reward'] is None,name+': missing initial observation')
         require(metrics['freeze_unchanged'],name+': freeze failure')
         if not metrics['solver_stopped_before_evaluation']:
             require(metrics['terminal']['reward'] is None and metrics['held_out'] is None,name+': evaluated before solver stop')
         require(len(trace)==metrics['actions']<=20,name+': action accounting')
-        count=0;edit_count=0;read_files=set();active_text=None
+        count=0;compile_count=0;inspect_count=0;last_public=None;edit_count=0;read_files=set();active_text=None
         active_source=experiment.get('starting_rtl_sha256',experiment['source_files'][task_dir+'/workspace/bridge.sv'])
         spec_source=experiment['source_files'][task_dir+'/spec.md']
         for i,event in enumerate(trace):
             action=event['action'];obs=event['observation'];tool=action.get('tool')
             if event['executed']:
-                require(tool in policy['allowed_tools'],name+': executed forbidden tool')
+                require(tool in policy['allowed_tools']+(PROFILE['tools'] if capabilities else []),name+': executed forbidden tool')
             if tool=='test' and event['executed']:
                 count+=1;p=d/('public-%02d'%event['action_index'])/'result.json'
                 require(p.exists(),name+': public result missing')
                 if p.exists():
-                    result=json.loads(p.read_text())
+                    result=json.loads(p.read_text());last_public=(event['action_index'],result)
                     require(obs==projector(result,policy,policy['max_public_test_calls']-count),name+': public projection differs')
                     require(result['source_sha256']==active_source,name+': public test used a different candidate')
             elif tool=='test':require(not (d/('public-%02d'%event['action_index'])).exists(),name+': rejected test executed')
+            if tool=='compile' and event['executed']:
+                from environment.engineering_tools import compiler_projection
+                compile_count+=1;cp=d/('compile-%02d'%event['action_index']);record=json.loads((cp/'result.json').read_text())
+                expected=dict(record['observation'],remaining_compile_calls=2-compile_count)
+                require(obs==expected and record['source_sha256']==active_source,name+': compile observation/source mismatch')
+                if (cp/'compile.log').exists():require(record['observation']==compiler_projection((cp/'compile.log').read_text(),record['exit_code']),name+': compiler projection mismatch')
+            if tool=='inspect' and event['executed']:
+                from environment.engineering_tools import inspect_public
+                inspect_count+=1
+                require(last_public is not None,name+': inspect without public test')
+                if last_public:
+                    expected=dict(inspect_public(last_public[1]),public_action=last_public[0],source_sha256=last_public[1]['source_sha256'],remaining_inspect_calls=2-inspect_count)
+                    require(obs==expected,name+': inspect projection mismatch')
             if tool=='read' and event['executed']:
                 require(action['file'] in policy['readable_files'],name+': forbidden read');read_files.add(action['file'])
                 require(obs['file']==action['file'],name+': wrong file observation')
@@ -75,6 +95,7 @@ def audit(root,limit=None):
                 require(i+1<len(observations),name+': missing delivered observation')
                 if i+1<len(observations):require(json.loads(observations[i+1]['prompt'])=={'tool_result':obs},name+': actual model input differs from projected observation')
             else:require(i==len(trace)-1,name+': unexplained nondelivery')
+        require(compile_count==metrics.get('compile_calls',0)<=2 and inspect_count==metrics.get('inspect_calls',0)<=2,name+': capability budgets')
         require(count==metrics['public_test_calls']<=policy['max_public_test_calls'],name+': test budget')
         require(edit_count==metrics['edits'],name+': edit accounting')
         sid=set()
