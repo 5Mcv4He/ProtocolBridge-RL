@@ -1,4 +1,4 @@
-"""Sequential paired fixed-model rollouts, deployed to UTM. No parameter training."""
+"""Sequential paired fixed-model rollouts, deployed to a licensed Linux host. No parameter training."""
 import argparse,hashlib,io,json,os,shlex,subprocess,tarfile,uuid
 from pathlib import Path
 from .check_baseline import check
@@ -88,7 +88,7 @@ print(json.dumps(hashes))
         # logs/vectors/source evidence are in trial output dirs and already copied.
         code='import shutil; from pathlib import Path; p=Path('+repr(release)+')/"builds"; shutil.rmtree(str(p)) if p.exists() else None'
         subprocess.run(ssh+[remote_command(cfg,'python3 -c '+shlex.quote(code))],check=True)
-    print('Running real deterministic mechanism acceptance in UTM',flush=True)
+    print('Running real deterministic mechanism acceptance on configured backend',flush=True)
     rc=remote('environment.policy_mechanism',['mechanism','private/r01-reward.json'],'mechanism-controller.log')
     fetch('mechanism');clean_builds()
     accepted=json.loads((out/'mechanism/result.json').read_text())['accepted']
