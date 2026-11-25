@@ -5,7 +5,7 @@ from .check_baseline import check
 from .policy import load,policy_hash,prompt
 from .reset import ROOT
 from .remote_backend import remote_command,toolchain_metadata
-from .batch_contract import experiment_prompt
+from .batch_contract import experiment_prompt,PROTOCOLS
 
 
 def summarize(out):
@@ -24,7 +24,8 @@ def summarize(out):
     (out/'summary.json').write_text(json.dumps(result,indent=2));return result
 
 
-def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14400,max_tokens=2000000,starting_rtl=None):
+def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14400,max_tokens=2000000,starting_rtl=None,protocol=PROTOCOLS[0]):
+    if protocol not in PROTOCOLS:raise ValueError('Unknown action protocol')
     if repeats<1 or not policies or (limit is not None and (limit<1 or limit>repeats*len(policies))) or max_seconds<=0 or max_tokens<=0 or len(set(policies))!=len(policies):raise ValueError('Invalid experiment dimensions')
     selected={p:load(p) for p in policies}
     if check()['status']!='pass':raise RuntimeError('Revision 3 baseline drift')
@@ -44,6 +45,7 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
         code='import hashlib,json,sys; from pathlib import Path; x=json.loads(sys.stdin.readline()); assert all(hashlib.sha256(Path(p).read_bytes()).hexdigest()==h for p,h in x.items())'
         subprocess.run(ssh+[remote_command(cfg,'python3 -c '+shlex.quote(code))],input=json.dumps(installed)+'\n',universal_newlines=True,check=True)
         files=[p for d in ('environment','verifier','fixtures','tasks','tests') for p in (ROOT/d).rglob('*') if p.is_file() and '__pycache__' not in str(p)]
+        if protocol==PROTOCOLS[1]:files += [ROOT/'scripts'/name for name in ('analyze_policy.py','audit_policy.py','batch_analysis.py','batch_tables.py')]
         archive=io.BytesIO()
         with tarfile.open(fileobj=archive,mode='w:gz') as tar:
             for p in files:tar.add(str(p),arcname=str(p.relative_to(ROOT)))
@@ -56,8 +58,8 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
             order=policies[rep%len(policies):]+policies[:rep%len(policies)]
             for policy in order:schedule.append({'id':'r%02d-%s'%(rep+1,policy),'repeat':rep+1,'policy':policy})
         source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=str(ROOT),universal_newlines=True).strip()
-        manifest={'protocol':'text-json-atomic-v1','study':'repair-v1' if starting_rtl else 'independent-v1','limits':{'max_seconds':max_seconds,'max_tokens':max_tokens},'toolchain':toolchain_metadata(cfg),'model':model,'repeats':repeats,'policies':{p:{'config':v,'sha256':policy_hash(v),
-            'prompt_sha256':hashlib.sha256(experiment_prompt(v,bool(starting_rtl)).encode()).hexdigest()} for p,v in selected.items()},'schedule':schedule,
+        manifest={'protocol':protocol,'study':('repair' if starting_rtl else 'independent')+('-v2' if protocol==PROTOCOLS[1] else '-v1'),'quality_watch_after_pilot':protocol==PROTOCOLS[1],'limits':{'max_seconds':max_seconds,'max_tokens':max_tokens},'toolchain':toolchain_metadata(cfg),'model':model,'repeats':repeats,'policies':{p:{'config':v,'sha256':policy_hash(v),
+            'prompt_sha256':hashlib.sha256(experiment_prompt(v,bool(starting_rtl),protocol).encode()).hexdigest()} for p,v in selected.items()},'schedule':schedule,
             'source_commit':source_commit,'source_files':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
             'installed_runtime_files':installed,'pairing':'same reward/evaluation inputs within each repeat; separate split seeds',
             'sampling':'fixed SDK settings; provider temperature/seed defaults, not deterministic',
@@ -89,6 +91,8 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
         manifest=json.loads((out/'experiment.json').read_text());release=json.loads((out/'deployment.json').read_text())['release']
         source_commit=manifest['source_commit'];schedule=manifest['schedule']
         if model!=manifest['model'] or policies!=list(manifest['policies']) or repeats!=manifest['repeats']:raise ValueError('Resume configuration mismatch')
+        if protocol!=manifest.get('protocol',PROTOCOLS[0]):raise ValueError('Resume protocol mismatch')
+        if (out/'quality-stop.json').exists():raise RuntimeError('This batch stopped at its quality gate; use a separately frozen study')
         for name,digest in manifest['source_files'].items():
             if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:raise ValueError('Frozen source drift: '+name)
     def remote(module,args,logname,bootstrap=None):
@@ -120,7 +124,7 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
         code="import json,shutil; from pathlib import Path; root=Path("+repr(release)+"); builds=root/'builds'; result=root/"+repr(name)+"; paths={json.loads(p.read_text()).get('remote','') for p in result.rglob('runtime.json')}; [shutil.rmtree(str(Path(p)),ignore_errors=True) for p in paths if Path(p).parent==builds and len(Path(p).name)==32]"
         subprocess.run(ssh+[remote_command(cfg,'python3 -c '+shlex.quote(code))],check=True)
     print('Running real deterministic mechanism acceptance on configured backend',flush=True)
-    rc=0 if (out/'mechanism/result.json').exists() else remote('environment.policy_mechanism',['mechanism','private/r01-reward.json'],'mechanism-controller.log')
+    rc=0 if (out/'mechanism/result.json').exists() else remote('environment.policy_mechanism',['mechanism','private/r01-reward.json','--protocol',protocol],'mechanism-controller.log')
     fetch('mechanism')
     if not resume:clean_builds('mechanism')
     accepted=json.loads((out/'mechanism/result.json').read_text())['accepted']
@@ -141,7 +145,7 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
         if resources['free_disk_bytes']<4*1024**3:raise RuntimeError('Disk reserve below 4 GiB; no trial started')
         print('Starting '+trial['id'],flush=True)
         rep=trial['repeat']
-        bootstrap={'api_key':key,'model':model,'policy':trial['policy'],'source_commit':source_commit,
+        bootstrap={'api_key':key,'model':model,'policy':trial['policy'],'protocol':protocol,'source_commit':source_commit,
                    'private_suite':release+'/private/r%02d-reward.json'%rep,
                    'evaluation_suite':release+'/private/r%02d-evaluation.json'%rep}
         if 'starting_rtl_sha256' in manifest:bootstrap.update(starting_rtl=release+'/starting.sv',starting_rtl_sha256=manifest['starting_rtl_sha256'])
@@ -154,16 +158,24 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
         from scripts.analyze_policy import analyze
         analyze(out)
         print('Finished '+trial['id']+' controller_exit='+str(rc),flush=True)
+        completed=summarize(out)['completed_runs']
+        if manifest.get('quality_watch_after_pilot') and completed>=9 and completed%len(policies)==0:
+            from scripts.batch_analysis import report
+            gate=report(out,completed)['quality_gate']
+            if not gate['passed']:
+                (out/'quality-stop.json').write_text(json.dumps({'completed_runs':completed,'quality_gate':gate,'resume_forbidden':True},indent=2))
+                print('Quality gate stopped further trials; all outcomes preserved',flush=True);break
     return summarize(out)
 
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('--policies',default='spec_only,test_verdict,test_diagnostic')
     p.add_argument('--model',default='deepseek-flash');p.add_argument('--repeats',type=int,default=1);p.add_argument('--summarize',action='store_true');p.add_argument('--resume',action='store_true');p.add_argument('--limit',type=int);p.add_argument('--max-seconds',type=int,default=14400);p.add_argument('--max-tokens',type=int,default=2000000);p.add_argument('--starting-rtl')
+    p.add_argument('--protocol',choices=PROTOCOLS,default=PROTOCOLS[0])
     a=p.parse_args()
     import fcntl
     lock=Path(a.out).resolve().with_name(Path(a.out).name+'.lock');lock.parent.mkdir(parents=True,exist_ok=True)
     handle=lock.open('a');fcntl.flock(handle.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
-    r=summarize(a.out) if a.summarize else experiment(a.out,a.policies.split(','),a.model,a.repeats,a.resume,a.limit,a.max_seconds,a.max_tokens,a.starting_rtl)
+    r=summarize(a.out) if a.summarize else experiment(a.out,a.policies.split(','),a.model,a.repeats,a.resume,a.limit,a.max_seconds,a.max_tokens,a.starting_rtl,a.protocol)
     print(json.dumps({k:v for k,v in r.items() if k!='runs'},indent=2))
 if __name__=='__main__':main()

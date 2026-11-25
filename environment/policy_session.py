@@ -11,6 +11,7 @@ class Session:
         self.policy=copy.deepcopy(validate(policy));self.work=Path(work);self.out=Path(out)
         self.reward_cases=copy.deepcopy(reward_cases);self.grader=grader;self.read=set()
         self.repair=False
+        self.protocol_version=1
         self.actions=0;self.tests=0;self.edits=0;self.done=False;self.submitted=False
         self.result={'reward':None,'category':'agent_incomplete'};self.trace=[];self.public=[]
         self.builds={} if reuse is None else dict(reuse);self.first_candidate=None
@@ -63,6 +64,9 @@ class Session:
                 dest=self.out/'submission';dest.mkdir();candidate=dest/'bridge.sv'
                 candidate.write_bytes((self.work/'bridge.sv').read_bytes());candidate.chmod(0o444)
                 self.done=True;self.submitted=True;executed=True;obs={'status':'SUBMITTED'}
+        if self.protocol_version==2 and obs.get('reason') in ('invalid_action','invalid_action_format'):
+            obs['instruction']='Resend ONE action object with exactly the listed fields. Do not append another action. The rejected reply executed nothing.'
+            obs['action_fields']={name:sorted(schemas[name]) for name in self.policy['allowed_tools']}
         event={'action_index':self.actions,'action':action,'executed':executed,'observation':obs}
         self.trace.append(event);(self.out/'trace.json').write_text(json.dumps(self.trace,indent=2))
         if self.actions>=self.policy['max_agent_actions']:self.done=True

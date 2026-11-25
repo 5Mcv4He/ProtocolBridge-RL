@@ -12,9 +12,12 @@ def compact_result(r):
     out['cases']=[{k:c[k] for k in ('name','reward','category','planned','expected_aborted','scoreboard','simulation_exit','requirements') if k in c} for c in r.get('cases',[])]
     return out
 
-def export(source,dest):
+def export(source,dest,trial_ids=None):
     source=Path(source);dest=Path(dest);dest.mkdir(parents=True,exist_ok=False)
     manifest=json.loads((source/'experiment.json').read_text())
+    selected=None if trial_ids is None else set(trial_ids)
+    if selected is not None and not selected.issubset({x['id'] for x in manifest['schedule']}):
+        raise ValueError('Selected trial is not in the frozen schedule')
     for name in ('experiment.json','summary.json','analysis.json','audit.json'):
         shutil.copyfile(str(source/name),str(dest/name))
     if (source/'runtime-probe.json').exists():
@@ -30,6 +33,7 @@ def export(source,dest):
         for p in sorted((source/'mechanism').rglob('*')) if p.is_file()})
     for item in manifest['schedule']:
         name=item['id'];src=source/name
+        if selected is not None and name not in selected:continue
         if not (src/'metrics.json').exists():continue
         dst=dest/name;dst.mkdir()
         for f in ('metrics.json','freeze.json','policy.json','initial-prompt.txt'):
@@ -68,8 +72,8 @@ def export(source,dest):
             write(dst/p.relative_to(src),compact_result(json.loads(p.read_text())))
         if (src/'first-candidate-result.json').exists():write(dst/'first-candidate-result.json',compact_result(json.loads((src/'first-candidate-result.json').read_text())))
         write(dst/'raw-evidence-sha256.json',{str(p.relative_to(src)):sha(p) for p in sorted(src.rglob('*')) if p.is_file()})
-    write(dest/'publication.json',{'format':'policy-allowlist-v1','raw_evidence':'Retained locally; no private vectors, commercial logs, API keys or full model responses published.',
+    write(dest/'publication.json',{'format':'policy-allowlist-v1','selected_trials':None if selected is None else sorted(selected),'raw_evidence':'Retained locally; no private vectors, commercial logs, API keys or full model responses published.',
          'files':{str(p.relative_to(dest)):sha(p) for p in sorted(dest.rglob('*')) if p.is_file()}})
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('source');p.add_argument('dest');a=p.parse_args();export(a.source,a.dest)
+    p=argparse.ArgumentParser();p.add_argument('source');p.add_argument('dest');p.add_argument('--trials',help='Comma-separated selected trajectories; aggregate denominators remain complete');a=p.parse_args();export(a.source,a.dest,None if a.trials is None else a.trials.split(','))

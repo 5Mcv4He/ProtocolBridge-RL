@@ -3,11 +3,13 @@ import argparse,json
 from pathlib import Path
 from .policy import load,parse_action
 from .policy_session import Session
+from .batch_contract import PROTOCOLS
 from .reset import ROOT
 from verifier.campaign import grade,sha
 
 
-def run(out,reward_path):
+def run(out,reward_path,protocol=PROTOCOLS[0]):
+    if protocol not in PROTOCOLS:raise ValueError('Unknown action protocol')
     out=Path(out);out.mkdir(parents=True,exist_ok=False)
     reward=json.loads(Path(reward_path).read_text());builds={};runs={};checks=[]
     for mode in ('spec_only','test_verdict','test_diagnostic'):
@@ -19,12 +21,18 @@ def run(out,reward_path):
             calls.append({'public':kw.get('public',False),'cases_sha256':sha(reward_path) if 'cases' in kw else None})
             return grade(source,dest,**kw)
         s=Session(load(mode),work,out/mode,reward,counted,reuse=builds)
+        s.protocol_version=2 if protocol==PROTOCOLS[1] else 1
         # A malformed/multiple-action reply must not skip an edit and execute
         # a later test/submit. This uses the same parser as the real controller.
         try:action=parse_action('{"tool":"edit","content":"module bridge;\nendmodule"}\n{"tool":"test"}\n{"tool":"submit"}')
         except ValueError:action={}
         rejected=s.handle(action)
         checks.append(rejected.get('reason')=='invalid_action_format' and not calls and not s.submitted)
+        if s.protocol_version==2:
+            before=sha(work/'bridge.sv')
+            invalid=s.handle({'tool':'edit','content':'module bridge; endmodule','content_note':'overwrite'})
+            checks.append(invalid['reason']=='invalid_action' and sha(work/'bridge.sv')==before and not calls and s.edits==0)
+            checks.append(invalid['action_fields']['edit']==['content','tool'] and set(invalid['action_fields'])==set(s.policy['allowed_tools']))
         for f in ('spec.md','bridge.sv'):s.handle({'tool':'read','file':f})
         for f in ('policy.json','fixtures/reference.sv','private/reward.json','verifier/v3/vip.sv'):
             checks.append(s.handle({'tool':'read','file':f})['status']=='REJECTED')
@@ -44,10 +52,10 @@ def run(out,reward_path):
         runs[mode]={'public_test_calls':s.tests,'grader_invocations':calls,'observations':obs,'terminal_reward':result['reward'],
                     'terminal_category':result['category'],'source_sha256':sha(work/'bridge.sv')}
         (out/'progress.json').write_text(json.dumps(runs,indent=2))
-    report={'accepted':all(checks),'check_count':len(checks),'real_vcs':True,'agent_model_used':False,
+    report={'action_protocol':protocol,'accepted':all(checks),'check_count':len(checks),'real_vcs':True,'agent_model_used':False,
             'private_reward_suite_sha256':sha(reward_path),'candidate':'fixtures/bad_address.sv','runs':runs}
     (out/'result.json').write_text(json.dumps(report,indent=2));return report
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('out');p.add_argument('reward');a=p.parse_args()
-    raise SystemExit(0 if run(a.out,a.reward)['accepted'] else 1)
+    p=argparse.ArgumentParser();p.add_argument('out');p.add_argument('reward');p.add_argument('--protocol',choices=PROTOCOLS,default=PROTOCOLS[0]);a=p.parse_args()
+    raise SystemExit(0 if run(a.out,a.reward,a.protocol)['accepted'] else 1)

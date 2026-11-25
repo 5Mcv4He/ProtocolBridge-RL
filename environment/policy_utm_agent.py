@@ -25,8 +25,10 @@ def run(out,bootstrap):
         (work/dest).write_bytes(src.read_bytes());(work/dest).chmod(0o664)
     session=Session(policy,work,out,reward)
     session.repair=bool(bootstrap.get('starting_rtl'))
-    initial_prompt=experiment_prompt(policy,session.repair);frozen=source_hashes()
-    manifest={'initial_rtl_sha256':sha(initial),'files':frozen,'policy':policy,'policy_sha256':policy_hash(policy),
+    protocol=bootstrap.get('protocol','text-json-atomic-v1')
+    initial_prompt=experiment_prompt(policy,session.repair,protocol);frozen=source_hashes()
+    session.protocol_version=2 if protocol=='text-json-atomic-v2' else 1
+    manifest={'action_protocol':protocol,'initial_rtl_sha256':sha(initial),'files':frozen,'policy':policy,'policy_sha256':policy_hash(policy),
               'policy_file_sha256':sha(ROOT/'environment/policies'/(policy['policy_id']+'.json')),
               'prompt_sha256':hashlib.sha256(initial_prompt.encode()).hexdigest(),
               'private_reward_suite_sha256':sha(reward_file),'reserved_evaluation_suite_sha256':sha(evaluation_file),

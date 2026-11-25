@@ -26,7 +26,9 @@ def audit(root,limit=None):
                           if k.split('/')[0] in ('environment','verifier','fixtures','tasks')}
         require(freeze['files']==expected_runtime,name+': deployed runtime differs from experiment freeze')
         require(digest(d/'initial-prompt.txt')==freeze['prompt_sha256']==experiment['policies'][entry['policy']]['prompt_sha256'],name+': prompt hash mismatch')
-        if observations:require(observations[0]['prompt']==experiment_prompt(policy,'starting_rtl_sha256' in experiment),name+': unexpected initial observation')
+        protocol=experiment.get('protocol','text-json-atomic-v1')
+        require(freeze.get('action_protocol','text-json-atomic-v1')==protocol,name+': action protocol mismatch')
+        if observations:require(observations[0]['prompt']==experiment_prompt(policy,'starting_rtl_sha256' in experiment,protocol),name+': unexpected initial observation')
         else:require(metrics['actions']==0 and metrics['terminal']['reward'] is None,name+': missing initial observation')
         require(metrics['freeze_unchanged'],name+': freeze failure')
         if not metrics['solver_stopped_before_evaluation']:
