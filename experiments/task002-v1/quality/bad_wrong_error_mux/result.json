@@ -1,0 +1,83 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "318b58285167d5cc60c7543a33b10d1f6f5b28c903c98ba82d55f037540de9b9",
+  "suite_sha256": "06e8138a344e6b8e479834d885c63ac27ab636d5112f8dff215ab2d453fc539d",
+  "required_cases": [
+    "wait_error",
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "decode_misses",
+    "independent_target_memory",
+    "router_reset"
+  ],
+  "failed_case": "address_data",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "wait_error",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 24,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 24,
+        "axi": 24,
+        "apb": 24,
+        "checked": 24,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 24,
+        "unmapped": 0,
+        "target0": 24,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_WAIT",
+        "F_ERROR_WRITE",
+        "F_ERROR_READ",
+        "F_ERROR_NO_WRITE"
+      ]
+    },
+    {
+      "name": "address_data",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 142,
+      "expected_aborted": 0,
+      "simulation_exit": 0,
+      "requirements": [
+        "F_ADDR",
+        "F_DATA",
+        "F_MAPPING"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "accepted": true,
+  "trials": [
+    {
+      "trial": "r01-spec_only",
+      "actions": 4,
+      "public_calls": 0,
+      "policy": "spec_only"
+    },
+    {
+      "trial": "r01-test_verdict",
+      "actions": 8,
+      "public_calls": 2,
+      "policy": "test_verdict"
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "actions": 4,
+      "public_calls": 0,
+      "policy": "test_diagnostic"
+    },
+    {
+      "trial": "r02-test_verdict",
+      "actions": 5,
+      "public_calls": 1,
+      "policy": "test_verdict"
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "actions": 6,
+      "public_calls": 1,
+      "policy": "test_diagnostic"
+    },
+    {
+      "trial": "r02-spec_only",
+      "actions": 4,
+      "public_calls": 0,
+      "policy": "spec_only"
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "actions": 5,
+      "public_calls": 1,
+      "policy": "test_diagnostic"
+    },
+    {
+      "trial": "r03-spec_only",
+      "actions": 4,
+      "public_calls": 0,
+      "policy": "spec_only"
+    },
+    {
+      "trial": "r03-test_verdict",
+      "actions": 8,
+      "public_calls": 2,
+      "policy": "test_verdict"
+    }
+  ],
+  "errors": [],
+  "audit_scope": "Full local trace, exact Harness user/system/context inputs, request parameters, worker identities, budgets, submissions, runtime hashes and paired suites; no new simulation.",
+  "common_sdk_observation": "Fixed helpful-software-engineer system prompt and the fresh solver working directory only."
+}

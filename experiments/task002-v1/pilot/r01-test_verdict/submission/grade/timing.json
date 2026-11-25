@@ -1,0 +1,114 @@
+[
+  {
+    "kind": "io",
+    "wall_seconds": 0.008308935000968631
+  },
+  {
+    "kind": "compile",
+    "wall_seconds": 84.22730394800237
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.540652155999851
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9940767640000558
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.0208953019973706
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 10.634105811001064
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 11.318823789999442
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.0571227229993383
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9609963270013395
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.002051929997833
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.5633854659972712
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 3.2867890220004483
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 3.2911061539998627
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 3.190803728000901
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 3.192414748002193
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.7235854399987147
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.0325678510016587
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.0299263070010056
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.938162992002617
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.934155652001209
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.0227018969999335
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.008024070997635
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.980148239999835
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.0168496879996383
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9864573839986406
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 3.587130492000142
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.3538827129996207
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.5576013610007067
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "318b58285167d5cc60c7543a33b10d1f6f5b28c903c98ba82d55f037540de9b9",
+  "suite_sha256": "3550f565209a0072936a861d4897511f18fb1794156280134ca6c70f7f0e53bf",
+  "required_cases": [
+    "reset_aw_only",
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "decode_misses",
+    "independent_target_memory",
+    "router_reset"
+  ],
+  "failed_case": "reset_aw_only",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "reset_aw_only",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 24,
+      "expected_aborted": 4,
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_AW_ONLY",
+        "F_RESET_RECOVERY"
+      ]
+    }
+  ]
+}

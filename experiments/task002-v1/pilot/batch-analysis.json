@@ -1,0 +1,926 @@
+{
+  "groups": {
+    "spec_only": {
+      "started": 3,
+      "effective_edit": 3,
+      "submitted": 3,
+      "successes": 2,
+      "success_rate_all_started": 0.6666666666666666,
+      "wilson95": [
+        0.2076549551264879,
+        0.9385096847238394
+      ],
+      "feedback_exposed": 0,
+      "edited_after_feedback": 0,
+      "reward_distribution": {
+        "0": 1,
+        "1": 2,
+        "null": 0
+      },
+      "protocol_error_actions": 0,
+      "total_actions": 12,
+      "conditional": {
+        "effective_edit": {
+          "n": 3,
+          "successes": 2,
+          "rate": 0.6666666666666666,
+          "wilson95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ]
+        },
+        "valid_submission": {
+          "n": 3,
+          "successes": 2,
+          "rate": 0.6666666666666666,
+          "wilson95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ]
+        },
+        "feedback": {
+          "n": 0,
+          "successes": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      "determinate_binary_reward_entropy_bits": 0.9182958340544896,
+      "entropy_excludes_null": true,
+      "measurements": {
+        "trials": 3,
+        "json_parse_errors": 0,
+        "schema_or_argument_errors": 0,
+        "compilation_processes": 5,
+        "simulation_processes": 146,
+        "edits": 3,
+        "public_calls": 0,
+        "failed_feedback_trials": 0,
+        "changed_after_feedback": 0,
+        "changed_after_failed_feedback": 0,
+        "protocol_errors_without_candidate": 0,
+        "terminal_categories": {
+          "pass": 2,
+          "compile_error": 1
+        },
+        "primary_outcomes": {
+          "pass": 2,
+          "compile_error": 1
+        },
+        "first_candidate_public_pass": 2,
+        "first_candidate_public_fail": 1,
+        "first_candidate_unmeasured": 0,
+        "final_public_pass_private_fail": 0,
+        "held_out_successes": 2,
+        "terminal_held_out_disagreements": 0,
+        "trials_with_protocol_errors": 0,
+        "failure_labels_nonexclusive": {
+          "compile_error": 1
+        },
+        "tokens": {
+          "inputTokens": 8163,
+          "outputTokens": 9115,
+          "cacheReadTokens": 20608,
+          "cacheWriteTokens": 0,
+          "totalTokens": 37886
+        },
+        "seconds": {
+          "wall_seconds": 677.899,
+          "model_request_wall_seconds": 43.546,
+          "compile_wall_seconds": 226.104,
+          "simulation_wall_seconds": 401.509
+        },
+        "timing_observed_trials": {
+          "wall_seconds": 3,
+          "model_request_wall_seconds": 3,
+          "compile_wall_seconds": 3,
+          "simulation_wall_seconds": 3
+        },
+        "api_currency_cost": null
+      }
+    },
+    "test_verdict": {
+      "started": 3,
+      "effective_edit": 3,
+      "submitted": 3,
+      "successes": 2,
+      "success_rate_all_started": 0.6666666666666666,
+      "wilson95": [
+        0.2076549551264879,
+        0.9385096847238394
+      ],
+      "feedback_exposed": 3,
+      "edited_after_feedback": 2,
+      "reward_distribution": {
+        "0": 1,
+        "1": 2,
+        "null": 0
+      },
+      "protocol_error_actions": 0,
+      "total_actions": 21,
+      "conditional": {
+        "effective_edit": {
+          "n": 3,
+          "successes": 2,
+          "rate": 0.6666666666666666,
+          "wilson95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ]
+        },
+        "valid_submission": {
+          "n": 3,
+          "successes": 2,
+          "rate": 0.6666666666666666,
+          "wilson95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ]
+        },
+        "feedback": {
+          "n": 3,
+          "successes": 2,
+          "rate": 0.6666666666666666,
+          "wilson95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ]
+        }
+      },
+      "determinate_binary_reward_entropy_bits": 0.9182958340544896,
+      "entropy_excludes_null": true,
+      "measurements": {
+        "trials": 3,
+        "json_parse_errors": 0,
+        "schema_or_argument_errors": 0,
+        "compilation_processes": 7,
+        "simulation_processes": 149,
+        "edits": 7,
+        "public_calls": 5,
+        "failed_feedback_trials": 2,
+        "changed_after_feedback": 2,
+        "changed_after_failed_feedback": 2,
+        "protocol_errors_without_candidate": 0,
+        "terminal_categories": {
+          "pass": 2,
+          "transaction_functional_error": 1
+        },
+        "primary_outcomes": {
+          "pass": 2,
+          "transaction_functional_error": 1
+        },
+        "first_candidate_public_pass": 1,
+        "first_candidate_public_fail": 2,
+        "first_candidate_unmeasured": 0,
+        "final_public_pass_private_fail": 0,
+        "held_out_successes": 2,
+        "terminal_held_out_disagreements": 0,
+        "trials_with_protocol_errors": 0,
+        "failure_labels_nonexclusive": {
+          "transaction_functional_error": 1,
+          "repair_after_feedback_failed": 1
+        },
+        "tokens": {
+          "inputTokens": 8989,
+          "outputTokens": 17245,
+          "cacheReadTokens": 81536,
+          "cacheWriteTokens": 0,
+          "totalTokens": 107770
+        },
+        "seconds": {
+          "wall_seconds": 1059.597,
+          "model_request_wall_seconds": 70.245,
+          "compile_wall_seconds": 579.934,
+          "simulation_wall_seconds": 403.405
+        },
+        "timing_observed_trials": {
+          "wall_seconds": 3,
+          "model_request_wall_seconds": 3,
+          "compile_wall_seconds": 3,
+          "simulation_wall_seconds": 3
+        },
+        "api_currency_cost": null
+      }
+    },
+    "test_diagnostic": {
+      "started": 3,
+      "effective_edit": 3,
+      "submitted": 3,
+      "successes": 2,
+      "success_rate_all_started": 0.6666666666666666,
+      "wilson95": [
+        0.2076549551264879,
+        0.9385096847238394
+      ],
+      "feedback_exposed": 2,
+      "edited_after_feedback": 0,
+      "reward_distribution": {
+        "0": 1,
+        "1": 2,
+        "null": 0
+      },
+      "protocol_error_actions": 1,
+      "total_actions": 15,
+      "conditional": {
+        "effective_edit": {
+          "n": 3,
+          "successes": 2,
+          "rate": 0.6666666666666666,
+          "wilson95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ]
+        },
+        "valid_submission": {
+          "n": 3,
+          "successes": 2,
+          "rate": 0.6666666666666666,
+          "wilson95": [
+            0.2076549551264879,
+            0.9385096847238394
+          ]
+        },
+        "feedback": {
+          "n": 2,
+          "successes": 2,
+          "rate": 1.0,
+          "wilson95": [
+            0.34237195288961925,
+            1
+          ]
+        }
+      },
+      "determinate_binary_reward_entropy_bits": 0.9182958340544896,
+      "entropy_excludes_null": true,
+      "measurements": {
+        "trials": 3,
+        "json_parse_errors": 1,
+        "schema_or_argument_errors": 0,
+        "compilation_processes": 3,
+        "simulation_processes": 149,
+        "edits": 3,
+        "public_calls": 2,
+        "failed_feedback_trials": 0,
+        "changed_after_feedback": 0,
+        "changed_after_failed_feedback": 0,
+        "protocol_errors_without_candidate": 0,
+        "terminal_categories": {
+          "transaction_functional_error": 1,
+          "pass": 2
+        },
+        "primary_outcomes": {
+          "transaction_functional_error": 1,
+          "pass": 2
+        },
+        "first_candidate_public_pass": 2,
+        "first_candidate_public_fail": 1,
+        "first_candidate_unmeasured": 0,
+        "final_public_pass_private_fail": 0,
+        "held_out_successes": 2,
+        "terminal_held_out_disagreements": 0,
+        "trials_with_protocol_errors": 1,
+        "failure_labels_nonexclusive": {
+          "transaction_functional_error": 1,
+          "action_protocol_error": 1
+        },
+        "tokens": {
+          "inputTokens": 8049,
+          "outputTokens": 16449,
+          "cacheReadTokens": 55552,
+          "cacheWriteTokens": 0,
+          "totalTokens": 80050
+        },
+        "seconds": {
+          "wall_seconds": 763.132,
+          "model_request_wall_seconds": 100.982,
+          "compile_wall_seconds": 246.282,
+          "simulation_wall_seconds": 409.668
+        },
+        "timing_observed_trials": {
+          "wall_seconds": 3,
+          "model_request_wall_seconds": 3,
+          "compile_wall_seconds": 3,
+          "simulation_wall_seconds": 3
+        },
+        "api_currency_cost": null
+      }
+    }
+  },
+  "rows": [
+    {
+      "trial": "r01-spec_only",
+      "repeat": 1,
+      "policy": "spec_only",
+      "reward": 1.0,
+      "held_out": 1.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 4,
+      "edits": 1,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": false,
+      "failed_feedback": false,
+      "edited_after_feedback": false,
+      "changed_after_feedback": false,
+      "changed_after_failed_feedback": false,
+      "public_verdicts": [],
+      "terminal_category": "pass",
+      "primary_outcome": "pass",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 15.931999999999999,
+      "labels": [],
+      "tokens": {
+        "inputTokens": 2439,
+        "outputTokens": 2534,
+        "cacheReadTokens": 6656,
+        "cacheWriteTokens": 0,
+        "totalTokens": 11629
+      },
+      "wall_seconds": 302.728,
+      "model_session_span_seconds": 15.967,
+      "compile_wall_seconds": 83.57627009999851,
+      "simulation_wall_seconds": 200.4766768900081,
+      "public_test_calls": 0,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "source_sha256": "88f83e1891b356d3928a9a9b8769c5ce0ca69e0ef13c76c65cad6c327908eb79",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": 723,
+        "checked": 687,
+        "aborted": 36,
+        "failed_case": null
+      },
+      "case_counts": {
+        "terminal": 26,
+        "held_out": 26,
+        "offline_first_candidate": 21,
+        "public": 0
+      },
+      "compilation_processes": 1,
+      "simulation_processes": 73,
+      "api_cost": null
+    },
+    {
+      "trial": "r01-test_verdict",
+      "repeat": 1,
+      "policy": "test_verdict",
+      "reward": 1.0,
+      "held_out": 1.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 8,
+      "edits": 3,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": true,
+      "failed_feedback": true,
+      "edited_after_feedback": true,
+      "changed_after_feedback": true,
+      "changed_after_failed_feedback": true,
+      "public_verdicts": [
+        "FAIL",
+        "FAIL"
+      ],
+      "terminal_category": "pass",
+      "primary_outcome": "pass",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 30.645000000000003,
+      "labels": [],
+      "tokens": {
+        "inputTokens": 3170,
+        "outputTokens": 6909,
+        "cacheReadTokens": 33920,
+        "cacheWriteTokens": 0,
+        "totalTokens": 43999
+      },
+      "wall_seconds": 478.143,
+      "model_session_span_seconds": 234.6,
+      "compile_wall_seconds": 249.35330337400228,
+      "simulation_wall_seconds": 196.04009748600947,
+      "public_test_calls": 2,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "222593183b077bfde50cc441931bbef4510074fa09d36f6b808a1f994976fc79",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "case_counts": {
+        "terminal": 26,
+        "held_out": 26,
+        "offline_first_candidate": null,
+        "public": 20
+      },
+      "compilation_processes": 3,
+      "simulation_processes": 72,
+      "api_cost": null
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "repeat": 1,
+      "policy": "test_diagnostic",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 4,
+      "edits": 1,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": false,
+      "failed_feedback": false,
+      "edited_after_feedback": false,
+      "changed_after_feedback": false,
+      "changed_after_failed_feedback": false,
+      "public_verdicts": [],
+      "terminal_category": "transaction_functional_error",
+      "primary_outcome": "transaction_functional_error",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 13.169999999999998,
+      "labels": [
+        "transaction_functional_error"
+      ],
+      "tokens": {
+        "inputTokens": 2378,
+        "outputTokens": 2953,
+        "cacheReadTokens": 7168,
+        "cacheWriteTokens": 0,
+        "totalTokens": 12499
+      },
+      "wall_seconds": 104.149,
+      "model_session_span_seconds": 13.219,
+      "compile_wall_seconds": 83.50195022299886,
+      "simulation_wall_seconds": 5.721517073001451,
+      "public_test_calls": 0,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "transaction_functional_error",
+        "verification_complete": false,
+        "source_sha256": "731e1e39c67e8972fdfca3bb6a04e504fabf67408082e1aac5673fa4426d5a40",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "case_counts": {
+        "terminal": 1,
+        "held_out": 1,
+        "offline_first_candidate": 1,
+        "public": 0
+      },
+      "compilation_processes": 1,
+      "simulation_processes": 3,
+      "api_cost": null
+    },
+    {
+      "trial": "r02-test_verdict",
+      "repeat": 2,
+      "policy": "test_verdict",
+      "reward": 1.0,
+      "held_out": 1.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 5,
+      "edits": 1,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": true,
+      "failed_feedback": false,
+      "edited_after_feedback": false,
+      "changed_after_feedback": false,
+      "changed_after_failed_feedback": false,
+      "public_verdicts": [
+        "PASS"
+      ],
+      "terminal_category": "pass",
+      "primary_outcome": "pass",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 14.203,
+      "labels": [],
+      "tokens": {
+        "inputTokens": 2573,
+        "outputTokens": 3357,
+        "cacheReadTokens": 12928,
+        "cacheWriteTokens": 0,
+        "totalTokens": 18858
+      },
+      "wall_seconds": 298.392,
+      "model_session_span_seconds": 139.396,
+      "compile_wall_seconds": 82.30117763499948,
+      "simulation_wall_seconds": 199.67598586200256,
+      "public_test_calls": 1,
+      "final_candidate_public": {
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "source_sha256": "73c1632a3609e301b0aede90bb52c423ca07bce7e81671f395b05b3fcffde4ab",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": 723,
+        "checked": 687,
+        "aborted": 36,
+        "failed_case": null
+      },
+      "first_candidate_public": {
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "source_sha256": "73c1632a3609e301b0aede90bb52c423ca07bce7e81671f395b05b3fcffde4ab",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": 723,
+        "checked": 687,
+        "aborted": 36,
+        "failed_case": null
+      },
+      "case_counts": {
+        "terminal": 26,
+        "held_out": 26,
+        "offline_first_candidate": null,
+        "public": 21
+      },
+      "compilation_processes": 1,
+      "simulation_processes": 73,
+      "api_cost": null
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "repeat": 2,
+      "policy": "test_diagnostic",
+      "reward": 1.0,
+      "held_out": 1.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 1,
+      "parse_errors": 1,
+      "schema_or_argument_errors": 0,
+      "actions": 6,
+      "edits": 1,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": true,
+      "failed_feedback": false,
+      "edited_after_feedback": false,
+      "changed_after_feedback": false,
+      "changed_after_failed_feedback": false,
+      "public_verdicts": [
+        "PASS"
+      ],
+      "terminal_category": "pass",
+      "primary_outcome": "pass",
+      "rejected_edit_replies": 1,
+      "model_request_wall_seconds": 65.34899999999999,
+      "labels": [
+        "action_protocol_error"
+      ],
+      "tokens": {
+        "inputTokens": 3068,
+        "outputTokens": 9366,
+        "cacheReadTokens": 33920,
+        "cacheWriteTokens": 0,
+        "totalTokens": 46354
+      },
+      "wall_seconds": 349.34,
+      "model_session_span_seconds": 190.076,
+      "compile_wall_seconds": 81.38987527100107,
+      "simulation_wall_seconds": 200.32982966698546,
+      "public_test_calls": 1,
+      "final_candidate_public": {
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "source_sha256": "188887963e885bdc76dd192a92e4bd38118a3036f6c2bec9c3985a90b32d086a",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": 723,
+        "checked": 687,
+        "aborted": 36,
+        "failed_case": null
+      },
+      "first_candidate_public": {
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "source_sha256": "188887963e885bdc76dd192a92e4bd38118a3036f6c2bec9c3985a90b32d086a",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": 723,
+        "checked": 687,
+        "aborted": 36,
+        "failed_case": null
+      },
+      "case_counts": {
+        "terminal": 26,
+        "held_out": 26,
+        "offline_first_candidate": null,
+        "public": 21
+      },
+      "compilation_processes": 1,
+      "simulation_processes": 73,
+      "api_cost": null
+    },
+    {
+      "trial": "r02-spec_only",
+      "repeat": 2,
+      "policy": "spec_only",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 4,
+      "edits": 1,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": false,
+      "failed_feedback": false,
+      "edited_after_feedback": false,
+      "changed_after_feedback": false,
+      "changed_after_failed_feedback": false,
+      "public_verdicts": [],
+      "terminal_category": "compile_error",
+      "primary_outcome": "compile_error",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 15.580000000000002,
+      "labels": [
+        "compile_error"
+      ],
+      "tokens": {
+        "inputTokens": 3266,
+        "outputTokens": 3632,
+        "cacheReadTokens": 6912,
+        "cacheWriteTokens": 0,
+        "totalTokens": 13810
+      },
+      "wall_seconds": 76.159,
+      "model_session_span_seconds": 15.626,
+      "compile_wall_seconds": 59.05934472699664,
+      "simulation_wall_seconds": 0,
+      "public_test_calls": 0,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "compile_error",
+        "verification_complete": false,
+        "source_sha256": "da17f3da4d548cbdb00ef2a1072864b508d24c5cb37e4c8ca62ad2dbb31d1980",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": null
+      },
+      "case_counts": {
+        "terminal": 0,
+        "held_out": 0,
+        "offline_first_candidate": 0,
+        "public": 0
+      },
+      "compilation_processes": 3,
+      "simulation_processes": 0,
+      "api_cost": null
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "repeat": 3,
+      "policy": "test_diagnostic",
+      "reward": 1.0,
+      "held_out": 1.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 5,
+      "edits": 1,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": true,
+      "failed_feedback": false,
+      "edited_after_feedback": false,
+      "changed_after_feedback": false,
+      "changed_after_failed_feedback": false,
+      "public_verdicts": [
+        "PASS"
+      ],
+      "terminal_category": "pass",
+      "primary_outcome": "pass",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 22.463,
+      "labels": [],
+      "tokens": {
+        "inputTokens": 2603,
+        "outputTokens": 4130,
+        "cacheReadTokens": 14464,
+        "cacheWriteTokens": 0,
+        "totalTokens": 21197
+      },
+      "wall_seconds": 309.643,
+      "model_session_span_seconds": 146.487,
+      "compile_wall_seconds": 81.39045282900042,
+      "simulation_wall_seconds": 203.6164348090133,
+      "public_test_calls": 1,
+      "final_candidate_public": {
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "source_sha256": "df4c0fd8caffc3d693a70cfa22c6f2cd6b0429995d82b994aaecc92205998596",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": 723,
+        "checked": 687,
+        "aborted": 36,
+        "failed_case": null
+      },
+      "first_candidate_public": {
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "source_sha256": "df4c0fd8caffc3d693a70cfa22c6f2cd6b0429995d82b994aaecc92205998596",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": 723,
+        "checked": 687,
+        "aborted": 36,
+        "failed_case": null
+      },
+      "case_counts": {
+        "terminal": 26,
+        "held_out": 26,
+        "offline_first_candidate": null,
+        "public": 21
+      },
+      "compilation_processes": 1,
+      "simulation_processes": 73,
+      "api_cost": null
+    },
+    {
+      "trial": "r03-spec_only",
+      "repeat": 3,
+      "policy": "spec_only",
+      "reward": 1.0,
+      "held_out": 1.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 4,
+      "edits": 1,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": false,
+      "failed_feedback": false,
+      "edited_after_feedback": false,
+      "changed_after_feedback": false,
+      "changed_after_failed_feedback": false,
+      "public_verdicts": [],
+      "terminal_category": "pass",
+      "primary_outcome": "pass",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 12.033999999999999,
+      "labels": [],
+      "tokens": {
+        "inputTokens": 2458,
+        "outputTokens": 2949,
+        "cacheReadTokens": 7040,
+        "cacheWriteTokens": 0,
+        "totalTokens": 12447
+      },
+      "wall_seconds": 299.012,
+      "model_session_span_seconds": 12.074,
+      "compile_wall_seconds": 83.46860616200138,
+      "simulation_wall_seconds": 201.03231030298048,
+      "public_test_calls": 0,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "source_sha256": "627f115d37d7c483ce979bb4731b0bb81bdc8aae9d8a655b32225fb7ee9f4e89",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": 723,
+        "checked": 687,
+        "aborted": 36,
+        "failed_case": null
+      },
+      "case_counts": {
+        "terminal": 26,
+        "held_out": 26,
+        "offline_first_candidate": 21,
+        "public": 0
+      },
+      "compilation_processes": 1,
+      "simulation_processes": 73,
+      "api_cost": null
+    },
+    {
+      "trial": "r03-test_verdict",
+      "repeat": 3,
+      "policy": "test_verdict",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 8,
+      "edits": 3,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": true,
+      "failed_feedback": true,
+      "edited_after_feedback": true,
+      "changed_after_feedback": true,
+      "changed_after_failed_feedback": true,
+      "public_verdicts": [
+        "FAIL",
+        "FAIL"
+      ],
+      "terminal_category": "transaction_functional_error",
+      "primary_outcome": "transaction_functional_error",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 25.397000000000002,
+      "labels": [
+        "transaction_functional_error",
+        "repair_after_feedback_failed"
+      ],
+      "tokens": {
+        "inputTokens": 3246,
+        "outputTokens": 6979,
+        "cacheReadTokens": 34688,
+        "cacheWriteTokens": 0,
+        "totalTokens": 44913
+      },
+      "wall_seconds": 283.062,
+      "model_session_span_seconds": 193.627,
+      "compile_wall_seconds": 248.27949156999966,
+      "simulation_wall_seconds": 7.688917673000105,
+      "public_test_calls": 2,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "transaction_functional_error",
+        "verification_complete": false,
+        "source_sha256": "06b8372faee50d683720bc2889427a984c4fa0b544ec0574ad50462454d2f0dd",
+        "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "case_counts": {
+        "terminal": 1,
+        "held_out": 1,
+        "offline_first_candidate": null,
+        "public": 2
+      },
+      "compilation_processes": 3,
+      "simulation_processes": 4,
+      "api_cost": null
+    }
+  ],
+  "quality_gate": {
+    "passed": true,
+    "reasons": []
+  },
+  "protocol": "text-json-atomic-v2",
+  "labels_are_nonexclusive": true,
+  "interval_note": "Descriptive Wilson 95%; small samples and paired/time effects prevent causal ranking.",
+  "parameter_training": false,
+  "batch_span_seconds": 2693.5995922088623,
+  "analysis_code_sha256": {
+    "scripts/batch_analysis.py": "86e757a33e9a3e455bb366bdf0beaacf6c989027c599e02afd8c5a38ac952a99",
+    "scripts/batch_tables.py": "d57e8e363d16c1dce1953cddf289c6d40ce38c4a3f0128b4e9b3be7c5ab0bae2",
+    "scripts/analyze_policy.py": "f94db4176fde3710d272dea5019167fe9b31d85d119deb38b22d101e2c1a36bb",
+    "scripts/audit_policy.py": "f181419382f4fcc12a372b4dd2ce21f32f1015d4e2dad0cdab05af11e4773238"
+  }
+}

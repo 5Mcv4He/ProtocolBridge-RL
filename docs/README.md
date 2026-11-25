@@ -1,9 +1,10 @@
 # 人类阅读入口
 
-本目录是理解、讲解和复用项目的固定入口。当前唯一标准基线是[001 X2P](../tasks/axil_to_apb4_001/README.md)，旧 128 笔交付已废弃。研究方向与已实现能力分开阅读。
+本目录是理解、讲解和复用项目的固定入口。001的冻结标准基线是[001 X2P](../tasks/axil_to_apb4_001/README.md)，旧 128 笔交付已废弃。研究方向与已实现能力分开阅读。
 
 | 问题 | 页面 |
 |---|---|
+| 新任务是否可靠，Task002实际测到什么 | [任务质量门禁](task-quality-gate.md)、[Task002报告](task002-evaluation-report.md)、[任务包](../tasks/axil_to_apb4_router_002/README.md) |
 | 项目有什么、当前完成到哪里 | [仓库首页](../README.md)、[实测报告](../mvp-evaluation-report.md) |
 | Task、环境、验证器、评分器分别是什么 | [架构与 Scoreboard](architecture.md) |
 | DSH 在哪里，Agent 能看什么，怎样生成 Reward | [Agent 工作流](agent-workflow.md) |

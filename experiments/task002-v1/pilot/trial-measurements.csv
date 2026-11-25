@@ -1,0 +1,10 @@
+trial,repeat,policy,reward,held_out,effective_edit,valid_submission,feedback,failed_feedback,changed_after_feedback,edits,actions,protocol_errors,public_test_calls,wall_seconds,model_request_wall_seconds,compile_wall_seconds,simulation_wall_seconds
+r01-spec_only,1,spec_only,1.0,1.0,True,True,False,False,False,1,4,0,0,302.728,15.931999999999999,83.57627009999851,200.4766768900081
+r01-test_verdict,1,test_verdict,1.0,1.0,True,True,True,True,True,3,8,0,2,478.143,30.645000000000003,249.35330337400228,196.04009748600947
+r01-test_diagnostic,1,test_diagnostic,0.0,0.0,True,True,False,False,False,1,4,0,0,104.149,13.169999999999998,83.50195022299886,5.721517073001451
+r02-test_verdict,2,test_verdict,1.0,1.0,True,True,True,False,False,1,5,0,1,298.392,14.203,82.30117763499948,199.67598586200256
+r02-test_diagnostic,2,test_diagnostic,1.0,1.0,True,True,True,False,False,1,6,1,1,349.34,65.34899999999999,81.38987527100107,200.32982966698546
+r02-spec_only,2,spec_only,0.0,0.0,True,True,False,False,False,1,4,0,0,76.159,15.580000000000002,59.05934472699664,0
+r03-test_diagnostic,3,test_diagnostic,1.0,1.0,True,True,True,False,False,1,5,0,1,309.643,22.463,81.39045282900042,203.6164348090133
+r03-spec_only,3,spec_only,1.0,1.0,True,True,False,False,False,1,4,0,0,299.012,12.033999999999999,83.46860616200138,201.03231030298048
+r03-test_verdict,3,test_verdict,0.0,0.0,True,True,True,True,True,3,8,0,2,283.062,25.397000000000002,248.27949156999966,7.688917673000105

@@ -1,0 +1,53 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "318b58285167d5cc60c7543a33b10d1f6f5b28c903c98ba82d55f037540de9b9",
+  "suite_sha256": "450e3c6a86490d7157b7f1806af5245f6a5089dad2da7dae31bd1fae176ea724",
+  "required_cases": [
+    "decode_boundaries",
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_misses",
+    "independent_target_memory",
+    "router_reset"
+  ],
+  "failed_case": "decode_boundaries",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "decode_boundaries",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 16,
+      "expected_aborted": 0,
+      "simulation_exit": 0,
+      "requirements": [
+        "R_FULL_DECODE",
+        "R_LOCAL_ADDRESS",
+        "R_TARGET_SELECTION"
+      ]
+    }
+  ]
+}

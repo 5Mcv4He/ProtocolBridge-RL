@@ -1,0 +1,638 @@
+{
+  "reward": 1.0,
+  "category": "pass",
+  "verification_complete": true,
+  "verdict_determinate": true,
+  "source_sha256": "318b58285167d5cc60c7543a33b10d1f6f5b28c903c98ba82d55f037540de9b9",
+  "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+  "required_cases": [
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "decode_misses",
+    "independent_target_memory",
+    "router_reset"
+  ],
+  "planned": 723,
+  "checked": 687,
+  "aborted": 36,
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "address_data",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 8,
+        "unmapped": 0,
+        "target0": 6,
+        "target1": 0,
+        "target2": 2
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_ADDR",
+        "F_DATA",
+        "F_MAPPING"
+      ]
+    },
+    {
+      "name": "read_only",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 2,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 2,
+        "axi": 2,
+        "apb": 2,
+        "checked": 2,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 2,
+        "unmapped": 0,
+        "target0": 2,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_READ_UNWRITTEN",
+        "F_RR"
+      ]
+    },
+    {
+      "name": "write_accumulate",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 8,
+        "unmapped": 0,
+        "target0": 8,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_WW",
+        "F_PARTIAL",
+        "F_ZERO_STROBE",
+        "F_RR"
+      ]
+    },
+    {
+      "name": "strobe_cross",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 60,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 60,
+        "axi": 60,
+        "apb": 60,
+        "checked": 60,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 60,
+        "unmapped": 0,
+        "target0": 20,
+        "target1": 20,
+        "target2": 20
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_STROBE_ALL",
+        "X_STROBE_ORDER_ERROR_WAIT_STALL"
+      ]
+    },
+    {
+      "name": "channel_gaps",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 10,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 10,
+        "axi": 10,
+        "apb": 10,
+        "checked": 10,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 10,
+        "unmapped": 0,
+        "target0": 10,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_AW_FIRST",
+        "F_W_FIRST",
+        "F_TOGETHER",
+        "F_HALF_BUFFER"
+      ]
+    },
+    {
+      "name": "wait_error",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 8,
+        "unmapped": 0,
+        "target0": 8,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_WAIT",
+        "F_ERROR_WRITE",
+        "F_ERROR_READ",
+        "F_ERROR_NO_WRITE"
+      ]
+    },
+    {
+      "name": "response_backpressure",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 8,
+        "unmapped": 0,
+        "target0": 8,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_B_STABLE",
+        "F_R_STABLE",
+        "F_EARLY_READY"
+      ]
+    },
+    {
+      "name": "mixed_stream",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 12,
+        "apb": 12,
+        "checked": 12,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 12,
+        "unmapped": 0,
+        "target0": 0,
+        "target1": 12,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_MIXED",
+        "F_STATE_REUSE"
+      ]
+    },
+    {
+      "name": "latency_baseline",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 8,
+        "unmapped": 0,
+        "target0": 8,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_LATENCY_BASELINE"
+      ]
+    },
+    {
+      "name": "reset_aw_only",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "expected_aborted": 1,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 5,
+        "apb": 5,
+        "checked": 5,
+        "aborted": 1,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 5,
+        "unmapped": 0,
+        "target0": 5,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_AW_ONLY",
+        "F_RESET_RECOVERY"
+      ]
+    },
+    {
+      "name": "reset_w_only",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "expected_aborted": 1,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 5,
+        "apb": 5,
+        "checked": 5,
+        "aborted": 1,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 5,
+        "unmapped": 0,
+        "target0": 5,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_W_ONLY",
+        "F_RESET_RECOVERY"
+      ]
+    },
+    {
+      "name": "reset_write_setup",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "expected_aborted": 1,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 5,
+        "apb": 5,
+        "checked": 5,
+        "aborted": 1,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 5,
+        "unmapped": 0,
+        "target0": 5,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_WRITE_SETUP",
+        "F_RESET_RECOVERY"
+      ]
+    },
+    {
+      "name": "reset_read_setup",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "expected_aborted": 1,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 5,
+        "apb": 5,
+        "checked": 5,
+        "aborted": 1,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 5,
+        "unmapped": 0,
+        "target0": 5,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_READ_SETUP",
+        "F_RESET_RECOVERY"
+      ]
+    },
+    {
+      "name": "reset_write_wait",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "expected_aborted": 1,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 5,
+        "apb": 5,
+        "checked": 5,
+        "aborted": 1,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 5,
+        "unmapped": 0,
+        "target0": 5,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_WRITE_WAIT",
+        "F_RESET_RECOVERY"
+      ]
+    },
+    {
+      "name": "reset_read_wait",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "expected_aborted": 1,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 5,
+        "apb": 5,
+        "checked": 5,
+        "aborted": 1,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 5,
+        "unmapped": 0,
+        "target0": 5,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_READ_WAIT",
+        "F_RESET_RECOVERY"
+      ]
+    },
+    {
+      "name": "reset_b_stall",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "expected_aborted": 1,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 5,
+        "apb": 6,
+        "checked": 5,
+        "aborted": 1,
+        "aborted_apb": 1,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 5,
+        "unmapped": 0,
+        "target0": 6,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_B_STALL",
+        "F_RESET_RECOVERY"
+      ]
+    },
+    {
+      "name": "reset_r_stall",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "expected_aborted": 1,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 5,
+        "apb": 6,
+        "checked": 5,
+        "aborted": 1,
+        "aborted_apb": 1,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 5,
+        "unmapped": 0,
+        "target0": 6,
+        "target1": 0,
+        "target2": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_R_STALL",
+        "F_RESET_RECOVERY"
+      ]
+    },
+    {
+      "name": "decode_boundaries",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 16,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 16,
+        "axi": 16,
+        "apb": 16,
+        "checked": 16,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 16,
+        "unmapped": 0,
+        "target0": 4,
+        "target1": 8,
+        "target2": 4
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "R_FULL_DECODE",
+        "R_LOCAL_ADDRESS",
+        "R_TARGET_SELECTION"
+      ]
+    },
+    {
+      "name": "decode_misses",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 354,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 354,
+        "axi": 354,
+        "apb": 236,
+        "checked": 354,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 236,
+        "unmapped": 118,
+        "target0": 124,
+        "target1": 40,
+        "target2": 72
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "R_DECERR",
+        "R_NO_APB_ON_MISS",
+        "R_MISS_RECOVERY",
+        "F_W_FIRST"
+      ]
+    },
+    {
+      "name": "independent_target_memory",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 21,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 21,
+        "axi": 21,
+        "apb": 21,
+        "checked": 21,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 21,
+        "unmapped": 0,
+        "target0": 7,
+        "target1": 7,
+        "target2": 7
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "R_DISJOINT_MEMORY",
+        "R_RESPONSE_MUX",
+        "R_TARGET_SWITCH",
+        "F_PARTIAL"
+      ]
+    },
+    {
+      "name": "router_reset",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 160,
+      "expected_aborted": 28,
+      "scoreboard": {
+        "planned": 160,
+        "axi": 132,
+        "apb": 134,
+        "checked": 132,
+        "aborted": 28,
+        "aborted_apb": 6,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 128,
+        "unmapped": 4,
+        "target0": 50,
+        "target1": 42,
+        "target2": 42
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "R_RESET_EVERY_TARGET",
+        "R_UNMAPPED_RESET",
+        "R_NO_STALE_ROUTE"
+      ]
+    }
+  ]
+}

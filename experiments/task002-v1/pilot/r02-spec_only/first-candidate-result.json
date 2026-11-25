@@ -1,0 +1,33 @@
+{
+  "reward": 0.0,
+  "category": "compile_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "da17f3da4d548cbdb00ef2a1072864b508d24c5cb37e4c8ca62ad2dbb31d1980",
+  "suite_sha256": "dc35fa0e331b192b447cbefbf298c94acc736fb9116e473779aa9e47394813f0",
+  "required_cases": [
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "decode_misses",
+    "independent_target_memory",
+    "router_reset"
+  ],
+  "compile_exit": 255,
+  "cases": []
+}

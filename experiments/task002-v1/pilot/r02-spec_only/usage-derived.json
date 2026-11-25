@@ -1,0 +1,59 @@
+{
+  "available": true,
+  "totals": {
+    "inputTokens": 3266,
+    "outputTokens": 3632,
+    "cacheReadTokens": 6912,
+    "cacheWriteTokens": 0,
+    "totalTokens": 13810
+  },
+  "cost": null,
+  "events": [
+    {
+      "event_file": "harness-00.json",
+      "event_seq": 10,
+      "usage": {
+        "inputTokens": 181,
+        "outputTokens": 10,
+        "cacheReadTokens": 128,
+        "cacheWriteTokens": 0,
+        "totalTokens": 319
+      }
+    },
+    {
+      "event_file": "harness-01.json",
+      "event_seq": 18,
+      "usage": {
+        "inputTokens": 1634,
+        "outputTokens": 11,
+        "cacheReadTokens": 256,
+        "cacheWriteTokens": 0,
+        "totalTokens": 1901
+      }
+    },
+    {
+      "event_file": "harness-02.json",
+      "event_seq": 26,
+      "usage": {
+        "inputTokens": 386,
+        "outputTokens": 3606,
+        "cacheReadTokens": 1792,
+        "cacheWriteTokens": 0,
+        "totalTokens": 5784
+      }
+    },
+    {
+      "event_file": "harness-03.json",
+      "event_seq": 34,
+      "usage": {
+        "inputTokens": 1065,
+        "outputTokens": 5,
+        "cacheReadTokens": 4736,
+        "cacheWriteTokens": 0,
+        "totalTokens": 5806
+      }
+    }
+  ],
+  "method": "Sum unique (session_id, seq) assistant/message.data.usage events only; exclude stream chunks and duplicated notifications.",
+  "semantics": "SDK inputTokens excludes separately reported cacheReadTokens in these records; totalTokens is the SDK total, not unique context size. No billed currency cost is provided."
+}

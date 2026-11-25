@@ -1,0 +1,36 @@
+{
+  "scope": "Manual RTL inspection tied to actual simulation failures; no candidate repair or rescoring.",
+  "failures": [
+    {
+      "trial": "r01-test_diagnostic",
+      "category": "transaction_functional_error",
+      "first_case": "address_data",
+      "observed": "BRESP mismatch",
+      "rtl_cause": "psel_q is a one-hot mask (1/2/4), but pready[psel_q], pslverr[psel_q] and prdata[32*psel_q +: 32] use it as a binary index. Target0 selects lane1; target2 index4 is outside the vector.",
+      "feedback_exposure": false
+    },
+    {
+      "trial": "r03-test_verdict",
+      "category": "transaction_functional_error",
+      "first_case": "address_data",
+      "observed": "BRESP mismatch before and after edits",
+      "rtl_cause": "tgt is a one-hot mask but still used as pready[tgt], pslverr[tgt], prdata[32*tgt +: 32]. Two verdict-only FAILs and two subsequent edits did not remove this error.",
+      "feedback_exposure": true
+    },
+    {
+      "trial": "r02-spec_only",
+      "category": "compile_error",
+      "observed": "VCS ICPSD illegal combination of drivers on s_awready",
+      "rtl_cause": "s_awready is assigned both by continuous assign and always_comb. No functional simulation completed for this submission.",
+      "feedback_exposure": false
+    }
+  ],
+  "repair_example": {
+    "trial": "r01-test_verdict",
+    "observed": "public FAIL -> edit -> public FAIL -> edit -> terminal and held-out PASS",
+    "first_failure": "APB VIP penable_after_psel: sel_q remains asserted in RESP while PENABLE drops; this creates an apparent new Setup with no following Access. The initial candidate also accepts any target PREADY rather than only the selected lane.",
+    "second_failure": "Unmapped response remains in IDLE instead of RESP, so VALID is not retired after handshake; checker reports response without completion credit on the next cycle.",
+    "final_change": "First edit clears sel_q on completion and selects only the active PREADY lane; final edit enters RESP for unmapped read/write so VALID retires normally.",
+    "causal_limit": "Temporal feedback/edit linkage is observed; model intent and causal policy advantage are not established."
+  }
+}
