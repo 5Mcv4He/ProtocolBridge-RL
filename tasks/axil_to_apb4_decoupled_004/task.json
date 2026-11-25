@@ -1,0 +1,122 @@
+{
+  "task_id": "axil_to_apb4_decoupled_004",
+  "version": 1,
+  "status": "candidate",
+  "spec": "spec.md",
+  "initial_rtl": "workspace/bridge.sv",
+  "verifier": "verifier.task004.campaign",
+  "capabilities": [
+    "independent-apb-execution",
+    "separate-response-queues",
+    "three-credit-reservation",
+    "read-snapshot-lifetime",
+    "non-power-of-two-wrap",
+    "reset-multiple-completions"
+  ],
+  "quality": {
+    "references": [
+      "fixtures/task004/reference.sv",
+      "fixtures/task004/reference_shift.sv"
+    ],
+    "negative_controls": [
+      {
+        "source": "fixtures/task004/bad_early_credit.sv",
+        "first_case": "write_pipeline",
+        "violation": "Returns credit on APB completion before AXI consumption"
+      },
+      {
+        "source": "fixtures/task004/bad_block_b.sv",
+        "first_case": "write_pipeline",
+        "violation": "Blocks APB selection while a B response is queued"
+      },
+      {
+        "source": "fixtures/task004/bad_block_r.sv",
+        "first_case": "read_pipeline",
+        "violation": "Blocks APB selection while an R response is queued"
+      },
+      {
+        "source": "fixtures/task004/bad_read_snapshot.sv",
+        "first_case": "read_pipeline",
+        "violation": "Exposes live APB read data instead of saved response snapshot"
+      },
+      {
+        "source": "fixtures/task004/bad_wrap.sv",
+        "first_case": "write_pipeline",
+        "violation": "Wraps pointers to slot one instead of zero"
+      },
+      {
+        "source": "fixtures/task004/bad_strobe.sv",
+        "first_case": "write_pipeline",
+        "violation": "Loses write byte enables"
+      },
+      {
+        "source": "fixtures/task004/bad_error.sv",
+        "first_case": "write_pipeline",
+        "violation": "Drops write target errors"
+      },
+      {
+        "source": "fixtures/task004/bad_response_order.sv",
+        "first_case": "read_pipeline",
+        "violation": "Reads response tail instead of head"
+      },
+      {
+        "source": "fixtures/task004/bad_reset_response.sv",
+        "first_case": "reset_7",
+        "violation": "Retains unconsumed response counts across reset"
+      },
+      {
+        "source": "fixtures/task004/bad_priority.sv",
+        "first_case": "round_robin",
+        "violation": "Uses write priority instead of round robin"
+      },
+      {
+        "source": "fixtures/task004/bad_wait.sv",
+        "first_case": "write_pipeline",
+        "violation": "Completes APB without PREADY"
+      },
+      {
+        "source": "fixtures/task004/bad_read_capacity.sv",
+        "first_case": "read_pipeline",
+        "violation": "Accepts fourth unretired read"
+      },
+      {
+        "source": "fixtures/task004/bad_same_cycle.sv",
+        "first_case": "write_push_pop",
+        "violation": "Loses simultaneous B queue dequeue when a new completion enqueues"
+      },
+      {
+        "source": "fixtures/task004/bad_reset_credit.sv",
+        "first_case": "reset_1",
+        "violation": "Retains accepted AW credit across reset while clearing pending request storage"
+      }
+    ],
+    "mechanism_module": "environment.task004_mechanism",
+    "required_cross_bins": 37,
+    "minimum_negative_controls": 10,
+    "required_requirements": [
+      "D_INDEPENDENT_EXECUTOR",
+      "D_READ_SNAPSHOT",
+      "D_THREE_CREDITS",
+      "D_SIMULTANEOUS_RESPONSES",
+      "D_RESET_RESPONSES",
+      "D_WRAP",
+      "D_ROUND_ROBIN",
+      "D_RESPONSE_PUSH_POP"
+    ],
+    "spec_review": {
+      "status": "reviewed_before_admission",
+      "ports": "Same single-target 32-bit AXI4-Lite/APB4 interface",
+      "bounds": "Three unretired requests per AW/W/AR, independent APB execution and per-direction response queues",
+      "arbitration": "Pre-edge pending heads, mandatory registered round robin; response consumption does not block grants",
+      "reset": "Cancels queued, executing and multiple completed-but-unconsumed transactions, preserves external writes",
+      "unsupported": "Bursts, IDs, routing, CDC, interrupts, width conversion",
+      "blind_spots": [
+        "Finite sampled schedules are not formal proof",
+        "No synthesis/PPA signoff",
+        "Fixed capacity three; parameterized depth not measured",
+        "VIP callback ordering validated only on the recorded toolchain",
+        "Requirement bins are not Cartesian coverage closure"
+      ]
+    }
+  }
+}

@@ -12,13 +12,15 @@ def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def audit(root,limit=None):
     root=Path(root);experiment=json.loads((root/'experiment.json').read_text());errors=[];sessions=set();results=[]
     task_id=experiment.get('task_id','axil_to_apb4_001')
-    if task_id not in ('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003'):raise ValueError('Unknown task audit contract')
+    if task_id not in ('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003','axil_to_apb4_decoupled_004'):raise ValueError('Unknown task audit contract')
     task_dir='tasks/'+task_id
     projector=project
     if task_id=='axil_to_apb4_router_002':
         from environment.task002 import project as projector
     elif task_id=='axil_to_apb4_queue_003':
         from environment.task003 import project as projector
+    elif task_id=='axil_to_apb4_decoupled_004':
+        from environment.task004 import project as projector
     def require(ok,msg):
         if not ok:errors.append(msg)
     for entry in experiment['schedule'][:limit]:

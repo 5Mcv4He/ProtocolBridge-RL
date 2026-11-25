@@ -5,9 +5,9 @@ from unittest.mock import patch
 from tasks import load_catalog,execute,quality_command,rollout_command,ROOT
 class Catalog(unittest.TestCase):
  def setUp(self):self.catalog=load_catalog()
- def test_three_distinct_contracts(self):
-  self.assertEqual(len(self.catalog),3)
-  self.assertEqual(len({t['spec'] for t in self.catalog.values()}),3)
+ def test_four_distinct_contracts(self):
+  self.assertEqual(len(self.catalog),4)
+  self.assertEqual(len({t['spec'] for t in self.catalog.values()}),4)
  def test_real_resets_and_wrong_task_guard(self):
   with tempfile.TemporaryDirectory() as d:
    for name,t in self.catalog.items():

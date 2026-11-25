@@ -20,7 +20,7 @@ def frozen_inputs(root):
 
 def run(root,out,resume=False):
     m,items=frozen_inputs(root);task=m.get('task_id','axil_to_apb4_001')
-    if task not in ('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003'):raise ValueError('Unknown experiment task')
+    if task not in ('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003','axil_to_apb4_decoupled_004'):raise ValueError('Unknown experiment task')
     if task=='axil_to_apb4_001':module='verifier.campaign';reference=ROOT/'fixtures/reference.sv'
     else:
         meta=json.loads((ROOT/'tasks'/task/'task.json').read_text());module=meta['verifier'];reference=ROOT/meta['quality']['references'][0]

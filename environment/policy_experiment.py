@@ -39,7 +39,7 @@ def summarize(out):
 
 
 def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14400,max_tokens=2000000,starting_rtl=None,protocol=PROTOCOLS[0],task_id='axil_to_apb4_001',admission=None,capabilities=None,paired_inputs=None):
-    if task_id not in ('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003'):raise ValueError('Unsupported task')
+    if task_id not in ('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003','axil_to_apb4_decoupled_004'):raise ValueError('Unsupported task')
     if capabilities not in (None,'engineering-tools-v1'):raise ValueError('Unknown capability profile')
     if capabilities and (task_id!='axil_to_apb4_queue_003' or policies!=['test_diagnostic']):raise ValueError('Capability profile requires Task003 diagnostic policy')
     def study_prompt(p):
@@ -53,8 +53,8 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
         if admission is None:raise ValueError('A matching Task Quality Gate admission is required')
         from .task_quality import require_admission
         admission_record=require_admission(ROOT/'tasks'/task_id,admission)
-    scenario_module={'axil_to_apb4_001':'verifier.scenarios','axil_to_apb4_router_002':'verifier.task002.scenarios','axil_to_apb4_queue_003':'verifier.task003.scenarios'}[task_id]
-    mechanism_module={'axil_to_apb4_001':'environment.policy_mechanism','axil_to_apb4_router_002':'environment.task002_mechanism','axil_to_apb4_queue_003':'environment.task003_mechanism'}[task_id]
+    scenario_module={'axil_to_apb4_001':'verifier.scenarios','axil_to_apb4_router_002':'verifier.task002.scenarios','axil_to_apb4_queue_003':'verifier.task003.scenarios','axil_to_apb4_decoupled_004':'verifier.task004.scenarios'}[task_id]
+    mechanism_module={'axil_to_apb4_001':'environment.policy_mechanism','axil_to_apb4_router_002':'environment.task002_mechanism','axil_to_apb4_queue_003':'environment.task003_mechanism','axil_to_apb4_decoupled_004':'environment.task004_mechanism'}[task_id]
     if protocol not in PROTOCOLS:raise ValueError('Unknown action protocol')
     if repeats<1 or not policies or (limit is not None and (limit<1 or limit>repeats*len(policies))) or max_seconds<=0 or max_tokens<=0 or len(set(policies))!=len(policies):raise ValueError('Invalid experiment dimensions')
     selected={p:load(p) for p in policies}
@@ -207,7 +207,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('--policies',default='spec_only,test_verdict,test_diagnostic')
     p.add_argument('--model',default='deepseek-flash');p.add_argument('--repeats',type=int,default=1);p.add_argument('--summarize',action='store_true');p.add_argument('--resume',action='store_true');p.add_argument('--limit',type=int);p.add_argument('--max-seconds',type=int,default=14400);p.add_argument('--max-tokens',type=int,default=2000000);p.add_argument('--starting-rtl')
     p.add_argument('--protocol',choices=PROTOCOLS,default=PROTOCOLS[0])
-    p.add_argument('--task',choices=('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003'),default='axil_to_apb4_001');p.add_argument('--admission')
+    p.add_argument('--task',choices=('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003','axil_to_apb4_decoupled_004'),default='axil_to_apb4_001');p.add_argument('--admission')
     p.add_argument('--capabilities',choices=['engineering-tools-v1']);p.add_argument('--paired-inputs',help='Trusted frozen suite directory; never solver visible')
     a=p.parse_args()
     import fcntl

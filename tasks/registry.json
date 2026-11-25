@@ -97,6 +97,39 @@
         "test_diagnostic"
       ],
       "reward_contract": "terminal_binary_with_infrastructure_null"
+    },
+    {
+      "task_id": "axil_to_apb4_decoupled_004",
+      "version": 1,
+      "title": "Independent APB execution and response queues",
+      "metadata": "tasks/axil_to_apb4_decoupled_004/task.json",
+      "spec": "tasks/axil_to_apb4_decoupled_004/spec.md",
+      "initial_rtl": "tasks/axil_to_apb4_decoupled_004/workspace/bridge.sv",
+      "verifier": "verifier.task004.campaign",
+      "environment": {
+        "reset": "environment.task004:reset",
+        "test": "environment.task004:test",
+        "submit": "environment.task004:submit"
+      },
+      "quality_kind": "source_bound_gate",
+      "capabilities": [
+        "independent-apb-execution",
+        "separate-response-queues",
+        "three-credit-reservation",
+        "read-snapshot-lifetime",
+        "non-power-of-two-wrap",
+        "reset-multiple-completions"
+      ],
+      "protocols": [
+        "AXI4-Lite",
+        "APB4"
+      ],
+      "policies": [
+        "spec_only",
+        "test_verdict",
+        "test_diagnostic"
+      ],
+      "reward_contract": "terminal_binary_with_infrastructure_null"
     }
   ]
 }
