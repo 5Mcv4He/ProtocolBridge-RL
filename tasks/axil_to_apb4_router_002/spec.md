@@ -1,0 +1,100 @@
+# AXI4-Lite to three APB4 targets — task 002, revision 1
+
+Implement the synthesizable SystemVerilog module `bridge` with exactly the ports
+in `bridge.sv`. This is one AXI4-Lite slave connected to three APB4 targets on a shared master bus.
+
+## Clock, reset and supported traffic
+
+- All transfers use the rising edge of `clk`; `rst_n` is active-low synchronous reset.
+- Address and data widths are 32 bits. Addresses are byte addresses aligned to four
+  bytes. Decode the full 32-bit address using the table below; pass the target-local offset to PADDR.
+- There is one outstanding transaction. The requester starts its next transaction
+  only after the preceding B/R handshake, or after reset cancels it. Read and write
+  requests do not overlap. Repeated reads, repeated writes and arbitrary direction
+  changes between completed transactions are supported.
+- There are no bursts, IDs, exclusives, clock crossings or AWPROT/ARPROT ports.
+  Drive APB PPROT to 000 during every APB transfer.
+
+## Address map and response multiplexing
+
+| Target index | Inclusive AXI byte-address range | Local PADDR |
+|---|---|---|
+| 0 | 0x00001000–0x00001fff | AXI address minus 0x00001000 |
+| 1 | 0x00008000–0x00009fff | AXI address minus 0x00008000 |
+| 2 | 0x40000000–0x40000fff | AXI address minus 0x40000000 |
+
+The last supported aligned address in each range ends in ffc. Every other aligned
+32-bit address is unmapped (including holes and high-address aliases). No address
+truncation or implicit wrapping is permitted.
+
+- PSEL[2:0] is one-hot for a mapped transfer and zero while idle, responding or
+  processing an unmapped request. PENABLE must be zero whenever PSEL is zero.
+- While PSEL=0, PADDR/PWRITE/PWDATA/PSTRB/PPROT have no functional meaning;
+  PENABLE must still be 0.
+- PADDR, PWRITE, PWDATA, PSTRB, PPROT and PENABLE are shared outputs. Hold the
+  selected PSEL bit stable through setup/access/waits; never broadcast a transfer.
+- Target i supplies PREADY[i], PSLVERR[i] and PRDATA[32*i +: 32]. Only selected
+  target values at completion have meaning. Unselected inputs can change arbitrarily
+  and must not affect progress, data or response. All targets share clock/reset.
+- Unmapped writes still accept AW and W independently and wait for both before
+  responding. Unmapped reads accept AR. Issue NO APB setup or access for either.
+  Return DECERR (11), and RDATA=0 for reads, within 16 cycles of full request
+  acceptance, holding response under backpressure exactly as for mapped requests.
+- Reset cancels unmapped pending halves/responses too. Already completed mapped
+  writes remain committed; memories at the same local offset in different targets
+  are independent. There is still only one outstanding AXI transaction globally.
+
+## AXI request acceptance
+
+- AW and W can arrive together or in either order, with arbitrary finite gaps.
+  Accepting AW must not require WVALID, and accepting W must not require AWVALID.
+- The requester keeps VALID and payload stable until READY. Buffer each accepted
+  write half once; do not execute a write before accepting both halves.
+- When idle and able to accept the next transaction, accept each offered channel
+  within 16 cycles. For a mapped request, after accepting both AW/W, or accepting AR, begin APB setup
+  within 16 cycles. These bounds do not bound the gap between independently
+  offered AW and W or the target/requester's externally imposed wait time.
+
+## APB conversion and AXI response
+
+- Each mapped, non-aborted AXI request produces exactly one APB transfer on the decoded target: one setup cycle
+  with exactly one PSEL bit high and PENABLE=0, followed by access with the same PSEL and PENABLE=1 until that target's PREADY=1.
+- Address, direction, write data, strobe and protection remain stable through
+  setup/access/wait. Support any finite number of PREADY wait cycles.
+- For writes, map WDATA and all four WSTRB bits unchanged, including WSTRB=0000.
+- For reads, drive PWRITE=0 and PSTRB=0; PWDATA has no functional meaning.
+- Sample PRDATA and PSLVERR only at APB completion. Map PSLVERR=0 to OKAY (00)
+  and PSLVERR=1 to SLVERR (10). RDATA equals completed PRDATA even on an error.
+- For mapped requests, BVALID/RVALID cannot precede APB completion and must assert within 16 cycles
+  of it. Preserve VALID and response payload until BREADY/RREADY, including long
+  backpressure. Do not launch another APB transfer while a response is pending.
+
+## Reset at any transaction stage
+
+At a rising edge with rst_n=0, clear buffered request halves and pending responses,
+and drive PSEL/PENABLE/BVALID/RVALID low. The requester and target are reset too.
+
+- A request interrupted before APB completion is discarded without an AXI response.
+- If APB completed before reset but the AXI response was still pending, discard
+  that response. A completed external APB write is not rolled back by bridge reset.
+- The test target retains already committed memory across reset; an interrupted
+  APB write has no memory side effect. This is target behavior, not bridge storage.
+- After reset release, the bridge must accept new requests without stale data,
+  ghost responses or old buffered request halves.
+
+## Target behavior and submission rules
+
+Tests use three independently modeled memory targets with disjoint state. Successful partial writes update
+selected bytes; error writes have no memory effect. Target errors and waits are
+controlled by the environment, independently of bridge address decoding. No external interrupt input or IRQ routing is part of this task; interruption means reset cancellation only.
+
+Submit one self-contained `bridge` module. No external includes/modules, compiler
+macros, hierarchical references, string literals, initial/final blocks, DPI,
+file I/O or simulation control. System functions are limited to `$clog2` and
+`$bits`. This restricted synthesizable subset is enforced before compilation.
+
+Public tests provide representative examples and feedback. Private reward and
+reserved evaluation inputs test the same Spec, including boundary combinations;
+they add no hidden functional requirements. The solver must not access the
+reference implementation or evaluator. Performance/area optimization is not
+part of the current functional reward.

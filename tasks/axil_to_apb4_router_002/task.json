@@ -1,0 +1,126 @@
+{
+  "task_id": "axil_to_apb4_router_002",
+  "version": 1,
+  "status": "candidate",
+  "spec": "spec.md",
+  "initial_rtl": "workspace/bridge.sv",
+  "verifier": "verifier.task002.campaign",
+  "capabilities": [
+    "full-address-decode",
+    "one-hot-routing",
+    "local-address-translation",
+    "selected-response-mux",
+    "decode-error",
+    "reset-cancellation"
+  ],
+  "baseline_dependency": "001 revision 3 methodology; separate contract and implementation",
+  "quality": {
+    "references": [
+      "fixtures/task002/reference.sv",
+      "fixtures/task002/reference_fallthrough.sv"
+    ],
+    "negative_controls": [
+      {
+        "source": "fixtures/task002/bad_wrong_target.sv",
+        "first_case": "decode_boundaries",
+        "violation": "Wrong target selection"
+      },
+      {
+        "source": "fixtures/task002/bad_address_alias.sv",
+        "first_case": "decode_misses",
+        "violation": "High address alias"
+      },
+      {
+        "source": "fixtures/task002/bad_wrong_local_address.sv",
+        "first_case": "decode_boundaries",
+        "violation": "Untranslated target address"
+      },
+      {
+        "source": "fixtures/task002/bad_broadcast.sv",
+        "first_case": "decode_boundaries",
+        "violation": "Multiple targets selected"
+      },
+      {
+        "source": "fixtures/task002/bad_wrong_ready.sv",
+        "first_case": "independent_target_memory",
+        "violation": "Unselected READY controls completion"
+      },
+      {
+        "source": "fixtures/task002/bad_wrong_read_mux.sv",
+        "first_case": "independent_target_memory",
+        "violation": "Read response lane wrong"
+      },
+      {
+        "source": "fixtures/task002/bad_wrong_error_mux.sv",
+        "first_case": "wait_error",
+        "violation": "Error response lane wrong"
+      },
+      {
+        "source": "fixtures/task002/bad_miss_okay.sv",
+        "first_case": "decode_misses",
+        "violation": "Decode error returned as OKAY"
+      },
+      {
+        "source": "fixtures/task002/bad_miss_side_effect.sv",
+        "first_case": "decode_misses",
+        "violation": "Unmapped APB side effect"
+      },
+      {
+        "source": "fixtures/task002/bad_strobe_loss.sv",
+        "first_case": "write_accumulate",
+        "violation": "Byte enable lost"
+      },
+      {
+        "source": "fixtures/task002/bad_independent_handshake.sv",
+        "first_case": "channel_gaps",
+        "violation": "W acceptance depends on AW"
+      },
+      {
+        "source": "fixtures/task002/bad_reset_half.sv",
+        "first_case": "reset_aw_only",
+        "violation": "Buffered AW survives reset"
+      },
+      {
+        "source": "fixtures/task002/bad_miss_read_data.sv",
+        "first_case": "decode_misses",
+        "violation": "Nonzero unmapped read data"
+      }
+    ],
+    "mechanism_module": "environment.task002_mechanism",
+    "required_cross_bins": 1728,
+    "minimum_negative_controls": 10,
+    "required_requirements": [
+      "R_FULL_DECODE",
+      "R_LOCAL_ADDRESS",
+      "R_TARGET_SELECTION",
+      "R_DECERR",
+      "R_NO_APB_ON_MISS",
+      "R_MISS_RECOVERY",
+      "R_DISJOINT_MEMORY",
+      "R_RESPONSE_MUX",
+      "R_TARGET_SWITCH",
+      "R_RESET_EVERY_TARGET",
+      "R_UNMAPPED_RESET",
+      "R_NO_STALE_ROUTE",
+      "F_AW_FIRST",
+      "F_W_FIRST",
+      "F_HALF_BUFFER",
+      "F_WAIT",
+      "F_B_STABLE",
+      "F_R_STABLE"
+    ],
+    "spec_review": {
+      "status": "reviewed_for_candidate_verification",
+      "ports": "Explicit packed target lanes and shared request bus",
+      "bounds": "Full 32-bit inclusive address ranges and 16-cycle internal limits",
+      "reset": "Request halves, APB waits, pending responses and committed target memory",
+      "unsupported": "Multiple outstanding, read/write overlap, IRQ, bursts and CDC",
+      "blind_spots": [
+        "No formal proof of all input traces",
+        "No area/timing/synthesis signoff",
+        "Bounded random waits do not prove arbitrary finite waits",
+        "Spec semantic consistency remains engineering review, not automatic proof"
+      ]
+    }
+  }
+}

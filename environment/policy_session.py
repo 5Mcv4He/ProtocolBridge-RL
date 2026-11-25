@@ -7,9 +7,9 @@ from .verification_timing import measured_grade
 from verifier.campaign import grade,sha,source_policy
 
 class Session:
-    def __init__(self,policy,work,out,reward_cases,grader=grade,reuse=None):
+    def __init__(self,policy,work,out,reward_cases,grader=grade,reuse=None,projector=project):
         self.policy=copy.deepcopy(validate(policy));self.work=Path(work);self.out=Path(out)
-        self.reward_cases=copy.deepcopy(reward_cases);self.grader=grader;self.read=set()
+        self.reward_cases=copy.deepcopy(reward_cases);self.grader=grader;self.projector=projector;self.read=set()
         self.repair=False
         self.protocol_version=1
         self.actions=0;self.tests=0;self.edits=0;self.done=False;self.submitted=False
@@ -55,7 +55,7 @@ class Session:
                     (dest/'internal-exception.json').write_text(json.dumps({'type':type(e).__name__}))
                     r={'reward':None,'category':'infrastructure_error'}
                 self.public.append({'action':self.actions,'source_sha256':sha(self.work/'bridge.sv'),'result':r})
-                obs=project(r,self.policy,self.policy['max_public_test_calls']-self.tests)
+                obs=self.projector(r,self.policy,self.policy['max_public_test_calls']-self.tests)
         elif tool=='submit':
             if self.repair and self.tests==0:obs={'status':'REJECTED','reason':'initial_public_test_required'}
             elif self.read!=set(self.policy['readable_files']):obs={'status':'REJECTED','reason':'read_spec_and_rtl_first'}

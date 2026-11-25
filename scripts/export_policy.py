@@ -9,7 +9,7 @@ def write(p,x):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dump
 def compact_result(r):
     keys=('reward','category','verification_complete','verdict_determinate','source_sha256','suite_sha256','required_cases','planned','checked','aborted','functional_cross','failed_case','compile_exit','compile_reused')
     out={k:r[k] for k in keys if k in r}
-    out['cases']=[{k:c[k] for k in ('name','reward','category','planned','expected_aborted','scoreboard','simulation_exit','requirements') if k in c} for c in r.get('cases',[])]
+    out['cases']=[{k:c[k] for k in ('name','reward','category','planned','expected_aborted','scoreboard','routing','simulation_exit','requirements') if k in c} for c in r.get('cases',[])]
     return out
 
 def export(source,dest,trial_ids=None,campaigns_only=False):

@@ -11,12 +11,19 @@ from environment.batch_contract import experiment_prompt
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def audit(root,limit=None):
     root=Path(root);experiment=json.loads((root/'experiment.json').read_text());errors=[];sessions=set();results=[]
+    task_id=experiment.get('task_id','axil_to_apb4_001')
+    if task_id not in ('axil_to_apb4_001','axil_to_apb4_router_002'):raise ValueError('Unknown task audit contract')
+    task_dir='tasks/'+task_id
+    projector=project
+    if task_id=='axil_to_apb4_router_002':
+        from environment.task002 import project as projector
     def require(ok,msg):
         if not ok:errors.append(msg)
     for entry in experiment['schedule'][:limit]:
         name=entry['id'];d=root/name
         if not (d/'metrics.json').exists():errors.append(name+': missing trial');continue
         metrics=json.loads((d/'metrics.json').read_text());freeze=json.loads((d/'freeze.json').read_text())
+        require(freeze.get('task_id','axil_to_apb4_001')==task_id and metrics.get('task_id','axil_to_apb4_001')==task_id,name+': task identity mismatch')
         policy=validate(json.loads((d/'policy.json').read_text()))
         trace=json.loads((d/'trace.json').read_text()) if (d/'trace.json').exists() else []
         observations=json.loads((d/'observations.json').read_text()) if (d/'observations.json').exists() else []
@@ -35,8 +42,8 @@ def audit(root,limit=None):
             require(metrics['terminal']['reward'] is None and metrics['held_out'] is None,name+': evaluated before solver stop')
         require(len(trace)==metrics['actions']<=20,name+': action accounting')
         count=0;edit_count=0;read_files=set();active_text=None
-        active_source=experiment.get('starting_rtl_sha256',experiment['source_files']['tasks/axil_to_apb4_001/workspace/bridge.sv'])
-        spec_source=experiment['source_files']['tasks/axil_to_apb4_001/spec.md']
+        active_source=experiment.get('starting_rtl_sha256',experiment['source_files'][task_dir+'/workspace/bridge.sv'])
+        spec_source=experiment['source_files'][task_dir+'/spec.md']
         for i,event in enumerate(trace):
             action=event['action'];obs=event['observation'];tool=action.get('tool')
             if event['executed']:
@@ -46,7 +53,7 @@ def audit(root,limit=None):
                 require(p.exists(),name+': public result missing')
                 if p.exists():
                     result=json.loads(p.read_text())
-                    require(obs==project(result,policy,policy['max_public_test_calls']-count),name+': public projection differs')
+                    require(obs==projector(result,policy,policy['max_public_test_calls']-count),name+': public projection differs')
                     require(result['source_sha256']==active_source,name+': public test used a different candidate')
             elif tool=='test':require(not (d/('public-%02d'%event['action_index'])).exists(),name+': rejected test executed')
             if tool=='read' and event['executed']:

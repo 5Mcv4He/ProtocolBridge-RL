@@ -25,7 +25,7 @@ def report(root,limit):
         errors=parse_errors+schema_errors
         after=bool(feedback and any(i>feedback[0]['action_index'] for i in edits));labels=[]
         failed_feedback=[e for e in feedback if e['observation']['status']=='FAIL']
-        active=manifest.get('starting_rtl_sha256',manifest['source_files']['tasks/axil_to_apb4_001/workspace/bridge.sv']);changed_after=False;changed_after_fail=False
+        active=manifest.get('starting_rtl_sha256',manifest['source_files']['tasks/'+manifest.get('task_id','axil_to_apb4_001')+'/workspace/bridge.sv']);changed_after=False;changed_after_fail=False
         for event in t:
             if event['executed'] and event['action'].get('tool')=='edit':
                 digest=hashlib.sha256(event['action']['content'].encode()).hexdigest()
