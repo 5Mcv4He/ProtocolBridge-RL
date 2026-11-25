@@ -42,8 +42,12 @@ def audit(root,limit=None):
         expected_prompt=experiment_prompt(policy,'starting_rtl_sha256' in experiment,protocol)
         capabilities=experiment.get('capabilities')
         if capabilities:
-            from environment.engineering_session import extend_prompt,PROFILE
-            require(capabilities==PROFILE['id'] and task_id==PROFILE['task_id'] and policy['policy_id']=='test_diagnostic',name+': invalid capabilities')
+            if capabilities=='synthesis-tools-v1':
+                from environment.synthesis_session import extend_prompt,PROFILE
+                require(task_id in PROFILE['task_ids'] and policy['policy_id']=='test_diagnostic',name+': invalid synthesis capabilities')
+            else:
+                from environment.engineering_session import extend_prompt,PROFILE
+                require(capabilities==PROFILE['id'] and task_id==PROFILE['task_id'] and policy['policy_id']=='test_diagnostic',name+': invalid capabilities')
             expected_prompt=extend_prompt(expected_prompt)
         require(freeze.get('capabilities')==capabilities and metrics.get('capabilities')==capabilities,name+': capabilities mismatch')
         if observations:require(observations[0]['prompt']==expected_prompt,name+': unexpected initial observation')
@@ -52,7 +56,7 @@ def audit(root,limit=None):
         if not metrics['solver_stopped_before_evaluation']:
             require(metrics['terminal']['reward'] is None and metrics['held_out'] is None,name+': evaluated before solver stop')
         require(len(trace)==metrics['actions']<=20,name+': action accounting')
-        count=0;compile_count=0;inspect_count=0;last_public=None;edit_count=0;read_files=set();active_text=None
+        count=0;synth_count=0;compile_count=0;inspect_count=0;last_public=None;edit_count=0;read_files=set();active_text=None
         active_source=experiment.get('starting_rtl_sha256',experiment['source_files'][task_dir+'/workspace/bridge.sv'])
         spec_source=experiment['source_files'][task_dir+'/spec.md']
         for i,event in enumerate(trace):
@@ -73,6 +77,26 @@ def audit(root,limit=None):
                 expected=dict(record['observation'],remaining_compile_calls=2-compile_count)
                 require(obs==expected and record['source_sha256']==active_source,name+': compile observation/source mismatch')
                 if (cp/'compile.log').exists():require(record['observation']==compiler_projection((cp/'compile.log').read_text(),record['exit_code']),name+': compiler projection mismatch')
+            if tool=='synth_check' and event['executed']:
+                from environment.synthesis_projection import dc_observation,validate_observation
+                require(read_files==set(policy['readable_files']),name+': synthesis before required reads')
+                synth_count+=1;cp=d/('synth-%02d'%event['action_index']);record=json.loads((cp/'result.json').read_text())
+                require(record['source_sha256']==active_source,name+': synthesis used different candidate')
+                require((cp/'bridge.sv').exists() and digest(cp/'bridge.sv')==active_source,name+': synthesis source evidence differs')
+                for artifact,expected_hash in record.get('evidence_sha256',{}).items():
+                    require('/' not in artifact and (cp/artifact).is_file() and digest(cp/artifact)==expected_hash,name+': synthesis evidence hash mismatch')
+                expected=dict(validate_observation(record['observation']),remaining_synth_calls=2-synth_count)
+                require(obs==expected,name+': synthesis projection mismatch')
+                if record.get('execution'):
+                    b=record['execution']['binding_before'];a=record['execution']['binding_after']
+                    require(b==a,name+': synthesis environment changed')
+                    expected_binding=experiment.get('synthesis_binding')
+                    require(expected_binding is not None and all(b.get(k)==v for k,v in expected_binding.items()),name+': synthesis differs from batch environment freeze')
+                    stages=record['execution']['stages']
+                    require(len(stages)==1 and stages[0]['stage']=='dc',name+': solver tool ran unauthorized trusted stages')
+                    require(record['observation']==dc_observation((cp/'dc.log').read_text(),stages[0]['exit_code'],(cp/'mapped.v').exists()),name+': synthesis raw evidence projection differs')
+                else:require(obs['status'] in ('INVALID','ENV_ERROR'),name+': missing synthesis execution')
+            elif tool=='synth_check':require(not (d/('synth-%02d'%event['action_index'])).exists(),name+': rejected synthesis executed')
             if tool=='inspect' and event['executed']:
                 from environment.engineering_tools import inspect_public
                 inspect_count+=1
@@ -97,6 +121,7 @@ def audit(root,limit=None):
                 require(i+1<len(observations),name+': missing delivered observation')
                 if i+1<len(observations):require(json.loads(observations[i+1]['prompt'])=={'tool_result':obs},name+': actual model input differs from projected observation')
             else:require(i==len(trace)-1,name+': unexplained nondelivery')
+        require(synth_count==metrics.get('synth_calls',0)<=2,name+': synthesis budget')
         require(compile_count==metrics.get('compile_calls',0)<=2 and inspect_count==metrics.get('inspect_calls',0)<=2,name+': capability budgets')
         require(count==metrics['public_test_calls']<=policy['max_public_test_calls'],name+': test budget')
         require(edit_count==metrics['edits'],name+': edit accounting')
