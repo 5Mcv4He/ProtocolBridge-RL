@@ -1,0 +1,260 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "20d2b717f5b2f87b423a8fb89ffd084df1cf40daf3c6f4d8f7ac9e3dac0cab2c",
+  "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+  "required_cases": [
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall"
+  ],
+  "failed_case": "reset_w_only",
+  "compile_exit": 0,
+  "cases": [
+    {
+      "name": "address_data",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_ADDR",
+        "F_DATA",
+        "F_MAPPING"
+      ]
+    },
+    {
+      "name": "read_only",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 2,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 2,
+        "axi": 2,
+        "apb": 2,
+        "checked": 2,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_READ_UNWRITTEN",
+        "F_RR"
+      ]
+    },
+    {
+      "name": "write_accumulate",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_WW",
+        "F_PARTIAL",
+        "F_ZERO_STROBE",
+        "F_RR"
+      ]
+    },
+    {
+      "name": "strobe_cross",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 20,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 20,
+        "axi": 20,
+        "apb": 20,
+        "checked": 20,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_STROBE_ALL",
+        "X_STROBE_ORDER_ERROR_WAIT_STALL"
+      ]
+    },
+    {
+      "name": "channel_gaps",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 10,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 10,
+        "axi": 10,
+        "apb": 10,
+        "checked": 10,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_AW_FIRST",
+        "F_W_FIRST",
+        "F_TOGETHER",
+        "F_HALF_BUFFER"
+      ]
+    },
+    {
+      "name": "wait_error",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_WAIT",
+        "F_ERROR_WRITE",
+        "F_ERROR_READ",
+        "F_ERROR_NO_WRITE"
+      ]
+    },
+    {
+      "name": "response_backpressure",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_B_STABLE",
+        "F_R_STABLE",
+        "F_EARLY_READY"
+      ]
+    },
+    {
+      "name": "mixed_stream",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 12,
+        "apb": 12,
+        "checked": 12,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_MIXED",
+        "F_STATE_REUSE"
+      ]
+    },
+    {
+      "name": "latency_baseline",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_LATENCY_BASELINE"
+      ]
+    },
+    {
+      "name": "reset_aw_only",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "expected_aborted": 1,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 5,
+        "apb": 5,
+        "checked": 5,
+        "aborted": 1,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_AW_ONLY",
+        "F_RESET_RECOVERY"
+      ]
+    },
+    {
+      "name": "reset_w_only",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 6,
+      "expected_aborted": 1,
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_W_ONLY",
+        "F_RESET_RECOVERY"
+      ]
+    }
+  ]
+}

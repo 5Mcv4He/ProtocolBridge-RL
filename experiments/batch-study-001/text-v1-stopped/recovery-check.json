@@ -1,0 +1,8 @@
+{
+  "trial": "r01-spec_only",
+  "exercise": "Stop only the local observer, then resume the same frozen batch.",
+  "same_supervisor_identity": true,
+  "alive_before_and_after": true,
+  "raw_record_sha256": "9e867e122582ee54d28baeb7dfa787bc73e1cd8a643c3f8bcca314fbdc0ebc22",
+  "scope": "SSH/client observation recovery; not host power loss or disk corruption recovery."
+}

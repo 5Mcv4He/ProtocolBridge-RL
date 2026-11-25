@@ -1,0 +1,121 @@
+[
+  {
+    "action_index": 1,
+    "action": {},
+    "executed": false,
+    "observation": {
+      "status": "REJECTED",
+      "reason": "invalid_action_format",
+      "instruction": "Return exactly one JSON action object, with no prose or additional actions. Wait for its result."
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 2,
+    "action": {
+      "tool": "read",
+      "file": "spec.md"
+    },
+    "executed": true,
+    "observation": {
+      "file": "spec.md",
+      "content_sha256": "6f2e075cee28f51451dc96888ee1185a1356e153d0166d763bcc68d37fa336e8",
+      "content_bytes": 4152
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 3,
+    "action": {
+      "tool": "read",
+      "file": "bridge.sv"
+    },
+    "executed": true,
+    "observation": {
+      "file": "bridge.sv",
+      "content_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "content_bytes": 713
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 4,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "76e121e5b5dae25e57c93d1dc05b21a03580a03dadc7eb9ded65dde7bad6c1c7",
+      "candidate_file": "candidate-04.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 5,
+    "action": {
+      "tool": "test"
+    },
+    "executed": true,
+    "observation": {
+      "status": "FAIL",
+      "remaining_test_calls": 1,
+      "category": "protocol_timing_error",
+      "first_failed_case": "address_data",
+      "diagnostic": "A protocol timing or stability requirement failed."
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 6,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "9bd8eba27c91754a4f77668eef189673f5a051b69a127a493c591784c5e0aae6",
+      "candidate_file": "candidate-06.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 7,
+    "action": {
+      "tool": "test"
+    },
+    "executed": true,
+    "observation": {
+      "status": "FAIL",
+      "remaining_test_calls": 0,
+      "category": "protocol_timing_error",
+      "first_failed_case": "address_data",
+      "diagnostic": "A protocol timing or stability requirement failed."
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 8,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "a5a3ef7984e2f954faa859061dc606753cfbcebaee996bb777c05d9eace8473b",
+      "candidate_file": "candidate-08.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 9,
+    "action": {
+      "tool": "submit"
+    },
+    "executed": true,
+    "observation": {
+      "status": "SUBMITTED"
+    },
+    "observation_delivered": false
+  }
+]

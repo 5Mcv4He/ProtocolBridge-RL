@@ -1,0 +1,161 @@
+{
+  "scope": "Only actually delivered public test observations; terminal_reward is research-side data, never solver feedback. Full solver-input audit remains in trusted storage.",
+  "trials": [
+    {
+      "trial": "r01-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "6438d7c9ed3ea1ea99dd6e1c2ca194b0e45c9b4714597216cd98d8a0eb466cff",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "66bddfd9726bc87ce3bd8b9acce417c468eb33a6ade1ebb4d597de865eb40a2b",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "6438d7c9ed3ea1ea99dd6e1c2ca194b0e45c9b4714597216cd98d8a0eb466cff",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "reset_w_only",
+            "diagnostic": "AXI request acceptance exceeded the 16-cycle limit."
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "445c67c6b6d1933f2c1cbcbecf5f6485eb7903d6a89dd309e152c2d1b5dc5b0e",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 0,
+            "category": "pass",
+            "first_failed_case": null,
+            "diagnostic": "Public verification completed successfully."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "6438d7c9ed3ea1ea99dd6e1c2ca194b0e45c9b4714597216cd98d8a0eb466cff",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "reset_w_only",
+            "diagnostic": "AXI request acceptance exceeded the 16-cycle limit."
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "8365f56c5d0cf9b998ff4970879e353cabb2a2827237a2c1b790ff216072769d",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 0,
+            "category": "pass",
+            "first_failed_case": null,
+            "diagnostic": "Public verification completed successfully."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r02-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "6438d7c9ed3ea1ea99dd6e1c2ca194b0e45c9b4714597216cd98d8a0eb466cff",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "20d2b717f5b2f87b423a8fb89ffd084df1cf40daf3c6f4d8f7ac9e3dac0cab2c",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r03-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "6438d7c9ed3ea1ea99dd6e1c2ca194b0e45c9b4714597216cd98d8a0eb466cff",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "ac76886ad763850c1112f83c9595de75620f989762569d26c79bdff638eb26c3",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "6438d7c9ed3ea1ea99dd6e1c2ca194b0e45c9b4714597216cd98d8a0eb466cff",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "reset_w_only",
+            "diagnostic": "AXI request acceptance exceeded the 16-cycle limit."
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "1393ffb009669b4231478b13d1714f69527077a1c6b55347b35bcca691984965",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 0,
+            "category": "pass",
+            "first_failed_case": null,
+            "diagnostic": "Public verification completed successfully."
+          }
+        }
+      ]
+    }
+  ]
+}

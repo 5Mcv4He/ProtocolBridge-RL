@@ -1,0 +1,32 @@
+{
+  "trial": "r05-test_diagnostic",
+  "observations": [
+    {
+      "artifact": "public-05/address_data/simulation.log",
+      "sha256": "56ae69c8fd5cbc023d31cf63e4e8a9479781b598aa4af12285603650caa2172f",
+      "checker_id_observed": "penable_after_psel",
+      "scoreboard_completed_at_least_one_transaction": true
+    },
+    {
+      "artifact": "public-07/address_data/simulation.log",
+      "sha256": "c415cf6062b04e80a1497d9e0c147c65b619088f6905a2c5c8824438778eb350",
+      "checker_id_observed": "penable_after_psel",
+      "scoreboard_completed_at_least_one_transaction": true
+    },
+    {
+      "artifact": "submission/grade/address_data/simulation.log",
+      "sha256": "6713762e5f87a26409b7ada2a401b10aca2c77e89c2b9c820fb511a680de803a",
+      "checker_id_observed": "penable_after_psel",
+      "scoreboard_completed_at_least_one_transaction": true
+    },
+    {
+      "artifact": "reserved-evaluation/address_data/simulation.log",
+      "sha256": "c1c003c159e82135fa1bf055871bd076a6ddd5f3ad0d26f337746d2931cbc84e",
+      "checker_id_observed": "penable_after_psel",
+      "scoreboard_completed_at_least_one_transaction": true
+    }
+  ],
+  "source_observation": "All three accepted candidates leave PSEL/PENABLE asserted in the ACCESS completion branch and change state to IDLE; outputs clear only on the following IDLE edge.",
+  "interpretation": "APB completion/phase exit remains incorrect; the same VIP check fails after both revisions. No corrected candidate was substituted or counted as Agent success.",
+  "model_feedback_detail": "Category plus case name and a generic timing/stability sentence; no checker identifier or waveform was provided."
+}

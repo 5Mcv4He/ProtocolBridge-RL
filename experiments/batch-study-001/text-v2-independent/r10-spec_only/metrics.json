@@ -1,0 +1,53 @@
+{
+  "policy_id": "spec_only",
+  "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+  "model": "deepseek-flash",
+  "actions": 5,
+  "edits": 2,
+  "public_test_calls": 0,
+  "submitted": true,
+  "terminal": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "74c4247c836e4e42be5a0be2f345cb8d4d819ea60e3ff7e13219c94c35f8636f",
+    "suite_sha256": "d94cde064a1990c9124d8a3d7ed430a2694a1bae783b807d250de51696065fce",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "held_out": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "74c4247c836e4e42be5a0be2f345cb8d4d819ea60e3ff7e13219c94c35f8636f",
+    "suite_sha256": "21190ee0000572ff57125cb8093862d560342d3e89a82397f752ff32ea9fcca5",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "first_candidate_public": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "d60b8b0db0f1ed4ef6cce101be1748e64ef13289ef30a5f7cc79b9c72cd5994d",
+    "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "first_candidate_source": "candidate-03.sv",
+  "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+  "final_candidate_public": null,
+  "freeze_unchanged": true,
+  "solver_stopped_before_evaluation": true,
+  "wall_seconds": 186.707,
+  "api_usage": null,
+  "api_cost": null,
+  "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+  "private_reward_suite_sha256": "d94cde064a1990c9124d8a3d7ed430a2694a1bae783b807d250de51696065fce",
+  "reserved_evaluation_suite_sha256": "21190ee0000572ff57125cb8093862d560342d3e89a82397f752ff32ea9fcca5"
+}

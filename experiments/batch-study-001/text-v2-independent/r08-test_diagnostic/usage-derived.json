@@ -1,0 +1,81 @@
+{
+  "available": true,
+  "totals": {
+    "inputTokens": 2134,
+    "outputTokens": 1627,
+    "cacheReadTokens": 11008,
+    "cacheWriteTokens": 0,
+    "totalTokens": 14769
+  },
+  "cost": null,
+  "events": [
+    {
+      "event_file": "harness-00.json",
+      "event_seq": 10,
+      "usage": {
+        "inputTokens": 189,
+        "outputTokens": 10,
+        "cacheReadTokens": 128,
+        "cacheWriteTokens": 0,
+        "totalTokens": 327
+      }
+    },
+    {
+      "event_file": "harness-01.json",
+      "event_seq": 18,
+      "usage": {
+        "inputTokens": 1085,
+        "outputTokens": 11,
+        "cacheReadTokens": 256,
+        "cacheWriteTokens": 0,
+        "totalTokens": 1352
+      }
+    },
+    {
+      "event_file": "harness-02.json",
+      "event_seq": 26,
+      "usage": {
+        "inputTokens": 337,
+        "outputTokens": 1591,
+        "cacheReadTokens": 1280,
+        "cacheWriteTokens": 0,
+        "totalTokens": 3208
+      }
+    },
+    {
+      "event_file": "harness-03.json",
+      "event_seq": 34,
+      "usage": {
+        "inputTokens": 152,
+        "outputTokens": 5,
+        "cacheReadTokens": 3072,
+        "cacheWriteTokens": 0,
+        "totalTokens": 3229
+      }
+    },
+    {
+      "event_file": "harness-04.json",
+      "event_seq": 42,
+      "usage": {
+        "inputTokens": 217,
+        "outputTokens": 5,
+        "cacheReadTokens": 3072,
+        "cacheWriteTokens": 0,
+        "totalTokens": 3294
+      }
+    },
+    {
+      "event_file": "harness-05.json",
+      "event_seq": 50,
+      "usage": {
+        "inputTokens": 154,
+        "outputTokens": 5,
+        "cacheReadTokens": 3200,
+        "cacheWriteTokens": 0,
+        "totalTokens": 3359
+      }
+    }
+  ],
+  "method": "Sum unique (session_id, seq) assistant/message.data.usage events only; exclude stream chunks and duplicated notifications.",
+  "semantics": "SDK inputTokens excludes separately reported cacheReadTokens in these records; totalTokens is the SDK total, not unique context size. No billed currency cost is provided."
+}

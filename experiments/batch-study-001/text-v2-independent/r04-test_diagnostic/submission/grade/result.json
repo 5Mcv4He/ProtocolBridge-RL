@@ -1,0 +1,93 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "d431f8259b952b09e21a8fab2e75ffd7874c39dbfb59e2f732d09fa589ab0065",
+  "suite_sha256": "0c943dbee23942c51816e80dcd1e5024572441566304ea91516abf50fb7a8e4f",
+  "required_cases": [
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall"
+  ],
+  "failed_case": "write_accumulate",
+  "compile_exit": 0,
+  "cases": [
+    {
+      "name": "address_data",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 142,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 142,
+        "axi": 142,
+        "apb": 142,
+        "checked": 142,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_ADDR",
+        "F_DATA",
+        "F_MAPPING"
+      ]
+    },
+    {
+      "name": "read_only",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 24,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 24,
+        "axi": 24,
+        "apb": 24,
+        "checked": 24,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "simulation_exit": 0,
+      "requirements": [
+        "F_READ_UNWRITTEN",
+        "F_RR"
+      ]
+    },
+    {
+      "name": "write_accumulate",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 36,
+      "expected_aborted": 0,
+      "simulation_exit": 0,
+      "requirements": [
+        "F_WW",
+        "F_PARTIAL",
+        "F_ZERO_STROBE",
+        "F_RR"
+      ]
+    }
+  ]
+}

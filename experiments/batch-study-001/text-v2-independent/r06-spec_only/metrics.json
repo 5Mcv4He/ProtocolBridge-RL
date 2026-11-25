@@ -1,0 +1,53 @@
+{
+  "policy_id": "spec_only",
+  "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+  "model": "deepseek-flash",
+  "actions": 4,
+  "edits": 1,
+  "public_test_calls": 0,
+  "submitted": true,
+  "terminal": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "1e339321c43948b4f82f19df570b3990b0322d1868d540f1e0f93d68bbbc1f7d",
+    "suite_sha256": "3a9ff21e3db2dde7546a191293e152a508d972351771de072c0e65868906c7a3",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "write_accumulate"
+  },
+  "held_out": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "1e339321c43948b4f82f19df570b3990b0322d1868d540f1e0f93d68bbbc1f7d",
+    "suite_sha256": "d74518200c9a2d39e9b47f14bde544081aa8e0517fc053bb400e3d7dda1b1794",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "write_accumulate"
+  },
+  "first_candidate_public": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "1e339321c43948b4f82f19df570b3990b0322d1868d540f1e0f93d68bbbc1f7d",
+    "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "write_accumulate"
+  },
+  "first_candidate_source": "candidate-03.sv",
+  "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+  "final_candidate_public": null,
+  "freeze_unchanged": true,
+  "solver_stopped_before_evaluation": true,
+  "wall_seconds": 111.22,
+  "api_usage": null,
+  "api_cost": null,
+  "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+  "private_reward_suite_sha256": "3a9ff21e3db2dde7546a191293e152a508d972351771de072c0e65868906c7a3",
+  "reserved_evaluation_suite_sha256": "d74518200c9a2d39e9b47f14bde544081aa8e0517fc053bb400e3d7dda1b1794"
+}

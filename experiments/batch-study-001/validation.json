@@ -1,0 +1,26 @@
+{
+  "completed_agent_trials": 53,
+  "unique_model_sessions": 53,
+  "all_raw_audits_accepted": true,
+  "raw_files_verified": {
+    "text-v1-stopped": 2451,
+    "text-v2-independent": 5658,
+    "text-v2-repair": 1326
+  },
+  "runtime_freeze_unchanged_during_every_trial": true,
+  "public_consistency_checks": 3,
+  "unit_tests": {
+    "passed": 55,
+    "python": "3.14.5",
+    "note": "53 checks before rollouts; two added after all rollouts for bounded missing supervisor startup state. No new model rollout of the added failure branch."
+  },
+  "historical_baseline_check": "pass",
+  "baseline_check_runs_new_simulation": false,
+  "real_mechanism_checks": {
+    "text-v1-stopped": 31,
+    "text-v2-independent": 37,
+    "text-v2-repair": 37
+  },
+  "private_input_backup_hashes_verified": true,
+  "private_vectors_published": false
+}

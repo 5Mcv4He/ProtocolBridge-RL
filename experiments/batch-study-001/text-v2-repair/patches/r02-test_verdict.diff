@@ -1,0 +1,33 @@
+--- starting.sv
++++ submission/bridge.sv
+@@ -25,6 +25,8 @@
+   logic [31:0] rdata_r;
+ 
+   logic idle;
++  // Idle for new APB transaction launch; requests may still be accepted only
++  // when idle and no response pending.
+   assign idle = (apb_state == APB_IDLE) && !bpend && !rpend;
+ 
+   assign s_awready = idle && !aw_have;
+@@ -63,6 +65,7 @@
+       if (bpend && s_bready) bpend <= 1'b0;
+       if (rpend && s_rready) rpend <= 1'b0;
+ 
++      // Accept write halves independently.
+       if (s_awready && s_awvalid) begin
+         aw_have <= 1'b1;
+         aw_addr_r <= s_awaddr;
+@@ -76,13 +79,6 @@
+       case (apb_state)
+         APB_IDLE: begin
+           if (aw_have && w_have) begin
+-            // both buffered - start write
+-            apb_state <= APB_SETUP;
+-            cur_write <= 1'b1;
+-            aw_have <= 1'b0;
+-            w_have  <= 1'b0;
+-          end else if (aw_have && (s_wready && s_wvalid)) begin
+-            // AW buffered, W arriving now
+             apb_state <= APB_SETUP;
+             cur_write <= 1'b1;
+             aw_have <= 1'b0;

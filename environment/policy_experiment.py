@@ -8,6 +8,20 @@ from .remote_backend import remote_command,toolchain_metadata
 from .batch_contract import experiment_prompt,PROTOCOLS
 
 
+def check_supervisor_state(state,starting_polls=0):
+    """Bound ambiguous startup; never restart a job whose execution is unknown."""
+    status=state.get('status')
+    if status=='starting':
+        if starting_polls>=2:
+            raise RuntimeError('Supervisor startup state missing; preserve evidence, do not rerun')
+        return starting_polls+1
+    if status not in ('running','finished'):
+        raise RuntimeError('Unknown supervisor state; preserve evidence, do not rerun')
+    if status=='running' and not state.get('alive'):
+        raise RuntimeError('Orphaned job; preserve evidence, do not rerun')
+    return 0
+
+
 def summarize(out):
     out=Path(out);manifest=json.loads((out/'experiment.json').read_text());runs=[]
     for trial in manifest['schedule']:
@@ -101,15 +115,16 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
         command='cd '+shlex.quote(release)+' && python3 -m environment.durable_job'
         subprocess.run(ssh+[remote_command(cfg,command)],input=json.dumps(request)+'\n',universal_newlines=True,check=True,timeout=45)
         probe="import json,os; from pathlib import Path; p=Path('.jobs')/"+repr(name)+"/'state.json'; s=json.loads(p.read_text()) if p.exists() else {'status':'starting'}; q=Path('/proc/'+str(s.get('pid',0))+'/stat'); s['alive']=q.exists() and q.read_text().split()[21]==s.get('proc_start'); print(json.dumps(s))"
+        starting_polls=0
         while True:
             r=subprocess.run(ssh+[remote_command(cfg,'cd '+shlex.quote(release)+' && python3 -c '+shlex.quote(probe))],stdout=subprocess.PIPE,universal_newlines=True,check=True,timeout=45)
             state=json.loads(r.stdout);(out/(name+'-job.json')).write_text(json.dumps(state,indent=2))
             print(json.dumps({'job':name,'status':state['status'],'elapsed':round(time.time()-state.get('started',time.time()))}),flush=True)
+            starting_polls=check_supervisor_state(state,starting_polls)
             if state['status']=='finished':
                 logdir=out/(name+'-job-evidence')
                 if not logdir.exists():subprocess.run(['scp','-q','-F',cfg['ssh_config'],'-r',cfg['host']+':'+release+'/.jobs/'+name,str(logdir)],check=True,timeout=60)
                 return state.get('exit_code')
-            if state['status']=='running' and not state['alive']:raise RuntimeError('Orphaned job; preserve evidence, do not rerun')
             time.sleep(20)
     def fetch(name):
         if (out/name).exists():return

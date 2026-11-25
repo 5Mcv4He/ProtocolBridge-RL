@@ -1,0 +1,12 @@
+{
+  "pilot_gate": {
+    "passed": true,
+    "reasons": []
+  },
+  "estimate": {
+    "tokens_for_30": 579613.3333333334,
+    "seconds_for_30": 6372.616666666667,
+    "api_currency_cost": null
+  },
+  "expand": true
+}

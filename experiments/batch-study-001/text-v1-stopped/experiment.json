@@ -1,0 +1,369 @@
+{
+  "protocol": "text-json-atomic-v1",
+  "study": "independent-v1",
+  "limits": {
+    "max_seconds": 14400,
+    "max_tokens": 2000000
+  },
+  "toolchain": {
+    "vcs": "O-2018.09-SP2",
+    "vip": "R-2020.12",
+    "uvm": "1.2",
+    "python": "3.6.9 (controller); 3.10.12 (worker)",
+    "harness": "0.2.2rc2",
+    "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+  },
+  "model": "deepseek-flash",
+  "repeats": 10,
+  "policies": {
+    "spec_only": {
+      "config": {
+        "policy_id": "spec_only",
+        "version": 1,
+        "allowed_tools": [
+          "read",
+          "edit",
+          "submit"
+        ],
+        "readable_files": [
+          "spec.md",
+          "bridge.sv"
+        ],
+        "writable_files": [
+          "bridge.sv"
+        ],
+        "feedback_level": "none",
+        "max_agent_actions": 20,
+        "max_public_test_calls": 0,
+        "max_feedback_chars": 512,
+        "final_reward_visibility": "none",
+        "submission_requirements": {
+          "read_spec_and_rtl": true,
+          "public_test_required": false
+        }
+      },
+      "sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+      "prompt_sha256": "eae4bfb1d731d725b6ac9ef5f41a4d00c758a4dcec7cb1d7cc726d87dd0e6348"
+    },
+    "test_verdict": {
+      "config": {
+        "policy_id": "test_verdict",
+        "version": 1,
+        "allowed_tools": [
+          "read",
+          "edit",
+          "test",
+          "submit"
+        ],
+        "readable_files": [
+          "spec.md",
+          "bridge.sv"
+        ],
+        "writable_files": [
+          "bridge.sv"
+        ],
+        "feedback_level": "verdict",
+        "max_agent_actions": 20,
+        "max_public_test_calls": 2,
+        "max_feedback_chars": 512,
+        "final_reward_visibility": "none",
+        "submission_requirements": {
+          "read_spec_and_rtl": true,
+          "public_test_required": false
+        }
+      },
+      "sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "prompt_sha256": "363838745512bc40e47594bbedc50e77e684cf6f0bbc7e4a071cfcb2c76d1465"
+    },
+    "test_diagnostic": {
+      "config": {
+        "policy_id": "test_diagnostic",
+        "version": 1,
+        "allowed_tools": [
+          "read",
+          "edit",
+          "test",
+          "submit"
+        ],
+        "readable_files": [
+          "spec.md",
+          "bridge.sv"
+        ],
+        "writable_files": [
+          "bridge.sv"
+        ],
+        "feedback_level": "diagnostic",
+        "max_agent_actions": 20,
+        "max_public_test_calls": 2,
+        "max_feedback_chars": 512,
+        "final_reward_visibility": "none",
+        "submission_requirements": {
+          "read_spec_and_rtl": true,
+          "public_test_required": false
+        }
+      },
+      "sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "prompt_sha256": "363838745512bc40e47594bbedc50e77e684cf6f0bbc7e4a071cfcb2c76d1465"
+    }
+  },
+  "schedule": [
+    {
+      "id": "r01-spec_only",
+      "repeat": 1,
+      "policy": "spec_only"
+    },
+    {
+      "id": "r01-test_verdict",
+      "repeat": 1,
+      "policy": "test_verdict"
+    },
+    {
+      "id": "r01-test_diagnostic",
+      "repeat": 1,
+      "policy": "test_diagnostic"
+    },
+    {
+      "id": "r02-test_verdict",
+      "repeat": 2,
+      "policy": "test_verdict"
+    },
+    {
+      "id": "r02-test_diagnostic",
+      "repeat": 2,
+      "policy": "test_diagnostic"
+    },
+    {
+      "id": "r02-spec_only",
+      "repeat": 2,
+      "policy": "spec_only"
+    },
+    {
+      "id": "r03-test_diagnostic",
+      "repeat": 3,
+      "policy": "test_diagnostic"
+    },
+    {
+      "id": "r03-spec_only",
+      "repeat": 3,
+      "policy": "spec_only"
+    },
+    {
+      "id": "r03-test_verdict",
+      "repeat": 3,
+      "policy": "test_verdict"
+    },
+    {
+      "id": "r04-spec_only",
+      "repeat": 4,
+      "policy": "spec_only"
+    },
+    {
+      "id": "r04-test_verdict",
+      "repeat": 4,
+      "policy": "test_verdict"
+    },
+    {
+      "id": "r04-test_diagnostic",
+      "repeat": 4,
+      "policy": "test_diagnostic"
+    },
+    {
+      "id": "r05-test_verdict",
+      "repeat": 5,
+      "policy": "test_verdict"
+    },
+    {
+      "id": "r05-test_diagnostic",
+      "repeat": 5,
+      "policy": "test_diagnostic"
+    },
+    {
+      "id": "r05-spec_only",
+      "repeat": 5,
+      "policy": "spec_only"
+    },
+    {
+      "id": "r06-test_diagnostic",
+      "repeat": 6,
+      "policy": "test_diagnostic"
+    },
+    {
+      "id": "r06-spec_only",
+      "repeat": 6,
+      "policy": "spec_only"
+    },
+    {
+      "id": "r06-test_verdict",
+      "repeat": 6,
+      "policy": "test_verdict"
+    },
+    {
+      "id": "r07-spec_only",
+      "repeat": 7,
+      "policy": "spec_only"
+    },
+    {
+      "id": "r07-test_verdict",
+      "repeat": 7,
+      "policy": "test_verdict"
+    },
+    {
+      "id": "r07-test_diagnostic",
+      "repeat": 7,
+      "policy": "test_diagnostic"
+    },
+    {
+      "id": "r08-test_verdict",
+      "repeat": 8,
+      "policy": "test_verdict"
+    },
+    {
+      "id": "r08-test_diagnostic",
+      "repeat": 8,
+      "policy": "test_diagnostic"
+    },
+    {
+      "id": "r08-spec_only",
+      "repeat": 8,
+      "policy": "spec_only"
+    },
+    {
+      "id": "r09-test_diagnostic",
+      "repeat": 9,
+      "policy": "test_diagnostic"
+    },
+    {
+      "id": "r09-spec_only",
+      "repeat": 9,
+      "policy": "spec_only"
+    },
+    {
+      "id": "r09-test_verdict",
+      "repeat": 9,
+      "policy": "test_verdict"
+    },
+    {
+      "id": "r10-spec_only",
+      "repeat": 10,
+      "policy": "spec_only"
+    },
+    {
+      "id": "r10-test_verdict",
+      "repeat": 10,
+      "policy": "test_verdict"
+    },
+    {
+      "id": "r10-test_diagnostic",
+      "repeat": 10,
+      "policy": "test_diagnostic"
+    }
+  ],
+  "source_commit": "5375091f2f7fc4b310cd6a5dc1934e498133e3c3",
+  "source_files": {
+    "environment/remote_backend.py": "f4411153d735af62f2109d26d02635d1afb61a4df745e4632a561ae3cd8ffec0",
+    "environment/submit.py": "3d9c224ee49ade30718f40edf2b8ab9dfaedfd26d547a393489219e0a2eb88d4",
+    "environment/batch_contract.py": "7ec58d621ca5a673cd6ab7c5b96b46976fd4836b07292d50976be198188c853c",
+    "environment/setup_utm_runtime.sh": "c386eb79a6b00c67257ede182152fa1752354bd44d202e0ad7c4feeffee77394",
+    "environment/durable_job.py": "2d659efc2beabb3299d4bace56b4065cd644b72ae48678b230a771887442fb37",
+    "environment/verification_timing.py": "53bc67783373a7358234fe947539e669b4be9ff8ba415ffaaf14a5e9cd342565",
+    "environment/feedback.py": "fda08cdfc61cb0b7b008f0f7dba120098172088dcba2bbd8d786bb986165800d",
+    "environment/utm_sandbox.sh": "652a593dff127a82b499019304940cf54326b601c275bc86171fee08335531e1",
+    "environment/reset.py": "5ba7efa93f85987218d72ed27c0df3ccde77fab82eeeb13ebddaf1d97c50eaeb",
+    "environment/policy.py": "3a06fe89b8744a4773db477eedf4ee2b6c88a0a229f8ad0a409c8139b5e943dd",
+    "environment/utm_worker.py": "a2d05ae3ea49698701a362af78171c709648093cd20f8d2cb951c022431e7625",
+    "environment/test.py": "93ec1b566924b0e4543d5da273922a44eda33057e4d07772a0883087cc5c217a",
+    "environment/validate.py": "75acb36bfec003f41668620674984007a4023ebfe68483509626262fdea86de0",
+    "environment/config.example.json": "dbc10c1b067f30b8d15324074221d587d2b785a90013ab40a0ba2541124502d9",
+    "environment/policy_mechanism.py": "43b356280f9ee85fc30e63b7b26e82519b431ee5ca946838815aa980222b108f",
+    "environment/policy_experiment.py": "1ff90f9df6b4408081d654b553782c9f71e764438d0c1e3e2cc786e96dfe932b",
+    "environment/validate_v3.py": "63cdc406d06474cb720fdaffe0f9e2d77628e406d0808763c81dfab4823a645d",
+    "environment/launch_utm.py": "55efbc9501363c49b54e2cfec2da2f19dc0df66546161911cda8830d3f790ef1",
+    "environment/reproduce.sh": "6c26aad318abc6cc3adae2468d16af8f66d4aff1c14a3ed3cc1167a1611c519b",
+    "environment/agent.py": "30bc972bdbd38ce686ec9c6de41f6a4fc0d65d064606d56927a57e15537d70ac",
+    "environment/setup-vip.sh": "e0262c1afc80f57d5d556c02332739bd74ef78ee5a1506aae33317a4ce32a990",
+    "environment/utm_agent.py": "7cafec5d4355b9c2e036f1aa1486794e22774ec548056e354dc49a8a201e3a99",
+    "environment/check_baseline.py": "cc30fb4d36028289909707321df38aee1c2e8f819c376070988fb2c4ca22de4d",
+    "environment/policy_session.py": "01a556ac968bb6099fe4495ff56e1178b4cc359569db72e8a91d6f9ed245233d",
+    "environment/policy_utm_agent.py": "40bfa93dbffba3c9ba14e18c40140129c51989696d33bbbee807bbdb5d04a5ff",
+    "environment/policies/test_diagnostic.json": "9cf74d8a39a10e45a9157d41db636f90b43807ca560afa6fd789a98431859d2a",
+    "environment/policies/spec_only.json": "3baaa9d2da08b3c38f3a28205e0d659f6844bd3a7524731503b3c89476af798a",
+    "environment/policies/test_verdict.json": "d5d16352d3e7db741175ab3ac8399a8270b40a6ee7479f36d6beac37710b96a4",
+    "verifier/scenarios.py": "62ed320fe0c61edcf1bdb37ba37caf26597c802993be71bb42be2c96dea34a1d",
+    "verifier/campaign.py": "e8d8de32dae810e6778862c8ff6fec54dd60b643ab02813c4093a2996aa3630f",
+    "verifier/grade.py": "d6bf8deb6f348e2090886dc5462661f0ab8f7b9c3267ff7534e489228f510b2f",
+    "verifier/v3/tb.sv": "ea748112e20f84fcfa7a3267376989636be13bc88d8b0428991e21f51c87203b",
+    "verifier/v3/vip.sv": "4a165c9531912d92a4cfa0270aff3297bdafddff880cef7034965a500fa95d04",
+    "fixtures/bad_strobe.sv": "4e84159cddebe88267911dc42d88ec652f2744ebda47846253fadcd7957fce53",
+    "fixtures/bad_wait.sv": "252b5d1d047f72fe9a57d861a7cb87f80db472b8f5a54908980a81a2908837d8",
+    "fixtures/bad_reset_response.sv": "4912580653f5599b8fc220e345527a7d89a07adda379577c4087993845de4443",
+    "fixtures/bad_address.sv": "81f8909ad76623f15a5490da479f3f11e70f9809527b40ffa13beccf407913e4",
+    "fixtures/bad_reset_half.sv": "cd9756a836d3c5b290000d6af790ec9bb51029e135278734fe659edf8d0c8485",
+    "fixtures/bad_error.sv": "13fdcea7c734b4e7a135ea3f9d15ed7b5c9e73471fc9740a076a87381504d3bd",
+    "fixtures/bad_backpressure.sv": "ec068963d9ef4b08989fba0db7b58f7b13f9ece415bd323c9795d4ea1b1a6c98",
+    "fixtures/bad_early_read.sv": "1c446bbf0272386d5afcc2718813b173e9561e08c1c29522dd2b59ad7a876e2f",
+    "fixtures/bad_read_data.sv": "5c8ae3c9495ad9eaf3c3228b6c4074e7d62f8967d2e1609b18886ae3a4f00624",
+    "fixtures/reference.sv": "09061d9b8498fa2365123d88d4301871a3da347ad92f5be6e077b15554c23bc8",
+    "fixtures/bad_accept_latency.sv": "6c0eee35dc97fa29476cf6e89e4ea08fb6424951902f32b1caee54eee317f10c",
+    "tasks/axil_to_apb4_001/task.yaml": "0b0b3241bd460fa87014fd4ce50c58b708610974ff8aed43d242f224a73f3bd6",
+    "tasks/axil_to_apb4_001/README.md": "ac148c3fdd2a3e437c503fd93394ba9f34aad10200cc9e27fdc567f7b7b34d7d",
+    "tasks/axil_to_apb4_001/baseline.json": "2e5b6f65dffc69918b3ea442e09340833ffe5ec4509df6164855b7c5cbf579de",
+    "tasks/axil_to_apb4_001/spec.md": "6f2e075cee28f51451dc96888ee1185a1356e153d0166d763bcc68d37fa336e8",
+    "tasks/axil_to_apb4_001/tests_public/README.md": "9f654f3f235ce84e837755fd72e53609801e76af6fa3c1e169ae0ef0549585e2",
+    "tasks/axil_to_apb4_001/workspace/bridge.sv": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+    "tests/test_baseline.py": "c8b44d034f7a225557806a8ef77c854709d7222bb3b0d7110c64729711d311a3",
+    "tests/test_campaign_contract.py": "3c0aba2d8d2fdb5690170803f52615f376318c60ab55695340e5235904dd19e4",
+    "tests/test_remote_backend.py": "e17732a6b7bf62494b918396e22b7299636794762c03ecdd3dd836ce128d6ce0",
+    "tests/test_batch.py": "fffb2316b65d817eb13f6d73dfc1c3983939d01fcec058cd3cc5d0bc061c1410",
+    "tests/test_policy.py": "1bf6b178a3ae70b300bbd0b9bb76f82947dfa7484725cc54e00ac813a217b04d",
+    "tests/test_policy_export.py": "3f9c4ad4913078e2052785f19b46c50ca953c0f7e21ba330c766138aa2380b74"
+  },
+  "installed_runtime_files": {
+    "/opt/protocolbridge-runtime/opt/pb/utm_worker.py": "a2d05ae3ea49698701a362af78171c709648093cd20f8d2cb951c022431e7625",
+    "/usr/local/sbin/pb-sandbox": "652a593dff127a82b499019304940cf54326b601c275bc86171fee08335531e1"
+  },
+  "pairing": "same reward/evaluation inputs within each repeat; separate split seeds",
+  "sampling": "fixed SDK settings; provider temperature/seed defaults, not deterministic",
+  "budget_accounting": "Every started public invocation consumes budget, including ENV_ERROR; denied calls do not start verifier.",
+  "paired_suite_hashes": {
+    "1": {
+      "reward": "e887e2299ce09c19eb43298cc818b34e03be9571d5d2f7b7e0614948b6e9b8c0",
+      "evaluation": "e46c6ed0404f9afca7841a47bc000540b4fe40b5fd90e967766e28e7d370bc6c"
+    },
+    "2": {
+      "reward": "eeba9eacd51a4dc6a66b79a392a36545dd1fe5cac41d5d481b702194a001f8f9",
+      "evaluation": "27de5bd6610a9afec80162c17b33edca077774f82b8b80ba1f7317ba3f5bd5c8"
+    },
+    "3": {
+      "reward": "b7999ec348c6e43baa5547dd42e2fc6063f2a1027457dac2168bb7620d97d0ef",
+      "evaluation": "dd6efc01fa6fed62a436e9a3f019b79bb75333907a7f82f2e8868adfcae583c6"
+    },
+    "4": {
+      "reward": "80c42eb9f498bc9b3b979ce4d610bc7126fbdce8b9e52b19438335c428907f58",
+      "evaluation": "f0693adc2f4d113c93fd592b023616040aadbddd80997ec7da4af8594083debb"
+    },
+    "5": {
+      "reward": "06aeceaf8e18f1f55290bf356f42ef7dfe342b54214c6e06f6a045dc5a54ee18",
+      "evaluation": "82f26e114ebf45acdf19459d38f7f67e894db02b1f4f6c63fa410932b5b332d1"
+    },
+    "6": {
+      "reward": "eabcd586ae17e3d8add881ff7896995ad8f7197f59e9c39f17721c193f99357b",
+      "evaluation": "16f50914c093550c50f32e17beee96b28c7c4f17f865f40142c95b510499acd9"
+    },
+    "7": {
+      "reward": "8cbdffb21a9049930754aeb603ee192e982017fe49f10d5df54a7b5ab9263b51",
+      "evaluation": "0c839f23b062874b28fc0e79580973d9771bf567810d261305c8219f316e55a6"
+    },
+    "8": {
+      "reward": "00461e5a34ab6cd8c0623047293dfc734c34a0c52836a9844fb10c1a85a5db5c",
+      "evaluation": "ac9e5930419742b3391f9a4179244756b5d5a72643836aa5f8462c9838f511cf"
+    },
+    "9": {
+      "reward": "fbd0333b75b3886ab362f001d5af228e53565a925482e648b3965b951302e6aa",
+      "evaluation": "865ec5aa350dca95ae78c32a5a6287296601ff1293fe538f046b3896c8b999b7"
+    },
+    "10": {
+      "reward": "0c9f042fab9ae2eb9ebbdb1338df770eee7d73ab4fc3e063c3a24684894dffcc",
+      "evaluation": "0ade7dd6222a3c56b01839b7f209210efcfdf5923b3bfd69e70269bf17f340ac"
+    }
+  }
+}

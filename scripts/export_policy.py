@@ -12,7 +12,7 @@ def compact_result(r):
     out['cases']=[{k:c[k] for k in ('name','reward','category','planned','expected_aborted','scoreboard','simulation_exit','requirements') if k in c} for c in r.get('cases',[])]
     return out
 
-def export(source,dest,trial_ids=None):
+def export(source,dest,trial_ids=None,campaigns_only=False):
     source=Path(source);dest=Path(dest);dest.mkdir(parents=True,exist_ok=False)
     manifest=json.loads((source/'experiment.json').read_text())
     selected=None if trial_ids is None else set(trial_ids)
@@ -27,7 +27,9 @@ def export(source,dest,trial_ids=None):
     write(dest/'mechanism/result.json',json.loads((source/'mechanism/result.json').read_text()))
     for p in (source/'mechanism').rglob('result.json'):
         if p==source/'mechanism/result.json':continue
-        write(dest/p.relative_to(source),compact_result(json.loads(p.read_text())))
+        value=json.loads(p.read_text())
+        if campaigns_only and 'cases' not in value:continue
+        write(dest/p.relative_to(source),compact_result(value))
     write(dest/'mechanism/raw-evidence-sha256.json',{
         str(p.relative_to(source/'mechanism')):sha(p)
         for p in sorted((source/'mechanism').rglob('*')) if p.is_file()})
@@ -69,7 +71,9 @@ def export(source,dest,trial_ids=None):
                                               for e in response.get('events',[]) if e['type']=='request/header']})
         write(dst/'harness-provenance.json',events)
         for p in src.rglob('result.json'):
-            write(dst/p.relative_to(src),compact_result(json.loads(p.read_text())))
+            value=json.loads(p.read_text())
+            if campaigns_only and ('cases' not in value or p.parent==src):continue
+            write(dst/p.relative_to(src),compact_result(value))
         if (src/'first-candidate-result.json').exists():write(dst/'first-candidate-result.json',compact_result(json.loads((src/'first-candidate-result.json').read_text())))
         write(dst/'raw-evidence-sha256.json',{str(p.relative_to(src)):sha(p) for p in sorted(src.rglob('*')) if p.is_file()})
     write(dest/'publication.json',{'format':'policy-allowlist-v1','selected_trials':None if selected is None else sorted(selected),'raw_evidence':'Retained locally; no private vectors, commercial logs, API keys or full model responses published.',

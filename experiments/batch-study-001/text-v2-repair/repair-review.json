@@ -1,0 +1,81 @@
+{
+  "starting_sha256": "6438d7c9ed3ea1ea99dd6e1c2ca194b0e45c9b4714597216cd98d8a0eb466cff",
+  "rows": [
+    {
+      "trial": "r01-test_diagnostic",
+      "reward": 1.0,
+      "held_out": 1.0,
+      "final_sha256": "445c67c6b6d1933f2c1cbcbecf5f6485eb7903d6a89dd309e152c2d1b5dc5b0e",
+      "first_feedback": {
+        "status": "FAIL",
+        "remaining_test_calls": 1,
+        "category": "protocol_timing_error",
+        "first_failed_case": "reset_w_only",
+        "diagnostic": "AXI request acceptance exceeded the 16-cycle limit."
+      },
+      "logic_change_review": "Removed AW-buffer dependency from WREADY; separated read address and explicitly latched current W on shortcut launch."
+    },
+    {
+      "trial": "r01-test_verdict",
+      "reward": 1.0,
+      "held_out": 1.0,
+      "final_sha256": "66bddfd9726bc87ce3bd8b9acce417c468eb33a6ade1ebb4d597de865eb40a2b",
+      "first_feedback": {
+        "status": "FAIL",
+        "remaining_test_calls": 1
+      },
+      "logic_change_review": "Removed AW-buffer dependency from WREADY; added separate transfer-address register and merged launch branches."
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "reward": 1.0,
+      "held_out": 1.0,
+      "final_sha256": "8365f56c5d0cf9b998ff4970879e353cabb2a2827237a2c1b790ff216072769d",
+      "first_feedback": {
+        "status": "FAIL",
+        "remaining_test_calls": 1,
+        "category": "protocol_timing_error",
+        "first_failed_case": "reset_w_only",
+        "diagnostic": "AXI request acceptance exceeded the 16-cycle limit."
+      },
+      "logic_change_review": "Removed AW-buffer dependency from WREADY; launch uses buffered or newly handshaken AW/W halves."
+    },
+    {
+      "trial": "r02-test_verdict",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "final_sha256": "20d2b717f5b2f87b423a8fb89ffd084df1cf40daf3c6f4d8f7ac9e3dac0cab2c",
+      "first_feedback": {
+        "status": "FAIL",
+        "remaining_test_calls": 1
+      },
+      "logic_change_review": "Removed shortcut APB launch branch but retained WREADY dependence on aw_have. Existing independent-W acceptance error remains; not a confirmed new regression."
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "reward": 1.0,
+      "held_out": 1.0,
+      "final_sha256": "1393ffb009669b4231478b13d1714f69527077a1c6b55347b35bcca691984965",
+      "first_feedback": {
+        "status": "FAIL",
+        "remaining_test_calls": 1,
+        "category": "protocol_timing_error",
+        "first_failed_case": "reset_w_only",
+        "diagnostic": "AXI request acceptance exceeded the 16-cycle limit."
+      },
+      "logic_change_review": "Removed AW-buffer dependency from WREADY; only other changes remove two comments. Existing independent-W error fixed; complete public/private/held-out checks pass."
+    },
+    {
+      "trial": "r03-test_verdict",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "final_sha256": "ac76886ad763850c1112f83c9595de75620f989762569d26c79bdff638eb26c3",
+      "first_feedback": {
+        "status": "FAIL",
+        "remaining_test_calls": 1
+      },
+      "logic_change_review": "Moved AW/W capture into IDLE else branch and removed shortcut APB launch, but left WREADY dependent on aw_have. Existing independent-W acceptance error remains; subsequent regressions cannot be excluded after fail-fast."
+    }
+  ],
+  "scope": "Manual source-difference review plus actual verifier results. Does not assert model internal reasoning."
+}

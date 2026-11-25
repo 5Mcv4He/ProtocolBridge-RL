@@ -1,0 +1,235 @@
+{
+  "available": true,
+  "totals": {
+    "inputTokens": 6649,
+    "outputTokens": 13416,
+    "cacheReadTokens": 172032,
+    "cacheWriteTokens": 0,
+    "totalTokens": 192097
+  },
+  "cost": null,
+  "events": [
+    {
+      "event_file": "harness-00.json",
+      "event_seq": 10,
+      "usage": {
+        "inputTokens": 256,
+        "outputTokens": 22,
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0,
+        "totalTokens": 278
+      }
+    },
+    {
+      "event_file": "harness-01.json",
+      "event_seq": 18,
+      "usage": {
+        "inputTokens": 198,
+        "outputTokens": 10,
+        "cacheReadTokens": 128,
+        "cacheWriteTokens": 0,
+        "totalTokens": 336
+      }
+    },
+    {
+      "event_file": "harness-02.json",
+      "event_seq": 26,
+      "usage": {
+        "inputTokens": 1094,
+        "outputTokens": 11,
+        "cacheReadTokens": 256,
+        "cacheWriteTokens": 0,
+        "totalTokens": 1361
+      }
+    },
+    {
+      "event_file": "harness-03.json",
+      "event_seq": 34,
+      "usage": {
+        "inputTokens": 346,
+        "outputTokens": 1834,
+        "cacheReadTokens": 1280,
+        "cacheWriteTokens": 0,
+        "totalTokens": 3460
+      }
+    },
+    {
+      "event_file": "harness-04.json",
+      "event_seq": 42,
+      "usage": {
+        "inputTokens": 156,
+        "outputTokens": 11,
+        "cacheReadTokens": 3328,
+        "cacheWriteTokens": 0,
+        "totalTokens": 3495
+      }
+    },
+    {
+      "event_file": "harness-05.json",
+      "event_seq": 50,
+      "usage": {
+        "inputTokens": 304,
+        "outputTokens": 1659,
+        "cacheReadTokens": 3456,
+        "cacheWriteTokens": 0,
+        "totalTokens": 5419
+      }
+    },
+    {
+      "event_file": "harness-06.json",
+      "event_seq": 58,
+      "usage": {
+        "inputTokens": 195,
+        "outputTokens": 10,
+        "cacheReadTokens": 5248,
+        "cacheWriteTokens": 0,
+        "totalTokens": 5453
+      }
+    },
+    {
+      "event_file": "harness-07.json",
+      "event_seq": 66,
+      "usage": {
+        "inputTokens": 1091,
+        "outputTokens": 1612,
+        "cacheReadTokens": 5376,
+        "cacheWriteTokens": 0,
+        "totalTokens": 8079
+      }
+    },
+    {
+      "event_file": "harness-08.json",
+      "event_seq": 74,
+      "usage": {
+        "inputTokens": 167,
+        "outputTokens": 1414,
+        "cacheReadTokens": 7936,
+        "cacheWriteTokens": 0,
+        "totalTokens": 9517
+      }
+    },
+    {
+      "event_file": "harness-09.json",
+      "event_seq": 82,
+      "usage": {
+        "inputTokens": 197,
+        "outputTokens": 11,
+        "cacheReadTokens": 9344,
+        "cacheWriteTokens": 0,
+        "totalTokens": 9552
+      }
+    },
+    {
+      "event_file": "harness-10.json",
+      "event_seq": 90,
+      "usage": {
+        "inputTokens": 345,
+        "outputTokens": 1391,
+        "cacheReadTokens": 9472,
+        "cacheWriteTokens": 0,
+        "totalTokens": 11208
+      }
+    },
+    {
+      "event_file": "harness-11.json",
+      "event_seq": 98,
+      "usage": {
+        "inputTokens": 224,
+        "outputTokens": 11,
+        "cacheReadTokens": 11008,
+        "cacheWriteTokens": 0,
+        "totalTokens": 11243
+      }
+    },
+    {
+      "event_file": "harness-12.json",
+      "event_seq": 106,
+      "usage": {
+        "inputTokens": 372,
+        "outputTokens": 1347,
+        "cacheReadTokens": 11136,
+        "cacheWriteTokens": 0,
+        "totalTokens": 12855
+      }
+    },
+    {
+      "event_file": "harness-13.json",
+      "event_seq": 114,
+      "usage": {
+        "inputTokens": 207,
+        "outputTokens": 11,
+        "cacheReadTokens": 12672,
+        "cacheWriteTokens": 0,
+        "totalTokens": 12890
+      }
+    },
+    {
+      "event_file": "harness-14.json",
+      "event_seq": 122,
+      "usage": {
+        "inputTokens": 355,
+        "outputTokens": 1343,
+        "cacheReadTokens": 12800,
+        "cacheWriteTokens": 0,
+        "totalTokens": 14498
+      }
+    },
+    {
+      "event_file": "harness-15.json",
+      "event_seq": 130,
+      "usage": {
+        "inputTokens": 186,
+        "outputTokens": 11,
+        "cacheReadTokens": 14336,
+        "cacheWriteTokens": 0,
+        "totalTokens": 14533
+      }
+    },
+    {
+      "event_file": "harness-16.json",
+      "event_seq": 138,
+      "usage": {
+        "inputTokens": 334,
+        "outputTokens": 1343,
+        "cacheReadTokens": 14464,
+        "cacheWriteTokens": 0,
+        "totalTokens": 16141
+      }
+    },
+    {
+      "event_file": "harness-17.json",
+      "event_seq": 146,
+      "usage": {
+        "inputTokens": 165,
+        "outputTokens": 11,
+        "cacheReadTokens": 16000,
+        "cacheWriteTokens": 0,
+        "totalTokens": 16176
+      }
+    },
+    {
+      "event_file": "harness-18.json",
+      "event_seq": 154,
+      "usage": {
+        "inputTokens": 313,
+        "outputTokens": 1343,
+        "cacheReadTokens": 16128,
+        "cacheWriteTokens": 0,
+        "totalTokens": 17784
+      }
+    },
+    {
+      "event_file": "harness-19.json",
+      "event_seq": 162,
+      "usage": {
+        "inputTokens": 144,
+        "outputTokens": 11,
+        "cacheReadTokens": 17664,
+        "cacheWriteTokens": 0,
+        "totalTokens": 17819
+      }
+    }
+  ],
+  "method": "Sum unique (session_id, seq) assistant/message.data.usage events only; exclude stream chunks and duplicated notifications.",
+  "semantics": "SDK inputTokens excludes separately reported cacheReadTokens in these records; totalTokens is the SDK total, not unique context size. No billed currency cost is provided."
+}

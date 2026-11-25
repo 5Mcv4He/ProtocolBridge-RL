@@ -1,0 +1,115 @@
+[
+  {
+    "file": "harness-00.json",
+    "sha256": "6da52bf67232fe62a371e8fabfa03ddecfd02d8df4ba65552b05fff1a005ee3f",
+    "worker_uid": 1101,
+    "worker_pid": 1,
+    "session_id": "session-b868620ba081451ba143cacb6245f5cb",
+    "event_types": {
+      "agent/inbox/spliced": 2,
+      "turn/start": 1,
+      "step/start": 1,
+      "system/message": 1,
+      "user/message": 2,
+      "request/header": 1,
+      "request/context": 1,
+      "session/title": 1,
+      "assistant/message": 1,
+      "step/end": 1,
+      "turn/end": 1
+    },
+    "request_headers": [
+      {
+        "maxTokens": 7000,
+        "provider": "deepseek-official",
+        "model": "deepseek-flash",
+        "reasoningEffort": "off"
+      }
+    ]
+  },
+  {
+    "file": "harness-01.json",
+    "sha256": "375d6a545b0f6b93e723f3a2276ab491bbdc9c5819ace06bce3e55209ab68a9c",
+    "worker_uid": 1101,
+    "worker_pid": 1,
+    "session_id": "session-b868620ba081451ba143cacb6245f5cb",
+    "event_types": {
+      "agent/inbox/spliced": 2,
+      "turn/start": 1,
+      "step/start": 1,
+      "user/message": 1,
+      "assistant/message": 1,
+      "step/end": 1,
+      "turn/end": 1
+    },
+    "request_headers": []
+  },
+  {
+    "file": "harness-02.json",
+    "sha256": "66e829aaa53158cc721d9aca007c8e200a448a5ba0f684f6560cd2a99cfeb41d",
+    "worker_uid": 1101,
+    "worker_pid": 1,
+    "session_id": "session-b868620ba081451ba143cacb6245f5cb",
+    "event_types": {
+      "agent/inbox/spliced": 2,
+      "turn/start": 1,
+      "step/start": 1,
+      "user/message": 1,
+      "assistant/message": 1,
+      "step/end": 1,
+      "turn/end": 1
+    },
+    "request_headers": []
+  },
+  {
+    "file": "harness-03.json",
+    "sha256": "3b32b4b7ba0e223a129ebc180b58b0207987e5e676b67a2c49a80d568ab4e723",
+    "worker_uid": 1101,
+    "worker_pid": 1,
+    "session_id": "session-b868620ba081451ba143cacb6245f5cb",
+    "event_types": {
+      "agent/inbox/spliced": 2,
+      "turn/start": 1,
+      "step/start": 1,
+      "user/message": 1,
+      "assistant/message": 1,
+      "step/end": 1,
+      "turn/end": 1
+    },
+    "request_headers": []
+  },
+  {
+    "file": "harness-04.json",
+    "sha256": "6845a843d52a7dd8174b819b29bdce0559d5e47e3da914c3b0f3707ba0f5698c",
+    "worker_uid": 1101,
+    "worker_pid": 1,
+    "session_id": "session-b868620ba081451ba143cacb6245f5cb",
+    "event_types": {
+      "agent/inbox/spliced": 2,
+      "turn/start": 1,
+      "step/start": 1,
+      "user/message": 1,
+      "assistant/message": 1,
+      "step/end": 1,
+      "turn/end": 1
+    },
+    "request_headers": []
+  },
+  {
+    "file": "harness-05.json",
+    "sha256": "000224207f5d851cf1c4706de62c7556009327e3e80079f5b42940a8bf995b79",
+    "worker_uid": 1101,
+    "worker_pid": 1,
+    "session_id": "session-b868620ba081451ba143cacb6245f5cb",
+    "event_types": {
+      "agent/inbox/spliced": 2,
+      "turn/start": 1,
+      "step/start": 1,
+      "user/message": 1,
+      "assistant/message": 1,
+      "step/end": 1,
+      "turn/end": 1
+    },
+    "request_headers": []
+  }
+]

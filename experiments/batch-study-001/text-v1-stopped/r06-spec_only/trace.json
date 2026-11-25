@@ -1,0 +1,92 @@
+[
+  {
+    "action_index": 1,
+    "action": {},
+    "executed": false,
+    "observation": {
+      "status": "REJECTED",
+      "reason": "invalid_action_format",
+      "instruction": "Return exactly one JSON action object, with no prose or additional actions. Wait for its result."
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 2,
+    "action": {
+      "tool": "read",
+      "file": "spec.md"
+    },
+    "executed": true,
+    "observation": {
+      "file": "spec.md",
+      "content_sha256": "6f2e075cee28f51451dc96888ee1185a1356e153d0166d763bcc68d37fa336e8",
+      "content_bytes": 4152
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 3,
+    "action": {
+      "tool": "read",
+      "file": "bridge.sv"
+    },
+    "executed": true,
+    "observation": {
+      "file": "bridge.sv",
+      "content_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "content_bytes": 713
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 4,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "027f40c3fb6de390d99af6f9671620606e6809206679bad30b166ddd05d83e8b",
+      "candidate_file": "candidate-04.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 5,
+    "action": {
+      "tool": "read",
+      "file": "bridge.sv"
+    },
+    "executed": true,
+    "observation": {
+      "file": "bridge.sv",
+      "content_sha256": "027f40c3fb6de390d99af6f9671620606e6809206679bad30b166ddd05d83e8b",
+      "content_bytes": 5183
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 6,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "b03ada5bc1a52176e216c6d578a2e00b16d7d108e4adab4743c84ae4987af987",
+      "candidate_file": "candidate-06.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 7,
+    "action": {
+      "tool": "submit"
+    },
+    "executed": true,
+    "observation": {
+      "status": "SUBMITTED"
+    },
+    "observation_delivered": false
+  }
+]

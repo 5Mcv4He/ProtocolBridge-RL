@@ -1,0 +1,53 @@
+{
+  "policy_id": "test_diagnostic",
+  "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+  "model": "deepseek-flash",
+  "actions": 9,
+  "edits": 3,
+  "public_test_calls": 2,
+  "submitted": true,
+  "terminal": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "a5a3ef7984e2f954faa859061dc606753cfbcebaee996bb777c05d9eace8473b",
+    "suite_sha256": "06aeceaf8e18f1f55290bf356f42ef7dfe342b54214c6e06f6a045dc5a54ee18",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "held_out": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "a5a3ef7984e2f954faa859061dc606753cfbcebaee996bb777c05d9eace8473b",
+    "suite_sha256": "82f26e114ebf45acdf19459d38f7f67e894db02b1f4f6c63fa410932b5b332d1",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "first_candidate_public": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "76e121e5b5dae25e57c93d1dc05b21a03580a03dadc7eb9ded65dde7bad6c1c7",
+    "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "first_candidate_source": "candidate-04.sv",
+  "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+  "final_candidate_public": null,
+  "freeze_unchanged": true,
+  "solver_stopped_before_evaluation": true,
+  "wall_seconds": 277.644,
+  "api_usage": null,
+  "api_cost": null,
+  "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+  "private_reward_suite_sha256": "06aeceaf8e18f1f55290bf356f42ef7dfe342b54214c6e06f6a045dc5a54ee18",
+  "reserved_evaluation_suite_sha256": "82f26e114ebf45acdf19459d38f7f67e894db02b1f4f6c63fa410932b5b332d1"
+}

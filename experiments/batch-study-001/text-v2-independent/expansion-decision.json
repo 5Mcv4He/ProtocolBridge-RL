@@ -1,0 +1,20 @@
+{
+  "pilot_gate": {
+    "passed": true,
+    "reasons": []
+  },
+  "estimate": {
+    "pilot_tokens": 112011,
+    "pilot_episode_seconds": 2251.359,
+    "projected_30_tokens": 373370.0,
+    "projected_30_seconds": 7504.530000000001,
+    "prior_tokens": 553072,
+    "prior_seconds": 3370.996,
+    "repair_reserve_tokens": 200000,
+    "repair_reserve_seconds": 1800,
+    "global_token_cap": 2000000,
+    "global_episode_seconds_cap": 14400
+  },
+  "expand": true,
+  "api_currency_cost": null
+}

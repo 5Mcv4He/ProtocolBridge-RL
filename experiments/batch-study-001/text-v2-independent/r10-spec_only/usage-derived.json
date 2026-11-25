@@ -1,0 +1,70 @@
+{
+  "available": true,
+  "totals": {
+    "inputTokens": 2114,
+    "outputTokens": 2608,
+    "cacheReadTokens": 8192,
+    "cacheWriteTokens": 0,
+    "totalTokens": 12914
+  },
+  "cost": null,
+  "events": [
+    {
+      "event_file": "harness-00.json",
+      "event_seq": 10,
+      "usage": {
+        "inputTokens": 186,
+        "outputTokens": 10,
+        "cacheReadTokens": 128,
+        "cacheWriteTokens": 0,
+        "totalTokens": 324
+      }
+    },
+    {
+      "event_file": "harness-01.json",
+      "event_seq": 18,
+      "usage": {
+        "inputTokens": 1082,
+        "outputTokens": 11,
+        "cacheReadTokens": 256,
+        "cacheWriteTokens": 0,
+        "totalTokens": 1349
+      }
+    },
+    {
+      "event_file": "harness-02.json",
+      "event_seq": 26,
+      "usage": {
+        "inputTokens": 334,
+        "outputTokens": 1182,
+        "cacheReadTokens": 1280,
+        "cacheWriteTokens": 0,
+        "totalTokens": 2796
+      }
+    },
+    {
+      "event_file": "harness-03.json",
+      "event_seq": 34,
+      "usage": {
+        "inputTokens": 252,
+        "outputTokens": 1400,
+        "cacheReadTokens": 2560,
+        "cacheWriteTokens": 0,
+        "totalTokens": 4212
+      }
+    },
+    {
+      "event_file": "harness-04.json",
+      "event_seq": 42,
+      "usage": {
+        "inputTokens": 260,
+        "outputTokens": 5,
+        "cacheReadTokens": 3968,
+        "cacheWriteTokens": 0,
+        "totalTokens": 4233
+      }
+    }
+  ],
+  "method": "Sum unique (session_id, seq) assistant/message.data.usage events only; exclude stream chunks and duplicated notifications.",
+  "semantics": "SDK inputTokens excludes separately reported cacheReadTokens in these records; totalTokens is the SDK total, not unique context size. No billed currency cost is provided."
+}

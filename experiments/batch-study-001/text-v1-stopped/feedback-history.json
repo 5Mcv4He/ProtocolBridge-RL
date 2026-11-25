@@ -1,0 +1,215 @@
+{
+  "scope": "Only actually delivered public test observations; terminal_reward is research-side data, never solver feedback. Full solver-input audit remains in trusted storage.",
+  "trials": [
+    {
+      "trial": "r01-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r01-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 5,
+          "candidate_sha256": "28f6398cef2b55dcad383925d3472305ba9889f55e8f33d6ecb78ca3eebd22de",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1
+          }
+        },
+        {
+          "action_index": 7,
+          "candidate_sha256": "b0b9cb8042c0bc73deed86239ffd15f7fe29e8f7b88faaca94120e458ea24cf0",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 5,
+          "candidate_sha256": "d6492b300129c86dd7dc12c5872d06983dfa94254b279ef4ca16f1576a72103a",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1,
+            "category": "pass",
+            "first_failed_case": null,
+            "diagnostic": "Public verification completed successfully."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r02-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 5,
+          "candidate_sha256": "d2cc95a45d71cad862d9f1ba3f75b110a631f7818d4a8c5731eb4dfd50701205",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r02-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r03-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r03-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 5,
+          "candidate_sha256": "a5489c1d8c3432b1aad6318acece310ac04e335e7508ba7c4f9a9e5d5c9b7b1b",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r04-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r04-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 5,
+          "candidate_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1
+          }
+        },
+        {
+          "action_index": 7,
+          "candidate_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r04-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r05-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 5,
+          "candidate_sha256": "c268b6ce7706ee5aae2283c9becba0a1888cacc167fc6f0059de679ece36af50",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r05-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 5,
+          "candidate_sha256": "76e121e5b5dae25e57c93d1dc05b21a03580a03dadc7eb9ded65dde7bad6c1c7",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "address_data",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action_index": 7,
+          "candidate_sha256": "9bd8eba27c91754a4f77668eef189673f5a051b69a127a493c591784c5e0aae6",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "address_data",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r05-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": null,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r06-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 10,
+          "candidate_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "address_data",
+            "diagnostic": "Required outputs were not cleared by synchronous reset."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r06-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    }
+  ]
+}

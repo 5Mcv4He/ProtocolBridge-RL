@@ -1,0 +1,7 @@
+{
+  "all_trials_entered_feedback_repair": true,
+  "completed": 6,
+  "planned": 6,
+  "expanded_beyond_six": false,
+  "criterion": "Actual FAIL delivered and accepted changed RTL after FAIL in each trial; full audit and quality gate passed."
+}

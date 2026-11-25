@@ -1,0 +1,67 @@
+[
+  {
+    "action_index": 1,
+    "action": {
+      "tool": "read",
+      "file": "spec.md"
+    },
+    "executed": true,
+    "observation": {
+      "file": "spec.md",
+      "content_sha256": "6f2e075cee28f51451dc96888ee1185a1356e153d0166d763bcc68d37fa336e8",
+      "content_bytes": 4152
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 2,
+    "action": {
+      "tool": "read",
+      "file": "bridge.sv"
+    },
+    "executed": true,
+    "observation": {
+      "file": "bridge.sv",
+      "content_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "content_bytes": 713
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 3,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "d84b20c80dbe27acfe03085b28c59e56d4452b3645096f02b9abbcdd91a5a3f9",
+      "candidate_file": "candidate-03.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 4,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "e602469c75544d5e77eea90ebdd186da1a84d7cb1e61b179a276d26ba5b4e11b",
+      "candidate_file": "candidate-04.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 5,
+    "action": {
+      "tool": "submit"
+    },
+    "executed": true,
+    "observation": {
+      "status": "SUBMITTED"
+    },
+    "observation_delivered": false
+  }
+]

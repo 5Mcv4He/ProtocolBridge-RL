@@ -1,0 +1,81 @@
+{
+  "cohorts": [
+    {
+      "cohort": "text-v1-stopped",
+      "model": "deepseek-flash",
+      "started": 17,
+      "tokens": {
+        "inputTokens": 52504,
+        "outputTokens": 68312,
+        "cacheReadTokens": 432256,
+        "cacheWriteTokens": 0,
+        "totalTokens": 553072
+      },
+      "token_observed_trials": 17,
+      "seconds": {
+        "wall_seconds": 3370.996,
+        "model_request_wall_seconds": 362.27,
+        "compile_wall_seconds": 1564.1922213180042,
+        "simulation_wall_seconds": 1412.1228836559949
+      },
+      "list_price_usd_range": [
+        0.050159568,
+        0.100319136
+      ],
+      "actual_billed_usd": null
+    },
+    {
+      "cohort": "text-v2-independent",
+      "model": "deepseek-flash",
+      "started": 30,
+      "tokens": {
+        "inputTokens": 60613,
+        "outputTokens": 61993,
+        "cacheReadTokens": 264448,
+        "cacheWriteTokens": 0,
+        "totalTokens": 387054
+      },
+      "token_observed_trials": 30,
+      "seconds": {
+        "wall_seconds": 7042.806,
+        "model_request_wall_seconds": 345.988,
+        "compile_wall_seconds": 3133.4096876500007,
+        "simulation_wall_seconds": 3506.545053243959
+      },
+      "list_price_usd_range": [
+        0.04708109399999999,
+        0.09416218799999998
+      ],
+      "actual_billed_usd": null
+    },
+    {
+      "cohort": "text-v2-repair",
+      "model": "deepseek-flash",
+      "started": 6,
+      "tokens": {
+        "inputTokens": 20418,
+        "outputTokens": 7828,
+        "cacheReadTokens": 71808,
+        "cacheWriteTokens": 0,
+        "totalTokens": 100054
+      },
+      "token_observed_trials": 6,
+      "seconds": {
+        "wall_seconds": 1881.55,
+        "model_request_wall_seconds": 62.498999999999995,
+        "compile_wall_seconds": 986.5524902329998,
+        "simulation_wall_seconds": 820.7989066970295
+      },
+      "list_price_usd_range": [
+        0.007974924,
+        0.015949848
+      ],
+      "actual_billed_usd": null
+    }
+  ],
+  "actual_billed_usd": null,
+  "pricing_source": "https://api-docs.deepseek.com/quick_start/pricing/",
+  "pricing_retrieved": "2026-11-25",
+  "pricing_model_alias": "deepseek-flash",
+  "scope": "SDK-reported uncached input, cached input and output; list-price range only, not invoice or balance delta. Model request time includes API/SDK/network. EDA times include post-submit measurement; summed episode time excludes gaps between trials."
+}

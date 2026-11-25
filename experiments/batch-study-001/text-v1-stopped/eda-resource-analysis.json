@@ -1,0 +1,176 @@
+{
+  "kind": "numeric_vendor_resource_footers",
+  "rows": [
+    {
+      "trial": "r01-spec_only",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 80.369,
+      "simulation_invocations": 61,
+      "simulation_footers": 61,
+      "simulator_cpu_seconds_measured": 56.58,
+      "maximum_reported_data_structure_Mb": 6.0
+    },
+    {
+      "trial": "r01-test_verdict",
+      "compile_invocations": 2,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 78.072,
+      "simulation_invocations": 61,
+      "simulation_footers": 61,
+      "simulator_cpu_seconds_measured": 57.62,
+      "maximum_reported_data_structure_Mb": 6.0
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 78.283,
+      "simulation_invocations": 61,
+      "simulation_footers": 61,
+      "simulator_cpu_seconds_measured": 57.93,
+      "maximum_reported_data_structure_Mb": 6.0
+    },
+    {
+      "trial": "r02-test_verdict",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 78.824,
+      "simulation_invocations": 61,
+      "simulation_footers": 61,
+      "simulator_cpu_seconds_measured": 57.8,
+      "maximum_reported_data_structure_Mb": 6.0
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 80.24,
+      "simulation_invocations": 2,
+      "simulation_footers": 2,
+      "simulator_cpu_seconds_measured": 0.77,
+      "maximum_reported_data_structure_Mb": 3.6
+    },
+    {
+      "trial": "r02-spec_only",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 79.81,
+      "simulation_invocations": 61,
+      "simulation_footers": 61,
+      "simulator_cpu_seconds_measured": 57.85,
+      "maximum_reported_data_structure_Mb": 6.0
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 79.851,
+      "simulation_invocations": 2,
+      "simulation_footers": 2,
+      "simulator_cpu_seconds_measured": 0.78,
+      "maximum_reported_data_structure_Mb": 3.6
+    },
+    {
+      "trial": "r03-spec_only",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 79.925,
+      "simulation_invocations": 61,
+      "simulation_footers": 61,
+      "simulator_cpu_seconds_measured": 57.69,
+      "maximum_reported_data_structure_Mb": 6.0
+    },
+    {
+      "trial": "r03-test_verdict",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 78.362,
+      "simulation_invocations": 61,
+      "simulation_footers": 61,
+      "simulator_cpu_seconds_measured": 58.28,
+      "maximum_reported_data_structure_Mb": 6.0
+    },
+    {
+      "trial": "r04-spec_only",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 80.543,
+      "simulation_invocations": 61,
+      "simulation_footers": 61,
+      "simulator_cpu_seconds_measured": 58.13,
+      "maximum_reported_data_structure_Mb": 6.0
+    },
+    {
+      "trial": "r04-test_verdict",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 78.798,
+      "simulation_invocations": 4,
+      "simulation_footers": 4,
+      "simulator_cpu_seconds_measured": 1.62,
+      "maximum_reported_data_structure_Mb": 3.6
+    },
+    {
+      "trial": "r04-test_diagnostic",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 82.453,
+      "simulation_invocations": 2,
+      "simulation_footers": 2,
+      "simulator_cpu_seconds_measured": 0.77,
+      "maximum_reported_data_structure_Mb": 3.6
+    },
+    {
+      "trial": "r05-test_verdict",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 80.402,
+      "simulation_invocations": 61,
+      "simulation_footers": 61,
+      "simulator_cpu_seconds_measured": 58.45,
+      "maximum_reported_data_structure_Mb": 6.0
+    },
+    {
+      "trial": "r05-test_diagnostic",
+      "compile_invocations": 3,
+      "compile_footers": 3,
+      "compiler_cpu_seconds_measured": 239.561,
+      "simulation_invocations": 4,
+      "simulation_footers": 4,
+      "simulator_cpu_seconds_measured": 1.94,
+      "maximum_reported_data_structure_Mb": 3.7
+    },
+    {
+      "trial": "r05-spec_only",
+      "compile_invocations": 0,
+      "compile_footers": 0,
+      "compiler_cpu_seconds_measured": 0,
+      "simulation_invocations": 0,
+      "simulation_footers": 0,
+      "simulator_cpu_seconds_measured": 0,
+      "maximum_reported_data_structure_Mb": null
+    },
+    {
+      "trial": "r06-test_diagnostic",
+      "compile_invocations": 1,
+      "compile_footers": 1,
+      "compiler_cpu_seconds_measured": 78.626,
+      "simulation_invocations": 3,
+      "simulation_footers": 3,
+      "simulator_cpu_seconds_measured": 1.2,
+      "maximum_reported_data_structure_Mb": 3.6
+    },
+    {
+      "trial": "r06-spec_only",
+      "compile_invocations": 2,
+      "compile_footers": 2,
+      "compiler_cpu_seconds_measured": 159.178,
+      "simulation_invocations": 45,
+      "simulation_footers": 45,
+      "simulator_cpu_seconds_measured": 49.89,
+      "maximum_reported_data_structure_Mb": 6.0
+    }
+  ],
+  "note": "CPU totals include only available numeric footers. Missing footers are not zero-cost processes. VCS data-structure Mb is its reported unit, not host peak RSS. No commercial log text is published."
+}

@@ -1,0 +1,91 @@
+[
+  {
+    "action_index": 1,
+    "action": {
+      "tool": "read",
+      "file": "spec.md"
+    },
+    "executed": true,
+    "observation": {
+      "file": "spec.md",
+      "content_sha256": "6f2e075cee28f51451dc96888ee1185a1356e153d0166d763bcc68d37fa336e8",
+      "content_bytes": 4152
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 2,
+    "action": {
+      "tool": "read",
+      "file": "bridge.sv"
+    },
+    "executed": true,
+    "observation": {
+      "file": "bridge.sv",
+      "content_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "content_bytes": 713
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 3,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "37f2d9ca90d99d509b0c58692e539401470d82143579a8ded250ea51825aecc7",
+      "candidate_file": "candidate-03.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 4,
+    "action": {
+      "tool": "test"
+    },
+    "executed": true,
+    "observation": {
+      "status": "PASS",
+      "remaining_test_calls": 1
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 5,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "ca1591e15d4589130271f625fcd7a7fd35650bb3a972e51fe6971875bea78fdb",
+      "candidate_file": "candidate-05.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 6,
+    "action": {
+      "tool": "test"
+    },
+    "executed": true,
+    "observation": {
+      "status": "PASS",
+      "remaining_test_calls": 0
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 7,
+    "action": {
+      "tool": "submit"
+    },
+    "executed": true,
+    "observation": {
+      "status": "SUBMITTED"
+    },
+    "observation_delivered": false
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "policy_id": "test_diagnostic",
+  "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+  "model": "deepseek-flash",
+  "actions": 4,
+  "edits": 1,
+  "public_test_calls": 0,
+  "submitted": true,
+  "terminal": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "d431f8259b952b09e21a8fab2e75ffd7874c39dbfb59e2f732d09fa589ab0065",
+    "suite_sha256": "0c943dbee23942c51816e80dcd1e5024572441566304ea91516abf50fb7a8e4f",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "write_accumulate"
+  },
+  "held_out": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "d431f8259b952b09e21a8fab2e75ffd7874c39dbfb59e2f732d09fa589ab0065",
+    "suite_sha256": "91b28a99ea8336a54e8b299a43833af228df286e5b8675498a26564628cb3762",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "write_accumulate"
+  },
+  "first_candidate_public": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "d431f8259b952b09e21a8fab2e75ffd7874c39dbfb59e2f732d09fa589ab0065",
+    "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "write_accumulate"
+  },
+  "first_candidate_source": "candidate-03.sv",
+  "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+  "final_candidate_public": null,
+  "freeze_unchanged": true,
+  "solver_stopped_before_evaluation": true,
+  "wall_seconds": 111.95,
+  "api_usage": null,
+  "api_cost": null,
+  "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+  "private_reward_suite_sha256": "0c943dbee23942c51816e80dcd1e5024572441566304ea91516abf50fb7a8e4f",
+  "reserved_evaluation_suite_sha256": "91b28a99ea8336a54e8b299a43833af228df286e5b8675498a26564628cb3762"
+}

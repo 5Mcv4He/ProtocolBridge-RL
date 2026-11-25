@@ -1,0 +1,399 @@
+{
+  "scope": "Only actually delivered public test observations; terminal_reward is research-side data, never solver feedback. Full solver-input audit remains in trusted storage.",
+  "trials": [
+    {
+      "trial": "r01-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r01-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "a8bb2075d907633b885465793f47577c047bdebd0ad1d6a97519028acb099f4e",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r02-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r02-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 6,
+          "candidate_sha256": "ad186a710f050fcfb5e4e408a483af9fb605fa1caacd9f41d51e07c9bf61c55b",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1,
+            "category": "pass",
+            "first_failed_case": null,
+            "diagnostic": "Public verification completed successfully."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r03-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r03-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "58d4d24885960d4710bc6c88f1015af9a53e1d871ab2e9a25bf04448e828d350",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "58d4d24885960d4710bc6c88f1015af9a53e1d871ab2e9a25bf04448e828d350",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r04-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r04-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "b81d40c31e604c2d9b062edd10b6a48b8a94e1e9fcce7dfb30038a0ed38639c9",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r04-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r05-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "4fc5db1f62ee76031ee1856a9ec499736c4373740e4571f72dee7c9a40b2edcb",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r05-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "f354d3f6935e0d71dca2fb4136a044e76b153ff0d5e302762033c014f0f71f45",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "compile_error",
+            "first_failed_case": null,
+            "diagnostic": "RTL compilation failed."
+          }
+        },
+        {
+          "action_index": 6,
+          "candidate_sha256": "cc1b1d434db91336ddf0747ca66aa70c867c8fb60881d485be46fe971040c317",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 0,
+            "category": "pass",
+            "first_failed_case": null,
+            "diagnostic": "Public verification completed successfully."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r05-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r06-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 5,
+          "candidate_sha256": "dd3aa308cdfdbf1c26e02c498a9e56ecbb50e514b8ed72851593a2c9afce8634",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1,
+            "category": "pass",
+            "first_failed_case": null,
+            "diagnostic": "Public verification completed successfully."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r06-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r06-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "37f2d9ca90d99d509b0c58692e539401470d82143579a8ded250ea51825aecc7",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1
+          }
+        },
+        {
+          "action_index": 6,
+          "candidate_sha256": "ca1591e15d4589130271f625fcd7a7fd35650bb3a972e51fe6971875bea78fdb",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r07-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r07-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "c70fb992d9a3d530012d073b9bad3bca40639ab6583036835151330360a3b0cf",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r07-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 5,
+          "candidate_sha256": "7c2852b1371cc81c1a330289dfa1921b018726ac3a4f92f0e1e88f1f0101eaee",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1,
+            "category": "pass",
+            "first_failed_case": null,
+            "diagnostic": "Public verification completed successfully."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r08-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "c862edb41edab8cc18895fbdc3fb3fad1f26b66ad0331f5fc07fab475a245eba",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r08-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "99e05fd50200a0c40669989fe2e857867b1e67b54ba1ecffcc4054037515b610",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "channel_gaps",
+            "diagnostic": "AXI request acceptance exceeded the 16-cycle limit."
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "99e05fd50200a0c40669989fe2e857867b1e67b54ba1ecffcc4054037515b610",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "channel_gaps",
+            "diagnostic": "AXI request acceptance exceeded the 16-cycle limit."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r08-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r09-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "43596aafc8c35a344224eba135d44b8fc0558a8b17b59faa6f62bc1e2add7487",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1,
+            "category": "pass",
+            "first_failed_case": null,
+            "diagnostic": "Public verification completed successfully."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r09-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r09-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "316e8010c2a7e395bdb106a72a1f133802c438b4416e6dd71050d54d56794350",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r10-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r10-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "8fb9fdf490379a9d499a8446a190555797d24affec15c61fb4421d3b9f07f0e1",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 1
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r10-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "b0c5b7b44d598f6dd1126eb2c9aa2ed4c75ca6f372a1e7ae55e428cbb2ba4172",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "compile_error",
+            "first_failed_case": null,
+            "diagnostic": "RTL compilation failed."
+          }
+        },
+        {
+          "action_index": 6,
+          "candidate_sha256": "691fca92d063bd57f9cde2de78b9222a06a53546d9fa746ae673722bcd698004",
+          "observation": {
+            "status": "PASS",
+            "remaining_test_calls": 0,
+            "category": "pass",
+            "first_failed_case": null,
+            "diagnostic": "Public verification completed successfully."
+          }
+        }
+      ]
+    }
+  ]
+}

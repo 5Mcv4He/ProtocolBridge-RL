@@ -1,0 +1,24 @@
+{
+  "completed_at_decision": 16,
+  "already_started_trial": "r06-spec_only",
+  "stop_new_trials": true,
+  "reason": [
+    "protocol_blocked_edits_6_of_16",
+    "parse_and_schema_errors_40_of_126"
+  ],
+  "pilot_gate_remains_passed": true,
+  "no_model_failure_removed": true,
+  "running_remote_trial_not_interrupted": true,
+  "final_started": 17,
+  "final_gate": {
+    "passed": false,
+    "reasons": [
+      "widespread_protocol_blocked_edits",
+      "protocol_error_action_rate_above_30_percent"
+    ]
+  },
+  "final_protocol_errors": 41,
+  "final_actions": 133,
+  "all_started_trials_completed": true,
+  "resume_forbidden": true
+}

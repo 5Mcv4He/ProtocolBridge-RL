@@ -1,0 +1,53 @@
+{
+  "policy_id": "test_verdict",
+  "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+  "model": "deepseek-flash",
+  "actions": 7,
+  "edits": 2,
+  "public_test_calls": 2,
+  "submitted": true,
+  "terminal": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "39ac5e7ee0d450c7a7ee96d4796cc1bcd98a384d6a7302171c70aa66cc70a2d3",
+    "suite_sha256": "a6008dd194e19c73c11b2cf9527d3a6f92b3e360ebb5c56aa65262ed3b41c28a",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "strobe_cross_early"
+  },
+  "held_out": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "39ac5e7ee0d450c7a7ee96d4796cc1bcd98a384d6a7302171c70aa66cc70a2d3",
+    "suite_sha256": "c04297014ac2e6cb9148e4069d2f9427ddd49997fb288c4688ffb295b6ad7937",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "strobe_cross_early"
+  },
+  "first_candidate_public": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "58d4d24885960d4710bc6c88f1015af9a53e1d871ab2e9a25bf04448e828d350",
+    "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "first_candidate_source": "candidate-03.sv",
+  "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+  "final_candidate_public": null,
+  "freeze_unchanged": true,
+  "solver_stopped_before_evaluation": true,
+  "wall_seconds": 204.525,
+  "api_usage": null,
+  "api_cost": null,
+  "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+  "private_reward_suite_sha256": "a6008dd194e19c73c11b2cf9527d3a6f92b3e360ebb5c56aa65262ed3b41c28a",
+  "reserved_evaluation_suite_sha256": "c04297014ac2e6cb9148e4069d2f9427ddd49997fb288c4688ffb295b6ad7937"
+}

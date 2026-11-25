@@ -1,0 +1,202 @@
+{
+  "cases": [
+    {
+      "trial": "r03-test_verdict",
+      "initial_sha256": "58d4d24885960d4710bc6c88f1015af9a53e1d871ab2e9a25bf04448e828d350",
+      "final_sha256": "39ac5e7ee0d450c7a7ee96d4796cc1bcd98a384d6a7302171c70aa66cc70a2d3",
+      "observed_actions": [
+        "read spec",
+        "read RTL",
+        "edit",
+        "test FAIL",
+        "test same RTL FAIL",
+        "edit",
+        "submit"
+      ],
+      "feedback_visible_to_agent": [
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 1
+        },
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 0
+        }
+      ],
+      "initial_error": "APB ACCESS completion leaves PSEL/PENABLE asserted for one extra cycle; VIP penable_after_psel error in address_data.",
+      "changed_logic": "Final edit deasserts PSEL and PENABLE on PREADY completion and changes response/launch logic.",
+      "remaining_error": "s_awready includes !w_have. With W accepted before AW, w_have blocks AW and neither half can clear until a write launches. Final private and held-out strobe_cross_early reject AXI acceptance exceeding 16 cycles.",
+      "interpretation": "One issue corrected but independent-handshake error retained; both public tests were spent on identical initial candidate. Final edit had no public retest. Attribution combines actual verifier findings and source inspection, not model internal reasoning."
+    },
+    {
+      "trial": "r04-test_diagnostic",
+      "final_sha256": "d431f8259b952b09e21a8fab2e75ffd7874c39dbfb59e2f732d09fa589ab0065",
+      "feedback_visible_to_agent": [],
+      "observed_actions": [
+        "read spec",
+        "read RTL",
+        "edit",
+        "submit"
+      ],
+      "remaining_error": "AWREADY/WREADY include !cur_write. cur_write remains 1 after a completed write and is cleared only by reset/read launch, blocking consecutive writes. Public post-hoc, private and held-out write_accumulate report AXI acceptance exceeding 16 cycles.",
+      "interpretation": "Real RTL failure without any test exposure. This trial cannot show diagnostic feedback effectiveness."
+    },
+    {
+      "trial": "r05-test_diagnostic",
+      "initial_sha256": "f354d3f6935e0d71dca2fb4136a044e76b153ff0d5e302762033c014f0f71f45",
+      "final_sha256": "cc1b1d434db91336ddf0747ca66aa70c867c8fb60881d485be46fe971040c317",
+      "observed_actions": [
+        "read spec",
+        "read RTL",
+        "edit",
+        "test FAIL compile_error",
+        "edit",
+        "test PASS",
+        "submit"
+      ],
+      "feedback_visible_to_agent": [
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 1,
+          "category": "compile_error",
+          "first_failed_case": null,
+          "diagnostic": "RTL compilation failed."
+        },
+        {
+          "status": "PASS",
+          "remaining_test_calls": 0,
+          "category": "pass",
+          "first_failed_case": null,
+          "diagnostic": "Public verification completed successfully."
+        }
+      ],
+      "initial_error": "Compiler reported psel_r and penable_r undeclared at continuous assignments; declarations occurred later in the source.",
+      "changed_logic": "Moves psel_r/penable_r declarations ahead of uses and rewrites intermediate launch/ready expressions.",
+      "final_result": "Private and held-out 22 cases PASS; public 17 cases PASS.",
+      "interpretation": "Real edit after category-level compile feedback. Original compiler errors were not sent to the solver. One successful recovery does not establish a causal advantage over C."
+    },
+    {
+      "trial": "r06-spec_only",
+      "final_sha256": "1e339321c43948b4f82f19df570b3990b0322d1868d540f1e0f93d68bbbc1f7d",
+      "feedback_visible_to_agent": [],
+      "observed_actions": [
+        "read spec",
+        "read RTL",
+        "edit",
+        "submit"
+      ],
+      "remaining_error": "Write launch requires !is_write && aw_full && w_full, but is_write remains 1 after a completed write. The next write halves can be accepted but APB cannot launch. Public post-hoc, private and held-out write_accumulate fail APB launch exceeding 16 cycles.",
+      "interpretation": "Real no-feedback RTL error: stale transaction-direction state blocks the next same-direction transaction. Similar error family to r04-E, at launch rather than AXI acceptance."
+    },
+    {
+      "trial": "r07-spec_only",
+      "final_sha256": "e602469c75544d5e77eea90ebdd186da1a84d7cb1e61b179a276d26ba5b4e11b",
+      "feedback_visible_to_agent": [],
+      "remaining_error": "Both AWREADY and WREADY require !aw_have && !w_have. Acceptance of either half inhibits the other, so only simultaneous AW/W can complete. Final private and held-out strobe_cross_early reject AXI acceptance beyond 16 cycles.",
+      "first_candidate_public": {
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "source_sha256": "d84b20c80dbe27acfe03085b28c59e56d4452b3645096f02b9abbcdd91a5a3f9",
+        "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+        "planned": 132,
+        "checked": 124,
+        "aborted": 8,
+        "failed_case": null
+      },
+      "interpretation": "First candidate passed all 17 public cases in post-submit offline measurement. The second revision added mutual AW/W gating, introducing an independent-handshake regression. Different source hashes: this is not a same-candidate public-PASS/private-FAIL observation."
+    },
+    {
+      "trial": "r08-test_verdict",
+      "final_sha256": "c862edb41edab8cc18895fbdc3fb3fad1f26b66ad0331f5fc07fab475a245eba",
+      "observed_actions": [
+        "read spec",
+        "read RTL",
+        "edit",
+        "test FAIL",
+        "submit"
+      ],
+      "feedback_visible_to_agent": [
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 1
+        }
+      ],
+      "remaining_error": "apb_active is declared as a single logic bit but represents states 0/1/2. Assigning 2 truncates to 0; PENABLE (apb_active == 2) never asserts. Public, private and held-out address_data detect APB penable_after_psel.",
+      "interpretation": "Valid action protocol and actual FAIL exposure, but no repair attempted; model submits unchanged failing RTL with one test still available."
+    },
+    {
+      "trial": "r08-test_diagnostic",
+      "final_sha256": "99e05fd50200a0c40669989fe2e857867b1e67b54ba1ecffcc4054037515b610",
+      "observed_actions": [
+        "read spec",
+        "read RTL",
+        "edit",
+        "test FAIL",
+        "test same RTL FAIL",
+        "submit"
+      ],
+      "feedback_visible_to_agent": [
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 1,
+          "category": "protocol_timing_error",
+          "first_failed_case": "channel_gaps",
+          "diagnostic": "AXI request acceptance exceeded the 16-cycle limit."
+        },
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 0,
+          "category": "protocol_timing_error",
+          "first_failed_case": "channel_gaps",
+          "diagnostic": "AXI request acceptance exceeded the 16-cycle limit."
+        }
+      ],
+      "remaining_error": "AWREADY and WREADY share idle, which requires both half-buffer-valid bits clear. Accepting either half disables acceptance of the other; non-simultaneous write halves deadlock. Public channel_gaps and final private/held-out strobe_cross_early confirm acceptance beyond 16 cycles.",
+      "interpretation": "Detailed functional feedback really delivered twice, including acceptance bound; no subsequent edit. Exposure is not evidence of a repair attempt."
+    },
+    {
+      "trial": "r10-spec_only",
+      "final_sha256": "74c4247c836e4e42be5a0be2f345cb8d4d819ea60e3ff7e13219c94c35f8636f",
+      "feedback_visible_to_agent": [],
+      "remaining_error": "s_bvalid assignment simplifies to bpend && !s_bready, while bpend clears when BREADY is high independently of BVALID. With early BREADY, no write response is presented. Private/held-out address_data reject AXI response beyond 16 cycles.",
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "d60b8b0db0f1ed4ef6cce101be1748e64ef13289ef30a5f7cc79b9c72cd5994d",
+        "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "interpretation": "Two edits without functional feedback; first confirmed final error is response production/handshake, not simulator infrastructure timeout."
+    },
+    {
+      "trial": "r10-test_diagnostic",
+      "initial_sha256": "b0c5b7b44d598f6dd1126eb2c9aa2ed4c75ca6f372a1e7ae55e428cbb2ba4172",
+      "final_sha256": "691fca92d063bd57f9cde2de78b9222a06a53546d9fa746ae673722bcd698004",
+      "feedback_visible_to_agent": [
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 1,
+          "category": "compile_error",
+          "first_failed_case": null,
+          "diagnostic": "RTL compilation failed."
+        },
+        {
+          "status": "PASS",
+          "remaining_test_calls": 0,
+          "category": "pass",
+          "first_failed_case": null,
+          "diagnostic": "Public verification completed successfully."
+        }
+      ],
+      "initial_error": "s_arvalid_tmp and have_ar used before declaration in continuous assignments; compiler IND errors.",
+      "changed_logic": "Declares have_ar before assignments; removes the forward-declared s_arvalid_tmp alias and uses !have_ar directly.",
+      "final_result": "Public, private and held-out PASS.",
+      "interpretation": "Second category-level compile-feedback recovery in E. No raw compiler error text was delivered."
+    }
+  ]
+}

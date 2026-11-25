@@ -1,0 +1,62 @@
+--- starting.sv
++++ submission/bridge.sv
+@@ -14,7 +14,7 @@
+   logic [1:0] apb_state;
+ 
+   logic        aw_have, w_have;
+-  logic [31:0] aw_addr_r;
++  logic [31:0] aw_addr_r, ar_addr_r;
+   logic [31:0] w_data_r;
+   logic [3:0]  w_strb_r;
+ 
+@@ -28,7 +28,7 @@
+   assign idle = (apb_state == APB_IDLE) && !bpend && !rpend;
+ 
+   assign s_awready = idle && !aw_have;
+-  assign s_wready  = idle && aw_have && !w_have;
++  assign s_wready  = idle && !w_have;
+   assign s_arready = idle && !aw_have && !w_have;
+ 
+   assign s_bresp  = bresp_r;
+@@ -41,7 +41,7 @@
+   assign psel     = (apb_state == APB_SETUP) || (apb_state == APB_ACCESS);
+   assign penable  = (apb_state == APB_ACCESS);
+   assign pwrite   = cur_write;
+-  assign paddr    = aw_addr_r;
++  assign paddr    = cur_write ? aw_addr_r : ar_addr_r;
+   assign pwdata   = w_data_r;
+   assign pstrb    = cur_write ? w_strb_r : 4'b0000;
+ 
+@@ -51,6 +51,7 @@
+       aw_have <= 1'b0;
+       w_have  <= 1'b0;
+       aw_addr_r <= 32'b0;
++      ar_addr_r <= 32'b0;
+       w_data_r  <= 32'b0;
+       w_strb_r  <= 4'b0;
+       cur_write <= 1'b0;
+@@ -76,20 +77,20 @@
+       case (apb_state)
+         APB_IDLE: begin
+           if (aw_have && w_have) begin
+-            // both buffered - start write
+             apb_state <= APB_SETUP;
+             cur_write <= 1'b1;
+             aw_have <= 1'b0;
+             w_have  <= 1'b0;
+-          end else if (aw_have && (s_wready && s_wvalid)) begin
+-            // AW buffered, W arriving now
++          end else if (aw_have && s_wready && s_wvalid) begin
+             apb_state <= APB_SETUP;
+             cur_write <= 1'b1;
++            w_data_r <= s_wdata;
++            w_strb_r <= s_wstrb;
+             aw_have <= 1'b0;
+             w_have  <= 1'b0;
+           end else if (s_arready && s_arvalid) begin
+             cur_write <= 1'b0;
+-            aw_addr_r <= s_araddr;
++            ar_addr_r <= s_araddr;
+             apb_state <= APB_SETUP;
+           end
+         end

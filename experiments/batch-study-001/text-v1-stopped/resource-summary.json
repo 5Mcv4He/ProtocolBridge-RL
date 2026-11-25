@@ -1,0 +1,10 @@
+{
+  "samples": 17,
+  "concurrent_trials": 1,
+  "minimum_free_disk_bytes": 64622096384,
+  "maximum_loadavg_1m": 1.01,
+  "logical_cpus": [
+    2
+  ],
+  "scope": "Between-trial snapshots, not peak memory/CPU or monetary billing."
+}

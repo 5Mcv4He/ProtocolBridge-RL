@@ -1,0 +1,63 @@
+{
+  "policy_id": "test_verdict",
+  "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+  "model": "deepseek-flash",
+  "actions": 7,
+  "edits": 2,
+  "public_test_calls": 2,
+  "submitted": true,
+  "terminal": {
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "source_sha256": "ca1591e15d4589130271f625fcd7a7fd35650bb3a972e51fe6971875bea78fdb",
+    "suite_sha256": "3a9ff21e3db2dde7546a191293e152a508d972351771de072c0e65868906c7a3",
+    "planned": 2868,
+    "checked": 2842,
+    "aborted": 26,
+    "failed_case": null
+  },
+  "held_out": {
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "source_sha256": "ca1591e15d4589130271f625fcd7a7fd35650bb3a972e51fe6971875bea78fdb",
+    "suite_sha256": "d74518200c9a2d39e9b47f14bde544081aa8e0517fc053bb400e3d7dda1b1794",
+    "planned": 2868,
+    "checked": 2842,
+    "aborted": 26,
+    "failed_case": null
+  },
+  "first_candidate_public": {
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "source_sha256": "37f2d9ca90d99d509b0c58692e539401470d82143579a8ded250ea51825aecc7",
+    "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+    "planned": 132,
+    "checked": 124,
+    "aborted": 8,
+    "failed_case": null
+  },
+  "first_candidate_source": "candidate-03.sv",
+  "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+  "final_candidate_public": {
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "source_sha256": "ca1591e15d4589130271f625fcd7a7fd35650bb3a972e51fe6971875bea78fdb",
+    "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+    "planned": 132,
+    "checked": 124,
+    "aborted": 8,
+    "failed_case": null
+  },
+  "freeze_unchanged": true,
+  "solver_stopped_before_evaluation": true,
+  "wall_seconds": 360.777,
+  "api_usage": null,
+  "api_cost": null,
+  "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+  "private_reward_suite_sha256": "3a9ff21e3db2dde7546a191293e152a508d972351771de072c0e65868906c7a3",
+  "reserved_evaluation_suite_sha256": "d74518200c9a2d39e9b47f14bde544081aa8e0517fc053bb400e3d7dda1b1794"
+}

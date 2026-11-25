@@ -1,0 +1,858 @@
+{
+  "scope": "Every started trial; hashes refer to retained original files, not the redacted copies. No raw model text or private inputs included.",
+  "trials": [
+    {
+      "trial": "r01-spec_only",
+      "policy": "spec_only",
+      "repeat": 1,
+      "reward": 1.0,
+      "session_ids": [
+        "session-a5d36f5a9b944d7d913d6ba8d03a107e"
+      ],
+      "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "15c59e0837ad35cf2c669d67876218e966f07efcaa42982fe942c9c5d457347b",
+      "reserved_evaluation_suite_sha256": "ae8bca897f8be56a1ef47702a4eadc5b6a50bd9851a9c8788f4734a7b688e042",
+      "raw_file_sha256": {
+        "candidate-03.sv": "0bc847130dde1f296847e8e8d666207dba71f9fb29695def3925036cd0fc0ff6",
+        "freeze.json": "f6cb9a8c4c4104d23b562189e10f3d87461cea5bd505c9f1a64fcfcc9da4f868",
+        "harness-00.json": "e45794dd8ad4d6ab6d1e48d17f9bc1b7eefd506eda3670d48e7d1e046b3f44ae",
+        "harness-01.json": "da2e5016c62172d6acf4b530a704f9a7fe23295246fe70c62ab716c0846ecf49",
+        "harness-02.json": "621ec1754331a8061ac6f7071c9c961eb172f4fb7928ce793b8fe1bb91231256",
+        "harness-03.json": "6685a1cac9e83eb823dc437dc9810c02d1e645f384babef8ddad6708ed56e1c1",
+        "initial-prompt.txt": "826488aaf1854edcd6e89d95e62430eabdd44011ed8c125fc39cfd363bcac3b4",
+        "metrics.json": "ece9dde9d4f0a8a99c634983e52c145ae13e388d6ecca488595ec2e50ea07db1",
+        "observations.json": "7cefbbacca072fc0de81ffd061dffa158d80c3bf90363c6b4cd65a36bd9395d6",
+        "policy.json": "cd7ea16fd119b38117bcc7f31df96028e2f26b00a60e04647281dbbc836af7c9",
+        "submission/bridge.sv": "0bc847130dde1f296847e8e8d666207dba71f9fb29695def3925036cd0fc0ff6",
+        "trace.json": "50c751d1cd62b7e1ce012f2d03eba6f5a232425d16271585c7f9c4758ec85e4c"
+      }
+    },
+    {
+      "trial": "r01-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 1,
+      "reward": 1.0,
+      "session_ids": [
+        "session-2c0fea95876f4e35b826b8e22a3b07fd"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "15c59e0837ad35cf2c669d67876218e966f07efcaa42982fe942c9c5d457347b",
+      "reserved_evaluation_suite_sha256": "ae8bca897f8be56a1ef47702a4eadc5b6a50bd9851a9c8788f4734a7b688e042",
+      "raw_file_sha256": {
+        "candidate-03.sv": "a8bb2075d907633b885465793f47577c047bdebd0ad1d6a97519028acb099f4e",
+        "freeze.json": "6558667f6a71b9e475bb09d2c158677a12ef85257a760e2d7a717aca7b5a3343",
+        "harness-00.json": "c0835259911269bcc2eef9d5c7d8a5e34b0045dde13485278799a289b1b1b8c3",
+        "harness-01.json": "099e0ee887bdba88d2e16a1efccaa9e8458b4533a4887521499c733ea5b0e519",
+        "harness-02.json": "2b328ce5cddbba59ca0441a10dbc85fcd35206b41f8185d20a00d4d2eac0485c",
+        "harness-03.json": "cf58112ce3f783cc92915b5bb99bbfe04f623fa7b7a91ad29c7b94a7bcb1c296",
+        "harness-04.json": "a01d0f75ac0be8adb34aedeee38c65d46838def6c88a281b27408e5fd16cc932",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "026067f4bf304d048e8d0c3791840ecc48dcbaa7baa3a475faa697f092cfcd43",
+        "observations.json": "a90e9ec50d7a253d4b0e47224dd9f961ac458e591b1dadd99fe9b8c94cc12b8b",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "a8bb2075d907633b885465793f47577c047bdebd0ad1d6a97519028acb099f4e",
+        "trace.json": "ed2f0279c26eb663615343861b66ba43a3bdd4709baf3d90458645d81c6b1627"
+      }
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 1,
+      "reward": 1.0,
+      "session_ids": [
+        "session-74d85af458c5424581cc22137abefaf8"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "15c59e0837ad35cf2c669d67876218e966f07efcaa42982fe942c9c5d457347b",
+      "reserved_evaluation_suite_sha256": "ae8bca897f8be56a1ef47702a4eadc5b6a50bd9851a9c8788f4734a7b688e042",
+      "raw_file_sha256": {
+        "candidate-03.sv": "491438b53282ccb2eef57ba580822d621345d8d9edc016ee2aac039c9fbd640a",
+        "freeze.json": "33087187aafed1d47b852daa84aed08f565d9f9dd0a167d71102a50df30977b2",
+        "harness-00.json": "e69225560ff477867c1342cdc5d48dc1e02bdb8b3c85852ca8e8f53ae7f8a089",
+        "harness-01.json": "15cd9ef963301cb3589884e770711353d7dead9a64f755ec3c19403f47d158ed",
+        "harness-02.json": "f2c547a819d9067c246d7d8b484f686fff3fddfafefad7d428ecafed1b03def5",
+        "harness-03.json": "4b5a04fa87a484251af23cd3321deeb11845882fb670b9c02b47461a04c7f212",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "db03b330c868799f1958a1c27f087b920a6095a87ee4b3ac818265788a6b0852",
+        "observations.json": "93446831d546e1f9b0fcdb383ba001544645a55639264a64c4c4d1519e53af83",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "491438b53282ccb2eef57ba580822d621345d8d9edc016ee2aac039c9fbd640a",
+        "trace.json": "10e048e5a2730052d8ef7304884b452d82f77218378d32bb88e1674b06ab5f95"
+      }
+    },
+    {
+      "trial": "r02-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 2,
+      "reward": 1.0,
+      "session_ids": [
+        "session-9dc095da48c44f71ba9d34199b990479"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "89f14690c39294e38c69163d3088cf375dac78d82372d59dedb0b9ea9d56ad56",
+      "reserved_evaluation_suite_sha256": "27dddded16cdf40974db5d25e455256eae9bee9a2515b3823395c7e3ffd4db3b",
+      "raw_file_sha256": {
+        "candidate-03.sv": "5d05800104da4d11ecf5a478a267df2d2dc561941303f4025db03347e1b8590e",
+        "freeze.json": "96344c1993f32761c6b32daf280a7a124f213f388dfbcf5c2bf153a25483c723",
+        "harness-00.json": "593f234a6a43b0b68d8c692ff00f3a6f05c63201f592d3d388c7695d569c24f2",
+        "harness-01.json": "c33f4a6919c60d60e8001a66d9405bd10c1a868e00f9ca51bf6aa42218a79215",
+        "harness-02.json": "8c35ba8bd75479984bece5e219890b64219586503d436ea0df2105db35162a7c",
+        "harness-03.json": "d0c9105ca4d646cd76d7ca424dbeb90c2f2b0b2257312607cbabe7d1d2891040",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "a2f640ced587d390a8dd670e8305dcfb67c95bfac3db2783764f82ae0524fe0a",
+        "observations.json": "93446831d546e1f9b0fcdb383ba001544645a55639264a64c4c4d1519e53af83",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "5d05800104da4d11ecf5a478a267df2d2dc561941303f4025db03347e1b8590e",
+        "trace.json": "43f8e6ba37bec75d6a1d3bceebc7b4a52dc161d1035ff39f1be7971d8d487bcb"
+      }
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 2,
+      "reward": 1.0,
+      "session_ids": [
+        "session-6dee7271b05746e5a4be860757fa18f2"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "89f14690c39294e38c69163d3088cf375dac78d82372d59dedb0b9ea9d56ad56",
+      "reserved_evaluation_suite_sha256": "27dddded16cdf40974db5d25e455256eae9bee9a2515b3823395c7e3ffd4db3b",
+      "raw_file_sha256": {
+        "candidate-03.sv": "5fca605522c3caf8629593974fbaf2cf8daf66e12a23b2643e247c8da8c3ba99",
+        "freeze.json": "70db7199c47ce5be3e26a8fb8341aefc24985fe1938b414e6cb0c4d8f687fd79",
+        "harness-00.json": "86342d7c37e70b7c219a5e232c0bee5fd7b727f49473acd75262f89b78d1eadf",
+        "harness-01.json": "88b1b92e0c4be392a4ee8c15a224d7e408cfee48489a9fe1201d44cf443ecbac",
+        "harness-02.json": "5c2628438d9eaf2f1fbf0a4c835156285114b9f8519e2b9296bdeaa275cbcf0d",
+        "harness-03.json": "692b2536e9f0d34b0c0b595d21895317fb03a7aafd2e686643fa84ffe3624d62",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "26e3237c2e651bfdf84777abc7f082be471c7de0f19a7fcc4c30394a9b5a9ec8",
+        "observations.json": "93446831d546e1f9b0fcdb383ba001544645a55639264a64c4c4d1519e53af83",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "5fca605522c3caf8629593974fbaf2cf8daf66e12a23b2643e247c8da8c3ba99",
+        "trace.json": "fe9eabeb084208b277be671849a4ecd4623a3480ef6b34a974bfc075f39986b3"
+      }
+    },
+    {
+      "trial": "r02-spec_only",
+      "policy": "spec_only",
+      "repeat": 2,
+      "reward": 1.0,
+      "session_ids": [
+        "session-3d3edec8236f40fda2a07e0b1e2c1c48"
+      ],
+      "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "89f14690c39294e38c69163d3088cf375dac78d82372d59dedb0b9ea9d56ad56",
+      "reserved_evaluation_suite_sha256": "27dddded16cdf40974db5d25e455256eae9bee9a2515b3823395c7e3ffd4db3b",
+      "raw_file_sha256": {
+        "candidate-03.sv": "44c175e728347c845eaf4f07fec53a144ab277458fc48cceaacfc9d395498110",
+        "candidate-04.sv": "91795858ac3c406775ed146602d34820c9d623ca80782bbffaac7297ba010db1",
+        "freeze.json": "351e60393d3ef1e19478143bca2d31351d800f20b073df3e3dfe2286fdace089",
+        "harness-00.json": "45eb9d957bc3893a6d80bb4d38a112296ce003a008545fcc9b0f6d809a75b1dd",
+        "harness-01.json": "23d544bf8e3b2a32cfdf60c6278226215d756d44de75af45b852b50c3de2b9ed",
+        "harness-02.json": "12e8990ee0374d3326063fe562cdcbd1cf521ada6d2ec808bf5a21f96cc595e5",
+        "harness-03.json": "b4bd1c9d7f9f3f3786bb096ff3721db39e3792690d1a3129448fbeabaf19cba5",
+        "harness-04.json": "de2b72d34203ae55494b9319cd418563e0eccc7c46e46b50ddd44a270854c113",
+        "initial-prompt.txt": "826488aaf1854edcd6e89d95e62430eabdd44011ed8c125fc39cfd363bcac3b4",
+        "metrics.json": "a5e9e2f909ebc8c2c994c6967095a5aea2408547e4ac05afa896ec01949fac39",
+        "observations.json": "0dcfe3bccf30ae7428aa51f1c873b455dfe8dccc7dcbb36ac9f7e9b4505099b0",
+        "policy.json": "cd7ea16fd119b38117bcc7f31df96028e2f26b00a60e04647281dbbc836af7c9",
+        "submission/bridge.sv": "91795858ac3c406775ed146602d34820c9d623ca80782bbffaac7297ba010db1",
+        "trace.json": "088ddf59d2f8604e02dc8269e0230f2f4242dc6f588580bee32a67cddc39ef19"
+      }
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 3,
+      "reward": 1.0,
+      "session_ids": [
+        "session-f5f32f7b4d45401bbb093d7f7b0a76e0"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "a6008dd194e19c73c11b2cf9527d3a6f92b3e360ebb5c56aa65262ed3b41c28a",
+      "reserved_evaluation_suite_sha256": "c04297014ac2e6cb9148e4069d2f9427ddd49997fb288c4688ffb295b6ad7937",
+      "raw_file_sha256": {
+        "candidate-03.sv": "6398941f01a5097aad0154e3a2ba3e8d6c23cbd27ca27b4be15f17ae2078c554",
+        "candidate-04.sv": "ad186a710f050fcfb5e4e408a483af9fb605fa1caacd9f41d51e07c9bf61c55b",
+        "freeze.json": "5cbcf2cf938bd93462928b889369c0dc624e057450737b3d168c6b609e5c5621",
+        "harness-00.json": "f6c53e7207fbe57bfef193853b1ed0281880e717da6b07a3eedc75b36b1a7a97",
+        "harness-01.json": "eecfbfc9cdb348681f803ea2d4fe996340a9f789b5b98591cebb775b3a70bace",
+        "harness-02.json": "7a3cfdf1ea0cd56d2fa0b667fef21c46be5787a3d374b66bc7f09bedfcd068ec",
+        "harness-03.json": "9e9af00c4ee4c1a39151a61e5d39eadb93d734ff390f123c3f4bc893b4bb0915",
+        "harness-04.json": "cf7858ca4cc56749864508c614496bb623aac084c8822d698bf44ecbca82e119",
+        "harness-05.json": "941a99a01a58fa210a84f1e6758298d33b564b357c23ee84a1fef9f43bfc0229",
+        "harness-06.json": "8ed62aef5fee4d9f789f68e561d110d41cf8e52752b8b835fbb78d83a1755e42",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "f5e616e4d0059e53b191cfee42a5fa47087808c6c32f192cb2c81b79451bb798",
+        "observations.json": "cc93618e9f7463c4d44ceecbc4e1ded93f21bef7dd0b8e0f324e3929ccc8e1a4",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "ad186a710f050fcfb5e4e408a483af9fb605fa1caacd9f41d51e07c9bf61c55b",
+        "trace.json": "e89e3ec99d719fef517d5ee0fa80a3430b064410d45bdf98ae31834e82773301"
+      }
+    },
+    {
+      "trial": "r03-spec_only",
+      "policy": "spec_only",
+      "repeat": 3,
+      "reward": 1.0,
+      "session_ids": [
+        "session-b8ad77ee11be4fd4a82ec3929cca6287"
+      ],
+      "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "a6008dd194e19c73c11b2cf9527d3a6f92b3e360ebb5c56aa65262ed3b41c28a",
+      "reserved_evaluation_suite_sha256": "c04297014ac2e6cb9148e4069d2f9427ddd49997fb288c4688ffb295b6ad7937",
+      "raw_file_sha256": {
+        "candidate-03.sv": "8a8feccc33b7a96faff32a9905d58553630d782a606d281123768330eb38d7e1",
+        "freeze.json": "f087b311ca2f9127c7dc95643291f4a5e1edbb76c2a523e1304c953fa0a2d022",
+        "harness-00.json": "6a0f23b6b768b14934cffa56c453c204cfa44ab97ee01bd04d8f41a1bccc06d7",
+        "harness-01.json": "1b8f26bdd006df8f6e4a561a876faac0f98507508f2c77f928993b0b7192b1b6",
+        "harness-02.json": "a223086646fc13601b7796191db4cd8c9e02f612f793f7ebb78f831c2a688e08",
+        "harness-03.json": "af17b733d645b7942a444deb885ddc0c7d715f9d612c826e5ea77e50a9165910",
+        "initial-prompt.txt": "826488aaf1854edcd6e89d95e62430eabdd44011ed8c125fc39cfd363bcac3b4",
+        "metrics.json": "2d04ed70fd55229666b990ddfacac9b8963989b82d25bdb7c7d9505fc55bc0a0",
+        "observations.json": "7cefbbacca072fc0de81ffd061dffa158d80c3bf90363c6b4cd65a36bd9395d6",
+        "policy.json": "cd7ea16fd119b38117bcc7f31df96028e2f26b00a60e04647281dbbc836af7c9",
+        "submission/bridge.sv": "8a8feccc33b7a96faff32a9905d58553630d782a606d281123768330eb38d7e1",
+        "trace.json": "fd4c6084b32327a967f3fdf2a4975a98c59b497d727b7df3790662cf0d68c343"
+      }
+    },
+    {
+      "trial": "r03-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 3,
+      "reward": 0.0,
+      "session_ids": [
+        "session-384b3d9305474558ac0e00d65904bb29"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "a6008dd194e19c73c11b2cf9527d3a6f92b3e360ebb5c56aa65262ed3b41c28a",
+      "reserved_evaluation_suite_sha256": "c04297014ac2e6cb9148e4069d2f9427ddd49997fb288c4688ffb295b6ad7937",
+      "raw_file_sha256": {
+        "candidate-03.sv": "58d4d24885960d4710bc6c88f1015af9a53e1d871ab2e9a25bf04448e828d350",
+        "candidate-06.sv": "39ac5e7ee0d450c7a7ee96d4796cc1bcd98a384d6a7302171c70aa66cc70a2d3",
+        "freeze.json": "2edaa50bc2e38f6f13c9c59b0b7fae545f94174be5b448a6dca185ef40210d41",
+        "harness-00.json": "b0c5538c7976080baf1cb8197a8784fb372d880b035200a3184a6326792550a9",
+        "harness-01.json": "ce72e514b5dad06a49e9ced9cff23b9e74a7fa14453d69869310e361a2616344",
+        "harness-02.json": "1091e7ea78fd2486fe6158bd49f7c450684757570d9f673c435820a90d56231a",
+        "harness-03.json": "d7a9a61e2dcb27a6b2a779717a95806fcffb99915b1e28af931aea510e412fff",
+        "harness-04.json": "ee2bf1e70f5e775fa32e4bb5f0397f291255931a3820e95094af8c4d91ff7ac8",
+        "harness-05.json": "b2318a859a446b8a03b2eae7cd892c6adf425aa4d701294defa37d19ff27f5e9",
+        "harness-06.json": "a50f563805996ad5064c6e9c3e83213aa6f93b710a2cd21842fd2af62243e743",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "10cc8565564250723572853df3f7a601874958d1482112b6e815812f443427a8",
+        "observations.json": "59870d054758107b02eb4147b9aa1ddfe20f7e9b48e11fc7a75d7a0da5a03538",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "39ac5e7ee0d450c7a7ee96d4796cc1bcd98a384d6a7302171c70aa66cc70a2d3",
+        "trace.json": "d8ff025152c9614f8afecfcfd14d7aa090ada92a2704f10789fadb11b6a464c8"
+      }
+    },
+    {
+      "trial": "r04-spec_only",
+      "policy": "spec_only",
+      "repeat": 4,
+      "reward": 1.0,
+      "session_ids": [
+        "session-a05a0aa7973a4f9a97e379d7c7ffd127"
+      ],
+      "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "0c943dbee23942c51816e80dcd1e5024572441566304ea91516abf50fb7a8e4f",
+      "reserved_evaluation_suite_sha256": "91b28a99ea8336a54e8b299a43833af228df286e5b8675498a26564628cb3762",
+      "raw_file_sha256": {
+        "candidate-03.sv": "baea5afe4405e105bff1450c5b74a036c25056c1a03fa66da52bc083c5e6a447",
+        "freeze.json": "c3ead0bbf20bc4ebe065f38ccd9826b5b9b21fd08aa82288088258eab4cc279d",
+        "harness-00.json": "be65881e00c5c22407a969acc0ae03105adc996d32d390d31b9151b6642eea45",
+        "harness-01.json": "6989c7ceee8301cc489d53eefc8f6e3080096f4c952bae5522121a180ac79346",
+        "harness-02.json": "3ae13db812d78ecdc6287c52c5b3f9b461a0efde859416dcf0ef3f792abdac56",
+        "harness-03.json": "83be1569cad23cb0b3c1233d8f8ece54d80ec136e59e14a072464fe16ec5505e",
+        "initial-prompt.txt": "826488aaf1854edcd6e89d95e62430eabdd44011ed8c125fc39cfd363bcac3b4",
+        "metrics.json": "fcb99a36d8ba6ade19bdacea55f5b3af6fe524ffe97d36dd06b4dad964fc33cb",
+        "observations.json": "7cefbbacca072fc0de81ffd061dffa158d80c3bf90363c6b4cd65a36bd9395d6",
+        "policy.json": "cd7ea16fd119b38117bcc7f31df96028e2f26b00a60e04647281dbbc836af7c9",
+        "submission/bridge.sv": "baea5afe4405e105bff1450c5b74a036c25056c1a03fa66da52bc083c5e6a447",
+        "trace.json": "c6dc8bd90f198ae9f89e27e3cc512009a5c5e1caa6ff4e8ff5cd23ccca215e4b"
+      }
+    },
+    {
+      "trial": "r04-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 4,
+      "reward": 1.0,
+      "session_ids": [
+        "session-104199672dc34153b18ddebd9b8cd239"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "0c943dbee23942c51816e80dcd1e5024572441566304ea91516abf50fb7a8e4f",
+      "reserved_evaluation_suite_sha256": "91b28a99ea8336a54e8b299a43833af228df286e5b8675498a26564628cb3762",
+      "raw_file_sha256": {
+        "candidate-03.sv": "b81d40c31e604c2d9b062edd10b6a48b8a94e1e9fcce7dfb30038a0ed38639c9",
+        "freeze.json": "56df330d130338f1fb7ba07633ae189f08955748a6bb29da886ad2b739ffc358",
+        "harness-00.json": "d9b30597c6ad041b226688e1e20c95948448d2784c73d65a0868e858a8b50670",
+        "harness-01.json": "a8e37dc1bd763cf270846ad335ddf5c73be7e84accdfcea56b72e935444123ff",
+        "harness-02.json": "a054930b425499133f9ea9726620caa50af37fc7e5e67ed48f1f879d64068f0a",
+        "harness-03.json": "04a137f667c42c5f279252eb83395dda69ac7258da900a92db1b8ddc11399f4a",
+        "harness-04.json": "988a31fcbe4003bf212b54997ed09aad2c3d6573b67299c7408d4a9abe33dc6c",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "0886541ee2bf9128ce18fb50b16ba50e101be60984c5fc4becd52a581496506e",
+        "observations.json": "a90e9ec50d7a253d4b0e47224dd9f961ac458e591b1dadd99fe9b8c94cc12b8b",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "b81d40c31e604c2d9b062edd10b6a48b8a94e1e9fcce7dfb30038a0ed38639c9",
+        "trace.json": "b6d8a0e867bd7600e0a7b454b86c999fbe1edee1f60c52eaa6078ee6c821dc26"
+      }
+    },
+    {
+      "trial": "r04-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 4,
+      "reward": 0.0,
+      "session_ids": [
+        "session-60edc448d7d64238b6a69683a44b71da"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "0c943dbee23942c51816e80dcd1e5024572441566304ea91516abf50fb7a8e4f",
+      "reserved_evaluation_suite_sha256": "91b28a99ea8336a54e8b299a43833af228df286e5b8675498a26564628cb3762",
+      "raw_file_sha256": {
+        "candidate-03.sv": "d431f8259b952b09e21a8fab2e75ffd7874c39dbfb59e2f732d09fa589ab0065",
+        "freeze.json": "7413edf6383164a226ad9e468fe76452b743c35379020a656fc7345be41598a6",
+        "harness-00.json": "309b626374f9cc55bb31112f71c6b991e40856de88cdd3db9971bf1e58d9fe16",
+        "harness-01.json": "b6ffbd1e9cbd9fba212beba0a034ea6a1828ef54e5efc0b5f2cf1b1452bb3b6c",
+        "harness-02.json": "7af05c4deb46510c748a95d5944e2cbc81ac52ac3163b301207e5209b1803539",
+        "harness-03.json": "bf02a9d9b584fe6362f8d0e4e8102d3b39ff29e40408881f8e02823a352a8097",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "e9025e42c3442cddf55cbab9404eac4b06b648cc4c2c49a4d01df90c601008a2",
+        "observations.json": "93446831d546e1f9b0fcdb383ba001544645a55639264a64c4c4d1519e53af83",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "d431f8259b952b09e21a8fab2e75ffd7874c39dbfb59e2f732d09fa589ab0065",
+        "trace.json": "82acd9a08e26e65bf40d0256cde8561f914d4ec353a3ba4ccef9d9c9616cff41"
+      }
+    },
+    {
+      "trial": "r05-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 5,
+      "reward": 1.0,
+      "session_ids": [
+        "session-d8efe2146592481aa7ac01853844532e"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "c9f7d42ef3d57f1e379b4862715b350d740c7b001fd2fcbd64633fe079238cc9",
+      "reserved_evaluation_suite_sha256": "36d8ff3a83ea41d66d74eb163e17d069d5307601b93dca61d4e70716f26f2a64",
+      "raw_file_sha256": {
+        "candidate-03.sv": "4fc5db1f62ee76031ee1856a9ec499736c4373740e4571f72dee7c9a40b2edcb",
+        "freeze.json": "cdb9a514d1a780fb111bbbb4b6d64472d8e539399a54b5e30d50c1b53d8981e0",
+        "harness-00.json": "8535b3cdbc0cc22b629d22aa54dad3cbda6df0d3b7c95315abacb1d77460aa3d",
+        "harness-01.json": "34b3cf147b25d4643cb59c574644bde243c7b2a7899e53fd3205b2fa17fb2f80",
+        "harness-02.json": "a9eba2b64a823bb14507af314abb7593f5de03eb04c447900d70459b8996c5b5",
+        "harness-03.json": "8d52e0a600618e3171b799a6270edb58fb34b468534ac0dd4139d275d396e590",
+        "harness-04.json": "efe4a366ef553541dda1b54d0eed4f6b35bdca76aca907a45dc2aac03204cae1",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "aa95c30f70bf0b6bb335654013f959b2e5d5a8b27db5cee70afd068b92e82bf3",
+        "observations.json": "a90e9ec50d7a253d4b0e47224dd9f961ac458e591b1dadd99fe9b8c94cc12b8b",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "4fc5db1f62ee76031ee1856a9ec499736c4373740e4571f72dee7c9a40b2edcb",
+        "trace.json": "996e0cf49a86ce0deb843b074d649ea9e9adf2aff332a39731e50195a1041da3"
+      }
+    },
+    {
+      "trial": "r05-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 5,
+      "reward": 1.0,
+      "session_ids": [
+        "session-a78eee8448f2441181666aab65f232e3"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "c9f7d42ef3d57f1e379b4862715b350d740c7b001fd2fcbd64633fe079238cc9",
+      "reserved_evaluation_suite_sha256": "36d8ff3a83ea41d66d74eb163e17d069d5307601b93dca61d4e70716f26f2a64",
+      "raw_file_sha256": {
+        "candidate-03.sv": "f354d3f6935e0d71dca2fb4136a044e76b153ff0d5e302762033c014f0f71f45",
+        "candidate-05.sv": "cc1b1d434db91336ddf0747ca66aa70c867c8fb60881d485be46fe971040c317",
+        "freeze.json": "257c83f04f4c0d699711b187ac31abb4283916046ae0d3f6df97dad60bdbd365",
+        "harness-00.json": "d32c4a34b4bf2e55c6342c3cf963131e0930b6f2175ac24b6ae2c87b8a6c343b",
+        "harness-01.json": "9e231a593dea850c88495c9b2ac1be3453dc452a89a59c98d9b54232cdf94981",
+        "harness-02.json": "2f75f1215cf524abf8bda6574181fcdfd4634c30dc767e86640b5a4f9c59b3e1",
+        "harness-03.json": "8d2851edfee01e6f85ae2f5bf432eff22d122458838cd3a7ed2c2b95a5a84914",
+        "harness-04.json": "b6a93f346dfcf680c48656faba5c48e0dad6f8d971174fa52183a9e702541cf6",
+        "harness-05.json": "6cef9e14680bff26a0b331c83bce7653261ff9555130a0b0ea6346263fed9cd3",
+        "harness-06.json": "20eda02169041c6e6a79b2df91dbd44152bd486fb1bcf3e5720ca8de8c2c07bf",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "42295543e3bfeefdab09134841fadce6f6389f4f472e40aa0e033345bf4410ea",
+        "observations.json": "33f0095e6363d4b33e17fa20bd55003c019f29c30e377f1d722a1b2230d7e7e5",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "cc1b1d434db91336ddf0747ca66aa70c867c8fb60881d485be46fe971040c317",
+        "trace.json": "1d6748c805bd6b3292653109daffbfc9a0de335799f7aa46f2f8cb5023e49837"
+      }
+    },
+    {
+      "trial": "r05-spec_only",
+      "policy": "spec_only",
+      "repeat": 5,
+      "reward": 1.0,
+      "session_ids": [
+        "session-d9ae0b5441ff41c1b355977f0f002800"
+      ],
+      "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "c9f7d42ef3d57f1e379b4862715b350d740c7b001fd2fcbd64633fe079238cc9",
+      "reserved_evaluation_suite_sha256": "36d8ff3a83ea41d66d74eb163e17d069d5307601b93dca61d4e70716f26f2a64",
+      "raw_file_sha256": {
+        "candidate-03.sv": "0de088bcf54d8c84c8617de6bf92069e77a3bb416dbb941cfdef20ef68b4336c",
+        "candidate-04.sv": "ac106fa80652bab34fd39a27886639395a1e7264675e54dec934da4154dd923d",
+        "freeze.json": "6d0bf7aa8eac15d6953bb7b0591f13ebe4a32061af52bbbdd2fb318cb0eb8ec1",
+        "harness-00.json": "353d0b761e525495e771bcf12c18901d6ebe70f554ec3ac699eab5eaadab3c67",
+        "harness-01.json": "18d6bed7cffcf16db8b1ac24fdb2285534fd07b90ea5d0d074074d05c99a87d8",
+        "harness-02.json": "0f3a769620ac87d596688e96ae59e4be2941bb41815bd225a5192549ff4e9a18",
+        "harness-03.json": "ec3849fea6f1f31ad04b37db011331632349596bc23d56273d8291bf7708230b",
+        "harness-04.json": "664949dcf8756cfffcf0b87219dd4676a55fd38bba1497da1c1dc88b5d7dcc49",
+        "initial-prompt.txt": "826488aaf1854edcd6e89d95e62430eabdd44011ed8c125fc39cfd363bcac3b4",
+        "metrics.json": "4e00669d93c1f0bedfd8ebf5405eb41039fe04001013a1116414ce157567d1d5",
+        "observations.json": "0dcfe3bccf30ae7428aa51f1c873b455dfe8dccc7dcbb36ac9f7e9b4505099b0",
+        "policy.json": "cd7ea16fd119b38117bcc7f31df96028e2f26b00a60e04647281dbbc836af7c9",
+        "submission/bridge.sv": "ac106fa80652bab34fd39a27886639395a1e7264675e54dec934da4154dd923d",
+        "trace.json": "9ec11f05dfc76b899b03b121e769464a0872a17578f14197a79e158003a5fb3f"
+      }
+    },
+    {
+      "trial": "r06-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 6,
+      "reward": 1.0,
+      "session_ids": [
+        "session-da2bcd8724634416b48353491eed0aed"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "3a9ff21e3db2dde7546a191293e152a508d972351771de072c0e65868906c7a3",
+      "reserved_evaluation_suite_sha256": "d74518200c9a2d39e9b47f14bde544081aa8e0517fc053bb400e3d7dda1b1794",
+      "raw_file_sha256": {
+        "candidate-04.sv": "dd3aa308cdfdbf1c26e02c498a9e56ecbb50e514b8ed72851593a2c9afce8634",
+        "freeze.json": "7b1b78f06b5b558093843a85f016386c16569017372e67161eeedda329b912de",
+        "harness-00.json": "50885be3927b661194419dc60f3048452a25500dc31f06bec811dc58ded2ca5d",
+        "harness-01.json": "c7e48606379f9dbb21b1c903390ab752b5a9d42724b060b455160c69efb029ca",
+        "harness-02.json": "572de0600267d5ebc8bacb10dbf13ff2a3bf9670a1ec172788c37cda39c63d33",
+        "harness-03.json": "458e70ac95e8335cb9de3ee964f8107e7c852ca8720298cd7c1513390b27460f",
+        "harness-04.json": "3ae532bb58b98b646970a1da08970e479017a8d873c9d7572b4b51500d9456e1",
+        "harness-05.json": "28a5897fcec07a647fedfeb15aa90b21785697001fcb56f77213f7902c2d53b1",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "aa4e6ef1a865a9eba541c3e3e714ea5bc344b946578380090ae69cc6b6185174",
+        "observations.json": "b3aeaa62cdbc0b9ef7fcf721fc361026ea3b186e85f8b9132ccadca78aa21455",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "dd3aa308cdfdbf1c26e02c498a9e56ecbb50e514b8ed72851593a2c9afce8634",
+        "trace.json": "d6ae51574dc61c5bad5065b9070ca6005379e2cbbf14b562654d3989c0316526"
+      }
+    },
+    {
+      "trial": "r06-spec_only",
+      "policy": "spec_only",
+      "repeat": 6,
+      "reward": 0.0,
+      "session_ids": [
+        "session-cbfc668fcca2471d9dcc2957a9eafd5e"
+      ],
+      "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "3a9ff21e3db2dde7546a191293e152a508d972351771de072c0e65868906c7a3",
+      "reserved_evaluation_suite_sha256": "d74518200c9a2d39e9b47f14bde544081aa8e0517fc053bb400e3d7dda1b1794",
+      "raw_file_sha256": {
+        "candidate-03.sv": "1e339321c43948b4f82f19df570b3990b0322d1868d540f1e0f93d68bbbc1f7d",
+        "freeze.json": "ddacbe74e1c438b9b61a388a2565177c61948e9b906d1ce0b433698d4c836ef0",
+        "harness-00.json": "3b637bf85e0bcea8789216ef7f9e2a333edaaf5c0debb41b5ba6c3a0411a2ea5",
+        "harness-01.json": "cb6a7b21353b680c8b2955b48862b101fb5ed7bab76b49b66f9c54796dbbf7bf",
+        "harness-02.json": "2ef300b767c53ac900ee9f33990ce3b803457c8574704c0bf8e44eb1a60fd36b",
+        "harness-03.json": "ba863be3b5fdf628682ee2f01c600952125e41137194b3cf1a7019e6a88c9fbb",
+        "initial-prompt.txt": "826488aaf1854edcd6e89d95e62430eabdd44011ed8c125fc39cfd363bcac3b4",
+        "metrics.json": "4c29ea6f91b72ad996504a5596041e8138288e4c94f024b3d715708bc8ba7653",
+        "observations.json": "7cefbbacca072fc0de81ffd061dffa158d80c3bf90363c6b4cd65a36bd9395d6",
+        "policy.json": "cd7ea16fd119b38117bcc7f31df96028e2f26b00a60e04647281dbbc836af7c9",
+        "submission/bridge.sv": "1e339321c43948b4f82f19df570b3990b0322d1868d540f1e0f93d68bbbc1f7d",
+        "trace.json": "de44a1427bf3137286c07c899c2d4f88f9c8e2070d94deac108c7677e842b8d7"
+      }
+    },
+    {
+      "trial": "r06-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 6,
+      "reward": 1.0,
+      "session_ids": [
+        "session-01dcc42b34e64203ab62c8bc9aa45e26"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "3a9ff21e3db2dde7546a191293e152a508d972351771de072c0e65868906c7a3",
+      "reserved_evaluation_suite_sha256": "d74518200c9a2d39e9b47f14bde544081aa8e0517fc053bb400e3d7dda1b1794",
+      "raw_file_sha256": {
+        "candidate-03.sv": "37f2d9ca90d99d509b0c58692e539401470d82143579a8ded250ea51825aecc7",
+        "candidate-05.sv": "ca1591e15d4589130271f625fcd7a7fd35650bb3a972e51fe6971875bea78fdb",
+        "freeze.json": "640479c736e2e3bcf7d68ae2b15fd64a445b0a553e17a80873a959e3e723aba5",
+        "harness-00.json": "e6108e618ea0d3fa44ea8ba24f0ef690475a2180e65d9524a25c0c81830d0002",
+        "harness-01.json": "87305c4482132b23d0277b805f20d1b2cd76eb146119b31bc1f9fd68d1836f00",
+        "harness-02.json": "c564c8985c4f9b4b41421e220f06d4c5459cb3b7a6573007b12dacbed47e0e5c",
+        "harness-03.json": "7060d83722d9fcefbb0131efaf13ad65bf9ffbe5425696dcd78bad98171b938a",
+        "harness-04.json": "968e7c7f20edf50f24ae4db26c6f024210d5759ee7325c777816d5845a6d3e61",
+        "harness-05.json": "47344c72ab369bbb65087602685fb2e91c1835a7d8b641f960382139dff633f4",
+        "harness-06.json": "5b873a9f1c3947d832572cf933378d6ace0b4eecee0c223d214237254559204a",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "73a439f6513424f388f944503bbf02477cc215604d34f4b479eba04e8d7f9d01",
+        "observations.json": "97027562bd92d21f78a5c839b4b705f1f3a1d12c2d16aaa99d8c46b153d15985",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "ca1591e15d4589130271f625fcd7a7fd35650bb3a972e51fe6971875bea78fdb",
+        "trace.json": "1a15bbb5b1d9dc097b774f4a3ea1a87b03ce03a8c8e997601f8d8ae60b288702"
+      }
+    },
+    {
+      "trial": "r07-spec_only",
+      "policy": "spec_only",
+      "repeat": 7,
+      "reward": 0.0,
+      "session_ids": [
+        "session-fbcc8b208f7e4bf6a513ad06cb786626"
+      ],
+      "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "a3b76094ffdb39d2292186fd66dc79578f6eba2f98d2b9cac1b1755b3e90d3a2",
+      "reserved_evaluation_suite_sha256": "c9fd827becae39f322963eb277cc8356f8924612fb87ec88027aa40f600f483a",
+      "raw_file_sha256": {
+        "candidate-03.sv": "d84b20c80dbe27acfe03085b28c59e56d4452b3645096f02b9abbcdd91a5a3f9",
+        "candidate-04.sv": "e602469c75544d5e77eea90ebdd186da1a84d7cb1e61b179a276d26ba5b4e11b",
+        "freeze.json": "38194b74934f44050346f58159290ddde1a64cc806af7f021ec2bec2e19ba6e0",
+        "harness-00.json": "419aa1df5404fc5f756b7af4231e26b51c581d898176cf024d9c98618fcddc16",
+        "harness-01.json": "d892f301b86f70ac851c82ef59d7b3b9c55f47439d83c10f2695011c455e1d8a",
+        "harness-02.json": "88274a1d1f782b1ca3afaeeb703bb77618d966b62cfe4edddb2ab3227561081d",
+        "harness-03.json": "9ed8eccbddc362464924d13c487666d9efed822daaa0ca147ccd084bc4692cff",
+        "harness-04.json": "8ef76afefb1856ef3a502a111eb22100bf67748b809db35caef3564067f2728c",
+        "initial-prompt.txt": "826488aaf1854edcd6e89d95e62430eabdd44011ed8c125fc39cfd363bcac3b4",
+        "metrics.json": "a9839332d94c25468d9602e3c60a1c4c39a00f435d9ac522a9f42143997f7752",
+        "observations.json": "0dcfe3bccf30ae7428aa51f1c873b455dfe8dccc7dcbb36ac9f7e9b4505099b0",
+        "policy.json": "cd7ea16fd119b38117bcc7f31df96028e2f26b00a60e04647281dbbc836af7c9",
+        "submission/bridge.sv": "e602469c75544d5e77eea90ebdd186da1a84d7cb1e61b179a276d26ba5b4e11b",
+        "trace.json": "b5c9c1aeeca2e945741944bcd00dc7847d70efecad48994a28a64bb9b27506e9"
+      }
+    },
+    {
+      "trial": "r07-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 7,
+      "reward": 1.0,
+      "session_ids": [
+        "session-e55e01000f2c4d1db6cd47dc4bbdc1cc"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "a3b76094ffdb39d2292186fd66dc79578f6eba2f98d2b9cac1b1755b3e90d3a2",
+      "reserved_evaluation_suite_sha256": "c9fd827becae39f322963eb277cc8356f8924612fb87ec88027aa40f600f483a",
+      "raw_file_sha256": {
+        "candidate-03.sv": "c70fb992d9a3d530012d073b9bad3bca40639ab6583036835151330360a3b0cf",
+        "freeze.json": "98110618189ff4129e05d930989b2d4ab6bb2d7ac102c5de1c24603cc52edca4",
+        "harness-00.json": "8a62458333a9684ca84f334824dbe55aaf119ad49c539e2c27b81b4c08df7498",
+        "harness-01.json": "2755efa80a87917ccc10441618207babe118d8f3408eba04620bf56cd9c534c6",
+        "harness-02.json": "a1e700f66917e9e1c8365b56f3afababb0bb8321d4396489b09fb289cd4a1f8f",
+        "harness-03.json": "5e409d16f164b0b8c11ca46c15b77dccf86d139db9bbafa43bf519ff9c735be0",
+        "harness-04.json": "970fa8b71ea0e57bd808437e0468843fa208798db8ea1691a170b0edb1d0e124",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "04367c28067c11bff7dafc562dd01500733143c7133c8a31636fbe9037c4bf75",
+        "observations.json": "a90e9ec50d7a253d4b0e47224dd9f961ac458e591b1dadd99fe9b8c94cc12b8b",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "c70fb992d9a3d530012d073b9bad3bca40639ab6583036835151330360a3b0cf",
+        "trace.json": "cddf212f7e0ed54d0ce45d4f4c467ad991ac16895e14027a45a1b29143f25972"
+      }
+    },
+    {
+      "trial": "r07-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 7,
+      "reward": 1.0,
+      "session_ids": [
+        "session-66d4e05ea5364453b736f4c456c8bceb"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "a3b76094ffdb39d2292186fd66dc79578f6eba2f98d2b9cac1b1755b3e90d3a2",
+      "reserved_evaluation_suite_sha256": "c9fd827becae39f322963eb277cc8356f8924612fb87ec88027aa40f600f483a",
+      "raw_file_sha256": {
+        "candidate-03.sv": "8ad545f257d8ef80c856617db6a75e48b17e9da37768dd0503a0cfab45a63481",
+        "candidate-04.sv": "7c2852b1371cc81c1a330289dfa1921b018726ac3a4f92f0e1e88f1f0101eaee",
+        "freeze.json": "d68208131fb3a75e7a2a0d5fcf077100b46b11b5d01c359f3f0aa8b99692a9d6",
+        "harness-00.json": "663728b286033687e55c250c912ea533e60737f640d0c1f74152c7cc02c08bff",
+        "harness-01.json": "e19b892d1084c6865cdd0c95881d9ea095f3d3c5e8c87295bd72b5e6fec13bf9",
+        "harness-02.json": "e47e84859714b70a8119b14b343449fe052f7afaeb64738e9b8bb9269a40689c",
+        "harness-03.json": "46bce92bf5db8ead47b98659d1992f92d274cab6cdeeaf88ab4c09937d9aaf77",
+        "harness-04.json": "3a62d58fb392ac50332fcf3e4c91571813c290d6d66aae88c6b6472c3ba82a97",
+        "harness-05.json": "15b4d7226a72e087790262a2799cefe1e9ae5324efd37c68ade8034a8d7a63f0",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "c231df0da04a3334b2a2e82dde8eb73eb62cb2bf80641ae872fc370cfae08c2b",
+        "observations.json": "976af1d5481f36f8534e933ff32eaf4b6eecc4c1c4b2c3b7d9c2f389c4ecc81c",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "7c2852b1371cc81c1a330289dfa1921b018726ac3a4f92f0e1e88f1f0101eaee",
+        "trace.json": "505449d8724c9ab339853f8076578741b7c4680e69d33a82fb82841a1b731d12"
+      }
+    },
+    {
+      "trial": "r08-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 8,
+      "reward": 0.0,
+      "session_ids": [
+        "session-e453802214c24b4abd8072e214310c63"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "61cfc9ba859f1e824844a77971520c86f43281e64ed32eafb244d5dd08cf437e",
+      "reserved_evaluation_suite_sha256": "76d591a3fc0baa4ecfede9f8b4b4f70ce22cea38a8ce2c7380b56297eed1fe60",
+      "raw_file_sha256": {
+        "candidate-03.sv": "c862edb41edab8cc18895fbdc3fb3fad1f26b66ad0331f5fc07fab475a245eba",
+        "freeze.json": "6a8bbe050c546e7b767c931e4109c79c2acad93a1e858f936f95aacbcb77d1dc",
+        "harness-00.json": "ccf34a10b2736732d6b768b4221513cb8b04af65085d4fa40a7af43b384e2d17",
+        "harness-01.json": "19ecbe515954dad24b74fc31acdcd0240e2ba581f901a67a915b98436e5758e6",
+        "harness-02.json": "dec1fd7b01ee47f6094a985f6bf3800c9363d743364ab35e20bbdf283a82a6b3",
+        "harness-03.json": "5a2ab73f6930dbb435e724778883384d295e4bd6da97acdaed959f5af38cc3f4",
+        "harness-04.json": "06695204e05fdcd80988713f78501fb47f4c165a3076bd9d57ae9ed8d9f5eb03",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "bc3f0433ab0184d26faa81af83f1bc620f070f135e501c91f74d058a1a8405d1",
+        "observations.json": "aa210eea22eafffbe29e41cfdd7532b6ce25e6752d9d0c71c7bd9b90b0adb0ba",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "c862edb41edab8cc18895fbdc3fb3fad1f26b66ad0331f5fc07fab475a245eba",
+        "trace.json": "c9726035fee2fd0cc9070931eefdb3da7c94a0ee7b5e6f192b0ab21dc2a06f46"
+      }
+    },
+    {
+      "trial": "r08-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 8,
+      "reward": 0.0,
+      "session_ids": [
+        "session-92c02c3343374faea349655f791de262"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "61cfc9ba859f1e824844a77971520c86f43281e64ed32eafb244d5dd08cf437e",
+      "reserved_evaluation_suite_sha256": "76d591a3fc0baa4ecfede9f8b4b4f70ce22cea38a8ce2c7380b56297eed1fe60",
+      "raw_file_sha256": {
+        "candidate-03.sv": "99e05fd50200a0c40669989fe2e857867b1e67b54ba1ecffcc4054037515b610",
+        "freeze.json": "f93f4d5aba86bdb1eda62f3a27bdcc488a032ccc84b90ee95df398d3c762f9bb",
+        "harness-00.json": "0f225aff7cf3cc178427580c6063d4a98d8fee79e2ac82d6d6225c9354aa039f",
+        "harness-01.json": "64688e309e93a77449ce0f1e1874bb20af7c6156a95d81d44a40c7019dac1faa",
+        "harness-02.json": "0ba09f0f8d78eb507957f6004bf84d88efe4a1a80bd90bc584dcb3d4313cfee4",
+        "harness-03.json": "54b70b6c9317fb3d8d0259265ca6b3ec12ab3f8c115b6f0028fc8ec7bf1424bb",
+        "harness-04.json": "b4bbdc104c44a051d623cabf1ea6118a4c0a74cf2ce68b1c74ceaf28acd1af31",
+        "harness-05.json": "22f6af176c1b15a631aa9c0973eb8c9ac4e32e18eab24c83e54a29f61b72c3ff",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "afebd21f3758dd5c23d7ea6a93b6ff39d56411b7241e79cdcf74a033440374d9",
+        "observations.json": "b45f4236e3ef073caf6fdfe876ccd21b423f8028cb5ef0d9fadef484d1d4ed22",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "99e05fd50200a0c40669989fe2e857867b1e67b54ba1ecffcc4054037515b610",
+        "trace.json": "d5a9fdd0fc7a365f0e472185685207ccee56d5a6522574d612100931033073a8"
+      }
+    },
+    {
+      "trial": "r08-spec_only",
+      "policy": "spec_only",
+      "repeat": 8,
+      "reward": 1.0,
+      "session_ids": [
+        "session-02da557a2c7148f9ab1316cb6b7b550d"
+      ],
+      "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "61cfc9ba859f1e824844a77971520c86f43281e64ed32eafb244d5dd08cf437e",
+      "reserved_evaluation_suite_sha256": "76d591a3fc0baa4ecfede9f8b4b4f70ce22cea38a8ce2c7380b56297eed1fe60",
+      "raw_file_sha256": {
+        "candidate-03.sv": "6fe825faa9fc96d782c8064b319accf1389afc5f0631b0cd4a3e289dd2835556",
+        "freeze.json": "facfb41255e1dafe85933b5a96d108e10289e8a93de4b8e8a9444dfcdc9b7138",
+        "harness-00.json": "375260ad9c45d237dbd66f8f1d692e61d597f0ab6b68256e20ad091146aff05c",
+        "harness-01.json": "a890073575ff8eccf1331528c9398d2ed5f66161b9708004bb9f0a1198ba1961",
+        "harness-02.json": "6d28c84f0fe3dd6aee8f6fc0db29394546a1dbfceda8229d0519c60c1b68a6da",
+        "harness-03.json": "9541e9dc9534b999686a7708a96485a71b75ffc77af0299076cb5e207da24573",
+        "initial-prompt.txt": "826488aaf1854edcd6e89d95e62430eabdd44011ed8c125fc39cfd363bcac3b4",
+        "metrics.json": "e96436a8136b99afab4b74a99c6e18d68343479ad0545ed6c734e2119b4c4d5f",
+        "observations.json": "7cefbbacca072fc0de81ffd061dffa158d80c3bf90363c6b4cd65a36bd9395d6",
+        "policy.json": "cd7ea16fd119b38117bcc7f31df96028e2f26b00a60e04647281dbbc836af7c9",
+        "submission/bridge.sv": "6fe825faa9fc96d782c8064b319accf1389afc5f0631b0cd4a3e289dd2835556",
+        "trace.json": "ce2d5f4db8a155afe922efc26da3ec5663ae3b4fa14123153690ebf2c53931eb"
+      }
+    },
+    {
+      "trial": "r09-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 9,
+      "reward": 1.0,
+      "session_ids": [
+        "session-c6d1d14920b543d8bd59a2ef496c7dbf"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "36b94ff10f97146df16733cb6310c6043fada9deda4fbb02456a414a7ba896e8",
+      "reserved_evaluation_suite_sha256": "35a420046dcaab4eed8dc0c6dfe8faead51fd97a389a281ec07384233ccf8b9c",
+      "raw_file_sha256": {
+        "candidate-03.sv": "43596aafc8c35a344224eba135d44b8fc0558a8b17b59faa6f62bc1e2add7487",
+        "freeze.json": "02606e207b4fca49ffb8154daaed6cba7c9af01b308d2e92c9d8e04eaf71c626",
+        "harness-00.json": "61c68e68b416a9d69652949d171dc07bd14b43b8196bf7fd8e8cc1407674611d",
+        "harness-01.json": "00ffa1961c1baf96496ffa4fbfe168dd02d9c993b88725da73f29cd1ad87ff02",
+        "harness-02.json": "8dd66e683d875c1bbe0c579a59738c9705b56f68478aa21510f5a99e2a52b0c2",
+        "harness-03.json": "ab61518f45b575be17d16d390aefde21753dbf8e002e7bf3a6f07fa6df1a4fcc",
+        "harness-04.json": "13413caa3bde1317f428e93b1d556ba3edfed2f2c6de193f76448585014b3ae6",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "27d1bce92a662ca67a4ed94ae267bbbdab0b9708e4d4fa4ffedb00695f154657",
+        "observations.json": "f88f9f6c711790997432ab0571185168f998e3ecf0d4630a583229d43fe69266",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "43596aafc8c35a344224eba135d44b8fc0558a8b17b59faa6f62bc1e2add7487",
+        "trace.json": "c26b30c49bf94df02685d88944e8335932572239eb2bb4bba948f92740badcdd"
+      }
+    },
+    {
+      "trial": "r09-spec_only",
+      "policy": "spec_only",
+      "repeat": 9,
+      "reward": 1.0,
+      "session_ids": [
+        "session-bc048e43037243b1bfd75b4af704630a"
+      ],
+      "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "36b94ff10f97146df16733cb6310c6043fada9deda4fbb02456a414a7ba896e8",
+      "reserved_evaluation_suite_sha256": "35a420046dcaab4eed8dc0c6dfe8faead51fd97a389a281ec07384233ccf8b9c",
+      "raw_file_sha256": {
+        "candidate-03.sv": "3bdd3d7492e9e822495c4f1454492e74d7360b62dbf2ce4cdbf628b00744e22e",
+        "freeze.json": "94dc72fb61c938537db9c057ecf3619ba58397e777479440ed748c423e2f7b0f",
+        "harness-00.json": "09f2b9d79823e8dcc95c52316f9532f27c3cc3106c412bc10a5d6c324ef094a2",
+        "harness-01.json": "0300efa97172f1ce52933e7566009317350fbdf94e2a3506a87f8788ae96a090",
+        "harness-02.json": "b568ae2ccae7684c07fa79ec5360e6f4ab84a35b787593d4725c8bb9fa755b08",
+        "harness-03.json": "e4459876f1e69db6699e7d584bebd4b8f220851453a6f2e33fa411655a190991",
+        "initial-prompt.txt": "826488aaf1854edcd6e89d95e62430eabdd44011ed8c125fc39cfd363bcac3b4",
+        "metrics.json": "ddf944c3b397146c69182b6341888d0be4bd4e6975cb3059388f5749b316bad8",
+        "observations.json": "7cefbbacca072fc0de81ffd061dffa158d80c3bf90363c6b4cd65a36bd9395d6",
+        "policy.json": "cd7ea16fd119b38117bcc7f31df96028e2f26b00a60e04647281dbbc836af7c9",
+        "submission/bridge.sv": "3bdd3d7492e9e822495c4f1454492e74d7360b62dbf2ce4cdbf628b00744e22e",
+        "trace.json": "1303efa07a5abf0edbac9ab2b5a26c18289279bb8fb04dd1f61203ed3b07cb6d"
+      }
+    },
+    {
+      "trial": "r09-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 9,
+      "reward": 1.0,
+      "session_ids": [
+        "session-0be0fbf65cb74ab2bdade9242d692d40"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "36b94ff10f97146df16733cb6310c6043fada9deda4fbb02456a414a7ba896e8",
+      "reserved_evaluation_suite_sha256": "35a420046dcaab4eed8dc0c6dfe8faead51fd97a389a281ec07384233ccf8b9c",
+      "raw_file_sha256": {
+        "candidate-03.sv": "316e8010c2a7e395bdb106a72a1f133802c438b4416e6dd71050d54d56794350",
+        "freeze.json": "c93159c0c550510d3ceae6b4f5d2ba0f67c8aaf79f98ded469eb547de71ad99e",
+        "harness-00.json": "88901711c77cc7568fbeff96656f0667d97d46403b579a8a082a15540806c0ce",
+        "harness-01.json": "5ce6c847ae3edf61575992081d2219801b6f49c614cbc35dcf3779ce6e5a88a4",
+        "harness-02.json": "3a7287fa7875ed221a9143f2bf0ee4e03fe63714f7505eed7d6215bfec8a0eb8",
+        "harness-03.json": "054de09ea3b1371d9482e489720bd5218037290ff332e6649451f9259695d3ca",
+        "harness-04.json": "0b405576a7885108b9e84c9615756e81e3a210b02468ddc082fcfec1d756dd69",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "7219b3818f742a7e26c038317d39a2655abc818b2de91b4c262c6340cd8650a8",
+        "observations.json": "a90e9ec50d7a253d4b0e47224dd9f961ac458e591b1dadd99fe9b8c94cc12b8b",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "316e8010c2a7e395bdb106a72a1f133802c438b4416e6dd71050d54d56794350",
+        "trace.json": "783a9e5e5a48222c04a256e2aef8806e49a6551d72766d145d2d76142387cd51"
+      }
+    },
+    {
+      "trial": "r10-spec_only",
+      "policy": "spec_only",
+      "repeat": 10,
+      "reward": 0.0,
+      "session_ids": [
+        "session-da8fac05ca064e4c9fd4fd8a023f50f9"
+      ],
+      "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "d94cde064a1990c9124d8a3d7ed430a2694a1bae783b807d250de51696065fce",
+      "reserved_evaluation_suite_sha256": "21190ee0000572ff57125cb8093862d560342d3e89a82397f752ff32ea9fcca5",
+      "raw_file_sha256": {
+        "candidate-03.sv": "d60b8b0db0f1ed4ef6cce101be1748e64ef13289ef30a5f7cc79b9c72cd5994d",
+        "candidate-04.sv": "74c4247c836e4e42be5a0be2f345cb8d4d819ea60e3ff7e13219c94c35f8636f",
+        "freeze.json": "257efad83ba7de615e8d4d8e8349906606c7b9b002fc35485c418693101a797c",
+        "harness-00.json": "a6f6b2eff938e5b4520da89213d52c6a9634637229e98912a21cd59c4dabaa1d",
+        "harness-01.json": "b9044f924f4f9f21669f91d021aff08b81c1f4dfd7dad2bbdeee1dff6cd90f40",
+        "harness-02.json": "cd969a8f475ab1b9c6f7986b31301c566bd3ffb4a5d7943f1aebced8401a88aa",
+        "harness-03.json": "2dc8d46bbacbec8664d1ab5a118a9a25ba15be98e51509f5dd079e205f04990e",
+        "harness-04.json": "340ac0674948b2c631e526e72ed6d77a042656b874046d36613e0e7cfaede5a3",
+        "initial-prompt.txt": "826488aaf1854edcd6e89d95e62430eabdd44011ed8c125fc39cfd363bcac3b4",
+        "metrics.json": "e2f1e6f0da1d8dec7cf2a5fa2870c8cc1570815ee54f09a4ed6e8f8247bb8403",
+        "observations.json": "0dcfe3bccf30ae7428aa51f1c873b455dfe8dccc7dcbb36ac9f7e9b4505099b0",
+        "policy.json": "cd7ea16fd119b38117bcc7f31df96028e2f26b00a60e04647281dbbc836af7c9",
+        "submission/bridge.sv": "74c4247c836e4e42be5a0be2f345cb8d4d819ea60e3ff7e13219c94c35f8636f",
+        "trace.json": "89c4c023e28afd97b2765e8c152dd89fdb15f2c0fcd2d8eab0d101e4dd05353b"
+      }
+    },
+    {
+      "trial": "r10-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 10,
+      "reward": 1.0,
+      "session_ids": [
+        "session-b9c00b57fa1f46d0bf9b751cbe6bbb20"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "d94cde064a1990c9124d8a3d7ed430a2694a1bae783b807d250de51696065fce",
+      "reserved_evaluation_suite_sha256": "21190ee0000572ff57125cb8093862d560342d3e89a82397f752ff32ea9fcca5",
+      "raw_file_sha256": {
+        "candidate-03.sv": "8fb9fdf490379a9d499a8446a190555797d24affec15c61fb4421d3b9f07f0e1",
+        "freeze.json": "93a01a3cb6712284ca1fe81f0b848cca0591c776c2dd25bc73987807b1256336",
+        "harness-00.json": "34971860b28e910d51876b0fcfa4e99412e4fa6c50c4ce06cf2fd7e37c5925ea",
+        "harness-01.json": "7e61bef2be9c1b27e364432d5d007c42cfec3aba84fb85e997f1690b4325e5ce",
+        "harness-02.json": "2d153e19f77fdb0ae76dd7376daeebc0a6be4b2ed82634bbf407fbc81a83da57",
+        "harness-03.json": "d70db67b42ce42c3b8ae92bf1a3a44cb617ea3354f9250f91a36f9cbe92987af",
+        "harness-04.json": "52307b8a57c26aa3207c5db651f4717f558aa6010cb2d545216fa20ed612af6d",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "1f89c67a059e9176526feeb0b6557265f086f7406ca4dd29f6a53b7f3d32bd24",
+        "observations.json": "a90e9ec50d7a253d4b0e47224dd9f961ac458e591b1dadd99fe9b8c94cc12b8b",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "8fb9fdf490379a9d499a8446a190555797d24affec15c61fb4421d3b9f07f0e1",
+        "trace.json": "c615b262d853821239e790189192340dc5548460e61b0f2892a81a1d189c079f"
+      }
+    },
+    {
+      "trial": "r10-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 10,
+      "reward": 1.0,
+      "session_ids": [
+        "session-207b571e700f4beea603cc3acf94f3ef"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "private_reward_suite_sha256": "d94cde064a1990c9124d8a3d7ed430a2694a1bae783b807d250de51696065fce",
+      "reserved_evaluation_suite_sha256": "21190ee0000572ff57125cb8093862d560342d3e89a82397f752ff32ea9fcca5",
+      "raw_file_sha256": {
+        "candidate-03.sv": "b0c5b7b44d598f6dd1126eb2c9aa2ed4c75ca6f372a1e7ae55e428cbb2ba4172",
+        "candidate-05.sv": "691fca92d063bd57f9cde2de78b9222a06a53546d9fa746ae673722bcd698004",
+        "freeze.json": "b43bc1802b043421a94401fe19174f703a9d543299106462724f472acdcfc2ff",
+        "harness-00.json": "4b6d1f7be4a791d674cf96b5335ba38643982c28991e49cda8e5183587f96656",
+        "harness-01.json": "a87b896f582103f742b645a573eba69c73898ee7ce8eaffc2476718fa4a9b2f0",
+        "harness-02.json": "f7fca1058b2d6a4b4f382ac79b2945cfda0feea295acaddf0fa352e84f20a410",
+        "harness-03.json": "0c345b4333f970e5c9c4277defab161409606838f24895d5789ec57715fd60bd",
+        "harness-04.json": "1d05543a043ad70901f0d36821b01145c74c694b8d392f1340d899ef7a1063f1",
+        "harness-05.json": "7761c75a8d90f3f3191c33e741624131a8dd8b03155dcd1945ae7b5bf94ec2dc",
+        "harness-06.json": "9162a96f8ec270558de2e617e1e5e9fb2fd3f5a506ac307f102e764778d39950",
+        "initial-prompt.txt": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+        "metrics.json": "84e9983da7344dff76db50d53dad9173afa2b53665b3f00b42719dab207ff010",
+        "observations.json": "33f0095e6363d4b33e17fa20bd55003c019f29c30e377f1d722a1b2230d7e7e5",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "691fca92d063bd57f9cde2de78b9222a06a53546d9fa746ae673722bcd698004",
+        "trace.json": "394efdca9c458627f1f55b26bb00f6db1d284c5f153d49a4427d51f0930dd203"
+      }
+    }
+  ]
+}

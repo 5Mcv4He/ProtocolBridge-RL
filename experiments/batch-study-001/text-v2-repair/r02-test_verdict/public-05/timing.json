@@ -1,0 +1,54 @@
+[
+  {
+    "kind": "io",
+    "wall_seconds": 0.005815664000692777
+  },
+  {
+    "kind": "compile",
+    "wall_seconds": 82.01786069800073
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9530299010002636
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.8729653260015766
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.8858115719995112
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.937872681999579
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9304329799997504
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9189643099998648
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9839329739988898
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9814758719985548
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9259455860010348
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9199877770006424
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.8832092609991378
+  }
+]

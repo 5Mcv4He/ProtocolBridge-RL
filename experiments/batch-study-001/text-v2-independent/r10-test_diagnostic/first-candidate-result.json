@@ -1,0 +1,29 @@
+{
+  "reward": 0.0,
+  "category": "compile_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "b0c5b7b44d598f6dd1126eb2c9aa2ed4c75ca6f372a1e7ae55e428cbb2ba4172",
+  "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+  "required_cases": [
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall"
+  ],
+  "compile_exit": 255,
+  "cases": []
+}

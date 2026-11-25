@@ -1,0 +1,63 @@
+{
+  "policy_id": "test_verdict",
+  "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+  "model": "deepseek-flash",
+  "actions": 6,
+  "edits": 1,
+  "public_test_calls": 2,
+  "submitted": true,
+  "terminal": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "ac76886ad763850c1112f83c9595de75620f989762569d26c79bdff638eb26c3",
+    "suite_sha256": "0e39f7424331f2aff6d5a95322e8efd0d3b46378fe2827ce56c351d262501ad2",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "channel_gaps"
+  },
+  "held_out": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "ac76886ad763850c1112f83c9595de75620f989762569d26c79bdff638eb26c3",
+    "suite_sha256": "d28c95be59a3d00b760117529905bc5cf9b4fffd5855998555e3417e575a2d6e",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "channel_gaps"
+  },
+  "first_candidate_public": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "ac76886ad763850c1112f83c9595de75620f989762569d26c79bdff638eb26c3",
+    "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "reset_w_only"
+  },
+  "first_candidate_source": "candidate-04.sv",
+  "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+  "final_candidate_public": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "ac76886ad763850c1112f83c9595de75620f989762569d26c79bdff638eb26c3",
+    "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "reset_w_only"
+  },
+  "freeze_unchanged": true,
+  "solver_stopped_before_evaluation": true,
+  "wall_seconds": 254.381,
+  "api_usage": null,
+  "api_cost": null,
+  "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+  "private_reward_suite_sha256": "0e39f7424331f2aff6d5a95322e8efd0d3b46378fe2827ce56c351d262501ad2",
+  "reserved_evaluation_suite_sha256": "d28c95be59a3d00b760117529905bc5cf9b4fffd5855998555e3417e575a2d6e"
+}

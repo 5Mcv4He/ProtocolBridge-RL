@@ -1,0 +1,49 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "81f8909ad76623f15a5490da479f3f11e70f9809527b40ffa13beccf407913e4",
+  "suite_sha256": "e887e2299ce09c19eb43298cc818b34e03be9571d5d2f7b7e0614948b6e9b8c0",
+  "required_cases": [
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall"
+  ],
+  "failed_case": "address_data",
+  "compile_exit": 0,
+  "cases": [
+    {
+      "name": "address_data",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 142,
+      "expected_aborted": 0,
+      "simulation_exit": 0,
+      "requirements": [
+        "F_ADDR",
+        "F_DATA",
+        "F_MAPPING"
+      ]
+    }
+  ]
+}

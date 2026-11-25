@@ -1,0 +1,53 @@
+{
+  "policy_id": "spec_only",
+  "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+  "model": "deepseek-flash",
+  "actions": 5,
+  "edits": 2,
+  "public_test_calls": 0,
+  "submitted": true,
+  "terminal": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "e602469c75544d5e77eea90ebdd186da1a84d7cb1e61b179a276d26ba5b4e11b",
+    "suite_sha256": "a3b76094ffdb39d2292186fd66dc79578f6eba2f98d2b9cac1b1755b3e90d3a2",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "strobe_cross_early"
+  },
+  "held_out": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "e602469c75544d5e77eea90ebdd186da1a84d7cb1e61b179a276d26ba5b4e11b",
+    "suite_sha256": "c9fd827becae39f322963eb277cc8356f8924612fb87ec88027aa40f600f483a",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "strobe_cross_early"
+  },
+  "first_candidate_public": {
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "source_sha256": "d84b20c80dbe27acfe03085b28c59e56d4452b3645096f02b9abbcdd91a5a3f9",
+    "suite_sha256": "d5c94c30763343ec060eddaa08387b29edb26c098ba7cea6257694c3d849aa41",
+    "planned": 132,
+    "checked": 124,
+    "aborted": 8,
+    "failed_case": null
+  },
+  "first_candidate_source": "candidate-03.sv",
+  "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+  "final_candidate_public": null,
+  "freeze_unchanged": true,
+  "solver_stopped_before_evaluation": true,
+  "wall_seconds": 233.916,
+  "api_usage": null,
+  "api_cost": null,
+  "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+  "private_reward_suite_sha256": "a3b76094ffdb39d2292186fd66dc79578f6eba2f98d2b9cac1b1755b3e90d3a2",
+  "reserved_evaluation_suite_sha256": "c9fd827becae39f322963eb277cc8356f8924612fb87ec88027aa40f600f483a"
+}

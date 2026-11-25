@@ -1,0 +1,98 @@
+[
+  {
+    "kind": "io",
+    "wall_seconds": 0.0063909659984346945
+  },
+  {
+    "kind": "io",
+    "wall_seconds": 0.08178880299965385
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.5256727390005835
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9376682660004008
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.0087226719988394
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 4.687092674001178
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 4.92158085399933
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9706059320014901
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9611354849985219
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.006725005001499
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.588478785000916
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 3.1661765850003576
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 3.184397130000434
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 3.270635004999349
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 3.1333003330000793
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.5531193389979308
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.980694483001571
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9995809879983426
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.8941950849985005
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.890947347998008
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9655422110008658
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.9841291699995054
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.062543468000513
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.0358979729971907
+  }
+]

@@ -1,0 +1,25 @@
+--- starting.sv
++++ submission/bridge.sv
+@@ -28,7 +28,7 @@
+   assign idle = (apb_state == APB_IDLE) && !bpend && !rpend;
+ 
+   assign s_awready = idle && !aw_have;
+-  assign s_wready  = idle && aw_have && !w_have;
++  assign s_wready  = idle && !w_have;
+   assign s_arready = idle && !aw_have && !w_have;
+ 
+   assign s_bresp  = bresp_r;
+@@ -76,13 +76,11 @@
+       case (apb_state)
+         APB_IDLE: begin
+           if (aw_have && w_have) begin
+-            // both buffered - start write
+             apb_state <= APB_SETUP;
+             cur_write <= 1'b1;
+             aw_have <= 1'b0;
+             w_have  <= 1'b0;
+           end else if (aw_have && (s_wready && s_wvalid)) begin
+-            // AW buffered, W arriving now
+             apb_state <= APB_SETUP;
+             cur_write <= 1'b1;
+             aw_have <= 1'b0;

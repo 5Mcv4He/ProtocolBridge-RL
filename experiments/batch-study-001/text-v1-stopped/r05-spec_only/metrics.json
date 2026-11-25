@@ -1,0 +1,33 @@
+{
+  "policy_id": "spec_only",
+  "policy_sha256": "51242269d88da7ef20e1ed24e5c680166296b452f067a6c9411dc5cb6587215f",
+  "model": "deepseek-flash",
+  "actions": 20,
+  "edits": 0,
+  "public_test_calls": 0,
+  "submitted": false,
+  "terminal": {
+    "reward": null,
+    "category": "agent_incomplete",
+    "verification_complete": null,
+    "source_sha256": null,
+    "suite_sha256": null,
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": null
+  },
+  "held_out": null,
+  "first_candidate_public": null,
+  "first_candidate_source": null,
+  "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+  "final_candidate_public": null,
+  "freeze_unchanged": true,
+  "solver_stopped_before_evaluation": true,
+  "wall_seconds": 66.32,
+  "api_usage": null,
+  "api_cost": null,
+  "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+  "private_reward_suite_sha256": "06aeceaf8e18f1f55290bf356f42ef7dfe342b54214c6e06f6a045dc5a54ee18",
+  "reserved_evaluation_suite_sha256": "82f26e114ebf45acdf19459d38f7f67e894db02b1f4f6c63fa410932b5b332d1"
+}

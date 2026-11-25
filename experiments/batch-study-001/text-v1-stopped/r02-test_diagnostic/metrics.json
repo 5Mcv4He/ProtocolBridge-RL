@@ -1,0 +1,43 @@
+{
+  "policy_id": "test_diagnostic",
+  "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+  "model": "deepseek-flash",
+  "actions": 10,
+  "edits": 0,
+  "public_test_calls": 0,
+  "submitted": true,
+  "terminal": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+    "suite_sha256": "eeba9eacd51a4dc6a66b79a392a36545dd1fe5cac41d5d481b702194a001f8f9",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "held_out": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "verification_complete": false,
+    "source_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+    "suite_sha256": "27de5bd6610a9afec80162c17b33edca077774f82b8b80ba1f7317ba3f5bd5c8",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "first_candidate_public": null,
+  "first_candidate_source": null,
+  "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+  "final_candidate_public": null,
+  "freeze_unchanged": true,
+  "solver_stopped_before_evaluation": true,
+  "wall_seconds": 115.467,
+  "api_usage": null,
+  "api_cost": null,
+  "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+  "private_reward_suite_sha256": "eeba9eacd51a4dc6a66b79a392a36545dd1fe5cac41d5d481b702194a001f8f9",
+  "reserved_evaluation_suite_sha256": "27de5bd6610a9afec80162c17b33edca077774f82b8b80ba1f7317ba3f5bd5c8"
+}

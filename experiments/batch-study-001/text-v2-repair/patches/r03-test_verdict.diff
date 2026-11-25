@@ -1,0 +1,46 @@
+--- starting.sv
++++ submission/bridge.sv
+@@ -63,26 +63,9 @@
+       if (bpend && s_bready) bpend <= 1'b0;
+       if (rpend && s_rready) rpend <= 1'b0;
+ 
+-      if (s_awready && s_awvalid) begin
+-        aw_have <= 1'b1;
+-        aw_addr_r <= s_awaddr;
+-      end
+-      if (s_wready && s_wvalid) begin
+-        w_have <= 1'b1;
+-        w_data_r <= s_wdata;
+-        w_strb_r <= s_wstrb;
+-      end
+-
+       case (apb_state)
+         APB_IDLE: begin
+           if (aw_have && w_have) begin
+-            // both buffered - start write
+-            apb_state <= APB_SETUP;
+-            cur_write <= 1'b1;
+-            aw_have <= 1'b0;
+-            w_have  <= 1'b0;
+-          end else if (aw_have && (s_wready && s_wvalid)) begin
+-            // AW buffered, W arriving now
+             apb_state <= APB_SETUP;
+             cur_write <= 1'b1;
+             aw_have <= 1'b0;
+@@ -91,6 +74,16 @@
+             cur_write <= 1'b0;
+             aw_addr_r <= s_araddr;
+             apb_state <= APB_SETUP;
++          end else begin
++            if (s_awready && s_awvalid) begin
++              aw_have <= 1'b1;
++              aw_addr_r <= s_awaddr;
++            end
++            if (s_wready && s_wvalid) begin
++              w_have <= 1'b1;
++              w_data_r <= s_wdata;
++              w_strb_r <= s_wstrb;
++            end
+           end
+         end
+         APB_SETUP: begin
