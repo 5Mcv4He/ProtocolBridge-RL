@@ -1,0 +1,127 @@
+{
+  "task_id": "axil_to_apb4_queue_003",
+  "version": 1,
+  "status": "candidate",
+  "spec": "spec.md",
+  "initial_rtl": "workspace/bridge.sv",
+  "verifier": "verifier.task003.campaign",
+  "capabilities": [
+    "independent-request-fifos",
+    "bounded-outstanding-credit",
+    "read-write-arbitration",
+    "response-ordering",
+    "reset-ledgers"
+  ],
+  "quality": {
+    "references": [
+      "fixtures/task003/reference.sv",
+      "fixtures/task003/reference_shift.sv"
+    ],
+    "negative_controls": [
+      {
+        "source": "fixtures/task003/bad_over_capacity.sv",
+        "first_case": "write_fifo",
+        "violation": "Accepts a third unretired AW"
+      },
+      {
+        "source": "fixtures/task003/bad_wrong_aw_head.sv",
+        "first_case": "partial_aw",
+        "violation": "Selects younger AW when address queue is full"
+      },
+      {
+        "source": "fixtures/task003/bad_wrong_w_head.sv",
+        "first_case": "round_robin",
+        "violation": "Selects younger write payload"
+      },
+      {
+        "source": "fixtures/task003/bad_wrong_read_head.sv",
+        "first_case": "intake_b_stall",
+        "violation": "Selects younger AR when read queue is full"
+      },
+      {
+        "source": "fixtures/task003/bad_coupled_w.sv",
+        "first_case": "partial_w",
+        "violation": "Requires AW before accepting W"
+      },
+      {
+        "source": "fixtures/task003/bad_blocks_reads.sv",
+        "first_case": "partial_aw",
+        "violation": "Partial writes incorrectly block reads"
+      },
+      {
+        "source": "fixtures/task003/bad_write_priority.sv",
+        "first_case": "round_robin",
+        "violation": "Ignores round-robin read preference"
+      },
+      {
+        "source": "fixtures/task003/bad_early_credit.sv",
+        "first_case": "intake_b_stall",
+        "violation": "Releases AW credit at APB completion before B handshake"
+      },
+      {
+        "source": "fixtures/task003/bad_drops_response.sv",
+        "first_case": "intake_b_stall",
+        "violation": "Discards stalled AXI response"
+      },
+      {
+        "source": "fixtures/task003/bad_reset_aw_credit.sv",
+        "first_case": "reset_1",
+        "violation": "Retains accepted AW credits on reset"
+      },
+      {
+        "source": "fixtures/task003/bad_read_pointer.sv",
+        "first_case": "read_fifo",
+        "violation": "Advances read FIFO pointer on write response"
+      },
+      {
+        "source": "fixtures/task003/bad_strobe_loss.sv",
+        "first_case": "write_fifo",
+        "violation": "Drops byte enables"
+      },
+      {
+        "source": "fixtures/task003/bad_error_response.sv",
+        "first_case": "wait_error_memory",
+        "violation": "Ignores write PSLVERR"
+      },
+      {
+        "source": "fixtures/task003/bad_ignores_wait.sv",
+        "first_case": "wait_error_memory",
+        "violation": "Completes APB without PREADY"
+      },
+      {
+        "source": "fixtures/task003/bad_reset_preference.sv",
+        "first_case": "reset_3",
+        "violation": "Reset restores WRITE instead of READ preference"
+      }
+    ],
+    "mechanism_module": "environment.task003_mechanism",
+    "required_cross_bins": 33,
+    "minimum_negative_controls": 10,
+    "required_requirements": [
+      "Q_WRITE_FIFO",
+      "Q_READ_FIFO",
+      "Q_AW_CAPACITY",
+      "Q_W_CAPACITY",
+      "Q_AR_CAPACITY",
+      "Q_ROUND_ROBIN",
+      "Q_INDEPENDENT_HALVES",
+      "Q_INTAKE_WHILE_RESPONSE",
+      "Q_RESET_CREDITS",
+      "Q_RESET_MEMORY"
+    ],
+    "spec_review": {
+      "status": "reviewed_before_admission",
+      "ports": "Original single-target AXI4-Lite/APB4 widths",
+      "bounds": "Two unretired AW, W and AR each; executing/pending responses consume credit",
+      "arbitration": "Registered head selection with explicit before-edge eligibility and read initial preference",
+      "reset": "Queue/partial/executing/response cancellation with committed target memory retained",
+      "unsupported": "Bursts, IDs, multiple APB execution, routing, CDC and interrupts",
+      "blind_spots": [
+        "Concurrent driver/reset behavior is toolchain-bound; other VIP versions require fresh positive-control validation",
+        "No formal proof or synthesis signoff",
+        "Finite random sampling cannot prove all interleavings",
+        "Requirement bins are not a complete Cartesian functional or code coverage closure"
+      ]
+    }
+  }
+}

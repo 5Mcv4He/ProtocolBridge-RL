@@ -19,11 +19,13 @@ def run(out,bootstrap):
     name='policy-'+uuid.uuid4().hex;work=Path('/opt/protocolbridge-runtime/work')/name
     subprocess.run(['sudo','-n','install','-d','-o','1101','-g','1000','-m','0770',str(work)],check=True)
     task_id=bootstrap.get('task_id','axil_to_apb4_001')
-    if task_id not in ('axil_to_apb4_001','axil_to_apb4_router_002'):raise ValueError('Unsupported task')
+    if task_id not in ('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003'):raise ValueError('Unsupported task')
     task=ROOT/'tasks'/task_id
     session_type=Session
     if task_id=='axil_to_apb4_router_002':
         from .task002 import Session as session_type
+    elif task_id=='axil_to_apb4_queue_003':
+        from .task003 import Session as session_type
     initial=Path(bootstrap.get('starting_rtl',task/'workspace/bridge.sv'))
     if 'starting_rtl' in bootstrap and sha(initial)!=bootstrap['starting_rtl_sha256']:raise ValueError('Repair input hash mismatch')
     for dest,src in [('spec.md',task/'spec.md'),('bridge.sv',initial)]:

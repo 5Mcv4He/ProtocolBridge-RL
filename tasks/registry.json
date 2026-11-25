@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "task_id": "axil_to_apb4_001",
+      "version": 3,
+      "title": "Single-outstanding protocol bridge",
+      "metadata": "tasks/axil_to_apb4_001/task.yaml",
+      "spec": "tasks/axil_to_apb4_001/spec.md",
+      "initial_rtl": "tasks/axil_to_apb4_001/workspace/bridge.sv",
+      "verifier": "verifier.campaign",
+      "environment": {
+        "reset": "environment.reset:reset",
+        "test": "environment.test:test",
+        "submit": "environment.submit:submit"
+      },
+      "quality_kind": "legacy_revision3",
+      "capabilities": [
+        "independent-write-halves",
+        "single-outstanding-conversion",
+        "apb-wait-error",
+        "response-backpressure",
+        "reset-cancellation"
+      ],
+      "protocols": [
+        "AXI4-Lite",
+        "APB4"
+      ],
+      "policies": [
+        "spec_only",
+        "test_verdict",
+        "test_diagnostic"
+      ],
+      "reward_contract": "terminal_binary_with_infrastructure_null"
+    },
+    {
+      "task_id": "axil_to_apb4_router_002",
+      "version": 1,
+      "title": "Three-target address routing",
+      "metadata": "tasks/axil_to_apb4_router_002/task.json",
+      "spec": "tasks/axil_to_apb4_router_002/spec.md",
+      "initial_rtl": "tasks/axil_to_apb4_router_002/workspace/bridge.sv",
+      "verifier": "verifier.task002.campaign",
+      "environment": {
+        "reset": "environment.task002:reset",
+        "test": "environment.task002:test",
+        "submit": "environment.task002:submit"
+      },
+      "quality_kind": "source_bound_gate",
+      "capabilities": [
+        "full-address-decode",
+        "one-hot-routing",
+        "local-address-translation",
+        "selected-response-mux",
+        "decode-error",
+        "reset-cancellation"
+      ],
+      "protocols": [
+        "AXI4-Lite",
+        "APB4"
+      ],
+      "policies": [
+        "spec_only",
+        "test_verdict",
+        "test_diagnostic"
+      ],
+      "reward_contract": "terminal_binary_with_infrastructure_null"
+    },
+    {
+      "task_id": "axil_to_apb4_queue_003",
+      "version": 1,
+      "title": "Bounded request queues and arbitration",
+      "metadata": "tasks/axil_to_apb4_queue_003/task.json",
+      "spec": "tasks/axil_to_apb4_queue_003/spec.md",
+      "initial_rtl": "tasks/axil_to_apb4_queue_003/workspace/bridge.sv",
+      "verifier": "verifier.task003.campaign",
+      "environment": {
+        "reset": "environment.task003:reset",
+        "test": "environment.task003:test",
+        "submit": "environment.task003:submit"
+      },
+      "quality_kind": "source_bound_gate",
+      "capabilities": [
+        "independent-request-fifos",
+        "bounded-outstanding-credit",
+        "read-write-arbitration",
+        "response-ordering",
+        "reset-ledgers"
+      ],
+      "protocols": [
+        "AXI4-Lite",
+        "APB4"
+      ],
+      "policies": [
+        "spec_only",
+        "test_verdict",
+        "test_diagnostic"
+      ],
+      "reward_contract": "terminal_binary_with_infrastructure_null"
+    }
+  ]
+}
