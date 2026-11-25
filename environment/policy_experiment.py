@@ -4,6 +4,7 @@ from pathlib import Path
 from .check_baseline import check
 from .policy import load,policy_hash,prompt
 from .reset import ROOT
+from .remote_backend import remote_command,toolchain_metadata
 
 
 def summarize(out):
@@ -30,18 +31,19 @@ def experiment(out,policies,model,repeats):
     key=os.environ['DEEPSEEK_API_KEY']
     out=Path(out).resolve();out.mkdir(parents=True,exist_ok=False)
     cfg=json.loads(Path(os.environ.get('PB_CONFIG',ROOT/'.local/config.json')).read_text())
+    remote_command(cfg, 'true');toolchain_metadata(cfg)
     ssh=['ssh','-F',cfg['ssh_config'],cfg['host']]
     base=cfg.get('evaluator_root',str(Path(cfg['remote_root']).parent/'protocolbridge-evaluator'))
     release=base+'/policy-experiments/'+uuid.uuid4().hex
     installed={'/opt/protocolbridge-runtime/opt/pb/utm_worker.py':hashlib.sha256((ROOT/'environment/utm_worker.py').read_bytes()).hexdigest(),
                '/usr/local/sbin/pb-sandbox':hashlib.sha256((ROOT/'environment/utm_sandbox.sh').read_bytes()).hexdigest()}
     code='import hashlib,json,sys; from pathlib import Path; x=json.loads(sys.stdin.readline()); assert all(hashlib.sha256(Path(p).read_bytes()).hexdigest()==h for p,h in x.items())'
-    subprocess.run(ssh+['python3 -c '+shlex.quote(code)],input=json.dumps(installed)+'\n',universal_newlines=True,check=True)
+    subprocess.run(ssh+[remote_command(cfg,'python3 -c '+shlex.quote(code))],input=json.dumps(installed)+'\n',universal_newlines=True,check=True)
     files=[p for d in ('environment','verifier','fixtures','tasks','tests') for p in (ROOT/d).rglob('*') if p.is_file() and '__pycache__' not in str(p)]
     archive=io.BytesIO()
     with tarfile.open(fileobj=archive,mode='w:gz') as tar:
         for p in files:tar.add(str(p),arcname=str(p.relative_to(ROOT)))
-    subprocess.run(ssh+['umask 077; mkdir -p '+shlex.quote(release)+'; tar -xzf - -C '+shlex.quote(release)],input=archive.getvalue(),check=True)
+    subprocess.run(ssh+[remote_command(cfg,'umask 077; mkdir -p '+shlex.quote(release)+'; tar -xzf - -C '+shlex.quote(release))],input=archive.getvalue(),check=True)
     config={k:cfg[k] for k in ('vip_root','axi_vip_root','designware_home','compile_cache') if k in cfg}
     config.update(execution='local',remote_root=release+'/builds')
     schedule=[]
@@ -50,7 +52,7 @@ def experiment(out,policies,model,repeats):
         order=policies[rep%len(policies):]+policies[:rep%len(policies)]
         for policy in order:schedule.append({'id':'r%02d-%s'%(rep+1,policy),'repeat':rep+1,'policy':policy})
     source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=str(ROOT),universal_newlines=True).strip()
-    manifest={'model':model,'repeats':repeats,'policies':{p:{'config':v,'sha256':policy_hash(v),
+    manifest={'toolchain':toolchain_metadata(cfg),'model':model,'repeats':repeats,'policies':{p:{'config':v,'sha256':policy_hash(v),
         'prompt_sha256':hashlib.sha256(prompt(v).encode()).hexdigest()} for p,v in selected.items()},'schedule':schedule,
         'source_commit':source_commit,'source_files':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
         'installed_runtime_files':installed,'pairing':'same reward/evaluation inputs within each repeat; separate split seeds',
@@ -69,14 +71,14 @@ for rep in range(1,x['repeats']+1):
   dest.write_text(json.dumps(suite(False,seed),indent=2));hashes[str(rep)][split]=sha(dest)
 print(json.dumps(hashes))
 '''
-    r=subprocess.run(ssh+['cd '+shlex.quote(release)+' && python3 -c '+shlex.quote(setup)],input=json.dumps({'config':config,'repeats':repeats})+'\n',universal_newlines=True,stdout=subprocess.PIPE,check=True)
+    r=subprocess.run(ssh+[remote_command(cfg,'cd '+shlex.quote(release)+' && python3 -c '+shlex.quote(setup))],input=json.dumps({'config':config,'repeats':repeats})+'\n',universal_newlines=True,stdout=subprocess.PIPE,check=True)
     manifest['paired_suite_hashes']=json.loads(r.stdout)
     (out/'experiment.json').write_text(json.dumps(manifest,indent=2))
     (out/'deployment.json').write_text(json.dumps({'release':release},indent=2))
     def remote(module,args,logname,bootstrap=None):
         command='cd '+shlex.quote(release)+' && python3 -m '+module+' '+' '.join(shlex.quote(a) for a in args)
         with (out/logname).open('w') as log:
-            proc=subprocess.Popen(ssh+[command],stdin=subprocess.PIPE,stdout=log,stderr=log,universal_newlines=True)
+            proc=subprocess.Popen(ssh+[remote_command(cfg,command)],stdin=subprocess.PIPE,stdout=log,stderr=log,universal_newlines=True)
             if bootstrap is not None:proc.stdin.write(json.dumps(bootstrap)+'\n')
             proc.stdin.close();return proc.wait()
     def fetch(name):
@@ -85,7 +87,7 @@ print(json.dumps(hashes))
         # Only this newly-created experiment's disposable compiler products. All raw
         # logs/vectors/source evidence are in trial output dirs and already copied.
         code='import shutil; from pathlib import Path; p=Path('+repr(release)+')/"builds"; shutil.rmtree(str(p)) if p.exists() else None'
-        subprocess.run(ssh+['python3 -c '+shlex.quote(code)],check=True)
+        subprocess.run(ssh+[remote_command(cfg,'python3 -c '+shlex.quote(code))],check=True)
     print('Running real deterministic mechanism acceptance in UTM',flush=True)
     rc=remote('environment.policy_mechanism',['mechanism','private/r01-reward.json'],'mechanism-controller.log')
     fetch('mechanism');clean_builds()

@@ -78,6 +78,8 @@ E：
 
 按[运行手册](mvp-running.md)配置授权 EDA、UTM DSH 与 `DEEPSEEK_API_KEY`。在仓库根执行：
 
+运行主机由本地 `PB_CONFIG`（默认 `.local/config.json`）选择，与任务身份无关。远端默认 shell 不支持 POSIX 命令时，可配置 `"remote_shell": "bash"`；省略时保持旧行为。可在 `toolchain` 对象中记录已核验的 `vcs`、`vip`、`uvm`、`python`、`harness`、`os` 版本，运行器会写入新实验清单。版本字段是复现元数据，不代替真实仿真验收。SSH 地址、路径及许可证配置留在本地；更换工具链必须重新编译，不得复用另一工具链的缓存。历史入口文件名为兼容性保留，不要求运行主机使用特定虚拟化软件。
+
 ```bash
 python3 -m unittest discover -s tests -v
 python3 -m environment.check_baseline
