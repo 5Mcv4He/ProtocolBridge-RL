@@ -1,0 +1,18 @@
+{
+  "schema": "reviewed-publication-files-v1",
+  "files": {
+    "README.md": "a28a70d28bff71d6e7c904c642837257955f4e71c104da0351a0db60a198d49d",
+    "acceptance.json": "8b46758d43e6ac6e0d53fff33a8d490286adb5bf051e3d9472d1a5c709c02b41",
+    "admission-freeze.json": "3b31d7f3bbff89c6d4282db19b4bfbd32944ef8cae2b782c81b266333de35ce0",
+    "candidate-03.sv": "42c84a866b72cfd1853913c12b8f3ea5710fbda16eb30f3e2e10889d510e83e1",
+    "candidate-06.sv": "8f8052e38499164dd70d6d2a1bb6862b4c9954e2f7eadc396211448fa7d69ee3",
+    "candidate-10.sv": "27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d",
+    "final-candidate-implementation.json": "521bbd2e470d477c6a95b2d4ccd6077c2a33277dfd436dd64d35d5fa805d9d63",
+    "functional-failure-evidence.json": "a43be58a7bd71ee3ba47648a374915fdafae2f8f2c99d1edacf6dfdd49f986ed",
+    "input-qualification.json": "f7c959b6aa95ef58e1a0feacc5a8e51670f21e32db936a0343bdda7bff9404bf",
+    "pilot-summary.json": "396c5ed102de91192c4c4263a1480e4652f07eeabdca7ae9dbf0883530805de9",
+    "qualification-freeze.json": "a09f791c19b2908db6849b4a7911fee54589acfa66bba9f00d807aca3e291c01",
+    "representative-trajectory.json": "783962708ab7715500534bdf1fb1917d2a07cf2f45e6b15301d845ada6c1e87a",
+    "task003-admission.json": "6a9f003caeff2f0a4b8b1f94781c6a10be06bbe5fcb0267887874d333bd13896"
+  }
+}

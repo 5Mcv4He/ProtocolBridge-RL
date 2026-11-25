@@ -20,6 +20,7 @@
 | Task 003 | 深度2独立队列和仲裁；两种参考、15错误对照、40机制检查通过；独立9条A0/3、C1/3、E0/3；同起点修复6条均未成功 | 已实测，难度待进一步校准 |
 | Task 004 | APB独立执行与B/R响应FIFO；两种参考、额外合法延迟参考、14错误对照、40机制检查通过；A/E各0/2 | 已实测；3/4形成编辑候选，难度与策略效果尚不能可靠标定 |
 | 受控工程工具 | Task003 可选独立编译与公开需求诊断查询；20项机制验收，4条同起点修复试次 | 已实测；基线/增强均0/2，不能据小样本判定工具效果 |
+| 综合与实现检查 | 可选 `synth_check`；可信侧 DC→Formality、PT/PX 教学测量；27项验收，1条真实 Agent 试次 | 已实测；最终 RTL 综合/自身网表等价通过，但功能 Reward=0，工具效果尚未做对照估计 |
 | 多任务统一入口 | Registry与Schema，统一reset/test/submit/quality/rollout | 已实现并测试；尚无自动任务生成器 |
 | 轨迹数据交付准备 | v2交换覆盖九批85条结果、45条已审查工具轨迹；能力配置与保留评估分开记录，历史v1不变 | 已在真实发布证据上验证；不是完整on-policy训练数据 |
 | 模型强化学习训练 | Rollout 与 Reward 已有；Policy Optimizer/参数更新及训练收益评估 | 尚未开展 |
@@ -35,6 +36,8 @@
 [Task 004 任务包](tasks/axil_to_apb4_decoupled_004/README.md) · [解耦设计报告与4条试次](docs/task004-evaluation-report.md)。004完整23/公开21case，明确区分接收、执行和退休；首批A/E均0/2，其中一条被动作格式错误阻碍，不能把它等同于RTL能力失败。
 
 [工程工具权限与实测能力](docs/engineering-tools.md) · [固定错误RTL工具对照报告](docs/engineering-tools-evaluation.md)。新增工具与任务复杂度分别冻结；编译PASS不代表功能正确，具体诊断曝光也不等于成功修复。
+
+[综合工具接口与边界](docs/synthesis-tools.md) · [综合、等价与功能正确性的实测研究](docs/synthesis-tools-evaluation.md)。Agent 只收到受控综合诊断；Formality 和教学库时序/功耗结果留在可信侧，不进入功能奖励。
 
 ## 2. 一个 Agent 任务究竟怎样运行
 

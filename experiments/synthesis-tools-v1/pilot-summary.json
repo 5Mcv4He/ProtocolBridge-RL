@@ -1,0 +1,234 @@
+{
+  "schema": "synthesis-study-summary-v1",
+  "task_id": "axil_to_apb4_queue_003",
+  "model": "deepseek-flash",
+  "protocol": "text-json-atomic-v2",
+  "capabilities": "synthesis-tools-v1",
+  "source_commit": "780d1827cc952ff455b0decfa487a694c35ff4ff",
+  "analysis_code_sha256": "8d20c4c15aa98f8e95de3f735cb5054d0fccfbbbb60263ba2fe7208c4d754830",
+  "experiment_sha256": "9960be909d176eb40691b1c50396a1ab446c6f8c50e67d4df89aed55c2319807",
+  "toolchain": {
+    "vcs": "O-2018.09-SP2",
+    "vip": "R-2020.12",
+    "uvm": "1.2",
+    "python": "3.6.9 (controller); 3.10.12 (worker)",
+    "harness": "0.2.2rc2",
+    "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+  },
+  "synthesis_binding": {
+    "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+    "environment_script_sha256": "30d24f3b075bd9f525bdac97d33d76e6e33eb17d6974f7d3c7a637e1f52a7d19"
+  },
+  "policies": {
+    "test_diagnostic": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818"
+  },
+  "suite_hashes": {
+    "1": {
+      "reward": "3e3c02fe3bf4b6f408da1b7bd3b7234bf8cdff76c1a61c29fbe83e9c5558f692",
+      "evaluation": "13b6098272f7356f22063fb00c253ebb929a898954e972b7aac3858fa16f8964"
+    }
+  },
+  "audit_accepted": true,
+  "rows": [
+    {
+      "trial": "r01-test_diagnostic",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "protocol_errors": 2,
+      "actions": 11,
+      "edits": 3,
+      "terminal_category": "protocol_timing_error",
+      "primary_outcome": "protocol_timing_error",
+      "public_test_calls": 2,
+      "public_verdicts": [
+        "FAIL",
+        "FAIL"
+      ],
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "42c84a866b72cfd1853913c12b8f3ea5710fbda16eb30f3e2e10889d510e83e1",
+        "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "final_candidate_public": null,
+      "feedback": true,
+      "changed_after_failed_feedback": true,
+      "infrastructure": false,
+      "labels": [
+        "action_protocol_error",
+        "protocol_timing_error",
+        "repair_after_feedback_failed"
+      ],
+      "tokens": {
+        "inputTokens": 3734,
+        "outputTokens": 8796,
+        "cacheReadTokens": 64384,
+        "cacheWriteTokens": 0,
+        "totalTokens": 76914
+      },
+      "wall_seconds": 307.273,
+      "model_request_wall_seconds": 32.739,
+      "compile_wall_seconds": 251.43349700000545,
+      "simulation_wall_seconds": 16.378936788983992,
+      "synth_calls": 1,
+      "synthesis_feedback": [
+        {
+          "action_index": 8,
+          "source_sha256": "8f8052e38499164dd70d6d2a1bb6862b4c9954e2f7eadc396211448fa7d69ee3",
+          "delivered": true,
+          "observation": {
+            "status": "PASS",
+            "diagnostics": [
+              {
+                "code": "LINT-1",
+                "message": "Unconnected or unused design connection."
+              },
+              {
+                "code": "LINT-31",
+                "message": "Port or cell connection requires review."
+              },
+              {
+                "code": "LINT-52",
+                "message": "Constant-driven connection requires review."
+              },
+              {
+                "code": "SYNTH_WARNING",
+                "message": "Synthesis reported a structural warning; functional correctness is not established."
+              }
+            ],
+            "functional_correctness_checked": false,
+            "remaining_synth_calls": 1
+          },
+          "later_edits": 1
+        }
+      ],
+      "dc_wall_seconds": 4.2704,
+      "final_source_sha256": "27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d",
+      "solver_stopped_before_evaluation": true
+    }
+  ],
+  "groups": {
+    "test_diagnostic": {
+      "started": 1,
+      "effective_edit": 1,
+      "submitted": 1,
+      "successes": 0,
+      "success_rate_all_started": 0.0,
+      "wilson95": [
+        0,
+        0.7934567085261071
+      ],
+      "feedback_exposed": 1,
+      "edited_after_feedback": 1,
+      "reward_distribution": {
+        "0": 1,
+        "1": 0,
+        "null": 0
+      },
+      "protocol_error_actions": 2,
+      "total_actions": 11,
+      "conditional": {
+        "effective_edit": {
+          "n": 1,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.7934567085261071
+          ]
+        },
+        "valid_submission": {
+          "n": 1,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.7934567085261071
+          ]
+        },
+        "feedback": {
+          "n": 1,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.7934567085261071
+          ]
+        }
+      },
+      "determinate_binary_reward_entropy_bits": 0.0,
+      "entropy_excludes_null": true,
+      "measurements": {
+        "trials": 1,
+        "json_parse_errors": 2,
+        "schema_or_argument_errors": 0,
+        "compilation_processes": 3,
+        "simulation_processes": 4,
+        "edits": 3,
+        "public_calls": 2,
+        "failed_feedback_trials": 1,
+        "changed_after_feedback": 1,
+        "changed_after_failed_feedback": 1,
+        "protocol_errors_without_candidate": 0,
+        "terminal_categories": {
+          "protocol_timing_error": 1
+        },
+        "primary_outcomes": {
+          "protocol_timing_error": 1
+        },
+        "first_candidate_public_pass": 0,
+        "first_candidate_public_fail": 1,
+        "first_candidate_unmeasured": 0,
+        "final_public_pass_private_fail": 0,
+        "held_out_successes": 0,
+        "terminal_held_out_disagreements": 0,
+        "trials_with_protocol_errors": 1,
+        "failure_labels_nonexclusive": {
+          "action_protocol_error": 1,
+          "protocol_timing_error": 1,
+          "repair_after_feedback_failed": 1
+        },
+        "tokens": {
+          "inputTokens": 3734,
+          "outputTokens": 8796,
+          "cacheReadTokens": 64384,
+          "cacheWriteTokens": 0,
+          "totalTokens": 76914
+        },
+        "seconds": {
+          "wall_seconds": 307.273,
+          "model_request_wall_seconds": 32.739,
+          "compile_wall_seconds": 251.433,
+          "simulation_wall_seconds": 16.379
+        },
+        "timing_observed_trials": {
+          "wall_seconds": 1,
+          "model_request_wall_seconds": 1,
+          "compile_wall_seconds": 1,
+          "simulation_wall_seconds": 1
+        },
+        "api_currency_cost": null
+      }
+    }
+  },
+  "quality_gate": {
+    "passed": true,
+    "reasons": []
+  },
+  "parameter_training": false,
+  "api_currency_cost": null,
+  "limits": [
+    "Later edits are temporal association, not evidence of semantic use or successful repair.",
+    "A single capability pilot cannot estimate causal benefit or task difficulty.",
+    "Request time includes API/network/SDK overhead; EDA time includes process startup.",
+    "This research summary is not an extension of the historical training exchange schema."
+  ]
+}

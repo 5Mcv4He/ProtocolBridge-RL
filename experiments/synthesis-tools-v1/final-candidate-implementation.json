@@ -1,0 +1,76 @@
+{
+  "source_sha256": "27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d",
+  "observation": {
+    "status": "PASS",
+    "diagnostics": [
+      {
+        "code": "LINT-1",
+        "message": "Unconnected or unused design connection."
+      },
+      {
+        "code": "LINT-31",
+        "message": "Port or cell connection requires review."
+      },
+      {
+        "code": "LINT-52",
+        "message": "Constant-driven connection requires review."
+      },
+      {
+        "code": "SYNTH_WARNING",
+        "message": "Synthesis reported a structural warning; functional correctness is not established."
+      }
+    ],
+    "functional_correctness_checked": false
+  },
+  "formal": {
+    "status": "PASS",
+    "equivalent": true
+  },
+  "measurement": null,
+  "reward": null,
+  "wall_seconds": 8.8632,
+  "frozen_inputs": {
+    "runner.py": "7b5cc6324410e6a1ca4b879f377a6442a97e531e3558a788377da56971dde897",
+    "dc.tcl": "a67e0e5024c618a4c388388912d66213051481e8f67cc99ee015cf0abf26ba65",
+    "fm.tcl": "d176861bc08b513f605268e521aa09509b30b91566a4b025dd96c92100fc02db",
+    "pt.tcl": "bbad0382c812b466c6d3ef24b33ee3f522ac1a90b054b1f151bc5dfe39350a0a",
+    "constraints.tcl": "823c093fd329507f5fb7ff56903f7597fdeea027a6a047a927547cb91e3c4be4",
+    "bridge.sv": "27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d",
+    "projection.py": "e2ce9ac3dcf8030335212408d258f2fd4afed8fbf4195bef61e0243f27115df5"
+  },
+  "controller_sha256": "e990ac7de50259be69903524fabbb3c51bf7ec855cb5a347e5f43197cc17fa78",
+  "evidence_sha256": {
+    "mapped.sdc": "41d5fefbec2afd05d6ab6396eb6a8567ffac0380c5c5b7ce1a2d1dacb40e6a39",
+    "dc.log": "3b679be775641f04c6984e982dd663874c2db3f7ec5164e4c8dc45d7b609d1bb",
+    "bridge.sv": "27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d",
+    "fm.log": "69b415f28eb11ce343e18a1b140878558c4dfe7609823cc6598a2927797dc3fd",
+    "mapped.v": "36462976f37a7cc529bfa00a5f773499906d51c12fd438c42cd3a675a7260cb7",
+    "mapping.svf": "0916083249cf8f247156e167789388bae2cd7281cf4b947335547fe51367e664",
+    "execution.json": "102ba6853247bb033c52d9c0ec5dbcc66bb3e88913330c9705aa29bdea76a795"
+  },
+  "requested": {
+    "equivalence": true,
+    "measure": false
+  },
+  "stage": "Post-hoc operator check after terminal and held-out results; no solver feedback and no candidate rescoring.",
+  "execution_stages": [
+    {
+      "stage": "dc",
+      "exit_code": 0,
+      "wall_seconds": 4.9366,
+      "tool_version": "O-2018.06-SP1"
+    },
+    {
+      "stage": "fm",
+      "exit_code": 0,
+      "wall_seconds": 2.0885,
+      "tool_version": "O-2018.06-SP1"
+    }
+  ],
+  "binding": {
+    "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+    "environment_script_sha256": "30d24f3b075bd9f525bdac97d33d76e6e33eb17d6974f7d3c7a637e1f52a7d19"
+  },
+  "passing_compare_points": 429,
+  "raw_result_sha256": "c7790edcd9d14c5bb6ae73692cc6e8c565193e49885b7c391596200860cfafbd"
+}

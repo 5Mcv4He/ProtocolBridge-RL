@@ -1,0 +1,534 @@
+{
+  "capability": "synthesis-tools-v1",
+  "runtime_commit": "780d1827cc952ff455b0decfa487a694c35ff4ff",
+  "accepted": true,
+  "checks": {
+    "counter_status": true,
+    "syntax_status": true,
+    "latch_status": true,
+    "forbidden_status": true,
+    "counter_equivalence": true,
+    "teaching_measurement": true,
+    "latch_advisory": true,
+    "forbidden_no_execution": true,
+    "nonequivalent_rejected": true,
+    "task003_synthesis": true,
+    "task003_equivalence": true,
+    "task003_measurement": true,
+    "task004_synthesis": true,
+    "task004_equivalence": true,
+    "task004_measurement": true,
+    "read_required": true,
+    "session_real_synthesis_0": true,
+    "session_real_synthesis_1": true,
+    "third_denied": true,
+    "private_read_denied": true,
+    "script_denied": true,
+    "synth_pass_does_not_imply_public_pass": true,
+    "submission": true,
+    "closed": true,
+    "functional_reward_independent": true,
+    "no_tool_reward": true,
+    "source_identity": true
+  },
+  "check_count": 27,
+  "terminal_control": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "source_sha256": "4ceeb498ba7fe6b46a090bd128b3de7013df1828c06d9629354440b33260623c",
+    "suite_sha256": "f4e3d73c5cee3abd8a66d96f0ef8dfbeb362add186f310b2fc88472900890e39",
+    "failed_case": "address_data"
+  },
+  "controls": {
+    "counter": {
+      "source_sha256": "b6d1d7ff2d2390004225c10aa9d1f9fe7b1b1bd780a32d2230751536a1bd2ca9",
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [
+          {
+            "code": "LINT-1",
+            "message": "Unconnected or unused design connection."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "formal": {
+        "status": "PASS",
+        "equivalent": true
+      },
+      "measurement": {
+        "status": "TEACHING_MEASUREMENT",
+        "usable_for_terminal_reward": false,
+        "library_scope": "teaching_relative_only",
+        "limitations": [
+          "Incomplete teaching-library thresholds and power tables.",
+          "Uniform assumed switching activity, not workload-derived activity."
+        ],
+        "reported_slack": 5.532291,
+        "known_library_diagnostics": [
+          "DBR-207"
+        ],
+        "reported_power": {
+          "switching": 1.585e-06,
+          "internal": 0.0,
+          "leakage": 0.0,
+          "total": 1.585e-06
+        },
+        "units": {
+          "time": "1e-09 Second",
+          "internal_power": "1e-07 Watt",
+          "leakage_power": "0.001 Watt"
+        },
+        "power_values_scope": "As printed by report_power; not converted to common physical units.",
+        "zero_power_is_not_physical_evidence": true,
+        "reported_cell_area": 45.0,
+        "area_units": "library-defined teaching area units"
+      },
+      "reward": null,
+      "wall_seconds": 5.7861,
+      "frozen_inputs": {
+        "runner.py": "7b5cc6324410e6a1ca4b879f377a6442a97e531e3558a788377da56971dde897",
+        "dc.tcl": "a67e0e5024c618a4c388388912d66213051481e8f67cc99ee015cf0abf26ba65",
+        "fm.tcl": "d176861bc08b513f605268e521aa09509b30b91566a4b025dd96c92100fc02db",
+        "pt.tcl": "bbad0382c812b466c6d3ef24b33ee3f522ac1a90b054b1f151bc5dfe39350a0a",
+        "constraints.tcl": "823c093fd329507f5fb7ff56903f7597fdeea027a6a047a927547cb91e3c4be4",
+        "bridge.sv": "b6d1d7ff2d2390004225c10aa9d1f9fe7b1b1bd780a32d2230751536a1bd2ca9",
+        "projection.py": "e2ce9ac3dcf8030335212408d258f2fd4afed8fbf4195bef61e0243f27115df5"
+      },
+      "controller_sha256": "e990ac7de50259be69903524fabbb3c51bf7ec855cb5a347e5f43197cc17fa78",
+      "evidence_sha256": {
+        "mapped.sdc": "9060347b81038397d5563f8e740cc42848dcfab3faf840bb3fa6e4130b49b6df",
+        "bridge.sv": "b6d1d7ff2d2390004225c10aa9d1f9fe7b1b1bd780a32d2230751536a1bd2ca9",
+        "fm.log": "7d1a443147651f7f362d47b9fccc750cc3bc7f627d2fd408fb2484295f67f0fd",
+        "mapped.v": "51de177168f24813a4a124b437fcb99c119632a15224ac60723ae98e297d33d0",
+        "execution.json": "14736b5ca1877774bb224a843e5304d5de8d99b5c13572b7805d5c870062c625",
+        "dc.log": "eec46f7fea558ea1a9e1695697fdc3623b2c7c02ffdf33802fa8a29f4dcb05a1",
+        "mapping.svf": "e272e87f572808ea180c5ae217a19501c8081bca45dfb7985a9c272c4de49e36",
+        "pt.log": "17dd47744ff7d3d8f7f20329279db9bef53022005befdfdcf3b57028daf7601b"
+      },
+      "stages": [
+        {
+          "stage": "dc",
+          "exit_code": 0,
+          "wall_seconds": 1.992,
+          "tool_version": "O-2018.06-SP1"
+        },
+        {
+          "stage": "fm",
+          "exit_code": 0,
+          "wall_seconds": 1.282,
+          "tool_version": "O-2018.06-SP1"
+        },
+        {
+          "stage": "pt",
+          "exit_code": 0,
+          "wall_seconds": 2.3933,
+          "tool_version": "O-2018.06-SP1"
+        }
+      ],
+      "environment_hashes": {
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "environment_script_sha256": "30d24f3b075bd9f525bdac97d33d76e6e33eb17d6974f7d3c7a637e1f52a7d19"
+      },
+      "passing_compare_points": [
+        8
+      ],
+      "failing_compare_points": []
+    },
+    "syntax": {
+      "source_sha256": "61d43eb909fc7409fa3fc1a48876661970f4e186d5d5af18cd7c3c40d687a4e5",
+      "observation": {
+        "status": "FAIL",
+        "diagnostics": [
+          {
+            "code": "RTL_ANALYSIS",
+            "message": "Candidate RTL could not be analyzed."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "formal": null,
+      "measurement": null,
+      "reward": null,
+      "wall_seconds": 0.7646,
+      "frozen_inputs": {
+        "runner.py": "7b5cc6324410e6a1ca4b879f377a6442a97e531e3558a788377da56971dde897",
+        "dc.tcl": "a67e0e5024c618a4c388388912d66213051481e8f67cc99ee015cf0abf26ba65",
+        "fm.tcl": "d176861bc08b513f605268e521aa09509b30b91566a4b025dd96c92100fc02db",
+        "pt.tcl": "bbad0382c812b466c6d3ef24b33ee3f522ac1a90b054b1f151bc5dfe39350a0a",
+        "constraints.tcl": "823c093fd329507f5fb7ff56903f7597fdeea027a6a047a927547cb91e3c4be4",
+        "bridge.sv": "61d43eb909fc7409fa3fc1a48876661970f4e186d5d5af18cd7c3c40d687a4e5",
+        "projection.py": "e2ce9ac3dcf8030335212408d258f2fd4afed8fbf4195bef61e0243f27115df5"
+      },
+      "controller_sha256": "e990ac7de50259be69903524fabbb3c51bf7ec855cb5a347e5f43197cc17fa78",
+      "evidence_sha256": {
+        "bridge.sv": "61d43eb909fc7409fa3fc1a48876661970f4e186d5d5af18cd7c3c40d687a4e5",
+        "execution.json": "67914f476caf641a054f59e21db361ddd4aee1eaff808e3ae31fdf4f49302e65",
+        "dc.log": "bdf55e3e70a076f8c091511626dff0535a36d3b2f1675aa3fa509022c90bf1ec"
+      },
+      "stages": [
+        {
+          "stage": "dc",
+          "exit_code": 0,
+          "wall_seconds": 0.6777,
+          "tool_version": "O-2018.06-SP1"
+        }
+      ],
+      "environment_hashes": {
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "environment_script_sha256": "30d24f3b075bd9f525bdac97d33d76e6e33eb17d6974f7d3c7a637e1f52a7d19"
+      }
+    },
+    "latch": {
+      "source_sha256": "039b4bc91fffeb20e896d3259e3e7ab69916dd0c66ae95644c7e67b477880c2d",
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [
+          {
+            "code": "LATCH_INFERRED",
+            "message": "Level-sensitive storage was inferred; check whether this is intended."
+          },
+          {
+            "code": "LINT-28",
+            "message": "Design port is not connected to any nets."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "formal": null,
+      "measurement": null,
+      "reward": null,
+      "wall_seconds": 0.972,
+      "frozen_inputs": {
+        "runner.py": "7b5cc6324410e6a1ca4b879f377a6442a97e531e3558a788377da56971dde897",
+        "dc.tcl": "a67e0e5024c618a4c388388912d66213051481e8f67cc99ee015cf0abf26ba65",
+        "fm.tcl": "d176861bc08b513f605268e521aa09509b30b91566a4b025dd96c92100fc02db",
+        "pt.tcl": "bbad0382c812b466c6d3ef24b33ee3f522ac1a90b054b1f151bc5dfe39350a0a",
+        "constraints.tcl": "823c093fd329507f5fb7ff56903f7597fdeea027a6a047a927547cb91e3c4be4",
+        "bridge.sv": "039b4bc91fffeb20e896d3259e3e7ab69916dd0c66ae95644c7e67b477880c2d",
+        "projection.py": "e2ce9ac3dcf8030335212408d258f2fd4afed8fbf4195bef61e0243f27115df5"
+      },
+      "controller_sha256": "e990ac7de50259be69903524fabbb3c51bf7ec855cb5a347e5f43197cc17fa78",
+      "evidence_sha256": {
+        "mapped.sdc": "515e584acad4626ff850f83814c4ff144385d065c430688dcd04539c9db1d114",
+        "bridge.sv": "039b4bc91fffeb20e896d3259e3e7ab69916dd0c66ae95644c7e67b477880c2d",
+        "mapped.v": "94951e8012646779d6d7560cd538bc4f9c44d7102194e54e62f511d2afba207a",
+        "execution.json": "872504ec830f63ca37678d607379e3eaa9ebf125158b2b9aaac764bc326d6f08",
+        "dc.log": "2079e5b7eaf1e7c7d308d9e13d6e595bb425423c5dbab297f5897b13c6895574",
+        "mapping.svf": "8a9c05a58f8dba4ca53406e249f14aa62142a18e589fa9a48d5677f5b2c342d3"
+      },
+      "stages": [
+        {
+          "stage": "dc",
+          "exit_code": 0,
+          "wall_seconds": 0.8803,
+          "tool_version": "O-2018.06-SP1"
+        }
+      ],
+      "environment_hashes": {
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "environment_script_sha256": "30d24f3b075bd9f525bdac97d33d76e6e33eb17d6974f7d3c7a637e1f52a7d19"
+      }
+    },
+    "forbidden": {
+      "source_sha256": "f1790df703146bb877d6874ae6601f8c56474eac6131da033183295c5b2abe04",
+      "observation": {
+        "status": "INVALID",
+        "diagnostics": [],
+        "functional_correctness_checked": false
+      },
+      "formal": null,
+      "measurement": null,
+      "reward": null,
+      "wall_seconds": 0.0,
+      "frozen_inputs": null,
+      "controller_sha256": null,
+      "evidence_sha256": null,
+      "stages": []
+    },
+    "nonequivalent": {
+      "source_sha256": "7b5429124f5cefe59cec7340c615657f89ed15ee914ac9de008570a5c2fe8f2a",
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [
+          {
+            "code": "LINT-1",
+            "message": "Unconnected or unused design connection."
+          },
+          {
+            "code": "SYNTH_WARNING",
+            "message": "Synthesis reported a structural warning; functional correctness is not established."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "formal": {
+        "status": "FAIL",
+        "equivalent": false
+      },
+      "measurement": null,
+      "reward": null,
+      "wall_seconds": 1.7992,
+      "frozen_inputs": {
+        "runner.py": "7b5cc6324410e6a1ca4b879f377a6442a97e531e3558a788377da56971dde897",
+        "dc.tcl": "a67e0e5024c618a4c388388912d66213051481e8f67cc99ee015cf0abf26ba65",
+        "fm.tcl": "d176861bc08b513f605268e521aa09509b30b91566a4b025dd96c92100fc02db",
+        "pt.tcl": "bbad0382c812b466c6d3ef24b33ee3f522ac1a90b054b1f151bc5dfe39350a0a",
+        "constraints.tcl": "823c093fd329507f5fb7ff56903f7597fdeea027a6a047a927547cb91e3c4be4",
+        "bridge.sv": "7b5429124f5cefe59cec7340c615657f89ed15ee914ac9de008570a5c2fe8f2a",
+        "projection.py": "e2ce9ac3dcf8030335212408d258f2fd4afed8fbf4195bef61e0243f27115df5",
+        "override.v": "51de177168f24813a4a124b437fcb99c119632a15224ac60723ae98e297d33d0"
+      },
+      "controller_sha256": "e990ac7de50259be69903524fabbb3c51bf7ec855cb5a347e5f43197cc17fa78",
+      "evidence_sha256": {
+        "mapped.sdc": "c53189aaa3deaea6076a25d622ec38cf972821bee3425ca4a04cb9969e427624",
+        "bridge.sv": "7b5429124f5cefe59cec7340c615657f89ed15ee914ac9de008570a5c2fe8f2a",
+        "fm.log": "867c5eb56e32628f0041d3875f155b52f769436bd11f2e91d2239ce58ad37d1a",
+        "mapped.v": "f1c387ee237a07cefb4d780042e1f315d28a27971cc09fac776508e3aafdb9dd",
+        "execution.json": "33053e94e362ff483058dc36ba48d6f0e391319f153b4f04ee36e67c9fa97299",
+        "dc.log": "ae1c93ec8a5c66e0a3fb2c31a6e7313f4e4a1cd6b667446524c825fcbde5fb5c",
+        "mapping.svf": "318a5173c31e3687f2af6e4688f074c16e267796b677f6fa2c96365d57d5e8f5"
+      },
+      "stages": [
+        {
+          "stage": "dc",
+          "exit_code": 0,
+          "wall_seconds": 0.9313,
+          "tool_version": "O-2018.06-SP1"
+        },
+        {
+          "stage": "fm",
+          "exit_code": 0,
+          "wall_seconds": 0.777,
+          "tool_version": "O-2018.06-SP1"
+        }
+      ],
+      "environment_hashes": {
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "environment_script_sha256": "30d24f3b075bd9f525bdac97d33d76e6e33eb17d6974f7d3c7a637e1f52a7d19"
+      },
+      "passing_compare_points": [
+        4
+      ],
+      "failing_compare_points": [
+        4
+      ]
+    },
+    "task003": {
+      "source_sha256": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [
+          {
+            "code": "LINT-1",
+            "message": "Unconnected or unused design connection."
+          },
+          {
+            "code": "LINT-31",
+            "message": "Port or cell connection requires review."
+          },
+          {
+            "code": "LINT-52",
+            "message": "Constant-driven connection requires review."
+          },
+          {
+            "code": "SYNTH_WARNING",
+            "message": "Synthesis reported a structural warning; functional correctness is not established."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "formal": {
+        "status": "PASS",
+        "equivalent": true
+      },
+      "measurement": {
+        "status": "TEACHING_MEASUREMENT",
+        "usable_for_terminal_reward": false,
+        "library_scope": "teaching_relative_only",
+        "limitations": [
+          "Incomplete teaching-library thresholds and power tables.",
+          "Uniform assumed switching activity, not workload-derived activity."
+        ],
+        "reported_slack": 0.004889,
+        "known_library_diagnostics": [
+          "DBR-207"
+        ],
+        "reported_power": {
+          "switching": 0.000286,
+          "internal": 0.0,
+          "leakage": 0.0,
+          "total": 0.000286
+        },
+        "units": {
+          "time": "1e-09 Second",
+          "internal_power": "1e-07 Watt",
+          "leakage_power": "0.001 Watt"
+        },
+        "power_values_scope": "As printed by report_power; not converted to common physical units.",
+        "zero_power_is_not_physical_evidence": true,
+        "reported_cell_area": 3708.0,
+        "area_units": "library-defined teaching area units"
+      },
+      "reward": null,
+      "wall_seconds": 6.7421,
+      "frozen_inputs": {
+        "runner.py": "7b5cc6324410e6a1ca4b879f377a6442a97e531e3558a788377da56971dde897",
+        "dc.tcl": "a67e0e5024c618a4c388388912d66213051481e8f67cc99ee015cf0abf26ba65",
+        "fm.tcl": "d176861bc08b513f605268e521aa09509b30b91566a4b025dd96c92100fc02db",
+        "pt.tcl": "bbad0382c812b466c6d3ef24b33ee3f522ac1a90b054b1f151bc5dfe39350a0a",
+        "constraints.tcl": "823c093fd329507f5fb7ff56903f7597fdeea027a6a047a927547cb91e3c4be4",
+        "bridge.sv": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+        "projection.py": "e2ce9ac3dcf8030335212408d258f2fd4afed8fbf4195bef61e0243f27115df5"
+      },
+      "controller_sha256": "e990ac7de50259be69903524fabbb3c51bf7ec855cb5a347e5f43197cc17fa78",
+      "evidence_sha256": {
+        "mapped.sdc": "fa58e553138fceaf4f6b22f160a1e5f63510b1e170f2e1e3ca63ab7a40810437",
+        "bridge.sv": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+        "fm.log": "c11cd686f1ea6afc586ad3ac8ffa92f20d34e930d7ac67dc199312b57a9d3fb4",
+        "mapped.v": "153c1aca2f0955ed6aff972647725dafa42cc9778b63f36314529dac2d0f412a",
+        "execution.json": "2f0006ba434d3a1586b380630ef26b0ed3622299742921a234b3ce4f420ca116",
+        "dc.log": "0ead48596375f08a78b65773b764d06d7217879caa63e1fbf1d778dbb7938e0d",
+        "mapping.svf": "e402b05aa72c8c9c9d05ecf02796e115ec5e5ab50525f9b5bfef39aa5633617c",
+        "pt.log": "56b768815dbd57786b1e41a87cfd611802a2619e965367a369bd0809da576bdb"
+      },
+      "stages": [
+        {
+          "stage": "dc",
+          "exit_code": 0,
+          "wall_seconds": 3.4137,
+          "tool_version": "O-2018.06-SP1"
+        },
+        {
+          "stage": "fm",
+          "exit_code": 0,
+          "wall_seconds": 1.5365,
+          "tool_version": "O-2018.06-SP1"
+        },
+        {
+          "stage": "pt",
+          "exit_code": 0,
+          "wall_seconds": 1.6859,
+          "tool_version": "O-2018.06-SP1"
+        }
+      ],
+      "environment_hashes": {
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "environment_script_sha256": "30d24f3b075bd9f525bdac97d33d76e6e33eb17d6974f7d3c7a637e1f52a7d19"
+      },
+      "passing_compare_points": [
+        435
+      ],
+      "failing_compare_points": []
+    },
+    "task004": {
+      "source_sha256": "fd2364ed15d189dee596bc302fdee1cafed61fae2f5c7ff5d621b43cc074a418",
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [
+          {
+            "code": "SYNTH_WARNING",
+            "message": "Synthesis reported a structural warning; functional correctness is not established."
+          },
+          {
+            "code": "LINT-1",
+            "message": "Unconnected or unused design connection."
+          },
+          {
+            "code": "LINT-31",
+            "message": "Port or cell connection requires review."
+          },
+          {
+            "code": "LINT-52",
+            "message": "Constant-driven connection requires review."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "formal": {
+        "status": "PASS",
+        "equivalent": true
+      },
+      "measurement": {
+        "status": "TEACHING_MEASUREMENT",
+        "usable_for_terminal_reward": false,
+        "library_scope": "teaching_relative_only",
+        "limitations": [
+          "Incomplete teaching-library thresholds and power tables.",
+          "Uniform assumed switching activity, not workload-derived activity."
+        ],
+        "reported_slack": -1.2438,
+        "known_library_diagnostics": [
+          "DBR-207"
+        ],
+        "reported_power": {
+          "switching": 0.001817,
+          "internal": 0.0,
+          "leakage": 0.0,
+          "total": 0.001817
+        },
+        "units": {
+          "time": "1e-09 Second",
+          "internal_power": "1e-07 Watt",
+          "leakage_power": "0.001 Watt"
+        },
+        "power_values_scope": "As printed by report_power; not converted to common physical units.",
+        "zero_power_is_not_physical_evidence": true,
+        "reported_cell_area": 18433.0,
+        "area_units": "library-defined teaching area units"
+      },
+      "reward": null,
+      "wall_seconds": 38.6001,
+      "frozen_inputs": {
+        "runner.py": "7b5cc6324410e6a1ca4b879f377a6442a97e531e3558a788377da56971dde897",
+        "dc.tcl": "a67e0e5024c618a4c388388912d66213051481e8f67cc99ee015cf0abf26ba65",
+        "fm.tcl": "d176861bc08b513f605268e521aa09509b30b91566a4b025dd96c92100fc02db",
+        "pt.tcl": "bbad0382c812b466c6d3ef24b33ee3f522ac1a90b054b1f151bc5dfe39350a0a",
+        "constraints.tcl": "823c093fd329507f5fb7ff56903f7597fdeea027a6a047a927547cb91e3c4be4",
+        "bridge.sv": "fd2364ed15d189dee596bc302fdee1cafed61fae2f5c7ff5d621b43cc074a418",
+        "projection.py": "e2ce9ac3dcf8030335212408d258f2fd4afed8fbf4195bef61e0243f27115df5"
+      },
+      "controller_sha256": "e990ac7de50259be69903524fabbb3c51bf7ec855cb5a347e5f43197cc17fa78",
+      "evidence_sha256": {
+        "mapped.sdc": "95cd6fd0dc5eaddc907e53410d04ec8f56515ab3e7d0cd658c4536ada95769be",
+        "bridge.sv": "fd2364ed15d189dee596bc302fdee1cafed61fae2f5c7ff5d621b43cc074a418",
+        "fm.log": "032ae1f08442afc63f68c8203207d7e53d1dd5b257e10963e6d163c969d22830",
+        "mapped.v": "e4e7fa525e22bc91f095353a1088a6de3a2376ebda4da14b51dfff68277c6191",
+        "execution.json": "316732a0445e2b25bcf3b915781faf69fe3c58743187300378699aa97653fe5b",
+        "dc.log": "ca23b96c91838012266da399a3cf851938bf745270dbca8f811c1fd8b910a9dc",
+        "mapping.svf": "4f64c10841eea19e22b4d37a6529700e9da5580e1a538722c7139fb976307734",
+        "pt.log": "604f46dd0ca5243e1cbf9968c69515223762bace45d9d519ee0b0b7c7e84ca25"
+      },
+      "stages": [
+        {
+          "stage": "dc",
+          "exit_code": 0,
+          "wall_seconds": 31.6116,
+          "tool_version": "O-2018.06-SP1"
+        },
+        {
+          "stage": "fm",
+          "exit_code": 0,
+          "wall_seconds": 4.6305,
+          "tool_version": "O-2018.06-SP1"
+        },
+        {
+          "stage": "pt",
+          "exit_code": 0,
+          "wall_seconds": 2.2444,
+          "tool_version": "O-2018.06-SP1"
+        }
+      ],
+      "environment_hashes": {
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "environment_script_sha256": "30d24f3b075bd9f525bdac97d33d76e6e33eb17d6974f7d3c7a637e1f52a7d19"
+      },
+      "passing_compare_points": [
+        1165
+      ],
+      "failing_compare_points": []
+    }
+  },
+  "model_used": false,
+  "raw_acceptance_sha256": "56b01a6b0ec9f443bd2ada197eaceff92bd2394267bfe6a1a9d1587160d89a92"
+}

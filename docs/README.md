@@ -6,6 +6,7 @@
 |---|---|
 | 新任务是否可靠，Task002实际测到什么 | [任务质量门禁](task-quality-gate.md)、[Task002报告](task002-evaluation-report.md)、[任务包](../tasks/axil_to_apb4_router_002/README.md) |
 | 当前体系测量了什么，离训练数据还有什么差距 | [多任务研究总结](multi-task-research-report.md) |
+| 综合、等价检查、时序功耗各自能证明什么 | [综合工具接口](synthesis-tools.md)、[验收与试次报告](synthesis-tools-evaluation.md) |
 | 编译和具体公开诊断是否帮助修复 | [受控工程工具](engineering-tools.md)、[配对修复报告](engineering-tools-evaluation.md) |
 | APB执行与AXI响应解耦引入什么能力 | [Task004报告](task004-evaluation-report.md)、[任务包](../tasks/axil_to_apb4_decoupled_004/README.md) |
 | 多请求队列测到哪些错误 | [Task003独立生成](task003-evaluation-report.md)、[同起点修复](task003-repair-report.md)、[队列任务包](../tasks/axil_to_apb4_queue_003/README.md) |

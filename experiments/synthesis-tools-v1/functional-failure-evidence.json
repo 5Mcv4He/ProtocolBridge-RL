@@ -1,0 +1,45 @@
+{
+  "scope": "Research-side fixed violation label and result hashes; private inputs and raw diagnostics are not published or sent back to the solver.",
+  "results": {
+    "public-04": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "source_sha256": "42c84a866b72cfd1853913c12b8f3ea5710fbda16eb30f3e2e10889d510e83e1",
+      "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+      "failed_case": "address_data",
+      "verification_complete": false,
+      "confirmed_violation": "Request capacity exceeded",
+      "raw_result_sha256": "46ddab4e16facc78bad8c2777257a470e0186286bb7085467f0843f090f9884f"
+    },
+    "public-07": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "source_sha256": "8f8052e38499164dd70d6d2a1bb6862b4c9954e2f7eadc396211448fa7d69ee3",
+      "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+      "failed_case": "address_data",
+      "verification_complete": false,
+      "confirmed_violation": "Request capacity exceeded",
+      "raw_result_sha256": "4979709296460eec821d9c04249fedf5afc60cffaa28ea2efa7518cd9515d048"
+    },
+    "terminal": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "source_sha256": "27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d",
+      "suite_sha256": "3e3c02fe3bf4b6f408da1b7bd3b7234bf8cdff76c1a61c29fbe83e9c5558f692",
+      "failed_case": "address_data",
+      "verification_complete": false,
+      "confirmed_violation": "Request capacity exceeded",
+      "raw_result_sha256": "0195b67c1afa1ea7e4e8c9c64238cf098347d1afc24602b8c2097a9bc70f5d09"
+    },
+    "held_out": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "source_sha256": "27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d",
+      "suite_sha256": "13b6098272f7356f22063fb00c253ebb929a898954e972b7aac3858fa16f8964",
+      "failed_case": "address_data",
+      "verification_complete": false,
+      "confirmed_violation": "Request capacity exceeded",
+      "raw_result_sha256": "d0a5b5e1da7e3345a9b77f6dc4af454897cef4fcbac0214da77abcdced955aa2"
+    }
+  }
+}

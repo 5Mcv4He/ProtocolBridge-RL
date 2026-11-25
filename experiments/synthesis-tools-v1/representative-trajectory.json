@@ -1,0 +1,213 @@
+{
+  "schema": "publication-trajectory-synthesis-v1",
+  "task_id": "axil_to_apb4_queue_003",
+  "source_commit": "780d1827cc952ff455b0decfa487a694c35ff4ff",
+  "protocol": "text-json-atomic-v2",
+  "capabilities": "synthesis-tools-v1",
+  "sampling": "fixed SDK settings; provider temperature/seed defaults, not deterministic",
+  "prompt_sha256": "1f2d258c4d017d74ad3a894bdd67a60baf88f62a1d11dde67781362bdbcbd54c",
+  "raw_evidence_sha256": {
+    "trace.json": "c21e628386af839e306dc550dae860c359bc59c69cd2d2f5e671c39da4cc22c9",
+    "metrics.json": "6f07b4610fd7eba1966838f8a6aeee701d021995f2952c61d0ce956d47a2a47e",
+    "freeze.json": "c3c1dbb1712b776aacb2cdf7a6dec3e99433cd2a2c204c78dcbcaa517291a9d1",
+    "observations.json": "a455f11e9fece3e25886d6a737af1383d6752b266de4738c874f080be780cd52",
+    "harness-04.json": "1044c1d5e20aa6b28748746cd65cb1777d7cfd81a41f33f95e355e3f077c18ce",
+    "harness-08.json": "1f148e2140698c53092c2381463c201258014c0ef3fd4f6dbaf9b7826231bedd"
+  },
+  "publication_note": "Read bodies replaced by hashes; edit bodies stored in exact companion RTL files; observations otherwise unchanged. Rejected model replies are not repaired or executed. SDK messages and private vectors remain in trusted storage.",
+  "events": [
+    {
+      "action_index": 1,
+      "executed": true,
+      "observation_delivered": true,
+      "action": {
+        "tool": "read",
+        "file": "spec.md"
+      },
+      "observation": {
+        "file": "spec.md",
+        "content_sha256": "68f0b39830ff9aba4ca439c8b39eb3d5feab3b6dd0d00420150cdca3bf07fc55",
+        "publication_redaction": "Full public Spec/template body omitted; original observation retained privately."
+      }
+    },
+    {
+      "action_index": 2,
+      "executed": true,
+      "observation_delivered": true,
+      "action": {
+        "tool": "read",
+        "file": "bridge.sv"
+      },
+      "observation": {
+        "file": "bridge.sv",
+        "content_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+        "publication_redaction": "Full public Spec/template body omitted; original observation retained privately."
+      }
+    },
+    {
+      "action_index": 3,
+      "executed": true,
+      "observation_delivered": true,
+      "action": {
+        "tool": "edit",
+        "content_file": "candidate-03.sv",
+        "content_sha256": "42c84a866b72cfd1853913c12b8f3ea5710fbda16eb30f3e2e10889d510e83e1"
+      },
+      "observation": {
+        "status": "EDITED"
+      }
+    },
+    {
+      "action_index": 4,
+      "executed": true,
+      "observation_delivered": true,
+      "action": {
+        "tool": "test"
+      },
+      "observation": {
+        "status": "FAIL",
+        "remaining_test_calls": 1,
+        "category": "protocol_timing_error",
+        "first_failed_case": "address_data",
+        "diagnostic": "A protocol timing or stability requirement failed."
+      }
+    },
+    {
+      "action_index": 5,
+      "executed": false,
+      "observation_delivered": true,
+      "action": {},
+      "observation": {
+        "status": "REJECTED",
+        "reason": "invalid_action_format",
+        "instruction": "Resend ONE action object with exactly the listed fields. Do not append another action. The rejected reply executed nothing.",
+        "action_fields": {
+          "read": [
+            "file",
+            "tool"
+          ],
+          "edit": [
+            "content",
+            "tool"
+          ],
+          "test": [
+            "tool"
+          ],
+          "submit": [
+            "tool"
+          ]
+        }
+      }
+    },
+    {
+      "action_index": 6,
+      "executed": true,
+      "observation_delivered": true,
+      "action": {
+        "tool": "edit",
+        "content_file": "candidate-06.sv",
+        "content_sha256": "8f8052e38499164dd70d6d2a1bb6862b4c9954e2f7eadc396211448fa7d69ee3"
+      },
+      "observation": {
+        "status": "EDITED"
+      }
+    },
+    {
+      "action_index": 7,
+      "executed": true,
+      "observation_delivered": true,
+      "action": {
+        "tool": "test"
+      },
+      "observation": {
+        "status": "FAIL",
+        "remaining_test_calls": 0,
+        "category": "protocol_timing_error",
+        "first_failed_case": "address_data",
+        "diagnostic": "A protocol timing or stability requirement failed."
+      }
+    },
+    {
+      "action_index": 8,
+      "executed": true,
+      "observation_delivered": true,
+      "action": {
+        "tool": "synth_check"
+      },
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [
+          {
+            "code": "LINT-1",
+            "message": "Unconnected or unused design connection."
+          },
+          {
+            "code": "LINT-31",
+            "message": "Port or cell connection requires review."
+          },
+          {
+            "code": "LINT-52",
+            "message": "Constant-driven connection requires review."
+          },
+          {
+            "code": "SYNTH_WARNING",
+            "message": "Synthesis reported a structural warning; functional correctness is not established."
+          }
+        ],
+        "functional_correctness_checked": false,
+        "remaining_synth_calls": 1
+      }
+    },
+    {
+      "action_index": 9,
+      "executed": false,
+      "observation_delivered": true,
+      "action": {},
+      "observation": {
+        "status": "REJECTED",
+        "reason": "invalid_action_format",
+        "instruction": "Resend ONE action object with exactly the listed fields. Do not append another action. The rejected reply executed nothing.",
+        "action_fields": {
+          "read": [
+            "file",
+            "tool"
+          ],
+          "edit": [
+            "content",
+            "tool"
+          ],
+          "test": [
+            "tool"
+          ],
+          "submit": [
+            "tool"
+          ]
+        }
+      }
+    },
+    {
+      "action_index": 10,
+      "executed": true,
+      "observation_delivered": true,
+      "action": {
+        "tool": "edit",
+        "content_file": "candidate-10.sv",
+        "content_sha256": "27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d"
+      },
+      "observation": {
+        "status": "EDITED"
+      }
+    },
+    {
+      "action_index": 11,
+      "executed": true,
+      "observation_delivered": false,
+      "action": {
+        "tool": "submit"
+      },
+      "observation": {
+        "status": "SUBMITTED"
+      }
+    }
+  ]
+}

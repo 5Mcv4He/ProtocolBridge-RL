@@ -1,5 +1,7 @@
 # Controlled engineering tools
 
+This page records `engineering-tools-v1`. The separately versioned [synthesis-tools-v1](synthesis-tools.md) adds DC diagnostics and trusted implementation checks; its [report](synthesis-tools-evaluation.md) supersedes the unavailable synthesis/formal status **for the new stage only**. Historical evidence below remains unchanged.
+
 `engineering-tools-v1` adds two optional actions to Task003's `test_diagnostic` environment. It is a separate capability profile; historical Policy v1 observations and budgets are unchanged. The terminal UVM/VIP verifier and binary/null reward rules are unchanged.
 
 | Action | Input | Observation | Limit |
