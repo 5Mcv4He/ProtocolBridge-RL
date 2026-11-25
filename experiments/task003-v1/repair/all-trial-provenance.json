@@ -1,0 +1,185 @@
+{
+  "scope": "Every started trial; hashes refer to retained original files, not the redacted copies. No raw model text or private inputs included.",
+  "trials": [
+    {
+      "trial": "r01-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 1,
+      "reward": 0.0,
+      "session_ids": [
+        "session-4fa0f077be714d0aa4cb5e222f8f9915"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+      "private_reward_suite_sha256": "dd5713ae778ae8fa8ed3a881dc6fdc77572d2df40a63f79b1ceb7f41dca22f83",
+      "reserved_evaluation_suite_sha256": "2bd5d9bf5853d492a683134ca58d1fdc16e8a40643336eeb7cd26094f41a3b44",
+      "raw_file_sha256": {
+        "candidate-04.sv": "33aad137a76fcb4d30ac0f9d5d0035191a4f0852b98961ad0712a4c3a9bad065",
+        "candidate-06.sv": "daba1416fbb60b298f93bc3373414753f740ce70f71b74a2710540126e824995",
+        "freeze.json": "52d78047a101247fba08e40374b56e4f1f7f582909ef56a759dd8e03bfb256b1",
+        "harness-00.json": "af0a2a567dd78fb0170618fd97618e3a61468383818c7ddd0c766fde17ed6e58",
+        "harness-01.json": "147c78132b6e035e11e195bfd620457e3c7652806d8983981dc4137a62a26d79",
+        "harness-02.json": "b04fe8cdeb9d88ffada63efc2435fa81850d15c68bcc00f256d8b8e9f8ee2d8c",
+        "harness-03.json": "4c4584dea70967edec1528bab82089fce1fd8c1da166083d02ddc4954b1df36b",
+        "harness-04.json": "a6d55dfd045faeceb3754b0c868724eeba46cffaa7783f7533b8a5ec82735d21",
+        "harness-05.json": "f9a4fd06bb5308155904a9860c1b4240e11fabcb91f893195e0fcaee5bb15b44",
+        "harness-06.json": "8c663e45bc694a02dd7bcfd0a73a91a7e36d01bfd68c1fcb6b2235fb3c30958a",
+        "initial-prompt.txt": "0c75f31a6ae3185ec8d69540a98f88c61cbd3629d680a49ba39a56de72d7df79",
+        "metrics.json": "8700df663a314ff327461c9b947591e9b79e26f6af38df5ed880ae82ab759239",
+        "observations.json": "88324b8c8605abdd6a25586246483191ef9176f264d5e870a96c70595b82d826",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "daba1416fbb60b298f93bc3373414753f740ce70f71b74a2710540126e824995",
+        "trace.json": "73406b046c1d8179e3732116087de8ab9435cd11a94b041f3a262b35cf9bce8d"
+      }
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 1,
+      "reward": 0.0,
+      "session_ids": [
+        "session-7d412e1ea74744b280194262a49ca259"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+      "private_reward_suite_sha256": "dd5713ae778ae8fa8ed3a881dc6fdc77572d2df40a63f79b1ceb7f41dca22f83",
+      "reserved_evaluation_suite_sha256": "2bd5d9bf5853d492a683134ca58d1fdc16e8a40643336eeb7cd26094f41a3b44",
+      "raw_file_sha256": {
+        "candidate-04.sv": "6cc551000011e6831603bef10dd5499a583db46c87f214721d06f83f7e03cfb6",
+        "candidate-06.sv": "cd4f587b5b015647f4ee1ed4d6ea6dac61af834f45f029da8f5639e3a8cf0ea0",
+        "freeze.json": "df567f87985e26b268fc2526305de13cd107ed0e74f2ad2af2354167afa95683",
+        "harness-00.json": "bc189b74f7fabf9a92b32a5c402df0603e4aa4828e43cbe8d037acdf78e4588c",
+        "harness-01.json": "620e300336f52897965d6eac2f28012717e4f3503a297e73ced8caf473a6c7ac",
+        "harness-02.json": "5f446d37c628b3df47fe21a23fec64e63508d469995799b69350392f5dd62744",
+        "harness-03.json": "a5d6c86df951e436a0907ed3d3948ca39fcc188420eba10f10b7abe6ce26e740",
+        "harness-04.json": "1dc99f26dc5611ee7d50193421feb82732193f115e6ebcccae8dbc350f007e39",
+        "harness-05.json": "7881f9d6d6309f909582d0563fa21d867b31700d77b1a06de608e785f1737a32",
+        "harness-06.json": "074d3c1880de8537f2d89eed6e32c356ceec7b0794c89981004ad91e708d9e18",
+        "initial-prompt.txt": "0c75f31a6ae3185ec8d69540a98f88c61cbd3629d680a49ba39a56de72d7df79",
+        "metrics.json": "5bb401fe34c3dec659f432ee3166c61e88e0bc219bc25d2c4758ef853c78b75b",
+        "observations.json": "010bff66b5c66875a9c09e2182a468c30f56004eaee608443b02dae5be218533",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "cd4f587b5b015647f4ee1ed4d6ea6dac61af834f45f029da8f5639e3a8cf0ea0",
+        "trace.json": "65b14427896a21b2f04e0ab3aa8cd955ebefa6bf7038be77aa81aba0f27ca340"
+      }
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 2,
+      "reward": 0.0,
+      "session_ids": [
+        "session-4909bf10de874157baa253f5a51d1dfe"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+      "private_reward_suite_sha256": "540365d436d79d84c77f1e8b053645cbeae897b1d07a85055b7bb45aaa204986",
+      "reserved_evaluation_suite_sha256": "18f0dde2d56672acdf8063687cc95c60ee443a80a38f355d6b96e01f72f11b8b",
+      "raw_file_sha256": {
+        "candidate-04.sv": "03d2666f7e9950789773b14dc8beb9c6f85c6031572001d053d1acbc294a4d9a",
+        "freeze.json": "cbb29ee89ea203f71ee884ca4989c79139c064e482d0d78be7ad2d42d67f55aa",
+        "harness-00.json": "ebb950dc6473956fbfcee2b2c7dbaa2694c27a9692ccf1bfba4d70a1c64f4ed1",
+        "harness-01.json": "c89e9b2f1ae19e6442fa2b359b2a6ac9ba2205e42c9d47946f19cd86dea79404",
+        "harness-02.json": "43f0605eb4d6316c141b2b68f0b595956896ef5d248c5c7202d94d1be13d27e7",
+        "harness-03.json": "828261f6101bb63f5b1ee2d4579839f08ceab81d9aef53e96f6efcc3d9c6519f",
+        "harness-04.json": "58b90b408794234c65f05ebeee3cee3b4690611cec059fc9f7c782e6bc28f8e6",
+        "harness-05.json": "db7da4c62a5e171e37a82ced9c82394d76906e0d841c79535125d091865b4662",
+        "initial-prompt.txt": "0c75f31a6ae3185ec8d69540a98f88c61cbd3629d680a49ba39a56de72d7df79",
+        "metrics.json": "4538f155d752957953d94bd42de9585951eeb3ab81187717026ae54b4b09e6ed",
+        "observations.json": "9736ceba8a018c0cdff03baf50472f7d1c8e3aa773356a10829c08efd1023605",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "03d2666f7e9950789773b14dc8beb9c6f85c6031572001d053d1acbc294a4d9a",
+        "trace.json": "9c3c7a5305aa40637cc088a3a2d2330e70315440f962a38440413e05c0e8f4b7"
+      }
+    },
+    {
+      "trial": "r02-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 2,
+      "reward": 0.0,
+      "session_ids": [
+        "session-b05a1c0f410e461ca90e83d089ce62f4"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+      "private_reward_suite_sha256": "540365d436d79d84c77f1e8b053645cbeae897b1d07a85055b7bb45aaa204986",
+      "reserved_evaluation_suite_sha256": "18f0dde2d56672acdf8063687cc95c60ee443a80a38f355d6b96e01f72f11b8b",
+      "raw_file_sha256": {
+        "candidate-04.sv": "780651e157b17b1a88356b4b8e171a5b44907417e2eecf7530a8620107773ed0",
+        "freeze.json": "bbb8fef2f206cf78c9d36854c3635dc13c3cf5c33bb1af0db0c037f6e37c0f85",
+        "harness-00.json": "3a93bc42e1fb8c3291a5f8798b735f6dcf680f9abdc60e12b7eb01088471fa46",
+        "harness-01.json": "b049b10b670fc659a9f4110d9014c79a342b7f4f13aacb87b295157e28f01fbd",
+        "harness-02.json": "1bc2a74ec8528a48fb84298b1c83a2fee57cd98777c2ef06bbc5528437b7f5a5",
+        "harness-03.json": "5df6c3f5a9442061362a7ece57aea5c9dd78a5ef41f0258f30cc019931871a3e",
+        "harness-04.json": "4fa76a4e74a4b208ad9d9bf7e299b4925f4af96edeef3f7cf73084ecc8f4a373",
+        "harness-05.json": "18e5b8086e198fbde2d872517abef2e22d2da85b180eac511f12a9f8ecfccadc",
+        "initial-prompt.txt": "0c75f31a6ae3185ec8d69540a98f88c61cbd3629d680a49ba39a56de72d7df79",
+        "metrics.json": "2df30aa46f526a53a641211217952505cf7964e0ec8eeff4c49c5e0cd4c9278f",
+        "observations.json": "343df3580ee56c3cfe2cdcea4beffbbd61b62a8fa707f584f5f1abb9cba81d33",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "780651e157b17b1a88356b4b8e171a5b44907417e2eecf7530a8620107773ed0",
+        "trace.json": "47ad8743be2c38d2a39f10214a2f82cdf64698a5f215e9c6ed4aac3d5435e0eb"
+      }
+    },
+    {
+      "trial": "r03-test_verdict",
+      "policy": "test_verdict",
+      "repeat": 3,
+      "reward": 0.0,
+      "session_ids": [
+        "session-ca602306da73469f913171d245575e3c"
+      ],
+      "policy_sha256": "5e47fd13b70c8f8ed2f3b0cef59f11475d152542483f14d343a08b5666a897ae",
+      "initial_rtl_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+      "private_reward_suite_sha256": "11c5e67c4d0e2233c8999abd36238e8407d8213b0c2f1d816cb918b03d16d774",
+      "reserved_evaluation_suite_sha256": "26ac4dfde56ce8ea704e8d9c89b050e3a0931d88fd1699647146c2762609aa3f",
+      "raw_file_sha256": {
+        "candidate-04.sv": "7489d1bf19985a34db7c7f4717cc1c5a63a565bfeabe44b2e970aff1e0103b61",
+        "freeze.json": "8c9e47eb1eabd097cb518c938c1cbe7b81db699b5410d237c635b9153e2a8dfd",
+        "harness-00.json": "9742831ecdd9f8c0977529af7835102da46fcc9010ae6524e4d2d9c91d4a44ff",
+        "harness-01.json": "ba3bacb3449450c72291b1d5c06f5f94fdb1f78351e2caa0e091cbd9a82aa53e",
+        "harness-02.json": "c7b3f3666e74ae1fb80626b9ef5f4e9f7b68b192e70bafb685fdbbcaeb8e3fae",
+        "harness-03.json": "fc28fe01055c970bc596167e06d54664c10cd1c0eb6aa9dbdd51c06aad5e266e",
+        "harness-04.json": "94a86439c62905cbc4d56a5efaa259f9ac1f5973618b69266a4766f487c24012",
+        "harness-05.json": "2c73082ef34c706ab3dd1a6f650180b51bdf70ec3472a2cbaf1fbc05428a3327",
+        "initial-prompt.txt": "0c75f31a6ae3185ec8d69540a98f88c61cbd3629d680a49ba39a56de72d7df79",
+        "metrics.json": "c4aab056b74bfc1cdd9db2ecb367cf08b9fa99a3381a3c777f4b8e01b68137df",
+        "observations.json": "343df3580ee56c3cfe2cdcea4beffbbd61b62a8fa707f584f5f1abb9cba81d33",
+        "policy.json": "73ac3a47e70112da4983dd848e541dfa8ea24a415f27fcdb4e983aa42094b526",
+        "submission/bridge.sv": "7489d1bf19985a34db7c7f4717cc1c5a63a565bfeabe44b2e970aff1e0103b61",
+        "trace.json": "ce3c3d0f2dffb2ef916e6d0aa5da9b2d142700526211e307170b28d7fa8536cc"
+      }
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 3,
+      "reward": 0.0,
+      "session_ids": [
+        "session-7f7c644083c84f8fb180bb9251cd414c"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+      "private_reward_suite_sha256": "11c5e67c4d0e2233c8999abd36238e8407d8213b0c2f1d816cb918b03d16d774",
+      "reserved_evaluation_suite_sha256": "26ac4dfde56ce8ea704e8d9c89b050e3a0931d88fd1699647146c2762609aa3f",
+      "raw_file_sha256": {
+        "candidate-04.sv": "8b69498cc57ace906f524d874c6c3bff2f81d35a1383f72a7a1ad805deb21e2f",
+        "candidate-06.sv": "8b69498cc57ace906f524d874c6c3bff2f81d35a1383f72a7a1ad805deb21e2f",
+        "freeze.json": "6db73b2eb18b79de15f2cea6ab4c4daaf3770315be065bd3a5aea54166000a70",
+        "harness-00.json": "191147096d9f724c3afec28e007cb9d59e2be254385d87ba5dc48b140d3a6c4b",
+        "harness-01.json": "4e7c3568c7cd431612232012f6ad5103aa36c648bcfcdaceb0d62f51dbcfea1b",
+        "harness-02.json": "ca62cf563a1e3cbb48b488ba27bf0e2e4492b8ea1ac31fdd5bc8a6e3f69ec165",
+        "harness-03.json": "4609b0910c7614102964a82dc272417972a0e621ff893a09fd9ac80e8ea22fb0",
+        "harness-04.json": "7a8920f0f0345c57188dad54a5e95fa16c986b0c23a2a3249c266cf75bd22f52",
+        "harness-05.json": "e81f7213db5ab40c348754e3b6410081f4a32e0a99f687cf64155e2a68c4f30c",
+        "harness-06.json": "7ef96625f593e15a8f488903d97257bbe2eb205deeb20079b5e48e462918da28",
+        "initial-prompt.txt": "0c75f31a6ae3185ec8d69540a98f88c61cbd3629d680a49ba39a56de72d7df79",
+        "metrics.json": "7fa738c140a8119e6bd76992d13c8f32339212487a8dba5bfee11985fccc41b1",
+        "observations.json": "8a2345c19d7864000ebc1a2a63e8578c5ad0d330056520e6ab0873a12e8c3c5a",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "8b69498cc57ace906f524d874c6c3bff2f81d35a1383f72a7a1ad805deb21e2f",
+        "trace.json": "504c1dc728730addafdf853617965a2e390e0c27b036610958b5d1030046fa4e"
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "scope": "Manual inspection of real submissions; preserve raw simulations and never repair model candidates.",
+  "trials": {
+    "r01-spec_only": {
+      "observed": "Registered FIFO grant/setup missing after five completed transactions in address_data",
+      "cause": "AR count is not decremented from one to zero on a pop without a concurrent push; next read is written into slot1 while head-valid0 is clear. AW/W use the same incomplete count update cases.",
+      "evidence": "submission/bridge.sv; submission/grade/address_data/simulation.log"
+    },
+    "r01-test_verdict": {
+      "observed": "Arbitration or FIFO head mismatch at setup",
+      "cause": "Two-entry arrays are written using occupancy as the insertion index, but read using two-bit ever-incrementing head indices with no modulo-two wrap or shifting. The bookkeeping is not a valid FIFO.",
+      "evidence": "submission/bridge.sv; submission/grade/address_data/result.json",
+      "public_feedback_obtained": false
+    },
+    "r01-test_diagnostic": {
+      "observed": "Request capacity exceeded in read_fifo",
+      "cause": "AR count and head retire at APB selection, even though executing and response-pending reads must retain credit until R handshake. ARREADY therefore accepts a third unretired read.",
+      "public_feedback_obtained": false,
+      "evidence": "submission/bridge.sv; submission/grade/read_fifo/result.json"
+    },
+    "r02-test_verdict": {
+      "observed": "Arbitration or FIFO head mismatch in address_data; both public tests and terminal fail",
+      "cause": "Uses two-bit non-wrapping head indices for two-entry arrays and occupancy as the insertion index, rather than a proper ring tail or shift queue. Separate push/pop counter assignments can also overwrite each other.",
+      "feedback_behavior": "Both RTL edits preceded the first public test. Two FAIL observations were delivered, with no subsequent edit; the second public test repeated the same candidate.",
+      "evidence": "trace.json; submission/bridge.sv; public-05/result.json; public-06/result.json"
+    },
+    "r02-test_diagnostic": {
+      "observed": "Registered FIFO grant/setup missing on the first selection in address_data",
+      "cause": "The IDLE selection only stores payload and advances state. Registered PSEL is set one edge later in the SETUP branch, adding an extra idle cycle beyond the explicit registered-selection contract.",
+      "feedback_behavior": "Two diagnostic FAIL observations were delivered (protocol_timing_error/address_data/fixed generic timing prose); edits followed both, but the final submission retains the delayed PSEL assertion. Last two edits also remove an undefined psDefault statement and change state width.",
+      "limit": "This failure measures the stated launch-timing contract; it alone does not establish that all other queue functionality is wrong. No altered or relaxed verifier was used.",
+      "evidence": "trace.json; candidate-07.sv; candidate-08.sv; submission/grade/address_data/result.json"
+    },
+    "r02-spec_only": {
+      "observed": "Registered FIFO grant/setup missing on first selection in address_data",
+      "cause": "PSEL is registered from the old FSM state in a separate case statement, so it asserts one cycle later than the stipulated grant-to-Setup timing.",
+      "additional_static_issue_not_reached_by_fail_fast": "Queue counts decrement at selection, while the Spec retains credit until B/R consumption.",
+      "public_feedback_obtained": false,
+      "evidence": "submission/bridge.sv; submission/grade/address_data/result.json"
+    },
+    "r03-spec_only": {
+      "observed": "First edit passes all19 public cases in offline post-submit audit; final edit fails Queued write payload mismatch at setup",
+      "cause": "Second edit changes direct FIFO-to-output assignments into internal payload registers, then assigns outputs from those same registers on the same edge. Nonblocking assignments read old values, causing stale payload while PSEL already asserts.",
+      "feedback_behavior": "A had no public tests or functional feedback. The first-candidate PASS was measured only after solver stop, never shown to the Agent.",
+      "limit": "Separate post-submit probe passed all21 cases of the original r03 reward suite and all21 held-out cases, each506planned/474checked/32aborted/33bins. Original submitted terminal reward remains0; no best-candidate substitution or solver feedback.",
+      "evidence": "candidate-03.sv; candidate-04.sv; first-candidate-result.json; submission/grade/address_data/result.json",
+      "posthoc_probe": "experiments/task003-v1/first-candidate-probe"
+    },
+    "r03-test_diagnostic": {
+      "observed": "Registered FIFO grant/setup missing in address_data",
+      "cause": "Selection only considers valid slot0. Consumption clears slot0 without shifting the queued slot1 entry; a pending FIFO head is stranded. Independent push/pop count assignments also have an overwrite hazard.",
+      "public_feedback_obtained": false,
+      "evidence": "submission/bridge.sv; submission/grade/address_data/simulation.log; trace.json",
+      "protocol_behavior": "One edit carrying an extra tool_note field was rejected before execution; model resent a valid edit."
+    },
+    "r03-test_verdict": {
+      "observed": "All private and held-out cases pass; first candidate also passes all public cases offline",
+      "implementation": "Shift queues retain AW/W/AR credits until response consumption, handle push/pop together, and launch serial APB directly from registered arbitration.",
+      "public_feedback_obtained": false,
+      "protocol_behavior": "Two edits with an extra note field rejected before execution; third edit valid. No auto-repair of action format.",
+      "evidence": "submission/bridge.sv; submission/grade/result.json; reserved-evaluation/result.json; trace.json"
+    }
+  }
+}

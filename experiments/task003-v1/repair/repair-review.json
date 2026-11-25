@@ -1,0 +1,88 @@
+{
+  "scope": "Manual review of actual repair submissions, separate from rewards. Token equality check excludes comments/whitespace and is not a general equivalence prover.",
+  "trials": {
+    "r01-test_verdict": {
+      "observed": "Both public calls and final reward fail read_fifo Request capacity exceeded.",
+      "code_change": "First edit added an unreachable read branch under the write-only branch; second removed it. Final normalized token sequence exactly equals the original starting RTL.",
+      "first_fail_exposure": true,
+      "edits_after_feedback": 2,
+      "final_tokens_equal_start": true,
+      "cause": "AR credit still decrements during APB selection; R response consumption does not retire it.",
+      "evidence": [
+        "trace.json",
+        "candidate-04.sv",
+        "candidate-06.sv",
+        "submission/grade/result.json"
+      ]
+    },
+    "r01-test_diagnostic": {
+      "observed": "Both public calls and final reward fail read_fifo Request capacity exceeded.",
+      "code_change": "Replaced enqueue-index conditionals with count-bit ternary then head XOR count-bit expressions. Kept premature AR decrement/head advance at selection.",
+      "first_fail_exposure": true,
+      "edits_after_feedback": 2,
+      "final_tokens_equal_start": false,
+      "actual_diagnostic": "A protocol timing or stability requirement failed.",
+      "limit": "Different tokens do not establish a useful or semantically different repair; no claim of formal equivalence.",
+      "evidence": [
+        "trace.json",
+        "candidate-04.sv",
+        "candidate-06.sv",
+        "submission/grade/result.json"
+      ]
+    },
+    "r02-test_diagnostic": {
+      "observed": "Two public calls and terminal fail read_fifo Request capacity exceeded.",
+      "code_change": "Apart from comments/formatting, only reordered the AW/W nonempty conjunction. AR decrement/head advance remains at APB selection. Second FAIL followed by submit without another edit.",
+      "first_fail_exposure": true,
+      "edits_after_feedback": 1,
+      "final_tokens_equal_start": false,
+      "actual_diagnostic": "A protocol timing or stability requirement failed.",
+      "evidence": [
+        "trace.json",
+        "candidate-04.sv",
+        "submission/grade/result.json"
+      ]
+    },
+    "r02-test_verdict": {
+      "observed": "Two public calls and terminal retain read_fifo capacity violation.",
+      "code_change": "Adds b_consume/r_consume wires but never uses them to change queue counters or heads. AR still retires at selection. Only one edit; second FAIL followed by submit.",
+      "first_fail_exposure": true,
+      "edits_after_feedback": 1,
+      "final_tokens_equal_start": false,
+      "evidence": [
+        "trace.json",
+        "candidate-04.sv",
+        "submission/grade/result.json"
+      ]
+    },
+    "r03-test_verdict": {
+      "observed": "Public retest and private/heldout still fail read_fifo capacity bound.",
+      "code_change": "Moves AR decrement/head advance from selection to APB completion in ACCESS. This changes actual logic, but response-pending reads must retain credit until R handshake, so retirement remains too early.",
+      "first_fail_exposure": true,
+      "edits_after_feedback": 1,
+      "final_tokens_equal_start": false,
+      "limit": "Targets the relevant lifetime boundary without fully satisfying it; fail-fast does not certify other push/pop logic.",
+      "evidence": [
+        "trace.json",
+        "candidate-04.sv",
+        "submission/grade/result.json"
+      ]
+    },
+    "r03-test_diagnostic": {
+      "observed": "Public retest passes read_fifo then fails intake_r_stall; private/heldout fail the same FIFO-head check.",
+      "code_change": "Moves AR count retirement to R consumption but leaves AR head advance at selection. An accepted new read during an outstanding response uses inconsistent head/count for its write slot. Second edit is byte-identical to the first; no additional fix after the second FAIL.",
+      "first_fail_exposure": true,
+      "edits_after_feedback": 2,
+      "distinct_edited_candidates": 1,
+      "final_tokens_equal_start": false,
+      "limit": "Observed progress on the original failing case does not certify all capacity behavior or other FIFO logic; final reward remains0.",
+      "evidence": [
+        "trace.json",
+        "candidate-04.sv",
+        "candidate-06.sv",
+        "public-05/result.json",
+        "submission/grade/result.json"
+      ]
+    }
+  }
+}

@@ -1,0 +1,489 @@
+{
+  "schema": "task-research-index-v1",
+  "scope": "Research evidence index, not execution admission. Cohorts remain separate; no pooled task success-rate ranking. Task contracts stay frozen while measurements accumulate.",
+  "generator_sha256": "c454d79edd6ce64be8a7c4c95812691f825563a0eebaa437cb976dee59b8e323",
+  "tasks": {
+    "axil_to_apb4_001": {
+      "task_id": "axil_to_apb4_001",
+      "version": 3,
+      "title": "Single-outstanding protocol bridge",
+      "metadata": "tasks/axil_to_apb4_001/task.yaml",
+      "spec": "tasks/axil_to_apb4_001/spec.md",
+      "initial_rtl": "tasks/axil_to_apb4_001/workspace/bridge.sv",
+      "verifier": "verifier.campaign",
+      "capabilities": [
+        "independent-write-halves",
+        "single-outstanding-conversion",
+        "apb-wait-error",
+        "response-backpressure",
+        "reset-cancellation"
+      ],
+      "protocols": [
+        "AXI4-Lite",
+        "APB4"
+      ],
+      "quality_kind": "legacy_revision3",
+      "reward_contract": "terminal_binary_with_infrastructure_null",
+      "cohorts": [
+        {
+          "evidence": "experiments/batch-study-001/text-v1-stopped",
+          "experiment_sha256": "ff12cf29ce1d76952e9820de0c96edf5bd4d7398600ade09d7e0dcbfc2d06d2e",
+          "publication_sha256": "030b4c007f29ab765510f95163825a5e957832d5ad969400f6f4cf5b8b78284c",
+          "study": "independent-v1",
+          "protocol": "text-json-atomic-v1",
+          "model": "deepseek-flash",
+          "source_commit": "5375091f2f7fc4b310cd6a5dc1934e498133e3c3",
+          "task_metadata_sha256": "0b0b3241bd460fa87014fd4ce50c58b708610974ff8aed43d242f224a73f3bd6",
+          "matching_current_task_version": 3,
+          "verifier_manifest_sha256": "6203c028e0f525466761a296d0e0072fb6ed3034e52c2a66853d4f78c9ef21cc",
+          "toolchain": {
+            "vcs": "O-2018.09-SP2",
+            "vip": "R-2020.12",
+            "uvm": "1.2",
+            "python": "3.6.9 (controller); 3.10.12 (worker)",
+            "harness": "0.2.2rc2",
+            "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+          },
+          "groups": {
+            "spec_only": {
+              "started": 6,
+              "valid_submissions": 5,
+              "reward_counts": {
+                "one": 5,
+                "zero": 0,
+                "null": 1
+              },
+              "feedback_exposed": 0,
+              "tokens": 279221,
+              "episode_seconds": 1324.758,
+              "terminal_categories": {
+                "agent_incomplete": 1,
+                "pass": 5
+              }
+            },
+            "test_verdict": {
+              "started": 5,
+              "valid_submissions": 5,
+              "reward_counts": {
+                "one": 4,
+                "zero": 1,
+                "null": 0
+              },
+              "feedback_exposed": 5,
+              "tokens": 90469,
+              "episode_seconds": 1084.076,
+              "terminal_categories": {
+                "pass": 4,
+                "protocol_timing_error": 1
+              }
+            },
+            "test_diagnostic": {
+              "started": 6,
+              "valid_submissions": 6,
+              "reward_counts": {
+                "one": 1,
+                "zero": 5,
+                "null": 0
+              },
+              "feedback_exposed": 3,
+              "tokens": 183382,
+              "episode_seconds": 962.162,
+              "terminal_categories": {
+                "pass": 1,
+                "protocol_timing_error": 5
+              }
+            }
+          },
+          "api_currency_cost": null
+        },
+        {
+          "evidence": "experiments/batch-study-001/text-v2-independent",
+          "experiment_sha256": "7177640d618fcf85d912299f1b3a6cd754f36a8aa0b1e7f23188caa5a448eec2",
+          "publication_sha256": "c67d62dc052493ef93c4f012385c552127cc2773d183128ded3f1868cc23312d",
+          "study": "independent-v2",
+          "protocol": "text-json-atomic-v2",
+          "model": "deepseek-flash",
+          "source_commit": "ec655afdc6cff7241ce31760c3db1573b4afb242",
+          "task_metadata_sha256": "0b0b3241bd460fa87014fd4ce50c58b708610974ff8aed43d242f224a73f3bd6",
+          "matching_current_task_version": 3,
+          "verifier_manifest_sha256": "6203c028e0f525466761a296d0e0072fb6ed3034e52c2a66853d4f78c9ef21cc",
+          "toolchain": {
+            "vcs": "O-2018.09-SP2",
+            "vip": "R-2020.12",
+            "uvm": "1.2",
+            "python": "3.6.9 (controller); 3.10.12 (worker)",
+            "harness": "0.2.2rc2",
+            "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+          },
+          "groups": {
+            "spec_only": {
+              "started": 10,
+              "valid_submissions": 10,
+              "reward_counts": {
+                "one": 7,
+                "zero": 3,
+                "null": 0
+              },
+              "feedback_exposed": 0,
+              "tokens": 98810,
+              "episode_seconds": 2320.701,
+              "terminal_categories": {
+                "pass": 7,
+                "protocol_timing_error": 3
+              }
+            },
+            "test_verdict": {
+              "started": 10,
+              "valid_submissions": 10,
+              "reward_counts": {
+                "one": 8,
+                "zero": 2,
+                "null": 0
+              },
+              "feedback_exposed": 9,
+              "tokens": 131645,
+              "episode_seconds": 2317.462,
+              "terminal_categories": {
+                "pass": 8,
+                "protocol_timing_error": 2
+              }
+            },
+            "test_diagnostic": {
+              "started": 10,
+              "valid_submissions": 10,
+              "reward_counts": {
+                "one": 8,
+                "zero": 2,
+                "null": 0
+              },
+              "feedback_exposed": 7,
+              "tokens": 156599,
+              "episode_seconds": 2404.643,
+              "terminal_categories": {
+                "pass": 8,
+                "protocol_timing_error": 2
+              }
+            }
+          },
+          "api_currency_cost": null
+        },
+        {
+          "evidence": "experiments/batch-study-001/text-v2-repair",
+          "experiment_sha256": "9fc88133e4748e50de50df193264fb193cd346a7e96f059e929550624a0338e7",
+          "publication_sha256": "71e54cfead882c03ab253758fa26d6fc2962f0002ef8cb898cfec2ac5958bd40",
+          "study": "repair-v2",
+          "protocol": "text-json-atomic-v2",
+          "model": "deepseek-flash",
+          "source_commit": "ec655afdc6cff7241ce31760c3db1573b4afb242",
+          "task_metadata_sha256": "0b0b3241bd460fa87014fd4ce50c58b708610974ff8aed43d242f224a73f3bd6",
+          "matching_current_task_version": 3,
+          "verifier_manifest_sha256": "6203c028e0f525466761a296d0e0072fb6ed3034e52c2a66853d4f78c9ef21cc",
+          "toolchain": {
+            "vcs": "O-2018.09-SP2",
+            "vip": "R-2020.12",
+            "uvm": "1.2",
+            "python": "3.6.9 (controller); 3.10.12 (worker)",
+            "harness": "0.2.2rc2",
+            "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+          },
+          "groups": {
+            "test_verdict": {
+              "started": 3,
+              "valid_submissions": 3,
+              "reward_counts": {
+                "one": 1,
+                "zero": 2,
+                "null": 0
+              },
+              "feedback_exposed": 3,
+              "tokens": 49690,
+              "episode_seconds": 849.842,
+              "terminal_categories": {
+                "pass": 1,
+                "protocol_timing_error": 2
+              }
+            },
+            "test_diagnostic": {
+              "started": 3,
+              "valid_submissions": 3,
+              "reward_counts": {
+                "one": 3,
+                "zero": 0,
+                "null": 0
+              },
+              "feedback_exposed": 3,
+              "tokens": 50364,
+              "episode_seconds": 1031.708,
+              "terminal_categories": {
+                "pass": 3
+              }
+            }
+          },
+          "api_currency_cost": null
+        }
+      ],
+      "calibration": "Empirical, cohort-specific; no absolute Easy/Hard label",
+      "contamination_risks": [
+        "Spec, reference RTL and verifier source are public and may enter future pretraining",
+        "Solver runtime hides reference/private inputs, but this does not establish absence of prior model knowledge",
+        "Held-out uses separate inputs of the same task, not an unseen task family"
+      ]
+    },
+    "axil_to_apb4_router_002": {
+      "task_id": "axil_to_apb4_router_002",
+      "version": 1,
+      "title": "Three-target address routing",
+      "metadata": "tasks/axil_to_apb4_router_002/task.json",
+      "spec": "tasks/axil_to_apb4_router_002/spec.md",
+      "initial_rtl": "tasks/axil_to_apb4_router_002/workspace/bridge.sv",
+      "verifier": "verifier.task002.campaign",
+      "capabilities": [
+        "full-address-decode",
+        "one-hot-routing",
+        "local-address-translation",
+        "selected-response-mux",
+        "decode-error",
+        "reset-cancellation"
+      ],
+      "protocols": [
+        "AXI4-Lite",
+        "APB4"
+      ],
+      "quality_kind": "source_bound_gate",
+      "reward_contract": "terminal_binary_with_infrastructure_null",
+      "cohorts": [
+        {
+          "evidence": "experiments/task002-v1/pilot",
+          "experiment_sha256": "28017c3374bf6a433b34eca8d5c217ba30d8033d961837385019a278a778ec79",
+          "publication_sha256": "4e513614986d3ef39571d0b8e03353330d22ef29a7945b4cd58621789c19e9fa",
+          "study": "independent-v2",
+          "protocol": "text-json-atomic-v2",
+          "model": "deepseek-flash",
+          "source_commit": "cd4118b1e4cb81ce5b5dd81ca3d4259cfca28413",
+          "task_metadata_sha256": "33c34dfe311605636c94b214edf8256d3923b18374b3ef5aac252ef05f2bacbe",
+          "matching_current_task_version": 1,
+          "verifier_manifest_sha256": "ec4e7d541c505a547413ac97bf215f57f5d62e03d2b8e9ea2fc8c9c86f1f3d7a",
+          "toolchain": {
+            "vcs": "O-2018.09-SP2",
+            "vip": "R-2020.12",
+            "uvm": "1.2",
+            "python": "3.6.9 (controller); 3.10.12 (worker)",
+            "harness": "0.2.2rc2",
+            "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+          },
+          "groups": {
+            "spec_only": {
+              "started": 3,
+              "valid_submissions": 3,
+              "reward_counts": {
+                "one": 2,
+                "zero": 1,
+                "null": 0
+              },
+              "feedback_exposed": 0,
+              "tokens": 37886,
+              "episode_seconds": 677.899,
+              "terminal_categories": {
+                "compile_error": 1,
+                "pass": 2
+              }
+            },
+            "test_verdict": {
+              "started": 3,
+              "valid_submissions": 3,
+              "reward_counts": {
+                "one": 2,
+                "zero": 1,
+                "null": 0
+              },
+              "feedback_exposed": 3,
+              "tokens": 107770,
+              "episode_seconds": 1059.597,
+              "terminal_categories": {
+                "pass": 2,
+                "transaction_functional_error": 1
+              }
+            },
+            "test_diagnostic": {
+              "started": 3,
+              "valid_submissions": 3,
+              "reward_counts": {
+                "one": 2,
+                "zero": 1,
+                "null": 0
+              },
+              "feedback_exposed": 2,
+              "tokens": 80050,
+              "episode_seconds": 763.132,
+              "terminal_categories": {
+                "pass": 2,
+                "transaction_functional_error": 1
+              }
+            }
+          },
+          "api_currency_cost": null
+        }
+      ],
+      "calibration": "Empirical, cohort-specific; no absolute Easy/Hard label",
+      "contamination_risks": [
+        "Spec, reference RTL and verifier source are public and may enter future pretraining",
+        "Solver runtime hides reference/private inputs, but this does not establish absence of prior model knowledge",
+        "Held-out uses separate inputs of the same task, not an unseen task family"
+      ]
+    },
+    "axil_to_apb4_queue_003": {
+      "task_id": "axil_to_apb4_queue_003",
+      "version": 1,
+      "title": "Bounded request queues and arbitration",
+      "metadata": "tasks/axil_to_apb4_queue_003/task.json",
+      "spec": "tasks/axil_to_apb4_queue_003/spec.md",
+      "initial_rtl": "tasks/axil_to_apb4_queue_003/workspace/bridge.sv",
+      "verifier": "verifier.task003.campaign",
+      "capabilities": [
+        "independent-request-fifos",
+        "bounded-outstanding-credit",
+        "read-write-arbitration",
+        "response-ordering",
+        "reset-ledgers"
+      ],
+      "protocols": [
+        "AXI4-Lite",
+        "APB4"
+      ],
+      "quality_kind": "source_bound_gate",
+      "reward_contract": "terminal_binary_with_infrastructure_null",
+      "cohorts": [
+        {
+          "evidence": "experiments/task003-v1/pilot",
+          "experiment_sha256": "d0b03989a8261e4f7971a11c85f0ec391ac401540b5421a4804f8089c0e3267c",
+          "publication_sha256": "64dbe085cd5d0d82d2955bee842cd77e0028bd00f9f363115fe71f210c8888d4",
+          "study": "independent-v2",
+          "protocol": "text-json-atomic-v2",
+          "model": "deepseek-flash",
+          "source_commit": "b18b6c33370ac63f724b86ec801843436c9e28db",
+          "task_metadata_sha256": "b4819dc6230c2550d1afa676c9a7a787eb0d5f9fc626105eb9dabe61917b26ba",
+          "matching_current_task_version": 1,
+          "verifier_manifest_sha256": "e84e12ce823256be0215d3a291093757c56bda2fa0dedb943afda395ae7b07e5",
+          "toolchain": {
+            "vcs": "O-2018.09-SP2",
+            "vip": "R-2020.12",
+            "uvm": "1.2",
+            "python": "3.6.9 (controller); 3.10.12 (worker)",
+            "harness": "0.2.2rc2",
+            "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+          },
+          "groups": {
+            "spec_only": {
+              "started": 3,
+              "valid_submissions": 3,
+              "reward_counts": {
+                "one": 0,
+                "zero": 3,
+                "null": 0
+              },
+              "feedback_exposed": 0,
+              "tokens": 40206,
+              "episode_seconds": 431.541,
+              "terminal_categories": {
+                "protocol_timing_error": 2,
+                "transaction_functional_error": 1
+              }
+            },
+            "test_verdict": {
+              "started": 3,
+              "valid_submissions": 3,
+              "reward_counts": {
+                "one": 1,
+                "zero": 2,
+                "null": 0
+              },
+              "feedback_exposed": 1,
+              "tokens": 74852,
+              "episode_seconds": 529.234,
+              "terminal_categories": {
+                "pass": 1,
+                "transaction_functional_error": 2
+              }
+            },
+            "test_diagnostic": {
+              "started": 3,
+              "valid_submissions": 3,
+              "reward_counts": {
+                "one": 0,
+                "zero": 3,
+                "null": 0
+              },
+              "feedback_exposed": 1,
+              "tokens": 80326,
+              "episode_seconds": 524.7479999999999,
+              "terminal_categories": {
+                "protocol_timing_error": 3
+              }
+            }
+          },
+          "api_currency_cost": null
+        },
+        {
+          "evidence": "experiments/task003-v1/repair",
+          "experiment_sha256": "4c570d06099eb7ed7a6f6b4bbb14cc817a1558cfcfeb44ee705705cc64e27548",
+          "publication_sha256": "a3511d8315e77b0a7be6d5d7db6793c0550e5165d568250aaa4dac9a62de278a",
+          "study": "repair-v2",
+          "protocol": "text-json-atomic-v2",
+          "model": "deepseek-flash",
+          "source_commit": "b18b6c33370ac63f724b86ec801843436c9e28db",
+          "task_metadata_sha256": "b4819dc6230c2550d1afa676c9a7a787eb0d5f9fc626105eb9dabe61917b26ba",
+          "matching_current_task_version": 1,
+          "verifier_manifest_sha256": "e84e12ce823256be0215d3a291093757c56bda2fa0dedb943afda395ae7b07e5",
+          "toolchain": {
+            "vcs": "O-2018.09-SP2",
+            "vip": "R-2020.12",
+            "uvm": "1.2",
+            "python": "3.6.9 (controller); 3.10.12 (worker)",
+            "harness": "0.2.2rc2",
+            "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+          },
+          "groups": {
+            "test_verdict": {
+              "started": 3,
+              "valid_submissions": 3,
+              "reward_counts": {
+                "one": 0,
+                "zero": 3,
+                "null": 0
+              },
+              "feedback_exposed": 3,
+              "tokens": 84100,
+              "episode_seconds": 690.818,
+              "terminal_categories": {
+                "protocol_timing_error": 3
+              }
+            },
+            "test_diagnostic": {
+              "started": 3,
+              "valid_submissions": 3,
+              "reward_counts": {
+                "one": 0,
+                "zero": 3,
+                "null": 0
+              },
+              "feedback_exposed": 3,
+              "tokens": 93157,
+              "episode_seconds": 704.748,
+              "terminal_categories": {
+                "protocol_timing_error": 2,
+                "transaction_functional_error": 1
+              }
+            }
+          },
+          "api_currency_cost": null
+        }
+      ],
+      "calibration": "Empirical, cohort-specific; no absolute Easy/Hard label",
+      "contamination_risks": [
+        "Spec, reference RTL and verifier source are public and may enter future pretraining",
+        "Solver runtime hides reference/private inputs, but this does not establish absence of prior model knowledge",
+        "Held-out uses separate inputs of the same task, not an unseen task family"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1052 @@
+{
+  "reward": 1.0,
+  "category": "pass",
+  "verification_complete": true,
+  "verdict_determinate": true,
+  "source_sha256": "e159fbc899a98512aca32c2a4be821216310bf75cb50e8bd3453483b20688e81",
+  "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+  "required_cases": [
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8"
+  ],
+  "planned": 210,
+  "checked": 178,
+  "aborted": 32,
+  "compile_exit": 0,
+  "cases": [
+    {
+      "name": "address_data",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 4,
+        "ar": 4,
+        "retired_w": 4,
+        "retired_r": 4,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "aw_full",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_memory_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_ADDRESS",
+        "Q_DATA"
+      ]
+    },
+    {
+      "name": "write_fifo",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 12,
+        "apb": 12,
+        "checked": 12,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 8,
+        "w": 8,
+        "ar": 4,
+        "retired_w": 8,
+        "retired_r": 4,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 12
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "aw_full",
+        "b_stall",
+        "r_stall",
+        "strobe_0",
+        "strobe_1",
+        "strobe_2",
+        "strobe_3",
+        "strobe_4",
+        "strobe_5",
+        "strobe_6",
+        "strobe_7",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_WRITE_FIFO",
+        "Q_AW_CAPACITY",
+        "Q_W_CAPACITY",
+        "Q_WRAP",
+        "Q_STROBE"
+      ]
+    },
+    {
+      "name": "read_fifo",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 0,
+        "w": 0,
+        "ar": 8,
+        "retired_w": 0,
+        "retired_r": 8,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "r_stall"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_READ_FIFO",
+        "Q_AR_CAPACITY",
+        "Q_WRAP"
+      ]
+    },
+    {
+      "name": "intake_b_stall",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 4,
+        "ar": 4,
+        "retired_w": 4,
+        "retired_r": 4,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "intake_during_b_stall",
+        "r_stall",
+        "read_write_overlap",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_INTAKE_WHILE_RESPONSE",
+        "Q_CAPACITY_CREDIT",
+        "Q_B_HOLD"
+      ]
+    },
+    {
+      "name": "intake_r_stall",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 3,
+        "w": 3,
+        "ar": 5,
+        "retired_w": 3,
+        "retired_r": 5,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "intake_during_r_stall",
+        "r_stall",
+        "read_write_overlap",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_INTAKE_WHILE_RESPONSE",
+        "Q_CAPACITY_CREDIT",
+        "Q_R_HOLD"
+      ]
+    },
+    {
+      "name": "partial_aw",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 6,
+        "apb": 6,
+        "checked": 6,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 2,
+        "w": 2,
+        "ar": 4,
+        "retired_w": 2,
+        "retired_r": 4,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 6
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_ahead",
+        "aw_full",
+        "b_stall",
+        "r_stall",
+        "read_during_partial_write",
+        "read_write_overlap",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_partial_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_INDEPENDENT_HALVES",
+        "Q_READ_DURING_PARTIAL_WRITE"
+      ]
+    },
+    {
+      "name": "partial_w",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 6,
+        "apb": 6,
+        "checked": 6,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 2,
+        "w": 2,
+        "ar": 4,
+        "retired_w": 2,
+        "retired_r": 4,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 6
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "r_stall",
+        "read_during_partial_write",
+        "read_write_overlap",
+        "strobe_15",
+        "w_ahead",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_partial_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_INDEPENDENT_HALVES",
+        "Q_READ_DURING_PARTIAL_WRITE"
+      ]
+    },
+    {
+      "name": "round_robin",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 12,
+        "apb": 12,
+        "checked": 12,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 6,
+        "w": 6,
+        "ar": 6,
+        "retired_w": 6,
+        "retired_r": 6,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 12
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "r_stall",
+        "read_write_overlap",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_arbitration_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_ROUND_ROBIN",
+        "Q_SERIAL_EXECUTOR",
+        "Q_PAIRING"
+      ]
+    },
+    {
+      "name": "preference_history",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 14,
+      "scoreboard": {
+        "planned": 14,
+        "axi": 14,
+        "apb": 14,
+        "checked": 14,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 6,
+        "w": 6,
+        "ar": 8,
+        "retired_w": 6,
+        "retired_r": 8,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 14
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "r_stall",
+        "read_write_overlap",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_arbitration_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_ROUND_ROBIN_HISTORY",
+        "Q_NO_STARVATION"
+      ]
+    },
+    {
+      "name": "wait_error_memory",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 20,
+      "scoreboard": {
+        "planned": 20,
+        "axi": 20,
+        "apb": 20,
+        "checked": 20,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 8,
+        "w": 8,
+        "ar": 12,
+        "retired_w": 8,
+        "retired_r": 12,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 20
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "r_stall",
+        "read_error",
+        "read_write_overlap",
+        "strobe_1",
+        "strobe_11",
+        "strobe_13",
+        "strobe_15",
+        "strobe_3",
+        "strobe_5",
+        "strobe_7",
+        "strobe_9",
+        "w_full",
+        "write_error"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_memory_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_SELECTED_WAIT",
+        "Q_ERROR_RESPONSE",
+        "Q_MEMORY_ORDER",
+        "Q_ERROR_NO_WRITE"
+      ]
+    },
+    {
+      "name": "random_0",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 12,
+        "apb": 12,
+        "checked": 12,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 7,
+        "w": 7,
+        "ar": 5,
+        "retired_w": 7,
+        "retired_r": 5,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 12
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_ahead",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "intake_during_b_stall",
+        "r_stall",
+        "read_error",
+        "read_write_overlap",
+        "strobe_0",
+        "strobe_1",
+        "strobe_12",
+        "strobe_14",
+        "strobe_3",
+        "strobe_8",
+        "w_full",
+        "write_error"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_random_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_RANDOM_INTERLEAVING",
+        "Q_LONG_RUN"
+      ]
+    },
+    {
+      "name": "reset_1",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 4,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 2,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 6,
+        "canceled_aw": 2,
+        "canceled_w": 0,
+        "canceled_ar": 2,
+        "resets": 1,
+        "grants": 9
+      },
+      "coverage_bins": [
+        "ar_full",
+        "aw_ahead",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "r_stall",
+        "read_during_partial_write",
+        "read_write_overlap",
+        "reset_queued",
+        "reset_read_preference",
+        "strobe_15"
+      ],
+      "reset_observations": [
+        {
+          "stage": 1,
+          "canceled": 4,
+          "aw": 2,
+          "w": 0,
+          "ar": 2,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_RESET_STAGE_1",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE"
+      ]
+    },
+    {
+      "name": "reset_2",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 4,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 2,
+        "w": 4,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 6,
+        "canceled_aw": 0,
+        "canceled_w": 2,
+        "canceled_ar": 2,
+        "resets": 1,
+        "grants": 9
+      },
+      "coverage_bins": [
+        "ar_full",
+        "b_stall",
+        "both_eligible",
+        "r_stall",
+        "read_during_partial_write",
+        "read_write_overlap",
+        "reset_queued",
+        "reset_read_preference",
+        "strobe_15",
+        "w_ahead",
+        "w_full"
+      ],
+      "reset_observations": [
+        {
+          "stage": 2,
+          "canceled": 4,
+          "aw": 0,
+          "w": 2,
+          "ar": 2,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_RESET_STAGE_2",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE"
+      ]
+    },
+    {
+      "name": "reset_3",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 4,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 3,
+        "ar": 6,
+        "retired_w": 2,
+        "retired_r": 6,
+        "canceled_aw": 2,
+        "canceled_w": 1,
+        "canceled_ar": 0,
+        "resets": 1,
+        "grants": 9
+      },
+      "coverage_bins": [
+        "aw_ahead",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "r_stall",
+        "read_write_overlap",
+        "reset_queued",
+        "reset_read_preference",
+        "strobe_15"
+      ],
+      "reset_observations": [
+        {
+          "stage": 3,
+          "canceled": 4,
+          "aw": 2,
+          "w": 1,
+          "ar": 0,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_RESET_STAGE_3",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE"
+      ]
+    },
+    {
+      "name": "reset_4",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 4,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 2,
+        "ar": 7,
+        "retired_w": 2,
+        "retired_r": 6,
+        "canceled_aw": 2,
+        "canceled_w": 0,
+        "canceled_ar": 1,
+        "resets": 1,
+        "grants": 9
+      },
+      "coverage_bins": [
+        "aw_ahead",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "r_stall",
+        "read_during_partial_write",
+        "read_write_overlap",
+        "reset_queued",
+        "reset_read_preference",
+        "strobe_15"
+      ],
+      "reset_observations": [
+        {
+          "stage": 4,
+          "canceled": 4,
+          "aw": 2,
+          "w": 0,
+          "ar": 1,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_RESET_STAGE_4",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE"
+      ]
+    },
+    {
+      "name": "reset_5",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 4,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 4,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 6,
+        "canceled_aw": 2,
+        "canceled_w": 2,
+        "canceled_ar": 2,
+        "resets": 1,
+        "grants": 9
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "r_stall",
+        "read_write_overlap",
+        "reset_queued",
+        "reset_read_preference",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [
+        {
+          "stage": 5,
+          "canceled": 4,
+          "aw": 2,
+          "w": 2,
+          "ar": 2,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_RESET_STAGE_5",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE"
+      ]
+    },
+    {
+      "name": "reset_6",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 4,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 4,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 6,
+        "canceled_aw": 2,
+        "canceled_w": 2,
+        "canceled_ar": 2,
+        "resets": 1,
+        "grants": 9
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "r_stall",
+        "read_write_overlap",
+        "reset_queued",
+        "reset_read_preference",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [
+        {
+          "stage": 6,
+          "canceled": 4,
+          "aw": 2,
+          "w": 2,
+          "ar": 2,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_RESET_STAGE_6",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE"
+      ]
+    },
+    {
+      "name": "reset_7",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 8,
+        "apb": 9,
+        "checked": 8,
+        "aborted": 4,
+        "aborted_apb": 1,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 4,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 6,
+        "canceled_aw": 2,
+        "canceled_w": 2,
+        "canceled_ar": 2,
+        "resets": 1,
+        "grants": 9
+      },
+      "coverage_bins": [
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "intake_during_b_stall",
+        "r_stall",
+        "read_write_overlap",
+        "reset_queued",
+        "reset_read_preference",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [
+        {
+          "stage": 7,
+          "canceled": 4,
+          "aw": 2,
+          "w": 2,
+          "ar": 2,
+          "apb_completed": 1
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_RESET_STAGE_7",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE"
+      ]
+    },
+    {
+      "name": "reset_8",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 8,
+        "apb": 9,
+        "checked": 8,
+        "aborted": 4,
+        "aborted_apb": 1,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 4,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 6,
+        "canceled_aw": 2,
+        "canceled_w": 2,
+        "canceled_ar": 2,
+        "resets": 1,
+        "grants": 9
+      },
+      "coverage_bins": [
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "intake_during_r_stall",
+        "r_stall",
+        "read_write_overlap",
+        "reset_queued",
+        "reset_read_preference",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [
+        {
+          "stage": 8,
+          "canceled": 4,
+          "aw": 2,
+          "w": 2,
+          "ar": 2,
+          "apb_completed": 1
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_RESET_STAGE_8",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE"
+      ]
+    }
+  ]
+}

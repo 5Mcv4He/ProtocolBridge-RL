@@ -1,0 +1,32 @@
+[
+  {
+    "turn": 0,
+    "prompt_sha256": "3c9a7fb650dac128e145d4fde199054240498e46b007da93de6cc96114928acb",
+    "prompt_bytes": 1192
+  },
+  {
+    "turn": 1,
+    "prompt_sha256": "98f8b76e222e9d8074179a55635b655fea4e1bc9d8c4f0a227abfe0d29960568",
+    "prompt_bytes": 6719
+  },
+  {
+    "turn": 2,
+    "prompt_sha256": "3fcd026dd4c62e0f0b211be2c99226fd515ea511ee4d80ebecc610f185ca6872",
+    "prompt_bytes": 778
+  },
+  {
+    "turn": 3,
+    "prompt_sha256": "02040d93d56d195d51ba925bdbfe8e10f940045285697f00431cf73f36329d06",
+    "prompt_bytes": 321
+  },
+  {
+    "turn": 4,
+    "prompt_sha256": "02040d93d56d195d51ba925bdbfe8e10f940045285697f00431cf73f36329d06",
+    "prompt_bytes": 321
+  },
+  {
+    "turn": 5,
+    "prompt_sha256": "d38d1bc711d04622a01e140b4896d844fa8366cb4f490716705e767f74bf78ce",
+    "prompt_bytes": 37
+  }
+]

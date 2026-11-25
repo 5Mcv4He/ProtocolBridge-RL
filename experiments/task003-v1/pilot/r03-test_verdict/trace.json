@@ -1,0 +1,118 @@
+[
+  {
+    "action_index": 1,
+    "action": {
+      "tool": "read",
+      "file": "spec.md"
+    },
+    "executed": true,
+    "observation": {
+      "file": "spec.md",
+      "content_sha256": "68f0b39830ff9aba4ca439c8b39eb3d5feab3b6dd0d00420150cdca3bf07fc55",
+      "content_bytes": 6559
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 2,
+    "action": {
+      "tool": "read",
+      "file": "bridge.sv"
+    },
+    "executed": true,
+    "observation": {
+      "file": "bridge.sv",
+      "content_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "content_bytes": 713
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 3,
+    "action": {
+      "tool": "edit",
+      "note": "full file replace",
+      "content_sha256": "2861c9d3df816f1bcfe364796ccd23ad647d06a561720273a9f6b6e6f7e3dcb9",
+      "candidate_file": null
+    },
+    "executed": false,
+    "observation": {
+      "status": "REJECTED",
+      "reason": "invalid_action",
+      "instruction": "Resend ONE action object with exactly the listed fields. Do not append another action. The rejected reply executed nothing.",
+      "action_fields": {
+        "read": [
+          "file",
+          "tool"
+        ],
+        "edit": [
+          "content",
+          "tool"
+        ],
+        "test": [
+          "tool"
+        ],
+        "submit": [
+          "tool"
+        ]
+      }
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 4,
+    "action": {
+      "tool": "edit",
+      "note": "full file replace",
+      "content_sha256": "1fc443ba3328907c13839758afcb5bc5fa80435536141d71c6a6c306ed679ef0",
+      "candidate_file": null
+    },
+    "executed": false,
+    "observation": {
+      "status": "REJECTED",
+      "reason": "invalid_action",
+      "instruction": "Resend ONE action object with exactly the listed fields. Do not append another action. The rejected reply executed nothing.",
+      "action_fields": {
+        "read": [
+          "file",
+          "tool"
+        ],
+        "edit": [
+          "content",
+          "tool"
+        ],
+        "test": [
+          "tool"
+        ],
+        "submit": [
+          "tool"
+        ]
+      }
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 5,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "bffddd593204c7dcf8bb29b538fb476a83c8c76b2fb1972c4f32719e65ccfde5",
+      "candidate_file": "candidate-05.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 6,
+    "action": {
+      "tool": "submit"
+    },
+    "executed": true,
+    "observation": {
+      "status": "SUBMITTED"
+    },
+    "observation_delivered": false
+  }
+]

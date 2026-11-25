@@ -28,3 +28,9 @@ python3 scripts/tasks.py rollout axil_to_apb4_queue_003 -- \
 目录只是统一管理与调用结构，尚不是自动Spec/Verifier生成器。增加一个Task需要独立契约、实现/错误对照、实际验证、明确版本与人类README。更新目录后仍须在控制器支持的任务集合中显式登记，避免任意元数据动态扩大求解权限。
 
 验证目录和CLI：`python3 scripts/test_task_catalog.py`。这组测试不消耗VCS许可证；真正的RTL验收使用上面的quality命令。`quality`对001调用原有正反对照，对002/003执行新门禁；两者的历史验收范围不能混称。
+
+## 任务契约与研究元数据分开更新
+
+[任务研究索引](../experiments/task-research-index.json)将每个Task的能力、协议、验证后端、版本、污染风险与各次真实实验关联，提供逐Policy样本量、0/1/null、反馈曝光、Token、耗时和来源哈希。由`scripts/research_index.py`从已审查证据生成，不合并独立生成与修复，也不授予执行准入。每次有新结果更新研究索引，保持冻结Spec/任务包不变。
+
+当前实测：[001批量研究](batch-evaluation-report.md)、[002路由](task002-evaluation-report.md)、[003独立生成](task003-evaluation-report.md)、[003同起点修复](task003-repair-report.md)。当前研究报告由此固定索引链接；历史冻结任务包不为追加结果回改。

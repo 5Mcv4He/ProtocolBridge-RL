@@ -1,0 +1,161 @@
+{
+  "scope": "Only actually delivered public test observations; terminal_reward is research-side data, never solver feedback. Full solver-input audit remains in trusted storage.",
+  "trials": [
+    {
+      "trial": "r01-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "33aad137a76fcb4d30ac0f9d5d0035191a4f0852b98961ad0712a4c3a9bad065",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "6cc551000011e6831603bef10dd5499a583db46c87f214721d06f83f7e03cfb6",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "03d2666f7e9950789773b14dc8beb9c6f85c6031572001d053d1acbc294a4d9a",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r02-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "780651e157b17b1a88356b4b8e171a5b44907417e2eecf7530a8620107773ed0",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r03-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "7489d1bf19985a34db7c7f4717cc1c5a63a565bfeabe44b2e970aff1e0103b61",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 3,
+          "candidate_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action_index": 5,
+          "candidate_sha256": "8b69498cc57ace906f524d874c6c3bff2f81d35a1383f72a7a1ad805deb21e2f",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "transaction_functional_error",
+            "first_failed_case": "intake_r_stall",
+            "diagnostic": "Transaction mapping, data, response or completion accounting failed."
+          }
+        }
+      ]
+    }
+  ]
+}

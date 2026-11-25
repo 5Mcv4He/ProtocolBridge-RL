@@ -1,0 +1,22 @@
+[
+  {
+    "kind": "io",
+    "wall_seconds": 0.005734835998737253
+  },
+  {
+    "kind": "io",
+    "wall_seconds": 0.0803426699967531
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.95324968299974
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 2.040612359000079
+  },
+  {
+    "kind": "simulate",
+    "wall_seconds": 1.900126251999609
+  }
+]

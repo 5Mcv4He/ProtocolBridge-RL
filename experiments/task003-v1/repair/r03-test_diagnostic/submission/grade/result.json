@@ -1,0 +1,246 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "8b69498cc57ace906f524d874c6c3bff2f81d35a1383f72a7a1ad805deb21e2f",
+  "suite_sha256": "11c5e67c4d0e2233c8999abd36238e8407d8213b0c2f1d816cb918b03d16d774",
+  "required_cases": [
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8"
+  ],
+  "failed_case": "intake_r_stall",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "address_data",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 4,
+        "ar": 4,
+        "retired_w": 4,
+        "retired_r": 4,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "aw_full",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_memory_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_ADDRESS",
+        "Q_DATA"
+      ]
+    },
+    {
+      "name": "write_fifo",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 36,
+      "scoreboard": {
+        "planned": 36,
+        "axi": 36,
+        "apb": 36,
+        "checked": 36,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 32,
+        "w": 32,
+        "ar": 4,
+        "retired_w": 32,
+        "retired_r": 4,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 36
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "aw_full",
+        "b_stall",
+        "r_stall",
+        "strobe_0",
+        "strobe_1",
+        "strobe_10",
+        "strobe_11",
+        "strobe_12",
+        "strobe_13",
+        "strobe_14",
+        "strobe_15",
+        "strobe_2",
+        "strobe_3",
+        "strobe_4",
+        "strobe_5",
+        "strobe_6",
+        "strobe_7",
+        "strobe_8",
+        "strobe_9",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_WRITE_FIFO",
+        "Q_AW_CAPACITY",
+        "Q_W_CAPACITY",
+        "Q_WRAP",
+        "Q_STROBE"
+      ]
+    },
+    {
+      "name": "read_fifo",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 32,
+      "scoreboard": {
+        "planned": 32,
+        "axi": 32,
+        "apb": 32,
+        "checked": 32,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 0,
+        "w": 0,
+        "ar": 32,
+        "retired_w": 0,
+        "retired_r": 32,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 32
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "r_stall"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_READ_FIFO",
+        "Q_AR_CAPACITY",
+        "Q_WRAP"
+      ]
+    },
+    {
+      "name": "intake_b_stall",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 4,
+        "ar": 4,
+        "retired_w": 4,
+        "retired_r": 4,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "intake_during_b_stall",
+        "r_stall",
+        "read_write_overlap",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_INTAKE_WHILE_RESPONSE",
+        "Q_CAPACITY_CREDIT",
+        "Q_B_HOLD"
+      ]
+    },
+    {
+      "name": "intake_r_stall",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 8,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_INTAKE_WHILE_RESPONSE",
+        "Q_CAPACITY_CREDIT",
+        "Q_R_HOLD"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "all_trials_entered_feedback_repair": true,
+  "diagnostic_group_exposed": true,
+  "verdict_group_no_diagnostic_fields": true,
+  "expanded_beyond_six": false,
+  "all_trials_count": 6,
+  "code_change_audit": "repair-code-changes.json"
+}

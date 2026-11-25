@@ -1,0 +1,52 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "37a9c0c841521b30c128d088dfe3f94fad846badd71aaf41097d6c8acdcce3a4",
+  "suite_sha256": "54d12ce01cb3810f76482f9eb79f7d2566bf06a3b694871ff603b8f86b3efe2d",
+  "required_cases": [
+    "round_robin",
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8"
+  ],
+  "failed_case": "round_robin",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "round_robin",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 32,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_arbitration_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_ROUND_ROBIN",
+        "Q_SERIAL_EXECUTOR",
+        "Q_PAIRING"
+      ]
+    }
+  ]
+}

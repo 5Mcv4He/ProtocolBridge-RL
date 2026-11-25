@@ -1,0 +1,155 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "780651e157b17b1a88356b4b8e171a5b44907417e2eecf7530a8620107773ed0",
+  "suite_sha256": "18f0dde2d56672acdf8063687cc95c60ee443a80a38f355d6b96e01f72f11b8b",
+  "required_cases": [
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8"
+  ],
+  "failed_case": "read_fifo",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "address_data",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 8,
+      "scoreboard": {
+        "planned": 8,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 4,
+        "ar": 4,
+        "retired_w": 4,
+        "retired_r": 4,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "aw_full",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_memory_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_ADDRESS",
+        "Q_DATA"
+      ]
+    },
+    {
+      "name": "write_fifo",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 36,
+      "scoreboard": {
+        "planned": 36,
+        "axi": 36,
+        "apb": 36,
+        "checked": 36,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 32,
+        "w": 32,
+        "ar": 4,
+        "retired_w": 32,
+        "retired_r": 4,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 36
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "aw_full",
+        "b_stall",
+        "r_stall",
+        "strobe_0",
+        "strobe_1",
+        "strobe_10",
+        "strobe_11",
+        "strobe_12",
+        "strobe_13",
+        "strobe_14",
+        "strobe_15",
+        "strobe_2",
+        "strobe_3",
+        "strobe_4",
+        "strobe_5",
+        "strobe_6",
+        "strobe_7",
+        "strobe_8",
+        "strobe_9",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_WRITE_FIFO",
+        "Q_AW_CAPACITY",
+        "Q_W_CAPACITY",
+        "Q_WRAP",
+        "Q_STROBE"
+      ]
+    },
+    {
+      "name": "read_fifo",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 32,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_READ_FIFO",
+        "Q_AR_CAPACITY",
+        "Q_WRAP"
+      ]
+    }
+  ]
+}

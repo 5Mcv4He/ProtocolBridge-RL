@@ -1,0 +1,123 @@
+[
+  {
+    "action_index": 1,
+    "action": {
+      "tool": "read",
+      "file": "spec.md"
+    },
+    "executed": true,
+    "observation": {
+      "file": "spec.md",
+      "content_sha256": "68f0b39830ff9aba4ca439c8b39eb3d5feab3b6dd0d00420150cdca3bf07fc55",
+      "content_bytes": 6559
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 2,
+    "action": {
+      "tool": "read",
+      "file": "bridge.sv"
+    },
+    "executed": true,
+    "observation": {
+      "file": "bridge.sv",
+      "content_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "content_bytes": 713
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 3,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "cda31aac1a736cb45cac42fb296a4e6a1a7fa145b1fb0c6adf8d73e808356731",
+      "candidate_file": "candidate-03.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 4,
+    "action": {
+      "tool": "test"
+    },
+    "executed": true,
+    "observation": {
+      "status": "FAIL",
+      "remaining_test_calls": 1,
+      "category": "protocol_timing_error",
+      "first_failed_case": "address_data",
+      "diagnostic": "A protocol timing or stability requirement failed."
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 5,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "ecb8349b739e86b91a6b9a9afb5f168385b1fc804202749bcc2884ad39669bce",
+      "candidate_file": "candidate-05.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 6,
+    "action": {
+      "tool": "test"
+    },
+    "executed": true,
+    "observation": {
+      "status": "FAIL",
+      "remaining_test_calls": 0,
+      "category": "protocol_timing_error",
+      "first_failed_case": "address_data",
+      "diagnostic": "A protocol timing or stability requirement failed."
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 7,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "ade9f2ab4706dd19f84a6f43e0e9f97ec0822cf974e7da89b73f9f66d3acc766",
+      "candidate_file": "candidate-07.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 8,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "cd52a43327bff70a5c93cef3c228bd72c4ddfab77570241f7e9030fa46c43ab2",
+      "candidate_file": "candidate-08.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 9,
+    "action": {
+      "tool": "submit"
+    },
+    "executed": true,
+    "observation": {
+      "status": "SUBMITTED"
+    },
+    "observation_delivered": false
+  }
+]

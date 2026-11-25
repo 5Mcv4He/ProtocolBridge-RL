@@ -1,0 +1,66 @@
+{
+  "kind": "numeric_vendor_resource_footers",
+  "rows": [
+    {
+      "trial": "r01-test_verdict",
+      "compile_invocations": 3,
+      "compile_footers": 3,
+      "compiler_cpu_seconds_measured": 243.277,
+      "simulation_invocations": 12,
+      "simulation_footers": 12,
+      "simulator_cpu_seconds_measured": 6.61,
+      "maximum_reported_data_structure_Mb": 4.1
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "compile_invocations": 3,
+      "compile_footers": 3,
+      "compiler_cpu_seconds_measured": 243.037,
+      "simulation_invocations": 12,
+      "simulation_footers": 12,
+      "simulator_cpu_seconds_measured": 6.59,
+      "maximum_reported_data_structure_Mb": 4.1
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "compile_invocations": 2,
+      "compile_footers": 2,
+      "compiler_cpu_seconds_measured": 160.736,
+      "simulation_invocations": 12,
+      "simulation_footers": 12,
+      "simulator_cpu_seconds_measured": 6.65,
+      "maximum_reported_data_structure_Mb": 4.1
+    },
+    {
+      "trial": "r02-test_verdict",
+      "compile_invocations": 2,
+      "compile_footers": 2,
+      "compiler_cpu_seconds_measured": 160.816,
+      "simulation_invocations": 12,
+      "simulation_footers": 12,
+      "simulator_cpu_seconds_measured": 6.59,
+      "maximum_reported_data_structure_Mb": 4.1
+    },
+    {
+      "trial": "r03-test_verdict",
+      "compile_invocations": 2,
+      "compile_footers": 2,
+      "compiler_cpu_seconds_measured": 161.054,
+      "simulation_invocations": 12,
+      "simulation_footers": 12,
+      "simulator_cpu_seconds_measured": 6.68,
+      "maximum_reported_data_structure_Mb": 4.1
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "compile_invocations": 2,
+      "compile_footers": 2,
+      "compiler_cpu_seconds_measured": 160.657,
+      "simulation_invocations": 18,
+      "simulation_footers": 18,
+      "simulator_cpu_seconds_measured": 9.96,
+      "maximum_reported_data_structure_Mb": 4.1
+    }
+  ],
+  "note": "CPU totals include only available numeric footers. Missing footers are not zero-cost processes. VCS data-structure Mb is its reported unit, not host peak RSS. No commercial log text is published."
+}

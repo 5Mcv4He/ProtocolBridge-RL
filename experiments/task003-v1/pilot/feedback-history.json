@@ -1,0 +1,99 @@
+{
+  "scope": "Only actually delivered public test observations; terminal_reward is research-side data, never solver feedback. Full solver-input audit remains in trusted storage.",
+  "trials": [
+    {
+      "trial": "r01-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r01-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r02-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 5,
+          "candidate_sha256": "7423105dbbf5dfd029e86a0b9dbeb8050557ea4c401297bf8e513bc5be9e4c01",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1
+          }
+        },
+        {
+          "action_index": 6,
+          "candidate_sha256": "7423105dbbf5dfd029e86a0b9dbeb8050557ea4c401297bf8e513bc5be9e4c01",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "cda31aac1a736cb45cac42fb296a4e6a1a7fa145b1fb0c6adf8d73e808356731",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "address_data",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action_index": 6,
+          "candidate_sha256": "ecb8349b739e86b91a6b9a9afb5f168385b1fc804202749bcc2884ad39669bce",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "address_data",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r02-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r03-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r03-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r03-test_verdict",
+      "policy": "test_verdict",
+      "terminal_reward": 1.0,
+      "delivered_public_tests": []
+    }
+  ]
+}
