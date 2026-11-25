@@ -1,0 +1,330 @@
+{
+  "kind": "derived_analysis",
+  "runs": [
+    {
+      "trial": "r01-test_diagnostic",
+      "policy_id": "test_diagnostic",
+      "actions": 6,
+      "edits": 1,
+      "rejected_actions": 0,
+      "public_test_calls": 2,
+      "public_feedback": [
+        {
+          "action_index": 3,
+          "delivered": true,
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action_index": 5,
+          "delivered": true,
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "address_data",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        }
+      ],
+      "terminal": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "20b4dedf1558833ba59fdb038f9e530c0eeaab30f32a7f5763dfd3c40f7a5dfb",
+        "suite_sha256": "fe71d52e4850ce102e8301572ac6913d0e7093e57d12281a3069a458317349a5",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "held_out": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "20b4dedf1558833ba59fdb038f9e530c0eeaab30f32a7f5763dfd3c40f7a5dfb",
+        "suite_sha256": "087a82f75b3320f8b078c9393b0b9bbbe5aadff6bb88bee86a518d1fdd12e75b",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "20b4dedf1558833ba59fdb038f9e530c0eeaab30f32a7f5763dfd3c40f7a5dfb",
+        "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "final_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "20b4dedf1558833ba59fdb038f9e530c0eeaab30f32a7f5763dfd3c40f7a5dfb",
+        "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "wall_seconds": 190.857,
+      "model_session_span_seconds": 184.826,
+      "span_definition": "First recorded SDK turn/start to last turn/end; includes public-tool waits between calls, excludes post-submit verification and offline audits.",
+      "usage": {
+        "available": true,
+        "totals": {
+          "inputTokens": 4737,
+          "outputTokens": 1906,
+          "cacheReadTokens": 18048,
+          "cacheWriteTokens": 0,
+          "totalTokens": 24691
+        },
+        "cost": null,
+        "events": [
+          {
+            "event_file": "harness-00.json",
+            "event_seq": 10,
+            "usage": {
+              "inputTokens": 240,
+              "outputTokens": 10,
+              "cacheReadTokens": 128,
+              "cacheWriteTokens": 0,
+              "totalTokens": 378
+            }
+          },
+          {
+            "event_file": "harness-01.json",
+            "event_seq": 18,
+            "usage": {
+              "inputTokens": 1658,
+              "outputTokens": 11,
+              "cacheReadTokens": 256,
+              "cacheWriteTokens": 0,
+              "totalTokens": 1925
+            }
+          },
+          {
+            "event_file": "harness-02.json",
+            "event_seq": 26,
+            "usage": {
+              "inputTokens": 2201,
+              "outputTokens": 5,
+              "cacheReadTokens": 1920,
+              "cacheWriteTokens": 0,
+              "totalTokens": 4126
+            }
+          },
+          {
+            "event_file": "harness-03.json",
+            "event_seq": 34,
+            "usage": {
+              "inputTokens": 215,
+              "outputTokens": 1870,
+              "cacheReadTokens": 3968,
+              "cacheWriteTokens": 0,
+              "totalTokens": 6053
+            }
+          },
+          {
+            "event_file": "harness-04.json",
+            "event_seq": 42,
+            "usage": {
+              "inputTokens": 181,
+              "outputTokens": 5,
+              "cacheReadTokens": 5888,
+              "cacheWriteTokens": 0,
+              "totalTokens": 6074
+            }
+          },
+          {
+            "event_file": "harness-05.json",
+            "event_seq": 50,
+            "usage": {
+              "inputTokens": 242,
+              "outputTokens": 5,
+              "cacheReadTokens": 5888,
+              "cacheWriteTokens": 0,
+              "totalTokens": 6135
+            }
+          }
+        ],
+        "method": "Sum unique (session_id, seq) assistant/message.data.usage events only; exclude stream chunks and duplicated notifications.",
+        "semantics": "SDK inputTokens excludes separately reported cacheReadTokens in these records; totalTokens is the SDK total, not unique context size. No billed currency cost is provided."
+      },
+      "raw_metrics_sha256": "7b856d120b93d78be2287d15b6928cf0b9368944d100fdc17a11e6982b12e737"
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "policy_id": "test_diagnostic",
+      "actions": 7,
+      "edits": 2,
+      "rejected_actions": 0,
+      "public_test_calls": 2,
+      "public_feedback": [
+        {
+          "action_index": 3,
+          "delivered": true,
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action_index": 5,
+          "delivered": true,
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "address_data",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        }
+      ],
+      "terminal": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "2d8dcbad03f2c51b0e02c2fef0405282625d88caa73bc0a2df6d124fa2b671e9",
+        "suite_sha256": "6e3b209b35636566ad77e8bf1d94ad78b4b2bf5d86798fc703e13f27729b05ee",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "held_out": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "2d8dcbad03f2c51b0e02c2fef0405282625d88caa73bc0a2df6d124fa2b671e9",
+        "suite_sha256": "20175c4102791d72d5cc5f973113e1a0b689dd648593637cabc0e2fd45f77373",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "3c233581f563f97908274970750a796c6e0d31b9dbad6a713ccf06b72f130ead",
+        "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "final_candidate_public": null,
+      "wall_seconds": 283.894,
+      "model_session_span_seconds": 193.543,
+      "span_definition": "First recorded SDK turn/start to last turn/end; includes public-tool waits between calls, excludes post-submit verification and offline audits.",
+      "usage": {
+        "available": true,
+        "totals": {
+          "inputTokens": 4865,
+          "outputTokens": 4118,
+          "cacheReadTokens": 26624,
+          "cacheWriteTokens": 0,
+          "totalTokens": 35607
+        },
+        "cost": null,
+        "events": [
+          {
+            "event_file": "harness-00.json",
+            "event_seq": 10,
+            "usage": {
+              "inputTokens": 240,
+              "outputTokens": 10,
+              "cacheReadTokens": 128,
+              "cacheWriteTokens": 0,
+              "totalTokens": 378
+            }
+          },
+          {
+            "event_file": "harness-01.json",
+            "event_seq": 18,
+            "usage": {
+              "inputTokens": 1658,
+              "outputTokens": 11,
+              "cacheReadTokens": 256,
+              "cacheWriteTokens": 0,
+              "totalTokens": 1925
+            }
+          },
+          {
+            "event_file": "harness-02.json",
+            "event_seq": 26,
+            "usage": {
+              "inputTokens": 2201,
+              "outputTokens": 5,
+              "cacheReadTokens": 1920,
+              "cacheWriteTokens": 0,
+              "totalTokens": 4126
+            }
+          },
+          {
+            "event_file": "harness-03.json",
+            "event_seq": 34,
+            "usage": {
+              "inputTokens": 215,
+              "outputTokens": 2043,
+              "cacheReadTokens": 3968,
+              "cacheWriteTokens": 0,
+              "totalTokens": 6226
+            }
+          },
+          {
+            "event_file": "harness-04.json",
+            "event_seq": 42,
+            "usage": {
+              "inputTokens": 226,
+              "outputTokens": 5,
+              "cacheReadTokens": 6016,
+              "cacheWriteTokens": 0,
+              "totalTokens": 6247
+            }
+          },
+          {
+            "event_file": "harness-05.json",
+            "event_seq": 50,
+            "usage": {
+              "inputTokens": 159,
+              "outputTokens": 2039,
+              "cacheReadTokens": 6144,
+              "cacheWriteTokens": 0,
+              "totalTokens": 8342
+            }
+          },
+          {
+            "event_file": "harness-06.json",
+            "event_seq": 58,
+            "usage": {
+              "inputTokens": 166,
+              "outputTokens": 5,
+              "cacheReadTokens": 8192,
+              "cacheWriteTokens": 0,
+              "totalTokens": 8363
+            }
+          }
+        ],
+        "method": "Sum unique (session_id, seq) assistant/message.data.usage events only; exclude stream chunks and duplicated notifications.",
+        "semantics": "SDK inputTokens excludes separately reported cacheReadTokens in these records; totalTokens is the SDK total, not unique context size. No billed currency cost is provided."
+      },
+      "raw_metrics_sha256": "180228d3a020aa062d77ef11169324e957caedd3410eb7136fb9e6c5a0936f3b"
+    }
+  ],
+  "parameter_training": false,
+  "planned_repeats": 2
+}

@@ -1,0 +1,482 @@
+{
+  "groups": {
+    "spec_only": {
+      "started": 2,
+      "effective_edit": 2,
+      "submitted": 2,
+      "successes": 0,
+      "success_rate_all_started": 0.0,
+      "wilson95": [
+        0,
+        0.6576280471103807
+      ],
+      "feedback_exposed": 0,
+      "edited_after_feedback": 0,
+      "reward_distribution": {
+        "0": 2,
+        "1": 0,
+        "null": 0
+      },
+      "protocol_error_actions": 1,
+      "total_actions": 9,
+      "conditional": {
+        "effective_edit": {
+          "n": 2,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.6576280471103807
+          ]
+        },
+        "valid_submission": {
+          "n": 2,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.6576280471103807
+          ]
+        },
+        "feedback": {
+          "n": 0,
+          "successes": 0,
+          "rate": null,
+          "wilson95": null
+        }
+      },
+      "determinate_binary_reward_entropy_bits": 0.0,
+      "entropy_excludes_null": true,
+      "measurements": {
+        "trials": 2,
+        "json_parse_errors": 1,
+        "schema_or_argument_errors": 0,
+        "compilation_processes": 2,
+        "simulation_processes": 6,
+        "edits": 2,
+        "public_calls": 0,
+        "failed_feedback_trials": 0,
+        "changed_after_feedback": 0,
+        "changed_after_failed_feedback": 0,
+        "protocol_errors_without_candidate": 0,
+        "terminal_categories": {
+          "protocol_timing_error": 2
+        },
+        "primary_outcomes": {
+          "protocol_timing_error": 2
+        },
+        "first_candidate_public_pass": 0,
+        "first_candidate_public_fail": 2,
+        "first_candidate_unmeasured": 0,
+        "final_public_pass_private_fail": 0,
+        "held_out_successes": 0,
+        "terminal_held_out_disagreements": 0,
+        "trials_with_protocol_errors": 1,
+        "failure_labels_nonexclusive": {
+          "action_protocol_error": 1,
+          "protocol_timing_error": 2
+        },
+        "tokens": {
+          "inputTokens": 3919,
+          "outputTokens": 5933,
+          "cacheReadTokens": 16896,
+          "cacheWriteTokens": 0,
+          "totalTokens": 26748
+        },
+        "seconds": {
+          "wall_seconds": 209.355,
+          "model_request_wall_seconds": 25.553,
+          "compile_wall_seconds": 168.872,
+          "simulation_wall_seconds": 10.94
+        },
+        "timing_observed_trials": {
+          "wall_seconds": 2,
+          "model_request_wall_seconds": 2,
+          "compile_wall_seconds": 2,
+          "simulation_wall_seconds": 2
+        },
+        "api_currency_cost": null
+      }
+    },
+    "test_diagnostic": {
+      "started": 2,
+      "effective_edit": 1,
+      "submitted": 2,
+      "successes": 0,
+      "success_rate_all_started": 0.0,
+      "wilson95": [
+        0,
+        0.6576280471103807
+      ],
+      "feedback_exposed": 1,
+      "edited_after_feedback": 1,
+      "reward_distribution": {
+        "0": 2,
+        "1": 0,
+        "null": 0
+      },
+      "protocol_error_actions": 5,
+      "total_actions": 15,
+      "conditional": {
+        "effective_edit": {
+          "n": 1,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.7934567085261071
+          ]
+        },
+        "valid_submission": {
+          "n": 2,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.6576280471103807
+          ]
+        },
+        "feedback": {
+          "n": 1,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.7934567085261071
+          ]
+        }
+      },
+      "determinate_binary_reward_entropy_bits": 0.0,
+      "entropy_excludes_null": true,
+      "measurements": {
+        "trials": 2,
+        "json_parse_errors": 5,
+        "schema_or_argument_errors": 0,
+        "compilation_processes": 3,
+        "simulation_processes": 5,
+        "edits": 2,
+        "public_calls": 2,
+        "failed_feedback_trials": 1,
+        "changed_after_feedback": 1,
+        "changed_after_failed_feedback": 1,
+        "protocol_errors_without_candidate": 1,
+        "terminal_categories": {
+          "protocol_timing_error": 2
+        },
+        "primary_outcomes": {
+          "action_protocol_blocked_edit": 1,
+          "protocol_timing_error": 1
+        },
+        "first_candidate_public_pass": 0,
+        "first_candidate_public_fail": 1,
+        "first_candidate_unmeasured": 1,
+        "final_public_pass_private_fail": 0,
+        "held_out_successes": 0,
+        "terminal_held_out_disagreements": 0,
+        "trials_with_protocol_errors": 1,
+        "failure_labels_nonexclusive": {
+          "action_protocol_error": 1,
+          "no_effective_edit_candidate": 1,
+          "protocol_timing_error": 2,
+          "repair_after_feedback_failed": 1
+        },
+        "tokens": {
+          "inputTokens": 5421,
+          "outputTokens": 18153,
+          "cacheReadTokens": 72064,
+          "cacheWriteTokens": 0,
+          "totalTokens": 95638
+        },
+        "seconds": {
+          "wall_seconds": 244.788,
+          "model_request_wall_seconds": 64.055,
+          "compile_wall_seconds": 168.117,
+          "simulation_wall_seconds": 9.262
+        },
+        "timing_observed_trials": {
+          "wall_seconds": 2,
+          "model_request_wall_seconds": 2,
+          "compile_wall_seconds": 2,
+          "simulation_wall_seconds": 2
+        },
+        "api_currency_cost": null
+      }
+    }
+  },
+  "rows": [
+    {
+      "trial": "r01-spec_only",
+      "repeat": 1,
+      "policy": "spec_only",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 1,
+      "parse_errors": 1,
+      "schema_or_argument_errors": 0,
+      "actions": 5,
+      "edits": 1,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": false,
+      "failed_feedback": false,
+      "edited_after_feedback": false,
+      "changed_after_feedback": false,
+      "changed_after_failed_feedback": false,
+      "public_verdicts": [],
+      "terminal_category": "protocol_timing_error",
+      "primary_outcome": "protocol_timing_error",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 12.504,
+      "labels": [
+        "action_protocol_error",
+        "protocol_timing_error"
+      ],
+      "tokens": {
+        "inputTokens": 2067,
+        "outputTokens": 2743,
+        "cacheReadTokens": 10368,
+        "cacheWriteTokens": 0,
+        "totalTokens": 15178
+      },
+      "wall_seconds": 104.465,
+      "model_session_span_seconds": 12.554,
+      "compile_wall_seconds": 84.3716292129975,
+      "simulation_wall_seconds": 5.208100188006938,
+      "public_test_calls": 0,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "a60009ce27562b5f2b937ec196575dd57a91edc940fc0fecd17cb11036fe3add",
+        "suite_sha256": "9125bc7b305d25e279d712d41df70b0006470a8457fc2544bc13804856f3aba9",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "write_pipeline"
+      },
+      "case_counts": {
+        "terminal": 1,
+        "held_out": 1,
+        "offline_first_candidate": 1,
+        "public": 0
+      },
+      "compilation_processes": 1,
+      "simulation_processes": 3,
+      "api_cost": null
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "repeat": 1,
+      "policy": "test_diagnostic",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 5,
+      "parse_errors": 5,
+      "schema_or_argument_errors": 0,
+      "actions": 8,
+      "edits": 0,
+      "effective_edit": false,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": false,
+      "failed_feedback": false,
+      "edited_after_feedback": false,
+      "changed_after_feedback": false,
+      "changed_after_failed_feedback": false,
+      "public_verdicts": [],
+      "terminal_category": "protocol_timing_error",
+      "primary_outcome": "action_protocol_blocked_edit",
+      "rejected_edit_replies": 5,
+      "model_request_wall_seconds": 45.916,
+      "labels": [
+        "action_protocol_error",
+        "no_effective_edit_candidate",
+        "protocol_timing_error"
+      ],
+      "tokens": {
+        "inputTokens": 2839,
+        "outputTokens": 13203,
+        "cacheReadTokens": 49024,
+        "cacheWriteTokens": 0,
+        "totalTokens": 65066
+      },
+      "wall_seconds": 134.847,
+      "model_session_span_seconds": 46.056,
+      "compile_wall_seconds": 83.81658531700668,
+      "simulation_wall_seconds": 3.440456190997793,
+      "public_test_calls": 0,
+      "final_candidate_public": null,
+      "first_candidate_public": null,
+      "case_counts": {
+        "terminal": 1,
+        "held_out": 1,
+        "offline_first_candidate": null,
+        "public": 0
+      },
+      "compilation_processes": 1,
+      "simulation_processes": 2,
+      "api_cost": null
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "repeat": 2,
+      "policy": "test_diagnostic",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 7,
+      "edits": 2,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": true,
+      "failed_feedback": true,
+      "edited_after_feedback": true,
+      "changed_after_feedback": true,
+      "changed_after_failed_feedback": true,
+      "public_verdicts": [
+        "FAIL",
+        "FAIL"
+      ],
+      "terminal_category": "protocol_timing_error",
+      "primary_outcome": "protocol_timing_error",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 18.139000000000003,
+      "labels": [
+        "protocol_timing_error",
+        "repair_after_feedback_failed"
+      ],
+      "tokens": {
+        "inputTokens": 2582,
+        "outputTokens": 4950,
+        "cacheReadTokens": 23040,
+        "cacheWriteTokens": 0,
+        "totalTokens": 30572
+      },
+      "wall_seconds": 109.941,
+      "model_session_span_seconds": 104.511,
+      "compile_wall_seconds": 84.30000629300048,
+      "simulation_wall_seconds": 5.821592398999201,
+      "public_test_calls": 2,
+      "final_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "6bfa42178572bee898548cb15f7669f992969ca264cd79c671e7d0801974db75",
+        "suite_sha256": "9125bc7b305d25e279d712d41df70b0006470a8457fc2544bc13804856f3aba9",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "write_pipeline"
+      },
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "compile_error",
+        "verification_complete": false,
+        "source_sha256": "6697ce2a1d53fde5bc32201c266c2792dedd79164b512e6f7fd55346b29758bd",
+        "suite_sha256": "9125bc7b305d25e279d712d41df70b0006470a8457fc2544bc13804856f3aba9",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": null
+      },
+      "case_counts": {
+        "terminal": 1,
+        "held_out": 1,
+        "offline_first_candidate": null,
+        "public": 1
+      },
+      "compilation_processes": 2,
+      "simulation_processes": 3,
+      "api_cost": null
+    },
+    {
+      "trial": "r02-spec_only",
+      "repeat": 2,
+      "policy": "spec_only",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 4,
+      "edits": 1,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": false,
+      "failed_feedback": false,
+      "edited_after_feedback": false,
+      "changed_after_feedback": false,
+      "changed_after_failed_feedback": false,
+      "public_verdicts": [],
+      "terminal_category": "protocol_timing_error",
+      "primary_outcome": "protocol_timing_error",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 13.049,
+      "labels": [
+        "protocol_timing_error"
+      ],
+      "tokens": {
+        "inputTokens": 1852,
+        "outputTokens": 3190,
+        "cacheReadTokens": 6528,
+        "cacheWriteTokens": 0,
+        "totalTokens": 11570
+      },
+      "wall_seconds": 104.89,
+      "model_session_span_seconds": 13.092,
+      "compile_wall_seconds": 84.49989794599969,
+      "simulation_wall_seconds": 5.731773560000875,
+      "public_test_calls": 0,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "883da34b2533fb51779d83be7e744f9acfa111d80992a15282648f625a4feb82",
+        "suite_sha256": "9125bc7b305d25e279d712d41df70b0006470a8457fc2544bc13804856f3aba9",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "write_pipeline"
+      },
+      "case_counts": {
+        "terminal": 1,
+        "held_out": 1,
+        "offline_first_candidate": 1,
+        "public": 0
+      },
+      "compilation_processes": 1,
+      "simulation_processes": 3,
+      "api_cost": null
+    }
+  ],
+  "quality_gate": {
+    "passed": true,
+    "reasons": []
+  },
+  "protocol": "text-json-atomic-v2",
+  "labels_are_nonexclusive": true,
+  "interval_note": "Descriptive Wilson 95%; small samples and paired/time effects prevent causal ranking.",
+  "parameter_training": false,
+  "batch_span_seconds": 515.2223534584045,
+  "analysis_code_sha256": {
+    "scripts/batch_analysis.py": "86e757a33e9a3e455bb366bdf0beaacf6c989027c599e02afd8c5a38ac952a99",
+    "scripts/batch_tables.py": "d57e8e363d16c1dce1953cddf289c6d40ce38c4a3f0128b4e9b3be7c5ab0bae2",
+    "scripts/analyze_policy.py": "f94db4176fde3710d272dea5019167fe9b31d85d119deb38b22d101e2c1a36bb",
+    "scripts/audit_policy.py": "8369f1c8fe4ab313558e062120ef9c8ade586edbf0d84f4125d712bf04bfbd28"
+  }
+}

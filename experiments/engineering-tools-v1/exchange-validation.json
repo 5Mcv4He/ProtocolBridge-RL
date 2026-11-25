@@ -1,0 +1,32 @@
+{
+  "schema": "pb-exchange-validation-v2",
+  "records": 4,
+  "available_tool_trajectories": 4,
+  "reward_counts": {
+    "zero": 4,
+    "one": 0,
+    "null": 0
+  },
+  "engineering_events": {
+    "compile": 1,
+    "inspect": 4
+  },
+  "content_hashes_verified": true,
+  "heldout_separate": true,
+  "exporter_sha256": "f2808dd6559cb2a8d675de76dcedb030c795ec3c4d44a18498dfb1f0079e1d47",
+  "schema_sha256": "1beda6bb84379518c24901e3f77aa99523f1fe592bbe57522ff4fd7cad0594ae",
+  "exchange_manifest_sha256": "a97157771119c47bd35ebf004632dbd7ddaf283d54372f6980dd381fea508bd6",
+  "python_test_results": {
+    "local": {
+      "core": 93,
+      "catalog": 5,
+      "exchange_and_index": 9
+    },
+    "3.6.9": {
+      "core": 93,
+      "catalog": 5,
+      "exchange_and_index": 9
+    }
+  },
+  "scope": "Actual export of these four reviewed rollouts, file-hash checks and nine exchange/index tests. Full exchange regenerates from published sources; no model or RTL simulation in this export check."
+}

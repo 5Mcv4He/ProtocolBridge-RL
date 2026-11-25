@@ -1,0 +1,54 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "572fbe032309a63e54f0d0819a8d3e51f5e37c2fe73022748d07596f0d0974cf",
+  "suite_sha256": "30191299fb1ba160be982f25438494885286abef8b1ccb3293b1ed28c14d66b6",
+  "required_cases": [
+    "round_robin",
+    "write_pipeline",
+    "read_pipeline",
+    "opposite_during_b",
+    "opposite_during_r",
+    "read_push_pop",
+    "write_push_pop",
+    "read_snapshot",
+    "partial_aw",
+    "partial_w",
+    "simultaneous_responses",
+    "early_ready",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8"
+  ],
+  "failed_case": "round_robin",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "round_robin",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 72,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_ROUND_ROBIN",
+        "D_ORDER",
+        "D_LONG_STREAM"
+      ]
+    }
+  ]
+}

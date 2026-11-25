@@ -1,0 +1,121 @@
+{
+  "scope": "Interrupted deterministic acceptance, not an Agent trial. Original trusted evidence preserved; a later run is independent, not a rewrite.",
+  "accepted": false,
+  "task_id": "axil_to_apb4_decoupled_004",
+  "source_commit": "2d29d2f2122285a4d2d9728ad73de7a95456baac",
+  "failure_category": "infrastructure_error",
+  "reason": "License service unavailable during deterministic policy mechanism. Verification incomplete; task admission refused.",
+  "freeze_sha256": "fa3251b4901e0fb0d378ad8a44386f70589f8619b5c0b7e0e4f434065e9b2c9c",
+  "failure_sha256": "97a0143a1ed8b03ccf117a61c4f3f13f415d388a211e3139f6bea7472c6d0fb7",
+  "mechanism_sha256": "69e5edfd58f358f0dffa4b9738e98a08fce246958156f52e6facf498d4ab7764",
+  "completed_controls": {
+    "reference": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true
+    },
+    "reference-public": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true
+    },
+    "reference_shift": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true
+    },
+    "reference_shift-public": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true
+    },
+    "bad_early_credit": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false
+    },
+    "bad_block_b": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false
+    },
+    "bad_block_r": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false
+    },
+    "bad_read_snapshot": {
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false
+    },
+    "bad_wrap": {
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false
+    },
+    "bad_strobe": {
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false
+    },
+    "bad_error": {
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false
+    },
+    "bad_response_order": {
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false
+    },
+    "bad_reset_response": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false
+    },
+    "bad_priority": {
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false
+    },
+    "bad_wait": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false
+    },
+    "bad_read_capacity": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false
+    },
+    "bad_same_cycle": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false
+    },
+    "bad_reset_credit": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false
+    }
+  },
+  "mechanism_runs": {
+    "spec_only": {
+      "public_test_calls": 0,
+      "terminal_reward": 0.0,
+      "terminal_category": "transaction_functional_error"
+    },
+    "test_verdict": {
+      "public_test_calls": 2,
+      "terminal_reward": 0.0,
+      "terminal_category": "transaction_functional_error"
+    },
+    "test_diagnostic": {
+      "public_test_calls": 2,
+      "terminal_reward": null,
+      "terminal_category": "infrastructure_error"
+    }
+  },
+  "agent_trials_started": 0
+}

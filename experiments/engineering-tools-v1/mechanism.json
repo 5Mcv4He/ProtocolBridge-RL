@@ -1,0 +1,31 @@
+{
+  "accepted": true,
+  "checks": {
+    "public_fail_0": true,
+    "capacity_diagnostic_0": true,
+    "compile_pass_0": true,
+    "public_fail_1": true,
+    "capacity_diagnostic_1": true,
+    "compile_pass_1": true,
+    "test_budget_denied": true,
+    "inspect_budget_denied": true,
+    "compile_budget_denied": true,
+    "only_two_public_executions": true,
+    "private_read_denied": true,
+    "arbitrary_arguments_denied": true,
+    "submission": true,
+    "terminal_functional_fail": true,
+    "compiler_reference": true,
+    "compiler_syntax": true,
+    "compiler_width_truncation": true,
+    "compiler_forbidden": true,
+    "null_is_environment": true,
+    "source_kept": true
+  },
+  "real_vcs": true,
+  "model_used": false,
+  "limits": [
+    "Compiler does not detect intentional width truncation; no complete lint claim.",
+    "Only existing public checker messages are queryable; no raw logs or vectors."
+  ]
+}

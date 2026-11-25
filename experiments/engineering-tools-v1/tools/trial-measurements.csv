@@ -1,0 +1,3 @@
+trial,repeat,policy,reward,held_out,effective_edit,valid_submission,feedback,failed_feedback,changed_after_feedback,edits,actions,protocol_errors,public_test_calls,wall_seconds,model_request_wall_seconds,compile_wall_seconds,simulation_wall_seconds
+r01-test_diagnostic,1,test_diagnostic,0.0,0.0,True,True,True,True,True,1,8,0,2,203.494,11.15,167.56187756100553,23.08563005198812
+r02-test_diagnostic,2,test_diagnostic,0.0,0.0,True,True,True,True,True,2,11,0,2,285.492,18.79,252.52467012700072,11.364278797002044

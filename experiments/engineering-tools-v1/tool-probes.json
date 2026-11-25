@@ -1,0 +1,103 @@
+{
+  "probes": [
+    {
+      "tool": "Design Compiler O-2018.06-SP1",
+      "control": "good",
+      "process_exit": 0,
+      "native_status": [
+        "PB_ANALYZE=1",
+        "PB_CHECK=1"
+      ],
+      "diagnostic_codes": [],
+      "raw_log_sha256": "46fccf56b61dbbb5a6fc43189b1c9a24d7422e3bc415416abcc627086c693f67"
+    },
+    {
+      "tool": "Design Compiler O-2018.06-SP1",
+      "control": "syntax",
+      "process_exit": 0,
+      "native_status": [
+        "PB_ANALYZE=0"
+      ],
+      "diagnostic_codes": [
+        "VER-294"
+      ],
+      "raw_log_sha256": "eaab60a41e6d980dbdee9569fafa795629d2efa8058124530180c11bc5ce1b03"
+    },
+    {
+      "tool": "Design Compiler O-2018.06-SP1",
+      "control": "width",
+      "process_exit": 0,
+      "native_status": [
+        "PB_ANALYZE=1",
+        "PB_CHECK=1"
+      ],
+      "diagnostic_codes": [
+        "LINT-28",
+        "LINT-29"
+      ],
+      "raw_log_sha256": "f691d0e965e2980108e37b3acd577094982dafbab327377a5ae64c04225414c3"
+    },
+    {
+      "tool": "Design Compiler O-2018.06-SP1",
+      "control": "task003_reference",
+      "process_exit": 0,
+      "native_status": [
+        "PB_ANALYZE=1",
+        "PB_CHECK=1"
+      ],
+      "diagnostic_codes": [
+        "LINT-1",
+        "LINT-31",
+        "LINT-52"
+      ],
+      "raw_log_sha256": "23b3a425a115bc01d2559acfcea5af59ba221e26a2f672404bf1b5ccf0a4f817"
+    },
+    {
+      "tool": "VCS-MX O-2018.09-SP2 +lint=all",
+      "control": "good",
+      "process_exit": 0,
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [],
+        "functional_correctness_checked": false
+      },
+      "raw_log_sha256": "bba8fc3eb63e05c2ccbe41e9e4e107320756bc3baaeb5ff5f9935fc8751c3864"
+    },
+    {
+      "tool": "VCS-MX O-2018.09-SP2 +lint=all",
+      "control": "bad",
+      "process_exit": 255,
+      "observation": {
+        "status": "FAIL",
+        "diagnostics": [
+          {
+            "code": "SE",
+            "line": 1,
+            "message": "Syntax error in candidate RTL."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "raw_log_sha256": "4c3669481f3c52788451855d4c445c56fa9376531dbfd6724cd12e6a726c703d"
+    },
+    {
+      "tool": "VCS-MX O-2018.09-SP2 +lint=all",
+      "control": "width",
+      "process_exit": 0,
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [],
+        "functional_correctness_checked": false
+      },
+      "raw_log_sha256": "f0fa7dcbfcf51a1c438bac1fe3835c45383ef1bb2ca39e4b88845ab7ecadaf26"
+    },
+    {
+      "tool": "SpyGlass 2017.12-SP2",
+      "control": "real lint goal",
+      "process_exit": 4,
+      "status": "unavailable_required_checker_license",
+      "raw_log_sha256": "4908eeeec0bff22e8c77e4c84450c4fdc5641fcaf6a6aace684fb9249712112d"
+    }
+  ],
+  "scope": "Actual tool invocations; paths, license settings, and vendor logs omitted. DC checks are frontend-only, not mapped synthesis."
+}

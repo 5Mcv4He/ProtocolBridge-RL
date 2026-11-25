@@ -1,0 +1,81 @@
+{
+  "scope": "Post-hoc classification of actual rejected replies; no repair, replay, recovered edits or extra solver feedback. Duplicate member rejection is part of the frozen action contract.",
+  "rejected_actions": [
+    {
+      "trial": "r01-spec_only",
+      "action_index": 4,
+      "executed": false,
+      "rejection": "invalid_action_format",
+      "duplicate_fields": [],
+      "json_decodable_without_unique_keys": false,
+      "response_sha256": "7408b189cce30ac924ad61f68a43a3db234b089b8281718ee161d34e4ff674b7",
+      "harness_file_sha256": "de045c0a26dbba12cc6c67b7fe46581fad1c86461c2d4d5b5654e3cd968571a6",
+      "response_characters": 36
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "action_index": 3,
+      "executed": false,
+      "rejection": "invalid_action_format",
+      "duplicate_fields": [
+        "tool"
+      ],
+      "json_decodable_without_unique_keys": true,
+      "response_sha256": "a7ecbaa0d1816deb708607d92e7b687be5a86690b65cad8af0c2c987deb98ed4",
+      "harness_file_sha256": "09e8a6457f0bba48207f9552f0eb87cb13e831a5d2ea730b01305e2e7954c38e",
+      "response_characters": 6934
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "action_index": 4,
+      "executed": false,
+      "rejection": "invalid_action_format",
+      "duplicate_fields": [
+        "tool"
+      ],
+      "json_decodable_without_unique_keys": true,
+      "response_sha256": "9390a3852c467cc5ac908c5e9f09b4e369fbf4cd838984b0d9c5b15f14e90683",
+      "harness_file_sha256": "3e4f91187574e692f7e300532ab2c01aebec6944613056e34ebadace5015e024",
+      "response_characters": 5331
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "action_index": 5,
+      "executed": false,
+      "rejection": "invalid_action_format",
+      "duplicate_fields": [
+        "tool"
+      ],
+      "json_decodable_without_unique_keys": true,
+      "response_sha256": "4244bf537d86975c7c224dbda80c31884e1d621bd7d1c5037cd06a11189c0281",
+      "harness_file_sha256": "2a0e481818b2a71f449f12588525976971e82339421beac48aa306d1d3f871a7",
+      "response_characters": 8739
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "action_index": 6,
+      "executed": false,
+      "rejection": "invalid_action_format",
+      "duplicate_fields": [
+        "tool"
+      ],
+      "json_decodable_without_unique_keys": true,
+      "response_sha256": "3bcfe0b9d379bf663e6268440a8b511c3b5ebce2542971db8525eb7f05c867b5",
+      "harness_file_sha256": "e0961bce69d0e77137161d9a0d6e74f9c1c0200be18c17736f12663252b44ada",
+      "response_characters": 7946
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "action_index": 7,
+      "executed": false,
+      "rejection": "invalid_action_format",
+      "duplicate_fields": [
+        "tool"
+      ],
+      "json_decodable_without_unique_keys": true,
+      "response_sha256": "c95ee05843a6e83d9e4b9936ec34cef548992ab3e9c67a9343329e96ff372627",
+      "harness_file_sha256": "7210108069760ad3dd8fd8959034ac6955ee787c3383408adca2758ba897734c",
+      "response_characters": 6416
+    }
+  ]
+}

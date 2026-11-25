@@ -1,0 +1,11 @@
+{
+  "format": "input-qualification-allowlist-v1",
+  "files": {
+    "result.json": "bd20a09c52d576fe392be2427f84bf126d47c964140bda2dab3e7baac2f1dbf6",
+    "freeze.json": "065328d352081aa4bb6318fb5bf400053c41720f4399d663220807b33a5664b9",
+    "r01-reward/result.json": "90c2cef91b24925ae960acb6fc5085216d6408bc2619722c6a7c19159c6351b5",
+    "r02-evaluation/result.json": "7b2efce3fc09371226e472dc9b05a17c5fafd5a30ccd31034f348b748608aa33",
+    "r02-reward/result.json": "bee14613e008511e0957e066ff8280c51d03d0778f8e29b738cf9774206e1e53",
+    "r01-evaluation/result.json": "6993fb4499ca442bb535cd20a7ef3b09937ac1071a12fe835323927cccc56495"
+  }
+}

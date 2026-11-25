@@ -1,0 +1,45 @@
+{
+  "qualification_code_sha256": "faaf6200fff16b8cdf90bf7a52715a7e1776703bb19443c9c84e1acddccf66aa",
+  "toolchain": {
+    "vcs": "O-2018.09-SP2",
+    "vip": "R-2020.12",
+    "uvm": "1.2",
+    "python": "3.6.9 (controller); 3.10.12 (worker)",
+    "harness": "0.2.2rc2",
+    "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+  },
+  "experiment_sha256": "b3e616207957109c695427df7e0982c1c65192531f963d718bad4f9baac96d0b",
+  "reference_sha256": "fd2364ed15d189dee596bc302fdee1cafed61fae2f5c7ff5d621b43cc074a418",
+  "files": {
+    "verifier/scenarios.py": "62ed320fe0c61edcf1bdb37ba37caf26597c802993be71bb42be2c96dea34a1d",
+    "verifier/campaign.py": "e8d8de32dae810e6778862c8ff6fec54dd60b643ab02813c4093a2996aa3630f",
+    "verifier/grade.py": "d6bf8deb6f348e2090886dc5462661f0ab8f7b9c3267ff7534e489228f510b2f",
+    "verifier/v3/tb.sv": "ea748112e20f84fcfa7a3267376989636be13bc88d8b0428991e21f51c87203b",
+    "verifier/v3/vip.sv": "4a165c9531912d92a4cfa0270aff3297bdafddff880cef7034965a500fa95d04",
+    "verifier/task002/scenarios.py": "24e2522ffa1be0e233178449f39b83e80e33111f972adadd88b8720eb56b4540",
+    "verifier/task002/tb.sv": "083464238af37219fcc34b7b16412bc01cf7d1642d7e2b100e590a535fb4a627",
+    "verifier/task002/campaign.py": "624bd7a06c466e605552f9c16140d35de484189f73547110b1263cdcdc56b9f0",
+    "verifier/task002/vip.sv": "9e4c648fa619030326c4451497e0bb6108cbfcba3404bb332c0b6a590232e3a6",
+    "verifier/task003/scenarios.py": "a1294c1c3830b348aaa0c1625b307cb224e144e5291564966bed6343620134c8",
+    "verifier/task003/scoreboard.sv": "d995dc54d516fb46473dcd6ab72cc14f070a4b7df6b0de5d1559107967ea028e",
+    "verifier/task003/tb.sv": "ef731ecd3bc09d4de1f19e8e6269ebec9079c37ed60330bf4a201c83ff9264ab",
+    "verifier/task003/campaign.py": "061bba052926c7e3a94a23a0622bb6e788e873591d230c536db3fdbc1e8b5c42",
+    "verifier/task003/vip.sv": "07697bba77ecca5dd7bef4355c562c8762606708e72c2b5604ba52f4dedc7f4c",
+    "verifier/task004/scenarios.py": "c3afa44614a7904b97f81676b40c91820e8478c002aa939e106917e39624eafd",
+    "verifier/task004/scoreboard.sv": "64ebaa2f107da5049163c5ef2be3bcf3e2423e1cac9d0d07f55c45a4a0cae482",
+    "verifier/task004/tb.sv": "efb3b87109b9e022aa25f9c201b6aaaa0b28941dde8a0215c3235879a9947a8f",
+    "verifier/task004/campaign.py": "49ada493b0638c98ea2b9e1417b41ee54f8f6dae5031b747bbb7b19abcebb9e9",
+    "verifier/task004/vip.sv": "f375c673ad4ea9bfd2803bffc904fa5e63d960905e310829e7d86685df52aa64",
+    "fixtures/task004/reference.sv": "fd2364ed15d189dee596bc302fdee1cafed61fae2f5c7ff5d621b43cc074a418",
+    "tasks/axil_to_apb4_decoupled_004/task.json": "7182bb4be4d70d53b218b2e9d9b5b100d2f0e46089e99e444ca43fabd1897bc9",
+    "tasks/axil_to_apb4_decoupled_004/README.md": "902b8cc8b736d66fd0f1a196cfb13aed8f0d8c2ed1fd35d2b20d9e9eade8fdcf",
+    "tasks/axil_to_apb4_decoupled_004/spec.md": "dbe30ec784d58ecd982d9cd4aa34413a4c11267747ad4ea671c598cacb6d799f",
+    "tasks/axil_to_apb4_decoupled_004/workspace/bridge.sv": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d"
+  },
+  "input_sha256": {
+    "r01-evaluation": "b8f9714e17dbf75ca0891f5fc7bd334c2fce6a7120fbbfa41330149de90cfeb4",
+    "r01-reward": "698017ab47ccc85bec64af06565e9f1f63461eeecbe53830f9cd4fc0f4a8a939",
+    "r02-evaluation": "7655cc8eaf472faef7d26ff95ef8cf0b5cc13721ed4e1779e0a84c94175bcbe0",
+    "r02-reward": "7e87504aea153eaf08aef40529368e7bc3556727b4a27be97eb6d78fe8170d42"
+  }
+}

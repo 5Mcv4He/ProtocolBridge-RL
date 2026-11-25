@@ -1,0 +1,72 @@
+{
+  "analysis": "repair-code-changes-v1",
+  "starting_rtl_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+  "code_sha256": "8e9f128ee94e8c863bdd4b03184e258e41ee0fe9d045ff6a6581f0f9962932be",
+  "trials": [
+    {
+      "trial": "r01-test_diagnostic",
+      "policy": "test_diagnostic",
+      "reward": 0.0,
+      "initial_failed_feedback_verified": true,
+      "diagnostic_exposed": true,
+      "first_test": {
+        "action_index": 3,
+        "candidate_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+        "observation": {
+          "status": "FAIL",
+          "remaining_test_calls": 1,
+          "category": "protocol_timing_error",
+          "first_failed_case": "read_fifo",
+          "diagnostic": "A protocol timing or stability requirement failed."
+        },
+        "delivered": true,
+        "before_any_edit": true
+      },
+      "edits": [
+        {
+          "action_index": 5,
+          "source_sha256": "5c872f69a0e411504f54f1e2eb039d0828a677d8473dbccd230db37d0e7fc65d",
+          "token_changed_from_previous": true,
+          "token_changed_from_start": true
+        }
+      ],
+      "final_tokens_equal_start": false
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "policy": "test_diagnostic",
+      "reward": 0.0,
+      "initial_failed_feedback_verified": true,
+      "diagnostic_exposed": true,
+      "first_test": {
+        "action_index": 3,
+        "candidate_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+        "observation": {
+          "status": "FAIL",
+          "remaining_test_calls": 1,
+          "category": "protocol_timing_error",
+          "first_failed_case": "read_fifo",
+          "diagnostic": "A protocol timing or stability requirement failed."
+        },
+        "delivered": true,
+        "before_any_edit": true
+      },
+      "edits": [
+        {
+          "action_index": 5,
+          "source_sha256": "c343883c557f91c781d4773c6b0c901bac8e0aa60fe7658ffa1671dc7285755b",
+          "token_changed_from_previous": true,
+          "token_changed_from_start": true
+        },
+        {
+          "action_index": 8,
+          "source_sha256": "6376771d02bae6c8e9dc330dd0f33ae01e21805ff2712d6d850fed7023b66372",
+          "token_changed_from_previous": true,
+          "token_changed_from_start": true
+        }
+      ],
+      "final_tokens_equal_start": false
+    }
+  ],
+  "scope": "Actual delivered first test, exact saved edits and final source. Equal normalized tokens exclude comments/whitespace only; differing tokens do not prove a semantic or useful repair. No candidate or reward is changed."
+}

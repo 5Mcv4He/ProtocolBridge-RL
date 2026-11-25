@@ -1,0 +1,5 @@
+trial,repeat,policy,reward,held_out,effective_edit,valid_submission,feedback,failed_feedback,changed_after_feedback,edits,actions,protocol_errors,public_test_calls,wall_seconds,model_request_wall_seconds,compile_wall_seconds,simulation_wall_seconds
+r01-spec_only,1,spec_only,0.0,0.0,True,True,False,False,False,1,5,1,0,104.465,12.504,84.3716292129975,5.208100188006938
+r01-test_diagnostic,1,test_diagnostic,0.0,0.0,False,True,False,False,False,0,8,5,0,134.847,45.916,83.81658531700668,3.440456190997793
+r02-test_diagnostic,2,test_diagnostic,0.0,0.0,True,True,True,True,True,2,7,0,2,109.941,18.139000000000003,84.30000629300048,5.821592398999201
+r02-spec_only,2,spec_only,0.0,0.0,True,True,False,False,False,1,4,0,0,104.89,13.049,84.49989794599969,5.731773560000875

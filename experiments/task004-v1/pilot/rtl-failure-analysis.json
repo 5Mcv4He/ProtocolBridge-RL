@@ -1,0 +1,55 @@
+{
+  "scope": "Actual terminal first failures plus manual RTL source review. Static hazards are explicitly separate from independently isolated simulation results. No candidate edits or rescoring.",
+  "trials": [
+    {
+      "observed_failure": "Synchronous reset outputs",
+      "confirmed_source_cause": "Reset branch does not assign psel or penable; both are only driven in the non-reset executor case statement.",
+      "additional_static_findings": [
+        "Acceptance counts decrement on grant rather than AXI response retirement.",
+        "Grant moves state to SETUP but PSEL is assigned in the following SETUP cycle, one cycle after the specified grant edge."
+      ],
+      "attribution_limit": "Only reset failure is confirmed as the first simulated failure; later source hazards are not independently isolated here.",
+      "trial": "r01-spec_only",
+      "submission_sha256": "a60009ce27562b5f2b937ec196575dd57a91edc940fc0fecd17cb11036fe3add",
+      "terminal_category": "protocol_timing_error",
+      "terminal_reward": 0.0
+    },
+    {
+      "observed_failure": "Initial template submitted; no effective edits or public tests",
+      "confirmed_source_cause": "Five edit replies repeated the tool member in one JSON object; frozen duplicate-key rejection prevented all edits. Model later submitted unchanged initial RTL.",
+      "primary_attribution": "action_protocol_blocked_edit",
+      "attribution_limit": "Terminal template failure is real, but provides no valid measurement of the attempted RTL or of diagnostic feedback use. No rejected edit was recovered or scored as a model submission.",
+      "trial": "r01-test_diagnostic",
+      "submission_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "terminal_category": "protocol_timing_error",
+      "terminal_reward": 0.0
+    },
+    {
+      "observed_failure": "Unretired capacity ledger out of bounds after compile repair",
+      "confirmed_source_cause": "AW/W/AR counts control READY but decrement on executor grant, not on B/R retirement, allowing more than three unretired requests.",
+      "feedback_use": "First public compile_error was followed by replacing a typedef used as an estate variable with a declared logic state and localparams. Recompiled successfully, then public capacity failure was delivered. No edit followed the second failure.",
+      "additional_static_findings": [
+        "Two-bit queue pointers increment naturally modulo four despite arrays of three entries.",
+        "Separate nonblocking increment/decrement assignments can overwrite simultaneous updates."
+      ],
+      "attribution_limit": "Capacity is the actual first functional test failure; pointer and simultaneous-update hazards were identified in source but not separately isolated.",
+      "trial": "r02-test_diagnostic",
+      "submission_sha256": "6bfa42178572bee898548cb15f7669f992969ca264cd79c671e7d0801974db75",
+      "terminal_category": "protocol_timing_error",
+      "terminal_reward": 0.0
+    },
+    {
+      "observed_failure": "Unretired capacity ledger out of bounds",
+      "confirmed_source_cause": "Final AW/W/AR count equations subtract on grant; these counts drive READY, so executed-but-unretired entries no longer reserve capacity.",
+      "additional_static_findings": [
+        "Two-bit pointer increment uses modulo four for arrays of three entries.",
+        "do_grant is false in the read-only eligible case and when both directions are eligible with READ preference."
+      ],
+      "attribution_limit": "Capacity is the measured first failure. Read arbitration and pointer hazards are static findings, not independently isolated simulations.",
+      "trial": "r02-spec_only",
+      "submission_sha256": "883da34b2533fb51779d83be7e744f9acfa111d80992a15282648f625a4feb82",
+      "terminal_category": "protocol_timing_error",
+      "terminal_reward": 0.0
+    }
+  ]
+}

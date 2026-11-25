@@ -1,0 +1,97 @@
+[
+  {
+    "action_index": 1,
+    "action": {
+      "tool": "read",
+      "file": "spec.md"
+    },
+    "executed": true,
+    "observation": {
+      "file": "spec.md",
+      "content_sha256": "dbe30ec784d58ecd982d9cd4aa34413a4c11267747ad4ea671c598cacb6d799f",
+      "content_bytes": 5144
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 2,
+    "action": {
+      "tool": "read",
+      "file": "bridge.sv"
+    },
+    "executed": true,
+    "observation": {
+      "file": "bridge.sv",
+      "content_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "content_bytes": 713
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 3,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "6697ce2a1d53fde5bc32201c266c2792dedd79164b512e6f7fd55346b29758bd",
+      "candidate_file": "candidate-03.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 4,
+    "action": {
+      "tool": "test"
+    },
+    "executed": true,
+    "observation": {
+      "status": "FAIL",
+      "remaining_test_calls": 1,
+      "category": "compile_error",
+      "first_failed_case": null,
+      "diagnostic": "RTL compilation failed."
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 5,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "6bfa42178572bee898548cb15f7669f992969ca264cd79c671e7d0801974db75",
+      "candidate_file": "candidate-05.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 6,
+    "action": {
+      "tool": "test"
+    },
+    "executed": true,
+    "observation": {
+      "status": "FAIL",
+      "remaining_test_calls": 0,
+      "category": "protocol_timing_error",
+      "first_failed_case": "write_pipeline",
+      "diagnostic": "A protocol timing or stability requirement failed."
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 7,
+    "action": {
+      "tool": "submit"
+    },
+    "executed": true,
+    "observation": {
+      "status": "SUBMITTED"
+    },
+    "observation_delivered": false
+  }
+]

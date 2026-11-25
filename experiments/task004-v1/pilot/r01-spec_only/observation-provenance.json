@@ -1,0 +1,27 @@
+[
+  {
+    "turn": 0,
+    "prompt_sha256": "826488aaf1854edcd6e89d95e62430eabdd44011ed8c125fc39cfd363bcac3b4",
+    "prompt_bytes": 1160
+  },
+  {
+    "turn": 1,
+    "prompt_sha256": "c8cf9e2b4978118aa0bf08e43ce6136f37c8f746274b4bcd127bbce76986918f",
+    "prompt_bytes": 5222
+  },
+  {
+    "turn": 2,
+    "prompt_sha256": "3fcd026dd4c62e0f0b211be2c99226fd515ea511ee4d80ebecc610f185ca6872",
+    "prompt_bytes": 778
+  },
+  {
+    "turn": 3,
+    "prompt_sha256": "d38d1bc711d04622a01e140b4896d844fa8366cb4f490716705e767f74bf78ce",
+    "prompt_bytes": 37
+  },
+  {
+    "turn": 4,
+    "prompt_sha256": "9e39516d0cea9e90bb8f4679e3dbed1e326ebe2c8e40cb624bcd367f7944d531",
+    "prompt_bytes": 310
+  }
+]

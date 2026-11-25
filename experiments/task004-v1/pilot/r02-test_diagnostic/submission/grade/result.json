@@ -1,0 +1,55 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "6bfa42178572bee898548cb15f7669f992969ca264cd79c671e7d0801974db75",
+  "suite_sha256": "7e87504aea153eaf08aef40529368e7bc3556727b4a27be97eb6d78fe8170d42",
+  "required_cases": [
+    "write_pipeline",
+    "read_pipeline",
+    "opposite_during_b",
+    "opposite_during_r",
+    "read_push_pop",
+    "write_push_pop",
+    "read_snapshot",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "simultaneous_responses",
+    "early_ready",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8"
+  ],
+  "failed_case": "write_pipeline",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "write_pipeline",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 41,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_WRITE_RESPONSES",
+        "D_THREE_CREDITS",
+        "D_WRAP",
+        "D_ERROR"
+      ]
+    }
+  ]
+}

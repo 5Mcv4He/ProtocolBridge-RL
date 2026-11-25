@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "groups": {
+    "baseline": {
+      "started": 2,
+      "valid_submissions": 2,
+      "successes": 0,
+      "wilson95": [
+        0,
+        0.6576280471103807
+      ],
+      "rewards": {
+        "0.0": 2
+      },
+      "tokens": 60298,
+      "invariant_exposed_trials": 0
+    },
+    "engineering": {
+      "started": 2,
+      "valid_submissions": 2,
+      "successes": 0,
+      "wilson95": [
+        0,
+        0.6576280471103807
+      ],
+      "rewards": {
+        "0.0": 2
+      },
+      "tokens": 106458,
+      "invariant_exposed_trials": 2
+    }
+  },
+  "accepted": true,
+  "errors": [],
+  "matched_variables": [
+    "task_id",
+    "source_commit",
+    "source_files",
+    "model",
+    "toolchain",
+    "protocol",
+    "starting_rtl_sha256",
+    "paired_suite_hashes",
+    "schedule"
+  ],
+  "rows": [
+    {
+      "group": "baseline",
+      "trial": "r01-test_diagnostic",
+      "repeat": 1,
+      "submitted": true,
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "held_out": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "20b4dedf1558833ba59fdb038f9e530c0eeaab30f32a7f5763dfd3c40f7a5dfb",
+        "suite_sha256": "087a82f75b3320f8b078c9393b0b9bbbe5aadff6bb88bee86a518d1fdd12e75b",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "20b4dedf1558833ba59fdb038f9e530c0eeaab30f32a7f5763dfd3c40f7a5dfb",
+        "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "actions": 6,
+      "edits": 1,
+      "public_test_calls": 2,
+      "compile_calls": 0,
+      "inspect_calls": 0,
+      "protocol_errors": 0,
+      "tool_exposure": [
+        {
+          "action": 3,
+          "tool": "test",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action": 5,
+          "tool": "test",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "address_data",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        }
+      ],
+      "edits_after_invariant": 0,
+      "tokens": 24691,
+      "episode_seconds": 190.857,
+      "standalone_compile_seconds": 0,
+      "eda_seconds": {
+        "compile": 166.95832406800764,
+        "simulate": 11.325687716001994
+      },
+      "trace_sha256": "ffb85fcadeb6a3f31f8cd4f0c0f1152d16acd8e1d5601a30895e3c33c5577488"
+    },
+    {
+      "group": "baseline",
+      "trial": "r02-test_diagnostic",
+      "repeat": 2,
+      "submitted": true,
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "held_out": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "2d8dcbad03f2c51b0e02c2fef0405282625d88caa73bc0a2df6d124fa2b671e9",
+        "suite_sha256": "20175c4102791d72d5cc5f973113e1a0b689dd648593637cabc0e2fd45f77373",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "3c233581f563f97908274970750a796c6e0d31b9dbad6a713ccf06b72f130ead",
+        "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "actions": 7,
+      "edits": 2,
+      "public_test_calls": 2,
+      "compile_calls": 0,
+      "inspect_calls": 0,
+      "protocol_errors": 0,
+      "tool_exposure": [
+        {
+          "action": 3,
+          "tool": "test",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action": 5,
+          "tool": "test",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "address_data",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        }
+      ],
+      "edits_after_invariant": 0,
+      "tokens": 35607,
+      "episode_seconds": 283.894,
+      "standalone_compile_seconds": 0,
+      "eda_seconds": {
+        "compile": 254.76502076400357,
+        "simulate": 11.27699593300349
+      },
+      "trace_sha256": "752077ad76ee197b9364e4e570c55b57af697ccbc14e04b24a6524b4bda99f42"
+    },
+    {
+      "group": "engineering",
+      "trial": "r01-test_diagnostic",
+      "repeat": 1,
+      "submitted": true,
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "held_out": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "5c872f69a0e411504f54f1e2eb039d0828a677d8473dbccd230db37d0e7fc65d",
+        "suite_sha256": "087a82f75b3320f8b078c9393b0b9bbbe5aadff6bb88bee86a518d1fdd12e75b",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "read_fifo"
+      },
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "5c872f69a0e411504f54f1e2eb039d0828a677d8473dbccd230db37d0e7fc65d",
+        "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "read_fifo"
+      },
+      "actions": 8,
+      "edits": 1,
+      "public_test_calls": 2,
+      "compile_calls": 0,
+      "inspect_calls": 2,
+      "protocol_errors": 0,
+      "tool_exposure": [
+        {
+          "action": 3,
+          "tool": "test",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action": 4,
+          "tool": "inspect",
+          "observation": {
+            "status": "FAIL",
+            "case": "read_fifo",
+            "invariant": {
+              "code": "Q_CAPACITY",
+              "message": "Accepted, executing and response-pending requests all occupy the two unretired credits until their AXI response handshake."
+            },
+            "public_action": 3,
+            "source_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+            "remaining_inspect_calls": 1
+          }
+        },
+        {
+          "action": 6,
+          "tool": "test",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action": 7,
+          "tool": "inspect",
+          "observation": {
+            "status": "FAIL",
+            "case": "read_fifo",
+            "invariant": {
+              "code": "Q_CAPACITY",
+              "message": "Accepted, executing and response-pending requests all occupy the two unretired credits until their AXI response handshake."
+            },
+            "public_action": 6,
+            "source_sha256": "5c872f69a0e411504f54f1e2eb039d0828a677d8473dbccd230db37d0e7fc65d",
+            "remaining_inspect_calls": 0
+          }
+        }
+      ],
+      "edits_after_invariant": 1,
+      "tokens": 36917,
+      "episode_seconds": 203.494,
+      "standalone_compile_seconds": 0,
+      "eda_seconds": {
+        "compile": 167.56187756100553,
+        "simulate": 23.08563005198812
+      },
+      "trace_sha256": "4c58a38f0b19f50c6d8344c9e3a59cfb131522eaf0e01478c37965b912e9ce67"
+    },
+    {
+      "group": "engineering",
+      "trial": "r02-test_diagnostic",
+      "repeat": 2,
+      "submitted": true,
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "held_out": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "6376771d02bae6c8e9dc330dd0f33ae01e21805ff2712d6d850fed7023b66372",
+        "suite_sha256": "20175c4102791d72d5cc5f973113e1a0b689dd648593637cabc0e2fd45f77373",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "c343883c557f91c781d4773c6b0c901bac8e0aa60fe7658ffa1671dc7285755b",
+        "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "actions": 11,
+      "edits": 2,
+      "public_test_calls": 2,
+      "compile_calls": 1,
+      "inspect_calls": 2,
+      "protocol_errors": 0,
+      "tool_exposure": [
+        {
+          "action": 3,
+          "tool": "test",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "protocol_timing_error",
+            "first_failed_case": "read_fifo",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action": 4,
+          "tool": "inspect",
+          "observation": {
+            "status": "FAIL",
+            "case": "read_fifo",
+            "invariant": {
+              "code": "Q_CAPACITY",
+              "message": "Accepted, executing and response-pending requests all occupy the two unretired credits until their AXI response handshake."
+            },
+            "public_action": 3,
+            "source_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+            "remaining_inspect_calls": 1
+          }
+        },
+        {
+          "action": 6,
+          "tool": "test",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "address_data",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        },
+        {
+          "action": 7,
+          "tool": "inspect",
+          "observation": {
+            "status": "FAIL",
+            "case": "address_data",
+            "invariant": {
+              "code": "Q_CAPACITY",
+              "message": "Accepted, executing and response-pending requests all occupy the two unretired credits until their AXI response handshake."
+            },
+            "public_action": 6,
+            "source_sha256": "c343883c557f91c781d4773c6b0c901bac8e0aa60fe7658ffa1671dc7285755b",
+            "remaining_inspect_calls": 0
+          }
+        },
+        {
+          "action": 10,
+          "tool": "compile",
+          "observation": {
+            "status": "PASS",
+            "diagnostics": [],
+            "functional_correctness_checked": false,
+            "remaining_compile_calls": 1
+          }
+        }
+      ],
+      "edits_after_invariant": 2,
+      "tokens": 69541,
+      "episode_seconds": 285.492,
+      "standalone_compile_seconds": 1.1955,
+      "eda_seconds": {
+        "compile": 252.52467012700072,
+        "simulate": 11.364278797002044
+      },
+      "trace_sha256": "30a5e70a6c409e0c437e2d4aba0b61e25205ee719db53ec18860df54d95d47cc"
+    }
+  ],
+  "contrast": "Availability of bounded compiler and fixed public invariant queries; same diagnostic policy, task, starting RTL, 20 actions, two full public tests and paired final inputs.",
+  "limits": [
+    "Small exploratory sample; no causal ranking or saturation conclusion.",
+    "Tool availability is not actual exposure; inspect must be called and delivered.",
+    "Two capabilities are added together; this is not a per-tool causal ablation.",
+    "Post-feedback edits do not establish semantic repair; inspect RTL and final verification.",
+    "API currency cost unavailable."
+  ]
+}

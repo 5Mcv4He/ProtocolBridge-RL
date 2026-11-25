@@ -1,0 +1,52 @@
+{
+  "scope": "Only actually delivered public test observations; terminal_reward is research-side data, never solver feedback. Full solver-input audit remains in trusted storage.",
+  "trials": [
+    {
+      "trial": "r01-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "policy": "test_diagnostic",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": [
+        {
+          "action_index": 4,
+          "candidate_sha256": "6697ce2a1d53fde5bc32201c266c2792dedd79164b512e6f7fd55346b29758bd",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 1,
+            "category": "compile_error",
+            "first_failed_case": null,
+            "diagnostic": "RTL compilation failed."
+          }
+        },
+        {
+          "action_index": 6,
+          "candidate_sha256": "6bfa42178572bee898548cb15f7669f992969ca264cd79c671e7d0801974db75",
+          "observation": {
+            "status": "FAIL",
+            "remaining_test_calls": 0,
+            "category": "protocol_timing_error",
+            "first_failed_case": "write_pipeline",
+            "diagnostic": "A protocol timing or stability requirement failed."
+          }
+        }
+      ]
+    },
+    {
+      "trial": "r02-spec_only",
+      "policy": "spec_only",
+      "terminal_reward": 0.0,
+      "delivered_public_tests": []
+    }
+  ]
+}

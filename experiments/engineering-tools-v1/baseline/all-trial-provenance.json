@@ -1,0 +1,65 @@
+{
+  "scope": "Every started trial; hashes refer to retained original files, not the redacted copies. No raw model text or private inputs included.",
+  "trials": [
+    {
+      "trial": "r01-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 1,
+      "reward": 0.0,
+      "session_ids": [
+        "session-404c4833a1fd4d3eb799ce8359b4bb2e"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+      "private_reward_suite_sha256": "fe71d52e4850ce102e8301572ac6913d0e7093e57d12281a3069a458317349a5",
+      "reserved_evaluation_suite_sha256": "087a82f75b3320f8b078c9393b0b9bbbe5aadff6bb88bee86a518d1fdd12e75b",
+      "raw_file_sha256": {
+        "candidate-04.sv": "20b4dedf1558833ba59fdb038f9e530c0eeaab30f32a7f5763dfd3c40f7a5dfb",
+        "freeze.json": "658fa2bd925b6bd2cf844ecabab6bed21fede8f5605412b1f9a740b6db873e29",
+        "harness-00.json": "4db6ebcb383cb1e8a7536cb9d34a060d65e8f607a0c487489e06e75643072b84",
+        "harness-01.json": "c13ed5bb514fea8a2e8d625a90d417953e850c6c58855d4b0b73912497568b51",
+        "harness-02.json": "127b7c5b1a27dd9510aa245d7079faf0ecb36cdfbda99eaaa63c986724f1d345",
+        "harness-03.json": "e311c8348e5bb4747d8efa6c24fbefe920282bc4e80eb9dc6aa73d347e2ecc31",
+        "harness-04.json": "f95a57ff79d48f641a8d0b1691649e819d18275d6ab1a19520fa6ccc4a6029ba",
+        "harness-05.json": "f9a01cd418c3994a1a975d4e1ba350f3a874f839776f3dccd50de152d451f846",
+        "initial-prompt.txt": "0c75f31a6ae3185ec8d69540a98f88c61cbd3629d680a49ba39a56de72d7df79",
+        "metrics.json": "7b856d120b93d78be2287d15b6928cf0b9368944d100fdc17a11e6982b12e737",
+        "observations.json": "6f7b069b9f9c1aa768028841e032722207115d37e8aa4ce70e5d7671fda518d0",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "20b4dedf1558833ba59fdb038f9e530c0eeaab30f32a7f5763dfd3c40f7a5dfb",
+        "trace.json": "ffb85fcadeb6a3f31f8cd4f0c0f1152d16acd8e1d5601a30895e3c33c5577488"
+      }
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "policy": "test_diagnostic",
+      "repeat": 2,
+      "reward": 0.0,
+      "session_ids": [
+        "session-77318f66008c4bae91d3efb1373b51c2"
+      ],
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "initial_rtl_sha256": "09bb88ff0c77d76ef4b8c6efa35a5ce17db179da05fe2f1c3ccd9c9deebd52ac",
+      "private_reward_suite_sha256": "6e3b209b35636566ad77e8bf1d94ad78b4b2bf5d86798fc703e13f27729b05ee",
+      "reserved_evaluation_suite_sha256": "20175c4102791d72d5cc5f973113e1a0b689dd648593637cabc0e2fd45f77373",
+      "raw_file_sha256": {
+        "candidate-04.sv": "3c233581f563f97908274970750a796c6e0d31b9dbad6a713ccf06b72f130ead",
+        "candidate-06.sv": "2d8dcbad03f2c51b0e02c2fef0405282625d88caa73bc0a2df6d124fa2b671e9",
+        "freeze.json": "6a3851ce1dc078fac158d15c5f9487f31dcbab127e734230688b114889fad8e2",
+        "harness-00.json": "a8eefd34b913e91cac35dd62c19283833a77ac86e579250d7db581c5ab2846f6",
+        "harness-01.json": "9cab42eab9842481508d404a87062e980598f657705952dbd82037bc69c6aa5f",
+        "harness-02.json": "8b6b4bef5c4e45409ddbdb378425c681bd0dcddc6098412718bed07c6d2c9a7b",
+        "harness-03.json": "7bbd66f0c42d2196c6493b032e5719d8f2345fe484b0bf3110186961790b3f75",
+        "harness-04.json": "697063709a62cc64c4b284a153f6edea7bf60f715f1c77e0ed272de653abd7d7",
+        "harness-05.json": "d3dca30602cd8499dab9dca2c9c0a539fb3d694b535df1b506b65c1910426b4d",
+        "harness-06.json": "964884d42c07fa8f69fd69c26009b72981ff3e292c24b59bec5ed3b5a8525345",
+        "initial-prompt.txt": "0c75f31a6ae3185ec8d69540a98f88c61cbd3629d680a49ba39a56de72d7df79",
+        "metrics.json": "180228d3a020aa062d77ef11169324e957caedd3410eb7136fb9e6c5a0936f3b",
+        "observations.json": "bce74e9156282c507c7c3fa4017eab85f78f9cece6f7844c5c7ce0a63a1d14f1",
+        "policy.json": "c903dd3c25a1784f67538857a0e6e4dccdf471c76c80831f6b512a126fe16b15",
+        "submission/bridge.sv": "2d8dcbad03f2c51b0e02c2fef0405282625d88caa73bc0a2df6d124fa2b671e9",
+        "trace.json": "752077ad76ee197b9364e4e570c55b57af697ccbc14e04b24a6524b4bda99f42"
+      }
+    }
+  ]
+}

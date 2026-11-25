@@ -2,9 +2,9 @@
 
 **用工业协议验证能力构建可执行的 RTL Agent 任务、程序化奖励与模型能力评测环境。**
 
-当前项目已经完成 **3 个真实 RTL 任务的 Agent 求解闭环**，并开展了 **Observation / Feedback Policy** 和批量模型能力研究。它的研究重点是：**任务怎样定义、答案怎样验证、反馈怎样影响 Agent，以及怎样判断一项任务是否具有训练价值。**
+当前项目已经完成 **4 个真实 RTL 任务的 Agent 求解与独立评分闭环**，并开展了 **Observation / Feedback Policy** 和批量模型能力研究。它的研究重点是：**任务怎样定义、答案怎样验证、反馈怎样影响 Agent，以及怎样判断一项任务是否具有训练价值。**
 
-> **当前范围：** AXI4-Lite → APB4（Task 001 单目标、Task 002 三目标路由、Task 003 有限队列与仲裁）｜VCS + Synopsys AMBA VIP + UVM｜固定模型的 Agent Rollout 与评测。**尚未训练或更新模型参数，也尚未实现多任务自动生成。**
+> **当前范围：** AXI4-Lite → APB4（Task 001 单目标、Task 002 三目标路由、Task 003 有限队列与仲裁、Task 004 执行与响应解耦）｜VCS + Synopsys AMBA VIP + UVM｜固定模型的 Agent Rollout 与评测。**尚未训练或更新模型参数，也尚未实现多任务自动生成。**
 
 ## 1. 当前进度：实现了什么，得到了什么结果
 
@@ -18,8 +18,10 @@
 | 批量 Agent 评测 | 新版协议下自主生成 30 次、固定错误 RTL 配对修复 6 次；另保留旧协议的 17 次停止批次 | 已完成首轮研究 |
 | Task 002 与任务质量门禁 | 三目标路由；两种参考、13错误对照、40机制检查通过；9条Agent试次，A/C/E各2/3成功 | 已实测，难度待进一步校准 |
 | Task 003 | 深度2独立队列和仲裁；两种参考、15错误对照、40机制检查通过；独立9条A0/3、C1/3、E0/3；同起点修复6条均未成功 | 已实测，难度待进一步校准 |
-| 多任务统一入口 | 三任务Registry与Schema，统一reset/test/submit/quality/rollout | 已实现并测试；尚无自动任务生成器 |
-| 轨迹数据交付准备 | 六批77条结果记录、37条已审查工具轨迹的交换；保留评估独立存放 | 已在真实发布证据上验证；不是完整on-policy训练数据 |
+| Task 004 | APB独立执行与B/R响应FIFO；两种参考、额外合法延迟参考、14错误对照、40机制检查通过；A/E各0/2 | 已实测；3/4形成编辑候选，难度与策略效果尚不能可靠标定 |
+| 受控工程工具 | Task003 可选独立编译与公开需求诊断查询；20项机制验收，4条同起点修复试次 | 已实测；基线/增强均0/2，不能据小样本判定工具效果 |
+| 多任务统一入口 | Registry与Schema，统一reset/test/submit/quality/rollout | 已实现并测试；尚无自动任务生成器 |
+| 轨迹数据交付准备 | v2交换覆盖九批85条结果、45条已审查工具轨迹；能力配置与保留评估分开记录，历史v1不变 | 已在真实发布证据上验证；不是完整on-policy训练数据 |
 | 模型强化学习训练 | Rollout 与 Reward 已有；Policy Optimizer/参数更新及训练收益评估 | 尚未开展 |
 
 **标准验证基线：** 正确参考实现通过 22/22 个 case；共 2,868 笔计划事务，其中 **2,842 笔正常检查完成、26 笔按规格复位取消**。这不是 2,868 笔全部正常完成。验证包含定向、随机、字节使能/等待/背压、事务中复位和交叉覆盖；10 个错误对照只需在确认错误的场景中判负，不宣称它们各自运行了全部 22 个 case。
@@ -30,6 +32,10 @@
 
 [Task 003 任务包](tasks/axil_to_apb4_queue_003/README.md) · [队列研究报告与9条试次](docs/task003-evaluation-report.md) · [统一任务入口](docs/task-catalog.md) · [轨迹交换与训练数据边界](docs/rollout-data-contract.md)。003完整21/公开19case，检查FIFO容量与顺序、仲裁、响应和复位账目；不同任务的case数量不代表难度排序。
 
+[Task 004 任务包](tasks/axil_to_apb4_decoupled_004/README.md) · [解耦设计报告与4条试次](docs/task004-evaluation-report.md)。004完整23/公开21case，明确区分接收、执行和退休；首批A/E均0/2，其中一条被动作格式错误阻碍，不能把它等同于RTL能力失败。
+
+[工程工具权限与实测能力](docs/engineering-tools.md) · [固定错误RTL工具对照报告](docs/engineering-tools-evaluation.md)。新增工具与任务复杂度分别冻结；编译PASS不代表功能正确，具体诊断曝光也不等于成功修复。
+
 ## 2. 一个 Agent 任务究竟怎样运行
 
 本项目的 **Task** 向求解 Agent 提供两类初始材料：
@@ -37,7 +43,7 @@
 - **Spec**：明确写出协议转换、握手、等待、错误响应、复位、时序上限和不支持的场景。
 - **初始 RTL**：只有 `bridge` 的端口声明和待实现部分；Agent 必须自行完成电路逻辑。
 
-真实求解过程中，由 **Observation / Feedback Policy** 决定 Agent 可以读取哪些内容、执行哪些动作、获得多少测试反馈。当前控制器允许的动作名称是 **`read`、`edit`、`test`、`submit`**；注意 **`submit` 是第四个动作**，不是前三个动作的自动结束。
+真实求解过程中，由 **Observation / Feedback Policy** 决定 Agent 可以读取哪些内容、执行哪些动作、获得多少测试反馈。基础接口的动作名称是 **`read`、`edit`、`test`、`submit`**；Task003可选的[工程工具配置](docs/engineering-tools.md)另允许受控`compile/inspect`，不改变基础Policy。注意 **`submit` 是第四个动作**，不是前三个动作的自动结束。
 
 ```mermaid
 flowchart TB

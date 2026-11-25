@@ -41,10 +41,15 @@ def training_infrastructure(row,public_events):
     # training-side validity signals or alter the terminal reward.
     return row['terminal_category']=='infrastructure_error' or any(e['observation']['status']=='ENV_ERROR' for e in public_events)
 
-def export(sources,out):
+def export(sources,out,schema_version=1):
+    if schema_version not in (1,2):raise ValueError('Unsupported exchange schema')
     sources=[Path(p).resolve() for p in sources]
     if len(set(sources))!=len(sources):raise ValueError('Duplicate source publication')
     validated=[validate_source(p) for p in sources]
+    for manifest,_,_,_ in validated:
+        cap=manifest.get('capabilities')
+        if cap not in (None,'engineering-tools-v1'):raise ValueError('Unknown capability contract')
+        if cap and schema_version!=2:raise ValueError('Engineering observations require exchange schema 2')
     out=Path(out);out.mkdir(parents=True,exist_ok=False)
     for d in ('training','evaluation','analysis','artifacts'):(out/d).mkdir()
     records=[];evaluations=[];offline=[];keys=set();source_rows=[]
@@ -75,6 +80,9 @@ def export(sources,out):
                         a['content_artifact']=artifact(path)
                     # Already projected public observations only. No grader result is merged.
                     obs=e['observation'];allowed={'status','reason','instruction','action_fields','file','content_sha256','content_bytes','remaining_test_calls','category','first_failed_case','diagnostic'}
+                    if schema_version==2 and m.get('capabilities')=='engineering-tools-v1':
+                        if action.get('tool')=='compile':allowed|={'diagnostics','functional_correctness_checked','remaining_compile_calls'}
+                        elif action.get('tool')=='inspect':allowed|={'case','invariant','public_action','source_sha256','remaining_inspect_calls'}
                     if set(obs)-allowed:raise ValueError('Unexpected observation fields')
                     events.append({'action_index':e['action_index'],'action':a,'omitted_action_fields':sorted(set(action)-{'tool','file','content_sha256','candidate_file'}),'executed':e['executed'],'observation':obs,'observation_delivered':e.get('observation_delivered',False)})
                 p=d/'submission/bridge.sv'
@@ -89,20 +97,32 @@ def export(sources,out):
                 # Repair source may be published separately; never substitute the empty template.
                 if key_name=='initial_rtl' and (root/'starting.sv').exists():path=root/'starting.sv'
                 input_artifacts[key_name]=artifact(path) if path.exists() and sha(path)==expected else {'sha256':expected,'file':None}
-            records.append({'schema':'pb-tool-trajectory-v1','episode_id':cohort+':'+name,'task_id':task,'cohort':{'study':m.get('study'),'protocol':m.get('protocol'),'repeat':row['repeat'],'model':m['model'],'policy':row['policy']},
+            records.append({'schema':'pb-tool-trajectory-v%d'%schema_version,'episode_id':cohort+':'+name,'task_id':task,'cohort':{'study':m.get('study'),'protocol':m.get('protocol'),'repeat':row['repeat'],'model':m['model'],'policy':row['policy']},
                 'versions':{'source_commit':m['source_commit'],'task_version':task_version,'verifier_manifest_sha256':verifier_hash,'policy_version':m['policies'][row['policy']]['config']['version'],'source_manifest_sha256':hashlib.sha256(canonical(m['source_files']).encode()).hexdigest(),'policy_sha256':prov['policy_sha256'],'private_reward_suite_sha256':prov.get('private_reward_suite_sha256'),'toolchain':m.get('toolchain',{})},
                 'task_inputs':input_artifacts,'tool_events':events,'trajectory_available':events is not None,'final_submission':final,
                 'outcome':{'reward':row['reward'],'reward_determinate':row['reward'] is not None,'valid_submission':row['valid_submission'],'category':row['terminal_category'],'infrastructure':training_infrastructure(row,feedback[name]['delivered_public_tests']),'failure_labels':row['labels']},
                 'public_feedback':feedback[name]['delivered_public_tests'],
                 'resources':{k:row.get(k) for k in ('tokens','wall_seconds','model_request_wall_seconds','compile_wall_seconds','simulation_wall_seconds','api_cost','actions','edits','public_test_calls','protocol_errors')},
                 'optimizer_inputs_available':{'raw_model_outputs':False,'token_ids':False,'behavior_log_probabilities':False,'model_weight_revision':False}})
+            if schema_version==2:
+                cap=m.get('capabilities');record=records[-1]
+                record['cohort']['capabilities']=cap
+                names=('environment/engineering_session.py','environment/engineering_tools.py') if cap else ('environment/policy_session.py','environment/feedback.py')
+                record['versions']['capability_sources']={n:m['source_files'][n] for n in names}
+                extra=[e for e in events or [] if e['executed'] and e['observation_delivered'] and e['action'].get('tool') in ('compile','inspect')]
+                record['engineering_feedback']=extra if events is not None else None
+                record['outcome']['infrastructure']=training_infrastructure(row,feedback[name]['delivered_public_tests']+extra)
+                metric_file=d/'metrics.json';metric=json.loads(metric_file.read_text()) if metric_file.exists() else {}
+                for key_name in ('compile_calls','inspect_calls'):record['resources'][key_name]=metric.get(key_name)
+                compiler_records=list(d.glob('compile-*/result.json'))
+                record['resources']['standalone_compile_wall_seconds']=sum(json.loads(p.read_text())['wall_seconds'] for p in compiler_records) if metric.get('compile_calls')==len(compiler_records) else None
             evaluations.append({'episode_id':cohort+':'+name,'reserved_suite_sha256':prov.get('reserved_evaluation_suite_sha256'),'held_out_reward':row['held_out'],'infrastructure_error':'held_out' in row.get('environment_error_locations',[]),'use':'evaluation_only_not_training_reward'})
             offline.append({'episode_id':cohort+':'+name,'first_candidate_public':row.get('first_candidate_public'),'use':'post_hoc_measurement_not_additional_solver_observation'})
     for name,data in [('training/rollouts.jsonl',records),('evaluation/heldout.jsonl',evaluations),('analysis/offline.jsonl',offline)]:
         (out/name).write_text(''.join(json.dumps(x,sort_keys=True)+'\n' for x in data))
-    manifest={'schema':'pb-exchange-manifest-v1','completed':True,'records':len(records),'available_tool_trajectories':sum(r['trajectory_available'] for r in records),'sources':source_rows,
+    manifest={'schema':'pb-exchange-manifest-v%d'%schema_version,'completed':True,'records':len(records),'available_tool_trajectories':sum(r['trajectory_available'] for r in records),'sources':source_rows,
       'scope':'All published started trials retained; selected tool trajectories and artifacts only. Not lossless model-token data or an on-policy RL training dataset. Null rewards are not relabeled. Held-out and post-hoc measurements are separate.',
       'files':{str(p.relative_to(out)):sha(p) for p in sorted(out.rglob('*')) if p.is_file()}}
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n');return manifest
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('sources',nargs='+');a=p.parse_args();m=export(a.sources,a.out);print(json.dumps({k:v for k,v in m.items() if k not in ('files','sources')},indent=2))
+    p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('sources',nargs='+');p.add_argument('--schema-version',type=int,choices=(1,2),default=1);a=p.parse_args();m=export(a.sources,a.out,a.schema_version);print(json.dumps({k:v for k,v in m.items() if k not in ('files','sources')},indent=2))

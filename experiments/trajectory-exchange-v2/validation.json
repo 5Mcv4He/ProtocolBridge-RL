@@ -1,0 +1,26 @@
+{
+  "schema": "pb-exchange-validation-v2",
+  "records": 85,
+  "available_tool_trajectories": 45,
+  "source_cohorts": [
+    "experiments/batch-study-001/text-v1-stopped",
+    "experiments/batch-study-001/text-v2-independent",
+    "experiments/batch-study-001/text-v2-repair",
+    "experiments/task002-v1/pilot",
+    "experiments/task003-v1/pilot",
+    "experiments/task003-v1/repair",
+    "experiments/engineering-tools-v1/baseline",
+    "experiments/engineering-tools-v1/tools",
+    "experiments/task004-v1/pilot"
+  ],
+  "cohorts_remain_separate": true,
+  "record_identities_unique": true,
+  "content_hashes_verified": true,
+  "top_level_schema_checked": true,
+  "heldout_and_posthoc_separate": true,
+  "null_rewards_preserved": 1,
+  "manifest_sha256": "edc4bcf2de00fac5dc080b7730b7e216137cbcc56f207fbfc0d09ab7a649a71d",
+  "exporter_sha256": "f2808dd6559cb2a8d675de76dcedb030c795ec3c4d44a18498dfb1f0079e1d47",
+  "schema_sha256": "1beda6bb84379518c24901e3f77aa99523f1fe592bbe57522ff4fd7cad0594ae",
+  "scope": "Actual regenerated exchange from reviewed evidence, not a pooled success rate or on-policy model-token dataset. Output remains local and can be regenerated; historical v1 exchange is unchanged."
+}

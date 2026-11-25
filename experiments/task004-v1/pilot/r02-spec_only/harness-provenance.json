@@ -1,0 +1,81 @@
+[
+  {
+    "file": "harness-00.json",
+    "sha256": "2f3c48dcaf42eb81442652e0bd7ecab1349404efebebfbfcc5cea82a8c81e0fa",
+    "worker_uid": 1101,
+    "worker_pid": 1,
+    "session_id": "session-b7f1d741c6c94955b54f9dd220eb1ef3",
+    "event_types": {
+      "agent/inbox/spliced": 2,
+      "turn/start": 1,
+      "step/start": 1,
+      "system/message": 1,
+      "user/message": 2,
+      "request/header": 1,
+      "request/context": 1,
+      "session/title": 1,
+      "assistant/message": 1,
+      "step/end": 1,
+      "turn/end": 1
+    },
+    "request_headers": [
+      {
+        "maxTokens": 7000,
+        "provider": "deepseek-official",
+        "model": "deepseek-flash",
+        "reasoningEffort": "off"
+      }
+    ]
+  },
+  {
+    "file": "harness-01.json",
+    "sha256": "6bb0e16917a0e30fab6d40fb60c272db75f2b29553732afb7a10a61f3776a81d",
+    "worker_uid": 1101,
+    "worker_pid": 1,
+    "session_id": "session-b7f1d741c6c94955b54f9dd220eb1ef3",
+    "event_types": {
+      "agent/inbox/spliced": 2,
+      "turn/start": 1,
+      "step/start": 1,
+      "user/message": 1,
+      "assistant/message": 1,
+      "step/end": 1,
+      "turn/end": 1
+    },
+    "request_headers": []
+  },
+  {
+    "file": "harness-02.json",
+    "sha256": "7b971feeb9faf8fa5d531fabe03522718507bb3198fda051c3cc055134389d98",
+    "worker_uid": 1101,
+    "worker_pid": 1,
+    "session_id": "session-b7f1d741c6c94955b54f9dd220eb1ef3",
+    "event_types": {
+      "agent/inbox/spliced": 2,
+      "turn/start": 1,
+      "step/start": 1,
+      "user/message": 1,
+      "assistant/message": 1,
+      "step/end": 1,
+      "turn/end": 1
+    },
+    "request_headers": []
+  },
+  {
+    "file": "harness-03.json",
+    "sha256": "91a7ad7672e6a1a9850e17b308776c66dff3caa12a9dcc5bbe4de523ba6f0b38",
+    "worker_uid": 1101,
+    "worker_pid": 1,
+    "session_id": "session-b7f1d741c6c94955b54f9dd220eb1ef3",
+    "event_types": {
+      "agent/inbox/spliced": 2,
+      "turn/start": 1,
+      "step/start": 1,
+      "user/message": 1,
+      "assistant/message": 1,
+      "step/end": 1,
+      "turn/end": 1
+    },
+    "request_headers": []
+  }
+]

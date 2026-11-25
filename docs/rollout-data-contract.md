@@ -44,3 +44,17 @@ python3 scripts/test_rollout_exchange.py
 该命令目前输出77条结果记录，其中37条有已发布的工具轨迹。原始全部轨迹仍在可信本地，未发布不等于未保存。导出目标必须是新目录；失败或重复运行不能覆盖已有交付。导出器的5项自动化测试已在本地Python3.14及执行主机Python3.6.9通过。测试核对真实样本分母、null保留、训练/保留隔离、内容哈希、路径边界和重复拒绝，不调用模型或VCS。
 
 对接通用Rollout Collector时，应让Collector直接驱动已验收的reset/read/edit/test/submit边界，保留模型实际采样数据，由独立评分阶段返回终局Reward。当前适配器提供离线交换与审计基础，未实现Collector服务、优化器、GPU训练或训练收益评估。
+
+## 工程工具轨迹 v2
+
+历史 v1 的77条记录保持不变。新增 `--schema-version 2` 明确记录环境能力版本、能力实现哈希和实际送达的 `compile/inspect` 反馈；工程工具试次不能静默导出为 v1。基线和增强组属于不同 cohort。字段约束见[Schema v2](../schemas/rollout-exchange-v2.schema.json)。
+
+```bash
+python3 scripts/export_rollout_exchange.py --schema-version 2 --out .local/tools-exchange \
+  experiments/engineering-tools-v1/baseline experiments/engineering-tools-v1/tools
+PYTHONPATH=scripts python3 -m unittest scripts.test_rollout_exchange scripts.test_engineering_exchange scripts.test_research_index
+```
+
+该批4条真实修复轨迹均保留：4次具体诊断查询、1次独立编译，终局奖励均为0。`engineering_feedback`只收录实际执行且送达模型的观察；编译耗时与完整功能测试耗时分开。`resources`中的试次总耗时及功能验证耗时包含提交后的评分/保留评估成本，不应当作纯训练工具耗时。独立保留评估仍仅在 `evaluation/`，没有作为求解反馈或替换训练Reward。
+
+将前述六个历史来源与两个工程工具来源、`experiments/task004-v1/pilot`一起传入v2导出器，已实际得到[九批85条结果、45条工具轨迹](../experiments/trajectory-exchange-v2/validation.json)，保留1条历史null。新增Task004的未编辑模板提交也保留在分母。检查包括来源审计/发布哈希、唯一试次身份、artifact哈希及顶层Schema字段；不声称进行了所有嵌套语义的通用JSON Schema证明。不同任务、动作协议、独立生成/修复和能力配置仍分别分组，85只是库存数，不是合并成功率。

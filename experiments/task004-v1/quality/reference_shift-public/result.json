@@ -1,0 +1,1104 @@
+{
+  "reward": 1.0,
+  "category": "pass",
+  "verification_complete": true,
+  "verdict_determinate": true,
+  "source_sha256": "572fbe032309a63e54f0d0819a8d3e51f5e37c2fe73022748d07596f0d0974cf",
+  "suite_sha256": "9125bc7b305d25e279d712d41df70b0006470a8457fc2544bc13804856f3aba9",
+  "required_cases": [
+    "write_pipeline",
+    "read_pipeline",
+    "opposite_during_b",
+    "opposite_during_r",
+    "read_push_pop",
+    "write_push_pop",
+    "read_snapshot",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "simultaneous_responses",
+    "early_ready",
+    "random_0",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8"
+  ],
+  "planned": 249,
+  "checked": 201,
+  "aborted": 48,
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "write_pipeline",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 17,
+      "scoreboard": {
+        "planned": 17,
+        "axi": 17,
+        "apb": 17,
+        "checked": 17,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 12,
+        "w": 12,
+        "ar": 5,
+        "retired_w": 12,
+        "retired_r": 5,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 17
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "aw_full",
+        "b_enqueue_dequeue",
+        "b_response_full",
+        "execute_during_b_stall",
+        "strobe_0",
+        "strobe_1",
+        "strobe_10",
+        "strobe_11",
+        "strobe_2",
+        "strobe_3",
+        "strobe_4",
+        "strobe_5",
+        "strobe_6",
+        "strobe_7",
+        "strobe_8",
+        "strobe_9",
+        "w_full",
+        "write_error"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_WRITE_RESPONSES",
+        "D_THREE_CREDITS",
+        "D_WRAP",
+        "D_ERROR"
+      ]
+    },
+    {
+      "name": "read_pipeline",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 12,
+      "scoreboard": {
+        "planned": 12,
+        "axi": 12,
+        "apb": 12,
+        "checked": 12,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 0,
+        "w": 0,
+        "ar": 12,
+        "retired_w": 0,
+        "retired_r": 12,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 12
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "execute_during_r_stall",
+        "r_enqueue_dequeue",
+        "r_response_full",
+        "read_error"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_READ_RESPONSES",
+        "D_THREE_CREDITS",
+        "D_WRAP",
+        "D_ERROR"
+      ]
+    },
+    {
+      "name": "opposite_during_b",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 9,
+      "scoreboard": {
+        "planned": 9,
+        "axi": 9,
+        "apb": 9,
+        "checked": 9,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 3,
+        "w": 3,
+        "ar": 6,
+        "retired_w": 3,
+        "retired_r": 6,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 9
+      },
+      "coverage_bins": [
+        "ar_full",
+        "aw_full",
+        "b_response_full",
+        "execute_during_b_stall",
+        "execute_during_r_stall",
+        "r_response_full",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_INDEPENDENT_EXECUTOR",
+        "D_CROSS_DIRECTION_PROGRESS"
+      ]
+    },
+    {
+      "name": "opposite_during_r",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 9,
+      "scoreboard": {
+        "planned": 9,
+        "axi": 9,
+        "apb": 9,
+        "checked": 9,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 6,
+        "w": 6,
+        "ar": 3,
+        "retired_w": 6,
+        "retired_r": 3,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 9
+      },
+      "coverage_bins": [
+        "ar_full",
+        "aw_full",
+        "b_response_full",
+        "execute_during_b_stall",
+        "execute_during_r_stall",
+        "r_response_full",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_INDEPENDENT_EXECUTOR",
+        "D_CROSS_DIRECTION_PROGRESS"
+      ]
+    },
+    {
+      "name": "read_push_pop",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 6,
+        "apb": 6,
+        "checked": 6,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 0,
+        "w": 0,
+        "ar": 6,
+        "retired_w": 0,
+        "retired_r": 6,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 6
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "execute_during_r_stall",
+        "r_enqueue_dequeue"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_RESPONSE_PUSH_POP"
+      ]
+    },
+    {
+      "name": "write_push_pop",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 6,
+        "apb": 6,
+        "checked": 6,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 6,
+        "w": 6,
+        "ar": 0,
+        "retired_w": 6,
+        "retired_r": 0,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 6
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "aw_full",
+        "b_enqueue_dequeue",
+        "execute_during_b_stall",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_RESPONSE_PUSH_POP"
+      ]
+    },
+    {
+      "name": "read_snapshot",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 4,
+      "scoreboard": {
+        "planned": 4,
+        "axi": 4,
+        "apb": 4,
+        "checked": 4,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 2,
+        "w": 2,
+        "ar": 2,
+        "retired_w": 2,
+        "retired_r": 2,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 4
+      },
+      "coverage_bins": [
+        "execute_during_r_stall",
+        "read_snapshot_changed",
+        "strobe_15"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_READ_SNAPSHOT",
+        "D_MEMORY_ORDER"
+      ]
+    },
+    {
+      "name": "partial_aw",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 6,
+        "apb": 6,
+        "checked": 6,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 3,
+        "w": 3,
+        "ar": 3,
+        "retired_w": 3,
+        "retired_r": 3,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 6
+      },
+      "coverage_bins": [
+        "ar_full",
+        "aw_ahead",
+        "aw_full",
+        "b_response_full",
+        "execute_during_b_stall",
+        "execute_during_r_stall",
+        "read_during_partial_write",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_INDEPENDENT_HALVES",
+        "D_PARTIAL_READ_PROGRESS"
+      ]
+    },
+    {
+      "name": "partial_w",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 6,
+      "scoreboard": {
+        "planned": 6,
+        "axi": 6,
+        "apb": 6,
+        "checked": 6,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 3,
+        "w": 3,
+        "ar": 3,
+        "retired_w": 3,
+        "retired_r": 3,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 6
+      },
+      "coverage_bins": [
+        "ar_full",
+        "aw_full",
+        "b_response_full",
+        "execute_during_b_stall",
+        "execute_during_r_stall",
+        "read_during_partial_write",
+        "strobe_15",
+        "w_ahead",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_INDEPENDENT_HALVES",
+        "D_PARTIAL_READ_PROGRESS"
+      ]
+    },
+    {
+      "name": "round_robin",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 24,
+      "scoreboard": {
+        "planned": 24,
+        "axi": 24,
+        "apb": 24,
+        "checked": 24,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 12,
+        "w": 12,
+        "ar": 12,
+        "retired_w": 12,
+        "retired_r": 12,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 24
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "b_enqueue_dequeue",
+        "b_response_full",
+        "both_eligible",
+        "execute_during_b_stall",
+        "execute_during_r_stall",
+        "long_stream",
+        "r_enqueue_dequeue",
+        "r_response_full",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_ROUND_ROBIN",
+        "D_ORDER",
+        "D_LONG_STREAM"
+      ]
+    },
+    {
+      "name": "simultaneous_responses",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 2,
+      "scoreboard": {
+        "planned": 2,
+        "axi": 2,
+        "apb": 2,
+        "checked": 2,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 1,
+        "w": 1,
+        "ar": 1,
+        "retired_w": 1,
+        "retired_r": 1,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 2
+      },
+      "coverage_bins": [
+        "both_eligible",
+        "execute_during_r_stall",
+        "simultaneous_responses",
+        "strobe_15"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_SIMULTANEOUS_RESPONSES"
+      ]
+    },
+    {
+      "name": "early_ready",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 24,
+      "scoreboard": {
+        "planned": 24,
+        "axi": 24,
+        "apb": 24,
+        "checked": 24,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 12,
+        "w": 12,
+        "ar": 12,
+        "retired_w": 12,
+        "retired_r": 12,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 24
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "both_eligible",
+        "long_stream",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_EARLY_READY",
+        "D_ADDRESS"
+      ]
+    },
+    {
+      "name": "random_0",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 20,
+      "scoreboard": {
+        "planned": 20,
+        "axi": 20,
+        "apb": 20,
+        "checked": 20,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 10,
+        "w": 10,
+        "ar": 10,
+        "retired_w": 10,
+        "retired_r": 10,
+        "canceled_aw": 0,
+        "canceled_w": 0,
+        "canceled_ar": 0,
+        "resets": 0,
+        "grants": 20
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_ahead",
+        "aw_full",
+        "b_response_full",
+        "both_eligible",
+        "execute_during_b_stall",
+        "execute_during_r_stall",
+        "long_stream",
+        "r_response_full",
+        "read_during_partial_write",
+        "read_error",
+        "strobe_1",
+        "strobe_12",
+        "strobe_13",
+        "strobe_4",
+        "strobe_6",
+        "strobe_7",
+        "strobe_8",
+        "w_ahead",
+        "w_full",
+        "write_error"
+      ],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_RANDOM_INTERLEAVING",
+        "D_LONG_STREAM"
+      ]
+    },
+    {
+      "name": "reset_1",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 13,
+      "scoreboard": {
+        "planned": 13,
+        "axi": 7,
+        "apb": 7,
+        "checked": 7,
+        "aborted": 6,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 5,
+        "w": 2,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 5,
+        "canceled_aw": 3,
+        "canceled_w": 0,
+        "canceled_ar": 3,
+        "resets": 1,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "ar_full",
+        "aw_ahead",
+        "aw_full",
+        "both_eligible",
+        "execute_during_r_stall",
+        "read_during_partial_write",
+        "reset_queued",
+        "strobe_15"
+      ],
+      "reset_observations": [
+        {
+          "stage": 1,
+          "canceled": 6,
+          "aw": 3,
+          "w": 0,
+          "ar": 3,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_RESET_STAGE_1",
+        "D_RESET_CREDITS",
+        "D_RESET_RESPONSES",
+        "D_RESET_MEMORY"
+      ]
+    },
+    {
+      "name": "reset_2",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 13,
+      "scoreboard": {
+        "planned": 13,
+        "axi": 7,
+        "apb": 7,
+        "checked": 7,
+        "aborted": 6,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 2,
+        "w": 5,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 5,
+        "canceled_aw": 0,
+        "canceled_w": 3,
+        "canceled_ar": 3,
+        "resets": 1,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "ar_full",
+        "both_eligible",
+        "execute_during_r_stall",
+        "read_during_partial_write",
+        "reset_queued",
+        "strobe_15",
+        "w_ahead",
+        "w_full"
+      ],
+      "reset_observations": [
+        {
+          "stage": 2,
+          "canceled": 6,
+          "aw": 0,
+          "w": 3,
+          "ar": 3,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_RESET_STAGE_2",
+        "D_RESET_CREDITS",
+        "D_RESET_RESPONSES",
+        "D_RESET_MEMORY"
+      ]
+    },
+    {
+      "name": "reset_3",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 13,
+      "scoreboard": {
+        "planned": 13,
+        "axi": 7,
+        "apb": 7,
+        "checked": 7,
+        "aborted": 6,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 4,
+        "ar": 5,
+        "retired_w": 2,
+        "retired_r": 5,
+        "canceled_aw": 2,
+        "canceled_w": 2,
+        "canceled_ar": 0,
+        "resets": 1,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "both_eligible",
+        "execute_during_r_stall",
+        "reset_queued",
+        "strobe_15"
+      ],
+      "reset_observations": [
+        {
+          "stage": 3,
+          "canceled": 6,
+          "aw": 2,
+          "w": 2,
+          "ar": 0,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_RESET_STAGE_3",
+        "D_RESET_CREDITS",
+        "D_RESET_RESPONSES",
+        "D_RESET_MEMORY"
+      ]
+    },
+    {
+      "name": "reset_4",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 13,
+      "scoreboard": {
+        "planned": 13,
+        "axi": 7,
+        "apb": 7,
+        "checked": 7,
+        "aborted": 6,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 2,
+        "ar": 7,
+        "retired_w": 2,
+        "retired_r": 5,
+        "canceled_aw": 2,
+        "canceled_w": 0,
+        "canceled_ar": 2,
+        "resets": 1,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "aw_ahead",
+        "both_eligible",
+        "execute_during_r_stall",
+        "read_during_partial_write",
+        "reset_queued",
+        "strobe_15"
+      ],
+      "reset_observations": [
+        {
+          "stage": 4,
+          "canceled": 6,
+          "aw": 2,
+          "w": 0,
+          "ar": 2,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_RESET_STAGE_4",
+        "D_RESET_CREDITS",
+        "D_RESET_RESPONSES",
+        "D_RESET_MEMORY"
+      ]
+    },
+    {
+      "name": "reset_5",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 13,
+      "scoreboard": {
+        "planned": 13,
+        "axi": 7,
+        "apb": 7,
+        "checked": 7,
+        "aborted": 6,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 5,
+        "w": 5,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 5,
+        "canceled_aw": 3,
+        "canceled_w": 3,
+        "canceled_ar": 3,
+        "resets": 1,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "both_eligible",
+        "execute_during_r_stall",
+        "reset_queued",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [
+        {
+          "stage": 5,
+          "canceled": 6,
+          "aw": 3,
+          "w": 3,
+          "ar": 3,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_RESET_STAGE_5",
+        "D_RESET_CREDITS",
+        "D_RESET_RESPONSES",
+        "D_RESET_MEMORY"
+      ]
+    },
+    {
+      "name": "reset_6",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 13,
+      "scoreboard": {
+        "planned": 13,
+        "axi": 7,
+        "apb": 7,
+        "checked": 7,
+        "aborted": 6,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 5,
+        "w": 5,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 5,
+        "canceled_aw": 3,
+        "canceled_w": 3,
+        "canceled_ar": 3,
+        "resets": 1,
+        "grants": 8
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "both_eligible",
+        "execute_during_r_stall",
+        "reset_queued",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [
+        {
+          "stage": 6,
+          "canceled": 6,
+          "aw": 3,
+          "w": 3,
+          "ar": 3,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_RESET_STAGE_6",
+        "D_RESET_CREDITS",
+        "D_RESET_RESPONSES",
+        "D_RESET_MEMORY"
+      ]
+    },
+    {
+      "name": "reset_7",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 13,
+      "scoreboard": {
+        "planned": 13,
+        "axi": 7,
+        "apb": 10,
+        "checked": 7,
+        "aborted": 6,
+        "aborted_apb": 3,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 5,
+        "w": 5,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 5,
+        "canceled_aw": 3,
+        "canceled_w": 3,
+        "canceled_ar": 3,
+        "resets": 1,
+        "grants": 11
+      },
+      "coverage_bins": [
+        "ar_full",
+        "aw_full",
+        "b_response_full",
+        "both_eligible",
+        "execute_during_b_stall",
+        "execute_during_r_stall",
+        "reset_completed_queue",
+        "reset_queued",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [
+        {
+          "stage": 7,
+          "canceled": 6,
+          "aw": 3,
+          "w": 3,
+          "ar": 3,
+          "apb_completed": 3
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_RESET_STAGE_7",
+        "D_RESET_CREDITS",
+        "D_RESET_RESPONSES",
+        "D_RESET_MEMORY"
+      ]
+    },
+    {
+      "name": "reset_8",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 13,
+      "scoreboard": {
+        "planned": 13,
+        "axi": 7,
+        "apb": 10,
+        "checked": 7,
+        "aborted": 6,
+        "aborted_apb": 3,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 5,
+        "w": 5,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 5,
+        "canceled_aw": 3,
+        "canceled_w": 3,
+        "canceled_ar": 3,
+        "resets": 1,
+        "grants": 11
+      },
+      "coverage_bins": [
+        "ar_full",
+        "aw_full",
+        "both_eligible",
+        "execute_during_r_stall",
+        "r_response_full",
+        "reset_completed_queue",
+        "reset_queued",
+        "strobe_15",
+        "w_full"
+      ],
+      "reset_observations": [
+        {
+          "stage": 8,
+          "canceled": 6,
+          "aw": 3,
+          "w": 3,
+          "ar": 3,
+          "apb_completed": 3
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "D_RESET_STAGE_8",
+        "D_RESET_CREDITS",
+        "D_RESET_RESPONSES",
+        "D_RESET_MEMORY"
+      ]
+    }
+  ]
+}

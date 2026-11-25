@@ -1,0 +1,266 @@
+{
+  "groups": {
+    "test_diagnostic": {
+      "started": 2,
+      "effective_edit": 2,
+      "submitted": 2,
+      "successes": 0,
+      "success_rate_all_started": 0.0,
+      "wilson95": [
+        0,
+        0.6576280471103807
+      ],
+      "feedback_exposed": 2,
+      "edited_after_feedback": 2,
+      "reward_distribution": {
+        "0": 2,
+        "1": 0,
+        "null": 0
+      },
+      "protocol_error_actions": 0,
+      "total_actions": 19,
+      "conditional": {
+        "effective_edit": {
+          "n": 2,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.6576280471103807
+          ]
+        },
+        "valid_submission": {
+          "n": 2,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.6576280471103807
+          ]
+        },
+        "feedback": {
+          "n": 2,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.6576280471103807
+          ]
+        }
+      },
+      "determinate_binary_reward_entropy_bits": 0.0,
+      "entropy_excludes_null": true,
+      "measurements": {
+        "trials": 2,
+        "json_parse_errors": 0,
+        "schema_or_argument_errors": 0,
+        "compilation_processes": 5,
+        "simulation_processes": 18,
+        "edits": 3,
+        "public_calls": 4,
+        "failed_feedback_trials": 2,
+        "changed_after_feedback": 2,
+        "changed_after_failed_feedback": 2,
+        "protocol_errors_without_candidate": 0,
+        "terminal_categories": {
+          "protocol_timing_error": 2
+        },
+        "primary_outcomes": {
+          "protocol_timing_error": 2
+        },
+        "first_candidate_public_pass": 0,
+        "first_candidate_public_fail": 2,
+        "first_candidate_unmeasured": 0,
+        "final_public_pass_private_fail": 0,
+        "held_out_successes": 0,
+        "terminal_held_out_disagreements": 0,
+        "trials_with_protocol_errors": 0,
+        "failure_labels_nonexclusive": {
+          "protocol_timing_error": 2,
+          "repair_after_feedback_failed": 2
+        },
+        "tokens": {
+          "inputTokens": 12890,
+          "outputTokens": 6144,
+          "cacheReadTokens": 87424,
+          "cacheWriteTokens": 0,
+          "totalTokens": 106458
+        },
+        "seconds": {
+          "wall_seconds": 488.986,
+          "model_request_wall_seconds": 29.94,
+          "compile_wall_seconds": 420.087,
+          "simulation_wall_seconds": 34.45
+        },
+        "timing_observed_trials": {
+          "wall_seconds": 2,
+          "model_request_wall_seconds": 2,
+          "compile_wall_seconds": 2,
+          "simulation_wall_seconds": 2
+        },
+        "api_currency_cost": null
+      }
+    }
+  },
+  "rows": [
+    {
+      "trial": "r01-test_diagnostic",
+      "repeat": 1,
+      "policy": "test_diagnostic",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 8,
+      "edits": 1,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": true,
+      "failed_feedback": true,
+      "edited_after_feedback": true,
+      "changed_after_feedback": true,
+      "changed_after_failed_feedback": true,
+      "public_verdicts": [
+        "FAIL",
+        "FAIL"
+      ],
+      "terminal_category": "protocol_timing_error",
+      "primary_outcome": "protocol_timing_error",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 11.15,
+      "labels": [
+        "protocol_timing_error",
+        "repair_after_feedback_failed"
+      ],
+      "tokens": {
+        "inputTokens": 5219,
+        "outputTokens": 2002,
+        "cacheReadTokens": 29696,
+        "cacheWriteTokens": 0,
+        "totalTokens": 36917
+      },
+      "wall_seconds": 203.494,
+      "model_session_span_seconds": 190.229,
+      "compile_wall_seconds": 167.56187756100553,
+      "simulation_wall_seconds": 23.08563005198812,
+      "public_test_calls": 2,
+      "final_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "5c872f69a0e411504f54f1e2eb039d0828a677d8473dbccd230db37d0e7fc65d",
+        "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "read_fifo"
+      },
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "5c872f69a0e411504f54f1e2eb039d0828a677d8473dbccd230db37d0e7fc65d",
+        "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "read_fifo"
+      },
+      "case_counts": {
+        "terminal": 3,
+        "held_out": 3,
+        "offline_first_candidate": null,
+        "public": 6
+      },
+      "compilation_processes": 2,
+      "simulation_processes": 12,
+      "api_cost": null
+    },
+    {
+      "trial": "r02-test_diagnostic",
+      "repeat": 2,
+      "policy": "test_diagnostic",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 11,
+      "edits": 2,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": true,
+      "failed_feedback": true,
+      "edited_after_feedback": true,
+      "changed_after_feedback": true,
+      "changed_after_failed_feedback": true,
+      "public_verdicts": [
+        "FAIL",
+        "FAIL"
+      ],
+      "terminal_category": "protocol_timing_error",
+      "primary_outcome": "protocol_timing_error",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 18.79,
+      "labels": [
+        "protocol_timing_error",
+        "repair_after_feedback_failed"
+      ],
+      "tokens": {
+        "inputTokens": 7671,
+        "outputTokens": 4142,
+        "cacheReadTokens": 57728,
+        "cacheWriteTokens": 0,
+        "totalTokens": 69541
+      },
+      "wall_seconds": 285.492,
+      "model_session_span_seconds": 193.392,
+      "compile_wall_seconds": 252.52467012700072,
+      "simulation_wall_seconds": 11.364278797002044,
+      "public_test_calls": 2,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "c343883c557f91c781d4773c6b0c901bac8e0aa60fe7658ffa1671dc7285755b",
+        "suite_sha256": "9f8d95a5603b5dac1ea5a2b0a2658335a203c8557940608c597bde589f2b1f3f",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "case_counts": {
+        "terminal": 1,
+        "held_out": 1,
+        "offline_first_candidate": null,
+        "public": 4
+      },
+      "compilation_processes": 3,
+      "simulation_processes": 6,
+      "api_cost": null
+    }
+  ],
+  "quality_gate": {
+    "passed": true,
+    "reasons": []
+  },
+  "protocol": "text-json-atomic-v2",
+  "labels_are_nonexclusive": true,
+  "interval_note": "Descriptive Wilson 95%; small samples and paired/time effects prevent causal ranking.",
+  "parameter_training": false,
+  "batch_span_seconds": 499.74708104133606,
+  "analysis_code_sha256": {
+    "scripts/batch_analysis.py": "86e757a33e9a3e455bb366bdf0beaacf6c989027c599e02afd8c5a38ac952a99",
+    "scripts/batch_tables.py": "d57e8e363d16c1dce1953cddf289c6d40ce38c4a3f0128b4e9b3be7c5ab0bae2",
+    "scripts/analyze_policy.py": "f94db4176fde3710d272dea5019167fe9b31d85d119deb38b22d101e2c1a36bb",
+    "scripts/audit_policy.py": "79fea76ff94e7b5186a1b5885c21ba39b5df7fccead0ab7b3596a351a2370504"
+  }
+}

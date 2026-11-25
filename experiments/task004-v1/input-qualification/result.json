@@ -1,0 +1,72 @@
+{
+  "accepted": true,
+  "task_id": "axil_to_apb4_decoupled_004",
+  "freeze_sha256": "4f102fe1e4bf90287ecfe5c001d7d7e90a2f485b24348c05eb4efda91d6199c4",
+  "results": {
+    "r01-evaluation": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "source_sha256": "fd2364ed15d189dee596bc302fdee1cafed61fae2f5c7ff5d621b43cc074a418",
+      "suite_sha256": "b8f9714e17dbf75ca0891f5fc7bd334c2fce6a7120fbbfa41330149de90cfeb4",
+      "planned": 589,
+      "checked": 541,
+      "aborted": 48,
+      "functional_cross": {
+        "required": 37,
+        "observed": 37,
+        "missing": [],
+        "kind": "requirement_bins_not_cartesian_cross"
+      }
+    },
+    "r01-reward": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "source_sha256": "fd2364ed15d189dee596bc302fdee1cafed61fae2f5c7ff5d621b43cc074a418",
+      "suite_sha256": "698017ab47ccc85bec64af06565e9f1f63461eeecbe53830f9cd4fc0f4a8a939",
+      "planned": 589,
+      "checked": 541,
+      "aborted": 48,
+      "functional_cross": {
+        "required": 37,
+        "observed": 37,
+        "missing": [],
+        "kind": "requirement_bins_not_cartesian_cross"
+      }
+    },
+    "r02-evaluation": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "source_sha256": "fd2364ed15d189dee596bc302fdee1cafed61fae2f5c7ff5d621b43cc074a418",
+      "suite_sha256": "7655cc8eaf472faef7d26ff95ef8cf0b5cc13721ed4e1779e0a84c94175bcbe0",
+      "planned": 589,
+      "checked": 541,
+      "aborted": 48,
+      "functional_cross": {
+        "required": 37,
+        "observed": 37,
+        "missing": [],
+        "kind": "requirement_bins_not_cartesian_cross"
+      }
+    },
+    "r02-reward": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "source_sha256": "fd2364ed15d189dee596bc302fdee1cafed61fae2f5c7ff5d621b43cc074a418",
+      "suite_sha256": "7e87504aea153eaf08aef40529368e7bc3556727b4a27be97eb6d78fe8170d42",
+      "planned": 589,
+      "checked": 541,
+      "aborted": 48,
+      "functional_cross": {
+        "required": 37,
+        "observed": 37,
+        "missing": [],
+        "kind": "requirement_bins_not_cartesian_cross"
+      }
+    }
+  },
+  "scope": "Actual positive-control simulation of the exact frozen inputs; post-hoc research-side qualification, no candidate rescoring or solver feedback."
+}

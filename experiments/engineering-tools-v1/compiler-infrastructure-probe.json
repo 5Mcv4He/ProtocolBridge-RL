@@ -1,0 +1,11 @@
+{
+  "version": "engineering-tools-v1",
+  "source_sha256": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+  "exception_type": "FileNotFoundError",
+  "observation": {
+    "status": "ENV_ERROR",
+    "diagnostics": [],
+    "functional_correctness_checked": false
+  },
+  "wall_seconds": 0.0003
+}

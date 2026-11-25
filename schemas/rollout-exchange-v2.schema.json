@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProtocolBridge reviewed tool trajectory v2",
+  "description": "No held-out or post-hoc evaluation fields are permitted at the record root; versions/cohort remain distinct. Not model-token trajectories.",
+  "type": "object",
+  "required": [
+    "cohort",
+    "episode_id",
+    "final_submission",
+    "optimizer_inputs_available",
+    "outcome",
+    "public_feedback",
+    "resources",
+    "schema",
+    "task_id",
+    "task_inputs",
+    "tool_events",
+    "trajectory_available",
+    "versions",
+    "engineering_feedback"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "pb-tool-trajectory-v2"
+    },
+    "episode_id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "cohort": {
+      "type": "object",
+      "required": [
+        "capabilities"
+      ],
+      "properties": {
+        "capabilities": {
+          "enum": [
+            null,
+            "engineering-tools-v1"
+          ]
+        }
+      }
+    },
+    "versions": {
+      "type": "object",
+      "required": [
+        "capability_sources"
+      ]
+    },
+    "task_inputs": {
+      "type": "object",
+      "required": [
+        "spec",
+        "initial_rtl"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "spec": {
+          "type": "object",
+          "required": [
+            "sha256",
+            "file"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "sha256": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "file": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "initial_rtl": {
+          "type": "object",
+          "required": [
+            "sha256",
+            "file"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "sha256": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "file": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "tool_events": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "required": [
+          "action_index",
+          "action",
+          "executed",
+          "observation",
+          "observation_delivered",
+          "omitted_action_fields"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "action_index": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "action": {
+            "type": "object"
+          },
+          "executed": {
+            "type": "boolean"
+          },
+          "observation": {
+            "type": "object"
+          },
+          "observation_delivered": {
+            "type": "boolean"
+          },
+          "omitted_action_fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "trajectory_available": {
+      "type": "boolean"
+    },
+    "final_submission": {
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "sha256",
+            "file"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "sha256": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "file": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "outcome": {
+      "type": "object",
+      "required": [
+        "reward",
+        "reward_determinate",
+        "valid_submission",
+        "category",
+        "infrastructure",
+        "failure_labels"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "reward": {
+          "enum": [
+            0,
+            1,
+            null
+          ]
+        },
+        "reward_determinate": {
+          "type": "boolean"
+        },
+        "valid_submission": {
+          "type": "boolean"
+        },
+        "category": {
+          "type": "string"
+        },
+        "infrastructure": {
+          "type": "boolean"
+        },
+        "failure_labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "public_feedback": {
+      "type": "array"
+    },
+    "resources": {
+      "type": "object"
+    },
+    "optimizer_inputs_available": {
+      "type": "object"
+    },
+    "engineering_feedback": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "required": [
+          "action_index",
+          "action",
+          "executed",
+          "observation",
+          "observation_delivered",
+          "omitted_action_fields"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "action_index": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "action": {
+            "type": "object"
+          },
+          "executed": {
+            "type": "boolean"
+          },
+          "observation": {
+            "type": "object"
+          },
+          "observation_delivered": {
+            "type": "boolean"
+          },
+          "omitted_action_fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
