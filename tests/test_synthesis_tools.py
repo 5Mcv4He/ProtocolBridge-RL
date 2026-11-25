@@ -5,6 +5,15 @@ from environment.synthesis_session import session_class
 from environment.policy import load
 
 class SynthesisTools(unittest.TestCase):
+    def test_capacity_control_requires_confirmed_violation(self):
+        from environment.synthesis_acceptance import capacity_control_rejected
+        for category in ('protocol_timing_error','transaction_functional_error'):
+            result={'reward':0,'category':category,'cases':[{'failures':['Request capacity exceeded']}]}
+            self.assertTrue(capacity_control_rejected(result))
+            self.assertFalse(capacity_control_rejected(dict(result,reward=None)))
+            self.assertFalse(capacity_control_rejected(dict(result,category='infrastructure_error')))
+            self.assertFalse(capacity_control_rejected(dict(result,cases=[])))
+
     def test_projection(self):
         log='PB_COMPILE=1\nPB_DC_DONE=1\nPB_LATCHES=1\nWarning: SECRET path (LINT-1)\n'
         value=dc_observation(log,0,True)

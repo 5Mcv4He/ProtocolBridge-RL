@@ -6,6 +6,11 @@ from environment.synthesis_session import session_class
 from environment.policy import load
 from verifier.task003.scenarios import suite
 
+def capacity_control_rejected(result):
+    return (result.get('reward')==0 and
+            result.get('category') in ('transaction_functional_error','protocol_timing_error') and
+            any('Request capacity exceeded' in c.get('failures',[]) for c in result.get('cases',[])))
+
 def _acceptance(out,trusted=False):
     out=Path(out);out.mkdir(parents=True,exist_ok=False);checks={};results={}
     def run(source,dest,**options):
@@ -56,7 +61,7 @@ def _acceptance(out,trusted=False):
     checks['submission']=s.handle({'tool':'submit'})['status']=='SUBMITTED'
     checks['closed']=s.handle({'tool':'synth_check'})['status']=='REJECTED' and len(calls)==2
     terminal=s.finalize()
-    checks['functional_reward_independent']=terminal['reward']==0 and terminal['category']=='transaction_functional_error'
+    checks['functional_reward_independent']=capacity_control_rejected(terminal)
     checks['no_tool_reward']=all(r['reward'] is None for r in results.values())
     checks['source_identity']=all(r['source_sha256']==sha(out/name/'bridge.sv') for name,r in results.items())
     summary={'version':'synthesis-tools-v1','accepted':all(checks.values()),'checks':checks,
