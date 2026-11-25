@@ -3,12 +3,14 @@ import copy,json
 from pathlib import Path
 from .policy import validate,policy_hash
 from .feedback import project
+from .verification_timing import measured_grade
 from verifier.campaign import grade,sha,source_policy
 
 class Session:
     def __init__(self,policy,work,out,reward_cases,grader=grade,reuse=None):
         self.policy=copy.deepcopy(validate(policy));self.work=Path(work);self.out=Path(out)
         self.reward_cases=copy.deepcopy(reward_cases);self.grader=grader;self.read=set()
+        self.repair=False
         self.actions=0;self.tests=0;self.edits=0;self.done=False;self.submitted=False
         self.result={'reward':None,'category':'agent_incomplete'};self.trace=[];self.public=[]
         self.builds={} if reuse is None else dict(reuse);self.first_candidate=None
@@ -17,7 +19,7 @@ class Session:
         self.policy_sha=policy_hash(self.policy)
     def verify(self,source,dest,**kwargs):
         key=sha(source);reuse=self.builds.get(key)
-        r=self.grader(source,dest,reuse_build=reuse,**kwargs)
+        r=measured_grade(self.grader,source,dest,reuse_build=reuse,**kwargs)
         if (Path(dest)/'backend.json').exists():self.builds[key]=str(dest)
         return r
     def handle(self,action):
@@ -35,7 +37,8 @@ class Session:
                 self.read.add(action['file']);obs={'file':action['file'],'content':(self.work/action['file']).read_text()};executed=True
             else:obs={'status':'REJECTED','reason':'file_not_allowed'}
         elif tool=='edit':
-            if self.read!=set(self.policy['readable_files']):obs={'status':'REJECTED','reason':'read_spec_and_rtl_first'}
+            if self.repair and self.tests==0:obs={'status':'REJECTED','reason':'initial_public_test_required'}
+            elif self.read!=set(self.policy['readable_files']):obs={'status':'REJECTED','reason':'read_spec_and_rtl_first'}
             elif isinstance(action['content'],str) and 0<len(action['content'])<=40000:
                 candidate=self.work/'bridge.sv';candidate.write_text(action['content']);self.edits+=1;executed=True
                 saved=self.out/('candidate-%02d.sv'%self.actions);saved.write_bytes(candidate.read_bytes())
@@ -53,7 +56,8 @@ class Session:
                 self.public.append({'action':self.actions,'source_sha256':sha(self.work/'bridge.sv'),'result':r})
                 obs=project(r,self.policy,self.policy['max_public_test_calls']-self.tests)
         elif tool=='submit':
-            if self.read!=set(self.policy['readable_files']):obs={'status':'REJECTED','reason':'read_spec_and_rtl_first'}
+            if self.repair and self.tests==0:obs={'status':'REJECTED','reason':'initial_public_test_required'}
+            elif self.read!=set(self.policy['readable_files']):obs={'status':'REJECTED','reason':'read_spec_and_rtl_first'}
             else:
                 # Commit to an immutable candidate. Private verification runs only after worker stop.
                 dest=self.out/'submission';dest.mkdir();candidate=dest/'bridge.sv'

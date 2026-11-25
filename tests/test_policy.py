@@ -30,6 +30,16 @@ class PolicyTests(unittest.TestCase):
         s,calls=self.setup_session('test_diagnostic');r=s.handle({'tool':'test'})
         self.assertEqual(r['first_failed_case'],'address_data');self.assertIn('16-cycle',r['diagnostic'])
         self.assertNotIn('SENSITIVE_SENTINEL',json.dumps(r))
+    def test_repair_requires_initial_test_without_extra_budget(self):
+        from environment.batch_contract import experiment_prompt
+        self.assertEqual(experiment_prompt(load('test_verdict'),True),experiment_prompt(load('test_diagnostic'),True))
+        for mode in ('test_verdict','test_diagnostic'):
+            s,calls=self.setup_session(mode);s.repair=True;self.ready(s)
+            self.assertEqual(s.handle({'tool':'edit','content':'module bridge; endmodule'})['reason'],'initial_public_test_required')
+            self.assertEqual(s.handle({'tool':'submit'})['reason'],'initial_public_test_required')
+            self.assertEqual(s.handle({'tool':'test'})['remaining_test_calls'],1)
+            self.assertEqual(s.handle({'tool':'edit','content':'module bridge; endmodule'})['status'],'EDITED')
+            self.assertEqual(len(calls),1)
     def test_third_test_does_not_execute(self):
         for mode in ('test_verdict','test_diagnostic'):
             s,calls=self.setup_session(mode)

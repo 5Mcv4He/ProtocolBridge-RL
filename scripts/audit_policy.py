@@ -5,14 +5,15 @@ import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from environment.policy import policy_hash,prompt,validate,parse_action
 from environment.feedback import project
+from environment.batch_contract import experiment_prompt
 
 
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-def audit(root):
+def audit(root,limit=None):
     root=Path(root);experiment=json.loads((root/'experiment.json').read_text());errors=[];sessions=set();results=[]
     def require(ok,msg):
         if not ok:errors.append(msg)
-    for entry in experiment['schedule']:
+    for entry in experiment['schedule'][:limit]:
         name=entry['id'];d=root/name
         if not (d/'metrics.json').exists():errors.append(name+': missing trial');continue
         metrics=json.loads((d/'metrics.json').read_text());freeze=json.loads((d/'freeze.json').read_text())
@@ -25,14 +26,14 @@ def audit(root):
                           if k.split('/')[0] in ('environment','verifier','fixtures','tasks')}
         require(freeze['files']==expected_runtime,name+': deployed runtime differs from experiment freeze')
         require(digest(d/'initial-prompt.txt')==freeze['prompt_sha256']==experiment['policies'][entry['policy']]['prompt_sha256'],name+': prompt hash mismatch')
-        if observations:require(observations[0]['prompt']==prompt(policy),name+': unexpected initial observation')
+        if observations:require(observations[0]['prompt']==experiment_prompt(policy,'starting_rtl_sha256' in experiment),name+': unexpected initial observation')
         else:require(metrics['actions']==0 and metrics['terminal']['reward'] is None,name+': missing initial observation')
         require(metrics['freeze_unchanged'],name+': freeze failure')
         if not metrics['solver_stopped_before_evaluation']:
             require(metrics['terminal']['reward'] is None and metrics['held_out'] is None,name+': evaluated before solver stop')
         require(len(trace)==metrics['actions']<=20,name+': action accounting')
         count=0;edit_count=0;read_files=set();active_text=None
-        active_source=experiment['source_files']['tasks/axil_to_apb4_001/workspace/bridge.sv']
+        active_source=experiment.get('starting_rtl_sha256',experiment['source_files']['tasks/axil_to_apb4_001/workspace/bridge.sv'])
         spec_source=experiment['source_files']['tasks/axil_to_apb4_001/spec.md']
         for i,event in enumerate(trace):
             action=event['action'];obs=event['observation'];tool=action.get('tool')
@@ -124,4 +125,4 @@ def audit(root):
             'common_sdk_observation':'Fixed helpful-software-engineer system prompt and the fresh solver working directory only.'}
     (root/'audit.json').write_text(json.dumps(report,indent=2));return report
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('source');a=p.parse_args();r=audit(a.source);print(json.dumps(r,indent=2));raise SystemExit(0 if r['accepted'] else 1)
+    p=argparse.ArgumentParser();p.add_argument('source');p.add_argument('--limit',type=int);a=p.parse_args();r=audit(a.source,a.limit);print(json.dumps(r,indent=2));raise SystemExit(0 if r['accepted'] else 1)

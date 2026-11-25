@@ -1,10 +1,11 @@
 """Sequential paired fixed-model rollouts, deployed to a licensed Linux host. No parameter training."""
-import argparse,hashlib,io,json,os,shlex,subprocess,tarfile,uuid
+import argparse,hashlib,io,json,os,shlex,subprocess,tarfile,uuid,time
 from pathlib import Path
 from .check_baseline import check
 from .policy import load,policy_hash,prompt
 from .reset import ROOT
 from .remote_backend import remote_command,toolchain_metadata
+from .batch_contract import experiment_prompt
 
 
 def summarize(out):
@@ -23,94 +24,146 @@ def summarize(out):
     (out/'summary.json').write_text(json.dumps(result,indent=2));return result
 
 
-def experiment(out,policies,model,repeats):
-    if repeats<1 or len(set(policies))!=len(policies):raise ValueError('Invalid experiment dimensions')
+def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14400,max_tokens=2000000,starting_rtl=None):
+    if repeats<1 or not policies or (limit is not None and (limit<1 or limit>repeats*len(policies))) or max_seconds<=0 or max_tokens<=0 or len(set(policies))!=len(policies):raise ValueError('Invalid experiment dimensions')
     selected={p:load(p) for p in policies}
     if check()['status']!='pass':raise RuntimeError('Revision 3 baseline drift')
     # Fail before deployment if credential unavailable; never print it.
     key=os.environ['DEEPSEEK_API_KEY']
-    out=Path(out).resolve();out.mkdir(parents=True,exist_ok=False)
+    out=Path(out).resolve()
+    if repeats*len(policies)>30:raise ValueError('At most 30 planned trials per batch')
+    if not resume:out.mkdir(parents=True,exist_ok=False)
     cfg=json.loads(Path(os.environ.get('PB_CONFIG',ROOT/'.local/config.json')).read_text())
     remote_command(cfg, 'true');toolchain_metadata(cfg)
     ssh=['ssh','-F',cfg['ssh_config'],cfg['host']]
-    base=cfg.get('evaluator_root',str(Path(cfg['remote_root']).parent/'protocolbridge-evaluator'))
-    release=base+'/policy-experiments/'+uuid.uuid4().hex
-    installed={'/opt/protocolbridge-runtime/opt/pb/utm_worker.py':hashlib.sha256((ROOT/'environment/utm_worker.py').read_bytes()).hexdigest(),
-               '/usr/local/sbin/pb-sandbox':hashlib.sha256((ROOT/'environment/utm_sandbox.sh').read_bytes()).hexdigest()}
-    code='import hashlib,json,sys; from pathlib import Path; x=json.loads(sys.stdin.readline()); assert all(hashlib.sha256(Path(p).read_bytes()).hexdigest()==h for p,h in x.items())'
-    subprocess.run(ssh+[remote_command(cfg,'python3 -c '+shlex.quote(code))],input=json.dumps(installed)+'\n',universal_newlines=True,check=True)
-    files=[p for d in ('environment','verifier','fixtures','tasks','tests') for p in (ROOT/d).rglob('*') if p.is_file() and '__pycache__' not in str(p)]
-    archive=io.BytesIO()
-    with tarfile.open(fileobj=archive,mode='w:gz') as tar:
-        for p in files:tar.add(str(p),arcname=str(p.relative_to(ROOT)))
-    subprocess.run(ssh+[remote_command(cfg,'umask 077; mkdir -p '+shlex.quote(release)+'; tar -xzf - -C '+shlex.quote(release))],input=archive.getvalue(),check=True)
-    config={k:cfg[k] for k in ('vip_root','axi_vip_root','designware_home','compile_cache') if k in cfg}
-    config.update(execution='local',remote_root=release+'/builds')
-    schedule=[]
-    # Rotate order per paired repetition, fixed before outcomes are observed.
-    for rep in range(repeats):
-        order=policies[rep%len(policies):]+policies[:rep%len(policies)]
-        for policy in order:schedule.append({'id':'r%02d-%s'%(rep+1,policy),'repeat':rep+1,'policy':policy})
-    source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=str(ROOT),universal_newlines=True).strip()
-    manifest={'toolchain':toolchain_metadata(cfg),'model':model,'repeats':repeats,'policies':{p:{'config':v,'sha256':policy_hash(v),
-        'prompt_sha256':hashlib.sha256(prompt(v).encode()).hexdigest()} for p,v in selected.items()},'schedule':schedule,
-        'source_commit':source_commit,'source_files':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
-        'installed_runtime_files':installed,'pairing':'same reward/evaluation inputs within each repeat; separate split seeds',
-        'sampling':'fixed SDK settings; provider temperature/seed defaults, not deterministic',
-        'budget_accounting':'Every started public invocation consumes budget, including ENV_ERROR; denied calls do not start verifier.'}
-    setup='''import json,random
-from pathlib import Path
-from verifier.scenarios import suite
-from verifier.campaign import sha
-x=json.loads(input());Path('.local').mkdir();Path('.local/config.json').write_text(json.dumps(x['config']))
-p=Path('private');p.mkdir(mode=0o700);hashes={}
-for rep in range(1,x['repeats']+1):
- hashes[str(rep)]={}
- for split in ('reward','evaluation'):
-  seed=random.SystemRandom().getrandbits(64);dest=p/('r%02d-%s.json'%(rep,split))
-  dest.write_text(json.dumps(suite(False,seed),indent=2));hashes[str(rep)][split]=sha(dest)
-print(json.dumps(hashes))
-'''
-    r=subprocess.run(ssh+[remote_command(cfg,'cd '+shlex.quote(release)+' && python3 -c '+shlex.quote(setup))],input=json.dumps({'config':config,'repeats':repeats})+'\n',universal_newlines=True,stdout=subprocess.PIPE,check=True)
-    manifest['paired_suite_hashes']=json.loads(r.stdout)
-    (out/'experiment.json').write_text(json.dumps(manifest,indent=2))
-    (out/'deployment.json').write_text(json.dumps({'release':release},indent=2))
+    if not resume:
+        base=cfg.get('evaluator_root',str(Path(cfg['remote_root']).parent/'protocolbridge-evaluator'))
+        release=base+'/policy-experiments/'+uuid.uuid4().hex
+        installed={'/opt/protocolbridge-runtime/opt/pb/utm_worker.py':hashlib.sha256((ROOT/'environment/utm_worker.py').read_bytes()).hexdigest(),
+                   '/usr/local/sbin/pb-sandbox':hashlib.sha256((ROOT/'environment/utm_sandbox.sh').read_bytes()).hexdigest()}
+        code='import hashlib,json,sys; from pathlib import Path; x=json.loads(sys.stdin.readline()); assert all(hashlib.sha256(Path(p).read_bytes()).hexdigest()==h for p,h in x.items())'
+        subprocess.run(ssh+[remote_command(cfg,'python3 -c '+shlex.quote(code))],input=json.dumps(installed)+'\n',universal_newlines=True,check=True)
+        files=[p for d in ('environment','verifier','fixtures','tasks','tests') for p in (ROOT/d).rglob('*') if p.is_file() and '__pycache__' not in str(p)]
+        archive=io.BytesIO()
+        with tarfile.open(fileobj=archive,mode='w:gz') as tar:
+            for p in files:tar.add(str(p),arcname=str(p.relative_to(ROOT)))
+        subprocess.run(ssh+[remote_command(cfg,'umask 077; mkdir -p '+shlex.quote(release)+'; tar -xzf - -C '+shlex.quote(release))],input=archive.getvalue(),check=True)
+        config={k:cfg[k] for k in ('vip_root','axi_vip_root','designware_home','compile_cache') if k in cfg}
+        config.update(execution='local',remote_root=release+'/builds')
+        schedule=[]
+        # Rotate order per paired repetition, fixed before outcomes are observed.
+        for rep in range(repeats):
+            order=policies[rep%len(policies):]+policies[:rep%len(policies)]
+            for policy in order:schedule.append({'id':'r%02d-%s'%(rep+1,policy),'repeat':rep+1,'policy':policy})
+        source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=str(ROOT),universal_newlines=True).strip()
+        manifest={'protocol':'text-json-atomic-v1','study':'repair-v1' if starting_rtl else 'independent-v1','limits':{'max_seconds':max_seconds,'max_tokens':max_tokens},'toolchain':toolchain_metadata(cfg),'model':model,'repeats':repeats,'policies':{p:{'config':v,'sha256':policy_hash(v),
+            'prompt_sha256':hashlib.sha256(experiment_prompt(v,bool(starting_rtl)).encode()).hexdigest()} for p,v in selected.items()},'schedule':schedule,
+            'source_commit':source_commit,'source_files':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
+            'installed_runtime_files':installed,'pairing':'same reward/evaluation inputs within each repeat; separate split seeds',
+            'sampling':'fixed SDK settings; provider temperature/seed defaults, not deterministic',
+            'budget_accounting':'Every started public invocation consumes budget, including ENV_ERROR; denied calls do not start verifier.'}
+        setup='''
+    import json,random
+    from pathlib import Path
+    from verifier.scenarios import suite
+    from verifier.campaign import sha
+    x=json.loads(input());Path('.local').mkdir();Path('.local/config.json').write_text(json.dumps(x['config']))
+    p=Path('private');p.mkdir(mode=0o700);hashes={}
+    for rep in range(1,x['repeats']+1):
+     hashes[str(rep)]={}
+     for split in ('reward','evaluation'):
+      seed=random.SystemRandom().getrandbits(64);dest=p/('r%02d-%s.json'%(rep,split))
+      dest.write_text(json.dumps(suite(False,seed),indent=2));hashes[str(rep)][split]=sha(dest)
+    print(json.dumps(hashes))
+    '''
+        setup=__import__('textwrap').dedent(setup)
+        r=subprocess.run(ssh+[remote_command(cfg,'cd '+shlex.quote(release)+' && python3 -c '+shlex.quote(setup))],input=json.dumps({'config':config,'repeats':repeats})+'\n',universal_newlines=True,stdout=subprocess.PIPE,check=True)
+        manifest['paired_suite_hashes']=json.loads(r.stdout)
+        if starting_rtl:
+            content=Path(starting_rtl).read_bytes();manifest['starting_rtl_sha256']=hashlib.sha256(content).hexdigest()
+            subprocess.run(ssh+[remote_command(cfg,'cat > '+shlex.quote(release+'/starting.sv'))],input=content,check=True)
+            (out/'starting.sv').write_bytes(content)
+        (out/'experiment.json').write_text(json.dumps(manifest,indent=2))
+        (out/'deployment.json').write_text(json.dumps({'release':release},indent=2))
+    else:
+        manifest=json.loads((out/'experiment.json').read_text());release=json.loads((out/'deployment.json').read_text())['release']
+        source_commit=manifest['source_commit'];schedule=manifest['schedule']
+        if model!=manifest['model'] or policies!=list(manifest['policies']) or repeats!=manifest['repeats']:raise ValueError('Resume configuration mismatch')
+        for name,digest in manifest['source_files'].items():
+            if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:raise ValueError('Frozen source drift: '+name)
     def remote(module,args,logname,bootstrap=None):
-        command='cd '+shlex.quote(release)+' && python3 -m '+module+' '+' '.join(shlex.quote(a) for a in args)
-        with (out/logname).open('w') as log:
-            proc=subprocess.Popen(ssh+[remote_command(cfg,command)],stdin=subprocess.PIPE,stdout=log,stderr=log,universal_newlines=True)
-            if bootstrap is not None:proc.stdin.write(json.dumps(bootstrap)+'\n')
-            proc.stdin.close();return proc.wait()
+        name=logname.replace('-controller.log','')
+        request={'name':name,'module':module,'args':args,'bootstrap':bootstrap or {}}
+        command='cd '+shlex.quote(release)+' && python3 -m environment.durable_job'
+        subprocess.run(ssh+[remote_command(cfg,command)],input=json.dumps(request)+'\n',universal_newlines=True,check=True,timeout=45)
+        probe="import json,os; from pathlib import Path; p=Path('.jobs')/"+repr(name)+"/'state.json'; s=json.loads(p.read_text()) if p.exists() else {'status':'starting'}; q=Path('/proc/'+str(s.get('pid',0))+'/stat'); s['alive']=q.exists() and q.read_text().split()[21]==s.get('proc_start'); print(json.dumps(s))"
+        while True:
+            r=subprocess.run(ssh+[remote_command(cfg,'cd '+shlex.quote(release)+' && python3 -c '+shlex.quote(probe))],stdout=subprocess.PIPE,universal_newlines=True,check=True,timeout=45)
+            state=json.loads(r.stdout);(out/(name+'-job.json')).write_text(json.dumps(state,indent=2))
+            print(json.dumps({'job':name,'status':state['status'],'elapsed':round(time.time()-state.get('started',time.time()))}),flush=True)
+            if state['status']=='finished':
+                logdir=out/(name+'-job-evidence')
+                if not logdir.exists():subprocess.run(['scp','-q','-F',cfg['ssh_config'],'-r',cfg['host']+':'+release+'/.jobs/'+name,str(logdir)],check=True,timeout=60)
+                return state.get('exit_code')
+            if state['status']=='running' and not state['alive']:raise RuntimeError('Orphaned job; preserve evidence, do not rerun')
+            time.sleep(20)
     def fetch(name):
-        subprocess.run(['scp','-q','-F',cfg['ssh_config'],'-r',cfg['host']+':'+release+'/'+name,str(out/name)],check=True)
-    def clean_builds():
+        if (out/name).exists():return
+        temp=out/(name+'.partial')
+        if temp.exists():
+            import shutil;shutil.rmtree(str(temp))
+        subprocess.run(['scp','-q','-F',cfg['ssh_config'],'-r',cfg['host']+':'+release+'/'+name,str(temp)],check=True,timeout=180)
+        os.replace(str(temp),str(out/name))
+    def clean_builds(name):
         # Only this newly-created experiment's disposable compiler products. All raw
         # logs/vectors/source evidence are in trial output dirs and already copied.
-        code='import shutil; from pathlib import Path; p=Path('+repr(release)+')/"builds"; shutil.rmtree(str(p)) if p.exists() else None'
+        code="import json,shutil; from pathlib import Path; root=Path("+repr(release)+"); builds=root/'builds'; result=root/"+repr(name)+"; paths={json.loads(p.read_text()).get('remote','') for p in result.rglob('runtime.json')}; [shutil.rmtree(str(Path(p)),ignore_errors=True) for p in paths if Path(p).parent==builds and len(Path(p).name)==32]"
         subprocess.run(ssh+[remote_command(cfg,'python3 -c '+shlex.quote(code))],check=True)
     print('Running real deterministic mechanism acceptance on configured backend',flush=True)
-    rc=remote('environment.policy_mechanism',['mechanism','private/r01-reward.json'],'mechanism-controller.log')
-    fetch('mechanism');clean_builds()
+    rc=0 if (out/'mechanism/result.json').exists() else remote('environment.policy_mechanism',['mechanism','private/r01-reward.json'],'mechanism-controller.log')
+    fetch('mechanism')
+    if not resume:clean_builds('mechanism')
     accepted=json.loads((out/'mechanism/result.json').read_text())['accepted']
     if rc or not accepted:raise RuntimeError('Real mechanism acceptance failed; no model trials started')
-    for trial in schedule:
+    for trial in schedule[:limit]:
+        if (out/trial['id']/'metrics.json').exists() or (out/(trial['id']+'-failed.json')).exists():continue
+        used=0;elapsed=0
+        from scripts.analyze_policy import usage
+        for entry in schedule:
+            d=out/entry['id']
+            if (d/'metrics.json').exists():
+                elapsed+=json.loads((d/'metrics.json').read_text()).get('wall_seconds',0)
+                used+=(usage(list(d.glob('harness-*.json')))['totals'] or {}).get('totalTokens',0) or 0
+        if elapsed>=manifest['limits']['max_seconds'] or used>=manifest['limits']['max_tokens']:raise RuntimeError('Between-trial budget exhausted')
+        probe="import json,os,shutil; print(json.dumps({'free_disk_bytes':shutil.disk_usage('.').free,'loadavg':os.getloadavg(),'cpus':os.cpu_count()}))"
+        r=subprocess.run(ssh+[remote_command(cfg,'cd '+shlex.quote(release)+' && python3 -c '+shlex.quote(probe))],stdout=subprocess.PIPE,universal_newlines=True,check=True,timeout=30)
+        resources=json.loads(r.stdout);(out/(trial['id']+'-resources.json')).write_text(json.dumps(resources))
+        if resources['free_disk_bytes']<4*1024**3:raise RuntimeError('Disk reserve below 4 GiB; no trial started')
         print('Starting '+trial['id'],flush=True)
         rep=trial['repeat']
         bootstrap={'api_key':key,'model':model,'policy':trial['policy'],'source_commit':source_commit,
                    'private_suite':release+'/private/r%02d-reward.json'%rep,
                    'evaluation_suite':release+'/private/r%02d-evaluation.json'%rep}
+        if 'starting_rtl_sha256' in manifest:bootstrap.update(starting_rtl=release+'/starting.sv',starting_rtl_sha256=manifest['starting_rtl_sha256'])
         rc=remote('environment.policy_utm_agent',[trial['id']],trial['id']+'-controller.log',bootstrap)
         fetch(trial['id'])
-        if not (out/trial['id']/'metrics.json').exists():raise RuntimeError('Trial did not produce metrics; retain outputs for inspection')
-        clean_builds();summarize(out)
+        if not (out/trial['id']/'metrics.json').exists():
+            (out/(trial['id']+'-failed.json')).write_text(json.dumps({'reward':None,'category':'infrastructure_error','controller_exit':rc,'evidence':trial['id']}))
+            raise RuntimeError('Trial ended without metrics; failure preserved, resume will not rerun it')
+        clean_builds(trial['id']);summarize(out)
+        from scripts.analyze_policy import analyze
+        analyze(out)
         print('Finished '+trial['id']+' controller_exit='+str(rc),flush=True)
     return summarize(out)
 
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('--policies',default='spec_only,test_verdict,test_diagnostic')
-    p.add_argument('--model',default='deepseek-flash');p.add_argument('--repeats',type=int,default=1);p.add_argument('--summarize',action='store_true')
+    p.add_argument('--model',default='deepseek-flash');p.add_argument('--repeats',type=int,default=1);p.add_argument('--summarize',action='store_true');p.add_argument('--resume',action='store_true');p.add_argument('--limit',type=int);p.add_argument('--max-seconds',type=int,default=14400);p.add_argument('--max-tokens',type=int,default=2000000);p.add_argument('--starting-rtl')
     a=p.parse_args()
-    r=summarize(a.out) if a.summarize else experiment(a.out,a.policies.split(','),a.model,a.repeats)
+    import fcntl
+    lock=Path(a.out).resolve().with_name(Path(a.out).name+'.lock');lock.parent.mkdir(parents=True,exist_ok=True)
+    handle=lock.open('a');fcntl.flock(handle.fileno(),fcntl.LOCK_EX|fcntl.LOCK_NB)
+    r=summarize(a.out) if a.summarize else experiment(a.out,a.policies.split(','),a.model,a.repeats,a.resume,a.limit,a.max_seconds,a.max_tokens,a.starting_rtl)
     print(json.dumps({k:v for k,v in r.items() if k!='runs'},indent=2))
 if __name__=='__main__':main()

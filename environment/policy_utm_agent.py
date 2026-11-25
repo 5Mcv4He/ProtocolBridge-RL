@@ -4,6 +4,7 @@ from pathlib import Path
 from .reset import ROOT
 from .policy import load,canonical,policy_hash,prompt,parse_action
 from .policy_session import Session
+from .batch_contract import experiment_prompt
 from verifier.campaign import sha
 
 
@@ -18,11 +19,14 @@ def run(out,bootstrap):
     name='policy-'+uuid.uuid4().hex;work=Path('/opt/protocolbridge-runtime/work')/name
     subprocess.run(['sudo','-n','install','-d','-o','1101','-g','1000','-m','0770',str(work)],check=True)
     task=ROOT/'tasks/axil_to_apb4_001'
-    for dest,src in [('spec.md',task/'spec.md'),('bridge.sv',task/'workspace/bridge.sv')]:
+    initial=Path(bootstrap.get('starting_rtl',task/'workspace/bridge.sv'))
+    if 'starting_rtl' in bootstrap and sha(initial)!=bootstrap['starting_rtl_sha256']:raise ValueError('Repair input hash mismatch')
+    for dest,src in [('spec.md',task/'spec.md'),('bridge.sv',initial)]:
         (work/dest).write_bytes(src.read_bytes());(work/dest).chmod(0o664)
     session=Session(policy,work,out,reward)
-    initial_prompt=prompt(policy);frozen=source_hashes()
-    manifest={'files':frozen,'policy':policy,'policy_sha256':policy_hash(policy),
+    session.repair=bool(bootstrap.get('starting_rtl'))
+    initial_prompt=experiment_prompt(policy,session.repair);frozen=source_hashes()
+    manifest={'initial_rtl_sha256':sha(initial),'files':frozen,'policy':policy,'policy_sha256':policy_hash(policy),
               'policy_file_sha256':sha(ROOT/'environment/policies'/(policy['policy_id']+'.json')),
               'prompt_sha256':hashlib.sha256(initial_prompt.encode()).hexdigest(),
               'private_reward_suite_sha256':sha(reward_file),'reserved_evaluation_suite_sha256':sha(evaluation_file),
