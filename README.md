@@ -1,145 +1,184 @@
 # ProtocolBridge-RL
 
-用真实 RTL 仿真和工业协议 VIP，为编程 Agent 提供可复现的协议转换任务及程序化奖励。
+**用工业协议验证能力构建可执行的 RTL Agent 任务、程序化奖励与模型能力评测环境。**
 
-当前唯一标准基线是 **001 X2P（AXI4-Lite → APB4）** 任务：单时钟、32-bit、单笔未完成事务。Agent 读取 Spec、修改 RTL、调用公开测试并提交；VCS 中的主动 AXI/APB VIP 与 UVM Scoreboard 执行验证。Python 负责调度和 Reward 封装，不承担功能比对。
+当前项目已经完成 **1 个真实协议转换任务的 Agent 求解闭环**，并在该任务上开展了 **Observation / Feedback Policy** 和批量模型能力研究。它的研究重点是：**任务怎样定义、答案怎样验证、反馈怎样影响 Agent，以及怎样判断一项任务是否具有训练价值。**
+
+> **当前范围：** AXI4-Lite → APB4（Task 001）｜VCS + Synopsys AMBA VIP + UVM｜固定模型的 Agent Rollout 与评测。**尚未训练或更新模型参数，也尚未实现多任务自动生成。**
+
+## 1. 当前进度：实现了什么，得到了什么结果
+
+| 工作 | 已完成的能力与证据 | 状态 |
+| --- | --- | --- |
+| Task 001 | 规范化 Spec、只有接口的初始 RTL、独立提交与复现入口 | 已实现 |
+| 工业验证与 Reward | 双端主动 AXI/APB VIP、UVM Scoreboard、时序断言；完整 22 case 通过，必要交叉覆盖 576/576 | 已实测 |
+| 验证器正反对照 | 1 份正确参考 RTL 通过，10 种故意错误的 RTL 均被拒绝 | 已实测 |
+| 真实 Agent 求解 | DSH 读取、编辑、公开测试、提交；终局私有评分与保留评估已实际运行 | 已实测 |
+| Observation / Feedback Policy | A/C/E 三种权限与反馈策略、工具/预算约束、受控反馈投影 | 已实测 |
+| 批量 Agent 评测 | 新版协议下自主生成 30 次、固定错误 RTL 配对修复 6 次；另保留旧协议的 17 次停止批次 | 已完成首轮研究 |
+| 多任务任务库与生成器 | Task 002、任务质量门槛的跨任务通用化、批量任务生成 | 尚未交付 |
+| 模型强化学习训练 | Rollout 与 Reward 已有；Policy Optimizer/参数更新及训练收益评估 | 尚未开展 |
+
+**标准验证基线：** 正确参考实现通过 22/22 个 case；共 2,868 笔计划事务，其中 **2,842 笔正常检查完成、26 笔按规格复位取消**。这不是 2,868 笔全部正常完成。验证包含定向、随机、字节使能/等待/背压、事务中复位和交叉覆盖；10 个错误对照只需在确认错误的场景中判负，不宣称它们各自运行了全部 22 个 case。
+
+[Task 001 入口](tasks/axil_to_apb4_001/README.md) · [完整验证报告](mvp-evaluation-report.md) · [工业验证证据](experiments/industrial-v3/README.md)
+
+## 2. 一个 Agent 任务究竟怎样运行
+
+本项目的 **Task** 向求解 Agent 提供两类初始材料：
+
+- **Spec**：明确写出协议转换、握手、等待、错误响应、复位、时序上限和不支持的场景。
+- **初始 RTL**：只有 `bridge` 的端口声明和待实现部分；Agent 必须自行完成电路逻辑。
+
+真实求解过程中，由 **Observation / Feedback Policy** 决定 Agent 可以读取哪些内容、执行哪些动作、获得多少测试反馈。当前控制器允许的动作名称是 **`read`、`edit`、`test`、`submit`**；注意 **`submit` 是第四个动作**，不是前三个动作的自动结束。
+
+```mermaid
+flowchart TB
+    T["Task 001：Spec + 初始 RTL"] --> A["DeepSeek 模型 / DSH Agent"]
+    P["Observation / Feedback Policy：可见信息、权限、预算"] --> C["可信环境控制器"]
+    A <-->|"read / edit / test / submit"| C
+    C -->|"test：允许时调用公开集"| PUB["公开开发测试：17 case"]
+    PUB --> V["同一验证后端：VCS + 双端 VIP + UVM Scoreboard + 断言"]
+    V -->|"过滤后的公开反馈"| C
+    C -->|"submit：冻结最终 RTL"| S["私有奖励集：22 case，冻结输入"]
+    S --> V
+    V -->|"提交后的完整验证结果"| R["Reward：1 / 0 / null"]
+    R --> H["记录轨迹；求解 Agent 不再获得私有细节"]
+```
+
+这里有两个重要的边界：
+
+1. **公开测试是开发工具。** Agent 只有在策略允许时才能调用，并根据允许的反馈修改代码。
+2. **私有评分是提交后的验收。** 控制器保存最终 RTL，停止求解进程后用另一组预先冻结的输入执行完整验证；具体私有 case 不回流给这次求解。随后还用另一组冻结输入做**保留评估**，结果不改变本次终局 Reward。
+
+**A / C / E 的区别仅在求解阶段：**
+
+| 策略 | 可用动作 | 公开测试给 Agent 的信息 |
+| --- | --- | --- |
+| A · Spec-only | read、edit、submit | 不能调用公开功能测试 |
+| C · Test-verdict | read、edit、test、submit | PASS / FAIL / ENV_ERROR，最多两次 |
+| E · Test-diagnostic | 同 C | 额外给错误类别、首个失败 case 和受控短诊断，最多两次 |
+
+所有策略使用同一任务规范和终局判定要求。**隐藏的是测试输入及内部证据，不是功能规格。** 当前三种策略为固定模型推理对照，不代表已经进行 RL 参数训练。
+
+[Agent 执行与权限](docs/agent-workflow.md) · [Policy 的实现与边界](docs/observation-policy.md)
+
+## 3. VCS、VIP、Scoreboard 和 Reward 分别负责什么
+
+在一次真实仿真中，**待测 DUT 是当前提交的 `bridge.sv`**：
+
+- **VCS**：编译 SystemVerilog 并执行仿真，是运行工具，本身不等于功能正确性的判定器。
+- **主动 AXI4-Lite Master VIP**：按照场景向 Bridge 发起事务，监视 AXI 握手和响应，并执行自身协议检查。
+- **主动 APB4 Slave VIP**：在 APB 侧提供等待、错误响应和读数据，并监视实际事务及协议时序。
+- **UVM Scoreboard / Reference Model**：独立维护预期事务与预期内存，比较原计划请求、AXI Monitor 与 APB Monitor 的地址、数据、WSTRB/PSTRB、响应、事务顺序与完成/复位取消账目。
+- **任务时序断言与覆盖检查**：补充检查请求接受、响应稳定、复位、必要场景是否真正发生。
+
+**协议合规不等于转换功能正确**：两端 VIP 都没有报错，Bridge 仍可能把正确的 AXI 地址转换成错误的 APB 地址；需要 Scoreboard 检查跨协议语义。
 
 ```mermaid
 flowchart LR
-    A["Task：Spec + RTL 模板"] --> B["真实 Agent / DSH"]
-    B <-->|"read / edit / test"| C["Python 任务环境"]
-    C -->|"test / submit"| D["VCS + 主动 AMBA VIP + UVM"]
-    D --> E["事务与时序验证证据"]
-    E --> F["终局 Reward：1 / 0 / null"]
+    PLAN["场景规划 / 预期事务"] --> AXI["AXI Master VIP"]
+    AXI <-->|"AXI 引脚"| DUT["待测 bridge.sv"]
+    DUT <-->|"APB 引脚"| APB["APB Slave VIP"]
+    PLAN --> SB["UVM Scoreboard / 独立预期内存"]
+    AXI -->|"Monitor 观察"| SB
+    APB -->|"Monitor 观察"| SB
+    APB --> ACT["目标实际内存"]
+    ACT --> APB
+    SB --> CHECK["事务语义与完成账目"]
+    AXI --> CHECK
+    APB --> CHECK
 ```
 
-## 如何理解和讲解本项目
+**参考 RTL + 10 个错误 RTL 是另一条独立的验证器自检流程，不是 Agent 的输入。**
 
-固定的人类阅读入口：[docs/README.md](docs/README.md)。新任务和版本更新也在此维护导航、图示、用法和证据。
+它们位于 `fixtures/`：参考 RTL 是预期能够通过的**正对照（positive control）**；十份故意植入地址、字节使能、响应、等待、背压、复位等错误的 RTL 是**负对照（negative controls / mutants）**。验收脚本分别将候选接到同一个 VIP/UVM 验证环境，检查 **正确的能被接受、已知错误能被拒绝**。Scoreboard 并不是同时拿这 11 份 RTL 做比较，也不使用参考 RTL 的源码来计算 Agent 答案。
 
-| 想了解什么 | 阅读入口 |
-|---|---|
-| 整体结构；task、环境、验证器和评分器的分工；Scoreboard 如何工作 | [当前架构与 Scoreboard](docs/architecture.md)（含系统与 UVM 数据流框图） |
-| DSH 在哪里运行；Agent 能看什么、做什么；真实动作与奖励如何产生 | [真实 Agent 的执行与奖励](docs/agent-workflow.md)（含执行时序图、权限表和评分规则） |
-| 如何配置、手动迭代、重放提交或再跑模型 | [环境配置与复用命令](docs/mvp-running.md) |
-| 定向／随机／边界测试如何安排、是否充分 | [验证计划与覆盖](docs/verification-plan.md) |
-| Agent 可见信息、工具权限和反馈粒度怎样控制 | [Observation / Feedback Policy](docs/observation-policy.md) |
-| A／C／E 真实对照怎样运行、模型收到什么、结果能说明什么 | [Policy 实验报告](docs/policy-evaluation-report.md)与[可审计证据](experiments/policy-v1/README.md) |
-| 批量能力评测、动作协议质量和配对修复如何研究 | [批量实验报告](docs/batch-evaluation-report.md) · [执行契约](docs/batch-study.md) · [全部试次统计与典型轨迹](experiments/batch-study-001/README.md) |
-| 实际证明了什么、证据在哪里、还缺什么 | [评估报告](mvp-evaluation-report.md)与[验收证据](experiments/industrial-v3/README.md) |
+[Scoreboard 具体原理](docs/architecture.md) · [错误对照脚本](environment/validate_v3.py) · [验证覆盖与缺口](docs/verification-plan.md)
 
-建议讲解顺序：本页概览 → 架构与 Scoreboard → Agent 执行时序 → 真实结果与限制。当前已经跑通任务和奖励闭环，尚未进行 RL 参数训练。
+### Reward 从何而来？
 
-## 标准基线
+完整测试结果先由 VCS/UVM/VIP 生成，可信 Python 评分器在 `verifier/campaign.py` 中核对测试是否完整、是否有明确的 DUT 错误、事务账目与必要覆盖，再给出：
 
-revision 3 单任务闭环已实际验证。DSH 在 UTM 内运行并调用 API；真实 Agent 经公开测试失败后自行修复，私有终局 Reward=1.0，独立保留评估也通过。
+| 结果 | 终局输出 | 含义 |
+| --- | --- | --- |
+| 所有必要 case 完整通过 | `Reward = 1.0` | 本次任务通过规定的验证范围 |
+| 确认 RTL 编译、功能、协议/时序或周期超时错误 | `Reward = 0.0` | 当前提交有可判定错误；可在首个错误处停止 |
+| 许可/工具故障、验证不完整、无效提交等 | `Reward = null` | 未获得可靠的数值奖励；不能误记为 RTL 功能失败 |
 
-| 检查 | 实测结果 |
-|---|---|
-| 正确参考 | 22 个 case 通过；2868 笔计划事务，2842 笔正常完成、26 笔复位取消 |
-| 必要交叉覆盖 | 576 / 576 个 bin 命中 |
-| 随机流 | 4 组 × 256 笔，全部实际仿真通过 |
-| 错误实现 | 10 / 10 被检出，包括两项商业 VIP 协议报错 |
-| UTM 内真实 Agent | 10 轮动作；私有 22 case 通过，Reward=1.0；另一个保留评估集通过 |
+`null` 是本项目为无效/不可判定状态保留的标记，**不是数值 0，也不是可以不经处理直接交给训练器的奖励**。未来接入训练器时，需要单独处理这些样本。
 
-这些结果证明计划内检查通过，不是所有输入的正确性证明，也不是完整工业签核。
+[评分代码](verifier/campaign.py) · [Reward 与提交隔离](docs/agent-workflow.md)
 
-旧 128 笔版本已废弃，其源码、向量生成器、导出脚本及交付记录已从当前版本删除。标准定义见[任务入口](tasks/axil_to_apb4_001/README.md)与[机器可读基线清单](tasks/axil_to_apb4_001/baseline.json)。
+## 4. 用这套环境研究出了什么？
 
-## Observation / Feedback Policy
+以下为**真实 Agent 固定模型试次**，不是模拟模型、不是模型参数训练。模型为 `deepseek-flash`；成功表示最终私有 Reward=1。
 
-在 revision 3 上新增独立实验入口，保留原验证器和旧复现命令。可信控制器执行文件白名单、工具权限、20 次动作预算及测试次数限制；完整结果经字段白名单投影后才返回求解者。提交后停止求解进程，再进行私有评分和独立保留评估。
+### 实验 A：同一任务，不同信息条件下自主生成 RTL
 
-| 模式 | 模型可用的公开功能反馈 | 公开调用预算 |
-|---|---|---|
-| A：Spec-only | 无；可以直接提交 | 0 |
-| C：Test-verdict | PASS／FAIL／ENV_ERROR、剩余次数 | 2 |
-| E：Test-diagnostic | C 的字段，加错误类别、首个失败 case 和受控短诊断 | 2 |
+新版 `text-json-atomic-v2` 动作协议，A/C/E 各 10 次，30 次全部有效提交：
 
-C／E 使用相同项目初始 prompt、工具、预算、公开集及私有判据。每个试次独立工作区和模型会话；同轮三组共享冻结的私有奖励输入和另一份保留输入。这是固定模型推理阶段对照，不是 RL 参数训练。
+| 策略 | 私有成功 | 实际获得过公开反馈的试次 |
+| --- | --- | --- |
+| A · 不给功能反馈 | **7 / 10** | 0 / 10 |
+| C · 只给 PASS/FAIL | **8 / 10** | 9 / 10 |
+| E · 给受控诊断 | **8 / 10** | 7 / 10 |
 
-历史 Policy v1 已完成每组一次真实 `deepseek-flash` 试次（本表保留历史结果；新增批量研究单独见[报告](docs/batch-evaluation-report.md)）：
+三组差异很小、样本量有限，**不能据此声称哪种反馈策略更优**。同时，这道受限单任务对该模型的成功比例较高，但尚不能说已经完全饱和。
 
-| 策略 | 公开调用／实际编辑 | 私有 Reward | 保留评估 |
-|---|---|---|---|
-| A | 0／2 | 1.0 | 1.0 |
-| C | 1／2 | 0.0 | 0.0 |
-| E | 0／0 | 0.0 | 0.0 |
+### 实验 B：从同一份真实错误 RTL 出发，比较修复反馈
 
-C 收到仅含 FAIL 的反馈后修改，但独立 W 握手错误仍在。E 的多动作回复被拒绝，最终提交未修改模板，没有实际利用诊断反馈。31 项真实 VCS 机制检查与完整轨迹审计通过；发布单元检查 40 项通过。**每组仅一次，不能据此排名策略，也未得出详细诊断是否提高成功率的统计结论。**
+取历史 Agent 产生的一份 WREADY/AW 独立握手错误 RTL，C/E 使用相同起点和修复预算。六条试次都真实收到首次 FAIL、修改 RTL 并重新测试：
 
-```bash
-python3 -m environment.policy_experiment \
-  --out .local/policy-new \
-  --policies spec_only,test_verdict,test_diagnostic \
-  --model deepseek-flash --repeats 1
-python3 scripts/audit_policy.py .local/policy-new
-python3 scripts/analyze_policy.py .local/policy-new
-```
+| 反馈条件 | 修复后私有成功 |
+| --- | --- |
+| C · 只有 FAIL | **1 / 3** |
+| E · 错误类别、case 与受控诊断 | **3 / 3** |
 
-配置与权限说明见 [Policy 文档](docs/observation-policy.md)；逐组真实结果、样本量、失败原因和限制见 [Policy 实验报告](docs/policy-evaluation-report.md)。
+两组的实际修改位置不同，提示详细诊断**可能**帮助定位该类握手错误；但只有一个错误起点、每组三次，不能推广为普遍优势。
 
-## 批量能力与反馈研究
+### 实验 C：Agent 动作协议会污染能力测量
 
-已完成并审计53条真实轨迹：旧动作协议17条因格式质量不合格停止并完整保留；新版协议完成A/C/E各10次自主生成，以及C/E各3次同起点修复。Task、Verifier和Policy功能判据没有改动，仍未进行参数训练。
+最初的文本 JSON 协议出现 **41/133** 次格式错误动作（30.8%），执行到 17 次时按预定质量门槛停止并保留全部轨迹。改进格式说明与拒绝反馈后，新协议 30 次自主生成中只有 **2/153** 次格式错误（1.3%），且均在后续动作中恢复。
 
-| 独立研究 | A | C | E |
-|---|---|---|---|
-| 新协议自主生成：私有成功／全部启动 | 7/10 | 8/10 | 8/10 |
-| 同一真实错误RTL的配对修复 | — | 1/3 | 3/3 |
+这说明工具动作接口质量会显著影响 Agent 评测；旧、新批次的其他条件未完全随机控制，**不能将差异完全归因于某一句 Prompt**。
 
-自主生成格式错误2/153动作，全部恢复，无环境失败；修复6条均真实收到FAIL并修改RTL。自主生成尚不足以排名策略；配对修复显示值得复验的差异，但只有一个错误起点。完整区间、实际反馈、失败逻辑、成本和结论边界见[批量报告](docs/batch-evaluation-report.md)；[证据目录](experiments/batch-study-001/README.md)保留全部试次摘要及选择展开的轨迹。
+本轮共有 **53 条**批量研究真实轨迹：旧协议停止批次 17、新版自主生成 30、独立配对修复 6。这三批不能合并计算为一个成功率。最新实验报告另记录了时序/功能失败归因、Token 用量、EDA 编译/仿真耗时以及审计情况。
 
-执行器支持冻结、逐次持久化、中断恢复、完成试次跳过、预算与质量停止。新研究显式选择新版文本动作协议：
+[批量研究报告（推荐先读）](docs/batch-evaluation-report.md) · [53 条证据索引](experiments/batch-study-001/README.md) · [实验执行与审计契约](docs/batch-study.md)
 
-```bash
-python3 -m environment.policy_experiment --out .local/batch-new \
-  --protocol text-json-atomic-v2 --repeats 10 --limit 9 \
-  --max-tokens 1200000 --max-seconds 9000
-# 质量与剩余预算允许后，用同一冻结源码继续到30条
-python3 -m environment.policy_experiment --out .local/batch-new \
-  --protocol text-json-atomic-v2 --repeats 10 --limit 30 --resume
-```
+## 5. 当前 Agent 调用工具的方式，以及与 RL 训练的距离
 
-方法、恢复边界与独立修复入口见[执行契约](docs/batch-study.md)。新版仍是严格文本JSON，并未实现原生Tool Calls。
+当前使用的是 **DSH + 自定义文本 JSON 动作协议**：模型在文本回复中输出一个动作对象，可信控制器解析后执行 `read/edit/test/submit`，再把允许的结果送回下一轮模型上下文。它已实现多轮 Agent–Environment 交互、权限控制、轨迹记录和终局可验证奖励。
 
-## 运行
+这符合 Agent Rollout 的**基本逻辑**，但**还不是模型 API 的原生 Tool Calls**。后者通常以工具 Schema 和专门的工具调用/结果消息传递动作，能够减少文本格式解析问题。当前 DSH 适配尚未实现并验收这种原生工具接口，也尚未接入使用轨迹和 Reward 更新模型参数的 RL Trainer。
 
-需要自行准备有授权的 VCS / AMBA SVT 环境，并配置 SSH。历史基线与新实验的工具链版本分别保存在对应清单；最新批量研究使用 VCS-MX O-2018.09-SP2、AMBA VIP R-2020.12、UVM 1.2。仓库不包含商业 VIP、许可证或密钥。
+因此准确的定位是：**可执行、可评测、能收集训练候选轨迹的环境原型**，不是已经完成大模型后训练。
 
-先按[环境配置与运行说明](docs/mvp-running.md)完成配置，然后在仓库根目录执行：
+## 6. 代码入口、复现与下一阶段
+
+| 目的 | 入口 |
+| --- | --- |
+| Task 规范与初始 RTL | [tasks/axil_to_apb4_001/](tasks/axil_to_apb4_001/README.md) |
+| Agent 生命周期、Policy 与反馈 | [environment/](environment/) |
+| 场景生成、VCS/UVM 验证和 Reward | [verifier/](verifier/) |
+| 正确/错误 RTL 对照 | [fixtures/](fixtures/) |
+| 批量执行、审计和统计 | [scripts/](scripts/) |
+| 技术解释与运行说明 | [docs/](docs/README.md) |
+| 冻结实验及脱敏证据 | [experiments/](experiments/batch-study-001/README.md) |
+
+在准备好**合法授权的 VCS / AMBA VIP** 与对应运行环境后，可以从仓库根目录执行：
 
 ```bash
-# 检查标准基线与已保存证据的一致性（不启动仿真）
+# 只核对历史源码与证据，不启动仿真
 python3 -m environment.check_baseline
 
-# 参考实现及十个错误实现的真实 VCS 回归
-bash environment/reproduce.sh .local/reproduction-001
-
-# 原 v3 Agent 复现入口；新的反馈对照使用上面的 policy_experiment
-bash environment/reproduce.sh .local/reproduction-002 --agent
+# 真实运行参考 RTL 与十个错误 RTL 对照
+bash environment/reproduce.sh .local/reproduction-new
 ```
 
-也可单独调用 `python3 -m environment.reset`、`environment.test`、`environment.submit`；具体参数见运行说明。模型 API 调用消耗用户自己的额度。
+模型批量试次需要另行配置 DSH 与 API 凭据；具体参数、版本、冻结和断点恢复方法见[运行手册](docs/mvp-running.md)和[批量实验契约](docs/batch-study.md)。历史运行工具链与当前运行工具链分别记录在对应实验清单里；个人 SSH、机器路径、许可证、完整原始日志和私有输入不作为仓库交付物。
 
-## 交付内容
+**下一阶段优先事项：** ① 在更多不同错误起点上复验反馈对修复的影响；② 对比更可靠的结构化/原生工具调用协议；③ 构建并验收 Task 002 与跨任务质量门槛；④ 逐步形成多任务 Registry、难度校准和训练数据交付接口。
 
-- `tasks/`：Spec、初始 RTL 和任务元数据。
-- `environment/`：reset/test/submit、受限工具接口和 DeepSeek Harness。
-- `verifier/v3/`：当前主动 VIP／UVM 验证实现。
-- `fixtures/`：正确参考与十个故障实现。
-- `experiments/industrial-v3/`：结果、精简工具轨迹、实际修复差异、最终 RTL 和证据哈希。
-- `experiments/policy-v1/`：A／C／E 配置、冻结清单、真实投影反馈、候选 RTL、终局结果及审计证据。
-- `scripts/`：脱敏证据导出；`docs/`：复现说明及研究资料。
-
-UVM Scoreboard 通过 analysis port 接收两端 VIP monitor 事务，并与计划请求和独立期望内存状态比较。最终评分在新的仿真目录执行；编译产物只有在代码及验证输入哈希一致时才允许复用。
-
-## 边界
-
-已实现求解进程的文件系统／进程／权限隔离，以及私有输入分层。仍需区分运行时文件隔离、网络限制和恶意 RTL 执行隔离；当前没有完整网络／编译器沙箱。公开参考答案还存在预训练污染风险。
-
-事务中复位、随机和交叉覆盖的实现与实际验收分开记录；尚无完整代码覆盖闭合、综合／形式证明或 RL 训练。详见[验证计划](docs/verification-plan.md)与[工具能力](docs/toolchain.md)。
-
-[原研究设计](docs/research-design.md) · [VIP 资源盘点](docs/vip-inventory-r2020.12.md) · [早期 VIP 审计](docs/vip-audit-2026-11-24.md)
-
-研究资料描述长期方向和当时的证据状态；当前实现与验收状态以本页和评估报告为准。
+**当前边界：** 仅有一个标准任务；有限测试与 10 个故障对照不能证明所有 RTL 都正确；私有奖励与保留评估使用同一验证器，存在共同盲区；尚无完整代码覆盖闭合、综合/形式证明、全面恶意代码沙箱、规模化任务生产与 RL 参数训练。
