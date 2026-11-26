@@ -67,7 +67,7 @@ def main():
     q=s.add_parser('rollout');q.add_argument('task');q.add_argument('extra',nargs=argparse.REMAINDER)
     a=p.parse_args()
     if a.package:
-        from task_families.router_v1.generate import verify
+        from task_families.package import verify
         package=Path(a.package).resolve();verify(package)
         extra=list(sys.argv[1:]);i=extra.index('--package') if '--package' in extra else next(i for i,v in enumerate(extra) if v.startswith('--package='))
         del extra[i:i+(2 if extra[i]=='--package' else 1)]

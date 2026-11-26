@@ -1,0 +1,20 @@
+"""Contract-derived traffic; actual event coverage is checked separately in SV."""
+from ._protocol_template import suite as inherited,REQUIRED_BINS as inherited_bins
+WRITE_CAP=WRITE_VALUE
+READ_CAP=READ_VALUE
+REQUIRED_BINS=set(inherited_bins)|{'g_%s_level_%d'%(ch,n) for ch,cap in [('aw',WRITE_CAP),('w',WRITE_CAP),('ar',READ_CAP)] for n in range(cap+1)}|{'g_write_laps','g_read_laps','g_offer_at_retirement'}
+def suite(public=False,seed=20261125):
+ cases=inherited(public,seed)
+ # Reset stimulus must reach the contract-specific full queues before cancellation.
+ for c in cases:
+  if c['reset_stage']:
+   original=c['rows'];rows=[]
+   for kind,cap in ((1,WRITE_CAP),(0,READ_CAP)):
+    source=[r for r in original if r[0]==kind]
+    for i in range(cap):
+     r=list(source[min(i,len(source)-1)]);r[1]=0x800+(0 if kind else 0x100)+i*4;rows.append(r)
+   c['rows']=rows
+ for wr,cap in ((1,WRITE_CAP),(0,READ_CAP)):
+  rows=[[wr,0x20000+i*4,(0x13579bdf^(i*0x10203))&0xffffffff,i%16,0,0,3,24,0,0] for i in range(6*cap+5)]
+  cases.append({'name':'family_write_laps' if wr else 'family_read_laps','sequence':'queue_capacity_sequence','rows':rows,'recovery':[], 'reset_stage':0,'requirements':['G_CAPACITY_LEVELS','G_MULTIPLE_LAPS','G_RETIREMENT_BOUNDARY'],'ready_mode':'reactive'})
+ return cases

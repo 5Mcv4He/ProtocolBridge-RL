@@ -1,0 +1,5 @@
+{"family":"x2p_retirement_queues_v1","instances":[
+ {"task_id":"x2p_queue_single_v1","write_capacity":1,"read_capacity":1,"purpose":"Independent partial-write capture and read/write arbitration with one unretired slot per direction"},
+ {"task_id":"x2p_queue_three_v1","write_capacity":3,"read_capacity":3,"purpose":"Non-power-of-two queues, wrap and retained credits through response consumption"},
+ {"task_id":"x2p_queue_readheavy_v1","write_capacity":1,"read_capacity":3,"purpose":"Separate read buffering from one-slot write lifecycle; asymmetric capacity management"}
+]}
