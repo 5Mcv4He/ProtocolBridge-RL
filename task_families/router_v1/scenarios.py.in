@@ -2,6 +2,7 @@
 from ._protocol_template import suite as old_suite,target as old_target,BASES as OLD_BASES
 WINDOWS=WINDOWS_VALUE
 BASES=tuple(base for base,size in WINDOWS)
+REVIEWED_ADDRESSES=REVIEWED_ADDRESSES_VALUE
 def target(a):
  # Difference/size oracle, independently of inclusive SV/exclusive RTL tests.
  matches=[i for i,(base,size) in enumerate(WINDOWS) if 0<=a-base<size]
@@ -13,13 +14,16 @@ def suite(public=False,seed=20261125):
  for c in cases:
   for r in c['rows']:
    t=old_target(r[1]);r[1]=WINDOWS[t][0]+(r[1]-OLD_BASES[t])%WINDOWS[t][1] if t>=0 else 0
- points=set([0,0xfffffffc,0xf000])
+ points=set([0,0xfffffffc,0xf000]+list(REVIEWED_ADDRESSES))
  for base,size in WINDOWS:
   points.update([base-4,base,base+4,base+size-4,base+size,base+size+4])
   points.update(base^(1<<b) for b in range(2,32))
+  # Interior carry boundaries matter when a window grows or is not a power of two.
+  for offset in (1<<b for b in range(2,32) if 1<<b<size):
+   points.update((base+offset-4,base+offset,base+offset+4))
  rows=[]
  for address in sorted(points):
   # Writes followed by reads, not only decoder classification.
   rows.extend([[1,address,0xa55a1234,15,0,7,3,4,0,0,0],[0,address,0,0,0,0,2,3,0,0,0]])
- cases.append({'name':'generated_boundaries','sequence':'address_data_sequence','rows':rows,'requirements':['G_RANGE_EDGES','G_ADDRESS_ALIAS'],'ready_mode':'reactive'})
+ cases.append({'name':'generated_boundaries','sequence':'address_data_sequence','rows':rows,'requirements':['G_RANGE_EDGES','G_ADDRESS_ALIAS','G_OFFSET_CARRY'],'ready_mode':'reactive'})
  return cases
