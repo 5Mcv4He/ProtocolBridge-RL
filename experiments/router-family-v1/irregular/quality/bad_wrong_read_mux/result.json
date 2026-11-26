@@ -1,0 +1,58 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "bf7b015a777a5feeac282239079a14a8cc2393d965c2d8af343876bc019d35ee",
+  "suite_sha256": "93c43e36c656c85aec6ae06458d52dbae1465910b870ec655c2ed10fc15afd9d",
+  "required_cases": [
+    "independent_target_memory",
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "decode_misses",
+    "router_reset",
+    "generated_boundaries"
+  ],
+  "failed_case": "independent_target_memory",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "independent_target_memory",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 99,
+      "expected_aborted": 0,
+      "sequence": [
+        "address_data_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "R_DISJOINT_MEMORY",
+        "R_RESPONSE_MUX",
+        "R_TARGET_SWITCH",
+        "F_PARTIAL"
+      ]
+    }
+  ]
+}

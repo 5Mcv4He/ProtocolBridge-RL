@@ -1,0 +1,41 @@
+[
+  {
+    "task_id": "x2p_router_compact_v1",
+    "package_manifest_sha256": "17c8683dd3ce3711e8aa43f737d697ed133c98f1cc8e8b576a6b10bc99e5bc30",
+    "reset_spec_exact": true,
+    "reset_rtl_exact": true,
+    "single_task_registry": true,
+    "spec_sha256": "f4f6aa33ec52bf2c8f6964b8c65f9f1b426277f2799f0174c5631419b3c64585",
+    "initial_rtl_sha256": "62ce122ad4dcedf12e91516ea69deaac23bfd9074ce1d0a9d282842c173bfebb",
+    "reference_shape_sha256": "b76b9c12f6ad2752bf6cee8c99f8e9f593dfe46fa8bbf4d0fc59fc00197f49f0",
+    "non_map_spec_unchanged": true,
+    "map_rows_match_reviewed_configuration": true,
+    "base_spec_sha256": "aa3912f7af3cf19b00174d56940aff4ea8f39e05380e8de5ff54bc4bac3dbc60"
+  },
+  {
+    "task_id": "x2p_router_irregular_v1",
+    "package_manifest_sha256": "32a3ff2fc6d6a4a6074b980f28ca119731932ac45aa19fa671b8cada5b49a9a0",
+    "reset_spec_exact": true,
+    "reset_rtl_exact": true,
+    "single_task_registry": true,
+    "spec_sha256": "0939921dc03c5e24235aebe195cd7975aec77cd7df7e0be2a94323aec149926b",
+    "initial_rtl_sha256": "62ce122ad4dcedf12e91516ea69deaac23bfd9074ce1d0a9d282842c173bfebb",
+    "reference_shape_sha256": "b76b9c12f6ad2752bf6cee8c99f8e9f593dfe46fa8bbf4d0fc59fc00197f49f0",
+    "non_map_spec_unchanged": true,
+    "map_rows_match_reviewed_configuration": true,
+    "base_spec_sha256": "aa3912f7af3cf19b00174d56940aff4ea8f39e05380e8de5ff54bc4bac3dbc60"
+  },
+  {
+    "task_id": "x2p_router_adjacent_v1",
+    "package_manifest_sha256": "0858b4e0d3cf9e6204f9247b1268526bfab69a27f29ad20da68ecef8c421b433",
+    "reset_spec_exact": true,
+    "reset_rtl_exact": true,
+    "single_task_registry": true,
+    "spec_sha256": "9b07ee509491d4dc6a1a2a568fa30d3020f12716d3055ffa56c090a4084c857a",
+    "initial_rtl_sha256": "62ce122ad4dcedf12e91516ea69deaac23bfd9074ce1d0a9d282842c173bfebb",
+    "reference_shape_sha256": "b76b9c12f6ad2752bf6cee8c99f8e9f593dfe46fa8bbf4d0fc59fc00197f49f0",
+    "non_map_spec_unchanged": true,
+    "map_rows_match_reviewed_configuration": true,
+    "base_spec_sha256": "aa3912f7af3cf19b00174d56940aff4ea8f39e05380e8de5ff54bc4bac3dbc60"
+  }
+]

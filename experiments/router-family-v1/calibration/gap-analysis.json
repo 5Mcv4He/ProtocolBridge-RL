@@ -1,0 +1,44 @@
+{
+  "kind": "confirmed_generator_verification_gap",
+  "task_id": "x2p_router_irregular_v1",
+  "candidate_sha256": "34f513a520b8c00586a281e397ba103a6e94c7bfaee5378a9ca6454991a96528",
+  "actual_old_verifier_reward": 1.0,
+  "verification_complete": true,
+  "cases": 27,
+  "planned": 6003,
+  "checked": 5949,
+  "aborted": 54,
+  "functional_cross": {
+    "required": 1728,
+    "observed": 1728,
+    "missing": []
+  },
+  "spec_counterexample": {
+    "axi_address": "0x00022000",
+    "required_local_address": "0x00001000",
+    "faulty_local_address": "0x00000000"
+  },
+  "not_an_agent_trial": true,
+  "replacement_control_source_identical": true,
+  "old_verifier_result_sha256": "dd6e5c48a5cf3b0e02b09fc500ab2f0b0e879a085b93857949837a864f81ed16",
+  "correction_industrial_status": "confirmed_same_source_rejected",
+  "old_generator_commit": "06680d8e622d3ec5b73e9ab3673a21d12360a47b",
+  "old_package_manifest_sha256": "ff09c8132476d06235946e0151adb4d8a19a6816c1255e98e41bb5e0633e62fc",
+  "use": "Verifier calibration evidence only; not an Agent episode or training reward.",
+  "corrected_control": {
+    "reward": 0.0,
+    "category": "transaction_functional_error",
+    "verification_complete": false,
+    "failed_case": "generated_boundaries",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "source_sha256": "bf7b015a777a5feeac282239079a14a8cc2393d965c2d8af343876bc019d35ee",
+    "suite_sha256": "a9e13be84c7cef3d66a147883d02069f2f687b7dc6256e95c44ec26244e14ebd",
+    "functional_cross": null,
+    "selected_variant": 15,
+    "fixture_sha256": "34f513a520b8c00586a281e397ba103a6e94c7bfaee5378a9ca6454991a96528"
+  },
+  "corrected_gate_freeze_sha256": "a602c279c5c0ad12fa34a122af88ba9a8cebc3689c49fa2b04d49b2ff87a6a21",
+  "corrected_generator_commit": "175dc9cbcc0c5762a099ee9346199af7480bec4b"
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "task_id": "x2p_router_compact_v1",
+    "manifest_file_count": 1795,
+    "manifest_file_bytes": 8686104,
+    "scope": "Files bound by source inventory, including inherited public evidence; excludes .git, .local, bytecode, builds and this manifest."
+  },
+  {
+    "task_id": "x2p_router_irregular_v1",
+    "manifest_file_count": 1795,
+    "manifest_file_bytes": 8686908,
+    "scope": "Files bound by source inventory, including inherited public evidence; excludes .git, .local, bytecode, builds and this manifest."
+  },
+  {
+    "task_id": "x2p_router_adjacent_v1",
+    "manifest_file_count": 1795,
+    "manifest_file_bytes": 8686279,
+    "scope": "Files bound by source inventory, including inherited public evidence; excludes .git, .local, bytecode, builds and this manifest."
+  }
+]

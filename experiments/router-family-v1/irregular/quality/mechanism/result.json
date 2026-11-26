@@ -1,0 +1,95 @@
+{
+  "action_protocol": "text-json-atomic-v2",
+  "accepted": true,
+  "check_count": 40,
+  "real_vcs": true,
+  "agent_model_used": false,
+  "private_reward_suite_sha256": "710fd4dabe5f4414dba3c0da085afd7eb0986613244c93a6ef18835435e249df",
+  "candidate": "fixtures/task002/bad_wrong_target.sv",
+  "runs": {
+    "spec_only": {
+      "public_test_calls": 0,
+      "grader_invocations": [
+        {
+          "public": false,
+          "cases_sha256": "710fd4dabe5f4414dba3c0da085afd7eb0986613244c93a6ef18835435e249df"
+        }
+      ],
+      "observations": [
+        {
+          "status": "REJECTED",
+          "reason": "tool_not_allowed"
+        }
+      ],
+      "terminal_reward": 0.0,
+      "terminal_category": "transaction_functional_error",
+      "source_sha256": "69c549ef508eb234cb70081accc603a58fc4c74a0db7dede9b5215a625cafe35"
+    },
+    "test_verdict": {
+      "public_test_calls": 2,
+      "grader_invocations": [
+        {
+          "public": true,
+          "cases_sha256": null
+        },
+        {
+          "public": true,
+          "cases_sha256": null
+        },
+        {
+          "public": false,
+          "cases_sha256": "710fd4dabe5f4414dba3c0da085afd7eb0986613244c93a6ef18835435e249df"
+        }
+      ],
+      "observations": [
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 1
+        },
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 0
+        }
+      ],
+      "terminal_reward": 0.0,
+      "terminal_category": "transaction_functional_error",
+      "source_sha256": "69c549ef508eb234cb70081accc603a58fc4c74a0db7dede9b5215a625cafe35"
+    },
+    "test_diagnostic": {
+      "public_test_calls": 2,
+      "grader_invocations": [
+        {
+          "public": true,
+          "cases_sha256": null
+        },
+        {
+          "public": true,
+          "cases_sha256": null
+        },
+        {
+          "public": false,
+          "cases_sha256": "710fd4dabe5f4414dba3c0da085afd7eb0986613244c93a6ef18835435e249df"
+        }
+      ],
+      "observations": [
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 1,
+          "category": "transaction_functional_error",
+          "first_failed_case": "address_data",
+          "diagnostic": "Transaction mapping, data, response or completion accounting failed."
+        },
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 0,
+          "category": "transaction_functional_error",
+          "first_failed_case": "address_data",
+          "diagnostic": "Transaction mapping, data, response or completion accounting failed."
+        }
+      ],
+      "terminal_reward": 0.0,
+      "terminal_category": "transaction_functional_error",
+      "source_sha256": "69c549ef508eb234cb70081accc603a58fc4c74a0db7dede9b5215a625cafe35"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "1cae6bb67a3a918441418fe5b225d36af639e692ed5b2c1d720de8463a449bf9",
+  "suite_sha256": "33ab4b45021ea9ba49e1afb8ac8928e90b3d14f817e976a7b455369b05140f54",
+  "required_cases": [
+    "write_accumulate",
+    "address_data",
+    "read_only",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "decode_misses",
+    "independent_target_memory",
+    "router_reset",
+    "generated_boundaries"
+  ],
+  "failed_case": "write_accumulate",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "write_accumulate",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 36,
+      "expected_aborted": 0,
+      "sequence": [
+        "memory_pattern_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "F_WW",
+        "F_PARTIAL",
+        "F_ZERO_STROBE",
+        "F_RR"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "bf7b015a777a5feeac282239079a14a8cc2393d965c2d8af343876bc019d35ee",
+  "suite_sha256": "ee8bbece675d7c906732ea4d0cdd20b70bd90c17e2913bb20a471118f16efe52",
+  "required_cases": [
+    "wait_error",
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "decode_misses",
+    "independent_target_memory",
+    "router_reset",
+    "generated_boundaries"
+  ],
+  "failed_case": "address_data",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "wait_error",
+      "reward": 1.0,
+      "category": "pass",
+      "planned": 24,
+      "expected_aborted": 0,
+      "scoreboard": {
+        "planned": 24,
+        "axi": 24,
+        "apb": 24,
+        "checked": 24,
+        "aborted": 0,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "routing": {
+        "mapped": 24,
+        "unmapped": 0,
+        "target0": 24,
+        "target1": 0,
+        "target2": 0
+      },
+      "sequence": [
+        "wait_error_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "F_WAIT",
+        "F_ERROR_WRITE",
+        "F_ERROR_READ",
+        "F_ERROR_NO_WRITE"
+      ]
+    },
+    {
+      "name": "address_data",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 142,
+      "expected_aborted": 0,
+      "sequence": [
+        "address_data_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "F_ADDR",
+        "F_DATA",
+        "F_MAPPING"
+      ]
+    }
+  ]
+}

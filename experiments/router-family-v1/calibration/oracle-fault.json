@@ -1,0 +1,51 @@
+{
+  "schema": "router-family-oracle-fault-v1",
+  "injection": {
+    "purpose": "Both reference and scoreboard decoder truncate lane-zero range; independent fixed semantic anchors must reject the verifier as infrastructure error, not reward the candidate or assign zero.",
+    "changes": [
+      {
+        "file": "fixtures/task002/reference.sv",
+        "original_sha256": "ae7820946e0c900f07e06a7f8ccbf1566a436babea7cac5ee544ca21f53d8cc6",
+        "injected_sha256": "81577052137c21de659354f02de04ebb4b388d50d2a103e584d5ea1d0a7f4201"
+      },
+      {
+        "file": "verifier/task002/vip.sv",
+        "original_sha256": "3d1c8c9ac7a3b4c6e9eaf5a1da367a72b51dc35bad1f120d4731721c8cc3e3ff",
+        "injected_sha256": "6ab1903e320065ee88dccad7db517eed41224eb96157edd21888890681ea9c2c"
+      }
+    ]
+  },
+  "result": {
+    "reward": null,
+    "category": "infrastructure_error",
+    "verification_complete": false,
+    "verdict_determinate": false,
+    "source_sha256": "81577052137c21de659354f02de04ebb4b388d50d2a103e584d5ea1d0a7f4201",
+    "suite_sha256": "fada0423fb7ba73ba19637917a19f157cd3f76ed5a35be5629aa233ec9c9c035",
+    "required_cases": [
+      "address_data"
+    ],
+    "failed_case": "address_data",
+    "compile_exit": 0,
+    "cases": [
+      {
+        "name": "address_data",
+        "reward": null,
+        "category": "infrastructure_error",
+        "planned": 8,
+        "expected_aborted": 0,
+        "sequence": [],
+        "simulation_exit": 0,
+        "requirements": [
+          "F_ADDR",
+          "F_DATA",
+          "F_MAPPING"
+        ]
+      }
+    ]
+  },
+  "observed_own_checker_message": "PB_INFRA: Generated oracle differs from reviewed contract",
+  "simulation_log_sha256": "559673ea3f7d035e5511e87464dad614252a31f88ade4cebe5cd2464fa9328ca",
+  "raw_result_sha256": "5c9f721bce3ff881cebed3eff6d709ddf91cce58695e5a83d09ef9f81587ceb2",
+  "scope": "Separate fault-injected copy, not an Agent trial or change to admitted packages. The independent semantic anchor rejects the common decoder error before traffic. This is infrastructure null, not RTL reward zero."
+}

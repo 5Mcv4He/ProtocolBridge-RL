@@ -1,0 +1,58 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "1cae6bb67a3a918441418fe5b225d36af639e692ed5b2c1d720de8463a449bf9",
+  "suite_sha256": "7e72a1ae5f447989da8bf68c487135c5be4fc3e9cd782ec1f4962a0a7e6d780c",
+  "required_cases": [
+    "channel_gaps",
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "decode_misses",
+    "independent_target_memory",
+    "router_reset",
+    "generated_boundaries"
+  ],
+  "failed_case": "channel_gaps",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "channel_gaps",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 26,
+      "expected_aborted": 0,
+      "sequence": [
+        "channel_order_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "F_AW_FIRST",
+        "F_W_FIRST",
+        "F_TOGETHER",
+        "F_HALF_BUFFER"
+      ]
+    }
+  ]
+}

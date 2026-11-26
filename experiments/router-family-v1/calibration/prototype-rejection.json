@@ -1,0 +1,12 @@
+{
+  "stage": "development_candidate_not_admitted",
+  "accepted": false,
+  "reason": "First public failure case/order changed; real Policy mechanism rejected the candidate even though RTL controls behaved as expected.",
+  "positive_controls_passed": 2,
+  "negative_controls_detected": 13,
+  "mechanism_accepted": false,
+  "agent_trials": 0,
+  "failure_sha256": "24651ed32b587f6b35f9341c2f17dc8e81cd90aceaec280891fc2ad08f1808ea",
+  "freeze_sha256": "31274d012a763c85387670159ede665112ef1187f2252a4da56b6087a2adf21c",
+  "scope": "Full source and raw evidence retained privately; this summary does not grant admission."
+}

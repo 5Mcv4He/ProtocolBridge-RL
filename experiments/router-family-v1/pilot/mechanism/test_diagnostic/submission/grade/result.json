@@ -1,0 +1,57 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "69c549ef508eb234cb70081accc603a58fc4c74a0db7dede9b5215a625cafe35",
+  "suite_sha256": "1ec7fa72dc4cd5605227e0d6b21ca5b4181ed38b486eb96160bb490538e65370",
+  "required_cases": [
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "decode_misses",
+    "independent_target_memory",
+    "router_reset",
+    "generated_boundaries"
+  ],
+  "failed_case": "address_data",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "address_data",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 142,
+      "expected_aborted": 0,
+      "sequence": [
+        "address_data_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "F_ADDR",
+        "F_DATA",
+        "F_MAPPING"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+[
+  {
+    "action_index": 1,
+    "action": {
+      "tool": "read",
+      "file": "spec.md"
+    },
+    "executed": true,
+    "observation": {
+      "file": "spec.md",
+      "content_sha256": "0939921dc03c5e24235aebe195cd7975aec77cd7df7e0be2a94323aec149926b",
+      "content_bytes": 6262
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 2,
+    "action": {
+      "tool": "read",
+      "file": "bridge.sv"
+    },
+    "executed": true,
+    "observation": {
+      "file": "bridge.sv",
+      "content_sha256": "62ce122ad4dcedf12e91516ea69deaac23bfd9074ce1d0a9d282842c173bfebb",
+      "content_bytes": 739
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 3,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "f9f7f04ae8bdb0fe52e1188e6e0938ae15a9f85c5db1e020c8ff93af9a110037",
+      "candidate_file": "candidate-03.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 4,
+    "action": {
+      "tool": "test"
+    },
+    "executed": true,
+    "observation": {
+      "status": "PASS",
+      "remaining_test_calls": 1,
+      "category": "pass",
+      "first_failed_case": null,
+      "diagnostic": "Public verification completed successfully."
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 5,
+    "action": {
+      "tool": "submit"
+    },
+    "executed": true,
+    "observation": {
+      "status": "SUBMITTED"
+    },
+    "observation_delivered": false
+  }
+]

@@ -1,0 +1,219 @@
+{
+  "schema": "router-family-recorded-costs-v1",
+  "rows": [
+    {
+      "name": "prototype gate rejected",
+      "phase": "development",
+      "wall_seconds": 997.995,
+      "job_exit_code": 1,
+      "job_record_sha256": "f4d14dace2fbda5f2e8314ad44a587ccee1b59ae077b7301b3583d672564d92d",
+      "outcome_record_name": "failure.json",
+      "outcome_sha256": "24651ed32b587f6b35f9341c2f17dc8e81cd90aceaec280891fc2ad08f1808ea",
+      "numeric_eda_cost": {
+        "compile_logs": 3,
+        "compile_cpu_footers": 3,
+        "compiler_cpu_seconds_measured": 245.973,
+        "simulation_logs": 121,
+        "simulation_cpu_footers": 121,
+        "simulator_cpu_seconds_measured": 137.78,
+        "maximum_reported_data_structure_Mb": 10.9,
+        "scope": "Only numeric vendor footers; CPU seconds are not wall time, missing footers are not zero cost, data structure size is not host peak RSS."
+      }
+    },
+    {
+      "name": "static-contract predecessor",
+      "phase": "development",
+      "wall_seconds": 1028.563,
+      "job_exit_code": 0,
+      "job_record_sha256": "cfa61e4167f9532620ae6aa529a2fd5ac0bb35d68be3081e859cb5c885ddcfbc",
+      "outcome_record_name": "result.json",
+      "outcome_sha256": "5c7d510c397cce0f036362abe6566d4d0e5a1fe9fe40042a7f0520a35dad2f23",
+      "numeric_eda_cost": {
+        "compile_logs": 4,
+        "compile_cpu_footers": 3,
+        "compiler_cpu_seconds_measured": 247.349,
+        "simulation_logs": 120,
+        "simulation_cpu_footers": 120,
+        "simulator_cpu_seconds_measured": 136.3,
+        "maximum_reported_data_structure_Mb": 10.9,
+        "scope": "Only numeric vendor footers; CPU seconds are not wall time, missing footers are not zero cost, data structure size is not host peak RSS."
+      }
+    },
+    {
+      "name": "pre-interior-coverage predecessor",
+      "phase": "development",
+      "wall_seconds": 814.079,
+      "job_exit_code": 0,
+      "job_record_sha256": "e3a9233e6e3dd3d79c473f0f47a00a454a7b6217818766a43d97cf3bfed12528",
+      "outcome_record_name": "result.json",
+      "outcome_sha256": "5c0bc4aa92c6e1201cb2168159efdf6ca5b1f43eb625216a64b3166f8a4421b9",
+      "numeric_eda_cost": {
+        "compile_logs": 4,
+        "compile_cpu_footers": 3,
+        "compiler_cpu_seconds_measured": 248.123,
+        "simulation_logs": 120,
+        "simulation_cpu_footers": 120,
+        "simulator_cpu_seconds_measured": 136.29,
+        "maximum_reported_data_structure_Mb": 10.9,
+        "scope": "Only numeric vendor footers; CPU seconds are not wall time, missing footers are not zero cost, data structure size is not host peak RSS."
+      }
+    },
+    {
+      "name": "confirmed old-verifier false positive",
+      "phase": "reliability_probe",
+      "wall_seconds": 263.272,
+      "job_exit_code": 0,
+      "job_record_sha256": "9bdeda511c224c7c83019eb3d69463220f5178eafa6821a47945d04f3d124373",
+      "outcome_record_name": "result.json",
+      "outcome_sha256": "dd6e5c48a5cf3b0e02b09fc500ab2f0b0e879a085b93857949837a864f81ed16",
+      "numeric_eda_cost": {
+        "compile_logs": 1,
+        "compile_cpu_footers": 1,
+        "compiler_cpu_seconds_measured": 82.216,
+        "simulation_logs": 27,
+        "simulation_cpu_footers": 27,
+        "simulator_cpu_seconds_measured": 44.13,
+        "maximum_reported_data_structure_Mb": 10.9,
+        "scope": "Only numeric vendor footers; CPU seconds are not wall time, missing footers are not zero cost, data structure size is not host peak RSS."
+      }
+    },
+    {
+      "name": "independent oracle common-fault probe",
+      "phase": "reliability_probe",
+      "wall_seconds": 83.869,
+      "job_exit_code": 0,
+      "job_record_sha256": "933b1d1e64cab4ea98ca16d578f957c9b4ad7c9d49ae88dfc3a3566b91afa932",
+      "outcome_record_name": "result.json",
+      "outcome_sha256": "5c9f721bce3ff881cebed3eff6d709ddf91cce58695e5a83d09ef9f81587ceb2",
+      "numeric_eda_cost": {
+        "compile_logs": 1,
+        "compile_cpu_footers": 1,
+        "compiler_cpu_seconds_measured": 80.678,
+        "simulation_logs": 1,
+        "simulation_cpu_footers": 1,
+        "simulator_cpu_seconds_measured": 0.34,
+        "maximum_reported_data_structure_Mb": 3.4,
+        "scope": "Only numeric vendor footers; CPU seconds are not wall time, missing footers are not zero cost, data structure size is not host peak RSS."
+      }
+    },
+    {
+      "name": "compact",
+      "phase": "final_admission",
+      "wall_seconds": 933.759,
+      "job_exit_code": 0,
+      "job_record_sha256": "fb122ceed79b5b3f806a3c845898ef959a7a7c77750f18b026fa15455683661f",
+      "outcome_record_name": "result.json",
+      "outcome_sha256": "70521e6680ff2a0310dad6b670dcc59e428bec24a0212b8e5afdf295b34ee744",
+      "numeric_eda_cost": {
+        "compile_logs": 4,
+        "compile_cpu_footers": 3,
+        "compiler_cpu_seconds_measured": 247.32,
+        "simulation_logs": 121,
+        "simulation_cpu_footers": 121,
+        "simulator_cpu_seconds_measured": 139.58,
+        "maximum_reported_data_structure_Mb": 10.9,
+        "scope": "Only numeric vendor footers; CPU seconds are not wall time, missing footers are not zero cost, data structure size is not host peak RSS."
+      }
+    },
+    {
+      "name": "irregular",
+      "phase": "final_admission",
+      "wall_seconds": 930.794,
+      "job_exit_code": 0,
+      "job_record_sha256": "55d69311d043e2095d9e9be5e829cc7c2ef33d6042b0fb33abf854bc3eeab8f7",
+      "outcome_record_name": "result.json",
+      "outcome_sha256": "7325335d0a35dd01214f4978dd795e04b4a2a977fddb0c44164a2cf80286d675",
+      "numeric_eda_cost": {
+        "compile_logs": 4,
+        "compile_cpu_footers": 3,
+        "compiler_cpu_seconds_measured": 246.155,
+        "simulation_logs": 121,
+        "simulation_cpu_footers": 121,
+        "simulator_cpu_seconds_measured": 140.83,
+        "maximum_reported_data_structure_Mb": 10.9,
+        "scope": "Only numeric vendor footers; CPU seconds are not wall time, missing footers are not zero cost, data structure size is not host peak RSS."
+      }
+    },
+    {
+      "name": "adjacent",
+      "phase": "final_admission",
+      "wall_seconds": 970.586,
+      "job_exit_code": 0,
+      "job_record_sha256": "6c6501cc706b97d63538c21514c7b69ba979aee4a7db9bfb6817e67803654533",
+      "outcome_record_name": "result.json",
+      "outcome_sha256": "c408160646f4971deefe26a406efa2d4d4c829bfe5bb2d3b63f72584fce66f4e",
+      "numeric_eda_cost": {
+        "compile_logs": 4,
+        "compile_cpu_footers": 3,
+        "compiler_cpu_seconds_measured": 243.313,
+        "simulation_logs": 121,
+        "simulation_cpu_footers": 121,
+        "simulator_cpu_seconds_measured": 139.43,
+        "maximum_reported_data_structure_Mb": 10.9,
+        "scope": "Only numeric vendor footers; CPU seconds are not wall time, missing footers are not zero cost, data structure size is not host peak RSS."
+      }
+    },
+    {
+      "name": "pilot policy preflight",
+      "phase": "rollout_preflight",
+      "wall_seconds": 125.569,
+      "job_exit_code": 0,
+      "job_record_sha256": "4cb8de7e333513c8f5bf39b9b5c3cb6f162b46663fb1137d7b7e1dd171b5b937",
+      "outcome_record_name": "result.json",
+      "outcome_sha256": "9833f7da8cd6ad69562c4595b4080d2f2fcbdd307519bd96adc625792042f2b6",
+      "numeric_eda_cost": {
+        "compile_logs": 1,
+        "compile_cpu_footers": 1,
+        "compiler_cpu_seconds_measured": 81.179,
+        "simulation_logs": 7,
+        "simulation_cpu_footers": 7,
+        "simulator_cpu_seconds_measured": 3.77,
+        "maximum_reported_data_structure_Mb": 3.8,
+        "scope": "Only numeric vendor footers; CPU seconds are not wall time, missing footers are not zero cost, data structure size is not host peak RSS."
+      }
+    },
+    {
+      "name": "one actual Agent episode",
+      "phase": "agent",
+      "wall_seconds": 538.55,
+      "job_exit_code": 0,
+      "job_record_sha256": "cdcffb48bdc77055f3dc0893f9c44d1ee017197472314aa98d615fa61579f313",
+      "outcome_record_name": "result.json",
+      "outcome_sha256": "588fe6cf9b50dc0daac0d2987d0edd65e0da5f513b67a91cb1197f6726df13a3",
+      "numeric_eda_cost": {
+        "compile_logs": 1,
+        "compile_cpu_footers": 1,
+        "compiler_cpu_seconds_measured": 82.134,
+        "simulation_logs": 76,
+        "simulation_cpu_footers": 76,
+        "simulator_cpu_seconds_measured": 105.46,
+        "maximum_reported_data_structure_Mb": 10.9,
+        "scope": "Only numeric vendor footers; CPU seconds are not wall time, missing footers are not zero cost, data structure size is not host peak RSS."
+      }
+    },
+    {
+      "name": "exact private input qualification",
+      "phase": "input_qualification",
+      "wall_seconds": 508.941,
+      "job_exit_code": 0,
+      "job_record_sha256": "85987f94c96516234112dc79d39a826fface1a6a88b9fd6f99dc4fa1dd82ddb9",
+      "outcome_record_name": "result.json",
+      "outcome_sha256": "5a216168e376f77c5ea2e1fd59d5273a346a27ea39d9c5c2e997832e05039472",
+      "numeric_eda_cost": {
+        "compile_logs": 1,
+        "compile_cpu_footers": 1,
+        "compiler_cpu_seconds_measured": 81.567,
+        "simulation_logs": 54,
+        "simulation_cpu_footers": 54,
+        "simulator_cpu_seconds_measured": 89.25,
+        "maximum_reported_data_structure_Mb": 10.9,
+        "scope": "Only numeric vendor footers; CPU seconds are not wall time, missing footers are not zero cost, data structure size is not host peak RSS."
+      }
+    }
+  ],
+  "recorded_job_wall_seconds_sum": 7195.977,
+  "final_admission_wall_seconds_sum": 2835.139,
+  "scope": "Recorded serial gate/probe/episode jobs only. Not total researcher time; omits uninstrumented static development, archive transfer and review. Whole-job wall time and vendor CPU footers are different measurements; do not sum them. No API price is inferred. Missing CPU footers are not zero cost.",
+  "compile_wall_seconds": null,
+  "simulation_wall_seconds": null
+}

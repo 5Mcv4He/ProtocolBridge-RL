@@ -1,0 +1,158 @@
+{
+  "task_id": "x2p_router_compact_v1",
+  "version": 1,
+  "status": "candidate",
+  "spec": "spec.md",
+  "initial_rtl": "workspace/bridge.sv",
+  "verifier": "verifier.task002.campaign",
+  "capabilities": [
+    "full-address-decode",
+    "one-hot-routing",
+    "local-address-translation",
+    "selected-response-mux",
+    "decode-error",
+    "reset-cancellation"
+  ],
+  "baseline_dependency": "001 revision 3 methodology; separate contract and implementation",
+  "quality": {
+    "references": [
+      "fixtures/task002/reference.sv",
+      "fixtures/task002/reference_fallthrough.sv"
+    ],
+    "negative_controls": [
+      {
+        "source": "fixtures/task002/bad_wrong_target.sv",
+        "first_case": "decode_boundaries",
+        "violation": "Wrong target selection"
+      },
+      {
+        "source": "fixtures/task002/bad_address_alias.sv",
+        "first_case": "generated_boundaries",
+        "violation": "High address alias"
+      },
+      {
+        "source": "fixtures/task002/bad_wrong_local_address.sv",
+        "first_case": "decode_boundaries",
+        "violation": "Untranslated target address"
+      },
+      {
+        "source": "fixtures/task002/bad_broadcast.sv",
+        "first_case": "decode_boundaries",
+        "violation": "Multiple targets selected"
+      },
+      {
+        "source": "fixtures/task002/bad_wrong_ready.sv",
+        "first_case": "independent_target_memory",
+        "violation": "Unselected READY controls completion"
+      },
+      {
+        "source": "fixtures/task002/bad_wrong_read_mux.sv",
+        "first_case": "independent_target_memory",
+        "violation": "Read response lane wrong"
+      },
+      {
+        "source": "fixtures/task002/bad_wrong_error_mux.sv",
+        "first_case": "wait_error",
+        "violation": "Error response lane wrong"
+      },
+      {
+        "source": "fixtures/task002/bad_miss_okay.sv",
+        "first_case": "decode_misses",
+        "violation": "Decode error returned as OKAY"
+      },
+      {
+        "source": "fixtures/task002/bad_miss_side_effect.sv",
+        "first_case": "decode_misses",
+        "violation": "Unmapped APB side effect"
+      },
+      {
+        "source": "fixtures/task002/bad_strobe_loss.sv",
+        "first_case": "write_accumulate",
+        "violation": "Byte enable lost"
+      },
+      {
+        "source": "fixtures/task002/bad_independent_handshake.sv",
+        "first_case": "channel_gaps",
+        "violation": "W acceptance depends on AW"
+      },
+      {
+        "source": "fixtures/task002/bad_reset_half.sv",
+        "first_case": "reset_aw_only",
+        "violation": "Buffered AW survives reset"
+      },
+      {
+        "source": "fixtures/task002/bad_miss_read_data.sv",
+        "first_case": "decode_misses",
+        "violation": "Nonzero unmapped read data"
+      },
+      {
+        "source": "fixtures/task002/bad_local_bit12.sv",
+        "first_case": "generated_boundaries",
+        "violation": "Drops local-address bit 12 inside a window of at least 8 KiB; violates exact global-minus-base translation."
+      }
+    ],
+    "mechanism_module": "environment.task002_mechanism",
+    "required_cross_bins": 1728,
+    "minimum_negative_controls": 14,
+    "required_requirements": [
+      "R_FULL_DECODE",
+      "R_LOCAL_ADDRESS",
+      "R_TARGET_SELECTION",
+      "R_DECERR",
+      "R_NO_APB_ON_MISS",
+      "R_MISS_RECOVERY",
+      "R_DISJOINT_MEMORY",
+      "R_RESPONSE_MUX",
+      "R_TARGET_SWITCH",
+      "R_RESET_EVERY_TARGET",
+      "R_UNMAPPED_RESET",
+      "R_NO_STALE_ROUTE",
+      "F_AW_FIRST",
+      "F_W_FIRST",
+      "F_HALF_BUFFER",
+      "F_WAIT",
+      "F_B_STABLE",
+      "F_R_STABLE",
+      "G_RANGE_EDGES",
+      "G_ADDRESS_ALIAS",
+      "G_OFFSET_CARRY"
+    ],
+    "spec_review": {
+      "status": "reviewed_for_candidate_verification",
+      "ports": "Explicit packed target lanes and shared request bus",
+      "bounds": "Generated full 32-bit nonoverlapping ranges; independent boundary and alias checks; inherited timing bounds",
+      "reset": "Request halves, APB waits, pending responses and committed target memory",
+      "unsupported": "Multiple outstanding, read/write overlap, IRQ, bursts and CDC",
+      "blind_spots": [
+        "No formal proof of all input traces",
+        "No area/timing/synthesis signoff",
+        "Bounded random waits do not prove arbitrary finite waits",
+        "Spec semantic consistency remains engineering review, not automatic proof"
+      ]
+    }
+  },
+  "family": {
+    "id": "x2p_three_target_router_v1",
+    "parameters": {
+      "task_id": "x2p_router_compact_v1",
+      "windows": [
+        [
+          4096,
+          4096
+        ],
+        [
+          12288,
+          8192
+        ],
+        [
+          36864,
+          4096
+        ]
+      ],
+      "purpose": "Nearby unequal windows separated by decode holes"
+    },
+    "base_commit": "194ffbe181601e4876035a35bfa49e7242317d41",
+    "generator_sha256": "c044056347fdb7513d680e74fe59d0fedf7281540a8d0b80ec0b3640a1a401bc",
+    "semantic_anchors_sha256": "083b38c7226ac111dd4e3d978a6d0cc18b7024807e3c2eb1adf312869e7323bb"
+  }
+}

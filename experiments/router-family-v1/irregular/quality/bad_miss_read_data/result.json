@@ -1,0 +1,58 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "bf7b015a777a5feeac282239079a14a8cc2393d965c2d8af343876bc019d35ee",
+  "suite_sha256": "575c98db0af535ac19787c06eebd9c349e73f9be568fb95f6cbdcaccc8e52c20",
+  "required_cases": [
+    "decode_misses",
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "independent_target_memory",
+    "router_reset",
+    "generated_boundaries"
+  ],
+  "failed_case": "decode_misses",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "decode_misses",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 354,
+      "expected_aborted": 0,
+      "sequence": [
+        "address_data_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "R_DECERR",
+        "R_NO_APB_ON_MISS",
+        "R_MISS_RECOVERY",
+        "F_W_FIRST"
+      ]
+    }
+  ]
+}

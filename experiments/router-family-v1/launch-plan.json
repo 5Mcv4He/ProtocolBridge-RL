@@ -1,0 +1,8 @@
+{
+  "study_plan_sha256": "b2dcb10e91dbbea609a707b663c16fd86a8f965554fb34cb1a632109d5f0df33",
+  "entrypoint": "scripts/tasks.py --package PACKAGE rollout TASK -- ...",
+  "entrypoint_sha256": "cb9609217c98a7df49f9a70bd503c18bacedab61d726bd2da22b71e26d153ba4",
+  "generated_task_id": "x2p_router_irregular_v1",
+  "model_trial_limit": 1,
+  "model_started": false
+}

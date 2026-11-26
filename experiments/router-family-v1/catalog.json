@@ -1,0 +1,94 @@
+{
+  "schema": "reviewed-family-catalog-v1",
+  "instances": [
+    {
+      "task_id": "x2p_router_compact_v1",
+      "family": "x2p_three_target_router_v1",
+      "parameters": {
+        "purpose": "Nearby unequal windows separated by decode holes",
+        "task_id": "x2p_router_compact_v1",
+        "windows": [
+          [
+            4096,
+            4096
+          ],
+          [
+            12288,
+            8192
+          ],
+          [
+            36864,
+            4096
+          ]
+        ]
+      },
+      "source_manifest": "compact/family-manifest.json",
+      "source_manifest_sha256": "17c8683dd3ce3711e8aa43f737d697ed133c98f1cc8e8b576a6b10bc99e5bc30",
+      "spec": "compact/spec.md",
+      "metadata": "compact/task.json",
+      "admission_summary": "compact/summary.json",
+      "admitted": true,
+      "scope": "Source-bound industrial gate; parameterized address contract, not an independent protocol ability."
+    },
+    {
+      "task_id": "x2p_router_irregular_v1",
+      "family": "x2p_three_target_router_v1",
+      "parameters": {
+        "purpose": "Non-power-of-two window, target indices not sorted by address, high-bit decode",
+        "task_id": "x2p_router_irregular_v1",
+        "windows": [
+          [
+            135168,
+            12288
+          ],
+          [
+            4096,
+            8192
+          ],
+          [
+            2147487744,
+            4096
+          ]
+        ]
+      },
+      "source_manifest": "irregular/family-manifest.json",
+      "source_manifest_sha256": "32a3ff2fc6d6a4a6074b980f28ca119731932ac45aa19fa671b8cada5b49a9a0",
+      "spec": "irregular/spec.md",
+      "metadata": "irregular/task.json",
+      "admission_summary": "irregular/summary.json",
+      "admitted": true,
+      "scope": "Source-bound industrial gate; parameterized address contract, not an independent protocol ability."
+    },
+    {
+      "task_id": "x2p_router_adjacent_v1",
+      "family": "x2p_three_target_router_v1",
+      "parameters": {
+        "purpose": "Adjacent target boundary without an unmapped gap and unequal high window",
+        "task_id": "x2p_router_adjacent_v1",
+        "windows": [
+          [
+            4096,
+            4096
+          ],
+          [
+            8192,
+            8192
+          ],
+          [
+            1073741824,
+            12288
+          ]
+        ]
+      },
+      "source_manifest": "adjacent/family-manifest.json",
+      "source_manifest_sha256": "0858b4e0d3cf9e6204f9247b1268526bfab69a27f29ad20da68ecef8c421b433",
+      "spec": "adjacent/spec.md",
+      "metadata": "adjacent/task.json",
+      "admission_summary": "adjacent/summary.json",
+      "admitted": true,
+      "scope": "Source-bound industrial gate; parameterized address contract, not an independent protocol ability."
+    }
+  ],
+  "runtime_entrypoint": "scripts/tasks.py --package PACKAGE ...",
+  "scope": "Research index only. Actual execution still requires the generated capsule and a matching source/toolchain gate."
+}

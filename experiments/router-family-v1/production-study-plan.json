@@ -1,0 +1,22 @@
+{
+  "study": "router-family-v1-admission-and-calibration",
+  "generator_commit": "175dc9cbcc0c5762a099ee9346199af7480bec4b",
+  "candidate_contracts": 3,
+  "serial_eda": true,
+  "model_trial_limit": 1,
+  "representative": "x2p_router_irregular_v1",
+  "selection_reason": "non-power-of-two window plus unsorted lane numbering and high-bit decode, fixed before outcomes",
+  "model": "deepseek-flash",
+  "policy": "test_diagnostic",
+  "protocol": "text-json-atomic-v2",
+  "max_actions": 20,
+  "max_public_tests": 2,
+  "max_tokens": 150000,
+  "max_seconds": 1800,
+  "sampling": "provider defaults, non-deterministic",
+  "admission_required": true,
+  "do_not_expand_on_failure": true,
+  "scope": "one exploratory rollout cannot calibrate absolute difficulty; no parameter training",
+  "revision_reason": "Interior offset carry transitions and reviewed anchor addresses now exercised; dedicated exact-source bit-loss negative added; old snapshots preserved.",
+  "budget_scope": "One rollout, hard 20 actions and existing tool budgets; batch token/time limits are between-trial limits, not a hard per-episode API spend cap"
+}

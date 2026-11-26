@@ -1,0 +1,38 @@
+{
+  "accepted": true,
+  "task_id": "x2p_router_irregular_v1",
+  "freeze_sha256": "90cf03a91b619d5a94f87b66bc9eebc5c23718fc2dd632694d3a1d364a3b2ffd",
+  "results": {
+    "r01-evaluation": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "source_sha256": "ae7820946e0c900f07e06a7f8ccbf1566a436babea7cac5ee544ca21f53d8cc6",
+      "suite_sha256": "4881083aa9cb001089eb78596081353294a677a63533bb4358f9f1d95171f68a",
+      "planned": 6115,
+      "checked": 6061,
+      "aborted": 54,
+      "functional_cross": {
+        "required": 1728,
+        "observed": 1728,
+        "missing": []
+      }
+    },
+    "r01-reward": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "source_sha256": "ae7820946e0c900f07e06a7f8ccbf1566a436babea7cac5ee544ca21f53d8cc6",
+      "suite_sha256": "1ec7fa72dc4cd5605227e0d6b21ca5b4181ed38b486eb96160bb490538e65370",
+      "planned": 6115,
+      "checked": 6061,
+      "aborted": 54,
+      "functional_cross": {
+        "required": 1728,
+        "observed": 1728,
+        "missing": []
+      }
+    }
+  },
+  "scope": "Actual positive-control simulation of the exact frozen inputs; post-hoc research-side qualification, no candidate rescoring or solver feedback."
+}

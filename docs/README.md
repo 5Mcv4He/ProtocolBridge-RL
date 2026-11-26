@@ -4,6 +4,7 @@
 
 | 问题 | 页面 |
 |---|---|
+| 怎样从已验证方法生产新的任务契约 | [路由任务族与生产方法](task-family-production.md)、[生成及执行入口](../task_families/router_v1/README.md) |
 | 新任务是否可靠，Task002实际测到什么 | [任务质量门禁](task-quality-gate.md)、[Task002报告](task002-evaluation-report.md)、[任务包](../tasks/axil_to_apb4_router_002/README.md) |
 | 当前体系测量了什么，离训练数据还有什么差距 | [多任务研究总结](multi-task-research-report.md) |
 | 怎样观察真实握手、构造自己的工程实验 | [运行时实验接口](runtime-experiments.md)、[实测研究](runtime-tools-evaluation.md) |

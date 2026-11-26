@@ -1,0 +1,7 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "case": "generated_boundaries",
+  "checker_message": "APB address/direction mismatch",
+  "scope": "Controlled local-address fault on generated public boundary traffic; no raw vectors or vendor log text."
+}

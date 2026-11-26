@@ -1,0 +1,9 @@
+{
+  "same_environment_manifest_byte_identical": true,
+  "task_id": "x2p_router_irregular_v1",
+  "manifest_sha256": "32a3ff2fc6d6a4a6074b980f28ca119731932ac45aa19fa671b8cada5b49a9a0",
+  "generation_wall_seconds": 1.8427904169948306,
+  "unit_tests": 107,
+  "scope": "One fresh same-host reconstruction, including unit preflight and local Git initialization. Capsule commit timestamps are not a reproducibility identity.",
+  "generator_python": "3.14.5"
+}

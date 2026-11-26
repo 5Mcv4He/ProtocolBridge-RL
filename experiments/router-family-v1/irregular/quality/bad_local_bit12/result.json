@@ -1,0 +1,57 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "bf7b015a777a5feeac282239079a14a8cc2393d965c2d8af343876bc019d35ee",
+  "suite_sha256": "a9e13be84c7cef3d66a147883d02069f2f687b7dc6256e95c44ec26244e14ebd",
+  "required_cases": [
+    "generated_boundaries",
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_aw_only",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "decode_misses",
+    "independent_target_memory",
+    "router_reset"
+  ],
+  "failed_case": "generated_boundaries",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "generated_boundaries",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 314,
+      "expected_aborted": 0,
+      "sequence": [
+        "address_data_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "G_RANGE_EDGES",
+        "G_ADDRESS_ALIAS",
+        "G_OFFSET_CARRY"
+      ]
+    }
+  ]
+}

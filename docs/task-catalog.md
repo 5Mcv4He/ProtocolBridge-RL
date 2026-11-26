@@ -26,9 +26,15 @@ python3 scripts/tasks.py rollout axil_to_apb4_queue_003 -- \
 
 002/003/004的Rollout仍要求当前源码及工具链匹配的实际Quality Gate。当前门禁保守冻结整个environment/verifier/fixtures/tests，因此增加其他任务代码也会使旧准入不能在新checkout直接复用；历史结果仍属于原提交。需要对新checkout重新验收，不能改旧freeze来“升级”。001默认命令、历史Spec及结果不变。
 
-目录只是统一管理与调用结构，尚不是自动Spec/Verifier生成器。增加一个Task需要独立契约、实现/错误对照、实际验证、明确版本与人类README。更新目录后仍须在控制器支持的任务集合中显式登记，避免任意元数据动态扩大求解权限。
+这个基础目录负责统一管理与调用；自动生产由独立的[有限路由任务族](task-family-production.md)承担。增加一个Task需要独立契约、实现/错误对照、实际验证、明确版本与人类README。更新目录后仍须在控制器支持的任务集合中显式登记，避免任意元数据动态扩大求解权限。
 
 验证目录和CLI：`python3 scripts/test_task_catalog.py`。这组测试不消耗VCS许可证；真正的RTL验收使用上面的quality命令。`quality`对001调用原有正反对照，对002/003/004执行新门禁；两者的历史验收范围不能混称。
+
+## 生成任务怎样进入同一个执行路径
+
+[路由任务族 v1](../task_families/router_v1/README.md)从 Task002 复用三目标、单事务的协议与验证基础，生成不同地址窗口契约。每份候选拥有自己的 Registry、Spec、验证后端和源码清单；正式 Rollout 仍需该包及工具链匹配的工业准入证据。原有四任务目录和历史结果不变。
+
+通过 `python3 scripts/tasks.py --package PACKAGE ...` 可使用同样的 list/reset/test/submit/quality/rollout 操作。相对工作路径以包为基准。参数化实例不等于独立工程能力，包清单核对也不等于质量验收；生成、准入和求解的区别见[生产方法](task-family-production.md)。
 
 ## 任务契约与研究元数据分开更新
 

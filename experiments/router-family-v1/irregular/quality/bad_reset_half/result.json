@@ -1,0 +1,56 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "bf7b015a777a5feeac282239079a14a8cc2393d965c2d8af343876bc019d35ee",
+  "suite_sha256": "829e9bd9385a804d266c02eb0c6647b3028048f79d3d6f51e8a47f1c19484a72",
+  "required_cases": [
+    "reset_aw_only",
+    "address_data",
+    "read_only",
+    "write_accumulate",
+    "strobe_cross_early",
+    "strobe_cross",
+    "channel_gaps",
+    "wait_error",
+    "response_backpressure",
+    "mixed_stream",
+    "random_stream_0",
+    "random_stream_1",
+    "random_stream_2",
+    "random_stream_3",
+    "latency_baseline",
+    "reset_w_only",
+    "reset_write_setup",
+    "reset_read_setup",
+    "reset_write_wait",
+    "reset_read_wait",
+    "reset_b_stall",
+    "reset_r_stall",
+    "decode_boundaries",
+    "decode_misses",
+    "independent_target_memory",
+    "router_reset",
+    "generated_boundaries"
+  ],
+  "failed_case": "reset_aw_only",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "reset_aw_only",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 24,
+      "expected_aborted": 4,
+      "sequence": [
+        "reset_abort_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "F_RESET_AW_ONLY",
+        "F_RESET_RECOVERY"
+      ]
+    }
+  ]
+}

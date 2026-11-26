@@ -32,9 +32,20 @@ def report(package,gate,job=None):
  task='tasks/'+m['task_id']+'/'
  expected={k:v for k,v in m['files'].items() if k.startswith(task) or k.split('/')[0] in ('environment','verifier','fixtures','tests')}
  if expected!=frozen['files']:raise ValueError('Incomplete gate source binding')
- controls={}
+ from environment.control_bank import bundle
+ bank_module=Path(__file__).resolve().parents[2]/'environment/control_bank.py'
+ if sha(bank_module)!=m['files']['environment/control_bank.py']:raise ValueError('Control-bank builder version mismatch')
+ meta=json.loads((package/task/'task.json').read_text())
+ entries=meta['quality']['references']+[x['source'] for x in meta['quality']['negative_controls']]
+ bank_sha=hashlib.sha256(bundle([package/x for x in entries]).encode()).hexdigest()
+ if sha(gate/'control_bank.sv')!=bank_sha:raise ValueError('Control bank differs from frozen fixtures')
+ for source in entries:
+  if result['results'][Path(source).stem]['source_sha256']!=bank_sha:raise ValueError('Graded control source mismatch')
+ controls={};entry_names={Path(x).stem:(i,x) for i,x in enumerate(entries)}
  for name,r in result['results'].items():
   controls[name]={k:r.get(k) for k in ('reward','category','verification_complete','failed_case','planned','checked','aborted','source_sha256','suite_sha256','functional_cross')}
+  selected=entry_names.get(name[:-7] if name.endswith('-public') else name)
+  if selected:controls[name].update(selected_variant=selected[0],fixture_sha256=sha(package/selected[1]))
  seconds=None
  if job:
   j=json.loads(Path(job).read_text())
@@ -42,7 +53,7 @@ def report(package,gate,job=None):
   seconds=j['ended']-j['started']
  return {'schema':'router-family-admission-v1','task_id':m['task_id'],'accepted':True,'package_manifest_sha256':sha(package/'family-manifest.json'),
          'reporter_sha256':sha(__file__),'numeric_eda_cost':numeric_cost(gate),'generator_sha256':m['generator_sha256'],'base_commit':m['source_commit'],'parameters':m['parameters'],
-         'gate_result_sha256':sha(gate/'result.json'),'gate_freeze_sha256':sha(gate/'freeze.json'),
+         'control_bank_sha256':bank_sha,'control_bank_reconstructed_from_frozen_fixtures':True,'gate_result_sha256':sha(gate/'result.json'),'gate_freeze_sha256':sha(gate/'freeze.json'),
          'toolchain':frozen['toolchain'],'positive_count':result['positive_count'],'negative_count':result['negative_count'],
          'mechanism_checks':result['mechanism_checks'],'isolation_probe_accepted':result['isolation_probe_accepted'],
          'gate_wall_seconds':seconds,'compile_wall_seconds':None,'simulation_wall_seconds':None,

@@ -1,0 +1,44 @@
+{
+  "qualification_code_sha256": "a77d5d8f7d7b81eddb50b22f5fa45355a7c41224925813eabc3bf881d79f4f1a",
+  "toolchain": {
+    "vcs": "O-2018.09-SP2",
+    "vip": "R-2020.12",
+    "uvm": "1.2",
+    "python": "3.6.9 (controller); 3.10.12 (worker)",
+    "harness": "0.2.2rc2",
+    "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+  },
+  "experiment_sha256": "51d7fd3c2ad4b16a40699c74e1a890410026a24ffe9d6ae29637a38a820a193b",
+  "reference_sha256": "ae7820946e0c900f07e06a7f8ccbf1566a436babea7cac5ee544ca21f53d8cc6",
+  "files": {
+    "verifier/scenarios.py": "62ed320fe0c61edcf1bdb37ba37caf26597c802993be71bb42be2c96dea34a1d",
+    "verifier/campaign.py": "e8d8de32dae810e6778862c8ff6fec54dd60b643ab02813c4093a2996aa3630f",
+    "verifier/grade.py": "d6bf8deb6f348e2090886dc5462661f0ab8f7b9c3267ff7534e489228f510b2f",
+    "verifier/v3/tb.sv": "ea748112e20f84fcfa7a3267376989636be13bc88d8b0428991e21f51c87203b",
+    "verifier/v3/vip.sv": "4a165c9531912d92a4cfa0270aff3297bdafddff880cef7034965a500fa95d04",
+    "verifier/task002/scenarios.py": "53f7e979b3dcb883982b9389fa0c96f90675a67eaa60e22ab236d659e0af0dc8",
+    "verifier/task002/_protocol_template.py": "24e2522ffa1be0e233178449f39b83e80e33111f972adadd88b8720eb56b4540",
+    "verifier/task002/tb.sv": "6f556c5913100e8e3b4b4b4d40064c395905c4a2a48e7e752fbfde543b06723d",
+    "verifier/task002/campaign.py": "8aa6c0f22a940d30510c79256c473a9310bfa968aa6a00012e824802b2887ddc",
+    "verifier/task002/vip.sv": "3d1c8c9ac7a3b4c6e9eaf5a1da367a72b51dc35bad1f120d4731721c8cc3e3ff",
+    "verifier/task003/scenarios.py": "a1294c1c3830b348aaa0c1625b307cb224e144e5291564966bed6343620134c8",
+    "verifier/task003/scoreboard.sv": "d995dc54d516fb46473dcd6ab72cc14f070a4b7df6b0de5d1559107967ea028e",
+    "verifier/task003/tb.sv": "ef731ecd3bc09d4de1f19e8e6269ebec9079c37ed60330bf4a201c83ff9264ab",
+    "verifier/task003/campaign.py": "061bba052926c7e3a94a23a0622bb6e788e873591d230c536db3fdbc1e8b5c42",
+    "verifier/task003/vip.sv": "07697bba77ecca5dd7bef4355c562c8762606708e72c2b5604ba52f4dedc7f4c",
+    "verifier/task004/scenarios.py": "c3afa44614a7904b97f81676b40c91820e8478c002aa939e106917e39624eafd",
+    "verifier/task004/scoreboard.sv": "64ebaa2f107da5049163c5ef2be3bcf3e2423e1cac9d0d07f55c45a4a0cae482",
+    "verifier/task004/tb.sv": "efb3b87109b9e022aa25f9c201b6aaaa0b28941dde8a0215c3235879a9947a8f",
+    "verifier/task004/campaign.py": "49ada493b0638c98ea2b9e1417b41ee54f8f6dae5031b747bbb7b19abcebb9e9",
+    "verifier/task004/vip.sv": "f375c673ad4ea9bfd2803bffc904fa5e63d960905e310829e7d86685df52aa64",
+    "fixtures/task002/reference.sv": "ae7820946e0c900f07e06a7f8ccbf1566a436babea7cac5ee544ca21f53d8cc6",
+    "tasks/x2p_router_irregular_v1/task.json": "7a3335e8d139560aacbc253257bb354f39feb52fd545af35c098e919c3af0926",
+    "tasks/x2p_router_irregular_v1/README.md": "2cf37e984645b5a4b05ceab3bc7620aeb236639f147ca13603b546985dad67c6",
+    "tasks/x2p_router_irregular_v1/spec.md": "0939921dc03c5e24235aebe195cd7975aec77cd7df7e0be2a94323aec149926b",
+    "tasks/x2p_router_irregular_v1/workspace/bridge.sv": "62ce122ad4dcedf12e91516ea69deaac23bfd9074ce1d0a9d282842c173bfebb"
+  },
+  "input_sha256": {
+    "r01-evaluation": "4881083aa9cb001089eb78596081353294a677a63533bb4358f9f1d95171f68a",
+    "r01-reward": "1ec7fa72dc4cd5605227e0d6b21ca5b4181ed38b486eb96160bb490538e65370"
+  }
+}

@@ -7,7 +7,7 @@
 ProtocolBridge-RL 围绕这一问题展开研究。项目以 AXI → APB 协议桥（X2P）为切入点，利用工业电子设计自动化工具（EDA）与独立功能验证，将数字电路设计与调试转化为模型可以反复求解、探索和验证的任务。它既关注设计是否正确，也关注如何构建有训练价值的求解过程。
 
 <p align="center">
-<strong>4 个 RTL 任务</strong>　·　<strong>9 种受控动作</strong>　·　<strong>88 条研究试次</strong>　·　<strong>轨迹交换 v1–v3</strong>
+<strong>4 个 RTL 任务 + 1 个有限任务族</strong>　·　<strong>9 种受控动作</strong>　·　<strong>89 条研究试次</strong>　·　<strong>轨迹交换 v1–v3</strong>
 </p>
 
 > **当前阶段：** 已建立任务、环境、独立奖励与固定模型 Rollout 的工程闭环；尚未进行模型参数训练或训练收益评估。九种动作分配置开放。
@@ -69,7 +69,11 @@ Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已�
 
 002 与 003 分别扩展空间路由和时间并发能力，并非简单线性升级。004 则允许 APB 在旧 AXI 响应积压时继续执行新事务。目前四个任务均为 AXI4-Lite → APB4；表中的 MUX 指响应多路选择逻辑，DECERR 指无法译码地址时返回的错误响应。
 
-这些 Task 是更大工程能力空间中的代表样本。长期希望积累的不是大量孤立的手工题目，而是可以系统组织、组合与生成的专业任务体系，例如沿协议类型、目标数量、队列深度、仲裁规则、位宽与性能约束等维度扩展。当前自动 Task Generator 尚未实现。
+这些 Task 是更大工程能力空间中的代表样本。长期希望积累的不是大量孤立的手工题目，而是可以系统组织、组合与生成的专业任务体系，例如沿协议类型、目标数量、队列深度、仲裁规则、位宽与性能约束等维度扩展。
+
+**首个有限任务族已经完成生产验收。** 以 Task002 为基础，生成器把三种经审阅的地址契约分别转成完整任务源码包，包含 Spec、初始 RTL、独立验证、正反对照及执行入口。它们保持三个目标和单事务规则，只改变地址译码要求；例如同一地址在一个契约中是未映射请求，在另一个契约中则必须路由到目标 1。三份包均通过两种合法参考、14 个错误对照及 40 项机制检查，但不能把三个地址组合称为三种独立工程能力。
+
+这一过程中也发现了真实漏检：旧生成验证器的 27 个 case 全部通过，却没有访问非二次幂窗口的关键中间区域，使错误局部地址映射获得了 Reward=1。修正后的生成方法增加内部偏移进位激励，并用完全相同的错误 RTL 确认拒绝。这个结果说明，**任务生成必须同时生成并验收新的验证义务，不能只替换 Spec 参数。** [任务族方法与具体例子](docs/task-family-production.md)、[漏检分析与工业证据](docs/router-family-evaluation.md)解释了其机制和边界。
 
 **实现入口：** [Task Registry](tasks/registry.json) · [Registry Schema](tasks/registry.schema.json) · [任务目录与统一 CLI](docs/task-catalog.md)
 
@@ -217,6 +221,8 @@ Task 是可重复使用的工程问题；Rollout 则是模型在某个任务和�
 
 003/004 暴露出并发状态及事务生命周期问题。任务契约、样本量与条件不同，不能据此严格排名；004 有一条因动作格式问题未形成编辑候选，仍保留在启动分母中。
 
+新路由任务族另有一次预先选定的 irregular 契约试次：E 模式下一次编辑即通过公开、私有和保留验证，Reward=1。它证明生成包的真实求解链路可用，但没有失败诊断曝光，不能据此说明诊断帮助了修复，更不能用 1/1 判定任务饱和；该样本与上表独立统计，详见[任务族研究](docs/router-family-evaluation.md)。
+
 这些结果为什么值得研究？当一个任务对某个模型过于简单时，多次求解可能全部得到 Reward=1；过难时则可能全部为 0。对于依赖组内相对奖励差异的训练方法（例如使用组内相对优势估计的 GRPO），同组二值奖励没有变化时，这部分奖励信号缺乏区分度。
 
 <p align="center"><img src="docs/diagrams/reward-distribution.svg" alt="示意：同一任务的八次求解可能全为1、0与1混合，或全为0；混合奖励提供组内相对差异。不是实际模型试次或普遍训练准入规则。" width="760"></p>
@@ -276,6 +282,8 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 
 合计 **88 条研究记录、48 条已审查工具轨迹**（v2 + 新增 v3，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
 
+新任务族的一条试次另以[经审查的 Policy 轨迹](experiments/router-family-v1/README.md)发布，尚未纳入上述交换集合；项目研究试次总数因此为 89，交换集合仍为 88。
+
 当前交付尚缺原始模型采样、Token IDs、行为策略 Log Probability 与精确权重版本，不是无损 on-policy 训练数据。在线 Collector 与 RL 参数优化尚未接入。
 
 **实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json)
@@ -287,6 +295,7 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 ```text
 ProtocolBridge-RL/
 ├── tasks/          # 四个任务包、Spec、初始 RTL、Registry
+├── task_families/  # 有限路由任务族、完整包生成与准入报告
 ├── environment/    # Agent Session、Policy、工程工具、质量门禁
 │   ├── policies/
 │   ├── synthesis/  # DC / Formality / PT 脚本
@@ -303,6 +312,7 @@ ProtocolBridge-RL/
 | 阅读目的 | 建议入口 |
 | :--- | :--- |
 | 复用任务与运行流程 | [Task Catalog](docs/task-catalog.md) · [统一 CLI](scripts/tasks.py) |
+| 生成并验收任务实例 | [任务族方法](docs/task-family-production.md) · [生成器用法](task_families/router_v1/README.md) |
 | 理解核心源码 | [任务](tasks/) · [环境](environment/) · [验证器](verifier/) |
 | 查阅工程与验证方法 | [架构](docs/architecture.md) · [质量门禁](docs/task-quality-gate.md) · [运行手册](docs/mvp-running.md) |
 | 查阅研究证据 | [文档索引](docs/README.md) · [实验目录](experiments/) |
@@ -354,13 +364,13 @@ python3 scripts/tasks.py rollout axil_to_apb4_queue_003 -- \
 
 | 已建立 | 研究方向 |
 | :--- | :--- |
-| 四个任务与统一 Registry | 细粒度难度梯度、能力组合、可扩展任务生成 |
+| 四个任务、统一 Registry 与有限路由任务族 | 细粒度难度梯度、第二类任务族与能力组合 |
 | 独立 Verifier 与质量门禁 | 补足验证盲区，探索可信奖励 |
 | 分配置的九种受控动作 | 事件定位、主动实验与工具组合 |
 | 固定模型 Rollout 与失败归因 | 更多错误起点、模型及推理条件对照 |
 | 离线轨迹交换 | 在线采集、资源调度、训练接口及收益评估 |
 
-自动任务生成、完整自建 Testbench、全设计形式属性证明、工业 PPA 奖励及模型参数训练尚未实现。有限仿真和正反对照不能证明验证器完备，公开 Spec、参考实现及验证代码也存在预训练污染可能。
+任意契约的通用任务生成、完整自建 Testbench、全设计形式属性证明、工业 PPA 奖励及模型参数训练尚未实现。当前生成器仅接受三种经审阅的路由配置。有限仿真和正反对照不能证明验证器完备，公开 Spec、参考实现及验证代码也存在预训练污染可能。
 
 ### 项目的长期价值
 
