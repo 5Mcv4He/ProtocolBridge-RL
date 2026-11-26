@@ -1,5 +1,7 @@
  // Independent event ledger: no DUT hierarchy or scoreboard counters are read to update it.
  int anchor_aw=0,anchor_w=0,anchor_ar=0;
+ int ledger_observations=0;
+ final if(ledger_observations>0) $display("PBQ_LEDGER_EXECUTED observations=%0d",ledger_observations);
  initial begin
   if(WRITE_VALUE!=ANCHOR_W || READ_VALUE!=ANCHOR_R) `uvm_fatal("PB_INFRA","Queue contract anchor mismatch")
   $display("PBQ_ANCHOR_OK");
@@ -15,6 +17,7 @@
   end
  endtask
  task family_check();
+  if(rst_n) ledger_observations++;
   if(anchor_aw!=sb.aq.size() || anchor_w!=sb.wq.size() || anchor_ar!=sb.rq.size())
    `uvm_fatal("PB_INFRA","Independent retirement ledger disagrees with scoreboard")
  endtask

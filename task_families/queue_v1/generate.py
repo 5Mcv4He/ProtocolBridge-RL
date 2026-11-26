@@ -88,7 +88,7 @@ def generate(c,out):
  anchor=anchor.replace('if(anchor_aw!=',f'if(sb.capacity_aw!={a[0]} || sb.capacity_w!={a[1]} || sb.capacity_ar!={a[2]}) `uvm_fatal("PB_INFRA","Capacity differs from reviewed anchor")\n  if(anchor_aw!=')
  t=t.replace(' bridge dut(.*);',anchor+'\n bridge dut(.*);').replace('sb.before_edge();#1;','family_before();sb.before_edge();family_check();#1;');tb.write_text(t)
  p=out/'verifier/task003/scenarios.py';p.rename(p.with_name('_protocol_template.py'));p.write_text((HERE/'scenarios.py.in').read_text().replace('WRITE_VALUE',str(w)).replace('READ_VALUE',str(r)))
- p=out/'verifier/task003/campaign.py';p.write_text(p.read_text().replace("if 'PB_INFRA' in log or","if 'PBQ_ANCHOR_OK' not in log or 'PB_INFRA' in log or"))
+ p=out/'verifier/task003/campaign.py';p.write_text(p.read_text().replace("if 'PB_INFRA' in log or","if 'PBQ_ANCHOR_OK' not in log or 'PB_INFRA' in log or").replace("elif rc==0 and count and credits", "elif 'PBQ_LEDGER_EXECUTED' in log and rc==0 and count and credits"))
  task=out/'tasks'/tid;p=task/'spec.md';t=p.read_text().replace('task 003, revision 1',tid+' — queue family v1')
  start=t.index('- Store up to TWO');end=t.index('- AWREADY',start)
  t=t[:start]+f'''- Store up to {w} accepted AW and {w} accepted W payloads independently.
@@ -104,7 +104,7 @@ def generate(c,out):
  (task/'README.md').write_text('# '+tid+'\n\n'+c['purpose']+'.\n\nThe [Spec](spec.md) defines acceptance, arbitration, completion and retirement separately. [Verification obligations](obligations.json) bind contract changes to stimulus, independent checks, observed coverage and fault controls.\n\nUse the capsule scripts/tasks.py reset/test/submit/quality/rollout entry. Generation is candidate-only; actual source-bound industrial admission is required. Finite simulation is not formal completeness.\n')
  # Specialize unit expectations, retaining rather than discarding runtime tests.
  p=out/'tests/test_queue003.py';t=p.read_text().replace('len(suite(True)),19','len(suite(True)),21').replace('len(suite()),21','len(suite()),23').replace("len(x['rows']),4",f"len(x['rows']),{w+r}").replace('len(REQUIRED_BINS),33',f'len(REQUIRED_BINS),{q["required_cross_bins"]}')
- t=t.replace("log='PBQ_SEQUENCE", "log='PBQ_ANCHOR_OK\\nPBQ_SEQUENCE").replace("interpret('UVM_ERROR [PB_TIMING]", "interpret('PBQ_ANCHOR_OK\\nUVM_ERROR [PB_TIMING]");p.write_text(t)
+ t=t.replace("log='PBQ_SEQUENCE", "log='PBQ_LEDGER_EXECUTED\\nPBQ_ANCHOR_OK\\nPBQ_SEQUENCE").replace("interpret('UVM_ERROR [PB_TIMING]", "interpret('PBQ_ANCHOR_OK\\nUVM_ERROR [PB_TIMING]");p.write_text(t)
  (out/'README.md').write_text('# Generated retirement-queue task\n\nStart with [the task](tasks/'+tid+'/README.md). This is a source-bound candidate package, not inherited admission. Historical Task001–004 contracts remain separately frozen. Inherited research utilities outside the declared CLI retain their original scope.\n')
  # V2 observation is an independently named capability, only in this new capsule.
  shutil.copyfile(str(ROOT/'environment/runtime_navigation.py'),str(out/'environment/runtime_navigation.py'))
