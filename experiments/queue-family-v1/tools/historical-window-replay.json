@@ -1,0 +1,30 @@
+{
+  "scope": "Post-hoc replay of the same historical real simulation, no new simulation or solver exposure",
+  "raw_record_sha256": "10ba3474dcf571397c4012cb733403d707919c5f805b0bb801f61a08ef81d735",
+  "new_projector_sha256": "47db3dda493dc6f97cf10c5c8da8c232b79f1ef3eea8201f50bfd31731f7acab",
+  "old_projection": {
+    "status": "PASS",
+    "event_rows": 0,
+    "cycles": [
+      52,
+      58
+    ],
+    "window": null
+  },
+  "new_projection": {
+    "status": "PASS",
+    "event_rows": 7,
+    "cycles": [
+      11,
+      22
+    ],
+    "window": {
+      "status": "FOUND",
+      "selector": null,
+      "start": 11,
+      "count": 12,
+      "anchor_cycle": 13,
+      "anchor_kind": "first_activity"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "abb2152470750d4110f8293304cb79041294b139ce5696ab3d95ac1524638cbb",
+  "suite_sha256": "fdff9fc558c7d797a7a5e498526df1eb73d883f71e90ba53989d596c3b818311",
+  "required_cases": [
+    "intake_b_stall",
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8",
+    "family_write_laps",
+    "family_read_laps"
+  ],
+  "failed_case": "intake_b_stall",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "intake_b_stall",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 8,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_INTAKE_WHILE_RESPONSE",
+        "Q_CAPACITY_CREDIT",
+        "Q_B_HOLD"
+      ]
+    }
+  ]
+}

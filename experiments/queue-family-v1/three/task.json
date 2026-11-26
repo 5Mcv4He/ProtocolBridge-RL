@@ -1,0 +1,135 @@
+{
+  "capabilities": [
+    "independent-request-fifos",
+    "bounded-outstanding-credit",
+    "read-write-arbitration",
+    "response-ordering",
+    "reset-ledgers"
+  ],
+  "family": {
+    "base_commit": "194ffbe181601e4876035a35bfa49e7242317d41",
+    "contract": {
+      "purpose": "Non-power-of-two queues, wrap and retained credits through response consumption",
+      "read_capacity": 3,
+      "task_id": "x2p_queue_three_v1",
+      "write_capacity": 3
+    },
+    "id": "x2p_retirement_queues_v1"
+  },
+  "initial_rtl": "workspace/bridge.sv",
+  "quality": {
+    "mechanism_module": "environment.task003_mechanism",
+    "minimum_negative_controls": 10,
+    "negative_controls": [
+      {
+        "first_case": "family_write_laps",
+        "source": "fixtures/task003/bad_over_capacity.sv",
+        "violation": "Accepts beyond AW unretired capacity"
+      },
+      {
+        "first_case": "read_fifo",
+        "source": "fixtures/task003/bad_wrong_address.sv",
+        "violation": "Corrupts accepted read address"
+      },
+      {
+        "first_case": "partial_w",
+        "source": "fixtures/task003/bad_coupled_w.sv",
+        "violation": "W depends on AW acceptance"
+      },
+      {
+        "first_case": "partial_aw",
+        "source": "fixtures/task003/bad_blocks_reads.sv",
+        "violation": "Partial write blocks eligible read"
+      },
+      {
+        "first_case": "round_robin",
+        "source": "fixtures/task003/bad_write_priority.sv",
+        "violation": "Violates round-robin preference"
+      },
+      {
+        "first_case": "intake_b_stall",
+        "source": "fixtures/task003/bad_early_credit.sv",
+        "violation": "Frees AW credit at APB completion"
+      },
+      {
+        "first_case": "intake_b_stall",
+        "source": "fixtures/task003/bad_drops_response.sv",
+        "violation": "Discards response under backpressure"
+      },
+      {
+        "first_case": "reset_1",
+        "source": "fixtures/task003/bad_reset_aw_credit.sv",
+        "violation": "Creates stale credit on reset"
+      },
+      {
+        "first_case": "write_fifo",
+        "source": "fixtures/task003/bad_strobe_loss.sv",
+        "violation": "Drops byte enables"
+      },
+      {
+        "first_case": "wait_error_memory",
+        "source": "fixtures/task003/bad_error_response.sv",
+        "violation": "Ignores PSLVERR"
+      },
+      {
+        "first_case": "wait_error_memory",
+        "source": "fixtures/task003/bad_ignores_wait.sv",
+        "violation": "Samples APB before ready"
+      },
+      {
+        "first_case": "family_write_laps",
+        "source": "fixtures/task003/bad_wrap.sv",
+        "violation": "Uses power-of-two wrap for capacity three"
+      },
+      {
+        "first_case": "family_read_laps",
+        "source": "fixtures/task003/bad_read_wrap.sv",
+        "violation": "Read retirement pointer uses binary wrap for capacity three"
+      },
+      {
+        "first_case": "family_write_laps",
+        "source": "fixtures/task003/bad_same_edge.sv",
+        "violation": "Same-edge shift and insertion use the old occupied count, losing the new AW"
+      }
+    ],
+    "references": [
+      "fixtures/task003/reference.sv",
+      "fixtures/task003/reference_shift.sv"
+    ],
+    "required_cross_bins": 48,
+    "required_requirements": [
+      "Q_WRITE_FIFO",
+      "Q_READ_FIFO",
+      "Q_AW_CAPACITY",
+      "Q_W_CAPACITY",
+      "Q_AR_CAPACITY",
+      "Q_ROUND_ROBIN",
+      "Q_INDEPENDENT_HALVES",
+      "Q_INTAKE_WHILE_RESPONSE",
+      "Q_RESET_CREDITS",
+      "Q_RESET_MEMORY",
+      "G_CAPACITY_LEVELS",
+      "G_MULTIPLE_LAPS",
+      "G_RETIREMENT_BOUNDARY"
+    ],
+    "spec_review": {
+      "arbitration": "Registered head selection with explicit before-edge eligibility and read initial preference",
+      "blind_spots": [
+        "Concurrent driver/reset behavior is toolchain-bound; other VIP versions require fresh positive-control validation",
+        "No formal proof or synthesis signoff",
+        "Finite random sampling cannot prove all interleavings",
+        "Requirement bins are not a complete Cartesian functional or code coverage closure"
+      ],
+      "bounds": "3 AW, 3 W and 3 AR unretired credits; no APB release",
+      "ports": "Original single-target AXI4-Lite/APB4 widths",
+      "reset": "Queue/partial/executing/response cancellation with committed target memory retained",
+      "status": "reviewed_before_admission",
+      "unsupported": "Bursts, IDs, multiple APB execution, routing, CDC and interrupts"
+    }
+  },
+  "spec": "spec.md",
+  "status": "candidate",
+  "task_id": "x2p_queue_three_v1",
+  "verifier": "verifier.task003.campaign",
+  "version": 1
+}

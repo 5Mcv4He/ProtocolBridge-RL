@@ -1,0 +1,31 @@
+{
+  "scope": "Current source and curated evidence checks. Industrial and Agent evidence are recorded separately; no historical results overwritten. Local Markdown preview is not a GitHub account-theme rendering certification.",
+  "root_unit_tests": {
+    "passed": 121,
+    "raw_log_sha256": "ebd6a988eaa8d6eaa82da09e34e5f0135045f0d150b65bcdb4253687924f66fa"
+  },
+  "baseline_consistency": {
+    "baseline": "axil_to_apb4_001-x2p-standard-r3",
+    "status": "pass",
+    "check": "saved-evidence-and-source-consistency",
+    "simulation_executed": false,
+    "errors": []
+  },
+  "generated_runtime_tests_per_package": 107,
+  "source_reproduction_manifest_identical": true,
+  "three_publication_manifests_verified": true,
+  "three_exchange_manifests_verified": true,
+  "links_and_svg_structure_checked": true,
+  "local_render_review": {
+    "widths": [
+      1000,
+      390
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "page_horizontal_overflow": false,
+    "scope": "Relevant new/touched reader-facing pages; figure original-size links and narrative remain necessary on mobile."
+  }
+}

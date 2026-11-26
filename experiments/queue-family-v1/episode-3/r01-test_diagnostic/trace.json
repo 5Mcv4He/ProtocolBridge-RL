@@ -1,0 +1,959 @@
+[
+  {
+    "action_index": 1,
+    "action": {
+      "tool": "read",
+      "file": "spec.md"
+    },
+    "executed": true,
+    "observation": {
+      "file": "spec.md",
+      "content_sha256": "020956304f6997e82a6fdc9497cbb9bd651fe4004fbbf373a43f03da34f7d96b",
+      "content_bytes": 6498
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 2,
+    "action": {
+      "tool": "read",
+      "file": "bridge.sv"
+    },
+    "executed": true,
+    "observation": {
+      "file": "bridge.sv",
+      "content_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "content_bytes": 713
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 3,
+    "action": {
+      "tool": "experiment",
+      "scenario": "write_fifo"
+    },
+    "executed": true,
+    "observation": {
+      "status": "FAIL",
+      "source_sha256": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+      "invariant": null,
+      "signals": [
+        "rst_n",
+        "awvalid",
+        "awready",
+        "awaddr",
+        "wvalid",
+        "wready",
+        "wdata",
+        "wstrb",
+        "arvalid",
+        "arready",
+        "araddr",
+        "bvalid",
+        "bready",
+        "bresp",
+        "rvalid",
+        "rready",
+        "rdata",
+        "rresp",
+        "psel",
+        "penable",
+        "pwrite",
+        "paddr",
+        "pwdata",
+        "pstrb",
+        "pready",
+        "prdata",
+        "pslverr"
+      ],
+      "rows": [
+        {
+          "cycle": 0,
+          "phase": "pre",
+          "pins": [
+            0,
+            0,
+            null,
+            0,
+            0,
+            null,
+            0,
+            0,
+            0,
+            null,
+            0,
+            null,
+            0,
+            null,
+            null,
+            0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0,
+            4294967295,
+            1
+          ],
+          "events": [
+            "reset"
+          ],
+          "unretired": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 0,
+          "phase": "post",
+          "pins": [
+            0,
+            0,
+            null,
+            null,
+            0,
+            null,
+            null,
+            null,
+            0,
+            null,
+            null,
+            null,
+            0,
+            null,
+            null,
+            0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0,
+            4294967295,
+            1
+          ],
+          "events": [],
+          "unretired": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "cycle": 1,
+          "phase": "pre",
+          "pins": [
+            0,
+            0,
+            null,
+            null,
+            0,
+            null,
+            null,
+            null,
+            0,
+            null,
+            null,
+            null,
+            0,
+            null,
+            null,
+            0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0,
+            4294967295,
+            1
+          ],
+          "events": [
+            "reset"
+          ],
+          "unretired": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "first_error": {
+        "cycle": 1,
+        "phase": "pre"
+      },
+      "capture_limit_cycles": 4096,
+      "truncated": false,
+      "window": {
+        "status": "FOUND",
+        "selector": null,
+        "start": 0,
+        "count": 12,
+        "anchor_cycle": 1,
+        "anchor_kind": "first_error"
+      },
+      "event_counts": {
+        "AW": 0,
+        "W": 0,
+        "AR": 0,
+        "APB_SETUP": 0,
+        "APB_COMPLETE": 0,
+        "B": 0,
+        "R": 0
+      },
+      "remaining_experiment_calls": 2
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 4,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "651a4bfa3660a217761bd37744d79ce4b20e30eb3ea05a7e2ee70bc92eb4589d",
+      "candidate_file": "candidate-04.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 5,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+      "candidate_file": "candidate-05.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 6,
+    "action": {
+      "tool": "experiment",
+      "scenario": "write_fifo"
+    },
+    "executed": true,
+    "observation": {
+      "status": "FAIL",
+      "source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+      "invariant": {
+        "code": "Q_GRANT",
+        "message": "A buffered eligible head at the idle selection edge must produce APB setup immediately after that edge."
+      },
+      "signals": [
+        "rst_n",
+        "awvalid",
+        "awready",
+        "awaddr",
+        "wvalid",
+        "wready",
+        "wdata",
+        "wstrb",
+        "arvalid",
+        "arready",
+        "araddr",
+        "bvalid",
+        "bready",
+        "bresp",
+        "rvalid",
+        "rready",
+        "rdata",
+        "rresp",
+        "psel",
+        "penable",
+        "pwrite",
+        "paddr",
+        "pwdata",
+        "pstrb",
+        "pready",
+        "prdata",
+        "pslverr"
+      ],
+      "rows": [
+        {
+          "cycle": 21,
+          "phase": "pre",
+          "pins": [
+            1,
+            1,
+            0,
+            268,
+            1,
+            0,
+            2320078575,
+            3,
+            0,
+            1,
+            null,
+            1,
+            0,
+            0,
+            0,
+            0,
+            3290406397,
+            0,
+            0,
+            0,
+            1,
+            256,
+            3290406397,
+            0,
+            0,
+            1004560898,
+            1
+          ],
+          "events": [],
+          "unretired": [
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "cycle": 21,
+          "phase": "post",
+          "pins": [
+            1,
+            1,
+            0,
+            268,
+            1,
+            0,
+            2320078575,
+            3,
+            0,
+            1,
+            null,
+            1,
+            1,
+            0,
+            0,
+            0,
+            3290406397,
+            0,
+            0,
+            0,
+            1,
+            256,
+            3290406397,
+            0,
+            0,
+            1004560898,
+            1
+          ],
+          "events": [],
+          "unretired": [
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "cycle": 22,
+          "phase": "pre",
+          "pins": [
+            1,
+            1,
+            0,
+            268,
+            1,
+            0,
+            2320078575,
+            3,
+            0,
+            1,
+            null,
+            1,
+            1,
+            0,
+            0,
+            0,
+            3290406397,
+            0,
+            0,
+            0,
+            1,
+            256,
+            3290406397,
+            0,
+            0,
+            1004560898,
+            1
+          ],
+          "events": [
+            "B"
+          ],
+          "unretired": [
+            2,
+            2,
+            0
+          ]
+        },
+        {
+          "cycle": 22,
+          "phase": "post",
+          "pins": [
+            1,
+            1,
+            1,
+            268,
+            1,
+            1,
+            2320078575,
+            3,
+            0,
+            1,
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3290406397,
+            0,
+            0,
+            0,
+            1,
+            256,
+            3290406397,
+            0,
+            0,
+            1004560898,
+            1
+          ],
+          "events": [],
+          "unretired": [
+            2,
+            2,
+            0
+          ]
+        },
+        {
+          "cycle": 23,
+          "phase": "pre",
+          "pins": [
+            1,
+            1,
+            1,
+            268,
+            1,
+            1,
+            2320078575,
+            3,
+            0,
+            1,
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3290406397,
+            0,
+            0,
+            0,
+            1,
+            256,
+            3290406397,
+            0,
+            0,
+            1004560898,
+            1
+          ],
+          "events": [
+            "AW",
+            "W"
+          ],
+          "unretired": [
+            3,
+            3,
+            0
+          ]
+        },
+        {
+          "cycle": 23,
+          "phase": "post",
+          "pins": [
+            1,
+            1,
+            0,
+            256,
+            1,
+            0,
+            2840618605,
+            4,
+            0,
+            1,
+            null,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3290406397,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1004560898,
+            1
+          ],
+          "events": [],
+          "unretired": [
+            3,
+            3,
+            0
+          ]
+        }
+      ],
+      "first_error": {
+        "cycle": 23,
+        "phase": "post"
+      },
+      "capture_limit_cycles": 4096,
+      "truncated": false,
+      "window": {
+        "status": "FOUND",
+        "selector": null,
+        "start": 21,
+        "count": 12,
+        "anchor_cycle": 23,
+        "anchor_kind": "first_error"
+      },
+      "event_counts": {
+        "AW": 4,
+        "W": 4,
+        "AR": 0,
+        "APB_SETUP": 1,
+        "APB_COMPLETE": 1,
+        "B": 1,
+        "R": 0
+      },
+      "remaining_experiment_calls": 1
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 7,
+    "action": {
+      "tool": "experiment",
+      "scenario": "read_fifo"
+    },
+    "executed": true,
+    "observation": {
+      "status": "FAIL",
+      "source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+      "invariant": {
+        "code": "Q_GRANT",
+        "message": "A buffered eligible head at the idle selection edge must produce APB setup immediately after that edge."
+      },
+      "signals": [
+        "rst_n",
+        "awvalid",
+        "awready",
+        "awaddr",
+        "wvalid",
+        "wready",
+        "wdata",
+        "wstrb",
+        "arvalid",
+        "arready",
+        "araddr",
+        "bvalid",
+        "bready",
+        "bresp",
+        "rvalid",
+        "rready",
+        "rdata",
+        "rresp",
+        "psel",
+        "penable",
+        "pwrite",
+        "paddr",
+        "pwdata",
+        "pstrb",
+        "pready",
+        "prdata",
+        "pslverr"
+      ],
+      "rows": [
+        {
+          "cycle": 33,
+          "phase": "pre",
+          "pins": [
+            1,
+            0,
+            1,
+            null,
+            0,
+            1,
+            null,
+            null,
+            1,
+            0,
+            524,
+            0,
+            0,
+            0,
+            1,
+            0,
+            2654436281,
+            0,
+            0,
+            0,
+            0,
+            512,
+            0,
+            0,
+            0,
+            1640531014,
+            1
+          ],
+          "events": [],
+          "unretired": [
+            0,
+            0,
+            3
+          ]
+        },
+        {
+          "cycle": 33,
+          "phase": "post",
+          "pins": [
+            1,
+            0,
+            1,
+            null,
+            0,
+            1,
+            null,
+            null,
+            1,
+            0,
+            524,
+            0,
+            0,
+            0,
+            1,
+            1,
+            2654436281,
+            0,
+            0,
+            0,
+            0,
+            512,
+            0,
+            0,
+            0,
+            1640531014,
+            1
+          ],
+          "events": [],
+          "unretired": [
+            0,
+            0,
+            3
+          ]
+        },
+        {
+          "cycle": 34,
+          "phase": "pre",
+          "pins": [
+            1,
+            0,
+            1,
+            null,
+            0,
+            1,
+            null,
+            null,
+            1,
+            0,
+            524,
+            0,
+            0,
+            0,
+            1,
+            1,
+            2654436281,
+            0,
+            0,
+            0,
+            0,
+            512,
+            0,
+            0,
+            0,
+            1640531014,
+            1
+          ],
+          "events": [
+            "R"
+          ],
+          "unretired": [
+            0,
+            0,
+            2
+          ]
+        },
+        {
+          "cycle": 34,
+          "phase": "post",
+          "pins": [
+            1,
+            0,
+            1,
+            null,
+            0,
+            1,
+            null,
+            null,
+            1,
+            1,
+            524,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2654436281,
+            0,
+            0,
+            0,
+            0,
+            512,
+            0,
+            0,
+            0,
+            1640531014,
+            1
+          ],
+          "events": [],
+          "unretired": [
+            0,
+            0,
+            2
+          ]
+        },
+        {
+          "cycle": 35,
+          "phase": "pre",
+          "pins": [
+            1,
+            0,
+            1,
+            null,
+            0,
+            1,
+            null,
+            null,
+            1,
+            1,
+            524,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2654436281,
+            0,
+            0,
+            0,
+            0,
+            512,
+            0,
+            0,
+            0,
+            1640531014,
+            1
+          ],
+          "events": [
+            "AR"
+          ],
+          "unretired": [
+            0,
+            0,
+            3
+          ]
+        },
+        {
+          "cycle": 35,
+          "phase": "post",
+          "pins": [
+            1,
+            0,
+            1,
+            null,
+            0,
+            1,
+            null,
+            null,
+            1,
+            0,
+            528,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2654436281,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1640531014,
+            1
+          ],
+          "events": [],
+          "unretired": [
+            0,
+            0,
+            3
+          ]
+        }
+      ],
+      "first_error": {
+        "cycle": 35,
+        "phase": "post"
+      },
+      "capture_limit_cycles": 4096,
+      "truncated": false,
+      "window": {
+        "status": "FOUND",
+        "selector": null,
+        "start": 33,
+        "count": 12,
+        "anchor_cycle": 35,
+        "anchor_kind": "first_error"
+      },
+      "event_counts": {
+        "AW": 0,
+        "W": 0,
+        "AR": 4,
+        "APB_SETUP": 1,
+        "APB_COMPLETE": 1,
+        "B": 0,
+        "R": 1
+      },
+      "remaining_experiment_calls": 0
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 8,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "d4ebe4171799fd8b09e7921febea2cdb89b628662b649f58aeb39f91b93031da",
+      "candidate_file": "candidate-08.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 9,
+    "action": {
+      "tool": "test"
+    },
+    "executed": true,
+    "observation": {
+      "status": "FAIL",
+      "remaining_test_calls": 1,
+      "category": "protocol_timing_error",
+      "first_failed_case": "address_data",
+      "diagnostic": "A protocol timing or stability requirement failed."
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 10,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "568a8bd1d66c30c83f8878e5d628838d6a7a9e02274ef5ffabb72c7d2cdc9928",
+      "candidate_file": "candidate-10.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 11,
+    "action": {
+      "tool": "test"
+    },
+    "executed": true,
+    "observation": {
+      "status": "FAIL",
+      "remaining_test_calls": 0,
+      "category": "protocol_timing_error",
+      "first_failed_case": "address_data",
+      "diagnostic": "A protocol timing or stability requirement failed."
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 12,
+    "action": {
+      "tool": "edit",
+      "content_sha256": "ba770f60e9f6d48c253a2770b2291f4325d6b2b0f4793bd27b364e0f34cd01c8",
+      "candidate_file": "candidate-12.sv"
+    },
+    "executed": true,
+    "observation": {
+      "status": "EDITED"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 13,
+    "action": {
+      "tool": "test"
+    },
+    "executed": false,
+    "observation": {
+      "status": "REJECTED",
+      "reason": "test_budget_exhausted"
+    },
+    "observation_delivered": true
+  },
+  {
+    "action_index": 14,
+    "action": {
+      "tool": "submit"
+    },
+    "executed": true,
+    "observation": {
+      "status": "SUBMITTED"
+    },
+    "observation_delivered": false
+  }
+]

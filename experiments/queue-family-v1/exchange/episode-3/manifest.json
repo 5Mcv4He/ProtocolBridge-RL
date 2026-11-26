@@ -1,0 +1,24 @@
+{
+  "schema": "pb-exchange-manifest-v4",
+  "exporter_sha256": "b4aa2735cd9859df9d03bc16dcf1e5e1ec392c1786b88dce649598fc13608041",
+  "completed": true,
+  "records": 1,
+  "available_tool_trajectories": 1,
+  "source_experiment_sha256": [
+    "8b9cb67430912d38250a8484aa2aae71c963f5d3a7470ea807ba0d30dab884a2"
+  ],
+  "scope": "Audit-required complete raw cohorts. Tool feedback only; no private vectors, raw SDK reasoning, netlists or trusted implementation results. Not lossless on-policy training data.",
+  "files": {
+    "analysis/offline.jsonl": "a9d5960453a14b3a7de293d1a396acffde629cf149c343004c29242ef16bd0aa",
+    "artifacts/020956304f6997e82a6fdc9497cbb9bd651fe4004fbbf373a43f03da34f7d96b.txt": "020956304f6997e82a6fdc9497cbb9bd651fe4004fbbf373a43f03da34f7d96b",
+    "artifacts/2686438d8742f6fd9db7d99e65be8e7909ac937c5c0bff5519554775d059da0b.txt": "2686438d8742f6fd9db7d99e65be8e7909ac937c5c0bff5519554775d059da0b",
+    "artifacts/568a8bd1d66c30c83f8878e5d628838d6a7a9e02274ef5ffabb72c7d2cdc9928.sv": "568a8bd1d66c30c83f8878e5d628838d6a7a9e02274ef5ffabb72c7d2cdc9928",
+    "artifacts/651a4bfa3660a217761bd37744d79ce4b20e30eb3ea05a7e2ee70bc92eb4589d.sv": "651a4bfa3660a217761bd37744d79ce4b20e30eb3ea05a7e2ee70bc92eb4589d",
+    "artifacts/8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5.sv": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+    "artifacts/ba770f60e9f6d48c253a2770b2291f4325d6b2b0f4793bd27b364e0f34cd01c8.sv": "ba770f60e9f6d48c253a2770b2291f4325d6b2b0f4793bd27b364e0f34cd01c8",
+    "artifacts/d4ebe4171799fd8b09e7921febea2cdb89b628662b649f58aeb39f91b93031da.sv": "d4ebe4171799fd8b09e7921febea2cdb89b628662b649f58aeb39f91b93031da",
+    "artifacts/e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d.txt": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+    "evaluation/heldout.jsonl": "3b375aa59299db8b22235a8bc4dbb420127c927e1f53658f8e6e2bd41d64ce8d",
+    "training/rollouts.jsonl": "1c3e2cf605786db62f1cba3c9a51c8e411d848c8ef6195fbd5756c6202277679"
+  }
+}

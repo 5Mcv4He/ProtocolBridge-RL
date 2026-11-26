@@ -1,0 +1,45 @@
+{
+  "version": "queue-family-study-v2",
+  "producer_commit": "d104d8358a26cf97cff7a173bca004a09b2df88e",
+  "serial_eda": true,
+  "contracts": [
+    "x2p_queue_single_v1",
+    "x2p_queue_three_v1",
+    "x2p_queue_readheavy_v1"
+  ],
+  "model_trial_limit": 3,
+  "schedule": [
+    {
+      "task": "single",
+      "capabilities": null
+    },
+    {
+      "task": "three",
+      "capabilities": null
+    },
+    {
+      "task": "three",
+      "capabilities": "runtime-events-v2"
+    }
+  ],
+  "model": "deepseek-flash",
+  "reasoning": "off",
+  "sampling": "provider defaults; seed/temperature not fixed",
+  "policy": "test_diagnostic",
+  "protocol": "text-json-atomic-v2",
+  "actions": 20,
+  "public_tests": 2,
+  "experiment_calls_if_available": 3,
+  "observe_calls_if_available": 4,
+  "max_tokens_per_cohort": 200000,
+  "max_seconds_per_cohort": 2400,
+  "limits_note": "Token/time checks between trials, not hard per-request spend limits; hard limit three fresh episodes with twenty actions each.",
+  "paired_inputs": "Identical frozen reward and held-out inputs for the two three-capacity profiles; contract-specific inputs for single-capacity.",
+  "stop": "No model before all source-bound gates and tool checks pass; preserve every started episode; no success-seeking replacement trials.",
+  "questions": [
+    "Does independent solving succeed at single-credit vs depth-three with fixed base tools?",
+    "Does the richer event laboratory get used at the same depth-three contract? Small n, no causal or saturation conclusion."
+  ],
+  "excluded": "No training, no additional capability products, no PPA rewards, no more than three model trials.",
+  "revision_reason": "Require actual ledger-hook execution before accepting a PASS; no model has started."
+}

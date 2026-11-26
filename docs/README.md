@@ -5,9 +5,10 @@
 | 问题 | 页面 |
 |---|---|
 | 怎样从已验证方法生产新的任务契约 | [路由任务族与生产方法](task-family-production.md)、[生成及执行入口](../task_families/router_v1/README.md) |
+| 容量变化怎样派生动态验证义务 | [队列任务生产](queue-family-production.md)、[队列生成器](../task_families/queue_v1/README.md)、[准入与模型研究](queue-family-evaluation.md) |
 | 新任务是否可靠，Task002实际测到什么 | [任务质量门禁](task-quality-gate.md)、[Task002报告](task002-evaluation-report.md)、[任务包](../tasks/axil_to_apb4_router_002/README.md) |
 | 当前体系测量了什么，离训练数据还有什么差距 | [多任务研究总结](multi-task-research-report.md) |
-| 怎样观察真实握手、构造自己的工程实验 | [运行时实验接口](runtime-experiments.md)、[实测研究](runtime-tools-evaluation.md) |
+| 怎样观察真实握手、构造自己的工程实验 | [运行时实验接口](runtime-experiments.md)、[事件导航 v2](runtime-events-v2.md)、[原版实测研究](runtime-tools-evaluation.md) |
 | 综合、等价检查、时序功耗各自能证明什么 | [综合工具接口](synthesis-tools.md)、[验收与试次报告](synthesis-tools-evaluation.md) |
 | 编译和具体公开诊断是否帮助修复 | [受控工程工具](engineering-tools.md)、[配对修复报告](engineering-tools-evaluation.md) |
 | APB执行与AXI响应解耦引入什么能力 | [Task004报告](task004-evaluation-report.md)、[任务包](../tasks/axil_to_apb4_decoupled_004/README.md) |

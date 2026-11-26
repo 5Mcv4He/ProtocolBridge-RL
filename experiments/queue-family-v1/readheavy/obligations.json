@@ -1,0 +1,65 @@
+[
+  {
+    "contract": {
+      "ar": 3,
+      "aw": 1,
+      "w": 1
+    },
+    "controls": [
+      "bad_over_capacity",
+      "bad_coupled_w"
+    ],
+    "coverage": [
+      "g_aw_level_0",
+      "g_aw_level_1",
+      "g_w_level_0",
+      "g_w_level_1",
+      "g_ar_level_0",
+      "g_ar_level_1",
+      "g_ar_level_2",
+      "g_ar_level_3"
+    ],
+    "id": "G_CAPACITY_LEVELS",
+    "oracle": "Independent pin-handshake ledger compared with scoreboard queues; capacity and available-credit latency checked",
+    "stimulus": [
+      "family_write_laps",
+      "family_read_laps"
+    ]
+  },
+  {
+    "contract": "Per-direction FIFO order across more than three capacity lengths",
+    "controls": [
+      "bad_wrong_address",
+      "bad_read_wrap"
+    ],
+    "coverage": [
+      "g_write_laps",
+      "g_read_laps"
+    ],
+    "id": "G_MULTIPLE_LAPS",
+    "oracle": "Ordered accepted transaction identities and exact APB payloads, not candidate pointer state",
+    "stimulus": [
+      "family_write_laps",
+      "family_read_laps"
+    ]
+  },
+  {
+    "contract": "Only B/R handshakes release credits; same-edge reuse optional",
+    "controls": [
+      "bad_early_credit",
+      "bad_drops_response",
+      "bad_same_edge"
+    ],
+    "coverage": [
+      "g_offer_at_retirement"
+    ],
+    "id": "G_RETIREMENT_BOUNDARY",
+    "oracle": "Separate monitor ledger counts acceptance minus retirement and reset cancellation",
+    "stimulus": [
+      "intake_b_stall",
+      "intake_r_stall",
+      "family_write_laps",
+      "family_read_laps"
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+  "suite_sha256": "a621d71bccd841258b5d75bb8c73dce0f8375c404e9f1305f0c9afde1492d389",
+  "required_cases": [
+    "write_fifo"
+  ],
+  "failed_case": "write_fifo",
+  "compile_exit": 0,
+  "cases": [
+    {
+      "name": "write_fifo",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 12,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_WRITE_FIFO",
+        "Q_AW_CAPACITY",
+        "Q_W_CAPACITY",
+        "Q_WRAP",
+        "Q_STROBE"
+      ]
+    }
+  ]
+}

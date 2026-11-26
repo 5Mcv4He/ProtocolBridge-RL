@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "installed_runtime_hashes_match": true,
+  "installed_worker_probe": {
+    "uid": 1101,
+    "pid": 1,
+    "host_home_visible": false,
+    "host_verifier_visible": false,
+    "no_new_privs": "1",
+    "effective_capabilities": "0000000000000000",
+    "chroot_escape_denied": true,
+    "worker_write_denied": true
+  },
+  "scope": "Exact installed worker/launcher hashes, runtime UID/PID/capabilities and denied chroot/worker-write probes. Legacy fixed host-path fields are informational. No exhaustive arbitrary-path, network or native-code adversarial isolation claim."
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "reviewed-family-catalog-v1",
+  "instances": [
+    {
+      "task_id": "x2p_queue_single_v1",
+      "family": "x2p_retirement_queues_v1",
+      "parameters": {
+        "purpose": "Independent partial-write capture and read/write arbitration with one unretired slot per direction",
+        "read_capacity": 1,
+        "task_id": "x2p_queue_single_v1",
+        "write_capacity": 1
+      },
+      "source_manifest": "single/family-manifest.json",
+      "source_manifest_sha256": "b027568b09d86c18fb3247b2880bdfca804a3c552abf8f246ca309ec3f217351",
+      "spec": "single/spec.md",
+      "metadata": "single/task.json",
+      "obligations": "single/obligations.json",
+      "admission_summary": "single/summary.json",
+      "admitted": true,
+      "scope": "Three reviewed contracts in one temporal-state capability family; not three independent engineering abilities.",
+      "calibration": {
+        "status": "exploratory_one_episode_per_condition",
+        "study": "study-results.json",
+        "empirical_difficulty": "not_established"
+      }
+    },
+    {
+      "task_id": "x2p_queue_three_v1",
+      "family": "x2p_retirement_queues_v1",
+      "parameters": {
+        "purpose": "Non-power-of-two queues, wrap and retained credits through response consumption",
+        "read_capacity": 3,
+        "task_id": "x2p_queue_three_v1",
+        "write_capacity": 3
+      },
+      "source_manifest": "three/family-manifest.json",
+      "source_manifest_sha256": "a63111f6ed41b81ec5bb82bf7fa4586734c94348f84ca239b15af8816fa1552e",
+      "spec": "three/spec.md",
+      "metadata": "three/task.json",
+      "obligations": "three/obligations.json",
+      "admission_summary": "three/summary.json",
+      "admitted": true,
+      "scope": "Three reviewed contracts in one temporal-state capability family; not three independent engineering abilities.",
+      "calibration": {
+        "status": "exploratory_one_episode_per_condition",
+        "study": "study-results.json",
+        "empirical_difficulty": "not_established"
+      }
+    },
+    {
+      "task_id": "x2p_queue_readheavy_v1",
+      "family": "x2p_retirement_queues_v1",
+      "parameters": {
+        "purpose": "Separate read buffering from one-slot write lifecycle; asymmetric capacity management",
+        "read_capacity": 3,
+        "task_id": "x2p_queue_readheavy_v1",
+        "write_capacity": 1
+      },
+      "source_manifest": "readheavy/family-manifest.json",
+      "source_manifest_sha256": "8ff600ca118297e161d4b1d4193ed7d9858b246f045a499b9f191f99858de446",
+      "spec": "readheavy/spec.md",
+      "metadata": "readheavy/task.json",
+      "obligations": "readheavy/obligations.json",
+      "admission_summary": "readheavy/summary.json",
+      "admitted": true,
+      "scope": "Three reviewed contracts in one temporal-state capability family; not three independent engineering abilities.",
+      "calibration": {
+        "status": "not_sampled",
+        "study": "study-results.json",
+        "empirical_difficulty": "not_established"
+      }
+    }
+  ],
+  "runtime_entrypoint": "scripts/tasks.py --package PACKAGE ...",
+  "scope": "Research index; execution requires reconstructed trusted capsule and source/toolchain-matched admission."
+}

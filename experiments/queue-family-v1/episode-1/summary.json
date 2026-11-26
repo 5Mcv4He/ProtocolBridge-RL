@@ -1,0 +1,83 @@
+{
+  "planned_runs": 1,
+  "completed_runs": 1,
+  "groups": {
+    "test_diagnostic": {
+      "completed_runs": 1,
+      "submissions": 1,
+      "reward_1": 0,
+      "reward_0": 1,
+      "reward_null": 0,
+      "terminal_rewards": [
+        0.0
+      ],
+      "held_out_rewards": [
+        0.0
+      ]
+    }
+  },
+  "runs": [
+    {
+      "task_id": "x2p_queue_single_v1",
+      "policy_id": "test_diagnostic",
+      "policy_sha256": "689998ab7c466677158e3927dd200ffae23a41d749f13d3ea14fe4676a5fc818",
+      "model": "deepseek-flash",
+      "experiment_calls": 0,
+      "observe_calls": 0,
+      "capabilities": null,
+      "synth_calls": 0,
+      "compile_calls": 0,
+      "inspect_calls": 0,
+      "actions": 5,
+      "edits": 2,
+      "public_test_calls": 0,
+      "submitted": true,
+      "terminal": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "d2d314918a3474f1557692f7d3dad32a4b12896fcf4be0581e36e9f7bf224008",
+        "suite_sha256": "72854dd67c32c0cb8ebe37e7d23fc0a80a874a0a9a0ddf16f4295b11aae7386e",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "held_out": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "d2d314918a3474f1557692f7d3dad32a4b12896fcf4be0581e36e9f7bf224008",
+        "suite_sha256": "87ad668b26c9f64a989ce52fcfc95ffc8241ac6e159c793633bbd5247dc8d2d1",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "554b974669fe500948440dbce945af81a7099b950fbb7315b7d2fe425a1cbd7a",
+        "suite_sha256": "5d40caf3d72a0c9ac93547fb84b041c9bf353d6217d7d4a1e723fe8ccac52518",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "first_candidate_source": "candidate-03.sv",
+      "first_candidate_measurement": "post-hoc or matching actual public call; never additional solver feedback",
+      "final_candidate_public": null,
+      "freeze_unchanged": true,
+      "solver_stopped_before_evaluation": true,
+      "wall_seconds": 200.073,
+      "api_usage": null,
+      "api_cost": null,
+      "api_usage_note": "Raw Harness response events retained; availability extracted separately.",
+      "private_reward_suite_sha256": "72854dd67c32c0cb8ebe37e7d23fc0a80a874a0a9a0ddf16f4295b11aae7386e",
+      "reserved_evaluation_suite_sha256": "87ad668b26c9f64a989ce52fcfc95ffc8241ac6e159c793633bbd5247dc8d2d1",
+      "trial_id": "r01-test_diagnostic",
+      "repeat": 1
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "family-input-qualification-v1",
+  "task_id": "x2p_queue_single_v1",
+  "qualifier_sha256": "21775a0d7351f07edce2d88cac9a185aa2326f2f811c4e6a0a01110abd6697a5",
+  "manifest_sha256": "b027568b09d86c18fb3247b2880bdfca804a3c552abf8f246ca309ec3f217351",
+  "gate_result_sha256": "ae183265859bfc6745318fa21422cc2efa9621fa12d3e74a03428680b40cde4f",
+  "reference_sha256": "4baad302896df2c8e3ee3b91a309bd0df1d8f7b480bb2e2bb8dd040ae8af6152",
+  "toolchain": {
+    "vcs": "O-2018.09-SP2",
+    "vip": "R-2020.12",
+    "uvm": "1.2",
+    "python": "3.6.9 (controller); 3.10.12 (worker)",
+    "harness": "0.2.2rc2",
+    "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+  },
+  "cohorts": [
+    {
+      "experiment_sha256": "3de83c49900ac40b3d70429a85c95e381ede97086b39bdcbfabcf37af949f6c6",
+      "input_hashes": {
+        "r01-evaluation": "87ad668b26c9f64a989ce52fcfc95ffc8241ac6e159c793633bbd5247dc8d2d1",
+        "r01-reward": "72854dd67c32c0cb8ebe37e7d23fc0a80a874a0a9a0ddf16f4295b11aae7386e"
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "family-input-qualification-v1",
+  "accepted": true,
+  "freeze_sha256": "472ced9e61e95f27d7d065aaf825c71e159f918971e536685029d9a8c3e74311",
+  "results": {
+    "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa": {
+      "mode": "reused_exact_admitted_input",
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+      "result_sha256": "e61aab1526825ecc5c1d6aa8af35a6f9c694d9c88daa8a4bef20f6b4a31da7b1",
+      "planned": 568,
+      "checked": 520,
+      "aborted": 48,
+      "new_run_wall_seconds": 0,
+      "prior_control": "reference"
+    },
+    "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339": {
+      "mode": "new_positive_control_simulation",
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+      "result_sha256": "a9b833ff36037088bbf0409734b355045a4b00b09605ea6a93ff5d65e5f8d9a6",
+      "planned": 568,
+      "checked": 520,
+      "aborted": 48,
+      "new_run_wall_seconds": 279.7501054589957,
+      "prior_control": null
+    }
+  },
+  "scope": "Exact stopped-episode inputs and admitted source/toolchain binding. Reused entries are prior real positive-control evidence, not new simulation; new entries run the same frozen reference. Candidate rewards and solver observations remain untouched."
+}

@@ -1,0 +1,53 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "96621753cd5c450ecb101be14f72b25d30ed14ef90b8c174e6e47ff4ce59b33b",
+  "suite_sha256": "23fa0ef8e5853036dc294da64f1d0f48d22246da182992b1e6ac980ae2757b86",
+  "required_cases": [
+    "partial_aw",
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8",
+    "family_write_laps",
+    "family_read_laps"
+  ],
+  "failed_case": "partial_aw",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "partial_aw",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 6,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_partial_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_INDEPENDENT_HALVES",
+        "Q_READ_DURING_PARTIAL_WRITE"
+      ]
+    }
+  ]
+}

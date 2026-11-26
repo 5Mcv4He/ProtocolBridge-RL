@@ -7,7 +7,7 @@
 ProtocolBridge-RL 围绕这一问题展开研究。项目以 AXI → APB 协议桥（X2P）为切入点，利用工业电子设计自动化工具（EDA）与独立功能验证，将数字电路设计与调试转化为模型可以反复求解、探索和验证的任务。它既关注设计是否正确，也关注如何构建有训练价值的求解过程。
 
 <p align="center">
-<strong>4 个 RTL 任务 + 1 个有限任务族</strong>　·　<strong>9 种受控动作</strong>　·　<strong>89 条研究试次</strong>　·　<strong>轨迹交换 v1–v3</strong>
+<strong>4 个 RTL 任务 + 2 个有限任务族</strong>　·　<strong>9 种受控动作</strong>　·　<strong>92 条研究试次</strong>　·　<strong>轨迹交换 v1–v4</strong>
 </p>
 
 > **当前阶段：** 已建立任务、环境、独立奖励与固定模型 Rollout 的工程闭环；尚未进行模型参数训练或训练收益评估。九种动作分配置开放。
@@ -75,6 +75,8 @@ Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已�
 
 这一过程中也发现了真实漏检：旧生成验证器的 27 个 case 全部通过，却没有访问非二次幂窗口的关键中间区域，使错误局部地址映射获得了 Reward=1。修正后的生成方法增加内部偏移进位激励，并用完全相同的错误 RTL 确认拒绝。这个结果说明，**任务生成必须同时生成并验收新的验证义务，不能只替换 Spec 参数。** [任务族方法与具体例子](docs/task-family-production.md)、[漏检分析与工业证据](docs/router-family-evaluation.md)解释了其机制和边界。
 
+**第二类任务族把生产方法扩展到动态状态。** 基于 Task003，生成每通道一个名额、三个名额以及读写不对称容量的三份契约。每份不仅改变队列参数，还派生占用边界、多轮存储使用与退休时刻的验证义务，并通过两种合法结构及 12–14 个错误对照。额外的引脚握手账本与 Scoreboard 相互核对：如果可信检查器错误地提前出队，评分应停止并返回不可判定，而不是给模型一个不可靠的奖励。见[生命周期与生产方法](docs/queue-family-production.md)、[真实准入及研究结果](docs/queue-family-evaluation.md)。
+
 **实现入口：** [Task Registry](tasks/registry.json) · [Registry Schema](tasks/registry.schema.json) · [任务目录与统一 CLI](docs/task-catalog.md)
 
 ## 3. 验证与奖励
@@ -140,7 +142,7 @@ Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已�
 | 公开功能验证 | `test` | 当前设计是否通过规定测试；[反馈策略](docs/observation-policy.md) |
 | 独立编译与诊断 | `compile` / `inspect` | RTL 是否能编译、违反了什么需求（Task003）；[工程工具](docs/engineering-tools.md) |
 | 综合与结构检查 | `synth_check` | RTL 是否能够综合成硬件结构（Task003/004）；[综合工具](docs/synthesis-tools.md) |
-| 主动实验与观测 | `experiment` / `observe` | 自选激励下电路实际如何运行（Task003）；[运行时接口](docs/runtime-experiments.md) |
+| 主动实验与观测 | `experiment` / `observe` | 自选激励下电路实际如何运行（Task003 / 新队列族）；[运行时接口](docs/runtime-experiments.md) · [事件导航 v2](docs/runtime-events-v2.md) |
 
 这些动作提供的是不同的工程认识能力：编译检查语法与结构，功能测试检查结果，运行时实验让模型主动观察特定条件下的行为。研究的目标不是增加工具数量，而是让模型有机会建立并验证关于工程对象的假设。
 
@@ -156,6 +158,8 @@ Agent 可以选取公开场景、构造受限自定义事务，并查询最近�
 ```
 
 实验复用真实 VIP 和 Scoreboard，通过[只读引脚观测器](environment/runtime/observer.sv)采样边沿前后信号，按实际握手计算未退休额度。观测绑定具体 RTL 版本。当前不支持任意内部信号查询或可执行自建 SV Testbench。
+
+新队列包的事件导航 v2 可以用 `B:0` 选择第一次写响应退休附近的窗口，成功实验默认返回首个有效事务附近，而不是空闲尾部。它解决的是“如何找到真实行为”的问题；工具验收通过不等于模型已经能利用这些行为修复错误。旧工具配置与历史观察保持不变。
 
 综合检查使用 Design Compiler；可信侧已实测 DC → Formality 自身网表等价 → PrimeTime/PX 教学库测量流程。综合及自身网表等价通过不代表功能正确，教学库面积、时序和功耗不进入功能奖励，也不是工业 PPA 签核证据。
 
@@ -223,6 +227,8 @@ Task 是可重复使用的工程问题；Rollout 则是模型在某个任务和�
 
 新路由任务族另有一次预先选定的 irregular 契约试次：E 模式下一次编辑即通过公开、私有和保留验证，Reward=1。它证明生成包的真实求解链路可用，但没有失败诊断曝光，不能据此说明诊断帮助了修复，更不能用 1/1 判定任务饱和；该样本与上表独立统计，详见[任务族研究](docs/router-family-evaluation.md)。
 
+队列任务族又进行了三条预先规定的探索：一名额基础 E 失败，三名额基础 E 在收到失败反馈并修改后通过，三名额加事件实验失败。最后一条的首候选事后通过公开 21 case，却在后续未经测试的编辑中引入调度回归；仅看最终 Reward=0 会遗漏这个过程。每种条件只有一条，不能把它们作为容量难度排序或工具效果结论。见[具体代码变化、反馈与证据](docs/queue-family-evaluation.md)。
+
 这些结果为什么值得研究？当一个任务对某个模型过于简单时，多次求解可能全部得到 Reward=1；过难时则可能全部为 0。对于依赖组内相对奖励差异的训练方法（例如使用组内相对优势估计的 GRPO），同组二值奖励没有变化时，这部分奖励信号缺乏区分度。
 
 <p align="center"><img src="docs/diagrams/reward-distribution.svg" alt="示意：同一任务的八次求解可能全为1、0与1混合，或全为0；混合奖励提供组内相对差异。不是实际模型试次或普遍训练准入规则。" width="760"></p>
@@ -262,9 +268,9 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 
 收集一条专业 Agent 轨迹的成本，并不只是模型的 Token 开销：工具调用背后还需要真实的编译、仿真与独立评分。
 
-最近两条运行时试次合计约 **866 秒**，其中 VCS 编译约 753 秒、仿真约 64 秒、模型请求约 44 秒（含 SDK/网络开销；总耗时包含公开、实验、终局和保留执行，不含前置门禁）。在这组试次中编译是主要时间成本。未来规模化采集时，编译复用、仿真并发、任务调度和质量准入成本都会影响可获得的有效数据量。
+已发布的两条 `runtime-tools-v1` 试次合计约 **866 秒**，其中 VCS 编译约 753 秒、仿真约 64 秒、模型请求约 44 秒（含 SDK/网络开销；总耗时包含公开、实验、终局和保留执行，不含前置门禁）。在这组试次中编译是主要时间成本。未来规模化采集时，编译复用、仿真并发、任务调度和质量准入成本都会影响可获得的有效数据量。
 
-[多任务研究总结](docs/multi-task-research-report.md) · [研究索引](experiments/engineering-stage-research-index.json) · [全部研究报告](docs/README.md)
+[多任务研究总结](docs/multi-task-research-report.md) · [原工程阶段索引](experiments/engineering-stage-research-index.json) · [队列任务族研究](docs/queue-family-evaluation.md) · [全部研究报告](docs/README.md)
 
 ## 6. Rollout 数据交付
 
@@ -279,14 +285,15 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 | v1 | 六批 77 条结果记录、37 条已审查工具轨迹 |
 | v2 | 九批 85 条结果记录、45 条已审查工具轨迹；支持编译/诊断 |
 | v3 | 额外三条试次；支持综合、主动实验和运行时观测 |
+| v4 | 新队列任务的三条试次；支持生成任务身份、事件选择与真实窗口 |
 
-合计 **88 条研究记录、48 条已审查工具轨迹**（v2 + 新增 v3，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
+合计 **91 条研究记录、51 条已审查工具轨迹**（v2 + 新增 v3/v4，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
 
-新任务族的一条试次另以[经审查的 Policy 轨迹](experiments/router-family-v1/README.md)发布，尚未纳入上述交换集合；项目研究试次总数因此为 89，交换集合仍为 88。
+新任务族的一条试次另以[经审查的 Policy 轨迹](experiments/router-family-v1/README.md)发布，尚未纳入上述交换集合；项目研究试次总数因此为 92，交换集合为 91。
 
 当前交付尚缺原始模型采样、Token IDs、行为策略 Log Probability 与精确权重版本，不是无损 on-policy 训练数据。在线 Collector 与 RL 参数优化尚未接入。
 
-**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json)
+**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json)
 
 ---
 
@@ -295,7 +302,7 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 ```text
 ProtocolBridge-RL/
 ├── tasks/          # 四个任务包、Spec、初始 RTL、Registry
-├── task_families/  # 有限路由任务族、完整包生成与准入报告
+├── task_families/  # 路由 / 队列有限任务族、完整包生成与准入报告
 ├── environment/    # Agent Session、Policy、工程工具、质量门禁
 │   ├── policies/
 │   ├── synthesis/  # DC / Formality / PT 脚本
@@ -312,7 +319,7 @@ ProtocolBridge-RL/
 | 阅读目的 | 建议入口 |
 | :--- | :--- |
 | 复用任务与运行流程 | [Task Catalog](docs/task-catalog.md) · [统一 CLI](scripts/tasks.py) |
-| 生成并验收任务实例 | [任务族方法](docs/task-family-production.md) · [生成器用法](task_families/router_v1/README.md) |
+| 生成并验收任务实例 | [路由任务族](docs/task-family-production.md) · [队列任务族](docs/queue-family-production.md) · [生成器用法](task_families/queue_v1/README.md) |
 | 理解核心源码 | [任务](tasks/) · [环境](environment/) · [验证器](verifier/) |
 | 查阅工程与验证方法 | [架构](docs/architecture.md) · [质量门禁](docs/task-quality-gate.md) · [运行手册](docs/mvp-running.md) |
 | 查阅研究证据 | [文档索引](docs/README.md) · [实验目录](experiments/) |

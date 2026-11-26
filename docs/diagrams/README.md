@@ -10,4 +10,6 @@ SVG 内含系统深色偏好样式，不支持时仍可使用浅色画布；不�
 
 [task-family-production.svg](task-family-production.svg) 用于解释有限任务族从契约特化、候选检查、工业准入到真实求解的责任边界。它复用同一配色与字体；上排从左向右生产候选，下排从右向左经过检查与门禁，底部才启动模型求解。通过证据绑定源码与工具链，不能由生成器自授。
 
+[queue-lifecycle-obligations.svg](queue-lifecycle-obligations.svg) 表达队列契约中的接受、APB 完成和响应退休三个事件，以及两条独立账目检查路径。图中是契约示意，不是实测波形；数量不一致与候选违例分别对应不可判定和功能失败。
+
 [返回首页](../../README.md)

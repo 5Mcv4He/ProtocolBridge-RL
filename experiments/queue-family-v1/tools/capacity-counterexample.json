@@ -1,0 +1,154 @@
+{
+  "source_sha256": "5f0a2e7bd1a7d9150c7b9b08bdae205afa34940508450f828abbc7b6be1c4e3b",
+  "raw_record_sha256": "96167b953ad4100856efdbb74575294c141bdcba559dec81fa7aea725657d938",
+  "capacity": [
+    3,
+    3,
+    3
+  ],
+  "status": "FAIL",
+  "invariant": {
+    "code": "Q_CAPACITY",
+    "message": "Accepted, executing and response-pending requests all occupy the Spec-defined per-channel unretired credits until their AXI response handshake."
+  },
+  "first_error": {
+    "cycle": 17,
+    "phase": "pre"
+  },
+  "pre_edge_rows": [
+    {
+      "cycle": 12,
+      "events": [],
+      "unretired": [
+        0,
+        0,
+        0
+      ],
+      "pins": {
+        "awvalid": 0,
+        "awready": 1,
+        "wvalid": 0,
+        "wready": 1,
+        "bvalid": 0,
+        "bready": 0,
+        "psel": 0,
+        "penable": 0,
+        "pready": 0
+      }
+    },
+    {
+      "cycle": 13,
+      "events": [
+        "AW",
+        "W"
+      ],
+      "unretired": [
+        1,
+        1,
+        0
+      ],
+      "pins": {
+        "awvalid": 1,
+        "awready": 1,
+        "wvalid": 1,
+        "wready": 1,
+        "bvalid": 0,
+        "bready": 0,
+        "psel": 0,
+        "penable": 0,
+        "pready": 0
+      }
+    },
+    {
+      "cycle": 14,
+      "events": [
+        "AW",
+        "W"
+      ],
+      "unretired": [
+        2,
+        2,
+        0
+      ],
+      "pins": {
+        "awvalid": 1,
+        "awready": 1,
+        "wvalid": 1,
+        "wready": 1,
+        "bvalid": 0,
+        "bready": 0,
+        "psel": 0,
+        "penable": 0,
+        "pready": 0
+      }
+    },
+    {
+      "cycle": 15,
+      "events": [
+        "AW",
+        "W",
+        "APB_SETUP"
+      ],
+      "unretired": [
+        3,
+        3,
+        0
+      ],
+      "pins": {
+        "awvalid": 1,
+        "awready": 1,
+        "wvalid": 1,
+        "wready": 1,
+        "bvalid": 0,
+        "bready": 0,
+        "psel": 1,
+        "penable": 0,
+        "pready": 0
+      }
+    },
+    {
+      "cycle": 16,
+      "events": [
+        "APB_COMPLETE"
+      ],
+      "unretired": [
+        3,
+        3,
+        0
+      ],
+      "pins": {
+        "awvalid": 1,
+        "awready": 0,
+        "wvalid": 1,
+        "wready": 0,
+        "bvalid": 0,
+        "bready": 0,
+        "psel": 1,
+        "penable": 1,
+        "pready": 1
+      }
+    },
+    {
+      "cycle": 17,
+      "events": [
+        "AW"
+      ],
+      "unretired": [
+        4,
+        3,
+        0
+      ],
+      "pins": {
+        "awvalid": 1,
+        "awready": 1,
+        "wvalid": 1,
+        "wready": 0,
+        "bvalid": 1,
+        "bready": 0,
+        "psel": 0,
+        "penable": 0,
+        "pready": 0
+      }
+    }
+  ]
+}

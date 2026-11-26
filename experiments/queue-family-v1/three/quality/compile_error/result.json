@@ -1,0 +1,33 @@
+{
+  "reward": 0.0,
+  "category": "compile_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "185147024c0a382196a2a3314d63c0eb3372b12d4ecc03bc7aa3e8c64982b5c3",
+  "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+  "required_cases": [
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8",
+    "family_write_laps",
+    "family_read_laps"
+  ],
+  "compile_exit": 255,
+  "cases": []
+}

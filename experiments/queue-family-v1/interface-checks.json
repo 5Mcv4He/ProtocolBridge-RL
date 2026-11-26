@@ -1,0 +1,23 @@
+[
+  {
+    "task_id": "x2p_queue_single_v1",
+    "listed": true,
+    "reset_spec_matches": true,
+    "reset_rtl_matches": true,
+    "scope": "Actual top-level list/reset dispatch; no simulation. Real rollout separately exercises solver tools and independent terminal grading."
+  },
+  {
+    "task_id": "x2p_queue_three_v1",
+    "listed": true,
+    "reset_spec_matches": true,
+    "reset_rtl_matches": true,
+    "scope": "Actual top-level list/reset dispatch; no simulation. Real rollout separately exercises solver tools and independent terminal grading."
+  },
+  {
+    "task_id": "x2p_queue_readheavy_v1",
+    "listed": true,
+    "reset_spec_matches": true,
+    "reset_rtl_matches": true,
+    "scope": "Actual top-level list/reset dispatch; no simulation. Real rollout separately exercises solver tools and independent terminal grading."
+  }
+]

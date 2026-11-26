@@ -1,0 +1,36 @@
+{
+  "accepted": true,
+  "records": 3,
+  "available_tool_trajectories": 3,
+  "unique_episode_ids": true,
+  "checks": [
+    {
+      "episode": 1,
+      "source_publication_hashes": true,
+      "exchange_hashes": true,
+      "actual_feedback_preserved": true,
+      "reward_and_heldout_separate_and_equal_to_audited_source": true,
+      "solver_stopped_before_evaluation": true,
+      "freeze_unchanged": true
+    },
+    {
+      "episode": 2,
+      "source_publication_hashes": true,
+      "exchange_hashes": true,
+      "actual_feedback_preserved": true,
+      "reward_and_heldout_separate_and_equal_to_audited_source": true,
+      "solver_stopped_before_evaluation": true,
+      "freeze_unchanged": true
+    },
+    {
+      "episode": 3,
+      "source_publication_hashes": true,
+      "exchange_hashes": true,
+      "actual_feedback_preserved": true,
+      "reward_and_heldout_separate_and_equal_to_audited_source": true,
+      "solver_stopped_before_evaluation": true,
+      "freeze_unchanged": true
+    }
+  ],
+  "scope": "Actual export hash, feedback equality, reward separation and source audit checks; not full nested JSON Schema certification."
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "family-input-qualification-v1",
+  "task_id": "x2p_queue_three_v1",
+  "qualifier_sha256": "21775a0d7351f07edce2d88cac9a185aa2326f2f811c4e6a0a01110abd6697a5",
+  "manifest_sha256": "a63111f6ed41b81ec5bb82bf7fa4586734c94348f84ca239b15af8816fa1552e",
+  "gate_result_sha256": "945431128e37c50129308ed83168db391b5ce08c107ff43e9fb34f3001f06c21",
+  "reference_sha256": "4b66fa55dd607f89f8406b90fa5eb60de96ffbce43cd56ad4c227e8b805fd11c",
+  "toolchain": {
+    "vcs": "O-2018.09-SP2",
+    "vip": "R-2020.12",
+    "uvm": "1.2",
+    "python": "3.6.9 (controller); 3.10.12 (worker)",
+    "harness": "0.2.2rc2",
+    "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+  },
+  "cohorts": [
+    {
+      "experiment_sha256": "a82af35ded91766a664d269539db30fd489cdaa69bc0660c99f542b0a70db01d",
+      "input_hashes": {
+        "r01-evaluation": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+        "r01-reward": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339"
+      }
+    },
+    {
+      "experiment_sha256": "8b9cb67430912d38250a8484aa2aae71c963f5d3a7470ea807ba0d30dab884a2",
+      "input_hashes": {
+        "r01-evaluation": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+        "r01-reward": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339"
+      }
+    }
+  ]
+}

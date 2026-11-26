@@ -1,0 +1,24 @@
+{
+  "instances": [
+    {
+      "task_id": "x2p_queue_single_v1",
+      "files": 251,
+      "bytes": 1084634
+    },
+    {
+      "task_id": "x2p_queue_three_v1",
+      "files": 253,
+      "bytes": 1090409
+    },
+    {
+      "task_id": "x2p_queue_readheavy_v1",
+      "files": 252,
+      "bytes": 1087640
+    }
+  ],
+  "all_capsules_bytes": 3262683,
+  "unique_content_bytes": 1443049,
+  "unique_content_objects": 332,
+  "interpretation": "Content-hash deduplication estimate only; no filesystem or compiler cache was actually shared across contracts. Excludes .git and bytecode. Historical router packages retained research assets, so size reduction alone does not establish faster EDA.",
+  "duplicate_content_fraction": 0.5577109391258667
+}

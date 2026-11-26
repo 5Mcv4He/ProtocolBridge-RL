@@ -1,0 +1,318 @@
+{
+  "schema": "queue-family-exploratory-study-v1",
+  "plan_sha256": "fe8d0426305d1e27ac8321a4eb0d07994af1f1f0523a3ad8c775c11158885195",
+  "started": 3,
+  "rows": [
+    {
+      "trial": "r01-test_diagnostic",
+      "repeat": 1,
+      "policy": "test_diagnostic",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 5,
+      "edits": 2,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": false,
+      "failed_feedback": false,
+      "edited_after_feedback": false,
+      "changed_after_feedback": false,
+      "changed_after_failed_feedback": false,
+      "public_verdicts": [],
+      "terminal_category": "protocol_timing_error",
+      "primary_outcome": "protocol_timing_error",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 17.802,
+      "labels": [
+        "protocol_timing_error"
+      ],
+      "tokens": {
+        "inputTokens": 2540,
+        "outputTokens": 4004,
+        "cacheReadTokens": 12160,
+        "cacheWriteTokens": 0,
+        "totalTokens": 18704
+      },
+      "wall_seconds": 200.073,
+      "model_session_span_seconds": 17.861,
+      "compile_wall_seconds": 167.6897087880061,
+      "simulation_wall_seconds": 12.301072651025606,
+      "public_test_calls": 0,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "554b974669fe500948440dbce945af81a7099b950fbb7315b7d2fe425a1cbd7a",
+        "suite_sha256": "5d40caf3d72a0c9ac93547fb84b041c9bf353d6217d7d4a1e723fe8ccac52518",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "case_counts": {
+        "terminal": 1,
+        "held_out": 1,
+        "offline_first_candidate": 1,
+        "public": 0
+      },
+      "compilation_processes": 2,
+      "simulation_processes": 3,
+      "api_cost": null,
+      "episode": 1,
+      "task_id": "x2p_queue_single_v1",
+      "capabilities": null,
+      "cohort_manifest_sha256": "3de83c49900ac40b3d70429a85c95e381ede97086b39bdcbfabcf37af949f6c6",
+      "tool_calls": {
+        "test": 0,
+        "experiment": 0,
+        "observe": 0,
+        "edit": 2,
+        "submit": 1
+      },
+      "delivered_runtime_windows": [],
+      "sdk_usage_events": 5,
+      "rejected_tool_requests": []
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "repeat": 1,
+      "policy": "test_diagnostic",
+      "reward": 1.0,
+      "held_out": 1.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 8,
+      "edits": 2,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": true,
+      "failed_feedback": true,
+      "edited_after_feedback": true,
+      "changed_after_feedback": true,
+      "changed_after_failed_feedback": true,
+      "public_verdicts": [
+        "FAIL",
+        "PASS"
+      ],
+      "terminal_category": "pass",
+      "primary_outcome": "pass",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 23.262,
+      "labels": [],
+      "tokens": {
+        "inputTokens": 5239,
+        "outputTokens": 4629,
+        "cacheReadTokens": 32640,
+        "cacheWriteTokens": 0,
+        "totalTokens": 42508
+      },
+      "wall_seconds": 587.757,
+      "model_session_span_seconds": 291.007,
+      "compile_wall_seconds": 166.73760041700734,
+      "simulation_wall_seconds": 395.9218442499987,
+      "public_test_calls": 2,
+      "final_candidate_public": {
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "source_sha256": "46b71658d246f18e60161413f5b4e3d2c8c74152225c0b37c745c4146280fba4",
+        "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+        "planned": 272,
+        "checked": 224,
+        "aborted": 48,
+        "failed_case": null
+      },
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "transaction_functional_error",
+        "verification_complete": false,
+        "source_sha256": "37b4f04f0c6419adc21976ae4d1b2fd5667347c26148e0fcfa3f4309d9bc6424",
+        "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "case_counts": {
+        "terminal": 23,
+        "held_out": 23,
+        "offline_first_candidate": null,
+        "public": 22
+      },
+      "compilation_processes": 2,
+      "simulation_processes": 68,
+      "api_cost": null,
+      "episode": 2,
+      "task_id": "x2p_queue_three_v1",
+      "capabilities": null,
+      "cohort_manifest_sha256": "a82af35ded91766a664d269539db30fd489cdaa69bc0660c99f542b0a70db01d",
+      "tool_calls": {
+        "test": 2,
+        "experiment": 0,
+        "observe": 0,
+        "edit": 2,
+        "submit": 1
+      },
+      "delivered_runtime_windows": [],
+      "sdk_usage_events": 8,
+      "rejected_tool_requests": []
+    },
+    {
+      "trial": "r01-test_diagnostic",
+      "repeat": 1,
+      "policy": "test_diagnostic",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 14,
+      "edits": 5,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": true,
+      "failed_feedback": true,
+      "edited_after_feedback": true,
+      "changed_after_feedback": true,
+      "changed_after_failed_feedback": true,
+      "public_verdicts": [
+        "FAIL",
+        "FAIL"
+      ],
+      "terminal_category": "protocol_timing_error",
+      "primary_outcome": "protocol_timing_error",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 34.07599999999999,
+      "labels": [
+        "protocol_timing_error",
+        "repair_after_feedback_failed"
+      ],
+      "tokens": {
+        "inputTokens": 7154,
+        "outputTokens": 9806,
+        "cacheReadTokens": 115840,
+        "cacheWriteTokens": 0,
+        "totalTokens": 132800
+      },
+      "wall_seconds": 671.489,
+      "model_session_span_seconds": 388.426,
+      "compile_wall_seconds": 495.5791061229975,
+      "simulation_wall_seconds": 139.74424801400164,
+      "public_test_calls": 2,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "source_sha256": "651a4bfa3660a217761bd37744d79ce4b20e30eb3ea05a7e2ee70bc92eb4589d",
+        "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+        "planned": 272,
+        "checked": 224,
+        "aborted": 48,
+        "failed_case": null
+      },
+      "case_counts": {
+        "terminal": 1,
+        "held_out": 1,
+        "offline_first_candidate": 21,
+        "public": 2
+      },
+      "compilation_processes": 6,
+      "simulation_processes": 28,
+      "api_cost": null,
+      "episode": 3,
+      "task_id": "x2p_queue_three_v1",
+      "capabilities": "runtime-events-v2",
+      "cohort_manifest_sha256": "8b9cb67430912d38250a8484aa2aae71c963f5d3a7470ea807ba0d30dab884a2",
+      "tool_calls": {
+        "test": 2,
+        "experiment": 3,
+        "observe": 0,
+        "edit": 5,
+        "submit": 1
+      },
+      "delivered_runtime_windows": [
+        {
+          "action_index": 3,
+          "tool": "experiment",
+          "window": {
+            "status": "FOUND",
+            "selector": null,
+            "start": 0,
+            "count": 12,
+            "anchor_cycle": 1,
+            "anchor_kind": "first_error"
+          },
+          "row_count": 3,
+          "event_row_count_including_reset": 2,
+          "transaction_event_row_count": 0
+        },
+        {
+          "action_index": 6,
+          "tool": "experiment",
+          "window": {
+            "status": "FOUND",
+            "selector": null,
+            "start": 21,
+            "count": 12,
+            "anchor_cycle": 23,
+            "anchor_kind": "first_error"
+          },
+          "row_count": 6,
+          "event_row_count_including_reset": 2,
+          "transaction_event_row_count": 2
+        },
+        {
+          "action_index": 7,
+          "tool": "experiment",
+          "window": {
+            "status": "FOUND",
+            "selector": null,
+            "start": 33,
+            "count": 12,
+            "anchor_cycle": 35,
+            "anchor_kind": "first_error"
+          },
+          "row_count": 6,
+          "event_row_count_including_reset": 2,
+          "transaction_event_row_count": 2
+        }
+      ],
+      "sdk_usage_events": 14,
+      "rejected_tool_requests": [
+        {
+          "action_index": 13,
+          "tool": "test",
+          "reason": "test_budget_exhausted"
+        }
+      ]
+    }
+  ],
+  "tokens_total": 194012,
+  "actions_total": 27,
+  "protocol_errors_total": 0,
+  "resource_seconds": {
+    "wall_seconds": 1459.319,
+    "model_request_wall_seconds": 75.13999999999999,
+    "compile_wall_seconds": 830.0064153280109,
+    "simulation_wall_seconds": 547.9671649150259
+  },
+  "api_currency_cost": null,
+  "paired_three_inputs_equal": true,
+  "fresh_sessions_distinct": true,
+  "scope": "Three predeclared distinct conditions, one episode each. Inventory totals are not a pooled success rate or causal tool comparison. Whole episode costs include trusted terminal, held-out and offline execution; omit preflight/gate/qualification. No parameter training."
+}

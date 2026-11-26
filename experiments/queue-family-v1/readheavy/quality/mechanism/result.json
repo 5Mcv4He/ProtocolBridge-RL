@@ -1,0 +1,95 @@
+{
+  "action_protocol": "text-json-atomic-v2",
+  "accepted": true,
+  "check_count": 40,
+  "real_vcs": true,
+  "agent_model_used": false,
+  "private_reward_suite_sha256": "ee97d5a4ebf8f71007d0f457f10d698e34bb9919ab194fc036347992509b9cb2",
+  "candidate": "fixtures/task003/bad_strobe_loss.sv",
+  "runs": {
+    "spec_only": {
+      "public_test_calls": 0,
+      "grader_invocations": [
+        {
+          "public": false,
+          "cases_sha256": "ee97d5a4ebf8f71007d0f457f10d698e34bb9919ab194fc036347992509b9cb2"
+        }
+      ],
+      "observations": [
+        {
+          "status": "REJECTED",
+          "reason": "tool_not_allowed"
+        }
+      ],
+      "terminal_reward": 0.0,
+      "terminal_category": "transaction_functional_error",
+      "source_sha256": "b8df86af759343fc9d03f03588191bbcf1c4849205c8c8f1fb9071e3a2e11aa4"
+    },
+    "test_verdict": {
+      "public_test_calls": 2,
+      "grader_invocations": [
+        {
+          "public": true,
+          "cases_sha256": null
+        },
+        {
+          "public": true,
+          "cases_sha256": null
+        },
+        {
+          "public": false,
+          "cases_sha256": "ee97d5a4ebf8f71007d0f457f10d698e34bb9919ab194fc036347992509b9cb2"
+        }
+      ],
+      "observations": [
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 1
+        },
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 0
+        }
+      ],
+      "terminal_reward": 0.0,
+      "terminal_category": "transaction_functional_error",
+      "source_sha256": "b8df86af759343fc9d03f03588191bbcf1c4849205c8c8f1fb9071e3a2e11aa4"
+    },
+    "test_diagnostic": {
+      "public_test_calls": 2,
+      "grader_invocations": [
+        {
+          "public": true,
+          "cases_sha256": null
+        },
+        {
+          "public": true,
+          "cases_sha256": null
+        },
+        {
+          "public": false,
+          "cases_sha256": "ee97d5a4ebf8f71007d0f457f10d698e34bb9919ab194fc036347992509b9cb2"
+        }
+      ],
+      "observations": [
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 1,
+          "category": "transaction_functional_error",
+          "first_failed_case": "write_fifo",
+          "diagnostic": "Transaction mapping, data, response or completion accounting failed."
+        },
+        {
+          "status": "FAIL",
+          "remaining_test_calls": 0,
+          "category": "transaction_functional_error",
+          "first_failed_case": "write_fifo",
+          "diagnostic": "Transaction mapping, data, response or completion accounting failed."
+        }
+      ],
+      "terminal_reward": 0.0,
+      "terminal_category": "transaction_functional_error",
+      "source_sha256": "b8df86af759343fc9d03f03588191bbcf1c4849205c8c8f1fb9071e3a2e11aa4"
+    }
+  }
+}

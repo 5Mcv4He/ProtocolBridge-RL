@@ -1,0 +1,48 @@
+{
+  "schema": "queue-verifier-fault-probe-v1",
+  "accepted": true,
+  "manifest_sha256": "a63111f6ed41b81ec5bb82bf7fa4586734c94348f84ca239b15af8816fa1552e",
+  "probe_sha256": "c0daed405674078cbeb2ea516f78a25bb8ab02788e7d885b381414543e487809",
+  "results": {
+    "ordinary_candidate": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "candidate_sha256": "5f0a2e7bd1a7d9150c7b9b08bdae205afa34940508450f828abbc7b6be1c4e3b",
+      "result_sha256": "a895b89c81cab7c24ec4c594153240dc18827af8e23deda4fae6b82a7f0a3cd3",
+      "changed_file": null,
+      "changed_sha256": null,
+      "wall_seconds": 90.32011580467224,
+      "controller_exit": 0,
+      "ledger_disagreement_observed": false,
+      "ledger_execution_marker": true,
+      "simulation_done": false
+    },
+    "early_retirement_oracle": {
+      "reward": null,
+      "category": "infrastructure_error",
+      "candidate_sha256": "5f0a2e7bd1a7d9150c7b9b08bdae205afa34940508450f828abbc7b6be1c4e3b",
+      "result_sha256": "d71385a3e9f0924db041443a98f3d871d990f063cd78b3f8b379351b2c352b0d",
+      "changed_file": "verifier/task003/scoreboard.sv",
+      "changed_sha256": "1966e812fce4bbf174213341d68fb71f14b68f50bcb5ad10ee7671853beeeec5",
+      "wall_seconds": 92.1356909275055,
+      "controller_exit": 0,
+      "ledger_disagreement_observed": true,
+      "ledger_execution_marker": true,
+      "simulation_done": false
+    },
+    "missing_ledger_hook": {
+      "reward": null,
+      "category": "infrastructure_error",
+      "candidate_sha256": "4b66fa55dd607f89f8406b90fa5eb60de96ffbce43cd56ad4c227e8b805fd11c",
+      "result_sha256": "5c94d44220ce7c9dc2e7c8014bbc2eda9f683500a56d412de5e431b532c9551a",
+      "changed_file": "verifier/task003/tb.sv",
+      "changed_sha256": "1a4859993a450dfca0a2ac03ac64c0d39fef30a1f855e705fb797c7ae12eae46",
+      "wall_seconds": 93.42677617073059,
+      "controller_exit": 0,
+      "ledger_disagreement_observed": false,
+      "ledger_execution_marker": false,
+      "simulation_done": true
+    }
+  },
+  "scope": "Controlled verifier faults on copies; not an observed historical false PASS. Same erroneous candidate with ordinary and deliberately corrupted oracle. Missing-hook uses a legal reference."
+}

@@ -1,0 +1,54 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "cc54ab6cd6559e48c60245e242a50bb9fa9d64aaeb995440ad147d76c5f1ff13",
+  "suite_sha256": "2103c368ebca121a5217e06f26b47683bf915d044a81cbbe37814946137a674b",
+  "required_cases": [
+    "family_write_laps",
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8",
+    "family_read_laps"
+  ],
+  "failed_case": "family_write_laps",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "family_write_laps",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 11,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "G_CAPACITY_LEVELS",
+        "G_MULTIPLE_LAPS",
+        "G_RETIREMENT_BOUNDARY"
+      ]
+    }
+  ]
+}

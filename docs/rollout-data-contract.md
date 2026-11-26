@@ -62,3 +62,21 @@ PYTHONPATH=scripts python3 -m unittest scripts.test_rollout_exchange scripts.tes
 ## 新增 v3：综合与运行时实验
 
 [运行时实验接口](runtime-experiments.md)提供审计原始试次的 v3 导出入口，支持 synthesis-tools-v1、runtime-verdict-v1 和 runtime-observe-v1。保留真实工具动作、候选源哈希和实际投影反馈；结构化自建事务属于 Agent 动作，不是私有奖励向量。终局奖励、保留评估和事后测量保持分开。旧 v1/v2 格式及已发布产物不变，不能将新增配置混入历史策略比较。
+
+## 生成队列任务的 v4：保留事件选择与真实观察
+
+新队列包中的 `scripts/rollout_exchange_v4.py` 从审计通过的完整原始试次导出。它支持本轮基础 E 与 `runtime-events-v2`，记录生成 Task ID、冻结源码、工具链、Policy、私有奖励输入哈希，以及事件选择动作、实际返回的 `window` 和 `event_counts`。旧交换产物不回改，也不能把新环境伪装成原运行时版本。
+
+这里的三个分区仍承担不同职责：`training/` 保存求解时真正送达的工具观察与终局奖励；`evaluation/` 保存独立保留结果；`analysis/` 保存事后首候选测量及包含保留执行的完整试次成本。读取内容和编辑 RTL 连接到带哈希的 artifact，私有向量、原始 SDK 回答和可信侧实现报告不进入交换数据。
+
+从重建且匹配的可信队列包导出，每次使用一个新目录：
+
+```bash
+cd TRUSTED_QUEUE_PACKAGE
+python3 - <<'PY'
+from scripts.rollout_exchange_v4 import export
+export(['/trusted/stopped-episode'], '/trusted/new-exchange')
+PY
+```
+
+导出器先核对实际审计和试次完整性，再按字段白名单生成数据；不支持的观察字段直接拒绝。每条试次必须使用对应 Task 的冻结包，不能用另一个生成任务的审计器。具体交付与核验记录见[队列研究证据](../experiments/queue-family-v1/README.md)。当前没有声明完成通用嵌套 JSON Schema 的全语义证明；Token IDs、行为 log probability 与精确权重版本仍不可得，不能作为无损 on-policy 数据使用。

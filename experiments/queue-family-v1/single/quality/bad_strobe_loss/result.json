@@ -1,0 +1,56 @@
+{
+  "reward": 0.0,
+  "category": "transaction_functional_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "96621753cd5c450ecb101be14f72b25d30ed14ef90b8c174e6e47ff4ce59b33b",
+  "suite_sha256": "76e7f57fc1958358b357c20ffe7e74547fc09ad35242316d81ede15d5f6fbd15",
+  "required_cases": [
+    "write_fifo",
+    "address_data",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8",
+    "family_write_laps",
+    "family_read_laps"
+  ],
+  "failed_case": "write_fifo",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "write_fifo",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "planned": 36,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_WRITE_FIFO",
+        "Q_AW_CAPACITY",
+        "Q_W_CAPACITY",
+        "Q_WRAP",
+        "Q_STROBE"
+      ]
+    }
+  ]
+}

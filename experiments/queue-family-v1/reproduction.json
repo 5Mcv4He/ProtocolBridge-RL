@@ -1,0 +1,7 @@
+{
+  "same_environment_manifest_byte_identical": true,
+  "task_id": "x2p_queue_three_v1",
+  "manifest_sha256": "a63111f6ed41b81ec5bb82bf7fa4586734c94348f84ca239b15af8816fa1552e",
+  "unit_tests": 107,
+  "scope": "Fresh generation, unit preflight and complete manifest byte equality; local Git timestamps are not reproduction identity."
+}

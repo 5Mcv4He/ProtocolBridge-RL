@@ -1,0 +1,55 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "96621753cd5c450ecb101be14f72b25d30ed14ef90b8c174e6e47ff4ce59b33b",
+  "suite_sha256": "9270dfb945f68684c7fbbeb0076a2419a243ef609efb7a5c84e08bf00b09e476",
+  "required_cases": [
+    "reset_1",
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8",
+    "family_write_laps",
+    "family_read_laps"
+  ],
+  "failed_case": "reset_1",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "reset_1",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 10,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_RESET_STAGE_1",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE"
+      ]
+    }
+  ]
+}

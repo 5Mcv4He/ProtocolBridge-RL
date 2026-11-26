@@ -1,0 +1,66 @@
+{
+  "accepted": true,
+  "distinct_contract_input_pairs": 4,
+  "new_reference_simulations": 2,
+  "reused_exact_reference_evidence": 2,
+  "new_run_wall_seconds": 500.9347608759854,
+  "results": [
+    {
+      "task": "single",
+      "input_sha256": "72854dd67c32c0cb8ebe37e7d23fc0a80a874a0a9a0ddf16f4295b11aae7386e",
+      "mode": "new_positive_control_simulation",
+      "required_cases": 23,
+      "executed_cases": 23,
+      "planned": 512,
+      "checked": 496,
+      "aborted": 16,
+      "reward": 1.0,
+      "raw_result_sha256": "408f9da0a0715df09cb8811ba74764d865ee7d2b58d5b3767bde8f4b9885ff31",
+      "coverage_bin_count": 42,
+      "new_run_wall_seconds": 221.1846554169897
+    },
+    {
+      "task": "single",
+      "input_sha256": "87ad668b26c9f64a989ce52fcfc95ffc8241ac6e159c793633bbd5247dc8d2d1",
+      "mode": "reused_exact_admitted_input",
+      "required_cases": 23,
+      "executed_cases": 23,
+      "planned": 512,
+      "checked": 496,
+      "aborted": 16,
+      "reward": 1.0,
+      "raw_result_sha256": "7a282a39fab6773d0aae2f1ff39d88e86e9b3d81fd1d4201eadd1daf5e937357",
+      "coverage_bin_count": 42,
+      "new_run_wall_seconds": 0
+    },
+    {
+      "task": "three",
+      "input_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+      "mode": "reused_exact_admitted_input",
+      "required_cases": 23,
+      "executed_cases": 23,
+      "planned": 568,
+      "checked": 520,
+      "aborted": 48,
+      "reward": 1.0,
+      "raw_result_sha256": "e61aab1526825ecc5c1d6aa8af35a6f9c694d9c88daa8a4bef20f6b4a31da7b1",
+      "coverage_bin_count": 48,
+      "new_run_wall_seconds": 0
+    },
+    {
+      "task": "three",
+      "input_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+      "mode": "new_positive_control_simulation",
+      "required_cases": 23,
+      "executed_cases": 23,
+      "planned": 568,
+      "checked": 520,
+      "aborted": 48,
+      "reward": 1.0,
+      "raw_result_sha256": "a9b833ff36037088bbf0409734b355045a4b00b09605ea6a93ff5d65e5f8d9a6",
+      "coverage_bin_count": 48,
+      "new_run_wall_seconds": 279.7501054589957
+    }
+  ],
+  "scope": "Post-solver input qualification, not a new Agent episode or candidate re-score. Identical three-capacity episode inputs deduplicated. No private vector content published."
+}

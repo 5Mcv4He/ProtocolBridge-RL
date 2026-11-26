@@ -1,0 +1,47 @@
+{
+  "schema": "queue-stage-costs-v1",
+  "formal_admission_wall_seconds": 2580.2959535121918,
+  "development_predecessor_wall_seconds": 831.7079815864563,
+  "standalone_runtime_acceptance_wall_seconds": 391.456166267395,
+  "model_preflights": [
+    {
+      "episode": 1,
+      "kind": "mechanism",
+      "wall_seconds": 150.10182452201843,
+      "job_evidence_sha256": "90ad3c426ccae0f5d5b4af55a7d5827c9839a134e924c20806f9d431220c1081"
+    },
+    {
+      "episode": 2,
+      "kind": "mechanism",
+      "wall_seconds": 143.60351419448853,
+      "job_evidence_sha256": "82600dc4105d880d9e009db32b27cae672b8a94fb177131180b68adac104c53d"
+    },
+    {
+      "episode": 3,
+      "kind": "mechanism",
+      "wall_seconds": 168.52421855926514,
+      "job_evidence_sha256": "91913577a006f15c96e6f3ee66ce501e32ebfbd0ce656ea9ac07c37c7d5f7dff"
+    },
+    {
+      "episode": 3,
+      "kind": "runtime-acceptance",
+      "wall_seconds": 215.5588083267212,
+      "job_evidence_sha256": "57d3d6b55aa7f0a7e830bae519294e0563032ba76d0155f84fae49e85b014447"
+    }
+  ],
+  "model_episodes": {
+    "wall_seconds": 1459.319,
+    "model_request_wall_seconds": 75.13999999999999,
+    "compile_wall_seconds": 830.0064153280109,
+    "simulation_wall_seconds": 547.9671649150259
+  },
+  "api_tokens": 194012,
+  "api_currency_cost": null,
+  "scope": "Controller job walls, model episode walls and child-process measurements have distinct scope. Child compile/simulation/model seconds are subsets, not extra jobs. Private raw evidence retained. Qualification costs published separately; no billed EDA or currency cost inferred.",
+  "input_qualification": {
+    "summary": "input-qualification/summary.json",
+    "new_reference_runs": 2,
+    "new_run_wall_seconds": 500.9347608759854,
+    "exact_prior_evidence_reused": 2
+  }
+}
