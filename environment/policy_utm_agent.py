@@ -34,7 +34,12 @@ def run(out,bootstrap):
         (work/dest).write_bytes(src.read_bytes());(work/dest).chmod(0o664)
     capabilities=bootstrap.get('capabilities')
     if capabilities is not None:
-        if capabilities=='synthesis-tools-v1':
+        if capabilities in ('runtime-verdict-v1','runtime-observe-v1'):
+            from functools import partial
+            from .runtime_session import Session as RuntimeSession
+            if task_id!='axil_to_apb4_queue_003':raise ValueError('Runtime task mismatch')
+            session_type=partial(RuntimeSession,capability=capabilities)
+        elif capabilities=='synthesis-tools-v1':
             from .synthesis_session import session_class
             session_type=session_class(task_id)
         elif capabilities!='engineering-tools-v1' or task_id!='axil_to_apb4_queue_003' or policy['policy_id']!='test_diagnostic':raise ValueError('Invalid capability profile')
@@ -44,7 +49,11 @@ def run(out,bootstrap):
     protocol=bootstrap.get('protocol','text-json-atomic-v1')
     initial_prompt=experiment_prompt(policy,session.repair,protocol)
     if capabilities:
-        if capabilities=='synthesis-tools-v1':from .synthesis_session import extend_prompt
+        if capabilities in ('runtime-verdict-v1','runtime-observe-v1'):
+            from functools import partial
+            from .runtime_session import extend_prompt as runtime_prompt
+            extend_prompt=partial(runtime_prompt,capability=capabilities)
+        elif capabilities=='synthesis-tools-v1':from .synthesis_session import extend_prompt
         else:from .engineering_session import extend_prompt
         initial_prompt=extend_prompt(initial_prompt)
     frozen=source_hashes()
@@ -117,6 +126,7 @@ def run(out,bootstrap):
     final_hash=sha(out/'submission/bridge.sv') if session.submitted else None
     final_public=[x for x in session.public if x['source_sha256']==final_hash]
     metrics={'task_id':task_id,'policy_id':policy['policy_id'],'policy_sha256':manifest['policy_sha256'],'model':bootstrap['model'],
+        'experiment_calls':getattr(session,'experiments',0),'observe_calls':getattr(session,'observes',0),
         'capabilities':capabilities,'synth_calls':getattr(session,'synth_calls',0),'compile_calls':getattr(session,'compiles',0),'inspect_calls':getattr(session,'inspects',0),
         'actions':session.actions,'edits':session.edits,'public_test_calls':session.tests,'submitted':session.submitted,
         'terminal':brief(result),'held_out':brief(held),'first_candidate_public':brief(first),

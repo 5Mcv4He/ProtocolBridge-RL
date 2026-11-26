@@ -40,12 +40,16 @@ def summarize(out):
 
 def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14400,max_tokens=2000000,starting_rtl=None,protocol=PROTOCOLS[0],task_id='axil_to_apb4_001',admission=None,capabilities=None,paired_inputs=None):
     if task_id not in ('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003','axil_to_apb4_decoupled_004'):raise ValueError('Unsupported task')
-    if capabilities not in (None,'engineering-tools-v1','synthesis-tools-v1'):raise ValueError('Unknown capability profile')
+    if capabilities not in (None,'engineering-tools-v1','synthesis-tools-v1','runtime-verdict-v1','runtime-observe-v1'):raise ValueError('Unknown capability profile')
     if capabilities=='engineering-tools-v1' and (task_id!='axil_to_apb4_queue_003' or policies!=['test_diagnostic']):raise ValueError('Capability profile requires Task003 diagnostic policy')
     if capabilities=='synthesis-tools-v1' and (task_id not in ('axil_to_apb4_queue_003','axil_to_apb4_decoupled_004') or policies!=['test_diagnostic']):raise ValueError('Synthesis profile requires diagnostic policy on Task003/004')
+    if capabilities in ('runtime-verdict-v1','runtime-observe-v1') and (task_id!='axil_to_apb4_queue_003' or policies!=['test_diagnostic']):raise ValueError('Runtime requires Task003 diagnostic policy')
     def study_prompt(p):
         text=experiment_prompt(p,bool(starting_rtl),protocol)
         if capabilities:
+            if capabilities in ('runtime-verdict-v1','runtime-observe-v1'):
+                from .runtime_session import extend_prompt as runtime_prompt
+                return runtime_prompt(text,capabilities)
             if capabilities=='synthesis-tools-v1':from .synthesis_session import extend_prompt
             else:from .engineering_session import extend_prompt
             text=extend_prompt(text)
@@ -166,6 +170,13 @@ def experiment(out,policies,model,repeats,resume=False,limit=None,max_seconds=14
         # logs/vectors/source evidence are in trial output dirs and already copied.
         code="import json,shutil; from pathlib import Path; root=Path("+repr(release)+"); builds=root/'builds'; result=root/"+repr(name)+"; paths={json.loads(p.read_text()).get('remote','') for p in result.rglob('runtime.json')}; [shutil.rmtree(str(Path(p)),ignore_errors=True) for p in paths if Path(p).parent==builds and len(Path(p).name)==32]"
         subprocess.run(ssh+[remote_command(cfg,'python3 -c '+shlex.quote(code))],check=True)
+    resource_probe="import shutil; assert shutil.disk_usage('.').free >= 4*1024**3, 'Insufficient preflight disk reserve'"
+    subprocess.run(ssh+[remote_command(cfg,'cd '+shlex.quote(release)+' && python3 -c '+shlex.quote(resource_probe))],check=True,timeout=30)
+    if capabilities in ('runtime-verdict-v1','runtime-observe-v1'):
+        rc=0 if (out/'runtime-acceptance/result.json').exists() else remote('environment.runtime_acceptance',['runtime-acceptance'],'runtime-acceptance-controller.log')
+        fetch('runtime-acceptance')
+        if rc or not json.loads((out/'runtime-acceptance/result.json').read_text()).get('accepted'):raise RuntimeError('Runtime capability acceptance failed')
+        if not resume:clean_builds('runtime-acceptance')
     if capabilities=='synthesis-tools-v1':
         rc=0 if (out/'synthesis-acceptance/result.json').exists() else remote('environment.synthesis_acceptance',['synthesis-acceptance'],'synthesis-acceptance-controller.log')
         fetch('synthesis-acceptance')
@@ -221,7 +232,7 @@ def main():
     p.add_argument('--model',default='deepseek-flash');p.add_argument('--repeats',type=int,default=1);p.add_argument('--summarize',action='store_true');p.add_argument('--resume',action='store_true');p.add_argument('--limit',type=int);p.add_argument('--max-seconds',type=int,default=14400);p.add_argument('--max-tokens',type=int,default=2000000);p.add_argument('--starting-rtl')
     p.add_argument('--protocol',choices=PROTOCOLS,default=PROTOCOLS[0])
     p.add_argument('--task',choices=('axil_to_apb4_001','axil_to_apb4_router_002','axil_to_apb4_queue_003','axil_to_apb4_decoupled_004'),default='axil_to_apb4_001');p.add_argument('--admission')
-    p.add_argument('--capabilities',choices=['engineering-tools-v1','synthesis-tools-v1']);p.add_argument('--paired-inputs',help='Trusted frozen suite directory; never solver visible')
+    p.add_argument('--capabilities',choices=['engineering-tools-v1','synthesis-tools-v1','runtime-verdict-v1','runtime-observe-v1']);p.add_argument('--paired-inputs',help='Trusted frozen suite directory; never solver visible')
     a=p.parse_args()
     import fcntl
     lock=Path(a.out).resolve().with_name(Path(a.out).name+'.lock');lock.parent.mkdir(parents=True,exist_ok=True)

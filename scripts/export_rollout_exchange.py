@@ -42,6 +42,9 @@ def training_infrastructure(row,public_events):
     return row['terminal_category']=='infrastructure_error' or any(e['observation']['status']=='ENV_ERROR' for e in public_events)
 
 def export(sources,out,schema_version=1):
+    if schema_version==3:
+        from scripts.rollout_exchange_v3 import export as export_v3
+        return export_v3(sources,out)
     if schema_version not in (1,2):raise ValueError('Unsupported exchange schema')
     sources=[Path(p).resolve() for p in sources]
     if len(set(sources))!=len(sources):raise ValueError('Duplicate source publication')
@@ -125,4 +128,4 @@ def export(sources,out,schema_version=1):
       'files':{str(p.relative_to(out)):sha(p) for p in sorted(out.rglob('*')) if p.is_file()}}
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n');return manifest
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('sources',nargs='+');p.add_argument('--schema-version',type=int,choices=(1,2),default=1);a=p.parse_args();m=export(a.sources,a.out,a.schema_version);print(json.dumps({k:v for k,v in m.items() if k not in ('files','sources')},indent=2))
+    p=argparse.ArgumentParser();p.add_argument('--out',required=True);p.add_argument('sources',nargs='+');p.add_argument('--schema-version',type=int,choices=(1,2,3),default=1);a=p.parse_args();m=export(a.sources,a.out,a.schema_version);print(json.dumps({k:v for k,v in m.items() if k not in ('files','sources')},indent=2))

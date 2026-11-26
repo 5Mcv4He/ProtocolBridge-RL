@@ -42,7 +42,12 @@ def audit(root,limit=None):
         expected_prompt=experiment_prompt(policy,'starting_rtl_sha256' in experiment,protocol)
         capabilities=experiment.get('capabilities')
         if capabilities:
-            if capabilities=='synthesis-tools-v1':
+            if capabilities in ('runtime-verdict-v1','runtime-observe-v1'):
+                from functools import partial
+                from environment.runtime_session import extend_prompt as runtime_prompt,profile
+                PROFILE=profile(capabilities);extend_prompt=partial(runtime_prompt,capability=capabilities)
+                require(task_id==PROFILE['task_id'] and policy['policy_id']=='test_diagnostic',name+': invalid runtime capability')
+            elif capabilities=='synthesis-tools-v1':
                 from environment.synthesis_session import extend_prompt,PROFILE
                 require(task_id in PROFILE['task_ids'] and policy['policy_id']=='test_diagnostic',name+': invalid synthesis capabilities')
             else:
@@ -56,7 +61,7 @@ def audit(root,limit=None):
         if not metrics['solver_stopped_before_evaluation']:
             require(metrics['terminal']['reward'] is None and metrics['held_out'] is None,name+': evaluated before solver stop')
         require(len(trace)==metrics['actions']<=20,name+': action accounting')
-        count=0;synth_count=0;compile_count=0;inspect_count=0;last_public=None;edit_count=0;read_files=set();active_text=None
+        lab_count=0;observe_count=0;last_lab=None;count=0;synth_count=0;compile_count=0;inspect_count=0;last_public=None;edit_count=0;read_files=set();active_text=None
         active_source=experiment.get('starting_rtl_sha256',experiment['source_files'][task_dir+'/workspace/bridge.sv'])
         spec_source=experiment['source_files'][task_dir+'/spec.md']
         for i,event in enumerate(trace):
@@ -71,6 +76,36 @@ def audit(root,limit=None):
                     require(obs==projector(result,policy,policy['max_public_test_calls']-count),name+': public projection differs')
                     require(result['source_sha256']==active_source,name+': public test used a different candidate')
             elif tool=='test':require(not (d/('public-%02d'%event['action_index'])).exists(),name+': rejected test executed')
+            if tool=='experiment' and event['executed']:
+                from environment.runtime_tools import cases,observation,timeline
+                lab_count+=1;cp=d/('experiment-%02d'%event['action_index'])
+                require(read_files==set(policy['readable_files']),name+': laboratory before reads')
+                request={k:v for k,v in action.items() if k!='tool'};cases(request)
+                record=json.loads((cp/'result.json').read_text())
+                require(json.loads((cp/'request.json').read_text())==request,name+': laboratory request mismatch')
+                require(record['source_sha256']==active_source==digest(cp/'bridge.sv'),name+': laboratory source mismatch')
+                require(record.get('reward') is None,name+': laboratory assigned reward')
+                if record.get('verifier_result_sha256'):
+                    from environment.engineering_tools import inspect_public
+                    native=json.loads((cp/'grade/result.json').read_text())
+                    require(record.get('invariant')==inspect_public(native).get('invariant'),name+': laboratory invariant changed')
+                    expected_status='ENV_ERROR' if native.get('reward') is None else ('PASS' if native['reward']==1 else 'FAIL')
+                    require(record['status']==expected_status,name+': laboratory verdict changed')
+                if record.get('timeline') is not None:
+                    logs=list((cp/'grade').glob('*/simulation.log'))
+                    require(len(logs)==1 and timeline(logs[0].read_text())==record['timeline'],name+': observed pins differ from simulation')
+                    require(record['verifier_result_sha256']==digest(cp/'grade/result.json'),name+': laboratory verdict evidence changed')
+                expected=dict(observation(record,capabilities=='runtime-observe-v1'),remaining_experiment_calls=3-lab_count)
+                require(obs==expected,name+': laboratory feedback mismatch');last_lab=(event['action_index'],record)
+            elif tool=='experiment':require(not (d/('experiment-%02d'%event['action_index'])).exists(),name+': rejected laboratory executed')
+            if tool=='observe' and event['executed']:
+                from environment.runtime_tools import observation
+                observe_count+=1
+                require(last_lab is not None,name+': query before laboratory')
+                require(set(action)=={'tool','start','count'} and type(action['start'])==int and type(action['count'])==int and 0<=action['start']<4096 and 1<=action['count']<=12,name+': invalid query')
+                if last_lab:
+                    expected=dict(observation(last_lab[1],capabilities=='runtime-observe-v1',action['start'],action['count']),experiment_action=last_lab[0],remaining_observe_calls=4-observe_count)
+                    require(obs==expected,name+': queried feedback mismatch')
             if tool=='compile' and event['executed']:
                 from environment.engineering_tools import compiler_projection
                 compile_count+=1;cp=d/('compile-%02d'%event['action_index']);record=json.loads((cp/'result.json').read_text())
@@ -121,6 +156,7 @@ def audit(root,limit=None):
                 require(i+1<len(observations),name+': missing delivered observation')
                 if i+1<len(observations):require(json.loads(observations[i+1]['prompt'])=={'tool_result':obs},name+': actual model input differs from projected observation')
             else:require(i==len(trace)-1,name+': unexplained nondelivery')
+        require(lab_count==metrics.get('experiment_calls',0)<=3 and observe_count==metrics.get('observe_calls',0)<=4,name+': laboratory budget')
         require(synth_count==metrics.get('synth_calls',0)<=2,name+': synthesis budget')
         require(compile_count==metrics.get('compile_calls',0)<=2 and inspect_count==metrics.get('inspect_calls',0)<=2,name+': capability budgets')
         require(count==metrics['public_test_calls']<=policy['max_public_test_calls'],name+': test budget')
