@@ -58,3 +58,7 @@ PYTHONPATH=scripts python3 -m unittest scripts.test_rollout_exchange scripts.tes
 该批4条真实修复轨迹均保留：4次具体诊断查询、1次独立编译，终局奖励均为0。`engineering_feedback`只收录实际执行且送达模型的观察；编译耗时与完整功能测试耗时分开。`resources`中的试次总耗时及功能验证耗时包含提交后的评分/保留评估成本，不应当作纯训练工具耗时。独立保留评估仍仅在 `evaluation/`，没有作为求解反馈或替换训练Reward。
 
 将前述六个历史来源与两个工程工具来源、`experiments/task004-v1/pilot`一起传入v2导出器，已实际得到[九批85条结果、45条工具轨迹](../experiments/trajectory-exchange-v2/validation.json)，保留1条历史null。新增Task004的未编辑模板提交也保留在分母。检查包括来源审计/发布哈希、唯一试次身份、artifact哈希及顶层Schema字段；不声称进行了所有嵌套语义的通用JSON Schema证明。不同任务、动作协议、独立生成/修复和能力配置仍分别分组，85只是库存数，不是合并成功率。
+
+## 新增 v3：综合与运行时实验
+
+[运行时实验接口](runtime-experiments.md)提供审计原始试次的 v3 导出入口，支持 synthesis-tools-v1、runtime-verdict-v1 和 runtime-observe-v1。保留真实工具动作、候选源哈希和实际投影反馈；结构化自建事务属于 Agent 动作，不是私有奖励向量。终局奖励、保留评估和事后测量保持分开。旧 v1/v2 格式及已发布产物不变，不能将新增配置混入历史策略比较。

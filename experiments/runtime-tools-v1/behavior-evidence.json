@@ -1,0 +1,31 @@
+{
+  "rows": [
+    {
+      "capability": "runtime-verdict-v1",
+      "final_source_sha256": "544566e302f0ac0946ad27836fdba61593d75fea1171f6ebea1e586b2ec1856e",
+      "terminal_reward": 0.0,
+      "held_out_reward": 0.0,
+      "confirmed_violation": "Request capacity exceeded",
+      "terminal_result_sha256": "eb770acb15018d01abf18194418ab5eb63781cd6d31c8ec69344aa7721f8c020",
+      "raw_trace_sha256": "29d58ea1851c425f4add0085a4d304d298167215b869d8b0fdbd30a245da7be8"
+    },
+    {
+      "capability": "runtime-observe-v1",
+      "final_source_sha256": "b71b562085f24587afbc299a1185c4a6c2902371b78de65daa4fc114837a558b",
+      "terminal_reward": 0.0,
+      "held_out_reward": 0.0,
+      "confirmed_violation": "Request capacity exceeded",
+      "terminal_result_sha256": "adc043292ea1e39f5975f46dd39fbe63a36e719601f8a093b4c0b5bc5c3a7c89",
+      "raw_trace_sha256": "0d1f04ad343f914bb9c81f52b5e83f6411428befd5283f31761767d1f627d309",
+      "pre_and_post_first_edit_error_window_equal": true,
+      "compared_actions": [
+        4,
+        9
+      ],
+      "custom_request_matches_prompt_example": true,
+      "custom_pass_window_has_handshakes": false,
+      "query_window_only_reset": true
+    }
+  ],
+  "scope": "Actual error signatures and exact observed-window comparisons; not a proof of whole-design equivalence or internal reasoning."
+}

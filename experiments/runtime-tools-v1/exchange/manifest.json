@@ -1,0 +1,30 @@
+{
+  "schema": "pb-exchange-manifest-v3",
+  "exporter_sha256": "b342fad17d853292fa86b9958d6d000e5e369d362c0eeb98993fa468cd526a4b",
+  "completed": true,
+  "records": 3,
+  "available_tool_trajectories": 3,
+  "source_experiment_sha256": [
+    "9960be909d176eb40691b1c50396a1ab446c6f8c50e67d4df89aed55c2319807",
+    "5b67d864a0f3c98fc2fd61ad95b7f73ec34e9bf6623a76d35254777639ec11d2",
+    "958cc05b1b604c69f81311df6e9096e6dbd9dda4c2df54cb89d1af5dfe0945e4"
+  ],
+  "scope": "Audit-required complete raw cohorts. Tool feedback only; no private vectors, raw SDK reasoning, netlists or trusted implementation results. Not lossless on-policy training data.",
+  "files": {
+    "analysis/offline.jsonl": "88704341a26688a167d8dfa35014f25f8d03805fa3fff11b5e2e7368b66618ed",
+    "artifacts/1f2d258c4d017d74ad3a894bdd67a60baf88f62a1d11dde67781362bdbcbd54c.txt": "1f2d258c4d017d74ad3a894bdd67a60baf88f62a1d11dde67781362bdbcbd54c",
+    "artifacts/27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d.sv": "27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d",
+    "artifacts/27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d.txt": "27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d",
+    "artifacts/42c84a866b72cfd1853913c12b8f3ea5710fbda16eb30f3e2e10889d510e83e1.sv": "42c84a866b72cfd1853913c12b8f3ea5710fbda16eb30f3e2e10889d510e83e1",
+    "artifacts/544566e302f0ac0946ad27836fdba61593d75fea1171f6ebea1e586b2ec1856e.sv": "544566e302f0ac0946ad27836fdba61593d75fea1171f6ebea1e586b2ec1856e",
+    "artifacts/68f0b39830ff9aba4ca439c8b39eb3d5feab3b6dd0d00420150cdca3bf07fc55.txt": "68f0b39830ff9aba4ca439c8b39eb3d5feab3b6dd0d00420150cdca3bf07fc55",
+    "artifacts/7578c45f957dd7491d6d0ce74e547b50aae5c8720e4e06ea07dca0001bbe84c2.txt": "7578c45f957dd7491d6d0ce74e547b50aae5c8720e4e06ea07dca0001bbe84c2",
+    "artifacts/8f8052e38499164dd70d6d2a1bb6862b4c9954e2f7eadc396211448fa7d69ee3.sv": "8f8052e38499164dd70d6d2a1bb6862b4c9954e2f7eadc396211448fa7d69ee3",
+    "artifacts/b71b562085f24587afbc299a1185c4a6c2902371b78de65daa4fc114837a558b.sv": "b71b562085f24587afbc299a1185c4a6c2902371b78de65daa4fc114837a558b",
+    "artifacts/b7ff4f77da65302de91d61905f4cff4162d8c3682f45f6205ca27df1669d05ae.sv": "b7ff4f77da65302de91d61905f4cff4162d8c3682f45f6205ca27df1669d05ae",
+    "artifacts/d58a21e53a08cb4c7ede23f8dbcfd15281febb57bba0c18fe56686770b336081.txt": "d58a21e53a08cb4c7ede23f8dbcfd15281febb57bba0c18fe56686770b336081",
+    "artifacts/e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d.txt": "e1708e00b592820ba03e60a6e7610420bfe520520c6a5bf044f3fcdf8548595d",
+    "evaluation/heldout.jsonl": "a2b8f50c594137d9363b9c82a9a62bbbbcb0dff6d2be86bbd1ce5aa799ce7548",
+    "training/rollouts.jsonl": "f9f7e961e84a7c4600493586853776d6226220cdf4ed1534e49b2155a7e8bf3d"
+  }
+}

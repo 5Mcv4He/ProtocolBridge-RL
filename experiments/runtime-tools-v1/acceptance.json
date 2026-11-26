@@ -1,0 +1,106 @@
+{
+  "accepted": true,
+  "checks": {
+    "reference-write_fifo_decidable": true,
+    "reference-write_fifo_pass": true,
+    "reference-write_fifo_observed": true,
+    "reference-write_fifo_credits": true,
+    "reference-read_fifo_decidable": true,
+    "reference-read_fifo_pass": true,
+    "reference-read_fifo_observed": true,
+    "reference-read_fifo_credits": true,
+    "reference-partial_aw_decidable": true,
+    "reference-partial_aw_pass": true,
+    "reference-partial_aw_observed": true,
+    "reference-partial_aw_credits": true,
+    "reference-round_robin_decidable": true,
+    "reference-round_robin_pass": true,
+    "reference-round_robin_observed": true,
+    "reference-round_robin_credits": true,
+    "reference-reset_7_decidable": true,
+    "reference-reset_7_pass": true,
+    "reference-reset_7_observed": true,
+    "reference-reset_7_credits": true,
+    "capacity_decidable": true,
+    "capacity_failure": true,
+    "observed_overflow": true,
+    "error_window": true,
+    "verdict_no_trace": true,
+    "detailed_trace": true,
+    "custom_decidable": true,
+    "custom_pass": true,
+    "wrong-head_decidable": true,
+    "wrong_head_failure": true,
+    "unchanged_verdict_and_accounting": true,
+    "pre_read_denied": true,
+    "private_scenario_denied": true,
+    "no_denied_execution": true,
+    "actual_session_0": true,
+    "actual_session_1": true,
+    "actual_session_2": true,
+    "fourth_denied": true,
+    "actual_query": true,
+    "submit": true,
+    "closed": true
+  },
+  "full": true,
+  "model_used": false,
+  "controls": {
+    "reference-write_fifo": {
+      "status": "PASS",
+      "source_sha256": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+      "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+      "wall_seconds": 90.2044,
+      "verifier_result_sha256": "8aaa2614dc8eb38208e66dfea2cde2d06164feec8256dac2cfb52ac878b4bafa"
+    },
+    "reference-read_fifo": {
+      "status": "PASS",
+      "source_sha256": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+      "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+      "wall_seconds": 6.0033,
+      "verifier_result_sha256": "77ccf12ca5759bf0fea47e4f9ea2e8544eb82b3d47ffbbda0dc33600e8d9adfe"
+    },
+    "reference-partial_aw": {
+      "status": "PASS",
+      "source_sha256": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+      "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+      "wall_seconds": 4.8407,
+      "verifier_result_sha256": "e6315c2c7446100bd2b43521ffe65b23ec5df5dfede8b5487e41b639d76aa458"
+    },
+    "reference-round_robin": {
+      "status": "PASS",
+      "source_sha256": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+      "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+      "wall_seconds": 4.8923,
+      "verifier_result_sha256": "2fca43ef8a4529a24a013b82ce79c1eb5751d0c4918955e8a039e696b7d130cf"
+    },
+    "reference-reset_7": {
+      "status": "PASS",
+      "source_sha256": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+      "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+      "wall_seconds": 4.9427,
+      "verifier_result_sha256": "5bbd808eafe676ce01148814db141a25118701a86d426199bed9efec61b68847"
+    },
+    "capacity": {
+      "status": "FAIL",
+      "source_sha256": "4ceeb498ba7fe6b46a090bd128b3de7013df1828c06d9629354440b33260623c",
+      "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+      "wall_seconds": 89.6378,
+      "verifier_result_sha256": "93da17c1edeaed647b78a06439b33d76ae2888697699121301808fae02de2ad2"
+    },
+    "custom": {
+      "status": "PASS",
+      "source_sha256": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+      "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+      "wall_seconds": 5.5019,
+      "verifier_result_sha256": "58ea71ea61a264adf4a15301baf8505553f83fafe4d9da78031860e0105d18c3"
+    },
+    "wrong-head": {
+      "status": "FAIL",
+      "source_sha256": "38f7c9c12d64e2407de36b3103990fd44f715f1a06dda91be0f145880cba5c77",
+      "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+      "wall_seconds": 86.6491,
+      "verifier_result_sha256": "1d7b33b687a7788363974256fe5db0ec897d66d3a6cdc05493ef43fcc2a7df3b"
+    }
+  }
+}

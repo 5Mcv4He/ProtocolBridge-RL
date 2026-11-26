@@ -54,12 +54,14 @@ def export(sources,out):
      'tool_events':events,'final_submission':final,
      'outcome':{'reward':row['reward'],'valid_submission':row['valid_submission'],'category':row['terminal_category'],
                 'infrastructure':row['terminal_category']=='infrastructure_error' or public_errors},
-     'resources':{k:row.get(k) for k in ('tokens','wall_seconds','model_request_wall_seconds','compile_wall_seconds','simulation_wall_seconds','api_cost','actions','edits','public_test_calls','protocol_errors')},
+     'resources':{k:row.get(k) for k in ('tokens','model_request_wall_seconds','api_cost','actions','edits','public_test_calls','protocol_errors')},
      'tool_counts':{k:metrics.get(k,0) for k in ('synth_calls','experiment_calls','observe_calls')},
      'tool_wall_seconds':{name:sum(json.loads(p.read_text()).get('wall_seconds',0) for p in d.glob(pattern)) for name,pattern in [('synthesis','synth-*/result.json'),('laboratory','experiment-*/result.json')]},
      'optimizer_inputs_available':{'token_ids':False,'behavior_log_probabilities':False,'model_weight_revision':False}})
    evaluations.append({'episode_id':key,'held_out_reward':row['held_out'],'suite_sha256':metrics['reserved_evaluation_suite_sha256'],'use':'evaluation_only_not_training_reward'})
-   offline.append({'episode_id':key,'first_candidate_public':row.get('first_candidate_public'),'use':'post_hoc_not_solver_feedback'})
+   offline.append({'episode_id':key,'first_candidate_public':row.get('first_candidate_public'),
+                   'whole_episode_costs':{k:row.get(k) for k in ('wall_seconds','compile_wall_seconds','simulation_wall_seconds')},
+                   'use':'post_hoc_not_solver_feedback; whole-episode costs include held-out execution and are excluded from training records'})
  for name,value in [('training/rollouts.jsonl',records),('evaluation/heldout.jsonl',evaluations),('analysis/offline.jsonl',offline)]:
   (out/name).write_text(''.join(json.dumps(v,sort_keys=True)+'\n' for v in value))
  result={'schema':'pb-exchange-manifest-v3','exporter_sha256':sha(__file__),'completed':True,'records':len(records),'available_tool_trajectories':len(records),

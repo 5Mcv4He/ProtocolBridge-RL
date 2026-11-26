@@ -66,7 +66,7 @@ python3 scripts/audit_policy.py .local/synthesis-pilot-new
 
 Default acceptance covers DC diagnostics and a real VIP/UVM negative control. `--trusted` additionally requires the Formality and PT/PX controls to finish successfully; an incomplete proof keeps that extended acceptance incomplete.
 
-The launcher reruns capability acceptance on its frozen deployment before starting a model. It preserves source/runtime hashes, actual observations and `synth_calls`; the auditor checks candidate identity, projection, budget and environment binding. Terminal and held-out evaluation remain after solver shutdown. Historical exchange v1/v2 export deliberately rejects this new capability contract until its schema extension is qualified; native episode evidence remains available.
+The launcher reruns capability acceptance on its frozen deployment before starting a model. It preserves source/runtime hashes, actual observations and `synth_calls`; the auditor checks candidate identity, projection, budget and environment binding. Terminal and held-out evaluation remain after solver shutdown. Historical exchange v1/v2 export deliberately rejects this capability contract. The subsequently added [v3 exporter](runtime-experiments.md) audits and represents synthesis observations separately from trusted implementation checks; historical evidence remains unchanged.
 
 See the [acceptance report](synthesis-tools-evaluation.md) for actual results and limitations. Tool availability alone is not evidence of improved Agent repair ability.
 

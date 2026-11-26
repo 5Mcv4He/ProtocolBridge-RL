@@ -1,0 +1,3 @@
+{"episode_id": "9960be909d176eb40691b1c50396a1ab446c6f8c50e67d4df89aed55c2319807:r01-test_diagnostic", "held_out_reward": 0.0, "suite_sha256": "13b6098272f7356f22063fb00c253ebb929a898954e972b7aac3858fa16f8964", "use": "evaluation_only_not_training_reward"}
+{"episode_id": "5b67d864a0f3c98fc2fd61ad95b7f73ec34e9bf6623a76d35254777639ec11d2:r01-test_diagnostic", "held_out_reward": 0.0, "suite_sha256": "13b6098272f7356f22063fb00c253ebb929a898954e972b7aac3858fa16f8964", "use": "evaluation_only_not_training_reward"}
+{"episode_id": "958cc05b1b604c69f81311df6e9096e6dbd9dda4c2df54cb89d1af5dfe0945e4:r01-test_diagnostic", "held_out_reward": 0.0, "suite_sha256": "13b6098272f7356f22063fb00c253ebb929a898954e972b7aac3858fa16f8964", "use": "evaluation_only_not_training_reward"}

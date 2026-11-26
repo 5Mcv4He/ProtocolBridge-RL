@@ -16,11 +16,15 @@ class ExchangeV3(unittest.TestCase):
  def test_feedback_and_evaluation_partition(self):
   with tempfile.TemporaryDirectory() as d:
    root=Path(d)/'raw';root.mkdir();a=self.fixture(root)
+   a['rows'][0].update(wall_seconds=12345,compile_wall_seconds=12300,simulation_wall_seconds=45)
    with patch('scripts.rollout_exchange_v3.audit',return_value={'accepted':True}),patch('scripts.rollout_exchange_v3.report',return_value=a):r=export([root],Path(d)/'out')
    training=json.loads((Path(d)/'out/training/rollouts.jsonl').read_text());evaluation=json.loads((Path(d)/'out/evaluation/heldout.jsonl').read_text())
    self.assertEqual(r['records'],1);self.assertEqual(training['outcome']['reward'],0)
    self.assertNotIn('heldout-hash',json.dumps(training));self.assertEqual(evaluation['held_out_reward'],1)
    self.assertFalse(training['tool_events'][0]['observation']['functional_correctness_checked'])
+   offline=json.loads((Path(d)/'out/analysis/offline.jsonl').read_text())
+   self.assertNotIn('12345',json.dumps(training));self.assertNotIn('compile_wall_seconds',training['resources'])
+   self.assertEqual(offline['whole_episode_costs']['wall_seconds'],12345)
  def test_unknown_observation_and_failed_audit_rejected(self):
   with tempfile.TemporaryDirectory() as d:
    root=Path(d)/'raw';root.mkdir();a=self.fixture(root,True)

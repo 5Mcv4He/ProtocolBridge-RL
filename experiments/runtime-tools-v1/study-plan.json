@@ -1,0 +1,46 @@
+{
+  "schema": "runtime-repair-exploration-v1",
+  "frozen_before_model_trials": true,
+  "runtime_commit": "22e24102fdd2924b9b16b29fe34bacdb1698526f",
+  "task_id": "axil_to_apb4_queue_003",
+  "starting_rtl_sha256": "27fa0729dd5f5bd0e84cf4199e66bd445610efb7bd8c2877f13482b08bb6402d",
+  "spec_sha256": "68f0b39830ff9aba4ca439c8b39eb3d5feab3b6dd0d00420150cdca3bf07fc55",
+  "model": "deepseek-flash",
+  "protocol": "text-json-atomic-v2",
+  "ordered_conditions": [
+    "runtime-verdict-v1",
+    "runtime-observe-v1"
+  ],
+  "repeats_per_condition": 1,
+  "maximum_additional_agent_trials": 2,
+  "budgets": {
+    "actions": 20,
+    "public_tests": 2,
+    "experiments": 3,
+    "queries": 4,
+    "between_trial_token_cap_per_cohort": 200000,
+    "between_trial_seconds_cap_per_cohort": 1800
+  },
+  "suite_hashes": {
+    "reward": "3e3c02fe3bf4b6f408da1b7bd3b7234bf8cdff76c1a61c29fbe83e9c5558f692",
+    "evaluation": "13b6098272f7356f22063fb00c253ebb929a898954e972b7aac3858fa16f8964"
+  },
+  "sampling": "Same SDK settings, provider temperature/seed defaults; not deterministic.",
+  "primary_question": "Does the Agent acquire and use sampled lifecycle events when repairing the same real failed candidate?",
+  "measurements": [
+    "valid edit and submission",
+    "actual laboratory calls and custom inputs",
+    "delivered event windows",
+    "edits after feedback",
+    "terminal reward",
+    "held-out evaluation",
+    "protocol errors",
+    "tokens and EDA timings"
+  ],
+  "limitations": [
+    "One pair cannot estimate causal efficacy.",
+    "Condition order is fixed and not counterbalanced in this pilot.",
+    "No model code is repaired by the controller; no failed trial is dropped."
+  ],
+  "expansion_rule": "Stop after two planned episodes; audit and analyze before proposing more samples."
+}

@@ -1,0 +1,92 @@
+{
+  "control": "fixtures/task003/bad_early_credit.sv",
+  "source_sha256": "4ceeb498ba7fe6b46a090bd128b3de7013df1828c06d9629354440b33260623c",
+  "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+  "first_error": {
+    "cycle": 17,
+    "phase": "pre"
+  },
+  "sampled_events": [
+    {
+      "cycle": 14,
+      "phase": "pre",
+      "events": [
+        "AW",
+        "W"
+      ],
+      "unretired": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "cycle": 14,
+      "phase": "post",
+      "events": [],
+      "unretired": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "cycle": 15,
+      "phase": "pre",
+      "events": [
+        "APB_SETUP"
+      ],
+      "unretired": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "cycle": 15,
+      "phase": "post",
+      "events": [],
+      "unretired": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "cycle": 16,
+      "phase": "pre",
+      "events": [
+        "APB_COMPLETE"
+      ],
+      "unretired": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "cycle": 16,
+      "phase": "post",
+      "events": [],
+      "unretired": [
+        2,
+        2,
+        0
+      ]
+    },
+    {
+      "cycle": 17,
+      "phase": "pre",
+      "events": [
+        "AW"
+      ],
+      "unretired": [
+        3,
+        2,
+        0
+      ]
+    }
+  ],
+  "raw_record_sha256": "262c49bdb8f389f66aba3b2827a6e1d9addf167864ee971cb3e31186a63d23be",
+  "scope": "Actual positive/negative-control simulation, not an Agent trial. Interface payloads omitted from this illustrative publication."
+}

@@ -1,0 +1,40 @@
+{
+  "accepted": true,
+  "task_id": "axil_to_apb4_queue_003",
+  "freeze_sha256": "71583091e625a1111123d9b1a1c63becbe33e80888129c1b48b751d227b2a689",
+  "results": {
+    "r01-evaluation": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "source_sha256": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+      "suite_sha256": "13b6098272f7356f22063fb00c253ebb929a898954e972b7aac3858fa16f8964",
+      "planned": 506,
+      "checked": 474,
+      "aborted": 32,
+      "functional_cross": {
+        "required": 33,
+        "observed": 33,
+        "missing": [],
+        "kind": "requirement_bins_not_cartesian_cross"
+      }
+    },
+    "r01-reward": {
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "source_sha256": "9f5f9a2cc56be6fe9a891bf869c0e76cb7f9a3bbad2b3d5398fc7409436baac4",
+      "suite_sha256": "3e3c02fe3bf4b6f408da1b7bd3b7234bf8cdff76c1a61c29fbe83e9c5558f692",
+      "planned": 506,
+      "checked": 474,
+      "aborted": 32,
+      "functional_cross": {
+        "required": 33,
+        "observed": 33,
+        "missing": [],
+        "kind": "requirement_bins_not_cartesian_cross"
+      }
+    }
+  },
+  "scope": "Actual positive-control simulation of the exact frozen inputs; post-hoc research-side qualification, no candidate rescoring or solver feedback."
+}
