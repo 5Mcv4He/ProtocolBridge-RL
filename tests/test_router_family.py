@@ -14,7 +14,7 @@ class RouterFamily(unittest.TestCase):
    self.assertEqual(m['task_id'],c['task_id'])
    second=Path(tmp)/'repeat';generate(c,second)
    self.assertEqual(m,verify(second))
-   code='from verifier.task002.scenarios import target,suite; assert target(0x1ffc)==0; assert target(0x2000)==1; assert target(0x4000)==-1; assert target(0x40002000)==2; assert len(suite(True))==22; assert suite(True)[0]['name']=='address_data'; assert suite(True)[-1]['name']=='generated_boundaries'; from environment.check_baseline import check; assert check()["status"]=="pass"'
+   code='from verifier.task002.scenarios import target,suite; assert target(0x1ffc)==0; assert target(0x2000)==1; assert target(0x4000)==-1; assert target(0x40002000)==2; assert len(suite(True))==22; assert suite(True)[0]["name"]=="address_data"; assert suite(True)[-1]["name"]=="generated_boundaries"; from environment.check_baseline import check; assert check()["status"]=="pass"'
    subprocess.run([sys.executable,'-c',code],cwd=str(out),check=True)
    spec=(out/'tasks'/c['task_id']/'spec.md').read_text();self.assertIn('0x00002000–0x00003fff',spec)
    with self.assertRaises(ValueError):generate(c,out)

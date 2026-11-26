@@ -77,7 +77,22 @@ def generate(c,out):
  (task/'task.json').write_text(json.dumps(m,indent=2)+'\n')
  (task/'README.md').write_text('# '+c['task_id']+'\n\n'+c['purpose']+'\n\nGenerated parameterized contract; three lanes, one global outstanding transaction. This is not a new protocol or independent ability count. See [Spec](spec.md) and task.json. Candidate only until its source-bound gate passes.\n')
  (out/'README.md').write_text('# Generated router task capsule\n\nTask: '+c['task_id']+'\n\nSee tasks/'+c['task_id']+'/spec.md and family-manifest.json. Candidate until source-bound gate acceptance. Inherited module names task002 denote reusable backend slots, not the historical task identity.\n')
- files={str(p.relative_to(out)):sha(p) for p in out.rglob('*') if p.is_file()}
+ # Specialize inherited unit contracts, never silently discard their failures.
+ p=out/'tests/test_router002.py';text=p.read_text()
+ text=re.sub(r'  for a,t in \[.*?\]:self.assertEqual\(target\(a\),t\)', '  for a,t in '+repr([(int(a,16),lane) for a,lane,_ in checks])+':self.assertEqual(target(a),t)',text)
+ text=text.replace('len(suite(True)),21','len(suite(True)),22').replace('len(suite()),26','len(suite()),27')
+ text=text.replace("log='PB2_SEQUENCE", "log='PB_ROUTER_ORACLE_OK\\nPB2_SEQUENCE")
+ text=text.replace('r=interpret(log,0,c);self.assertEqual',"r=interpret('PB_ROUTER_ORACLE_OK\\n'+log,0,c);self.assertEqual")
+ p.write_text(text)
+ p=out/'tests/test_task_quality.py';text=p.read_text().replace("if c['name']=='decode_misses');addresses", "if c['name']=='generated_boundaries');addresses");p.write_text(text)
+ # Output remains candidate-only if this subprocess fails. No EDA or API here.
+ import sys
+ test=subprocess.run([sys.executable,'-m','unittest','discover','-s','tests','-q'],cwd=str(out),stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+ (out/'.local').mkdir(exist_ok=True)
+ (out/'.local/generation-unit-tests.log').write_bytes(test.stdout)
+ if test.returncode:raise RuntimeError('Generated package unit tests failed; preserve directory for diagnosis')
+ (out/'generation-check.json').write_text(json.dumps({'unit_tests_passed':True,'count':int(re.search(rb'Ran (\d+) tests',test.stdout).group(1))},indent=2)+'\n')
+ files={str(p.relative_to(out)):sha(p) for p in out.rglob('*') if p.is_file() and '__pycache__' not in str(p) and '.local' not in p.relative_to(out).parts}
  manifest={'schema':'router-capsule-v1','task_id':c['task_id'],'parameters':c,'source_commit':commit,'generator_sha256':sha(Path(__file__)),'scenario_template_sha256':sha(ROOT/'task_families/router_v1/scenarios.py.in'),'files':files,'changed_files':[k for k,v in files.items() if original.get(k)!=v],'status':'candidate_not_admitted'}
  (out/'family-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
  subprocess.run(['git','init','-q',str(out)],check=True)

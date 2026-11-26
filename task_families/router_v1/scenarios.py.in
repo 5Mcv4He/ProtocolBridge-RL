@@ -1,6 +1,7 @@
 """Generated traffic adapter; no RTL/ref decoder is imported here."""
 from ._protocol_template import suite as old_suite,target as old_target,BASES as OLD_BASES
 WINDOWS=WINDOWS_VALUE
+BASES=tuple(base for base,size in WINDOWS)
 def target(a):
  # Difference/size oracle, independently of inclusive SV/exclusive RTL tests.
  matches=[i for i,(base,size) in enumerate(WINDOWS) if 0<=a-base<size]
