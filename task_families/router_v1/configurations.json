@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "family_id": "x2p_three_target_router_v1",
+  "instances": [
+    {"task_id":"x2p_router_compact_v1","windows":[[4096,4096],[12288,8192],[36864,4096]],"purpose":"Nearby unequal windows separated by decode holes"},
+    {"task_id":"x2p_router_irregular_v1","windows":[[135168,12288],[4096,8192],[2147487744,4096]],"purpose":"Non-power-of-two window, target indices not sorted by address, high-bit decode"},
+    {"task_id":"x2p_router_adjacent_v1","windows":[[4096,4096],[8192,8192],[1073741824,12288]],"purpose":"Adjacent target boundary without an unmapped gap and unequal high window"}
+  ]
+}

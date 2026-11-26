@@ -58,14 +58,21 @@ def rollout_command(task,extra):
     return [sys.executable,'-m','environment.policy_experiment','--task',task['task_id']]+extra
 
 def main():
-    p=argparse.ArgumentParser();s=p.add_subparsers(dest='action');s.add_parser('list')
+    p=argparse.ArgumentParser();p.add_argument('--package',help='Verified generated task capsule; separate source-bound admission');s=p.add_subparsers(dest='action');s.add_parser('list')
     q=s.add_parser('show');q.add_argument('task')
     for action in ('reset','test','submit'):
         q=s.add_parser(action);q.add_argument('task');q.add_argument('work')
         if action!='reset':q.add_argument('out')
     q=s.add_parser('quality');q.add_argument('task');q.add_argument('out');q.add_argument('--resume',action='store_true')
     q=s.add_parser('rollout');q.add_argument('task');q.add_argument('extra',nargs=argparse.REMAINDER)
-    a=p.parse_args();catalog=load_catalog()
+    a=p.parse_args()
+    if a.package:
+        from task_families.router_v1.generate import verify
+        package=Path(a.package).resolve();verify(package)
+        extra=list(sys.argv[1:]);i=extra.index('--package') if '--package' in extra else next(i for i,v in enumerate(extra) if v.startswith('--package='))
+        del extra[i:i+(2 if extra[i]=='--package' else 1)]
+        raise SystemExit(subprocess.call([sys.executable,str(package/'scripts/tasks.py')]+extra,cwd=str(package)))
+    catalog=load_catalog()
     if a.action=='list':print(json.dumps(list(catalog.values()),indent=2));return
     if not a.action:p.error('Choose an action')
     if a.task not in catalog:p.error('Unknown task ID')

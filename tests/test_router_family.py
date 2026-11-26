@@ -1,0 +1,20 @@
+import copy,json,tempfile,unittest,subprocess,sys
+from pathlib import Path
+from task_families.router_v1.generate import validate,generate,verify,ROOT
+class RouterFamily(unittest.TestCase):
+ def test_invalid_contracts(self):
+  c=json.loads((ROOT/'task_families/router_v1/configurations.json').read_text())['instances'][0]
+  for windows in ([[[4096,4096]]],[[4096,True],[12288,8192],[36864,4096]],[[4096,8192],[4096,4096],[36864,4096]],[[0,4096],[12288,8192],[36864,4096]],[[4096,4096],[61440,4096],[36864,4096]]):
+   bad=copy.deepcopy(c);bad['windows']=windows
+   with self.assertRaises(ValueError):validate(bad)
+ def test_capsule_contract_and_tamper(self):
+  c=json.loads((ROOT/'task_families/router_v1/configurations.json').read_text())['instances'][2]
+  with tempfile.TemporaryDirectory() as tmp:
+   out=Path(tmp)/'capsule';generate(c,out);m=verify(out)
+   self.assertEqual(m['task_id'],c['task_id'])
+   code='from verifier.task002.scenarios import target,suite; assert target(0x1ffc)==0; assert target(0x2000)==1; assert target(0x4000)==-1; assert target(0x40002000)==2; assert len(suite(True))==22; from environment.check_baseline import check; assert check()["status"]=="pass"'
+   subprocess.run([sys.executable,'-c',code],cwd=str(out),check=True)
+   spec=(out/'tasks'/c['task_id']/'spec.md').read_text();self.assertIn('0x00002000–0x00003fff',spec)
+   with self.assertRaises(ValueError):generate(c,out)
+   p=out/'verifier/task002/vip.sv';p.write_text(p.read_text().replace("32'h1fff","32'h2fff"))
+   with self.assertRaises(ValueError):verify(out)

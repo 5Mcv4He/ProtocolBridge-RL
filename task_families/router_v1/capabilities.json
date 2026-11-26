@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "family_id": "x2p_three_target_router_v1",
+  "scope": "Reviewed finite three-target contract family; not a universal protocol registry",
+  "inherited_protocol": ["32-bit AXI4-Lite / APB4", "one global outstanding transaction", "independent AW/W capture", "setup/access/wait", "WSTRB/PSTRB", "response backpressure", "synchronous reset cancellation"],
+  "contract_parameters": ["three ordered [base,size] windows", "full-address lane selection", "local address = global address - selected base"],
+  "fixed_semantics": ["unmapped DECERR and zero read data", "no APB effect on miss", "selected-lane response only", "no IRQ, bursts, IDs, CDC or concurrency"],
+  "reused_components": ["Task002 active VIP wiring", "independent transaction scoreboard and target memories", "timing assertions", "1728 required cross bins", "two structurally different reference implementations", "13 negative controls", "source-bound Task Quality Gate and 40 Policy mechanisms", "isolated DSH and A/C/E feedback"],
+  "generated_components": ["address contract and task identity", "reference/negative decoder constants", "independently expressed SV oracle", "remapped protocol stimulus", "new boundaries and address-bit aliases", "reviewed semantic-anchor self-check", "package inventory and provenance"],
+  "not_generalized": ["target count or port widths", "Task003/004 FIFO pairing and retirement", "arbitration or burst splitting", "PPA reward"],
+  "diversity_unit": "parameterized engineering contract, not random seed and not a new independent ability",
+  "admission": "Generated metadata is candidate-only. A matching complete industrial gate is required for every generated source snapshot."
+}

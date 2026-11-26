@@ -1,0 +1,24 @@
+"""Generated traffic adapter; no RTL/ref decoder is imported here."""
+from ._protocol_template import suite as old_suite,target as old_target,BASES as OLD_BASES
+WINDOWS=WINDOWS_VALUE
+def target(a):
+ # Difference/size oracle, independently of inclusive SV/exclusive RTL tests.
+ matches=[i for i,(base,size) in enumerate(WINDOWS) if 0<=a-base<size]
+ if len(matches)>1:raise ValueError('Ambiguous contract')
+ return matches[0] if matches else -1
+
+def suite(public=False,seed=20261125):
+ cases=old_suite(public,seed)
+ for c in cases:
+  for r in c['rows']:
+   t=old_target(r[1]);r[1]=WINDOWS[t][0]+(r[1]-OLD_BASES[t])%WINDOWS[t][1] if t>=0 else 0
+ points=set([0,0xfffffffc,0xf000])
+ for base,size in WINDOWS:
+  points.update([base-4,base,base+4,base+size-4,base+size,base+size+4])
+  points.update(base^(1<<b) for b in range(2,32))
+ rows=[]
+ for address in sorted(points):
+  # Writes followed by reads, not only decoder classification.
+  rows.extend([[1,address,0xa55a1234,15,0,7,3,4,0,0,0],[0,address,0,0,0,0,2,3,0,0,0]])
+ cases.insert(0,{'name':'generated_boundaries','sequence':'address_data_sequence','rows':rows,'requirements':['G_RANGE_EDGES','G_ADDRESS_ALIAS'],'ready_mode':'reactive'})
+ return cases
