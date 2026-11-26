@@ -25,10 +25,23 @@ def report(package,gate,job=None):
    if v['source_sha256']!=bank_hash:raise ValueError('Control provenance mismatch')
    controls[name].update(variant=i,fixture_sha256=sha(package/entry))
  if r['results']['initial']['source_sha256']!=sha(package/'tasks'/tid/'workspace/bridge.sv'):raise ValueError('Initial RTL provenance mismatch')
+ obligations=[];op=package/'tasks'/tid/'obligations.json'
+ if op.exists():
+  for obligation in json.loads(op.read_text()):
+   observed={}
+   for entry in q['references']:
+    name=Path(entry).stem;raw=json.loads((gate/name/'result.json').read_text())
+    if any(raw.get(k)!=controls[name].get(k) for k in ('reward','category','source_sha256','suite_sha256')):raise ValueError('Raw obligation evidence differs from control summary')
+    bins={b for case in raw['cases'] for b in case.get('coverage_bins',[])}
+    if raw['reward']!=1 or not set(obligation['coverage']).issubset(bins):raise ValueError('Unobserved obligation: '+obligation['id'])
+    observed[name]=sorted(set(obligation['coverage'])&bins)
+   for name in obligation['controls']:
+    if controls.get(name,{}).get('reward')!=0:raise ValueError('Undetected obligation control')
+   obligations.append({'id':obligation['id'],'observed_by_reference':observed,'rejected_controls':obligation['controls']})
  timings=[e for p in gate.rglob('timing.json') for e in json.loads(p.read_text())]
  j=json.loads(Path(job).read_text()) if job else None
  if j and (j.get('status')!='finished' or j.get('exit_code')!=0):raise ValueError('Unfinished gate job')
- return {'schema':'family-admission-summary-v1','task_id':tid,'accepted':True,'manifest_sha256':sha(package/'family-manifest.json'),'gate_freeze_sha256':sha(gate/'freeze.json'),'gate_result_sha256':sha(gate/'result.json'),'reporter_sha256':sha(__file__),'toolchain':f['toolchain'],'positive_count':r['positive_count'],'negative_count':r['negative_count'],'mechanism_checks':r['mechanism_checks'],'isolation':r['isolation_probe_accepted'],'controls':controls,'source_file_count':len(m['files']),'source_bytes':sum((package/x).stat().st_size for x in m['files']),'wall_seconds':j['ended']-j['started'] if j else None,'instrumented_subprocess_seconds':{k:sum(e['wall_seconds'] for e in timings if e['kind']==k) for k in ('compile','simulate','io')} if timings else None,'timing_scope':'Instrumented control and session calls only; classification/initial checks without timing are excluded. These measurements are subsets of gate wall time.','numeric_eda_cost':numeric_cost(gate),'limitations':r['limitations']}
+ return {'schema':'family-admission-summary-v1','task_id':tid,'accepted':True,'manifest_sha256':sha(package/'family-manifest.json'),'gate_freeze_sha256':sha(gate/'freeze.json'),'gate_result_sha256':sha(gate/'result.json'),'reporter_sha256':sha(__file__),'toolchain':f['toolchain'],'positive_count':r['positive_count'],'negative_count':r['negative_count'],'mechanism_checks':r['mechanism_checks'],'isolation':r['isolation_probe_accepted'],'controls':controls,'obligations':obligations,'source_file_count':len(m['files']),'source_bytes':sum((package/x).stat().st_size for x in m['files']),'wall_seconds':j['ended']-j['started'] if j else None,'instrumented_subprocess_seconds':{k:sum(e['wall_seconds'] for e in timings if e['kind']==k) for k in ('compile','simulate','io')} if timings else None,'timing_scope':'Instrumented control and session calls only; classification/initial checks without timing are excluded. These measurements are subsets of gate wall time.','numeric_eda_cost':numeric_cost(gate),'limitations':r['limitations']}
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('package');p.add_argument('gate');p.add_argument('--job');p.add_argument('--out',required=True);a=p.parse_args()
  value=report(a.package,a.gate,a.job)

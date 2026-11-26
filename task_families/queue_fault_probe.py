@@ -53,6 +53,17 @@ def run(package, out):
                          'ledger_execution_marker':'PBQ_LEDGER_EXECUTED' in logs,
                          'simulation_done':'PBQ_DONE' in logs}
         (out/'progress.json').write_text(json.dumps(results,indent=2)+'\n')
+        current = results[name]
+        expected = (current['reward']==0 if name=='ordinary_candidate' else
+                    current['reward'] is None and current['category']=='infrastructure_error' and
+                    (current['ledger_disagreement_observed'] if name=='early_retirement_oracle' else
+                     current['simulation_done'] and not current['ledger_execution_marker']))
+        if not expected:
+            result={'schema':'queue-verifier-fault-probe-v1','accepted':False,'stopped_after':name,
+                    'manifest_sha256':sha(package/'family-manifest.json'),'probe_sha256':sha(__file__),
+                    'results':results,'scope':'Unexpected probe result; preserve evidence and stop subsequent tool calls.'}
+            (out/'result.json').write_text(json.dumps(result,indent=2)+'\n')
+            return result
     a,b,c = [results[n] for n in ('ordinary_candidate','early_retirement_oracle','missing_ledger_hook')]
     accepted = (a['reward']==0 and a['candidate_sha256']==b['candidate_sha256'] and
                 b['reward'] is None and b['category']=='infrastructure_error' and b['ledger_disagreement_observed'] and
