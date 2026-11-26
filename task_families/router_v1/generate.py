@@ -71,6 +71,8 @@ def generate(c,out):
   s=s.replace('| %d | 0x%08x–0x%08x | AXI address minus 0x%08x |'%(i,b,b+n-1,b),'| %d | 0x%08x–0x%08x | AXI address minus 0x%08x |'%(i,a,a+m-1,a))
  p.write_text(s)
  m=json.loads((task/'task.json').read_text());m['family']={'id':'x2p_three_target_router_v1','parameters':c,'base_commit':commit,'generator_sha256':sha(Path(__file__)),'semantic_anchors_sha256':sha(Path(__file__).with_name('oracle_checks.json'))};m['quality']['required_requirements']+=['G_RANGE_EDGES','G_ADDRESS_ALIAS']
+ for negative in m['quality']['negative_controls']:
+  if negative['source'].endswith('bad_address_alias.sv'):negative['first_case']='generated_boundaries'
  m['quality']['spec_review']['bounds']='Generated full 32-bit nonoverlapping ranges; independent boundary and alias checks; inherited timing bounds'
  (task/'task.json').write_text(json.dumps(m,indent=2)+'\n')
  (task/'README.md').write_text('# '+c['task_id']+'\n\n'+c['purpose']+'\n\nGenerated parameterized contract; three lanes, one global outstanding transaction. This is not a new protocol or independent ability count. See [Spec](spec.md) and task.json. Candidate only until its source-bound gate passes.\n')

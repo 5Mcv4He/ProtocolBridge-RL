@@ -20,5 +20,5 @@ def suite(public=False,seed=20261125):
  for address in sorted(points):
   # Writes followed by reads, not only decoder classification.
   rows.extend([[1,address,0xa55a1234,15,0,7,3,4,0,0,0],[0,address,0,0,0,0,2,3,0,0,0]])
- cases.insert(0,{'name':'generated_boundaries','sequence':'address_data_sequence','rows':rows,'requirements':['G_RANGE_EDGES','G_ADDRESS_ALIAS'],'ready_mode':'reactive'})
+ cases.append({'name':'generated_boundaries','sequence':'address_data_sequence','rows':rows,'requirements':['G_RANGE_EDGES','G_ADDRESS_ALIAS'],'ready_mode':'reactive'})
  return cases
