@@ -1,0 +1,107 @@
+{
+  "schema": "same-source-checker-gap-v1",
+  "finding": "Persistent valid at the end of the last stop bit was absent from the prior stimulus. Early capture passed old verifier4 and fails verifier5.",
+  "original_results_unchanged": true,
+  "rows": [
+    {
+      "task_id": "uart_tx_8n1_v1",
+      "source": "fixtures/uart_tx/boundary_v1/early_stop_accept_8n1.sv",
+      "source_sha256": "518e64de52402530ba5700b32e676e122e6bca48a001280ed26efc3bdfc879a7",
+      "injection_origin": "controlled spec-violating early acceptance before pre-edge ready",
+      "before": {
+        "task_id": "uart_tx_8n1_v1",
+        "source_sha256": "518e64de52402530ba5700b32e676e122e6bca48a001280ed26efc3bdfc879a7",
+        "verifier_sha256": "f87378f68abc29cece2c5afb78604c5a5c2e3308c0f6237c216a92f348b89651",
+        "grader_sha256": "13ab973663108a76b3451a7eb01efd57acc8521280df55d6857fe7b9d8f3f477",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "phase": "public",
+        "verifier_revision": 4,
+        "compile_seconds": 20.3144,
+        "compile_exit": 0,
+        "simulation_seconds": 7.5016,
+        "simulation_exit": 0,
+        "frames": 256,
+        "cycle_checks": 40960,
+        "simulation_sha256": "063d31044678d5f579dc134a5fb7698555c1bb9fbcb0bd534b4b17d6258db330",
+        "activity": {
+          "busy_offers": 5888,
+          "adjacent_frames": 255,
+          "accepted": 256
+        },
+        "wall_seconds": 29.2724
+      },
+      "after": {
+        "task_id": "uart_tx_8n1_v1",
+        "source_sha256": "518e64de52402530ba5700b32e676e122e6bca48a001280ed26efc3bdfc879a7",
+        "verifier_sha256": "0dcb5cdfa52e4725897e6ba7cdb9c17ce5b1576f026a2de5dd0053a4b55979ba",
+        "grader_sha256": "6a5bf900afd3b15bce1394e99e04e547a0f34ce4b4a46fe35232b2500d62d072",
+        "reward": 0.0,
+        "category": "transition_mismatch",
+        "verification_complete": false,
+        "phase": "public",
+        "verifier_revision": 5,
+        "compile_seconds": 18.9919,
+        "compile_exit": 0,
+        "simulation_seconds": 6.9501,
+        "simulation_exit": 0,
+        "diagnostic": [
+          "retire"
+        ],
+        "simulation_sha256": "79d0765c1857a548bb4027b9afbd6d03db95ffb1a7404c346d90121f5a520f5e",
+        "wall_seconds": 27.2638
+      }
+    },
+    {
+      "task_id": "uart_tx_8e1_v1",
+      "source": "fixtures/uart_tx/boundary_v1/early_stop_accept_8e1.sv",
+      "source_sha256": "15eb433e183d8197d1a50eeea00056bf9f26da6cfb5764036ad402679864b5e6",
+      "injection_origin": "controlled spec-violating early acceptance before pre-edge ready",
+      "before": {
+        "task_id": "uart_tx_8e1_v1",
+        "source_sha256": "15eb433e183d8197d1a50eeea00056bf9f26da6cfb5764036ad402679864b5e6",
+        "verifier_sha256": "f87378f68abc29cece2c5afb78604c5a5c2e3308c0f6237c216a92f348b89651",
+        "grader_sha256": "13ab973663108a76b3451a7eb01efd57acc8521280df55d6857fe7b9d8f3f477",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "phase": "public",
+        "verifier_revision": 4,
+        "compile_seconds": 17.5462,
+        "compile_exit": 0,
+        "simulation_seconds": 5.0956,
+        "simulation_exit": 0,
+        "frames": 256,
+        "cycle_checks": 45056,
+        "simulation_sha256": "550a19e100c86cec7aea118b65e33d696b00e8939bc941f9ca6a955426ac268b",
+        "activity": {
+          "busy_offers": 6400,
+          "adjacent_frames": 255,
+          "accepted": 256
+        },
+        "wall_seconds": 24.1405
+      },
+      "after": {
+        "task_id": "uart_tx_8e1_v1",
+        "source_sha256": "15eb433e183d8197d1a50eeea00056bf9f26da6cfb5764036ad402679864b5e6",
+        "verifier_sha256": "0dcb5cdfa52e4725897e6ba7cdb9c17ce5b1576f026a2de5dd0053a4b55979ba",
+        "grader_sha256": "6a5bf900afd3b15bce1394e99e04e547a0f34ce4b4a46fe35232b2500d62d072",
+        "reward": 0.0,
+        "category": "transition_mismatch",
+        "verification_complete": false,
+        "phase": "public",
+        "verifier_revision": 5,
+        "compile_seconds": 18.9737,
+        "compile_exit": 0,
+        "simulation_seconds": 6.7115,
+        "simulation_exit": 0,
+        "diagnostic": [
+          "retire"
+        ],
+        "simulation_sha256": "f906640c99cfcd1a0f0e60afc0b8da3302f6801655ad9a2ad8bfecb93217c0b3",
+        "wall_seconds": 27.2265
+      }
+    }
+  ]
+}

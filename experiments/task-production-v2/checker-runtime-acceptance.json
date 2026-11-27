@@ -1,0 +1,120 @@
+{
+  "schema": "fifo-checker-runtime-acceptance-v1",
+  "accepted": true,
+  "checks": [
+    {
+      "check": "fifo_checker_d2_v1-qualified",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-changed-package-refused",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-initial-fail",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-projected-fields",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-old-feedback-retains-identity",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-budget-reject-no-backend",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-submit-frozen",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-closed-action",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-requires-solver-stop",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-terminal-pass",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-heldout-pass",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-terminal-not-in-observation",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-separate-inputs",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d2_v1-three-calls",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-qualified",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-changed-package-refused",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-initial-fail",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-projected-fields",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-old-feedback-retains-identity",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-budget-reject-no-backend",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-submit-frozen",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-closed-action",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-requires-solver-stop",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-terminal-pass",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-heldout-pass",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-terminal-not-in-observation",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-separate-inputs",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d3_v1-three-calls",
+      "accepted": true
+    }
+  ],
+  "real_vcs_runs": 6,
+  "scope": "Real public/terminal/heldout checks through existing Session; no model invoked; isolation runtime separately probed before model calibration"
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "checker-calibration-results-v1",
+  "trials": [
+    {
+      "trial_id": "checker-d2-r1",
+      "task_id": "fifo_checker_d2_v1",
+      "actions": 12,
+      "edits": 4,
+      "public_test_calls": 4,
+      "wall_seconds": 60.6129,
+      "model_request_seconds": 29.9277,
+      "terminal_reward": 1.0,
+      "heldout_reward": 1.0,
+      "tokens": 25371,
+      "protocol_errors": 1,
+      "public_verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL",
+        "PASS"
+      ],
+      "feedback_delivered": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "final_tested_hash": true,
+      "compiles": 6,
+      "compile_seconds": 13.2731,
+      "simulation_seconds": 5.5882000000000005,
+      "audit_accepted": true
+    },
+    {
+      "trial_id": "checker-d3-r1",
+      "task_id": "fifo_checker_d3_v1",
+      "actions": 6,
+      "edits": 1,
+      "public_test_calls": 1,
+      "wall_seconds": 31.6618,
+      "model_request_seconds": 15.0342,
+      "terminal_reward": 1.0,
+      "heldout_reward": 1.0,
+      "tokens": 8982,
+      "protocol_errors": 1,
+      "public_verdicts": [
+        "PASS"
+      ],
+      "feedback_delivered": [
+        true
+      ],
+      "final_tested_hash": true,
+      "compiles": 3,
+      "compile_seconds": 5.8474,
+      "simulation_seconds": 3.1516,
+      "audit_accepted": true
+    }
+  ],
+  "started": 2,
+  "terminal_successes": 2,
+  "heldout_successes": 2,
+  "tokens": 34353,
+  "api_currency_cost": null,
+  "offline_candidate_simulations": 0,
+  "source_analysis": {
+    "checker-d2-r1": "First three edited candidates omitted pop_id comparison when pop=1,push=0. The fourth restructured all pop handling and passed. Only category, not mismatch row or oracle values, was delivered.",
+    "checker-d3-r1": "First edited candidate passed public and terminal. One sample cannot establish relative depth difficulty."
+  },
+  "limits": [
+    "2 exploratory independent sessions; no stable success-rate inference",
+    "Heldout separate from training reward",
+    "No parameter training or benefit demonstrated"
+  ]
+}

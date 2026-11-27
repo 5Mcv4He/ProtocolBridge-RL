@@ -1,0 +1,47 @@
+module fifo_checker(input logic clk,rst_n,push,pop,
+ input logic [7:0] push_id,pop_id,output logic error);
+  logic [7:0] q0, q1;
+  logic [1:0] count;
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      q0 <= 8'd0;
+      q1 <= 8'd0;
+      count <= 2'd0;
+      error <= 1'b0;
+    end else if (error) begin
+      error <= 1'b1;
+    end else if (pop) begin
+      if (count == 2'd0) begin
+        error <= 1'b1;
+      end else begin
+        // pop plus optional push
+        if (pop_id != q0) begin
+          error <= 1'b1;
+        end else if (push) begin
+          if (count == 2'd2) begin
+            q0 <= q1;
+            q1 <= push_id;
+          end else begin
+            q0 <= push_id;
+          end
+          error <= 1'b0;
+        end else begin
+          if (count == 2'd2) q0 <= q1;
+          count <= count - 2'd1;
+          error <= 1'b0;
+        end
+      end
+    end else if (push) begin
+      if (count == 2'd2) begin
+        error <= 1'b1;
+      end else begin
+        if (count == 2'd0) q0 <= push_id;
+        else q1 <= push_id;
+        count <= count + 2'd1;
+        error <= 1'b0;
+      end
+    end else begin
+      error <= 1'b0;
+    end
+  end
+endmodule

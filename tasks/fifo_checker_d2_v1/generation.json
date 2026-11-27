@@ -1,0 +1,24 @@
+{
+  "schema": "fifo-checker-generation-v2",
+  "task_id": "fifo_checker_d2_v1",
+  "generator_sha256": "8fc2d3925791db43be312f05c749d13c56ad60af488ec04e2d1d76c7bffbf226",
+  "contract_generator_sha256": "132d40537ae93b58a7827fc3346845e7da1b07366eeaba93cc8da5aede0714d8",
+  "files": {
+    "README.md": "2d6508b9740090c21b15d2b67f6d70f36b5175d2ca70c6c34eaa783b8423f6ec",
+    "alternate.sv": "90d1bc4a42ed58d4487fa6a7ee1858cd59f197fe5c3ade33a7d743e1fb16d2ca",
+    "controls/accept_overflow.sv": "d600c59607935e6d24a8bae0491d61d4d67e001cadf22da6781d650ea1e4ef4f",
+    "controls/always_pass.sv": "7361c4a79428cad455cf2fae943064c56efb2c0db1fddf54982825421da042ad",
+    "controls/always_reject.sv": "237a84e1b5bca0b45de26c090e2e4bf1859ee8c711437a8c85466a47feec75d5",
+    "controls/clear_error_on_idle.sv": "58005538fef088649d21ba12bd7fc89637dd81a73505ca50eb0c5f6749806630",
+    "controls/compare_new_id.sv": "182584f299c880e12e9a1bd4de7f7ae2e8c63b81ffebe65e0f6e6049aed164d8",
+    "controls/forget_pop_pointer.sv": "ee096acc4f8726712e2a1097e80bff27bb076a9ab867320209e0c6e9175e22c5",
+    "controls/no_identity_check.sv": "a31a3e08c025215cfbdcea6f6b310a3c832086c32e11820a00dcf36f7fd9eb21",
+    "controls/reject_full_exchange.sv": "87f61e74549926c1ad45c43e3ee26e78d3264198db29421afc778577369e73e8",
+    "controls/reset_keeps_count.sv": "a51d5e1e1406223429914e484b3844c0a1f2a1d4813376a6fd1c40d67da3ed14",
+    "reference.sv": "cd7f60cf2dc938e34dc74e88a7a600dc686bf8f6460a5c2ff817736195c5e6d6",
+    "spec.md": "4632ce077675b6ea77082ed9045882e33bcc25a3fdc0a3b3d01b119da1500aa3",
+    "task.json": "0b4eb665046dc52d7e0f19b51fe1209d170a0687617b81adf5942697b99bacbd",
+    "workspace/checker.sv": "0e76011acd9e0166edf1d0f1aa4d08dc150cbe46971161e8d2b1ce53f71a311e"
+  },
+  "status": "candidate; no automatic admission"
+}
