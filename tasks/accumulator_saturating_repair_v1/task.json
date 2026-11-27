@@ -1,0 +1,18 @@
+{
+  "schema": "bounded-independent-reference-task-v1",
+  "task_id": "accumulator_saturating_repair_v1",
+  "version": 1,
+  "type": "rtl-repair",
+  "deliverable": "accumulator.sv",
+  "capabilities": [
+    "synchronous-state-update",
+    "reset-load-enable-priority",
+    "unsigned-saturation-and-carry"
+  ],
+  "reference": "fixtures/independent_formal/reference_saturating.sv",
+  "initial_source_origin": "controlled mutation, not historical model output",
+  "terminal_verifier": "verifier.independent_formal.campaign",
+  "comparison": "independent RTL reference versus submitted RTL; no synthesis-self-equivalence",
+  "admission": "pending",
+  "model_calibration": "not_started"
+}

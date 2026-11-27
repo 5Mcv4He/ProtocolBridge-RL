@@ -1,0 +1,33 @@
+{
+  "schema": "artifact-mechanism-acceptance-v1",
+  "checks": {
+    "initial_fail": true,
+    "edited_pass": true,
+    "candidate_binding": true,
+    "third_rejected_no_run": true,
+    "terminal_after_stop": true,
+    "no_reference_feedback": true
+  },
+  "accepted": true,
+  "actual_public_checks": 2,
+  "actual_terminal_checks": 1,
+  "terminal": {
+    "task_id": "accumulator_wrap_repair_v1",
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "source_sha256": "38421d19bc814a0fdf5c791b5555331ad5ae58b285da5d505b7dc3d9101820a6",
+    "reference_sha256": "82f7d4ada453382872ce83dec43d60529552e265f9673584b98ae48f385a7f83",
+    "script_sha256": "2aa5e2e6d7c83e854340e35811859e8723332df263a37e5f9ef43d6e68a68b82",
+    "grader_sha256": "362e638452ff20e3acc41d51b5a0026f2af4c0b6b2aff8a6ed4b9562d025dcd0",
+    "comparison": "independent_reference_rtl",
+    "equivalent": true,
+    "exit_code": 0,
+    "passing_points": 16,
+    "failing_points": 0,
+    "log_sha256": "c05b502c27174128290b938e6bc77a9a018b6c72463adf6f7a673c4ad717234a",
+    "tool_version": "O-2018.06-SP1",
+    "wall_seconds": 3.5568,
+    "verdict_determinate": true
+  }
+}

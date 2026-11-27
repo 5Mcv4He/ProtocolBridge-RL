@@ -1,0 +1,17 @@
+{
+  "schema": "pb-exchange-manifest-v6",
+  "records": 2,
+  "exporter_sha256": "1df6cc98af70a439487b5c24a879812e5a5254c4ac13330daa968f0760a52f16",
+  "files": {
+    "analysis/offline.jsonl": "572353641ffc1b4de1f1cb09915787c1434bfbce0968f2b8c5651c5dafb00827",
+    "artifacts/310695a06619d342e1a874175a64294c1a5bae5996ca35e0bfa930c75ac87732.txt": "310695a06619d342e1a874175a64294c1a5bae5996ca35e0bfa930c75ac87732",
+    "artifacts/39908d60987432a21c5eaf6cd479aedaa56ffae829eb0ebf517ef3c6be247d8b.txt": "39908d60987432a21c5eaf6cd479aedaa56ffae829eb0ebf517ef3c6be247d8b",
+    "artifacts/65a6a6cf1efbe4e84aac64ddb1527677a898236bff8b34093efa45b7688a7631.txt": "65a6a6cf1efbe4e84aac64ddb1527677a898236bff8b34093efa45b7688a7631",
+    "artifacts/82f7d4ada453382872ce83dec43d60529552e265f9673584b98ae48f385a7f83.sv": "82f7d4ada453382872ce83dec43d60529552e265f9673584b98ae48f385a7f83",
+    "artifacts/82f7d4ada453382872ce83dec43d60529552e265f9673584b98ae48f385a7f83.txt": "82f7d4ada453382872ce83dec43d60529552e265f9673584b98ae48f385a7f83",
+    "artifacts/a9980e72de15869235d314716744ba4443035cb59a8993fe26ffbcdbb6c6d528.txt": "a9980e72de15869235d314716744ba4443035cb59a8993fe26ffbcdbb6c6d528",
+    "evaluation/heldout.jsonl": "3d50ce215e6b6dc14d7624bab5854db30e5509f8e95f5f2da0d840285f8199e6",
+    "training/rollouts.jsonl": "0ec4667118946ef34c8703fb2b7a32990a497aa0a8ec161bc69f267369568769"
+  },
+  "scope": "Reviewed tool interactions; raw model replies preserved privately and used for replay audit. No token-level on-policy training claim."
+}

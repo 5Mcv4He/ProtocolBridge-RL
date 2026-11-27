@@ -1,0 +1,30 @@
+[
+  {
+    "task_id": "accumulator_wrap_repair_v1",
+    "source_sha256": "82f7d4ada453382872ce83dec43d60529552e265f9673584b98ae48f385a7f83",
+    "oracle_sha256": "00b1173a4e897a4dc6d5a15373c2f4093e57c76afcce9baee7113f98deb18f87",
+    "reward": 1.0,
+    "category": "pass",
+    "accepted": true,
+    "compile_exit": 0,
+    "simulation_exit": 0,
+    "checks": 196610,
+    "state_operand_pairs": 65536,
+    "simulation_sha256": "a716adb35f84477eee07536e909ee5318d576955e3b66712896c228499af05e9",
+    "wall_seconds": 5.3447
+  },
+  {
+    "task_id": "accumulator_saturating_repair_v1",
+    "source_sha256": "a741fa6d3580cefadcc2a60101ec519b6b28cb225796916c4b2481f6a6b9d145",
+    "oracle_sha256": "00b1173a4e897a4dc6d5a15373c2f4093e57c76afcce9baee7113f98deb18f87",
+    "reward": 1.0,
+    "category": "pass",
+    "accepted": true,
+    "compile_exit": 0,
+    "simulation_exit": 0,
+    "checks": 196610,
+    "state_operand_pairs": 65536,
+    "simulation_sha256": "00fc9878ab315e419457ca1aef573f465e00d888f409e0134c67e2ae75d86077",
+    "wall_seconds": 4.4064
+  }
+]

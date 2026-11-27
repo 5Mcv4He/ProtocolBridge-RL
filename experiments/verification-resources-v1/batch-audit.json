@@ -1,0 +1,631 @@
+{
+  "schema": "vip-example-evidence-audit-v1",
+  "rows": [
+    {
+      "suite": "can_svt",
+      "log_sha256": "281b6eb1be4e3fd51537aae5787b954083f1927a5b5577e1bd25f49517ce4968",
+      "classification": "example_rejected_simulator",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "ddr_svt",
+      "log_sha256": "d990a346b08eee1632797578a1e0c534501dfebe9256882eb179ae9d89df916d",
+      "classification": "build_driver_failure",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "dfi_svt",
+      "log_sha256": "a911f999c7fff1da0a7413db218b27f9a79bb80e539b98aa51a321375d026180",
+      "classification": "compiler_error",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [
+        "SFCOR"
+      ],
+      "finish_seen": false,
+      "tests": [
+        "basic_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "emmc_svt",
+      "log_sha256": "721e3962293494875b067ed1d943629b746ff3ca2186dc9d6e5f68d4b1fe4144",
+      "classification": "build_driver_failure",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "ethernet_svt",
+      "log_sha256": "b7f092ccc8197d9bc94a9cff36a97d0dae4d2702bf16900b399292116cf24b5b",
+      "classification": "build_driver_failure",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "flexray_svt",
+      "log_sha256": "04c2763ea4ca260b07bc1dbaaaf65455284dea2e4b858897d1b0382bb37f0c58",
+      "classification": "example_completed_zero_reports",
+      "methodology": "UVM",
+      "report_counts": {
+        "UVM_ERROR": [
+          0
+        ],
+        "UVM_FATAL": [
+          0
+        ],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "allowcoldstart_cmd_in_integration_listen_state"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "hdmi_svt",
+      "log_sha256": "4ef64c2198097e56aa8c9bb2440e11622f7c91a1eaa8c11b979d995250eb1041",
+      "classification": "example_completed_zero_reports",
+      "methodology": "UVM",
+      "report_counts": {
+        "UVM_ERROR": [
+          0
+        ],
+        "UVM_FATAL": [
+          0
+        ],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "arc_cec_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "i2c_svt",
+      "log_sha256": "281b6eb1be4e3fd51537aae5787b954083f1927a5b5577e1bd25f49517ce4968",
+      "classification": "example_rejected_simulator",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "i2s_svt",
+      "log_sha256": "dec6245c1405be4125e013113525396ad6f410cb640c106ea882c476afe13b50",
+      "classification": "compiler_error",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [
+        "SFCOR"
+      ],
+      "finish_seen": false,
+      "tests": [
+        "i2s_mode_random_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "jedec_ufs_svt",
+      "log_sha256": "1b4bfedbdad721aafda9c5406e621eff2a4759d0b92832f281b050aacf10af8c",
+      "classification": "example_completed_zero_reports",
+      "methodology": "UVM",
+      "report_counts": {
+        "UVM_ERROR": [
+          0
+        ],
+        "UVM_FATAL": [
+          0
+        ],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "backdoor_mem_write_read_serial"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "jesd204_svt",
+      "log_sha256": "8ec78cce748e3b9c6f7c6ae45f69b881d1b4774abd71d9df49539452f6638adf",
+      "classification": "example_completed_zero_reports",
+      "methodology": "UVM",
+      "report_counts": {
+        "UVM_ERROR": [
+          0
+        ],
+        "UVM_FATAL": [
+          0
+        ],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "jesd204_basic_scenario_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "jtag_svt",
+      "log_sha256": "7aa6ff1cd3c4ca5011c268db8da3c98cb0a1df7a5d1d70b6fcbfb864cdbb1fe0",
+      "classification": "build_driver_failure",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "lin_svt",
+      "log_sha256": "281b6eb1be4e3fd51537aae5787b954083f1927a5b5577e1bd25f49517ce4968",
+      "classification": "example_rejected_simulator",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "lpddr_svt",
+      "log_sha256": "b33922a3ad3ebc90ec7d8fe02ae307e1de447f918660476af8236f03c4990a1e",
+      "classification": "build_driver_failure",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "mipi_dbi_svt",
+      "log_sha256": "4c99b1608fadf4c07d1b119294500ed162e47da8ab5cf07a87d0805d490ad1cc",
+      "classification": "example_completed_zero_reports",
+      "methodology": "UVM",
+      "report_counts": {
+        "UVM_ERROR": [
+          0
+        ],
+        "UVM_FATAL": [
+          0
+        ],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "base_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "mipi_dpi_svt",
+      "log_sha256": "0940e99d1053ecb55b2d4a7c9c328a10677656c2d9c846a837433e97a1c0afa8",
+      "classification": "example_completed_zero_reports",
+      "methodology": "UVM",
+      "report_counts": {
+        "UVM_ERROR": [
+          0
+        ],
+        "UVM_FATAL": [
+          0
+        ],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "base_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "mipi_i3c_svt",
+      "log_sha256": "281b6eb1be4e3fd51537aae5787b954083f1927a5b5577e1bd25f49517ce4968",
+      "classification": "example_rejected_simulator",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "mipi_rffe_svt",
+      "log_sha256": "92beb809843546b52f2199032111d479c6bc050cc5aba096274f7bb4c6a10f38",
+      "classification": "example_completed_zero_reports",
+      "methodology": "UVM",
+      "report_counts": {
+        "UVM_ERROR": [
+          0
+        ],
+        "UVM_FATAL": [
+          0
+        ],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "base_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "mipi_slimbus_svt",
+      "log_sha256": "42f3df3c993e706db1b5c896f015b7dbb28fb2ffdae637bc519364d7cf4f2df4",
+      "classification": "build_driver_failure",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "mipi_soundwire_svt",
+      "log_sha256": "6743552527863b35daf886075b762f4bef23cd9f0a8d892024a900242433b104",
+      "classification": "build_driver_failure",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "mipi_spmi_svt",
+      "log_sha256": "0cd9dcf2542039997d6cf99853cc92db9c277af95e57adb070205a8de5bdc199",
+      "classification": "example_completed_zero_reports",
+      "methodology": "UVM",
+      "report_counts": {
+        "UVM_ERROR": [
+          0
+        ],
+        "UVM_FATAL": [
+          0
+        ],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "base_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "mipi_svt",
+      "log_sha256": "71ad800df45596c7098de5bb4ce5c897a899d0cfa25da1cf1d997cf7f8de7c3a",
+      "classification": "compiler_error",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [
+        "SFCOR"
+      ],
+      "finish_seen": false,
+      "tests": [
+        "base_ppi_serial_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "mipi_unipro_svt",
+      "log_sha256": "8d36ba5e736cea05cf937a91b493e6cdaae3d70a106a1682a0953cb4c8c4b4c3",
+      "classification": "example_completed_zero_reports",
+      "methodology": "UVM",
+      "report_counts": {
+        "UVM_ERROR": [
+          0
+        ],
+        "UVM_FATAL": [
+          0
+        ],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "base_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "mphy_svt",
+      "log_sha256": "9222bb314d70b80ead9dee926efa2919dc458bb7a875b3e64939f4b306fa149a",
+      "classification": "example_completed_zero_reports",
+      "methodology": "UVM",
+      "report_counts": {
+        "UVM_ERROR": [
+          0
+        ],
+        "UVM_FATAL": [
+          0
+        ],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "base_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "onfi_svt",
+      "log_sha256": "7967c81193c818e3309a9b3dd1dd0f60050d4ff669cfe66166de330e8ac4654c",
+      "classification": "build_driver_failure",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "pcie_svt",
+      "log_sha256": "d5b51e5164f9445ca5109d47ac04d2ebfb902579c97e488458f8ab29e4290468",
+      "classification": "build_driver_failure",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "swd_svt",
+      "log_sha256": "4cc6d9758ce4231d0185bcb9d228e754872350cc33e6089023066b8b7cccf56f",
+      "classification": "example_completed_zero_reports",
+      "methodology": "UVM",
+      "report_counts": {
+        "UVM_ERROR": [
+          0
+        ],
+        "UVM_FATAL": [
+          0
+        ],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "base_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "tnand_svt",
+      "log_sha256": "f140b1a24eee175ef12328aca52529b14dd12b59f40453c19abed299368f54c9",
+      "classification": "build_driver_failure",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "uart_svt",
+      "log_sha256": "47f1fdca32f340475dbaf34ff9ff184d07a794570d9b102811ab0212e6d7e4d3",
+      "classification": "compiler_error",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [
+        "SFCOR"
+      ],
+      "finish_seen": false,
+      "tests": [
+        "base_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "usb_pd_svt",
+      "log_sha256": "281b6eb1be4e3fd51537aae5787b954083f1927a5b5577e1bd25f49517ce4968",
+      "classification": "example_rejected_simulator",
+      "methodology": null,
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [],
+        "OVM_FATAL": []
+      },
+      "compiler_error_codes": [],
+      "finish_seen": false,
+      "tests": [],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    },
+    {
+      "suite": "usb_svt",
+      "log_sha256": "4ae0d59685b8ccc65226362ef9a38c7557b0dc3c2e607423569b2d13f6ef772e",
+      "classification": "example_completed_zero_reports",
+      "methodology": "OVM",
+      "report_counts": {
+        "UVM_ERROR": [],
+        "UVM_FATAL": [],
+        "OVM_ERROR": [
+          0
+        ],
+        "OVM_FATAL": [
+          0
+        ]
+      },
+      "compiler_error_codes": [],
+      "finish_seen": true,
+      "tests": [
+        "base_serial_test"
+      ],
+      "task_correctness_established": false,
+      "separate_compile_sim_exit_codes_available": false
+    }
+  ],
+  "counts": {
+    "example_rejected_simulator": 5,
+    "build_driver_failure": 10,
+    "compiler_error": 4,
+    "example_completed_zero_reports": 12
+  },
+  "limits": [
+    "Make driver exit is not a preserved individual compile/simulation exit status.",
+    "Zero report counts and finish establish only example completion, not effective protocol transactions or task validity.",
+    "No source or tool upgrade performed by this auditor."
+  ]
+}
