@@ -1,0 +1,208 @@
+{
+  "schema": "i2c-observed-behavior-v1",
+  "rows": [
+    {
+      "trial_id": "i2c-byte-r1",
+      "tests": [
+        {
+          "action": 5,
+          "source_sha256": "4fe9e1aa2587ddf0e43a3e01632cb86b2db43dd8264b453a306395d952c5be04",
+          "delivered_feedback": {
+            "status": "FAIL",
+            "category": "protocol_timing_error",
+            "source_sha256": "4fe9e1aa2587ddf0e43a3e01632cb86b2db43dd8264b453a306395d952c5be04",
+            "remaining_test_calls": 3
+          },
+          "delivered": true,
+          "offline_public_diagnostic": "ack hold window",
+          "diagnostic_was_sent_to_agent": false,
+          "compile_log_sha256": "404008fb2362a3a97d6f73fdaa4ba4eaac3c05d743142b0564515dee87e647ce"
+        },
+        {
+          "action": 7,
+          "source_sha256": "04826b4f24f6422a515eff23d4cdecf29c9b493acc267755f8651a746dbc03e2",
+          "delivered_feedback": {
+            "status": "FAIL",
+            "category": "protocol_timing_error",
+            "source_sha256": "04826b4f24f6422a515eff23d4cdecf29c9b493acc267755f8651a746dbc03e2",
+            "remaining_test_calls": 2
+          },
+          "delivered": true,
+          "offline_public_diagnostic": "ack hold window",
+          "diagnostic_was_sent_to_agent": false,
+          "compile_log_sha256": "4cdd37a072fd8b884a5a45cf220bc78424fefee59c8363e71c2a940b001f76ce"
+        },
+        {
+          "action": 9,
+          "source_sha256": "31f4dfbd0e3fcf9a167f72a4be84c365a54fb79ed8433b70725957f915bb5148",
+          "delivered_feedback": {
+            "status": "FAIL",
+            "category": "protocol_timing_error",
+            "source_sha256": "31f4dfbd0e3fcf9a167f72a4be84c365a54fb79ed8433b70725957f915bb5148",
+            "remaining_test_calls": 1
+          },
+          "delivered": true,
+          "offline_public_diagnostic": "ack hold window",
+          "diagnostic_was_sent_to_agent": false,
+          "compile_log_sha256": "b7690b9dbbbc66cce04ca8c76c08abc11e3f856c43cd53dd59f2a927f1342c51"
+        },
+        {
+          "action": 12,
+          "source_sha256": "93750a04f78cedf46e201b0e2469ed3aea5a8ad3b132b942dcb3d87d251581d9",
+          "delivered_feedback": {
+            "status": "FAIL",
+            "category": "protocol_timing_error",
+            "source_sha256": "93750a04f78cedf46e201b0e2469ed3aea5a8ad3b132b942dcb3d87d251581d9",
+            "remaining_test_calls": 0
+          },
+          "delivered": true,
+          "offline_public_diagnostic": "ack hold window",
+          "diagnostic_was_sent_to_agent": false,
+          "compile_log_sha256": "e54a6de2abe65a6b65d4e687eae863ad83dc8529387b79c473b090ae213d1f22"
+        }
+      ],
+      "candidates": [
+        {
+          "action": 4,
+          "sha256": "4fe9e1aa2587ddf0e43a3e01632cb86b2db43dd8264b453a306395d952c5be04",
+          "artifact": "exchange/artifacts/4fe9e1aa2587ddf0e43a3e01632cb86b2db43dd8264b453a306395d952c5be04.txt"
+        },
+        {
+          "action": 6,
+          "sha256": "04826b4f24f6422a515eff23d4cdecf29c9b493acc267755f8651a746dbc03e2",
+          "artifact": "exchange/artifacts/04826b4f24f6422a515eff23d4cdecf29c9b493acc267755f8651a746dbc03e2.txt"
+        },
+        {
+          "action": 8,
+          "sha256": "31f4dfbd0e3fcf9a167f72a4be84c365a54fb79ed8433b70725957f915bb5148",
+          "artifact": "exchange/artifacts/31f4dfbd0e3fcf9a167f72a4be84c365a54fb79ed8433b70725957f915bb5148.txt"
+        },
+        {
+          "action": 11,
+          "sha256": "93750a04f78cedf46e201b0e2469ed3aea5a8ad3b132b942dcb3d87d251581d9",
+          "artifact": "exchange/artifacts/93750a04f78cedf46e201b0e2469ed3aea5a8ad3b132b942dcb3d87d251581d9.txt"
+        },
+        {
+          "action": 14,
+          "sha256": "e3a5c1008937c7f219ce1ba112f3a1fcedc4f2a3d374f2fb960352ecaf5eb095",
+          "artifact": "exchange/artifacts/e3a5c1008937c7f219ce1ba112f3a1fcedc4f2a3d374f2fb960352ecaf5eb095.txt"
+        }
+      ]
+    },
+    {
+      "trial_id": "i2c-word-r1",
+      "tests": [
+        {
+          "action": 5,
+          "source_sha256": "c322948aca8def04e83d6af684e70edc1bebf401bce6c0fa6a99ba62702080c9",
+          "delivered_feedback": {
+            "status": "FAIL",
+            "category": "compile_error",
+            "source_sha256": "c322948aca8def04e83d6af684e70edc1bebf401bce6c0fa6a99ba62702080c9",
+            "remaining_test_calls": 3
+          },
+          "delivered": true,
+          "offline_public_diagnostic": null,
+          "diagnostic_was_sent_to_agent": false,
+          "compile_log_sha256": "28a11a2d09a42c2b2c80930f8523c3337c5dc45f574cdf797e9b79d74cf2653d"
+        },
+        {
+          "action": 7,
+          "source_sha256": "73e0672c6bc7e80ac751a80165fdaa6c4e2e21ec0df399e60610692344f0df56",
+          "delivered_feedback": {
+            "status": "FAIL",
+            "category": "protocol_timing_error",
+            "source_sha256": "73e0672c6bc7e80ac751a80165fdaa6c4e2e21ec0df399e60610692344f0df56",
+            "remaining_test_calls": 2
+          },
+          "delivered": true,
+          "offline_public_diagnostic": "ack hold window",
+          "diagnostic_was_sent_to_agent": false,
+          "compile_log_sha256": "f2210e0510d54004f362f5be3bef877475a096422437457c40361360e6b8c5d1"
+        },
+        {
+          "action": 9,
+          "source_sha256": "4676d1e3169bb068524ab39832dac9027f0b83a660c83ccbf7268635b15fd684",
+          "delivered_feedback": {
+            "status": "FAIL",
+            "category": "transaction_mismatch",
+            "source_sha256": "4676d1e3169bb068524ab39832dac9027f0b83a660c83ccbf7268635b15fd684",
+            "remaining_test_calls": 1
+          },
+          "delivered": true,
+          "offline_public_diagnostic": "reset outputs",
+          "diagnostic_was_sent_to_agent": false,
+          "compile_log_sha256": "bc95667eae0c17189e0ac5ef46c8351e60f9bd170e00ffdb89c574a30b5054af"
+        },
+        {
+          "action": 11,
+          "source_sha256": "e58e2ec33352577c8a7b349f2c4d611a5160055958a46d8a541e05d66ee2fde1",
+          "delivered_feedback": {
+            "status": "FAIL",
+            "category": "protocol_timing_error",
+            "source_sha256": "e58e2ec33352577c8a7b349f2c4d611a5160055958a46d8a541e05d66ee2fde1",
+            "remaining_test_calls": 0
+          },
+          "delivered": true,
+          "offline_public_diagnostic": "ack hold window",
+          "diagnostic_was_sent_to_agent": false,
+          "compile_log_sha256": "065dacff3f06e2b511055628dcc291c555e579f3dcd19f2c211527a6fa4e6372"
+        }
+      ],
+      "candidates": [
+        {
+          "action": 4,
+          "sha256": "c322948aca8def04e83d6af684e70edc1bebf401bce6c0fa6a99ba62702080c9",
+          "artifact": "exchange/artifacts/c322948aca8def04e83d6af684e70edc1bebf401bce6c0fa6a99ba62702080c9.txt"
+        },
+        {
+          "action": 6,
+          "sha256": "73e0672c6bc7e80ac751a80165fdaa6c4e2e21ec0df399e60610692344f0df56",
+          "artifact": "exchange/artifacts/73e0672c6bc7e80ac751a80165fdaa6c4e2e21ec0df399e60610692344f0df56.txt"
+        },
+        {
+          "action": 8,
+          "sha256": "4676d1e3169bb068524ab39832dac9027f0b83a660c83ccbf7268635b15fd684",
+          "artifact": "exchange/artifacts/4676d1e3169bb068524ab39832dac9027f0b83a660c83ccbf7268635b15fd684.txt"
+        },
+        {
+          "action": 10,
+          "sha256": "e58e2ec33352577c8a7b349f2c4d611a5160055958a46d8a541e05d66ee2fde1",
+          "artifact": "exchange/artifacts/e58e2ec33352577c8a7b349f2c4d611a5160055958a46d8a541e05d66ee2fde1.txt"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "trial_id": "i2c-byte-r1",
+      "from_action": 11,
+      "to_action": 14,
+      "finding": "Last edit replaces direct falling-edge ACK output updates with pending target and counter (ack_dly==49). Four earlier public tests all found ACK hold-window violations; final source was publicly untested, then terminal and heldout both passed.",
+      "evidence": "Actual public failures, source diff and final grading; no claim about hidden model reasoning or causal feedback benefit"
+    },
+    {
+      "trial_id": "i2c-word-r1",
+      "from_action": 4,
+      "to_action": 6,
+      "finding": "First source uses five enum labels in two bits and fails compilation; second source compiles and reaches ACK hold-window failure.",
+      "evidence": "Compiler diagnostic and actual public grader"
+    },
+    {
+      "trial_id": "i2c-word-r1",
+      "from_action": 6,
+      "to_action": 8,
+      "finding": "Edit removes item_valid and item_data output assignments; simulation rejects unknown reset outputs.",
+      "evidence": "Source diff and actual public reset failure; confirmed regression in output connectivity"
+    },
+    {
+      "trial_id": "i2c-word-r1",
+      "from_action": 8,
+      "to_action": 10,
+      "finding": "Output assignments restored; public test returns to ACK hold-window failure. Same known-failing source is submitted and receives terminal0/heldout0.",
+      "evidence": "Source diff, actual public result, matching submission hash; partial repair is not task success"
+    }
+  ],
+  "offline_intermediate_grading": 0,
+  "scope": "Offline interpretation is separate from actual solver observations; no reference fix or private input sent to solver"
+}

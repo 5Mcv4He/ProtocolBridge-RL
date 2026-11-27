@@ -1,0 +1,123 @@
+module i2c_sink(input logic clk,rst_n,scl,sda,output logic sda_drive_low,output logic item_valid,output logic [15:0] item_data);
+
+  // Synchronizers
+  logic scl_s1, scl_s2, sda_s1, sda_s2;
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      scl_s1 <= 1'b1; scl_s2 <= 1'b1;
+      sda_s1 <= 1'b1; sda_s2 <= 1'b1;
+    end else begin
+      scl_s1 <= scl; scl_s2 <= scl_s1;
+      sda_s1 <= sda; sda_s2 <= sda_s1;
+    end
+  end
+
+  logic scl_p, sda_p;
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      scl_p <= 1'b1; sda_p <= 1'b1;
+    end else begin
+      scl_p <= scl_s2; sda_p <= sda_s2;
+    end
+  end
+
+  wire scl_rise = scl_s2 & ~scl_p;
+  wire scl_fall = ~scl_s2 & scl_p;
+  wire start_cond = scl_s2 & scl_p & sda_p & ~sda_s2;
+  wire stop_cond  = scl_s2 & scl_p & ~sda_p & sda_s2;
+
+  localparam logic [1:0] ST_IDLE = 2'd0;
+  localparam logic [1:0] ST_ADDR = 2'd1;
+  localparam logic [1:0] ST_RX   = 2'd2;
+
+  logic [1:0]  state;
+  logic [3:0]  bit_cnt;
+  logic [7:0]  shift;
+  logic [7:0]  low_byte;
+  logic        half;
+  logic [15:0] data_r;
+  logic        valid_r;
+  logic        drive_low_r;
+
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      state <= ST_IDLE;
+      bit_cnt <= 4'd0;
+      shift <= 8'd0;
+      low_byte <= 8'd0;
+      half <= 1'b0;
+      data_r <= 16'd0;
+      valid_r <= 1'b0;
+      drive_low_r <= 1'b0;
+    end else begin
+      valid_r <= 1'b0;
+
+      if (stop_cond) begin
+        state <= ST_IDLE;
+        bit_cnt <= 4'd0;
+        half <= 1'b0;
+        drive_low_r <= 1'b0;
+      end else if (start_cond) begin
+        state <= ST_ADDR;
+        bit_cnt <= 4'd0;
+        half <= 1'b0;
+        drive_low_r <= 1'b0;
+      end else begin
+        case (state)
+          ST_IDLE: drive_low_r <= 1'b0;
+
+          ST_ADDR: begin
+            // ACK established on falling edge entering 9th bit low period
+            if (scl_fall && bit_cnt == 4'd8)
+              drive_low_r <= 1'b1;
+            else if (scl_fall && bit_cnt == 4'd0)
+              drive_low_r <= 1'b0;
+
+            if (scl_rise) begin
+              if (bit_cnt < 4'd8) begin
+                shift <= {shift[6:0], sda_s2};
+                bit_cnt <= bit_cnt + 1'b1;
+              end else begin
+                bit_cnt <= 4'd0;
+                state <= ST_RX;
+                half <= 1'b0;
+              end
+            end
+          end
+
+          ST_RX: begin
+            if (scl_fall && bit_cnt == 4'd8)
+              drive_low_r <= 1'b1;
+            else if (scl_fall && bit_cnt == 4'd0)
+              drive_low_r <= 1'b0;
+
+            if (scl_rise) begin
+              if (bit_cnt < 4'd8) begin
+                shift <= {shift[6:0], sda_s2};
+                bit_cnt <= bit_cnt + 1'b1;
+              end else begin
+                bit_cnt <= 4'd0;
+                if (!half) begin
+                  low_byte <= shift;
+                  half <= 1'b1;
+                end else begin
+                  data_r <= {low_byte, shift};
+                  valid_r <= 1'b1;
+                  half <= 1'b0;
+                end
+              end
+            end
+          end
+
+          default: begin
+            state <= ST_IDLE;
+            drive_low_r <= 1'b0;
+          end
+        endcase
+      end
+    end
+  end
+
+  assign sda_drive_low = drive_low_r;
+
+endmodule

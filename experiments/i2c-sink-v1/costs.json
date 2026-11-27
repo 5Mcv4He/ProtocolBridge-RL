@@ -1,0 +1,7 @@
+{
+  "schema": "i2c-production-cost-v1",
+  "rejected_gate_wall_seconds": 751.8881,
+  "accepted_gate_wall_seconds": 1466.6904,
+  "accepted_gate_checks": 32,
+  "scope": "Sum of per-control wall time incl transfer/control overhead; excludes earlier probes, runtime checks and model episodes. No compilation reuse. Model cost reported separately in study-results.json."
+}

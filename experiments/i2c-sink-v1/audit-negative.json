@@ -1,0 +1,28 @@
+{
+  "schema": "artifact-audit-negative-v4",
+  "accepted": true,
+  "source_trace_sha256": "ad34ff580ac8f934f7303df91560bde2d303965a8dede509b57347d94f9badb8",
+  "checks": [
+    {
+      "injection": "extra_feedback_field",
+      "rejected": true,
+      "reason": "Feedback or execution mismatch"
+    },
+    {
+      "injection": "wrong_delivered_feedback",
+      "rejected": true,
+      "reason": "Delivered feedback mismatch"
+    },
+    {
+      "injection": "changed_submission",
+      "rejected": true,
+      "reason": "Final candidate mismatch"
+    },
+    {
+      "injection": "unconfirmed_stop_with_evaluation",
+      "rejected": true,
+      "reason": "Scoring occurred without confirmed solver stop"
+    }
+  ],
+  "scope": "Mutated private copies only; original raw episode unchanged; no model or simulator invocation."
+}

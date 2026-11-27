@@ -1,0 +1,103 @@
+module i2c_sink(input logic clk,rst_n,scl,sda,output logic sda_drive_low,item_valid,output logic [15:0] item_data);
+  logic scl_ff1, scl_ff2, sda_ff1, sda_ff2;
+  logic scl_s, sda_s;
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      scl_ff1 <= 1'b0; scl_ff2 <= 1'b0;
+      sda_ff1 <= 1'b0; sda_ff2 <= 1'b0;
+    end else begin
+      scl_ff1 <= scl; scl_ff2 <= scl_ff1;
+      sda_ff1 <= sda; sda_ff2 <= sda_ff1;
+    end
+  end
+  assign scl_s = scl_ff2;
+  assign sda_s = sda_ff2;
+
+  logic scl_d, sda_d;
+  logic scl_rise, scl_fall, sda_rise, sda_fall;
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      scl_d <= 1'b0; sda_d <= 1'b0;
+    end else begin
+      scl_d <= scl_s;
+      sda_d <= sda_s;
+    end
+  end
+  assign scl_rise = scl_s & ~scl_d;
+  assign scl_fall = ~scl_s & scl_d;
+  assign sda_rise = sda_s & ~sda_d;
+  assign sda_fall = ~sda_s & sda_d;
+
+  logic [3:0] bit_cnt;
+  logic       in_frame;
+  logic [7:0] shift_reg;
+  logic       first_byte;
+  logic       ack_phase;
+
+  logic        drv_q, valid_q;
+  logic [15:0] data_q;
+
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      bit_cnt    <= 4'd0;
+      in_frame   <= 1'b0;
+      shift_reg  <= 8'd0;
+      first_byte <= 1'b1;
+      ack_phase  <= 1'b0;
+      drv_q      <= 1'b0;
+      valid_q    <= 1'b0;
+      data_q     <= 16'd0;
+    end else begin
+      valid_q <= 1'b0;
+
+      if (scl_s) begin
+        if (sda_fall) begin
+          in_frame   <= 1'b1;
+          bit_cnt    <= 4'd0;
+          shift_reg  <= 8'd0;
+          drv_q      <= 1'b0;
+          first_byte <= 1'b1;
+          ack_phase  <= 1'b0;
+        end else if (sda_rise) begin
+          in_frame   <= 1'b0;
+          bit_cnt    <= 4'd0;
+          drv_q      <= 1'b0;
+          ack_phase  <= 1'b0;
+        end
+      end
+
+      if (in_frame) begin
+        if (scl_rise && !ack_phase) begin
+          if (bit_cnt == 4'd7) begin
+            bit_cnt <= 4'd8;
+            if (!first_byte) begin
+              valid_q <= 1'b1;
+              data_q  <= {8'd0, shift_reg[6:0], sda_s};
+            end
+            first_byte <= 1'b0;
+            ack_phase  <= 1'b1;
+          end else begin
+            shift_reg <= {shift_reg[6:0], sda_s};
+            bit_cnt   <= bit_cnt + 4'd1;
+          end
+        end
+
+        if (scl_fall) begin
+          if (ack_phase) begin
+            if (!drv_q) begin
+              drv_q <= 1'b1;
+            end else begin
+              drv_q     <= 1'b0;
+              ack_phase <= 1'b0;
+              bit_cnt   <= 4'd0;
+            end
+          end
+        end
+      end
+    end
+  end
+
+  assign sda_drive_low = drv_q;
+  assign item_valid    = valid_q;
+  assign item_data     = data_q;
+endmodule

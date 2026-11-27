@@ -23,8 +23,10 @@ SVG 内含系统深色偏好样式，不支持时仍可使用浅色画布；不�
 
 ## 图形的适用范围
 
-整体架构中的 Task 使用“初始材料”，涵盖 RTL 和结构化激励。九动作工具图、桥接验证器图及 001–004 演进图仍以 X2P 为范围，不代表十个有限工程契约自动继承同一权限或 Scoreboard。三类新交付的差异由 verification-bases.svg 说明；奖励边界图表达公共控制原则，具体验收输入和分类仍由任务契约规定。
+整体架构中的 Task 使用“初始材料”，涵盖 RTL 和结构化激励。九动作工具图、桥接验证器图及 001–004 演进图仍以 X2P 为范围，不代表十二个有限工程契约自动继承同一权限或 Scoreboard。首轮三类有限交付的差异由 verification-bases.svg 说明；奖励边界图表达公共控制原则，具体验收输入和分类仍由任务契约规定。
 
 [返回首页](../../README.md)
 
 [checker-task-boundary.svg](checker-task-boundary.svg) 将候选检查器和可信比较器分开：相同事件输入候选与独立模型，逐周期核对误报／漏报。它表达 Checker 任务的评分边界，不表示验证器已被形式证明完备。
+
+[i2c-word-boundary.svg](i2c-word-boundary.svg) 用两个事务区域说明残余半字不能跨 STOP；数值为契约示意，不是实际波形。对应 [I²C 任务研究](../i2c-sink-evaluation.md)。

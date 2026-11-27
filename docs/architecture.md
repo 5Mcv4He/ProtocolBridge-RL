@@ -8,11 +8,11 @@
 | --- | --- | --- |
 | 四个原始 X2P 任务 | 协议桥 RTL | 根 Registry 与 `scripts/tasks.py`；各任务专用 VIP/UVM、Scoreboard 和时序检查 |
 | 七个生成 X2P 契约 | 特化路由、队列或组合桥 RTL | `scripts/tasks.py --package PACKAGE`；依赖匹配的包及工业准入 |
-| 十个有限工程契约 | UART RTL、事务 JSON、检查器或状态 RTL | `environment.artifact_task`；工业解码加周期模型、固定设计对照、独立参考等价或事件语义模型 |
+| 十二个有限工程契约 | UART／I²C RTL、事务 JSON、检查器或状态 RTL | `environment.artifact_task`；工业解码加周期模型、固定设计对照、独立参考等价或事件语义模型 |
 
-[任务目录](task-catalog.md)列出三条路径及可复用命令，[十个有限契约的使用说明](tasks/README.md)说明各自修改范围。它们没有被合并成一个万能验证器，也不会自动继承同一工具权限。
+[任务目录](task-catalog.md)列出三条路径及可复用命令，[十二个有限契约的使用说明](tasks/README.md)说明各自修改范围。它们没有被合并成一个万能验证器，也不会自动继承同一工具权限。
 
-可信控制器负责动作白名单、预算、候选内容哈希、反馈投影与提交冻结。公开反馈供模型继续求解；终局验收和独立保留评估在求解结束后执行，结果分开保存。九动作综合配置目前在特定 X2P 队列上验收，十个有限契约的已发布试次使用 read/edit/test/submit；详见[综合环境](engineering-lab.md)与[有限任务运行器](../environment/artifact_task/runner_v8.py)。
+可信控制器负责动作白名单、预算、候选内容哈希、反馈投影与提交冻结。公开反馈供模型继续求解；终局验收和独立保留评估在求解结束后执行，结果分开保存。九动作综合配置目前在特定 X2P 队列上验收，十二个有限契约的已发布试次使用 read/edit/test/submit；详见[综合环境](engineering-lab.md)与[有限任务运行器](../environment/artifact_task/runner_v9.py)。
 
 例如，UART 的“没有协议错误”不能证明 busy 期间不会重复装载；需要额外周期模型检查输入锁存。累加器则用候选与独立参考的状态转移等价判定，不能以候选对自身综合网表的等价代替。三种验收依据及真实缺陷见[研究报告](verification-resources-tasks.md)。
 
@@ -111,3 +111,5 @@ APB 完成之外的 PRDATA/PSLVERR 被刻意扰动，避免提前采样的错误
 同 Spec 换 RTL 可以直接复用生命周期接口。修改 Spec、激励或验证器后，需重跑正反对照，冻结新版本，再评价 Agent。增加并发、乱序或其他协议需要重新设计配对和约束，不能只改 YAML。
 
 新加入的 Checker 设计把候选验证组件本身作为被测对象，可信事件模型保留评分权；状态寄存器任务将 Formality 与独立逐位真值表结合。[生产阶段报告](task-production-stage-v2.md)说明这两种判据、反例与实际模型行为。
+
+I²C 有限写入进一步区分工业协议观察、实际引脚解码和下游交付账目；[任务与验收说明](i2c-sink-evaluation.md)展示为什么单端协议无错误仍不足以判断事务内组字。历史运行器按各自冻结计划重现。

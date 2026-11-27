@@ -1,0 +1,17 @@
+{
+  "schema": "reviewed-exchange-inventory-v5",
+  "base_inventory": "experiments/task-production-v2/exchange-inventory.json",
+  "base_sha256": "dba350ad476e2c6c4303b7a40a72041314981392c880be0eaa056108b0169f4f",
+  "records": 127,
+  "available_tool_trajectories": 87,
+  "new_model_trials": 2,
+  "exports": [
+    {
+      "manifest": "experiments/i2c-sink-v1/exchange/manifest.json",
+      "sha256": "7abf828d815c1af0e7522f39a0778a409cc4d390954c3b7249403764e67a6b83",
+      "records": 2,
+      "content_hashes_verified": true
+    }
+  ],
+  "uses": "Both completed episodes are audited research/tool-interaction records. Terminal1/0 retained; heldout separate, no training-benefit claim. Historical use restrictions in base inventory remain."
+}

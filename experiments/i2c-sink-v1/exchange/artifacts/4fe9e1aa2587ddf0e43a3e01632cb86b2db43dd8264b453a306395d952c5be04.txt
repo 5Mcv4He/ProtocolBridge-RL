@@ -1,0 +1,111 @@
+module i2c_sink(input logic clk,rst_n,scl,sda,output logic sda_drive_low,item_valid,output logic [15:0] item_data);
+  // Synchronizers for the asynchronous bus lines
+  logic scl_ff1, scl_ff2, sda_ff1, sda_ff2;
+  logic scl_s, sda_s;
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      scl_ff1 <= 1'b0; scl_ff2 <= 1'b0;
+      sda_ff1 <= 1'b0; sda_ff2 <= 1'b0;
+    end else begin
+      scl_ff1 <= scl; scl_ff2 <= scl_ff1;
+      sda_ff1 <= sda; sda_ff2 <= sda_ff1;
+    end
+  end
+  assign scl_s = scl_ff2;
+  assign sda_s = sda_ff2;
+
+  // Edge detection on synchronized lines
+  logic scl_d, sda_d;
+  logic scl_rise, scl_fall, sda_rise, sda_fall;
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      scl_d <= 1'b0; sda_d <= 1'b0;
+    end else begin
+      scl_d <= scl_s;
+      sda_d <= sda_s;
+    end
+  end
+  assign scl_rise = scl_s & ~scl_d;
+  assign scl_fall = ~scl_s & scl_d;
+  assign sda_rise  = sda_s & ~sda_d;
+  assign sda_fall  = ~sda_s & sda_d;
+
+  // Bit counter: 0..8 within a byte; 8 = ACK bit
+  logic [3:0] bit_cnt;
+  logic       in_frame;    // between START and STOP
+  logic       sample_ack;  // ACK bit slot
+  logic [7:0] shift_reg;
+
+  // Output registers
+  logic        drv_q;
+  logic        valid_q;
+  logic [15:0] data_q;
+
+  // ACK driving: after 8th bit falling edge, drive low; release after ACK falling edge
+  // We track ack_phase: 0 = not driving, 1 = driving during ack
+  logic ack_drive_req;
+
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      bit_cnt   <= 4'd0;
+      in_frame  <= 1'b0;
+      sample_ack<= 1'b0;
+      shift_reg <= 8'd0;
+      drv_q     <= 1'b0;
+      valid_q   <= 1'b0;
+      data_q    <= 16'd0;
+      ack_drive_req <= 1'b0;
+    end else begin
+      valid_q <= 1'b0;
+
+      // START / STOP on SDA transitions while SCL high
+      if (scl_s) begin
+        if (sda_fall) begin
+          // START (or repeated start; only handle as start)
+          in_frame <= 1'b1;
+          bit_cnt  <= 4'd0;
+          drv_q    <= 1'b0;
+          ack_drive_req <= 1'b0;
+        end else if (sda_rise) begin
+          // STOP
+          in_frame <= 1'b0;
+          bit_cnt  <= 4'd0;
+          drv_q    <= 1'b0;
+          ack_drive_req <= 1'b0;
+        end
+      end
+
+      if (in_frame) begin
+        // Sample data on SCL rising edge
+        if (scl_rise) begin
+          if (bit_cnt < 4'd8) begin
+            shift_reg <= {shift_reg[6:0], sda_s};
+            bit_cnt   <= bit_cnt + 4'd1;
+          end else begin
+            // ACK bit sampled, byte finished
+            bit_cnt <= 4'd0;
+            // Latch byte value for output
+          end
+        end
+
+        // ACK drive logic: after 8th bit has been sampled (bit_cnt becomes 8),
+        // on next SCL low, drive. Release on the following SCL low (after ACK bit high).
+        if (scl_fall) begin
+          if (bit_cnt == 4'd8) begin
+            // 8 data/addr bits have been received; drive ACK low
+            drv_q <= 1'b1;
+            ack_drive_req <= 1'b1;
+          end else if (ack_drive_req) begin
+            // after ACK bit low phase begins -> release
+            drv_q <= 1'b0;
+            ack_drive_req <= 1'b0;
+          end
+        end
+      end
+    end
+  end
+
+  assign sda_drive_low = drv_q;
+  assign item_valid    = valid_q;
+  assign item_data     = data_q;
+endmodule

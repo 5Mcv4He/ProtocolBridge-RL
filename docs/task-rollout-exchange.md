@@ -48,11 +48,23 @@ python3 -m scripts.analyze_artifact_study NEW_ANALYSIS.json RAW_TRIAL_1 RAW_TRIA
 
 ## Checker 与状态寄存器的 v7 记录
 
-[当前有限交付导出器](../scripts/artifact_exchange_v2.py)识别新运行器，保持单动作重放、实际反馈曝光、候选绑定和停止后评分的职责。Checker 的首份导出使用 `68e6d97` 中的导出器；当前版本另识别状态寄存器运行器，旧 manifest 的导出器哈希与文件保持不变。
+[Checker／状态寄存器阶段导出器](../scripts/artifact_exchange_v2.py)识别新运行器，保持单动作重放、实际反馈曝光、候选绑定和停止后评分的职责。Checker 的首份导出使用 `68e6d97` 中的导出器；当前版本另识别状态寄存器运行器，旧 manifest 的导出器哈希与文件保持不变。
 
 ```bash
 python3 -m scripts.artifact_exchange_v2 NEW_EXCHANGE RAW_TRIAL_1 RAW_TRIAL_2
 python3 -m scripts.check_artifact_audit_v2 RAW_SUBMITTED_TRIAL NEW_AUDIT.json
 ```
 
-[新增四条记录](../experiments/task-production-v2/exchange-inventory.json)使研究库存达到 125 条、可审计工具轨迹达到 85 条。成功、已知错误原样提交、实际修复分别解释，不以导出成功授予训练价值。终局奖励、独立评估和源码事后解释仍分开；未取得的 Token IDs、行为概率与权重版本保持缺失。UART 旧验证器存在已确认边界漏检，其历史记录保留，但不能自动继承当前训练用途状态。
+[该阶段新增四条记录](../experiments/task-production-v2/exchange-inventory.json)使研究库存达到 125 条、可审计工具轨迹达到 85 条。成功、已知错误原样提交、实际修复分别解释，不以导出成功授予训练价值。终局奖励、独立评估和源码事后解释仍分开；未取得的 Token IDs、行为概率与权重版本保持缺失。UART 旧验证器存在已确认边界漏检，其历史记录保留，但不能自动继承当前训练用途状态。
+
+
+## I²C 继续使用 v7 分区，运行器来源单独绑定
+
+[导出器修订 3](../scripts/artifact_exchange_v3.py)支持 runner v9 / Session v3，同时保留旧入口；没有改写此前的 exporter 哈希或轨迹。除逐动作重放之外，它拒绝不同目录下相同计划／试次 ID 的重复记录。[实际篡改与重复身份检查](../experiments/i2c-sink-v1/README.md)均通过。
+
+```bash
+python3 -m scripts.artifact_exchange_v3 NEW_EXCHANGE RAW_TRIAL_1 RAW_TRIAL_2
+python3 -m scripts.analyze_artifact_study_v2 NEW_RESULTS.json RAW_TRIAL_1 RAW_TRIAL_2
+```
+
+新两条记录使[当前库存](../experiments/i2c-sink-v1/exchange-inventory.json)达到 **127 条研究记录、87 条已审查工具轨迹**。字节试次的最后候选未公开测试却终局通过；组字试次提交同一已失败源码。分析另报候选身份、实际曝光、编译／仿真耗时，详见[行为证据](../experiments/i2c-sink-v1/behavior-cases.json)。可信侧离线诊断不补入模型实际观察；保留评估仍不用于选择训练记录。

@@ -69,7 +69,13 @@ def audit(root):
 def export(roots,out):
     roots=[Path(r).resolve() for r in roots]
     if len(roots)!=len(set(roots)):raise ValueError('Duplicate episode')
-    audits=[audit(r) for r in roots];out=Path(out);out.mkdir(parents=True,exist_ok=False)
+    audits=[audit(r) for r in roots]
+    identities=[]
+    for root in roots:
+        result=json.loads((root/'result.json').read_text())
+        identities.append((result['plan_sha256'],result['trial_id']))
+    if len(identities)!=len(set(identities)):raise ValueError('Duplicate logical episode')
+    out=Path(out);out.mkdir(parents=True,exist_ok=False)
     for d in ('training','evaluation','analysis','artifacts'):(out/d).mkdir()
     records=[];evaluations=[];analyses=[]
     def artifact(content,suffix):

@@ -1,0 +1,7 @@
+{
+  "schema": "exchange-logical-identity-check-v1",
+  "accepted": true,
+  "source_trace_sha256": "ad34ff580ac8f934f7303df91560bde2d303965a8dede509b57347d94f9badb8",
+  "check": "Two different directories with the same frozen plan and trial ID are rejected before output creation",
+  "model_or_eda_invoked": false
+}

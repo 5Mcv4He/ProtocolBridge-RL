@@ -1,0 +1,97 @@
+{
+  "schema": "verification-capability-update-v1",
+  "levels": {
+    "1": "Installation/startup",
+    "2": "Vendor example or micro-flow",
+    "3": "Custom engineering object",
+    "4": "Independent grading with positive and targeted negative controls",
+    "5": "Packaged task with real model episode and audit"
+  },
+  "scope": "Incremental evidence map for this stage, not a re-audit of all installed tools. Levels are scoped to the recorded contract and verifier revision. Existing X2P and earlier tool capability evidence remains unchanged.",
+  "capabilities": [
+    {
+      "capability": "i2c_write_sink",
+      "verified_level": 5,
+      "task_ids": [
+        "i2c_sink_byte_v1",
+        "i2c_sink_word_v1"
+      ],
+      "evidence": [
+        {
+          "path": "experiments/i2c-sink-v1/quality.json",
+          "sha256": "f23d5b064c400bae26440e325a0553e71eecdc54a89fd379e9e603a77f2cb13e"
+        },
+        {
+          "path": "experiments/i2c-sink-v1/study-results.json",
+          "sha256": "84a4d092cbc1c923fbcfb4fd32c770052e273154bfd33a2da049c067a1ee6165"
+        }
+      ],
+      "scope": "Finite write-only address 0x52, byte or transaction-local word delivery. No full I2C compliance claim."
+    },
+    {
+      "capability": "fifo_identity_checker",
+      "verified_level": 5,
+      "task_ids": [
+        "fifo_checker_d2_v1",
+        "fifo_checker_d3_v1"
+      ],
+      "evidence": [
+        {
+          "path": "experiments/task-production-v2/checker-quality-v2.json",
+          "sha256": "a8e20149957c902328ea9892db4b93969ec287bebd4faf502c27460ed490da86"
+        },
+        {
+          "path": "experiments/task-production-v2/checker-study-results.json",
+          "sha256": "3fdbc14481c04d739f9991d8173541ffeb0a5749daff8bf380b43fb65b9a5051"
+        }
+      ],
+      "scope": "Candidate checker evaluated against independent event semantics; only qualified depths 2 and 3."
+    },
+    {
+      "capability": "status_register_reference_repair",
+      "verified_level": 5,
+      "task_ids": [
+        "status_set_dominant_repair_v1",
+        "status_clear_dominant_repair_v1"
+      ],
+      "evidence": [
+        {
+          "path": "experiments/task-production-v2/status-quality-v1.json",
+          "sha256": "93f9cf1674ae970b5a6ea977f9f09017b99281ba3aa7e1facecea58fe7f07be8"
+        },
+        {
+          "path": "experiments/task-production-v2/status-study-results.json",
+          "sha256": "569c7c682b128e5c28ddf9367c9ab2d5ea4b7cfb21ba5ae4e1a811627c6b792d"
+        }
+      ],
+      "scope": "Independent-reference Formality plus separate truth-table simulation. No PPA objective."
+    },
+    {
+      "capability": "rffe_vendor_readback",
+      "verified_level": 2,
+      "task_ids": [],
+      "evidence": [
+        {
+          "path": "experiments/task-production-v2/rffe-activity-recheck.json",
+          "sha256": "dd8a9a228f86f016ede108ed3b44c2a843d7c7cfababb9375143b21a3f0a5f45"
+        }
+      ],
+      "scope": "One actual vendor readback comparison; no custom DUT, task-specific negative controls or model task."
+    },
+    {
+      "capability": "uart_transmit_current_revision5",
+      "verified_level": 4,
+      "task_ids": [
+        "uart_tx_8n1_v1",
+        "uart_tx_8e1_v1"
+      ],
+      "evidence": [
+        {
+          "path": "experiments/task-production-v2/uart-quality-v5.json",
+          "sha256": "9d9c32008d8efc111ee831fca872f3b4005dba466fb209b5aa07e14264614fb4"
+        }
+      ],
+      "scope": "Current revision5 has actual controls. Historical model episodes used earlier verifier revisions; they do not establish revision5 model calibration."
+    }
+  ]
+}
