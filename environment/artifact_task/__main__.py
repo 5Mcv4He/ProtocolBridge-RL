@@ -1,7 +1,7 @@
 """Finite engineering artifact tasks; old bridge entrypoints stay unchanged."""
 import argparse,json,shutil
 from pathlib import Path
-from .dispatch import ROOT,TASKS,graders,catalog
+from .dispatch_v2 import ROOT,TASKS,graders,catalog
 from .session_v2 import sha,save
 
 def main():
@@ -11,7 +11,7 @@ def main():
  for name in ('test','submit'):
   r=sub.add_parser(name);r.add_argument('task',choices=TASKS);r.add_argument('work');r.add_argument('out')
  a=p.parse_args()
- if a.command=='list':print(json.dumps(catalog(),indent=2));return
+ if a.command=='list':print((ROOT/'tasks/artifact-registry.json').read_text());return
  task=json.loads((ROOT/'tasks'/a.task/'task.json').read_text());work=Path(a.work)
  if a.command=='reset':
   work.mkdir(parents=True,exist_ok=False)

@@ -1,0 +1,23 @@
+{
+  "schema": "artifact-audit-negative-v1",
+  "accepted": true,
+  "source_trace_sha256": "e905b38a5bda8670ab537fe92ed4783696350fa0c8eb059e8ead810d6293cbc1",
+  "checks": [
+    {
+      "injection": "extra_feedback_field",
+      "rejected": true,
+      "reason": "Feedback or execution mismatch"
+    },
+    {
+      "injection": "wrong_delivered_feedback",
+      "rejected": true,
+      "reason": "Delivered feedback mismatch"
+    },
+    {
+      "injection": "changed_submission",
+      "rejected": true,
+      "reason": "Final candidate mismatch"
+    }
+  ],
+  "scope": "Mutated private copies only; original raw episode unchanged; no model or simulator invocation."
+}

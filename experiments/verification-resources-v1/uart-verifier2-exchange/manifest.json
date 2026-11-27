@@ -1,0 +1,19 @@
+{
+  "schema": "pb-exchange-manifest-v6",
+  "records": 2,
+  "exporter_sha256": "f0fca83ec945376850963ef720fdbc9d553312de10a1e9bd66cb24a9f5036bef",
+  "files": {
+    "analysis/offline.jsonl": "0e3e4bd97007b5a223659909ed8be1773ac2d8f3bfb68c54513f92801647d2f1",
+    "artifacts/02fefb27eff7afddbc2e65b64ccb7c31ef131898576d5741e176287b3e8fde37.txt": "02fefb27eff7afddbc2e65b64ccb7c31ef131898576d5741e176287b3e8fde37",
+    "artifacts/12f287b5fb436b6cec891d2ce4aedeec6781f6b4986dc9e282f15878c8ecba77.sv": "12f287b5fb436b6cec891d2ce4aedeec6781f6b4986dc9e282f15878c8ecba77",
+    "artifacts/12f287b5fb436b6cec891d2ce4aedeec6781f6b4986dc9e282f15878c8ecba77.txt": "12f287b5fb436b6cec891d2ce4aedeec6781f6b4986dc9e282f15878c8ecba77",
+    "artifacts/39e1fd7749ffc3f3ea6339300a360f607477781b679ffffbcd8c6ea3873c6329.txt": "39e1fd7749ffc3f3ea6339300a360f607477781b679ffffbcd8c6ea3873c6329",
+    "artifacts/706248ae11cf92eba469340609660e6e0787b4ffe1d2a275b5b63ab920354134.sv": "706248ae11cf92eba469340609660e6e0787b4ffe1d2a275b5b63ab920354134",
+    "artifacts/706248ae11cf92eba469340609660e6e0787b4ffe1d2a275b5b63ab920354134.txt": "706248ae11cf92eba469340609660e6e0787b4ffe1d2a275b5b63ab920354134",
+    "artifacts/c5e1833767ba32a12bab83605dc2b7518eb5cc1e73ffe02dd60bff1f0c5b6482.txt": "c5e1833767ba32a12bab83605dc2b7518eb5cc1e73ffe02dd60bff1f0c5b6482",
+    "artifacts/ff7ee2e64e25ceb29d83ae532eb8f4de64d3dcf747fac82c0604cfcb8525b10f.txt": "ff7ee2e64e25ceb29d83ae532eb8f4de64d3dcf747fac82c0604cfcb8525b10f",
+    "evaluation/heldout.jsonl": "072d5f50363770e46f7c146df2c704e6d396d2a1029ff8e1de943e6c27029f9b",
+    "training/rollouts.jsonl": "792e46b323bd0cd199e5389b62cf2927ef928c4dd073bec0aecc048c6f7aad9c"
+  },
+  "scope": "Reviewed tool interactions; raw model replies preserved privately and used for replay audit. No token-level on-policy training claim."
+}

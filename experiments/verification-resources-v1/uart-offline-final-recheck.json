@@ -1,0 +1,62 @@
+{
+  "schema": "uart-offline-recheck-v1",
+  "selection": "Exactly both original UART final submissions, as declared before verifier2 sampling",
+  "rows": [
+    {
+      "trial_id": "uart-8n1-r1",
+      "source_sha256": "ff7ee2e64e25ceb29d83ae532eb8f4de64d3dcf747fac82c0604cfcb8525b10f",
+      "original_terminal_reward": 0.0,
+      "recheck": {
+        "task_id": "uart_tx_8n1_v1",
+        "source_sha256": "ff7ee2e64e25ceb29d83ae532eb8f4de64d3dcf747fac82c0604cfcb8525b10f",
+        "verifier_sha256": "27bb19dd78f2f1fbb5865802caeb93fc801fa05353b4707544afcea7d1d6ddf2",
+        "grader_sha256": "1d789d9015f836018b60d66e8d2974188670dc207abfeb75d7e4f3fbf168daa5",
+        "reward": 0.0,
+        "category": "transition_mismatch",
+        "verification_complete": false,
+        "phase": "terminal",
+        "verifier_revision": 2,
+        "compile_seconds": 17.1131,
+        "compile_exit": 0,
+        "simulation_seconds": 4.8921,
+        "simulation_exit": 0,
+        "diagnostic": [
+          "serial_bit_or_duration"
+        ],
+        "simulation_sha256": "8ba5331db917ac854e436d635ed75715d877b7053df248520e68779b868ca278",
+        "wall_seconds": 23.419
+      },
+      "use": "predeclared offline final-submission recheck only; does not replace original terminal reward or constitute solver feedback"
+    },
+    {
+      "trial_id": "uart-8e1-r1",
+      "source_sha256": "1ce0d518c4296abc88119330bf8d0da6211c306fc863f6818a0d8faab6dbfcd9",
+      "original_terminal_reward": 1.0,
+      "recheck": {
+        "task_id": "uart_tx_8e1_v1",
+        "source_sha256": "1ce0d518c4296abc88119330bf8d0da6211c306fc863f6818a0d8faab6dbfcd9",
+        "verifier_sha256": "27bb19dd78f2f1fbb5865802caeb93fc801fa05353b4707544afcea7d1d6ddf2",
+        "grader_sha256": "1d789d9015f836018b60d66e8d2974188670dc207abfeb75d7e4f3fbf168daa5",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "phase": "terminal",
+        "verifier_revision": 2,
+        "compile_seconds": 17.2333,
+        "compile_exit": 0,
+        "simulation_seconds": 7.0043,
+        "simulation_exit": 0,
+        "frames": 256,
+        "cycle_checks": 45056,
+        "simulation_sha256": "7730fe1a60abaf30bffa0fc3aa043e52e2ef4ba2b909a160a8ec9fcb3d313a30",
+        "activity": {
+          "busy_offers": 6400,
+          "adjacent_frames": 255,
+          "accepted": 256
+        },
+        "wall_seconds": 25.5176
+      },
+      "use": "predeclared offline final-submission recheck only; does not replace original terminal reward or constitute solver feedback"
+    }
+  ]
+}

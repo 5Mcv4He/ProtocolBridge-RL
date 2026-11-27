@@ -1,0 +1,109 @@
+{
+  "schema": "finite-artifact-registry-v1",
+  "scope": "Six reviewed contracts; historical metadata remains frozen. These evidence pointers do not grant admission without source hash checks. UART verifier1 evidence is superseded, not rewritten.",
+  "tasks": [
+    {
+      "task_id": "accumulator_wrap_repair_v1",
+      "contract_version": 1,
+      "metadata": "tasks/accumulator_wrap_repair_v1/task.json",
+      "spec": "tasks/accumulator_wrap_repair_v1/spec.md",
+      "initial_artifact": "tasks/accumulator_wrap_repair_v1/workspace/accumulator.sv",
+      "deliverable": "accumulator.sv",
+      "effective_verifier": "verifier.independent_formal.campaign",
+      "verifier_revision": 1,
+      "quality_evidence": "experiments/verification-resources-v1/independent-reference-quality.json",
+      "runtime": "environment.artifact_task.runner_v3",
+      "capabilities": [
+        "synchronous-state-update",
+        "reset-load-enable-priority",
+        "modulo-arithmetic"
+      ]
+    },
+    {
+      "task_id": "accumulator_saturating_repair_v1",
+      "contract_version": 1,
+      "metadata": "tasks/accumulator_saturating_repair_v1/task.json",
+      "spec": "tasks/accumulator_saturating_repair_v1/spec.md",
+      "initial_artifact": "tasks/accumulator_saturating_repair_v1/workspace/accumulator.sv",
+      "deliverable": "accumulator.sv",
+      "effective_verifier": "verifier.independent_formal.campaign",
+      "verifier_revision": 1,
+      "quality_evidence": "experiments/verification-resources-v1/independent-reference-quality.json",
+      "runtime": "environment.artifact_task.runner_v3",
+      "capabilities": [
+        "synchronous-state-update",
+        "reset-load-enable-priority",
+        "unsigned-saturation-and-carry"
+      ]
+    },
+    {
+      "task_id": "uart_tx_8n1_v1",
+      "contract_version": 1,
+      "metadata": "tasks/uart_tx_8n1_v1/task.json",
+      "spec": "tasks/uart_tx_8n1_v1/spec.md",
+      "initial_artifact": "tasks/uart_tx_8n1_v1/workspace/uart_tx.sv",
+      "deliverable": "uart_tx.sv",
+      "effective_verifier": "verifier.uart_tx.campaign_v2",
+      "verifier_revision": 2,
+      "quality_evidence": "experiments/verification-resources-v1/uart-quality-v2.json",
+      "runtime": "environment.artifact_task.runner_v3",
+      "capabilities": [
+        "serial-framing",
+        "fixed-baud-cycle-accounting",
+        "ready-valid-capture"
+      ]
+    },
+    {
+      "task_id": "uart_tx_8e1_v1",
+      "contract_version": 1,
+      "metadata": "tasks/uart_tx_8e1_v1/task.json",
+      "spec": "tasks/uart_tx_8e1_v1/spec.md",
+      "initial_artifact": "tasks/uart_tx_8e1_v1/workspace/uart_tx.sv",
+      "deliverable": "uart_tx.sv",
+      "effective_verifier": "verifier.uart_tx.campaign_v2",
+      "verifier_revision": 2,
+      "quality_evidence": "experiments/verification-resources-v1/uart-quality-v2.json",
+      "runtime": "environment.artifact_task.runner_v3",
+      "capabilities": [
+        "serial-framing",
+        "fixed-baud-cycle-accounting",
+        "ready-valid-capture",
+        "even-parity"
+      ]
+    },
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "contract_version": 1,
+      "metadata": "tasks/x2p_stimulus_mapping_v1/task.json",
+      "spec": "tasks/x2p_stimulus_mapping_v1/spec.md",
+      "initial_artifact": "tasks/x2p_stimulus_mapping_v1/workspace/stimulus.json",
+      "deliverable": "stimulus.json",
+      "effective_verifier": "verifier.stimulus.campaign",
+      "verifier_revision": 1,
+      "quality_evidence": "experiments/verification-resources-v1/stimulus-quality.json",
+      "runtime": "environment.artifact_task.runner_v3",
+      "capabilities": [
+        "valid-stimulus-construction",
+        "positive-and-negative-dut-discrimination",
+        "mapping-defect-exposure"
+      ]
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "contract_version": 1,
+      "metadata": "tasks/x2p_stimulus_timing_v1/task.json",
+      "spec": "tasks/x2p_stimulus_timing_v1/spec.md",
+      "initial_artifact": "tasks/x2p_stimulus_timing_v1/workspace/stimulus.json",
+      "deliverable": "stimulus.json",
+      "effective_verifier": "verifier.stimulus.campaign",
+      "verifier_revision": 1,
+      "quality_evidence": "experiments/verification-resources-v1/stimulus-quality.json",
+      "runtime": "environment.artifact_task.runner_v3",
+      "capabilities": [
+        "valid-stimulus-construction",
+        "positive-and-negative-dut-discrimination",
+        "timing-defect-exposure"
+      ]
+    }
+  ]
+}

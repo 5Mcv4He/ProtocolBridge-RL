@@ -1,0 +1,86 @@
+{
+  "schema": "bounded-artifact-study-plan-v3",
+  "study_id": "uart-verifier2-calibration-v1",
+  "frozen_at_utc": "2026-11-27T09:29:14.915528+00:00",
+  "source_files": {
+    "fixtures/uart_tx/bad_busy_accept.sv": "8fb39dbdbdbee8b1fa094818458876ee38c871daefe55f7cbe13b359e89a8333",
+    "fixtures/uart_tx/reference_8e1.sv": "e872eb3a2b5c964fb76687efadaac7d4f247a51723c315a3ca6c140fff722d1a",
+    "fixtures/uart_tx/reference_8n1.sv": "353fffebade43a18556485dda2d17964d05fcccf99ba1d49b42c5d08f1e8077e",
+    "tasks/uart_tx_8e1_v1/spec.md": "39e1fd7749ffc3f3ea6339300a360f607477781b679ffffbcd8c6ea3873c6329",
+    "tasks/uart_tx_8e1_v1/task.json": "a8bfcc0f843661897fbb60f4e208cb898a861380d762bac18038d6c2c4d0b92c",
+    "tasks/uart_tx_8e1_v1/workspace/uart_tx.sv": "02fefb27eff7afddbc2e65b64ccb7c31ef131898576d5741e176287b3e8fde37",
+    "tasks/uart_tx_8n1_v1/spec.md": "c5e1833767ba32a12bab83605dc2b7518eb5cc1e73ffe02dd60bff1f0c5b6482",
+    "tasks/uart_tx_8n1_v1/task.json": "55a5968e4bc472f4ababc1636a2f276954c3d3ae21ade95d115ea07726f73f13",
+    "tasks/uart_tx_8n1_v1/workspace/uart_tx.sv": "ff7ee2e64e25ceb29d83ae532eb8f4de64d3dcf747fac82c0604cfcb8525b10f",
+    "verifier/uart_tx/campaign.py": "f125db203808d09c890984189bbd67c4c9f87688f804d962e90d994f048f171f",
+    "verifier/uart_tx/campaign_v2.py": "1d789d9015f836018b60d66e8d2974188670dc207abfeb75d7e4f3fbf168daa5",
+    "verifier/uart_tx/phase_acceptance.py": "531d31c79837b17baad9e87d9bd7d3a237499340fb31a1b9fb1a3646e47d0c36",
+    "verifier/uart_tx/quality.py": "7e1d3fce497f3dab0595dafd31e0cb3654374fc6545fcd7d7f2a999f31fced1a",
+    "verifier/uart_tx/quality_v2.py": "c849ebb7c6fef3133ed8f8fb89700414a8e66e4bcf94b1d5b32574071ec33638",
+    "verifier/uart_tx/tb.sv": "e01f700acc631ed790e01e23fa66d386c88760e1202b44d5012a46395998dd56",
+    "verifier/uart_tx/tb_v2.sv": "27bb19dd78f2f1fbb5865802caeb93fc801fa05353b4707544afcea7d1d6ddf2",
+    "environment/artifact_task/session_v2.py": "5deaafe3a0c7bd0ddd381b80e4bd5cc19420aa282c1ccf230acaedfb973cfae4",
+    "environment/artifact_task/runner_v3.py": "ec8b613fe5830ea052f3c2fea78b403fdec68d99d56466ba035225f894f447e6",
+    "environment/artifact_task/dispatch_v2.py": "a41a86b16a87fb03798f0c1900602a22af4911b5827ec6b2caeb213c9548598b",
+    "environment/policy.py": "3a06fe89b8744a4773db477eedf4ee2b6c88a0a229f8ad0a409c8139b5e943dd",
+    "environment/utm_worker.py": "a2d05ae3ea49698701a362af78171c709648093cd20f8d2cb951c022431e7625",
+    "environment/utm_sandbox.sh": "652a593dff127a82b499019304940cf54326b601c275bc86171fee08335531e1",
+    "environment/remote_backend.py": "13ec548ae78a046394ee3d547c1dfa60388b5769b93c386719fc179c736e82f7",
+    "verifier/independent_formal/campaign.py": "362e638452ff20e3acc41d51b5a0026f2af4c0b6b2aff8a6ed4b9562d025dcd0",
+    "experiments/verification-resources-v1/uart-quality-v2.json": "1c0529748d646241a249d9e56f9575cc15f32791bc9703bc0956011ee14a4a58",
+    "experiments/verification-resources-v1/uart-blindspot.json": "7760b7e2459c68213d6cc0dbe45f0b30967c79f33783c97c237a883781febf46"
+  },
+  "model": "deepseek-flash",
+  "sampling": {
+    "reasoning": "off",
+    "max_output_tokens": 7000,
+    "seed": null,
+    "temperature": "provider default, not controlled",
+    "exact_weights": null,
+    "behavior_logprobs": null,
+    "token_ids": null
+  },
+  "max_actions": 20,
+  "max_tests": 4,
+  "max_trial_seconds": 1200,
+  "maximum_started_trials": 2,
+  "concurrency": 1,
+  "trials": [
+    {
+      "trial_id": "uart-8n1-verifier2-r1",
+      "task_id": "uart_tx_8n1_v1"
+    },
+    {
+      "trial_id": "uart-8e1-verifier2-r1",
+      "task_id": "uart_tx_8e1_v1"
+    }
+  ],
+  "prompts": {
+    "uart_tx.sv": "Solve the engineering task specified by spec.md. Return exactly ONE JSON object per turn, no prose or additional actions. Allowed actions: {\"tool\":\"read\",\"file\":\"spec.md\"}, {\"tool\":\"read\",\"file\":\"uart_tx.sv\"}, {\"tool\":\"edit\",\"content\":\"complete file\"}, {\"tool\":\"test\"}, {\"tool\":\"submit\"}. Read both files before edit or submit. Only uart_tx.sv can be edited. Test runs the trusted public checker against the current file. You have at most 20 total actions and 4 public tests. Rejected actions also consume an action. Submission is allowed without passing tests and ends solving. Independent terminal and held-out results are not returned. No shell, other files, reference, checker or private inputs are available. Do not combine actions."
+  },
+  "rejection_feedback": "artifact-session-v2",
+  "effective_verifier_revision": 2,
+  "reason": "A confirmed same-source false positive under verifier1 requires revision2 admission and a separate calibration cohort; old UART trials remain archived, not rewritten or pooled.",
+  "fixed_conditions": "Same task contracts, starting RTL, model/worker, prompt, actions, budgets and projected feedback as previous UART cohort. Only verifier revision and unavoidable independent model sampling differ.",
+  "stopping_rules": [
+    "Stop affected cohort on source drift, isolation failure or indeterminate trusted verification. Retain all started attempts, no replacement.",
+    "Stop each trial on submit,20actions,worker error or1200seconds."
+  ],
+  "primary_questions": [
+    "Can the finite UART repair run with the requalified verifier?",
+    "Do actual busy-offer and adjacent-frame obligations hold for final submitted RTL?"
+  ],
+  "offline_analysis": {
+    "old_final_submissions": "Exactly the two original UART submitted sources, once each using verifier2 terminal phase, after solvers stopped. Offline only; do not replace original rewards.",
+    "intermediate_candidates": "none",
+    "training_selection": "No use of held-out results to select candidates"
+  },
+  "estimated_resources": {
+    "maximum_model_requests": 40,
+    "token_estimate": 120000,
+    "eda_seconds_estimate": 400,
+    "basis": "Previous UART trial costs and actual revision2 control runs; finite bound, no adaptive expansion",
+    "api_currency_cost": null
+  },
+  "interpretation": "Two new exploratory trials, not replacement samples, not a tool-effect success-rate comparison. Reliability improvement rests on the controlled same-source defect recheck."
+}

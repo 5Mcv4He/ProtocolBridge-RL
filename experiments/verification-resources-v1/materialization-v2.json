@@ -1,0 +1,99 @@
+{
+  "schema": "finite-materialization-check-v2",
+  "producer_sha256": "d944931d2ead0026732e912350a86d8748e959dd7b0e79ddc4d3c8ec8ac68a35",
+  "candidates": 6,
+  "accepted": 6,
+  "checks": [
+    {
+      "task_id": "accumulator_wrap_repair_v1",
+      "family": "reference-repair",
+      "variant": "wrap",
+      "verifier_revision": 1,
+      "manifest_sha256": "f9343ab4a64416bad0b05de81fbe63a526541e862d38406b0902012ec9721a15",
+      "files": {
+        "task/spec.md": "65a6a6cf1efbe4e84aac64ddb1527677a898236bff8b34093efa45b7688a7631",
+        "task/task.json": "7c43a2a45782456ccf57163bf8ee6b4ebe06ce232fdaa78797796115424e66c3",
+        "task/workspace/accumulator.sv": "a9980e72de15869235d314716744ba4443035cb59a8993fe26ffbcdbb6c6d528"
+      },
+      "dependency_files": 30,
+      "package_bytes": 7570,
+      "accepted": true
+    },
+    {
+      "task_id": "accumulator_saturating_repair_v1",
+      "family": "reference-repair",
+      "variant": "saturating",
+      "verifier_revision": 1,
+      "manifest_sha256": "9c63b83db6a78b64bd54cb0c9154eafebef915479059b14d971280e62baff448",
+      "files": {
+        "task/spec.md": "310695a06619d342e1a874175a64294c1a5bae5996ca35e0bfa930c75ac87732",
+        "task/task.json": "176e4d9335f24ccba1ba81f64b06e788e1c820859eb507f54ced59ec2e7af808",
+        "task/workspace/accumulator.sv": "39908d60987432a21c5eaf6cd479aedaa56ffae829eb0ebf517ef3c6be247d8b"
+      },
+      "dependency_files": 30,
+      "package_bytes": 7652,
+      "accepted": true
+    },
+    {
+      "task_id": "uart_tx_8n1_v1",
+      "family": "uart-transmit",
+      "variant": "8n1",
+      "verifier_revision": 2,
+      "manifest_sha256": "c7cde09bc860d0cc7825b9bc5f36a451b27ddd3f90f94e4839cf5a9d39121577",
+      "files": {
+        "task/spec.md": "c5e1833767ba32a12bab83605dc2b7518eb5cc1e73ffe02dd60bff1f0c5b6482",
+        "task/task.json": "55a5968e4bc472f4ababc1636a2f276954c3d3ae21ade95d115ea07726f73f13",
+        "task/workspace/uart_tx.sv": "ff7ee2e64e25ceb29d83ae532eb8f4de64d3dcf747fac82c0604cfcb8525b10f"
+      },
+      "dependency_files": 27,
+      "package_bytes": 7259,
+      "accepted": true
+    },
+    {
+      "task_id": "uart_tx_8e1_v1",
+      "family": "uart-transmit",
+      "variant": "8e1",
+      "verifier_revision": 2,
+      "manifest_sha256": "6f342938d630cd696b65b5285fb9f1ca10d80489abd6fb38432f8e9c88ce462d",
+      "files": {
+        "task/spec.md": "39e1fd7749ffc3f3ea6339300a360f607477781b679ffffbcd8c6ea3873c6329",
+        "task/task.json": "a8bfcc0f843661897fbb60f4e208cb898a861380d762bac18038d6c2c4d0b92c",
+        "task/workspace/uart_tx.sv": "02fefb27eff7afddbc2e65b64ccb7c31ef131898576d5741e176287b3e8fde37"
+      },
+      "dependency_files": 27,
+      "package_bytes": 7386,
+      "accepted": true
+    },
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "family": "stimulus-design",
+      "variant": "mapping",
+      "verifier_revision": 1,
+      "manifest_sha256": "07847283983253cc7238c16c12506ce683746ef6ec8a94f16955bc2c242b524e",
+      "files": {
+        "task/spec.md": "5db27859766165fe0df5ec56120a77a3ce42d262c6233ae69061c38a56ce2421",
+        "task/task.json": "793eee6794cfe65a8f125ad20848ed1e9bdf524e2cda04cf6b1052d15a6e9946",
+        "task/workspace/stimulus.json": "d611f192a221fb5ad3a48c4d41dc18df2232a58b7e63ab51f83c2c0a39939375"
+      },
+      "dependency_files": 36,
+      "package_bytes": 9009,
+      "accepted": true
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "family": "stimulus-design",
+      "variant": "timing",
+      "verifier_revision": 1,
+      "manifest_sha256": "60d3449716f2bf17244fcf45197a5e11d63384aa1dc09356c605337810f97424",
+      "files": {
+        "task/spec.md": "9b3b72256c8d1cc0a1f75f8c016e6b5a5affe32b6f0a6f8f8621a2c9851e4a97",
+        "task/task.json": "b97d11cbfebc9a2c362b78c539067ce3414635667557415531983f4a3e9ab9b1",
+        "task/workspace/stimulus.json": "d611f192a221fb5ad3a48c4d41dc18df2232a58b7e63ab51f83c2c0a39939375"
+      },
+      "dependency_files": 36,
+      "package_bytes": 9103,
+      "accepted": true
+    }
+  ],
+  "scope": "Current source-bound materialization/reset check; UART uses verifier2. Earlier materializations remain historical and do not qualify UART verifier1."
+}

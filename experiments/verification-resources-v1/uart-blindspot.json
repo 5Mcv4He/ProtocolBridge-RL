@@ -1,0 +1,47 @@
+{
+  "schema": "uart-same-source-blindspot-v1",
+  "candidate": "fixtures/uart_tx/bad_busy_accept.sv",
+  "candidate_sha256": "8fb39dbdbdbee8b1fa094818458876ee38c871daefe55f7cbe13b359e89a8333",
+  "violation": "Reloads the serializer on valid while ready is low, discarding an in-flight byte.",
+  "cause": "Verifier1 deasserted valid throughout busy; changing data alone did not exercise this obligation.",
+  "before": {
+    "task_id": "uart_tx_8n1_v1",
+    "source_sha256": "8fb39dbdbdbee8b1fa094818458876ee38c871daefe55f7cbe13b359e89a8333",
+    "verifier_sha256": "e01f700acc631ed790e01e23fa66d386c88760e1202b44d5012a46395998dd56",
+    "grader_sha256": "f125db203808d09c890984189bbd67c4c9f87688f804d962e90d994f048f171f",
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "phase": "public",
+    "compile_seconds": 19.1013,
+    "compile_exit": 0,
+    "simulation_seconds": 5.9718,
+    "simulation_exit": 0,
+    "frames": 256,
+    "cycle_checks": 40960,
+    "simulation_sha256": "fb0554f062d8cc5e9ed55635ae9dd0bb3bf46c28619925ccff803191a37a2b7a",
+    "wall_seconds": 26.5687
+  },
+  "after": {
+    "task_id": "uart_tx_8n1_v1",
+    "source_sha256": "8fb39dbdbdbee8b1fa094818458876ee38c871daefe55f7cbe13b359e89a8333",
+    "verifier_sha256": "27bb19dd78f2f1fbb5865802caeb93fc801fa05353b4707544afcea7d1d6ddf2",
+    "grader_sha256": "1d789d9015f836018b60d66e8d2974188670dc207abfeb75d7e4f3fbf168daa5",
+    "reward": 0.0,
+    "category": "transition_mismatch",
+    "verification_complete": false,
+    "phase": "public",
+    "verifier_revision": 2,
+    "compile_seconds": 18.2434,
+    "compile_exit": 0,
+    "simulation_seconds": 5.2091,
+    "simulation_exit": 0,
+    "diagnostic": [
+      "serial_bit_or_duration"
+    ],
+    "simulation_sha256": "7e1b1c6f70b448526da659e3655ef9ae5ac7011c41d1fcb6dbfdc8094470462d",
+    "wall_seconds": 25.2658
+  },
+  "change": "Verifier2 offers requests while busy and accepts following frames without the artificial four-cycle gap. Contract and candidate are unchanged.",
+  "historical_rewards": "Preserved, not rewritten. UART verifier1 admission is superseded; new UART sampling must use revision2 after its gate completes."
+}
