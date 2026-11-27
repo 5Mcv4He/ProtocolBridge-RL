@@ -1,0 +1,22 @@
+{
+  "schema": "i2c-completion-generation-v1",
+  "task_id": "i2c_completion_word_v1",
+  "generator_sha256": "6b969d2ed7ac56bcb7576d18e52ffb1e3294f938c0a8e20159b16ce878e877c1",
+  "base_generator_sha256": "d58c587862b7344af6b74bf10125ed292712b9c66c9a7b629bac2381da96acbb",
+  "files": {
+    "README.md": "5909ff96523f57e3da6aeda2e0d50c934e6eb2e8b59b5337682ee0b78c5afddb",
+    "alternate.sv": "7de35189caa3b82a371af2d1470fde5820b239a0f554be0727870a6f4df4b865",
+    "controls/ack_too_early.sv": "e0c028a48a1e8cc89d8720f8f6a1bb420c0e02a9962a23d1c3d2df092efea799",
+    "controls/byte_order.sv": "1f1cdb50a8a552b0b1a984557a3e770038a7a08928e2cb4577473321d6cd675d",
+    "controls/data_bit_loss.sv": "4a6d11c545d3f97e3690b4b3eb4c84c97e93eaa9548e9074eea395c1c9d4f6da",
+    "controls/no_ack.sv": "62496454d1f2731c35764a93da51d708f74a277b2215bea060c6b4bb8ad29872",
+    "controls/partial_word_crosses_stop.sv": "4c61d36e378ebac37f995612e0f1a4fac8402112cb266757cf77d1ace826144f",
+    "controls/reset_data_not_cleared.sv": "bc2e5d5af1d87ec571730a8ee9e44d0649618e50c0a9332742c1964198697e69",
+    "controls/valid_stuck.sv": "0f36037b1b03832d4b2019e4b369983a19824cd5bc154489d81b6c0b5b8634d9",
+    "controls/wrong_address.sv": "fbd25def7b028858c25f6f319a7c946054bbac7c98d8c7d316e0c181bd061d53",
+    "reference.sv": "aa8b5b48b4f9b846d1490e1f10a90ae68bb648196d5cd0d115a7b069cbb57896",
+    "spec.md": "1d7478eef76abd24f366db73d12f9f3eb058ed9ada091bbae66f63e2f84f1b04",
+    "task.json": "a0337047a29826bfef3e809d407f45cf411b02d88a09a1b7dec190f5357039d5",
+    "workspace/i2c_sink.sv": "22b7f2b1e0c6cf8649e8111fa6e17285ae466f3f9b8bcbe3ebea6697d50fc5da"
+  }
+}

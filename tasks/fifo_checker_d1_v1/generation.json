@@ -1,0 +1,24 @@
+{
+  "schema": "fifo-checker-generation-v3",
+  "task_id": "fifo_checker_d1_v1",
+  "generator_sha256": "a46fedbc8c145ef5061d08d797e0d89ca2f76e1dc4ad3712e5fa538afd5fdaa4",
+  "files": {
+    "README.md": "4e6e0fff7c362aea5192704cb9a8c09aebb6c4b20a43060956c75adf3a99c5af",
+    "alternate.sv": "d150ba768390eb73c016deb1d35734ff1140166dc38a8a5ffab717c12540dbae",
+    "controls/accept_overflow.sv": "bf7bf5729739eb9c13e31235fd3f89543ee48376caf6ac793865cb25def0fcdc",
+    "controls/always_pass.sv": "7361c4a79428cad455cf2fae943064c56efb2c0db1fddf54982825421da042ad",
+    "controls/always_reject.sv": "237a84e1b5bca0b45de26c090e2e4bf1859ee8c711437a8c85466a47feec75d5",
+    "controls/clear_error_on_idle.sv": "a9d0b8b25911cfa67b255146317fe31992aa35e9d3b681d99afec202c8586b39",
+    "controls/compare_new_id.sv": "6c4e1f9cc9bd30ab44018ae9aaf1b0f67c28d00d82791500acf21c1c34061191",
+    "controls/discard_replacement.sv": "f295dab34b3280e8ab4573858d54c8bee3f04e6a1656c4218f3c4f5ab28d8c33",
+    "controls/empty_bypass.sv": "33a0f45a3d478979227465f448ef3e59d9bf4ac650b180aa4d8bc84cc850acad",
+    "controls/no_identity_check.sv": "29c3ecd55addf60d85fab71ceec4ef488d7461dfacb55a3b5d4bcbcaf0724f1e",
+    "controls/reject_full_exchange.sv": "06c1a9eedcb1f0730d081328cae65e3f17b2cbb7810f2671c1f4efdd61dee773",
+    "controls/reset_keeps_count.sv": "4d1a86d68db9873ab4f120954924f2c7f4785bd380873121058310fd40b4d0ac",
+    "reference.sv": "06032a6660a95f9bb36477a6859a7bbf015150b69a7c8da587676442b48a4293",
+    "spec.md": "69a5a8f8d0074fc98786b295024d3d8de7e761687532c42e6b61d732e7fd267f",
+    "task.json": "6e43b79d9a8b2c42a4eecfafdd4ff25f4f25fd3570ccb31636e943cd294ade90",
+    "workspace/checker.sv": "0e76011acd9e0166edf1d0f1aa4d08dc150cbe46971161e8d2b1ce53f71a311e"
+  },
+  "status": "candidate; independent industrial admission required"
+}

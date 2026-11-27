@@ -1,0 +1,233 @@
+{
+  "schema": "strict-materialization-v8-validation",
+  "accepted": true,
+  "packages": 20,
+  "rows": [
+    {
+      "task_id": "accumulator_wrap_repair_v1",
+      "family": "reference-repair",
+      "variant": "wrap",
+      "manifest_sha256": "cfc3c85e57e59a6c3d3b6e33219e0ac81d3fcc86cdf2a2aa0192d82719d57bb5",
+      "dependencies": 77,
+      "task_files": 3,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    },
+    {
+      "task_id": "accumulator_saturating_repair_v1",
+      "family": "reference-repair",
+      "variant": "saturating",
+      "manifest_sha256": "3a2f6127df8495586d9070e212221e38179822ff57afd71948459a88ea771750",
+      "dependencies": 77,
+      "task_files": 3,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    },
+    {
+      "task_id": "uart_tx_8n1_v1",
+      "family": "uart-transmit",
+      "variant": "8n1",
+      "manifest_sha256": "ac0babb0ad45a705a799b5c0454325443c2e16e928f390462012977999de8810",
+      "dependencies": 75,
+      "task_files": 3,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    },
+    {
+      "task_id": "uart_tx_8e1_v1",
+      "family": "uart-transmit",
+      "variant": "8e1",
+      "manifest_sha256": "d36ec63e92526c08725cdc02fb4f15c51e8c6964cdf3b406e74db52145849e68",
+      "dependencies": 75,
+      "task_files": 3,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    },
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "family": "stimulus-design",
+      "variant": "mapping",
+      "manifest_sha256": "02bf57d1273b0b191021cc5e18de082f0b765f9bb933c8c6e8844c92fb8a6385",
+      "dependencies": 81,
+      "task_files": 3,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "family": "stimulus-design",
+      "variant": "timing",
+      "manifest_sha256": "7cafe9121df6865b0636786159a10be83db31bff2e95855ddcb3d14baf77199a",
+      "dependencies": 81,
+      "task_files": 3,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    },
+    {
+      "task_id": "rffe_register_rw_v1",
+      "family": "rffe-register",
+      "variant": "rw",
+      "manifest_sha256": "cd4d58b684b671d5707c45e91e25984f5ad7b61e2fcd32f1cbfdd8d9af7db6fa",
+      "dependencies": 92,
+      "task_files": 15,
+      "reset": true,
+      "each_dependency_omission_tested": true,
+      "each_task_file_omission_tested": true
+    },
+    {
+      "task_id": "rffe_register_w1c_v1",
+      "family": "rffe-register",
+      "variant": "w1c",
+      "manifest_sha256": "12fa38cbfa4b6213f7ebc70a420ba45516ab6c7e08b41a9defd0526713ca8362",
+      "dependencies": 92,
+      "task_files": 15,
+      "reset": true,
+      "each_dependency_omission_tested": true,
+      "each_task_file_omission_tested": true
+    },
+    {
+      "task_id": "bitfold_population_repair_v1",
+      "family": "bitfold-synthesis",
+      "variant": "population",
+      "manifest_sha256": "7c1cbdaf919ca9c8e423697f70f4a36d2546755c254b589aca56e23a6db4b15d",
+      "dependencies": 87,
+      "task_files": 12,
+      "reset": true,
+      "each_dependency_omission_tested": true,
+      "each_task_file_omission_tested": true
+    },
+    {
+      "task_id": "bitfold_trailing_zero_repair_v1",
+      "family": "bitfold-synthesis",
+      "variant": "trailing-zero",
+      "manifest_sha256": "89c9a089c508a8d67869fa258dd9efb4e868841e3555c2ec0f5da6cf757b6b2c",
+      "dependencies": 87,
+      "task_files": 12,
+      "reset": true,
+      "each_dependency_omission_tested": true,
+      "each_task_file_omission_tested": true
+    },
+    {
+      "task_id": "i2c_completion_byte_v1",
+      "family": "i2c-completion",
+      "variant": "byte",
+      "manifest_sha256": "3aaf050b1374827538d82289ddac7f49bbd17ed67f0d7656f9607c2294859bf3",
+      "dependencies": 120,
+      "task_files": 13,
+      "reset": true,
+      "each_dependency_omission_tested": true,
+      "each_task_file_omission_tested": true
+    },
+    {
+      "task_id": "i2c_completion_word_v1",
+      "family": "i2c-completion",
+      "variant": "word",
+      "manifest_sha256": "4a8bc3e2288c91f31e0ec71bd479be24719253b0fa3eb09642f1e58159c0d733",
+      "dependencies": 120,
+      "task_files": 15,
+      "reset": true,
+      "each_dependency_omission_tested": true,
+      "each_task_file_omission_tested": true
+    },
+    {
+      "task_id": "fifo_checker_d1_v1",
+      "family": "fifo-checker-expanded",
+      "variant": "depth1",
+      "manifest_sha256": "05a9181d65d5f3fc241b5d77917174732f96556b2994679977f8f013d166c90f",
+      "dependencies": 96,
+      "task_files": 17,
+      "reset": true,
+      "each_dependency_omission_tested": true,
+      "each_task_file_omission_tested": true
+    },
+    {
+      "task_id": "fifo_checker_d5_v1",
+      "family": "fifo-checker-expanded",
+      "variant": "depth5",
+      "manifest_sha256": "3bd81f270287a977999ad258a85e2537648f0508f480f6bd4ee192e947474686",
+      "dependencies": 96,
+      "task_files": 19,
+      "reset": true,
+      "each_dependency_omission_tested": true,
+      "each_task_file_omission_tested": true
+    },
+    {
+      "task_id": "i2c_sink_byte_v1",
+      "family": "i2c-write-sink",
+      "variant": "byte",
+      "manifest_sha256": "da62565500253de11305111b56471c81147cae5cbbe8287d784ebfdf39322b50",
+      "dependencies": 90,
+      "task_files": 13,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    },
+    {
+      "task_id": "i2c_sink_word_v1",
+      "family": "i2c-write-sink",
+      "variant": "word",
+      "manifest_sha256": "f83b5c00cd1f882b468bf6fb4a1b05bad5c43fb510bb317d86731949c3f3cde8",
+      "dependencies": 90,
+      "task_files": 15,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    },
+    {
+      "task_id": "fifo_checker_d2_v1",
+      "family": "fifo-checker",
+      "variant": "depth2",
+      "manifest_sha256": "83c78179631f26302bca98d71ea14fd13dcefa829db87ce09f0d5e5e23d8ea20",
+      "dependencies": 60,
+      "task_files": 16,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    },
+    {
+      "task_id": "fifo_checker_d3_v1",
+      "family": "fifo-checker",
+      "variant": "depth3",
+      "manifest_sha256": "a955b3e06ae3be3132553642f9be3f04c61b3d97eaad7a56b89bf0bd6aa2aeaf",
+      "dependencies": 60,
+      "task_files": 17,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    },
+    {
+      "task_id": "status_set_dominant_repair_v1",
+      "family": "status-register",
+      "variant": "set-dominant",
+      "manifest_sha256": "581c09f84141aa219ee5461e2923a1089b51469e3295969ba0657a14350b098f",
+      "dependencies": 87,
+      "task_files": 13,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    },
+    {
+      "task_id": "status_clear_dominant_repair_v1",
+      "family": "status-register",
+      "variant": "clear-dominant",
+      "manifest_sha256": "8de7cbab19d7612011e5d952f14806cd48892c3d4bde5aab5575ba1097b01a99",
+      "dependencies": 87,
+      "task_files": 13,
+      "reset": true,
+      "each_dependency_omission_tested": false,
+      "each_task_file_omission_tested": false
+    }
+  ],
+  "dependency_omission_rejections": 790,
+  "task_file_omission_rejections": 118,
+  "wall_seconds": 3.1733,
+  "mechanism_test_sha256": "9431f400855598c7343d7ed08a1ea63c6d0d0c6c5032a21c3cbabdac46946be2",
+  "test_output_sha256": "1837889d512aed3d82cb51181565247903663a0d18db86fcb02614895d2f04cb",
+  "scope": "All20 current packages materialized/reset. Every dependency/task-file omission and extra file rejected for8newpackages by test_production_v5. No model/EDA execution implied; private packages retain manifests."
+}

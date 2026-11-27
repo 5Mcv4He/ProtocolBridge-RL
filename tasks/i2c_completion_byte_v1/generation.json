@@ -1,0 +1,20 @@
+{
+  "schema": "i2c-completion-generation-v1",
+  "task_id": "i2c_completion_byte_v1",
+  "generator_sha256": "6b969d2ed7ac56bcb7576d18e52ffb1e3294f938c0a8e20159b16ce878e877c1",
+  "base_generator_sha256": "d58c587862b7344af6b74bf10125ed292712b9c66c9a7b629bac2381da96acbb",
+  "files": {
+    "README.md": "5909ff96523f57e3da6aeda2e0d50c934e6eb2e8b59b5337682ee0b78c5afddb",
+    "alternate.sv": "46a902bae8f9dc113377720fb5b071fe06f5c699fe08266b5222c4c5597b31f9",
+    "controls/ack_too_early.sv": "6ecedb82558e0595a8ba6d0003d7d7de54b83fb2cdeff27e57dd73580a0710bf",
+    "controls/data_bit_loss.sv": "30a062900216c1e4ff9e3201ed7644ae603eb942948cb9dc727ff75f96eea1e3",
+    "controls/no_ack.sv": "7bfce8fc593212819aea6cbed34b3a037ebe4938058c1ab9465fc52b802bb45b",
+    "controls/reset_data_not_cleared.sv": "594d87640497f276bcc998523aefc2149d3225e4a5b2b4367b57c2c45abef0de",
+    "controls/valid_stuck.sv": "70a974392203fd4de0c15cfaad65ddf0f8e0d8523b733a150877dacbaab745ea",
+    "controls/wrong_address.sv": "14b94f8327a6c2e3891378ae35a1c570fb819e42b92ddc1a446414d5e303865b",
+    "reference.sv": "5a5a9497b08710756c004266e8d657fa7a37f1d658029fb4d951a0c5c1d57dd4",
+    "spec.md": "38704c7ec28810d9713951afcc900d329b3893d62f8a0067f7304e0ff1c1b5d6",
+    "task.json": "fe646071f010d2fc99b096201a7a7799072293a35ffde60d73e87a216ba8650b",
+    "workspace/i2c_sink.sv": "22b7f2b1e0c6cf8649e8111fa6e17285ae466f3f9b8bcbe3ebea6697d50fc5da"
+  }
+}

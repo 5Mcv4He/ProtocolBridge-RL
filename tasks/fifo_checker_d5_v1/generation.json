@@ -1,0 +1,26 @@
+{
+  "schema": "fifo-checker-generation-v3",
+  "task_id": "fifo_checker_d5_v1",
+  "generator_sha256": "a46fedbc8c145ef5061d08d797e0d89ca2f76e1dc4ad3712e5fa538afd5fdaa4",
+  "files": {
+    "README.md": "46716e4b0481c84a4d4bbf388d651c4675f9dc3792b0a1f9bf7beb4fc8af7d72",
+    "alternate.sv": "ade9c09d63ba8eb2221be2775b58828b6da5dae67d46115e3d14f688585b5c59",
+    "controls/accept_overflow.sv": "2dc6bfbbd3299ab22184af0540b8ea53e0c30c936cc5d72dedd378bce371e7cc",
+    "controls/always_pass.sv": "7361c4a79428cad455cf2fae943064c56efb2c0db1fddf54982825421da042ad",
+    "controls/always_reject.sv": "237a84e1b5bca0b45de26c090e2e4bf1859ee8c711437a8c85466a47feec75d5",
+    "controls/binary_wrap.sv": "d3feef5d0862e92813436af34597115e99c81ee082095d13bea86797c398f303",
+    "controls/clear_error_on_idle.sv": "ba07725fc83e71473b911f26e938c92a17cd91bdfbd3407502fb556e704543b9",
+    "controls/compare_new_id.sv": "7117eca7dbdadd72bf81f3e59b59c7c3d348fff8056dbdbcf380f86103a136c2",
+    "controls/forget_pop_pointer.sv": "5cbcfcdce26333f74db18f11936db2473a6290ff26a0282bb3ca6279f788f340",
+    "controls/narrow_count.sv": "cca167076437633df3eab8a53196adc83787df52805950c66e1849eea3bfbac3",
+    "controls/no_identity_check.sv": "21f6a76aed138bc22cccbc29da90f35ff4cbc122ba437bdc8c804375fe05639e",
+    "controls/reject_full_exchange.sv": "600c921023f80fbec9cfbff086c2eb78f965c99739eb429c02cf7a81fdf5d18c",
+    "controls/reset_keeps_count.sv": "c7edfa3a23e794b23ef659ca30d499eb8a5ebd8e52d8871f8fcde91de1909751",
+    "controls/rounded_capacity.sv": "d466eae5fd5cad7b5972e3de5e4e9baa607ab3fa80cf805c481ce3e307010220",
+    "reference.sv": "44fb730361b454529d7e7ffbb772c7de6e94b5eab6991b8d8e0b79cc424d1a84",
+    "spec.md": "5b9d202b63ac7042607a23a7227face409e3a5a7ad8dfdb7a1e51043f4576b34",
+    "task.json": "bfeb315a1efea164d56b5b5329204aaae7d25850b5b85a688baabd9902ca1317",
+    "workspace/checker.sv": "0e76011acd9e0166edf1d0f1aa4d08dc150cbe46971161e8d2b1ce53f71a311e"
+  },
+  "status": "candidate; independent industrial admission required"
+}

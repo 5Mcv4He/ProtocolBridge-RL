@@ -27,7 +27,7 @@ SpyGlass、ICC2、TetraMAX 等未接入当前已验收的 Agent 工具配置或�
 
 ## 隔离与证明的边界
 
-Agent 的隔离探针已确认低权限 UID、进程命名空间、不可见宿主 home／评分器目录、不可改写 worker 程序、无有效 capabilities、禁止提权。网络仍用于调用模型服务；这不是完整的网络沙箱。多个试次目前共用该低权限 UID 和根文件系统，因此尚未实现试次之间的 OS 文件隔离；文件读取动作受当前试次的材料白名单限制；支持 observe 等动作的 X2P 配置另经受控接口查询公开实验，不能任意读取日志或可信目录。十二个有限契约的已发布配置仅开放 read/edit/test/submit。
+Agent 的隔离探针已确认低权限 UID、进程命名空间、不可见宿主 home／评分器目录、不可改写 worker 程序、无有效 capabilities、禁止提权。网络仍用于调用模型服务；这不是完整的网络沙箱。多个试次目前共用该低权限 UID 和根文件系统，因此尚未实现试次之间的 OS 文件隔离；文件读取动作受当前试次的材料白名单限制；支持 observe 等动作的 X2P 配置另经受控接口查询公开实验，不能任意读取日志或可信目录。有限任务的已发布配置仅开放 read/edit/test/submit。
 
 候选 RTL 另有受限语法检查和执行超时。当前不能把这些描述为已完成恶意编译器输入审计或所有形式的沙箱逃逸防护。
 
@@ -36,3 +36,5 @@ Agent 的隔离探针已确认低权限 UID、进程命名空间、不可见宿�
 新增 FIFO Checker 使用 VCS O-2018.09-SP2 与独立事件模型；状态寄存器使用同版 VCS 及 Formality O-2018.06-SP1，不使用工艺 PPA 奖励。RFFE R-2020.12 / UVM 1.1d 的新读写例程有一次实际读回比较，仅达到厂商例程层；[能力与证据范围](task-production-stage-v2.md#验证资源扩大到了哪一层)不将它列为任务后端。
 
 I²C 写入任务另以 VCS O-2018.09-SP2、VIP R-2020.12、UVM 1.1d 完成自建对象、32 项正反对照与两条真实求解；实际版本见[清单](../experiments/i2c-sink-v1/toolchain.json)，支持范围见[有限任务指南](tasks/i2c-write-sink.md)。[本阶段能力映射](../experiments/i2c-sink-v1/capability-map.json)逐项绑定证据；UART 修订 5 当前有正反对照，但尚无该修订的新模型校准。该记录不改变 AMBA、UART 或历史 UTM 版本。
+
+新增 RFFE 与 I²C 补全使用 VIP R-2020.12／UVM 1.1d；综合修复使用 DC 与 Formality O-2018.06-SP1。版本来自本阶段实际日志头，[清单](../experiments/task-production-v3/toolchain.json)与[任务解释](tasks/bitfold-synthesis-repair.md)分开记录功能等价和自身网表等价。教学库只用于明确结构条件，没有 PPA 奖励。

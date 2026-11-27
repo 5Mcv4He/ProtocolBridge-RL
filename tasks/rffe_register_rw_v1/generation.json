@@ -1,0 +1,23 @@
+{
+  "schema": "rffe-register-generation-v2",
+  "task_id": "rffe_register_rw_v1",
+  "generator_sha256": "af5cd68f7b470a58453fae7364496a6b462bbc8d1e6a7fe8bcf8137ac0dce2a6",
+  "template_sha256": "c7a3d4908690a58adf6ebc28b86bc2e8e483b8eeaa21fcaff7b57a6f0744d967",
+  "files": {
+    "README.md": "74b9e0dce97674079ab6aeccac321825a60b8b5e927bb6fbc41973a281b55e9d",
+    "alternate.sv": "21e429e0b3634283c71e0265d18c15a54ab9860fe0dac7c1e12ad2ab474fcaac",
+    "controls/no_read_drive.sv": "606a4cc924759dd248754ba46ff313510c778a3cfc97e66e1e51a33195216b1d",
+    "controls/parity_inverted.sv": "730a562786b8084e24ba3cec4feedfeb6b7ca3f7f269847739b0b2b2ea1b81ea",
+    "controls/park_not_zero.sv": "eb1fb2267ddedcb11dcd27abec658bc06eb7b3bd752e8636e565134379a72e79",
+    "controls/read_bit_flip.sv": "1b6635c94b3b9401e393e4fafdeffba7deb41fc60350e0e182f0ebf3f9483da9",
+    "controls/reset_keeps_data.sv": "ff0d4d0b4b295dd9fd498260f9fca636aa0c23167ab3cd46a5b4196ff3e3fc30",
+    "controls/write_alias.sv": "9173ffa55cc4431c9bf472391ec4379e1d0aa91f557277924007481b1d85b8f8",
+    "controls/wrong_read_address.sv": "cfb34a3e68292f62792f49cbf434e1817bfc7683b0a8a325465022399fed10ec",
+    "controls/wrong_update_semantics.sv": "96127bf9ce3bcf6dc17e31d00bda5fe1a44236d9aa79ff35805e4b1e51d9e08e",
+    "reference.sv": "5d85f53fdd01df8272e938329a3b9b7662c80d2c38c645878ccc58fca7546b3a",
+    "spec.md": "fb1269cc1b8acf8ef93ee98da8ccd8e23ccf81f3495af6c9f9c9cc8b2713a694",
+    "task.json": "0a21a66ae4058b0d2318bfdc088803cca2cc09c65043126aefb835df4bdec4f4",
+    "workspace/rffe_register.sv": "660586270a43a6f90e52aeddd911ff8a88b9a2127c45971ae757b7e30e7d93f2"
+  },
+  "status": "candidate; no automatic admission"
+}

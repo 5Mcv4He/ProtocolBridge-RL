@@ -1,0 +1,18 @@
+{
+  "schema": "bitfold-generation-v1",
+  "task_id": "bitfold_trailing_zero_repair_v1",
+  "generator_sha256": "d799473f080f7234a999165de0c9a36b78d229e1b9e6ca6e46e37c53bcb047ce",
+  "files": {
+    "README.md": "f20ac59e8be67fa4a5f0a3bb63744a469a6f5af95a1b423419085bf997efa0ed",
+    "alternate.sv": "f0ef6136c05a1fd9ed790677b3db2d800df1674733a4fcf13bb3c8c8507c90b8",
+    "controls/constant_zero.sv": "eb8074f78c1ef55f4f011ec57a296d180a36ceb5bbaa170777ab2f3f8ead7e13",
+    "controls/data_dependent_loop.sv": "a660b87f94b7f874a4e7bfc056f0e9e4ae944876436670a4860c2818b1cb8b07",
+    "controls/latch.sv": "8970e96e6cbf4a273431b3e7b4b0adee50563667c98ac506f69f2d26597e3026",
+    "controls/wrong_bit.sv": "2d1a7b7d90bcd76adead254b5c933febf295012e4754148635121c4fd55f7179",
+    "controls/wrong_boundary.sv": "5c837e427a91f153f3f123ff74b45ae262083645a11f767dbac29580a32cca34",
+    "reference.sv": "bed01f5aa8e79b00cd6e915bea57b43dc0ef03fbb2013f78e6f213605a64e563",
+    "spec.md": "2fe22f9c0f51878b34ffcafe1ca1677536ef4b4c49e95d0f4e35ed5c490602a4",
+    "task.json": "d01464c347d4565527229cf39c75d98ad706f7114e963ca0bb73a38dbb1f01e5",
+    "workspace/bitfold.sv": "a660b87f94b7f874a4e7bfc056f0e9e4ae944876436670a4860c2818b1cb8b07"
+  }
+}

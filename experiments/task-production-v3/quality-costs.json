@@ -1,0 +1,74 @@
+{
+  "schema": "industrial-admission-cost-v1",
+  "gates": [
+    {
+      "gate": "checker-quality-v3.json",
+      "gate_sha256": "eab63f24bef90dae6b996764bf0fd9f418982d7e60caf8ff79fc170fa2a9f5c0",
+      "checks": 39,
+      "accepted": true,
+      "wall_seconds": 154.1315,
+      "compile_seconds": 67.2615,
+      "simulation_seconds": 35.0252,
+      "synthesis_seconds": 0,
+      "independent_reference_seconds": 0,
+      "own_netlist_seconds": 0,
+      "reward_counts": {
+        "one": 12,
+        "zero": 23,
+        "null": 4
+      }
+    },
+    {
+      "gate": "rffe-quality-v2.json",
+      "gate_sha256": "8c6ce3c5e8484751ea5a04b5c1e7e2505b346e08aeaa86e94f0a4e97deb0ecc3",
+      "checks": 33,
+      "accepted": true,
+      "wall_seconds": 1013.4298,
+      "compile_seconds": 861.3478,
+      "simulation_seconds": 110.5427,
+      "synthesis_seconds": 0,
+      "independent_reference_seconds": 0,
+      "own_netlist_seconds": 0,
+      "reward_counts": {
+        "one": 12,
+        "zero": 17,
+        "null": 4
+      }
+    },
+    {
+      "gate": "bitfold-quality-v1.json",
+      "gate_sha256": "6c97b0c121d0b2be632c0d0d9bd2b4136ccc072385a54a7bcf50a8375d7d8d23",
+      "checks": 31,
+      "accepted": true,
+      "wall_seconds": 189.2471,
+      "compile_seconds": 45.6221,
+      "simulation_seconds": 23.6173,
+      "synthesis_seconds": 25.3224,
+      "independent_reference_seconds": 22.5543,
+      "own_netlist_seconds": 17.3298,
+      "reward_counts": {
+        "one": 14,
+        "zero": 15,
+        "null": 2
+      }
+    },
+    {
+      "gate": "i2c-completion-quality-v1.json",
+      "gate_sha256": "0a5a3caa48094a7fc00b2744d964d3f1b6cea440aa47b6029e1299b25dcbe146",
+      "checks": 18,
+      "accepted": true,
+      "wall_seconds": 979.061,
+      "compile_seconds": 596.2988,
+      "simulation_seconds": 351.831,
+      "synthesis_seconds": 0,
+      "independent_reference_seconds": 0,
+      "own_netlist_seconds": 0,
+      "reward_counts": {
+        "one": 12,
+        "zero": 6,
+        "null": 0
+      }
+    }
+  ],
+  "scope": "Actual grade call wall times; no model calls, earlier development probes and rejected gate excluded from these completed-gate denominators. Null controls are expected invalid submissions, not hidden runtime errors. Sequential execution; measured times are not a fixed price."
+}

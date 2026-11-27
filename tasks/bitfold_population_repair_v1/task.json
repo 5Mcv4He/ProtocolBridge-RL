@@ -1,0 +1,24 @@
+{
+  "task_id": "bitfold_population_repair_v1",
+  "version": 1,
+  "family": "bitfold-synth-v1",
+  "mode": "population",
+  "deliverable": "bitfold.sv",
+  "verifier": "verifier.bitfold_synth.campaign",
+  "verifier_revision": 1,
+  "source_origin": "synthetic data-dependent-loop repair",
+  "capabilities": [
+    "bounded-hardware-elaboration",
+    "combinational-state-exclusion",
+    "population"
+  ],
+  "obligations": [
+    "all-256-inputs",
+    "zero-and-extreme-inputs",
+    "order-independent-output",
+    "independent-reference-equivalence",
+    "complete-mapped-combinational-netlist",
+    "candidate-to-netlist-equivalence"
+  ],
+  "admission": "candidate; matching industrial gate required"
+}

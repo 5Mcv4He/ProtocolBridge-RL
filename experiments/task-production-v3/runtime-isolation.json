@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "uid": 1101,
+    "pid": 1,
+    "host_home_visible": false,
+    "host_verifier_visible": false,
+    "no_new_privs": "1",
+    "effective_capabilities": "0000000000000000",
+    "chroot_escape_denied": true,
+    "worker_write_denied": true
+  },
+  "runtime_hashes": [
+    "a2d05ae3ea49698701a362af78171c709648093cd20f8d2cb951c022431e7625",
+    "652a593dff127a82b499019304940cf54326b601c275bc86171fee08335531e1"
+  ],
+  "schema": "artifact-runtime-isolation-check-v1",
+  "accepted": true,
+  "model_called": false,
+  "limits": "Existing process/filesystem restrictions; network is available for model API. Trials share a low-privilege UID/runtime root; no claim of mutually isolated trial files. Solver has no direct tools; controller exposes only current spec/deliverable."
+}

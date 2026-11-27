@@ -68,3 +68,16 @@ python3 -m scripts.analyze_artifact_study_v2 NEW_RESULTS.json RAW_TRIAL_1 RAW_TR
 ```
 
 新两条记录使[当前库存](../experiments/i2c-sink-v1/exchange-inventory.json)达到 **127 条研究记录、87 条已审查工具轨迹**。字节试次的最后候选未公开测试却终局通过；组字试次提交同一已失败源码。分析另报候选身份、实际曝光、编译／仿真耗时，详见[行为证据](../experiments/i2c-sink-v1/behavior-cases.json)。可信侧离线诊断不补入模型实际观察；保留评估仍不用于选择训练记录。
+
+## 多验证资源的 v8 记录
+
+[导出器修订 4](../scripts/artifact_exchange_v4.py)为 runner v10／Session v4 增加明确版本，同时保留旧导出器及冻结结果。原始回复仍在可信本地重放；公开记录保存实际动作、送达反馈、候选内容、提交及终局奖励，保留评估放在独立分区。新审计还核对控制器结果与实际评分结果文件，拒绝仅修改最终奖励的记录。
+
+综合任务的 `synthesis_error` 是明确结构条件未满足；它与编译错误、功能不一致和基础设施失败分别记录。成本分析单列 DC、独立参考 Formality 和自身网表 Formality，避免将几个不同判断揉成一个“形式通过”。新运行入口、实际审计和模型记录状态见[阶段报告](task-production-stage-v3.md)；接口已实现不等于轨迹已产生。
+
+```bash
+python3 -m scripts.artifact_exchange_v4 NEW_EXCHANGE RAW_TRIAL_1 RAW_TRIAL_2
+python3 -m scripts.analyze_artifact_study_v3 NEW_ANALYSIS_JSON RAW_TRIAL_1 RAW_TRIAL_2
+```
+
+这仍是工具交互数据，不提供 Token IDs、行为概率或精确权重版本。首编辑表现只取该版本实际接受的公开检查；未执行事后测试时保持未知。独立保留评估不用于替换最终交付或挑选训练样本。

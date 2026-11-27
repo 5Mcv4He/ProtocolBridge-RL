@@ -1,0 +1,356 @@
+{
+  "schema": "reviewed-engineering-inventory-v3",
+  "scope": "Inventory does not grant execution permission. A new initial form is a task identity, not a new protocol capability. Seed/toolchain/export changes add no identities.",
+  "x2p_inventory": {
+    "path": "experiments/composed-stage-v1/task-inventory.json",
+    "sha256": "9670308aa8984f84319931c042e265a8a2a2edf77cef3842204fbb2111950c3d",
+    "task_ids": [
+      "axil_to_apb4_001",
+      "axil_to_apb4_router_002",
+      "axil_to_apb4_queue_003",
+      "axil_to_apb4_decoupled_004",
+      "x2p_router_compact_v1",
+      "x2p_router_irregular_v1",
+      "x2p_router_adjacent_v1",
+      "x2p_queue_single_v1",
+      "x2p_queue_three_v1",
+      "x2p_queue_readheavy_v1",
+      "x2p_routed_queue_v1"
+    ],
+    "current_source_admission": "Not inferred; original freezes and package-specific gates apply"
+  },
+  "finite_tasks": [
+    {
+      "task_id": "accumulator_wrap_repair_v1",
+      "functional_contract": "accumulator_wrap_repair_v1",
+      "capabilities": [
+        "synchronous-state-update",
+        "reset-load-enable-priority",
+        "modulo-arithmetic"
+      ],
+      "task_form": "repair",
+      "spec": "tasks/accumulator_wrap_repair_v1/spec.md",
+      "quality_evidence": "experiments/verification-resources-v1/independent-reference-quality.json",
+      "quality_sha256": "1ac3c70c700d18b276753bc465f064fc16cbf7361c1452db9784d578a10606ce",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "accumulator_saturating_repair_v1",
+      "functional_contract": "accumulator_saturating_repair_v1",
+      "capabilities": [
+        "synchronous-state-update",
+        "reset-load-enable-priority",
+        "unsigned-saturation-and-carry"
+      ],
+      "task_form": "repair",
+      "spec": "tasks/accumulator_saturating_repair_v1/spec.md",
+      "quality_evidence": "experiments/verification-resources-v1/independent-reference-quality.json",
+      "quality_sha256": "1ac3c70c700d18b276753bc465f064fc16cbf7361c1452db9784d578a10606ce",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "uart_tx_8n1_v1",
+      "functional_contract": "uart_tx_8n1_v1",
+      "capabilities": [
+        "serial-framing",
+        "fixed-baud-cycle-accounting",
+        "ready-valid-capture"
+      ],
+      "task_form": "rtl_implementation",
+      "spec": "tasks/uart_tx_8n1_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v2/uart-quality-v5.json",
+      "quality_sha256": "9d9c32008d8efc111ee831fca872f3b4005dba466fb209b5aa07e14264614fb4",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "uart_tx_8e1_v1",
+      "functional_contract": "uart_tx_8e1_v1",
+      "capabilities": [
+        "serial-framing",
+        "fixed-baud-cycle-accounting",
+        "ready-valid-capture",
+        "even-parity"
+      ],
+      "task_form": "rtl_implementation",
+      "spec": "tasks/uart_tx_8e1_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v2/uart-quality-v5.json",
+      "quality_sha256": "9d9c32008d8efc111ee831fca872f3b4005dba466fb209b5aa07e14264614fb4",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "functional_contract": "x2p_stimulus_mapping_v1",
+      "capabilities": [
+        "valid-stimulus-construction",
+        "positive-and-negative-dut-discrimination",
+        "mapping-defect-exposure"
+      ],
+      "task_form": "stimulus_design",
+      "spec": "tasks/x2p_stimulus_mapping_v1/spec.md",
+      "quality_evidence": "experiments/verification-resources-v1/stimulus-quality.json",
+      "quality_sha256": "e3088bb73b37fc5c9dc0e67f2f338068bbde0ffa7ba9275c4c1a29190ec088a4",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "functional_contract": "x2p_stimulus_timing_v1",
+      "capabilities": [
+        "valid-stimulus-construction",
+        "positive-and-negative-dut-discrimination",
+        "timing-defect-exposure"
+      ],
+      "task_form": "stimulus_design",
+      "spec": "tasks/x2p_stimulus_timing_v1/spec.md",
+      "quality_evidence": "experiments/verification-resources-v1/stimulus-quality.json",
+      "quality_sha256": "e3088bb73b37fc5c9dc0e67f2f338068bbde0ffa7ba9275c4c1a29190ec088a4",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "fifo_checker_d2_v1",
+      "functional_contract": "fifo_checker_d2_v1",
+      "capabilities": [
+        "checker-design",
+        "transaction-identity",
+        "capacity-and-retirement"
+      ],
+      "task_form": "checker_design",
+      "spec": "tasks/fifo_checker_d2_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v2/checker-quality-v2.json",
+      "quality_sha256": "a8e20149957c902328ea9892db4b93969ec287bebd4faf502c27460ed490da86",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "fifo_checker_d3_v1",
+      "functional_contract": "fifo_checker_d3_v1",
+      "capabilities": [
+        "checker-design",
+        "transaction-identity",
+        "capacity-and-retirement"
+      ],
+      "task_form": "checker_design",
+      "spec": "tasks/fifo_checker_d3_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v2/checker-quality-v2.json",
+      "quality_sha256": "a8e20149957c902328ea9892db4b93969ec287bebd4faf502c27460ed490da86",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "status_set_dominant_repair_v1",
+      "functional_contract": "status_set_dominant_repair_v1",
+      "capabilities": [
+        "write-one-to-clear",
+        "per-bit-hardware-software-priority",
+        "synchronous-state-update"
+      ],
+      "task_form": "repair",
+      "spec": "tasks/status_set_dominant_repair_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v2/status-quality-v1.json",
+      "quality_sha256": "93f9cf1674ae970b5a6ea977f9f09017b99281ba3aa7e1facecea58fe7f07be8",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "status_clear_dominant_repair_v1",
+      "functional_contract": "status_clear_dominant_repair_v1",
+      "capabilities": [
+        "write-one-to-clear",
+        "per-bit-hardware-software-priority",
+        "synchronous-state-update"
+      ],
+      "task_form": "repair",
+      "spec": "tasks/status_clear_dominant_repair_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v2/status-quality-v1.json",
+      "quality_sha256": "93f9cf1674ae970b5a6ea977f9f09017b99281ba3aa7e1facecea58fe7f07be8",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "i2c_sink_byte_v1",
+      "functional_contract": "i2c_sink_byte_v1",
+      "capabilities": [
+        "serial-write-reception",
+        "open-drain-ack-timing"
+      ],
+      "task_form": "rtl_implementation",
+      "spec": "tasks/i2c_sink_byte_v1/spec.md",
+      "quality_evidence": "experiments/i2c-sink-v1/quality.json",
+      "quality_sha256": "f23d5b064c400bae26440e325a0553e71eecdc54a89fd379e9e603a77f2cb13e",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "i2c_sink_word_v1",
+      "functional_contract": "i2c_sink_word_v1",
+      "capabilities": [
+        "serial-write-reception",
+        "open-drain-ack-timing",
+        "transaction-local-word-assembly"
+      ],
+      "task_form": "rtl_implementation",
+      "spec": "tasks/i2c_sink_word_v1/spec.md",
+      "quality_evidence": "experiments/i2c-sink-v1/quality.json",
+      "quality_sha256": "f23d5b064c400bae26440e325a0553e71eecdc54a89fd379e9e603a77f2cb13e",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": false,
+      "model_calibration": "historical evidence; exact verifier revision must match"
+    },
+    {
+      "task_id": "fifo_checker_d1_v1",
+      "functional_contract": "fifo_checker_d1_v1",
+      "capabilities": [
+        "checker-design",
+        "transaction-identity",
+        "capacity-and-retirement"
+      ],
+      "task_form": "checker_design",
+      "spec": "tasks/fifo_checker_d1_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v3/checker-quality-v3.json",
+      "quality_sha256": "eab63f24bef90dae6b996764bf0fd9f418982d7e60caf8ff79fc170fa2a9f5c0",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": true,
+      "model_calibration": "not_yet_run"
+    },
+    {
+      "task_id": "fifo_checker_d5_v1",
+      "functional_contract": "fifo_checker_d5_v1",
+      "capabilities": [
+        "checker-design",
+        "transaction-identity",
+        "capacity-and-retirement"
+      ],
+      "task_form": "checker_design",
+      "spec": "tasks/fifo_checker_d5_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v3/checker-quality-v3.json",
+      "quality_sha256": "eab63f24bef90dae6b996764bf0fd9f418982d7e60caf8ff79fc170fa2a9f5c0",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": true,
+      "model_calibration": "not_yet_run"
+    },
+    {
+      "task_id": "rffe_register_rw_v1",
+      "functional_contract": "rffe_register_rw_v1",
+      "capabilities": [
+        "serial-command-decode",
+        "bidirectional-turnaround",
+        "register-address-identity",
+        "overwrite-update"
+      ],
+      "task_form": "rtl_implementation",
+      "spec": "tasks/rffe_register_rw_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v3/rffe-quality-v2.json",
+      "quality_sha256": "8c6ce3c5e8484751ea5a04b5c1e7e2505b346e08aeaa86e94f0a4e97deb0ecc3",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": true,
+      "model_calibration": "not_yet_run"
+    },
+    {
+      "task_id": "rffe_register_w1c_v1",
+      "functional_contract": "rffe_register_w1c_v1",
+      "capabilities": [
+        "serial-command-decode",
+        "bidirectional-turnaround",
+        "register-address-identity",
+        "write-one-clear-update"
+      ],
+      "task_form": "rtl_implementation",
+      "spec": "tasks/rffe_register_w1c_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v3/rffe-quality-v2.json",
+      "quality_sha256": "8c6ce3c5e8484751ea5a04b5c1e7e2505b346e08aeaa86e94f0a4e97deb0ecc3",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": true,
+      "model_calibration": "not_yet_run"
+    },
+    {
+      "task_id": "bitfold_population_repair_v1",
+      "functional_contract": "bitfold_population_repair_v1",
+      "capabilities": [
+        "bounded-hardware-elaboration",
+        "combinational-state-exclusion",
+        "population"
+      ],
+      "task_form": "repair",
+      "spec": "tasks/bitfold_population_repair_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v3/bitfold-quality-v1.json",
+      "quality_sha256": "6c97b0c121d0b2be632c0d0d9bd2b4136ccc072385a54a7bcf50a8375d7d8d23",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": true,
+      "model_calibration": "not_yet_run"
+    },
+    {
+      "task_id": "bitfold_trailing_zero_repair_v1",
+      "functional_contract": "bitfold_trailing_zero_repair_v1",
+      "capabilities": [
+        "bounded-hardware-elaboration",
+        "combinational-state-exclusion",
+        "trailing_zero"
+      ],
+      "task_form": "repair",
+      "spec": "tasks/bitfold_trailing_zero_repair_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v3/bitfold-quality-v1.json",
+      "quality_sha256": "6c97b0c121d0b2be632c0d0d9bd2b4136ccc072385a54a7bcf50a8375d7d8d23",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": true,
+      "model_calibration": "not_yet_run"
+    },
+    {
+      "task_id": "i2c_completion_byte_v1",
+      "functional_contract": "i2c_sink_byte_v1",
+      "capabilities": [
+        "serial-write-reception",
+        "open-drain-ack-timing"
+      ],
+      "task_form": "scaffold_completion",
+      "spec": "tasks/i2c_completion_byte_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v3/i2c-completion-quality-v1.json",
+      "quality_sha256": "0a5a3caa48094a7fc00b2744d964d3f1b6cea440aa47b6029e1299b25dcbe146",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": true,
+      "model_calibration": "not_yet_run"
+    },
+    {
+      "task_id": "i2c_completion_word_v1",
+      "functional_contract": "i2c_sink_word_v1",
+      "capabilities": [
+        "serial-write-reception",
+        "open-drain-ack-timing",
+        "transaction-local-word-assembly"
+      ],
+      "task_form": "scaffold_completion",
+      "spec": "tasks/i2c_completion_word_v1/spec.md",
+      "quality_evidence": "experiments/task-production-v3/i2c-completion-quality-v1.json",
+      "quality_sha256": "0a5a3caa48094a7fc00b2744d964d3f1b6cea440aa47b6029e1299b25dcbe146",
+      "industrial_gate": "source-matched gate required at run time",
+      "new_this_stage": true,
+      "model_calibration": "not_yet_run"
+    }
+  ],
+  "counts": {
+    "x2p_task_identities": 11,
+    "finite_task_identities": 20,
+    "total_task_identities": 31,
+    "functional_or_structural_contract_identities": 29,
+    "new_task_identities": 8,
+    "new_behavioral_or_structural_contracts": 6,
+    "new_initial_forms_with_existing_functional_contracts": 2,
+    "new_industrially_admitted": 8,
+    "new_model_calibrated": 0
+  }
+}

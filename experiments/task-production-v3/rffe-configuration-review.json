@@ -1,0 +1,66 @@
+{
+  "schema": "rffe-configuration-review-v1",
+  "status": "same-source probe and complete revision2 gate accepted",
+  "kind": "trusted_configuration_outside_finite_contract",
+  "candidate_origin": "legal reference control, not model sample",
+  "source_sha256": "5d85f53fdd01df8272e938329a3b9b7662c80d2c38c645878ccc58fca7546b3a",
+  "input_sha256": "2c1bd1ab6297ded73a347369b7658264ab717ad0fb5a353ddf81c9b08810ade4",
+  "before": {
+    "task_id": "rffe_register_rw_v1",
+    "phase": "terminal",
+    "source_sha256": "5d85f53fdd01df8272e938329a3b9b7662c80d2c38c645878ccc58fca7546b3a",
+    "grader_sha256": "baa52405da10813887d74e8fff384a462a494060249a58f8d4af81cb2b3cef46",
+    "testbench_sha256": "8d88db6f93fc71f2d6b298ef8544986a76b68fb99dbbfc54825893b9a6464624",
+    "corpus_sha256": "3eeaaa053645d15632ffde9acbd77a62abb1360440dc503f72cfd834f9ca7398",
+    "reward": null,
+    "category": "unclassified_verifier_result",
+    "verification_complete": false,
+    "input_sha256": "2c1bd1ab6297ded73a347369b7658264ab717ad0fb5a353ddf81c9b08810ade4",
+    "compile_exit": 0,
+    "compile_seconds": 32.8564,
+    "simulation_exit": 0,
+    "simulation_seconds": 4.6574,
+    "simulation_sha256": "161c0958386bc51d4328bc05e0a48220c0176185316ec5e444bd946d0b7a981c",
+    "wall_seconds": 38.9416
+  },
+  "after": {
+    "task_id": "rffe_register_rw_v1",
+    "phase": "terminal",
+    "source_sha256": "5d85f53fdd01df8272e938329a3b9b7662c80d2c38c645878ccc58fca7546b3a",
+    "grader_sha256": "baa52405da10813887d74e8fff384a462a494060249a58f8d4af81cb2b3cef46",
+    "testbench_sha256": "bc32485a91f681727521236e1246ae58ac2be9487a5c600ffd682ba4b9afbc3c",
+    "corpus_sha256": "3eeaaa053645d15632ffde9acbd77a62abb1360440dc503f72cfd834f9ca7398",
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "input_sha256": "2c1bd1ab6297ded73a347369b7658264ab717ad0fb5a353ddf81c9b08810ade4",
+    "compile_exit": 0,
+    "compile_seconds": 31.4832,
+    "simulation_exit": 0,
+    "simulation_seconds": 4.8101,
+    "activity": {
+      "frames": 224,
+      "reads": 128,
+      "resets": 1,
+      "register_addresses": 16,
+      "individual_bit_positions": 8,
+      "zero_write": true,
+      "repeated_write": true,
+      "address_identity_after_other_writes": true,
+      "read_after_external_idle_reset": true
+    },
+    "simulation_sha256": "3a8d3804a9a8d0febf11bbca54d20d204949af6f852829d6ec4081e8219d3bce",
+    "wall_seconds": 38.0756
+  },
+  "change": "Explicit ordinary read mode (sREAD=0), no half-rate options, fixed RFFE2.0 and master clock duty; no vendor protocol checks demoted. Independent bit/register checks retained.",
+  "interpretation": "A successful independent pin check alone did not justify ignoring conflicting VIP errors. The first gate stopped with null rather than blaming the candidate.",
+  "limits": [
+    "Unadmitted task development; no historical model reward changed.",
+    "The timing mode is part of the finite contract, not an assertion of full RFFE support."
+  ],
+  "raw_result_sha256": [
+    "2ce7e8e06857842e113cbe88bfe75cf6350a388a0ecbb5ab72d34517c1f647e9",
+    "7b69a4fb617adab7b9a4c35f53c968aad6a17936f64c25d8faca8e7c1e089772"
+  ],
+  "complete_gate": "experiments/task-production-v3/rffe-quality-v2.json"
+}

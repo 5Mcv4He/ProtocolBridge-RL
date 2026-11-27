@@ -1,0 +1,59 @@
+{
+  "schema": "engineering-resource-toolchain-v1",
+  "actual_log_headers": {
+    "rffe": {
+      "vcs": [
+        "O-2018.09-SP2_Full64"
+      ],
+      "uvm": [
+        "1.1d"
+      ],
+      "vip_banner": [
+        "R-2020.12"
+      ],
+      "simulation_logs_read": 28
+    },
+    "bitfold": {
+      "vcs": [
+        "O-2018.09-SP2_Full64"
+      ],
+      "uvm": [],
+      "vip_banner": [],
+      "simulation_logs_read": 24
+    },
+    "i2c": {
+      "vcs": [
+        "O-2018.09-SP2_Full64"
+      ],
+      "uvm": [
+        "1.1d"
+      ],
+      "vip_banner": [
+        "R-2020.12"
+      ],
+      "simulation_logs_read": 18
+    },
+    "design_compiler": {
+      "versions": [
+        "O-2018.06-SP1"
+      ],
+      "logs_read": 14
+    },
+    "formality": {
+      "versions": [
+        "O-2018.06-SP1"
+      ],
+      "logs_read": 16
+    }
+  },
+  "controller_python": "3.14.5",
+  "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+  "library_scope": "Teaching model; structural task only, no PPA reward",
+  "harness": {
+    "sdk": "0.2.2rc2",
+    "runtime_bin": "0.2.2rc2",
+    "source": "Installed distribution METADATA read before sampling; per-episode worker and launcher hashes plus isolation probe required",
+    "worker_python": "not separately measured"
+  },
+  "scope": "Versions from this stage actual logs; no raw logs, machine paths, installation inventory or licensing details"
+}

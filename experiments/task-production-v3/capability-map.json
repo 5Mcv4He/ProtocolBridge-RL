@@ -1,0 +1,97 @@
+{
+  "schema": "verification-capability-update-v1",
+  "levels": {
+    "1": "Installation/startup",
+    "2": "Vendor example or micro-flow",
+    "3": "Custom engineering object",
+    "4": "Independent grading with positive and targeted negative controls",
+    "5": "Packaged task with real model episode and audit"
+  },
+  "scope": "Incremental stage-v3 evidence. Levels apply to explicit task/version; previous map remains immutable.",
+  "capabilities": [
+    {
+      "capability": "fifo-checker-expanded",
+      "verified_level": 4,
+      "task_ids": [
+        "fifo_checker_d1_v1",
+        "fifo_checker_d5_v1"
+      ],
+      "evidence": [
+        {
+          "path": "experiments/task-production-v3/checker-quality-v3.json",
+          "sha256": "eab63f24bef90dae6b996764bf0fd9f418982d7e60caf8ff79fc170fa2a9f5c0"
+        }
+      ],
+      "model_calibration": "not_yet_run",
+      "scope": "Only depths1/5; old depths2/3 remain separately admitted"
+    },
+    {
+      "capability": "rffe-register",
+      "verified_level": 4,
+      "task_ids": [
+        "rffe_register_rw_v1",
+        "rffe_register_w1c_v1"
+      ],
+      "evidence": [
+        {
+          "path": "experiments/task-production-v3/rffe-quality-v2.json",
+          "sha256": "8c6ce3c5e8484751ea5a04b5c1e7e2505b346e08aeaa86e94f0a4e97deb0ecc3"
+        }
+      ],
+      "model_calibration": "not_yet_run",
+      "scope": "Ordinary RFFE2.0 single-master register reads/writes; RW/W1C finite bank; no full protocol claim"
+    },
+    {
+      "capability": "bitfold-synthesis",
+      "verified_level": 4,
+      "task_ids": [
+        "bitfold_population_repair_v1",
+        "bitfold_trailing_zero_repair_v1"
+      ],
+      "evidence": [
+        {
+          "path": "experiments/task-production-v3/bitfold-quality-v1.json",
+          "sha256": "6c97b0c121d0b2be632c0d0d9bd2b4136ccc072385a54a7bcf50a8375d7d8d23"
+        }
+      ],
+      "model_calibration": "not_yet_run",
+      "scope": "Eight-bit combinational operations, integer oracle/DC structure/independent reference and own-netlist FM; no PPA reward"
+    },
+    {
+      "capability": "i2c-completion",
+      "verified_level": 4,
+      "task_ids": [
+        "i2c_completion_byte_v1",
+        "i2c_completion_word_v1"
+      ],
+      "evidence": [
+        {
+          "path": "experiments/task-production-v3/i2c-completion-quality-v1.json",
+          "sha256": "0a5a3caa48094a7fc00b2744d964d3f1b6cea440aa47b6029e1299b25dcbe146"
+        }
+      ],
+      "model_calibration": "not_yet_run",
+      "scope": "Same byte/word functional backend; different initial scaffold, not new protocol functionality"
+    }
+  ],
+  "previous": {
+    "path": "experiments/i2c-sink-v1/capability-map.json",
+    "sha256": "555811ea8697b0d05f3d68f485a91c46f1ea109b424a4269f8488c2a7362200c"
+  },
+  "vendor_only_followups": [
+    {
+      "suite": "mipi_spmi_svt",
+      "source_sha256": "0cd9dcf2542039997d6cf99853cc92db9c277af95e57adb070205a8de5bdc199",
+      "evidence_level": 2,
+      "activity": "MASTER_WRITE transaction tables and receive events are present; final UVM error/fatal zero.",
+      "limits": "Multi-master vendor object only; separate compile/simulation exits missing; no custom-DUT oracle or controls."
+    },
+    {
+      "suite": "swd_svt",
+      "source_sha256": "4cc6d9758ce4231d0185bcb9d228e754872350cc33e6089023066b8b7cccf56f",
+      "evidence_level": 2,
+      "activity": "A request/ACK/32-bit-data transaction is reported by several monitors; one send_transaction report.",
+      "limits": "Repeated monitor reports must not be counted as multiple independent tests. No custom target/readback controls."
+    }
+  ]
+}

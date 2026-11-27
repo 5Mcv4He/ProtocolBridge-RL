@@ -1,0 +1,35 @@
+{
+  "task_id": "fifo_checker_d5_v1",
+  "version": 1,
+  "family": "fifo-checker-v1",
+  "depth": 5,
+  "deliverable": "checker.sv",
+  "capabilities": [
+    "checker-design",
+    "transaction-identity",
+    "capacity-and-retirement"
+  ],
+  "obligations": [
+    "old-head-identity",
+    "no-empty-bypass",
+    "full-simultaneous-exchange",
+    "sticky-error-until-reset",
+    "reset-cancels-pending",
+    "duplicate-ids-legal",
+    "storage-multi-round-use",
+    "capacity-boundary",
+    "non-power-of-two-wrap",
+    "identity-after-storage-reuse",
+    "bad-identity-at-full-exchange",
+    "empty-retirement-after-reuse",
+    "capacity-five-not-four-or-eight",
+    "modulo-five-not-eight"
+  ],
+  "source_origin": "generated-template; initial always-pass checker is controlled defect",
+  "admission": "candidate; independent quality evidence required",
+  "verifier": "verifier.fifo_checker.campaign_v3",
+  "verifier_revision": 3,
+  "generation_revision": 3,
+  "contract_delta": "five slots; capacity needs three bits; modulo-five storage reuse",
+  "control_exclusions": {}
+}

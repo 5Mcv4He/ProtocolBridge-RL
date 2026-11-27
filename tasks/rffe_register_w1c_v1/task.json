@@ -1,0 +1,29 @@
+{
+  "task_id": "rffe_register_w1c_v1",
+  "version": 1,
+  "family": "rffe-register-v1",
+  "mode": "w1c",
+  "deliverable": "rffe_register.sv",
+  "verifier": "verifier.rffe_register.campaign",
+  "verifier_revision": 2,
+  "capabilities": [
+    "serial-command-decode",
+    "bidirectional-turnaround",
+    "register-address-identity",
+    "write-one-clear-update"
+  ],
+  "obligations": [
+    "active-VIP-master-passive-slave",
+    "actual-pin-frames",
+    "readback-register-model",
+    "all-supported-addresses",
+    "independent-address-updates",
+    "individual-bit-writes",
+    "zero-and-repeat-writes",
+    "idle-reset-restores-all-registers",
+    "odd-parity",
+    "read-bus-park-zero-and-release"
+  ],
+  "source_origin": "generated empty implementation; controls are synthetic",
+  "admission": "candidate; industrial controls and matching source required"
+}

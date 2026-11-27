@@ -1,6 +1,6 @@
 {
   "schema": "finite-artifact-registry-v1",
-  "scope": "Twelve finite contracts. Evidence pointers require matching dependencies; historical records remain frozen. I2C generation/quality revision2 rejects compilation-only negative evidence; runtime9 uses session3.",
+  "scope": "Twenty finite task identities, including two I2C scaffold starts sharing earlier functional contracts. Industrial gates require exact matching dependencies; model calibration and runtime mechanism evidence are separate. Historical records remain frozen.",
   "tasks": [
     {
       "task_id": "accumulator_wrap_repair_v1",
@@ -200,6 +200,143 @@
       "verifier_revision": 1,
       "quality_evidence": "experiments/i2c-sink-v1/quality.json",
       "runtime": "environment.artifact_task.runner_v9",
+      "capabilities": [
+        "serial-write-reception",
+        "open-drain-ack-timing",
+        "transaction-local-word-assembly"
+      ]
+    },
+    {
+      "task_id": "fifo_checker_d1_v1",
+      "contract_version": 1,
+      "metadata": "tasks/fifo_checker_d1_v1/task.json",
+      "spec": "tasks/fifo_checker_d1_v1/spec.md",
+      "initial_artifact": "tasks/fifo_checker_d1_v1/workspace/checker.sv",
+      "deliverable": "checker.sv",
+      "effective_verifier": "verifier.fifo_checker.campaign_v3",
+      "verifier_revision": 3,
+      "quality_evidence": "experiments/task-production-v3/checker-quality-v3.json",
+      "runtime": "environment.artifact_task.runner_v10",
+      "capabilities": [
+        "checker-design",
+        "transaction-identity",
+        "capacity-and-retirement"
+      ]
+    },
+    {
+      "task_id": "fifo_checker_d5_v1",
+      "contract_version": 1,
+      "metadata": "tasks/fifo_checker_d5_v1/task.json",
+      "spec": "tasks/fifo_checker_d5_v1/spec.md",
+      "initial_artifact": "tasks/fifo_checker_d5_v1/workspace/checker.sv",
+      "deliverable": "checker.sv",
+      "effective_verifier": "verifier.fifo_checker.campaign_v3",
+      "verifier_revision": 3,
+      "quality_evidence": "experiments/task-production-v3/checker-quality-v3.json",
+      "runtime": "environment.artifact_task.runner_v10",
+      "capabilities": [
+        "checker-design",
+        "transaction-identity",
+        "capacity-and-retirement"
+      ]
+    },
+    {
+      "task_id": "rffe_register_rw_v1",
+      "contract_version": 1,
+      "metadata": "tasks/rffe_register_rw_v1/task.json",
+      "spec": "tasks/rffe_register_rw_v1/spec.md",
+      "initial_artifact": "tasks/rffe_register_rw_v1/workspace/rffe_register.sv",
+      "deliverable": "rffe_register.sv",
+      "effective_verifier": "verifier.rffe_register.campaign",
+      "verifier_revision": 2,
+      "quality_evidence": "experiments/task-production-v3/rffe-quality-v2.json",
+      "runtime": "environment.artifact_task.runner_v10",
+      "capabilities": [
+        "serial-command-decode",
+        "bidirectional-turnaround",
+        "register-address-identity",
+        "overwrite-update"
+      ]
+    },
+    {
+      "task_id": "rffe_register_w1c_v1",
+      "contract_version": 1,
+      "metadata": "tasks/rffe_register_w1c_v1/task.json",
+      "spec": "tasks/rffe_register_w1c_v1/spec.md",
+      "initial_artifact": "tasks/rffe_register_w1c_v1/workspace/rffe_register.sv",
+      "deliverable": "rffe_register.sv",
+      "effective_verifier": "verifier.rffe_register.campaign",
+      "verifier_revision": 2,
+      "quality_evidence": "experiments/task-production-v3/rffe-quality-v2.json",
+      "runtime": "environment.artifact_task.runner_v10",
+      "capabilities": [
+        "serial-command-decode",
+        "bidirectional-turnaround",
+        "register-address-identity",
+        "write-one-clear-update"
+      ]
+    },
+    {
+      "task_id": "bitfold_population_repair_v1",
+      "contract_version": 1,
+      "metadata": "tasks/bitfold_population_repair_v1/task.json",
+      "spec": "tasks/bitfold_population_repair_v1/spec.md",
+      "initial_artifact": "tasks/bitfold_population_repair_v1/workspace/bitfold.sv",
+      "deliverable": "bitfold.sv",
+      "effective_verifier": "verifier.bitfold_synth.campaign",
+      "verifier_revision": 1,
+      "quality_evidence": "experiments/task-production-v3/bitfold-quality-v1.json",
+      "runtime": "environment.artifact_task.runner_v10",
+      "capabilities": [
+        "bounded-hardware-elaboration",
+        "combinational-state-exclusion",
+        "population"
+      ]
+    },
+    {
+      "task_id": "bitfold_trailing_zero_repair_v1",
+      "contract_version": 1,
+      "metadata": "tasks/bitfold_trailing_zero_repair_v1/task.json",
+      "spec": "tasks/bitfold_trailing_zero_repair_v1/spec.md",
+      "initial_artifact": "tasks/bitfold_trailing_zero_repair_v1/workspace/bitfold.sv",
+      "deliverable": "bitfold.sv",
+      "effective_verifier": "verifier.bitfold_synth.campaign",
+      "verifier_revision": 1,
+      "quality_evidence": "experiments/task-production-v3/bitfold-quality-v1.json",
+      "runtime": "environment.artifact_task.runner_v10",
+      "capabilities": [
+        "bounded-hardware-elaboration",
+        "combinational-state-exclusion",
+        "trailing_zero"
+      ]
+    },
+    {
+      "task_id": "i2c_completion_byte_v1",
+      "contract_version": 1,
+      "metadata": "tasks/i2c_completion_byte_v1/task.json",
+      "spec": "tasks/i2c_completion_byte_v1/spec.md",
+      "initial_artifact": "tasks/i2c_completion_byte_v1/workspace/i2c_sink.sv",
+      "deliverable": "i2c_sink.sv",
+      "effective_verifier": "verifier.i2c_completion.campaign",
+      "verifier_revision": 1,
+      "quality_evidence": "experiments/task-production-v3/i2c-completion-quality-v1.json",
+      "runtime": "environment.artifact_task.runner_v10",
+      "capabilities": [
+        "serial-write-reception",
+        "open-drain-ack-timing"
+      ]
+    },
+    {
+      "task_id": "i2c_completion_word_v1",
+      "contract_version": 1,
+      "metadata": "tasks/i2c_completion_word_v1/task.json",
+      "spec": "tasks/i2c_completion_word_v1/spec.md",
+      "initial_artifact": "tasks/i2c_completion_word_v1/workspace/i2c_sink.sv",
+      "deliverable": "i2c_sink.sv",
+      "effective_verifier": "verifier.i2c_completion.campaign",
+      "verifier_revision": 1,
+      "quality_evidence": "experiments/task-production-v3/i2c-completion-quality-v1.json",
+      "runtime": "environment.artifact_task.runner_v10",
       "capabilities": [
         "serial-write-reception",
         "open-drain-ack-timing",

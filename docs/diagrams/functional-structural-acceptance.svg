@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 550" role="img" aria-labelledby="title desc">
+<title id="title">功能、硬件结构与综合变换分别验收</title>
+<desc id="desc">同一候选的功能同时受到独立整数模型和可信 RTL 参考约束；固定 DC 流程生成无存储、无未映射单元的网表，再检查候选与自身网表等价。所有必要路径完整通过才获得终局奖励；没有 PPA 优化奖励。图表达判据关系，不表示工具并行执行。</desc>
+<style>
+.bg{fill:#fbfcfe}.box{fill:#e6eef9;stroke:#6388b6}.tool{fill:#e8f4ed;stroke:#52a371}.boundary{fill:#edf0f4;stroke:#9ba8b9}.line{fill:none;stroke:#6388b6;stroke-width:1.8}.label{font:600 18px system-ui,'PingFang SC','Microsoft YaHei',sans-serif;fill:#1c2b3e}.small{font:15px system-ui,'PingFang SC','Microsoft YaHei',sans-serif;fill:#53647a}rect{stroke-width:1.5}text{text-anchor:middle}
+@media(prefers-color-scheme:dark){.bg{fill:#161e29}.box{fill:#253951;stroke:#78a4d8}.tool{fill:#203c31;stroke:#68bd87}.boundary{fill:#293443;stroke:#8c9bb0}.label{fill:#edf2f8}.small{fill:#b0bdcf}.line{stroke:#78a4d8}}
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L8 5L1 9" fill="none" stroke="#6388b6" stroke-width="1.5"/></marker></defs>
+<rect class="bg" x="1" y="1" width="758" height="548" rx="15"/>
+<text class="label" x="380" y="34">仿真正确、能够综合、变换保持功能：三个不同问题</text>
+<rect class="box" x="230" y="58" width="300" height="56" rx="9"/>
+<text class="label" x="380" y="91">冻结同一份候选 RTL</text>
+<path class="line" d="M380 114V139H202V164" marker-end="url(#arrow)"/>
+<path class="line" d="M380 139H558V164" marker-end="url(#arrow)"/>
+<rect class="boundary" x="28" y="170" width="348" height="245" rx="12"/>
+<rect class="boundary" x="392" y="170" width="340" height="245" rx="12"/>
+<text class="label" x="202" y="201">是否忠实实现规格？</text>
+<text class="label" x="562" y="201">能否成为一致的硬件？</text>
+<rect class="tool" x="46" y="220" width="312" height="74" rx="9"/>
+<text class="label" x="202" y="249">VCS + 独立整数模型</text>
+<text class="small" x="202" y="275">256 种输入，三种前驱顺序</text>
+<rect class="tool" x="46" y="316" width="312" height="74" rx="9"/>
+<text class="label" x="202" y="345">Formality：独立参考</text>
+<text class="small" x="202" y="371">候选 ↔ 可信功能定义</text>
+<rect class="tool" x="410" y="220" width="304" height="74" rx="9"/>
+<text class="label" x="562" y="249">DC：固定综合与结构检查</text>
+<text class="small" x="562" y="275">无存储、无未映射单元</text>
+<path class="line" d="M562 294V311" marker-end="url(#arrow)"/>
+<rect class="tool" x="410" y="316" width="304" height="74" rx="9"/>
+<text class="label" x="562" y="345">Formality：变换一致性</text>
+<text class="small" x="562" y="371">候选 ↔ 自身综合网表</text>
+<path class="line" d="M202 415V435H380V451" marker-end="url(#arrow)"/>
+<path class="line" d="M562 415V435H380"/>
+<rect class="box" x="98" y="457" width="564" height="48" rx="9"/>
+<text class="label" x="380" y="487">全部必要检查完整通过，才得到 Reward = 1</text>
+<text class="small" x="380" y="531">判据关系图，非并行调度图；不提供面积、时序或功耗奖励</text>
+</svg>
