@@ -12,7 +12,7 @@
 
 [任务目录](task-catalog.md)列出三条路径及可复用命令，[有限任务使用说明](tasks/README.md)说明各自修改范围。它们没有被合并成一个万能验证器，也不会自动继承同一工具权限。
 
-可信控制器负责动作白名单、预算、候选内容哈希、反馈投影与提交冻结。公开反馈供模型继续求解；终局验收和独立保留评估在求解结束后执行，结果分开保存。九动作综合配置目前在特定 X2P 队列上验收，有限任务的已发布试次使用 read/edit/test/submit；详见[综合环境](engineering-lab.md)与[有限任务运行器](../environment/artifact_task/runner_v9.py)。
+可信控制器负责动作白名单、预算、候选内容哈希、反馈投影与提交冻结。公开反馈供模型继续求解；终局验收和独立保留评估在求解结束后执行，结果分开保存。九动作综合配置目前在特定 X2P 队列上验收，有限任务的已发布试次使用 read/edit/test/submit；详见[综合环境](engineering-lab.md)与[本阶段运行器](../environment/artifact_task/runner_v10.py)和[独立反馈版本](../environment/artifact_task/runner_v11.py)。
 
 例如，UART 的“没有协议错误”不能证明 busy 期间不会重复装载；需要额外周期模型检查输入锁存。累加器则用候选与独立参考的状态转移等价判定，不能以候选对自身综合网表的等价代替。三种验收依据及真实缺陷见[研究报告](verification-resources-tasks.md)。
 

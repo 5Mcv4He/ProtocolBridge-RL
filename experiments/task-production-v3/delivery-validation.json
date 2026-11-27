@@ -1,0 +1,47 @@
+{
+  "schema": "task-production-delivery-review-v1",
+  "unit_tests": {
+    "tests": 196,
+    "status": "pass",
+    "wall_seconds": 65.349,
+    "private_log_sha256": "5b0a612972d0de49d1edc61216ab6d8209df7d70db848c3d4f6aa6c0289aa1ca"
+  },
+  "baseline_check": {
+    "baseline": "axil_to_apb4_001-x2p-standard-r3",
+    "status": "pass",
+    "simulation_executed": false
+  },
+  "frozen_source_provenance": {
+    "plans": 2,
+    "all_source_hashes_resolve": true,
+    "simulation_executed": false
+  },
+  "public_exchange": {
+    "episodes": 5,
+    "separate_conditions": [
+      4,
+      1
+    ],
+    "all_content_hashes_match": true
+  },
+  "documentation": {
+    "relative_links_checked": 395,
+    "missing_local_targets": 0,
+    "local_rendered_pages": [
+      "README.md",
+      "docs/task-production-stage-v3.md"
+    ],
+    "viewports_css_px": [
+      1100,
+      400
+    ],
+    "color_schemes": [
+      "light",
+      "dark"
+    ],
+    "broken_images": 0,
+    "page_horizontal_overflow": false,
+    "limits": "Local Chromium preview, not GitHub authenticated rendering. Wide tables scroll on narrow screens; SVG original links and prose retain the meaning."
+  },
+  "public_scope": "Sources, selected controls/evidence and audited tool records only; raw logs, private vectors, deployments and vendor contents excluded."
+}

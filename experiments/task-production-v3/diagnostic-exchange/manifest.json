@@ -1,0 +1,16 @@
+{
+  "schema": "pb-exchange-manifest-v8",
+  "records": 1,
+  "exporter_sha256": "72b7dc2d5782ada4baae6af264d2f9a149638ae1b6f9ae603540171dc7c37a5c",
+  "files": {
+    "analysis/offline.jsonl": "cfce972b17ced699fb216a1634d3d8af9396de1fd36af5aec6d15504a9f7b33e",
+    "artifacts/660586270a43a6f90e52aeddd911ff8a88b9a2127c45971ae757b7e30e7d93f2.txt": "660586270a43a6f90e52aeddd911ff8a88b9a2127c45971ae757b7e30e7d93f2",
+    "artifacts/7edc8b0eab20239a7cf97201b29b5dd17970346902f1fddf5c5f4a97fa42eeef.txt": "7edc8b0eab20239a7cf97201b29b5dd17970346902f1fddf5c5f4a97fa42eeef",
+    "artifacts/9c7a61ab071feb90ad638fef77616ea0c57344101dce5767301df91d30881527.txt": "9c7a61ab071feb90ad638fef77616ea0c57344101dce5767301df91d30881527",
+    "artifacts/9d35609c0b142b7d5e9ff6f77b0a2ac36936570d5635d9e9386340a5d6123a84.txt": "9d35609c0b142b7d5e9ff6f77b0a2ac36936570d5635d9e9386340a5d6123a84",
+    "artifacts/b022db3c9f522eb03e77b207b657ab150c3b8d31150d20cfc7a431127ab961a2.txt": "b022db3c9f522eb03e77b207b657ab150c3b8d31150d20cfc7a431127ab961a2",
+    "evaluation/heldout.jsonl": "a6a80ff265efd23b353ffd3b4dbb63e8562f8cd56145af2bc09bcac2f31738db",
+    "training/rollouts.jsonl": "5177ab36a7dc8db1a18cecd00454d67272ec656eee7f9664de7d4be04ef40347"
+  },
+  "scope": "Reviewed tool interactions; raw model replies preserved privately and used for replay audit. No token-level on-policy training claim."
+}

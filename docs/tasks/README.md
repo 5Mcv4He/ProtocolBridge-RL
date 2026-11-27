@@ -54,3 +54,5 @@ python3 -m verification_resources.production_v5 reset .local/uart-package .local
 [I²C 生产与求解研究](../i2c-sink-evaluation.md)新增两个契约及两条预声明轨迹，记录一次最终成功修复和一次已知失败提交。该阶段材料化 v7 核对十二份包及完整 Registry 依赖；历史材料化与运行条件保持原版本。
 
 [多验证资源阶段](../task-production-stage-v3.md)新增八个任务身份并分别完成工业门禁。运行器修订 10／Session 4 对反馈类别与奖励一致性采用保守过滤，并记录综合错误类别；历史运行器不变。实际机制验收、材料化与新模型校准状态以该报告为准。
+
+最新 [多资源分层校准](../task-production-stage-v3.md)新增四条主试次和一条独立反馈版本试次：两条终局成功、两条未编辑失败提交、后续一条未提交。按任务与条件分别阅读，不将全部任务入口视为已经得到稳定难度校准。

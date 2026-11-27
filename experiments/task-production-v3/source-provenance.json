@@ -7,6 +7,13 @@
       "matching_commits": [
         "8770756437cebbdedd4b1e7b693847d04515e653"
       ]
+    },
+    {
+      "plan": "experiments/task-production-v3/action-diagnostic-plan.json",
+      "plan_sha256": "04587929f9e86f918d828c90496b741159869187b727c63ec6e575ab444a3de2",
+      "matching_commits": [
+        "743d9797de5f59f9faecf6e5b87bd5d6d1a36098"
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 # 人类阅读入口
 
-这里帮助读者从工程问题进入机制、代码和证据。当前总览以[首页](../README.md)、[任务目录](task-catalog.md)与[交换库存](../experiments/i2c-sink-v1/exchange-inventory.json)为准；研究报告中的“当前”属于各自冻结阶段。历史结果不因新功能出现而改写。
+这里帮助读者从工程问题进入机制、代码和证据。当前总览以[首页](../README.md)、[任务目录](task-catalog.md)与[交换库存](../experiments/task-production-v3/exchange-inventory.json)为准；研究报告中的“当前”属于各自冻结阶段。历史结果不因新功能出现而改写。
 
 ## 先理解系统，再选择任务
 
@@ -10,7 +10,7 @@
 | Task、Environment、Verifier 和 Reward 怎样协作 | [架构总览与 001 Scoreboard 实例](architecture.md) |
 | 选哪个任务、使用哪条执行路径 | [任务目录](task-catalog.md)、[有限工程任务指南](tasks/README.md) |
 | 工具能判断什么，尚不能证明什么 | [工具与证据层次](toolchain.md)、[VIP 接入范围](vip-inventory-r2020.12.md) |
-| 怎样交付并审计真实求解轨迹 | [当前 v5–v7 入口](task-rollout-exchange.md)、[早期契约演进](rollout-data-contract.md) |
+| 怎样交付并审计真实求解轨迹 | [当前 v5–v8 入口](task-rollout-exchange.md)、[早期契约演进](rollout-data-contract.md) |
 
 [I²C 历史研究](i2c-sink-evaluation.md)连接串行时序、事务边界、被拒绝的生成版本、实际修复和成本；[此前 Checker 与状态寄存器研究](task-production-stage-v2.md)保留各自冻结范围。
 

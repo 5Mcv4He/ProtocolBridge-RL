@@ -1,0 +1,64 @@
+{
+  "schema": "diagnostic-exchange-acceptance-v1",
+  "accepted": true,
+  "new_runtime_checks": [
+    {
+      "case": "extra_feedback",
+      "rejected": true,
+      "reason": "Feedback or execution mismatch"
+    },
+    {
+      "case": "wrong_delivered_feedback",
+      "rejected": true,
+      "reason": "Delivered feedback mismatch"
+    },
+    {
+      "case": "changed_terminal_reward",
+      "rejected": true,
+      "reason": "Published outcome differs from retained controller result"
+    },
+    {
+      "case": "false_stop",
+      "rejected": true,
+      "reason": "Scoring occurred without confirmed solver stop"
+    },
+    {
+      "case": "duplicate_logical_episode",
+      "rejected": true
+    }
+  ],
+  "existing_submitted_episode_checks": {
+    "schema": "artifact-audit-negative-v6",
+    "accepted": true,
+    "source_trace_sha256": "1eba8e0e3aee5a0cda6286ad4e9d5dfc74511a1f062375402c625aef1e67f0c1",
+    "checks": [
+      {
+        "injection": "extra_feedback_field",
+        "rejected": true,
+        "reason": "Feedback or execution mismatch"
+      },
+      {
+        "injection": "wrong_delivered_feedback",
+        "rejected": true,
+        "reason": "Delivered feedback mismatch"
+      },
+      {
+        "injection": "changed_submission",
+        "rejected": true,
+        "reason": "Final candidate mismatch"
+      },
+      {
+        "injection": "unconfirmed_stop_with_evaluation",
+        "rejected": true,
+        "reason": "Scoring occurred without confirmed solver stop"
+      },
+      {
+        "injection": "changed_terminal_reward",
+        "rejected": true,
+        "reason": "Published outcome differs from retained controller result"
+      }
+    ],
+    "scope": "Mutated private copies only; original raw episode unchanged; no model or simulator invocation."
+  },
+  "scope": "No new model or simulator calls; private mutated copies only. Unsubmitted followup has no frozen final artifact to mutate; actual older submitted episode covers that path."
+}

@@ -226,7 +226,7 @@
       "quality_sha256": "eab63f24bef90dae6b996764bf0fd9f418982d7e60caf8ff79fc170fa2a9f5c0",
       "industrial_gate": "source-matched gate required at run time",
       "new_this_stage": true,
-      "model_calibration": "not_yet_run"
+      "model_calibration": "not_sampled"
     },
     {
       "task_id": "fifo_checker_d5_v1",
@@ -242,7 +242,16 @@
       "quality_sha256": "eab63f24bef90dae6b996764bf0fd9f418982d7e60caf8ff79fc170fa2a9f5c0",
       "industrial_gate": "source-matched gate required at run time",
       "new_this_stage": true,
-      "model_calibration": "not_yet_run"
+      "model_calibration": "audited functional candidates observed; exploratory only",
+      "model_trials": [
+        {
+          "trial_id": "checker-d5-r1",
+          "study": "multi-resource-stratified-calibration-v1",
+          "reward": 1.0,
+          "submitted": true,
+          "edits": 2
+        }
+      ]
     },
     {
       "task_id": "rffe_register_rw_v1",
@@ -259,7 +268,7 @@
       "quality_sha256": "8c6ce3c5e8484751ea5a04b5c1e7e2505b346e08aeaa86e94f0a4e97deb0ecc3",
       "industrial_gate": "source-matched gate required at run time",
       "new_this_stage": true,
-      "model_calibration": "not_yet_run"
+      "model_calibration": "not_sampled"
     },
     {
       "task_id": "rffe_register_w1c_v1",
@@ -276,7 +285,23 @@
       "quality_sha256": "8c6ce3c5e8484751ea5a04b5c1e7e2505b346e08aeaa86e94f0a4e97deb0ecc3",
       "industrial_gate": "source-matched gate required at run time",
       "new_this_stage": true,
-      "model_calibration": "not_yet_run"
+      "model_calibration": "audited functional candidates observed; exploratory only",
+      "model_trials": [
+        {
+          "trial_id": "rffe-w1c-r1",
+          "study": "multi-resource-stratified-calibration-v1",
+          "reward": 0.0,
+          "submitted": true,
+          "edits": 0
+        },
+        {
+          "trial_id": "rffe-w1c-diagnostic-r1",
+          "study": "rffe-action-diagnostic-followup-v1",
+          "reward": null,
+          "submitted": false,
+          "edits": 3
+        }
+      ]
     },
     {
       "task_id": "bitfold_population_repair_v1",
@@ -292,7 +317,16 @@
       "quality_sha256": "6c97b0c121d0b2be632c0d0d9bd2b4136ccc072385a54a7bcf50a8375d7d8d23",
       "industrial_gate": "source-matched gate required at run time",
       "new_this_stage": true,
-      "model_calibration": "not_yet_run"
+      "model_calibration": "audited functional candidates observed; exploratory only",
+      "model_trials": [
+        {
+          "trial_id": "population-r1",
+          "study": "multi-resource-stratified-calibration-v1",
+          "reward": 1.0,
+          "submitted": true,
+          "edits": 1
+        }
+      ]
     },
     {
       "task_id": "bitfold_trailing_zero_repair_v1",
@@ -308,7 +342,7 @@
       "quality_sha256": "6c97b0c121d0b2be632c0d0d9bd2b4136ccc072385a54a7bcf50a8375d7d8d23",
       "industrial_gate": "source-matched gate required at run time",
       "new_this_stage": true,
-      "model_calibration": "not_yet_run"
+      "model_calibration": "not_sampled"
     },
     {
       "task_id": "i2c_completion_byte_v1",
@@ -323,7 +357,7 @@
       "quality_sha256": "0a5a3caa48094a7fc00b2744d964d3f1b6cea440aa47b6029e1299b25dcbe146",
       "industrial_gate": "source-matched gate required at run time",
       "new_this_stage": true,
-      "model_calibration": "not_yet_run"
+      "model_calibration": "not_sampled"
     },
     {
       "task_id": "i2c_completion_word_v1",
@@ -339,7 +373,16 @@
       "quality_sha256": "0a5a3caa48094a7fc00b2744d964d3f1b6cea440aa47b6029e1299b25dcbe146",
       "industrial_gate": "source-matched gate required at run time",
       "new_this_stage": true,
-      "model_calibration": "not_yet_run"
+      "model_calibration": "audited episode, no valid edit; functional ability not measured",
+      "model_trials": [
+        {
+          "trial_id": "i2c-completion-word-r1",
+          "study": "multi-resource-stratified-calibration-v1",
+          "reward": 0.0,
+          "submitted": true,
+          "edits": 0
+        }
+      ]
     }
   ],
   "counts": {
@@ -351,6 +394,9 @@
     "new_behavioral_or_structural_contracts": 6,
     "new_initial_forms_with_existing_functional_contracts": 2,
     "new_industrially_admitted": 8,
-    "new_model_calibrated": 0
+    "new_model_sampled_task_ids": 4,
+    "new_model_episodes": 5,
+    "new_tasks_with_effective_edits": 3,
+    "new_tasks_with_successful_final": 2
   }
 }

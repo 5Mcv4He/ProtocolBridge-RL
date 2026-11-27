@@ -1,0 +1,38 @@
+{
+  "schema": "resource-rollout-cost-v1",
+  "primary": {
+    "tokens": 143590,
+    "model_request_seconds": 90.3659,
+    "whole_trial_seconds": 652.1871,
+    "vcs_compilation_count": 19,
+    "vcs_compile_wall_seconds": 428.36969999999997,
+    "vcs_simulation_wall_seconds": 70.2114,
+    "dc_seconds": 9.0528,
+    "independent_formality_seconds": 7.0225,
+    "own_netlist_formality_seconds": 4.3362
+  },
+  "diagnostic_followup": {
+    "tokens": 207620,
+    "model_request_seconds": 60.7383,
+    "whole_trial_seconds": 188.2913,
+    "vcs_compilation_count": 3,
+    "vcs_compile_wall_seconds": 108.6095,
+    "vcs_simulation_wall_seconds": 11.5092,
+    "dc_seconds": 0,
+    "independent_formality_seconds": 0,
+    "own_netlist_formality_seconds": 0
+  },
+  "total": {
+    "tokens": 351210,
+    "model_request_seconds": 151.1042,
+    "whole_trial_seconds": 840.4784,
+    "vcs_compilation_count": 22,
+    "vcs_compile_wall_seconds": 536.9792,
+    "vcs_simulation_wall_seconds": 81.7206,
+    "dc_seconds": 9.0528,
+    "independent_formality_seconds": 7.0225,
+    "own_netlist_formality_seconds": 4.3362
+  },
+  "api_currency_cost": null,
+  "scope": "Actual five episodes only, excludes task production/gates. Model request wall time includes SDK/network. Compile/simulation wall times include remote command overhead; no currency price assumed."
+}

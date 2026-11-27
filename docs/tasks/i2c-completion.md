@@ -15,7 +15,7 @@
 
 新适配层调用已准入的 I²C VIP、独立引脚解码与输出账目检查，并记录底层契约身份。旧任务和旧门禁保持不变。新初始材料、合法完成方式及功能／时序回归另行验收；不能仅凭骨架来源宣称新任务已经可采样。
 
-[18 项工业门禁](../../experiments/task-production-v3/i2c-completion-quality-v1.json)已完成：两种合法实现通过三个阶段，缺少交付、ACK 回归、跨 STOP 半字残留与字节序错误均得到功能或时序拒绝。模型校准尚待完成。后续结果必须与旧空模板任务分开统计。即便观察到新起点更容易完成，少量样本也不能证明骨架普遍提高能力。
+[18 项工业门禁](../../experiments/task-production-v3/i2c-completion-quality-v1.json)已完成：两种合法实现通过三个阶段，缺少交付、ACK 回归、跨 STOP 半字残留与字节序错误均得到功能或时序拒绝。已运行一次组字真实试次，但六次多动作回复被整体拒绝，没有有效编辑；模型提交了未修改的骨架，终局与保留均为 0。它不能回答局部组字能力是否提高，字节起点仍未模型采样。详见[实际轨迹分析](../task-production-stage-v3.md)。后续结果必须与旧空模板任务分开统计。即便观察到新起点更容易完成，少量样本也不能证明骨架普遍提高能力。
 
 ```bash
 python3 -m task_families.i2c_completion_v1.generate word .local/i2c-completion-candidate

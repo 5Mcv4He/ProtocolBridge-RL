@@ -11,7 +11,7 @@
   "capabilities": [
     {
       "capability": "fifo-checker-expanded",
-      "verified_level": 4,
+      "verified_level": 5,
       "task_ids": [
         "fifo_checker_d1_v1",
         "fifo_checker_d5_v1"
@@ -20,14 +20,29 @@
         {
           "path": "experiments/task-production-v3/checker-quality-v3.json",
           "sha256": "eab63f24bef90dae6b996764bf0fd9f418982d7e60caf8ff79fc170fa2a9f5c0"
+        },
+        {
+          "path": "experiments/task-production-v3/study-results.json",
+          "sha256": "c01c761007048157cbe3d3984c1281f56bc62402413a55bbc70c7484f068f45d"
         }
       ],
-      "model_calibration": "not_yet_run",
-      "scope": "Only depths1/5; old depths2/3 remain separately admitted"
+      "model_calibration": "See per-trial edits/outcomes; an audited failure or no-edit episode is not a model capability success.",
+      "scope": "Only depths1/5; old depths2/3 remain separately admitted",
+      "model_sampled_task_ids": [
+        "fifo_checker_d5_v1"
+      ],
+      "model_trials": [
+        {
+          "trial_id": "checker-d5-r1",
+          "reward": 1.0,
+          "edits": 2,
+          "submitted": true
+        }
+      ]
     },
     {
       "capability": "rffe-register",
-      "verified_level": 4,
+      "verified_level": 5,
       "task_ids": [
         "rffe_register_rw_v1",
         "rffe_register_w1c_v1"
@@ -36,14 +51,39 @@
         {
           "path": "experiments/task-production-v3/rffe-quality-v2.json",
           "sha256": "8c6ce3c5e8484751ea5a04b5c1e7e2505b346e08aeaa86e94f0a4e97deb0ecc3"
+        },
+        {
+          "path": "experiments/task-production-v3/study-results.json",
+          "sha256": "c01c761007048157cbe3d3984c1281f56bc62402413a55bbc70c7484f068f45d"
+        },
+        {
+          "path": "experiments/task-production-v3/action-diagnostic-results.json",
+          "sha256": "3ca17a612b81375aba01762bbf744f08c760558521a69745b9caab3b1ebbc295"
         }
       ],
-      "model_calibration": "not_yet_run",
-      "scope": "Ordinary RFFE2.0 single-master register reads/writes; RW/W1C finite bank; no full protocol claim"
+      "model_calibration": "See per-trial edits/outcomes; an audited failure or no-edit episode is not a model capability success.",
+      "scope": "Ordinary RFFE2.0 single-master register reads/writes; RW/W1C finite bank; no full protocol claim",
+      "model_sampled_task_ids": [
+        "rffe_register_w1c_v1"
+      ],
+      "model_trials": [
+        {
+          "trial_id": "rffe-w1c-r1",
+          "reward": 0.0,
+          "edits": 0,
+          "submitted": true
+        },
+        {
+          "trial_id": "rffe-w1c-diagnostic-r1",
+          "reward": null,
+          "edits": 3,
+          "submitted": false
+        }
+      ]
     },
     {
       "capability": "bitfold-synthesis",
-      "verified_level": 4,
+      "verified_level": 5,
       "task_ids": [
         "bitfold_population_repair_v1",
         "bitfold_trailing_zero_repair_v1"
@@ -52,14 +92,29 @@
         {
           "path": "experiments/task-production-v3/bitfold-quality-v1.json",
           "sha256": "6c97b0c121d0b2be632c0d0d9bd2b4136ccc072385a54a7bcf50a8375d7d8d23"
+        },
+        {
+          "path": "experiments/task-production-v3/study-results.json",
+          "sha256": "c01c761007048157cbe3d3984c1281f56bc62402413a55bbc70c7484f068f45d"
         }
       ],
-      "model_calibration": "not_yet_run",
-      "scope": "Eight-bit combinational operations, integer oracle/DC structure/independent reference and own-netlist FM; no PPA reward"
+      "model_calibration": "See per-trial edits/outcomes; an audited failure or no-edit episode is not a model capability success.",
+      "scope": "Eight-bit combinational operations, integer oracle/DC structure/independent reference and own-netlist FM; no PPA reward",
+      "model_sampled_task_ids": [
+        "bitfold_population_repair_v1"
+      ],
+      "model_trials": [
+        {
+          "trial_id": "population-r1",
+          "reward": 1.0,
+          "edits": 1,
+          "submitted": true
+        }
+      ]
     },
     {
       "capability": "i2c-completion",
-      "verified_level": 4,
+      "verified_level": 5,
       "task_ids": [
         "i2c_completion_byte_v1",
         "i2c_completion_word_v1"
@@ -68,10 +123,25 @@
         {
           "path": "experiments/task-production-v3/i2c-completion-quality-v1.json",
           "sha256": "0a5a3caa48094a7fc00b2744d964d3f1b6cea440aa47b6029e1299b25dcbe146"
+        },
+        {
+          "path": "experiments/task-production-v3/study-results.json",
+          "sha256": "c01c761007048157cbe3d3984c1281f56bc62402413a55bbc70c7484f068f45d"
         }
       ],
-      "model_calibration": "not_yet_run",
-      "scope": "Same byte/word functional backend; different initial scaffold, not new protocol functionality"
+      "model_calibration": "See per-trial edits/outcomes; an audited failure or no-edit episode is not a model capability success.",
+      "scope": "Same byte/word functional backend; different initial scaffold, not new protocol functionality",
+      "model_sampled_task_ids": [
+        "i2c_completion_word_v1"
+      ],
+      "model_trials": [
+        {
+          "trial_id": "i2c-completion-word-r1",
+          "reward": 0.0,
+          "edits": 0,
+          "submitted": true
+        }
+      ]
     }
   ],
   "previous": {

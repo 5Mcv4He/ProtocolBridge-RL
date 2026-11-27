@@ -1,0 +1,23 @@
+{
+  "schema": "reviewed-exchange-inventory-v6",
+  "base_inventory": "experiments/i2c-sink-v1/exchange-inventory.json",
+  "base_sha256": "e4763cd276fd2b47ee884051d2415d03fe0ad4483b4e1db438cf953b4abdd034",
+  "records": 132,
+  "available_tool_trajectories": 92,
+  "new_model_trials": 5,
+  "exports": [
+    {
+      "manifest": "experiments/task-production-v3/exchange/manifest.json",
+      "sha256": "c0dc303dcb0216201e3efd8fa2c3ddaeb019d3744a86e480d65f1aff277d1c6a",
+      "records": 4,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/task-production-v3/diagnostic-exchange/manifest.json",
+      "sha256": "705a626df6d8c01c9438f8d4b6496ab786e7ebaa93c334a11a26e6ede560a8a2",
+      "records": 1,
+      "content_hashes_verified": true
+    }
+  ],
+  "uses": "Four primary stratified episodes and one separately declared diagnostic follow-up. Success/failure/incomplete records all retained; no pooled method success rate. Heldout stays separate and does not select training records."
+}

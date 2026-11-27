@@ -32,3 +32,32 @@ python3 -m environment.artifact_task.batch_v2 \
 ```
 
 这条命令会产生真实 API 与 EDA 成本。若冻结源码、隔离或可信评分不满足条件，应停止并保留不可判定记录。单次结果不能证明稳定难度或训练收益，独立保留评估不作为训练奖励或选样标准。
+
+
+## 实际结果与独立后续
+
+首批四条全部按计划结束：Checker 深度 5 与位计数提交通过，RFFE W1C 与 I²C 组字提交未修改起点，均失败。没有替换失败样本。随后另行冻结一次 RFFE 动作拒绝提示改进试次；它完成三次有效编辑和三次失败检查，但耗尽 20 次动作未提交，Reward=null，不执行终局或保留评估。两批不能合并为方法成功率。
+
+| 核查对象 | 入口 |
+| --- | --- |
+| 首批结果与工具轨迹 | [结果](study-results.json)、[v8 清单](exchange/manifest.json) |
+| 后续预声明、结果与工具轨迹 | [计划](action-diagnostic-plan.json)、[结果](action-diagnostic-results.json)、[独立交换清单](diagnostic-exchange/manifest.json) |
+| 候选变化与实际曝光 | [行为案例](behavior-cases.json)，没有中间候选事后评分 |
+| 后续机制与审计反例 | [16 项机制验收](diagnostic-runtime-v3.json)、[篡改与重复拒绝](diagnostic-audit-validation.json) |
+| 来源、累计库存与成本 | [源码对应关系](source-provenance.json)、[132／92 分母](exchange-inventory.json)、[五条实际成本](rollout-costs.json) |
+
+后续使用 runner v11／Session v5，首批使用 runner v10／Session v4。后续只修改固定的动作拒绝说明；两者都不替模型拆分多动作回复或修正非法字段。
+
+```bash
+# 后续条件，单条试次；另用全新目录，仍产生实际 API 与 EDA 成本
+python3 -m environment.artifact_task.batch_v3 \
+  experiments/task-production-v3/action-diagnostic-plan.json .local/diagnostic-study-new
+
+# 不调用 EDA 或 API：核对冻结源码能否在记录的 Git 提交中找到
+python3 -m scripts.check_artifact_provenance \
+  experiments/task-production-v3/source-provenance.json
+```
+
+两份计划要求各自冻结源码，不应把最新 checkout 的任意修改解释为原实验条件。复核与导出原始记录需要可信本地数据；公开包保留经审查的交互与内容哈希，没有私有向量、完整日志或商业依赖。无 Token IDs、行为概率、精确模型权重和货币账单时，不补造这些字段。
+
+[交付检查](delivery-validation.json)记录单元测试、历史基线与源码核对，以及本地阅读预览；后两者不冒充新的 RTL 仿真，预览也不等同于 GitHub 实际渲染。

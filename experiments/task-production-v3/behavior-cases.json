@@ -79,6 +79,25 @@
       "observed_change": "Synthetic data-dependent while loop was replaced by a bounded eight-iteration combinational accumulation.",
       "interpretation": "First valid edit passed actual public and final independent checks. No failure-feedback repair was observed: the model repaired the stated synthesis defect before testing it.",
       "limits": "No PPA measurement or improvement claim."
+    },
+    {
+      "trial_id": "rffe-w1c-diagnostic-r1",
+      "candidate_sha256": [
+        "9d35609c0b142b7d5e9ff6f77b0a2ac36936570d5635d9e9386340a5d6123a84",
+        "7edc8b0eab20239a7cf97201b29b5dd17970346902f1fddf5c5f4a97fa42eeef",
+        "9c7a61ab071feb90ad638fef77616ea0c57344101dce5767301df91d30881527"
+      ],
+      "valid_edits": 3,
+      "format_errors": 12,
+      "public_tests": 3,
+      "public_failures_delivered": 2,
+      "last_public_result_delivered": false,
+      "final_reward": null,
+      "final_category": "agent_incomplete",
+      "heldout_performed": false,
+      "verified_failure": "All three actual public checks report nonbinary serial-frame bit. No private scoring ran because no submission occurred.",
+      "observed_changes": "After first failure, sampling stages and write-data shift width changed; after second failure, the command-bit counter increment guard changed. Each edited candidate still failed its actual public check.",
+      "interpretation": "Three valid edits occurred in this one sample under more explicit constant rejection, but action format remained unstable and no verified repair or submission resulted. No causal improvement claim, untested-candidate correctness inference or offline grading."
     }
   ]
 }

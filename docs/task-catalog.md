@@ -8,7 +8,7 @@
 | 路由族、队列族、组合桥（7 个） | 各生成包及来源清单 | `python3 scripts/tasks.py --package PACKAGE list`，包内独立准入 |
 | UART／I²C／RFFE、测试生成、参考修复、Checker、综合修复（20 个） | [有限交付 Registry](../tasks/artifact-registry.json) | `python3 -m environment.artifact_task list`；[逐任务说明与命令](tasks/README.md) |
 
-这些入口复用控制与审计方法，但没有合并成同一个 CLI。根 `scripts/tasks.py list` 只列四个原始任务，不能用它的输出作为项目任务总数。完整研究记录与已审查轨迹的分母见[当前交换库存](../experiments/i2c-sink-v1/exchange-inventory.json)，它不是任务准入证书。
+这些入口复用控制与审计方法，但没有合并成同一个 CLI。根 `scripts/tasks.py list` 只列四个原始任务，不能用它的输出作为项目任务总数。完整研究记录与已审查轨迹的分母见[当前交换库存](../experiments/task-production-v3/exchange-inventory.json)，它不是任务准入证书。
 
 ## 四个原始 X2P 任务
 
@@ -70,7 +70,7 @@ X2P 的 11 个任务身份保持不变。另有[有限交付 Registry](../tasks/
 
 [有限任务使用指南](tasks/README.md)连接每个契约的 Spec、可修改材料及运行命令；[任务与研究说明](verification-resources-tasks.md)解释能力边界、正反对照、真实漏检与实际模型结果。`python3 -m environment.artifact_task list` 查询有效入口；`python3 -m verification_resources.production_v5` 提供有限生产、依赖检查和初始化。Registry 是当前证据入口，准入仍要求哈希严格匹配；任务创建时的元数据与历史结果不回填。
 
-新增任务的准入与真实模型证据见[体系化生产阶段报告](task-production-stage-v2.md)。此前十二份有限包可严格核对依赖并初始化；旧 X2P 的历史准入不因此升级为当前源码准入。
+最新八份任务的准入与四条分层试次、一条独立反馈试次见[多验证资源阶段报告](task-production-stage-v3.md)。当前二十份有限包可严格核对依赖并初始化；[库存](../experiments/task-production-v3/task-inventory.json)分开记录工业准入和模型采样。旧 X2P 的历史准入不因此升级为当前源码准入。
 
 新增 [I²C byte／word 契约](tasks/i2c-write-sink.md)已完成 32 项工业准入、28 项接口检查和各一条实际模型试次。终局／保留分别为1／1和0／0；[研究报告](i2c-sink-evaluation.md)不把两条样本当作难度排名。
 

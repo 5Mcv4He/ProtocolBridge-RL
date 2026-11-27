@@ -1,0 +1,133 @@
+module rffe_register(input logic clk,rst_n,sclk,sdata,output logic sdata_out,sdata_oe);
+
+  reg [2:0] sclk_s;
+  reg [2:0] sdat_s;
+
+  reg [7:0] regs [0:15];
+  integer i;
+
+  localparam S_IDLE  = 3'd0;
+  localparam S_CMD   = 3'd1;
+  localparam S_WDATA = 3'd2;
+  localparam S_RPARK = 3'd3;
+  localparam S_RDATA = 3'd4;
+  localparam S_OPARK = 3'd5;
+
+  reg [2:0]  st;
+  reg [4:0]  cnt;
+  reg [12:0] sh;
+  reg [9:0]  sh_data;
+  reg [3:0]  cmd_addr;
+  reg [8:0]  rd_sh;
+  reg        out_en;
+  reg        out_bit;
+
+  wire sclk_fall = (sclk_s[2:1]==2'b10);
+  wire sclk_rise = (sclk_s[2:1]==2'b01);
+  wire sdat = sdat_s[1];
+
+  always_comb begin
+    sdata_out = out_bit;
+    sdata_oe  = out_en;
+  end
+
+  wire [3:0] d_usid = sh[12:9];
+  wire [7:0] d_byte = sh[8:1];
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+      sclk_s <= 3'b000;
+      sdat_s <= 3'b000;
+      st <= S_IDLE;
+      cnt <= 0;
+      sh <= 0;
+      sh_data <= 0;
+      cmd_addr <= 0;
+      rd_sh <= 0;
+      out_en <= 0;
+      out_bit <= 0;
+      for(i=0;i<16;i=i+1) regs[i] <= 8'hFF;
+    end else begin
+      sclk_s <= {sclk_s[1:0], sclk};
+      sdat_s <= {sdat_s[1:0], sdata};
+
+      case(st)
+        S_IDLE: begin
+          out_en  <= 0;
+          out_bit <= 0;
+          if(sclk_rise) begin
+            st <= S_CMD;
+            cnt <= 0;
+            sh <= 0;
+            sh_data <= 0;
+          end
+        end
+
+        S_CMD: begin
+          if(sclk_fall) begin
+            sh <= {sh[11:0], sdat};
+            if(cnt == 5'd12) cnt <= 5'd13;
+            else if(cnt != 5'd13) cnt <= cnt + 1;
+          end else if(cnt == 5'd13) begin
+            if(d_usid == 4'd1 && ((^sh)==1'b1)) begin
+              cmd_addr <= d_byte[3:0];
+              if(d_byte[7:4] == 4'b0100) begin
+                st <= S_WDATA; cnt <= 0; sh_data <= 0;
+              end else if(d_byte[7:4] == 4'b0110) begin
+                rd_sh <= {regs[d_byte[3:0]], ~(^regs[d_byte[3:0]])};
+                st <= S_RPARK; cnt <= 0;
+              end else begin
+                st <= S_IDLE; cnt <= 0;
+              end
+            end else begin
+              st <= S_IDLE; cnt <= 0;
+            end
+          end
+        end
+
+        S_WDATA: begin
+          if(sclk_fall) begin
+            sh_data <= {sh_data[8:0], sdat};
+            if(cnt == 5'd8) begin
+              regs[cmd_addr] <= regs[cmd_addr] & ~{sh_data[8:1]};
+              st <= S_IDLE; cnt <= 0;
+            end else cnt <= cnt + 1;
+          end
+        end
+
+        S_RPARK: begin
+          if(sclk_rise) begin st <= S_RDATA; cnt <= 0; end
+        end
+
+        S_RDATA: begin
+          if(sclk_rise) begin
+            if(cnt == 0) begin
+              out_en  <= 1;
+              out_bit <= rd_sh[8];
+              rd_sh <= {rd_sh[7:0], 1'b0};
+              cnt <= cnt + 1;
+            end else if(cnt <= 8) begin
+              out_bit <= rd_sh[8];
+              rd_sh <= {rd_sh[7:0], 1'b0};
+              cnt <= cnt + 1;
+            end
+          end
+          if(sclk_fall && cnt == 9) begin
+            out_bit <= 0;
+            st <= S_OPARK; cnt <= 0;
+          end
+        end
+
+        S_OPARK: begin
+          if(sclk_fall) begin
+            out_en <= 0; out_bit <= 0;
+            st <= S_IDLE; cnt <= 0;
+          end
+        end
+
+        default: st <= S_IDLE;
+      endcase
+    end
+  end
+
+endmodule

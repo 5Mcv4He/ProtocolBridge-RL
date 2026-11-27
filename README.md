@@ -7,7 +7,7 @@
 ProtocolBridge-RL 围绕这一问题展开研究。项目以 AXI → APB 协议桥（X2P）为切入点，利用工业电子设计自动化工具（EDA）与独立功能验证，将数字电路设计与调试转化为模型可以反复求解、探索和验证的任务。它既关注设计是否正确，也关注如何构建有训练价值的求解过程。
 
 <p align="center">
-<strong>11 个 X2P + 20 个有限任务身份</strong>　·　<strong>X2P 九动作环境</strong>　·　<strong>127 条研究试次</strong>　·　<strong>轨迹交换 v1–v7</strong>
+<strong>11 个 X2P + 20 个有限任务身份</strong>　·　<strong>X2P 九动作环境</strong>　·　<strong>132 条研究试次</strong>　·　<strong>轨迹交换 v1–v8</strong>
 </p>
 
 > **当前阶段：** 已建立任务、环境、独立奖励与固定模型 Rollout 的工程闭环；尚未进行模型参数训练或训练收益评估。保留独立工具配置，并已在三深度队列上完成九种动作联用验收。
@@ -343,14 +343,15 @@ X2P 要求模型交付桥接 RTL，但芯片工程还有另一类工作：编写
 | v5 | 统一包来源与候选版本绑定；原组合阶段 4 条导出，新增预算研究 12 条真实轨迹 |
 | v6 | 三类有限工程交付的 14 条工具轨迹；支持实际反馈重放、不同制品及中断状态 |
 | v7 | Checker、状态寄存器及 I²C 的 6 条真实轨迹；重放实际反馈、候选身份及运行器来源 |
+| v8 | 多验证资源的 4 条分层试次及 1 条独立反馈版本试次；新增综合成本、未提交与末次反馈未送达的审计 |
 
-合计 **127 条研究记录、87 条已审查工具轨迹**（v2 + v3/v4/v5/v6/v7 的独立记录，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
+合计 **132 条研究记录、92 条已审查工具轨迹**（v2 + v3/v4/v5/v6/v7/v8 的独立记录，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
 
-v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-exchange/manifest.json)此前已计入研究库存，这次只是首次进入统一交换；没有增加模型调用或重复计算样本。[当前研究库存与交换集合](experiments/i2c-sink-v1/exchange-inventory.json)在原 121／81 条基础上先增加 Checker／状态寄存器 4 条，再增加 I²C 2 条。库存包括未提交、中断及已被取代的验证器版本；审计通过不表示每条都有有效终局奖励，也不表示全部适合训练。当前用途另外标注，不用保留评估选择训练候选。
+v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-exchange/manifest.json)此前已计入研究库存，这次只是首次进入统一交换；没有增加模型调用或重复计算样本。[当前研究库存与交换集合](experiments/task-production-v3/exchange-inventory.json)在原 121／81 条基础上先增加 Checker／状态寄存器 4 条、I²C 2 条，再增加本阶段 5 条。库存包括未提交、中断及已被取代的验证器版本；审计通过不表示每条都有有效终局奖励，也不表示全部适合训练。当前用途另外标注，不用保留评估选择训练候选。
 
 当前交付尚缺原始模型采样、Token IDs、行为策略 Log Probability 与精确权重版本，不是无损 on-policy 训练数据。在线 Collector 与 RL 参数优化尚未接入。
 
-**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json) · [v5–v7 任务交付入口](docs/task-rollout-exchange.md)
+**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json) · [v5–v8 任务交付入口](docs/task-rollout-exchange.md)
 
 ---
 
@@ -381,7 +382,7 @@ ProtocolBridge-RL/
 | 理解核心源码 | [任务](tasks/) · [环境](environment/) · [验证器](verifier/) |
 | 查阅工程与验证方法 | [架构](docs/architecture.md) · [质量门禁](docs/task-quality-gate.md) · [001 历史运行手册](docs/mvp-running.md) |
 | 查阅研究证据 | [文档索引](docs/README.md) · [实验目录](experiments/) |
-| 复用数据交换 | [当前 v5–v7 入口](docs/task-rollout-exchange.md) · [历史契约演进](docs/rollout-data-contract.md) |
+| 复用数据交换 | [当前 v5–v8 入口](docs/task-rollout-exchange.md) · [历史契约演进](docs/rollout-data-contract.md) |
 
 ## 8. 快速开始
 
@@ -438,7 +439,9 @@ python3 scripts/tasks.py rollout axil_to_apb4_queue_003 -- \
 
 任意契约的通用任务生成、完整自建 Testbench、全设计形式属性证明、工业 PPA 奖励及模型参数训练尚未实现。X2P 生产路径接受三种经审阅的路由配置、三种队列配置和一个固定组合契约；有限交付进一步覆盖 RFFE 寄存器与组合运算综合修复，并为 I²C 提供保留原功能判据的协议骨架起点。Checker 当前准入覆盖深度 1、2、3、5，不推断其他深度已经可靠。任务身份与不同功能契约分别统计；参数变化和起点变化不等于新的独立工程能力。它们不支持任意工程能力组合。有限仿真和正反对照不能证明验证器完备，公开 Spec、参考实现及验证代码也存在预训练污染可能。
 
-下一步根据跨任务的实际候选、反馈曝光与成本，选择值得扩大采样的工程能力。I²C 受控引脚反馈、第二个新协议对象和严格依赖匹配下的编译复用仍是研究方向；没有把它们写成已验证的效果。组合任务的交互覆盖缺口也需继续补证。
+[最新分层研究](docs/task-production-stage-v3.md)观察到深度 5 Checker 修正回绕后通过、位计数综合修复首候选通过，也保留了两条没有有效编辑的失败提交。仅增强动作拒绝提示的独立 RFFE 试次完成三次编辑和测试，却未修复或提交，Reward 为 null。五条共消耗 351,210 Token；这些不同条件的小样本不合并为稳定成功率。
+
+下一步先核验动作接口能否可靠承载工程交付，再根据跨任务的实际候选、反馈曝光与成本选择采样。I²C 受控引脚反馈、第二个新协议对象和严格依赖匹配下的编译复用仍是研究方向；没有把它们写成已验证的效果。组合任务的交互覆盖缺口也需继续补证。
 
 ### 项目的长期价值
 
