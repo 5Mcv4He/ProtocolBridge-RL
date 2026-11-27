@@ -1,0 +1,562 @@
+{
+  "schema": "structured-stimulus-quality-v1",
+  "accepted": true,
+  "checks": [
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "control": "good_mapping",
+      "phase": "public",
+      "expected_reward": 1,
+      "result": {
+        "task_id": "x2p_stimulus_mapping_v1",
+        "source_sha256": "a3560d7f455c7e88907125cfd6c358a8161a5f33710aacf71d827f2cbfff90bc",
+        "reward": 1.0,
+        "category": "pass",
+        "phase": "public",
+        "verification_complete": true,
+        "controls": [
+          {
+            "reward": 1.0,
+            "category": "pass",
+            "verification_complete": true,
+            "planned": 12,
+            "checked": 12,
+            "compile_exit": 0,
+            "compile_reused": null,
+            "control": "reference",
+            "result_sha256": "d0f0e110259206db2dffcc66f059a1ffc366dc050b06d4750d921ff1ed0de92d"
+          },
+          {
+            "reward": 0.0,
+            "category": "transaction_functional_error",
+            "verification_complete": false,
+            "planned": null,
+            "checked": null,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "bad_address",
+            "result_sha256": "623256bcfbf79ccd33771eea2c1452d95b23ad7e3546151becbc8019b1b6fb8c"
+          }
+        ],
+        "grader_sha256": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+        "control_bank_sha256": "cba3bce5dee0005f0fbe72290623e434db78f8b484735c7802c54e6199053308",
+        "suite_sha256": "f1784cbb388eb6954c208b6824693494104d1e0eda0eea991fea02f54e4680cf",
+        "actual_activity": {
+          "checked": 12,
+          "coverage": {
+            "aw_first": 0,
+            "w_first": 0,
+            "together": 6,
+            "stalls": 12,
+            "early": 0,
+            "waits": 0,
+            "resets": 0
+          },
+          "cross_bins": [
+            "strobe=0 order=0 error=0 wait=0 stall=1",
+            "strobe=1 order=0 error=0 wait=0 stall=1",
+            "strobe=15 order=0 error=0 wait=0 stall=1",
+            "strobe=2 order=0 error=0 wait=0 stall=1",
+            "strobe=4 order=0 error=0 wait=0 stall=1",
+            "strobe=8 order=0 error=0 wait=0 stall=1"
+          ]
+        },
+        "wall_seconds": 108.8582
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "control": "good_mapping",
+      "phase": "terminal",
+      "expected_reward": 1,
+      "result": {
+        "task_id": "x2p_stimulus_mapping_v1",
+        "source_sha256": "a3560d7f455c7e88907125cfd6c358a8161a5f33710aacf71d827f2cbfff90bc",
+        "reward": 1.0,
+        "category": "pass",
+        "phase": "terminal",
+        "verification_complete": true,
+        "controls": [
+          {
+            "reward": 1.0,
+            "category": "pass",
+            "verification_complete": true,
+            "planned": 12,
+            "checked": 12,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "reference",
+            "result_sha256": "e205a952343f58585a8f6f867ba9a54d7f89298f76cf8b9496b329e1f32debc4"
+          },
+          {
+            "reward": 0.0,
+            "category": "transaction_functional_error",
+            "verification_complete": false,
+            "planned": null,
+            "checked": null,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "bad_strobe",
+            "result_sha256": "a633d1264d5446eb24c4511dd41830aa79788a5267cb248bf368119ea650f183"
+          },
+          {
+            "reward": 0.0,
+            "category": "transaction_functional_error",
+            "verification_complete": false,
+            "planned": null,
+            "checked": null,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "bad_read_data",
+            "result_sha256": "010a09e4609d625af857f90eae6fefda2402dbd2f552cc843da8223fbd2ec64b"
+          }
+        ],
+        "grader_sha256": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+        "control_bank_sha256": "cba3bce5dee0005f0fbe72290623e434db78f8b484735c7802c54e6199053308",
+        "suite_sha256": "f1784cbb388eb6954c208b6824693494104d1e0eda0eea991fea02f54e4680cf",
+        "actual_activity": {
+          "checked": 12,
+          "coverage": {
+            "aw_first": 0,
+            "w_first": 0,
+            "together": 6,
+            "stalls": 12,
+            "early": 0,
+            "waits": 0,
+            "resets": 0
+          },
+          "cross_bins": [
+            "strobe=0 order=0 error=0 wait=0 stall=1",
+            "strobe=1 order=0 error=0 wait=0 stall=1",
+            "strobe=15 order=0 error=0 wait=0 stall=1",
+            "strobe=2 order=0 error=0 wait=0 stall=1",
+            "strobe=4 order=0 error=0 wait=0 stall=1",
+            "strobe=8 order=0 error=0 wait=0 stall=1"
+          ]
+        },
+        "wall_seconds": 19.3555
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "control": "good_mapping",
+      "phase": "evaluation",
+      "expected_reward": 1,
+      "result": {
+        "task_id": "x2p_stimulus_mapping_v1",
+        "source_sha256": "a3560d7f455c7e88907125cfd6c358a8161a5f33710aacf71d827f2cbfff90bc",
+        "reward": 1.0,
+        "category": "pass",
+        "phase": "evaluation",
+        "verification_complete": true,
+        "controls": [
+          {
+            "reward": 1.0,
+            "category": "pass",
+            "verification_complete": true,
+            "planned": 12,
+            "checked": 12,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "reference",
+            "result_sha256": "e205a952343f58585a8f6f867ba9a54d7f89298f76cf8b9496b329e1f32debc4"
+          },
+          {
+            "reward": 0.0,
+            "category": "transaction_functional_error",
+            "verification_complete": false,
+            "planned": null,
+            "checked": null,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "heldout_strobe",
+            "result_sha256": "f3262d4bb902a32ed7dd902019391a6bb59055eb0b307e286f4ffdd564287a4a"
+          }
+        ],
+        "grader_sha256": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+        "control_bank_sha256": "cba3bce5dee0005f0fbe72290623e434db78f8b484735c7802c54e6199053308",
+        "suite_sha256": "f1784cbb388eb6954c208b6824693494104d1e0eda0eea991fea02f54e4680cf",
+        "actual_activity": {
+          "checked": 12,
+          "coverage": {
+            "aw_first": 0,
+            "w_first": 0,
+            "together": 6,
+            "stalls": 12,
+            "early": 0,
+            "waits": 0,
+            "resets": 0
+          },
+          "cross_bins": [
+            "strobe=0 order=0 error=0 wait=0 stall=1",
+            "strobe=1 order=0 error=0 wait=0 stall=1",
+            "strobe=15 order=0 error=0 wait=0 stall=1",
+            "strobe=2 order=0 error=0 wait=0 stall=1",
+            "strobe=4 order=0 error=0 wait=0 stall=1",
+            "strobe=8 order=0 error=0 wait=0 stall=1"
+          ]
+        },
+        "wall_seconds": 18.4506
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "control": "weak",
+      "phase": "terminal",
+      "expected_reward": 0,
+      "result": {
+        "task_id": "x2p_stimulus_mapping_v1",
+        "source_sha256": "b89dd0f5d2e9c2e3b9065618302a38af7b67c5539c3bf2fb5d449d65c016967f",
+        "reward": 0.0,
+        "category": "insufficient_detection",
+        "phase": "terminal",
+        "verification_complete": false,
+        "controls": [
+          {
+            "reward": 1.0,
+            "category": "pass",
+            "verification_complete": true,
+            "planned": 2,
+            "checked": 2,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "reference",
+            "result_sha256": "ec95b0f59a0a7c04ccefacbb2b8512f60bc4c630637ab77111f29139e47fc146"
+          },
+          {
+            "reward": 1.0,
+            "category": "pass",
+            "verification_complete": true,
+            "planned": 2,
+            "checked": 2,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "bad_strobe",
+            "result_sha256": "ec95b0f59a0a7c04ccefacbb2b8512f60bc4c630637ab77111f29139e47fc146"
+          }
+        ],
+        "grader_sha256": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+        "control_bank_sha256": "cba3bce5dee0005f0fbe72290623e434db78f8b484735c7802c54e6199053308",
+        "suite_sha256": "0d9ebcf5c2e0ce0142564560f019219c02253b0a16211ff91fde32271fb86c88",
+        "actual_activity": {
+          "checked": 2,
+          "coverage": {
+            "aw_first": 0,
+            "w_first": 0,
+            "together": 1,
+            "stalls": 2,
+            "early": 0,
+            "waits": 0,
+            "resets": 0
+          },
+          "cross_bins": [
+            "strobe=15 order=0 error=0 wait=0 stall=1"
+          ]
+        },
+        "wall_seconds": 18.0453
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "control": "empty",
+      "phase": "public",
+      "expected_reward": null,
+      "result": {
+        "task_id": "x2p_stimulus_mapping_v1",
+        "source_sha256": "a8509a62a572c7a3b6ea60f9817ee3d3573138ac7cd056aa29c5b252cb6662bb",
+        "reward": null,
+        "category": "invalid_submission",
+        "phase": "public",
+        "verification_complete": false,
+        "controls": [],
+        "grader_sha256": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+        "wall_seconds": 0.0009
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "control": "good_timing",
+      "phase": "public",
+      "expected_reward": 1,
+      "result": {
+        "task_id": "x2p_stimulus_timing_v1",
+        "source_sha256": "a016e3194505e11b995f2c4a7da3764650a8b70bd7467daa47436aa07a271ec2",
+        "reward": 1.0,
+        "category": "pass",
+        "phase": "public",
+        "verification_complete": true,
+        "controls": [
+          {
+            "reward": 1.0,
+            "category": "pass",
+            "verification_complete": true,
+            "planned": 5,
+            "checked": 5,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "reference",
+            "result_sha256": "c78689266d979e2440cf93d54faf7baf11514bfe95ab4530962016673050834a"
+          },
+          {
+            "reward": 0.0,
+            "category": "protocol_timing_error",
+            "verification_complete": false,
+            "planned": null,
+            "checked": null,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "bad_wait",
+            "result_sha256": "12f6736dc027ab0f1e365641f2bf971ff8f15258d420fe029c86059c83904cab"
+          }
+        ],
+        "grader_sha256": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+        "control_bank_sha256": "cba3bce5dee0005f0fbe72290623e434db78f8b484735c7802c54e6199053308",
+        "suite_sha256": "b5c4b94da4d8297c7d80a828c0bdf2a6e5604c6e8c34bf0604cec15e58ba6374",
+        "actual_activity": {
+          "checked": 5,
+          "coverage": {
+            "aw_first": 1,
+            "w_first": 1,
+            "together": 0,
+            "stalls": 20,
+            "early": 0,
+            "waits": 10,
+            "resets": 0
+          },
+          "cross_bins": [
+            "strobe=15 order=1 error=0 wait=1 stall=1",
+            "strobe=15 order=2 error=1 wait=1 stall=1"
+          ]
+        },
+        "wall_seconds": 18.1435
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "control": "good_timing",
+      "phase": "terminal",
+      "expected_reward": 1,
+      "result": {
+        "task_id": "x2p_stimulus_timing_v1",
+        "source_sha256": "a016e3194505e11b995f2c4a7da3764650a8b70bd7467daa47436aa07a271ec2",
+        "reward": 1.0,
+        "category": "pass",
+        "phase": "terminal",
+        "verification_complete": true,
+        "controls": [
+          {
+            "reward": 1.0,
+            "category": "pass",
+            "verification_complete": true,
+            "planned": 5,
+            "checked": 5,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "reference",
+            "result_sha256": "c78689266d979e2440cf93d54faf7baf11514bfe95ab4530962016673050834a"
+          },
+          {
+            "reward": 0.0,
+            "category": "transaction_functional_error",
+            "verification_complete": false,
+            "planned": null,
+            "checked": null,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "bad_error",
+            "result_sha256": "864a01973f481261489917f3ed250f27990d07b5f9abbcfa379d45ed7decbe85"
+          },
+          {
+            "reward": 0.0,
+            "category": "protocol_timing_error",
+            "verification_complete": false,
+            "planned": null,
+            "checked": null,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "bad_backpressure",
+            "result_sha256": "aee232f1fa7fa5b4b98d40638e82349dd88c7e5f86e1918e39f7bdb8924c0934"
+          }
+        ],
+        "grader_sha256": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+        "control_bank_sha256": "cba3bce5dee0005f0fbe72290623e434db78f8b484735c7802c54e6199053308",
+        "suite_sha256": "b5c4b94da4d8297c7d80a828c0bdf2a6e5604c6e8c34bf0604cec15e58ba6374",
+        "actual_activity": {
+          "checked": 5,
+          "coverage": {
+            "aw_first": 1,
+            "w_first": 1,
+            "together": 0,
+            "stalls": 20,
+            "early": 0,
+            "waits": 10,
+            "resets": 0
+          },
+          "cross_bins": [
+            "strobe=15 order=1 error=0 wait=1 stall=1",
+            "strobe=15 order=2 error=1 wait=1 stall=1"
+          ]
+        },
+        "wall_seconds": 23.3774
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "control": "good_timing",
+      "phase": "evaluation",
+      "expected_reward": 1,
+      "result": {
+        "task_id": "x2p_stimulus_timing_v1",
+        "source_sha256": "a016e3194505e11b995f2c4a7da3764650a8b70bd7467daa47436aa07a271ec2",
+        "reward": 1.0,
+        "category": "pass",
+        "phase": "evaluation",
+        "verification_complete": true,
+        "controls": [
+          {
+            "reward": 1.0,
+            "category": "pass",
+            "verification_complete": true,
+            "planned": 5,
+            "checked": 5,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "reference",
+            "result_sha256": "c78689266d979e2440cf93d54faf7baf11514bfe95ab4530962016673050834a"
+          },
+          {
+            "reward": 0.0,
+            "category": "transaction_functional_error",
+            "verification_complete": false,
+            "planned": null,
+            "checked": null,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "bad_early_read",
+            "result_sha256": "87c7a47353ebefae6d70c7b8173e5896c394719d19398638154777c93e11f275"
+          }
+        ],
+        "grader_sha256": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+        "control_bank_sha256": "cba3bce5dee0005f0fbe72290623e434db78f8b484735c7802c54e6199053308",
+        "suite_sha256": "b5c4b94da4d8297c7d80a828c0bdf2a6e5604c6e8c34bf0604cec15e58ba6374",
+        "actual_activity": {
+          "checked": 5,
+          "coverage": {
+            "aw_first": 1,
+            "w_first": 1,
+            "together": 0,
+            "stalls": 20,
+            "early": 0,
+            "waits": 10,
+            "resets": 0
+          },
+          "cross_bins": [
+            "strobe=15 order=1 error=0 wait=1 stall=1",
+            "strobe=15 order=2 error=1 wait=1 stall=1"
+          ]
+        },
+        "wall_seconds": 14.4354
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "control": "weak",
+      "phase": "terminal",
+      "expected_reward": 0,
+      "result": {
+        "task_id": "x2p_stimulus_timing_v1",
+        "source_sha256": "b89dd0f5d2e9c2e3b9065618302a38af7b67c5539c3bf2fb5d449d65c016967f",
+        "reward": 0.0,
+        "category": "missing_activity",
+        "phase": "terminal",
+        "verification_complete": false,
+        "controls": [
+          {
+            "reward": 1.0,
+            "category": "pass",
+            "verification_complete": true,
+            "planned": 2,
+            "checked": 2,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "reference",
+            "result_sha256": "ec95b0f59a0a7c04ccefacbb2b8512f60bc4c630637ab77111f29139e47fc146"
+          }
+        ],
+        "grader_sha256": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+        "control_bank_sha256": "cba3bce5dee0005f0fbe72290623e434db78f8b484735c7802c54e6199053308",
+        "suite_sha256": "0d9ebcf5c2e0ce0142564560f019219c02253b0a16211ff91fde32271fb86c88",
+        "actual_activity": {
+          "checked": 2,
+          "coverage": {
+            "aw_first": 0,
+            "w_first": 0,
+            "together": 1,
+            "stalls": 2,
+            "early": 0,
+            "waits": 0,
+            "resets": 0
+          },
+          "cross_bins": [
+            "strobe=15 order=0 error=0 wait=0 stall=1"
+          ]
+        },
+        "wall_seconds": 7.0499
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "control": "empty",
+      "phase": "public",
+      "expected_reward": null,
+      "result": {
+        "task_id": "x2p_stimulus_timing_v1",
+        "source_sha256": "a8509a62a572c7a3b6ea60f9817ee3d3573138ac7cd056aa29c5b252cb6662bb",
+        "reward": null,
+        "category": "invalid_submission",
+        "phase": "public",
+        "verification_complete": false,
+        "controls": [],
+        "grader_sha256": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+        "wall_seconds": 0.0012
+      },
+      "accepted": true
+    }
+  ],
+  "source_files": {
+    "environment/control_bank.py": "94e54345db10801006977bb8370d4eb58269bda4e0abcc3d39cc14aadf61ada6",
+    "fixtures/bad_address.sv": "81f8909ad76623f15a5490da479f3f11e70f9809527b40ffa13beccf407913e4",
+    "fixtures/bad_backpressure.sv": "ec068963d9ef4b08989fba0db7b58f7b13f9ece415bd323c9795d4ea1b1a6c98",
+    "fixtures/bad_early_read.sv": "1c446bbf0272386d5afcc2718813b173e9561e08c1c29522dd2b59ad7a876e2f",
+    "fixtures/bad_error.sv": "13fdcea7c734b4e7a135ea3f9d15ed7b5c9e73471fc9740a076a87381504d3bd",
+    "fixtures/bad_read_data.sv": "5c8ae3c9495ad9eaf3c3228b6c4074e7d62f8967d2e1609b18886ae3a4f00624",
+    "fixtures/bad_strobe.sv": "4e84159cddebe88267911dc42d88ec652f2744ebda47846253fadcd7957fce53",
+    "fixtures/bad_wait.sv": "252b5d1d047f72fe9a57d861a7cb87f80db472b8f5a54908980a81a2908837d8",
+    "fixtures/reference.sv": "09061d9b8498fa2365123d88d4301871a3da347ad92f5be6e077b15554c23bc8",
+    "fixtures/stimulus/empty.json": "a8509a62a572c7a3b6ea60f9817ee3d3573138ac7cd056aa29c5b252cb6662bb",
+    "fixtures/stimulus/good_mapping.json": "a3560d7f455c7e88907125cfd6c358a8161a5f33710aacf71d827f2cbfff90bc",
+    "fixtures/stimulus/good_timing.json": "a016e3194505e11b995f2c4a7da3764650a8b70bd7467daa47436aa07a271ec2",
+    "fixtures/stimulus/heldout_strobe.sv": "96b607815dc99ed216b1c2c3c4258809f26524c66a01f589064d6ff8a0030548",
+    "fixtures/stimulus/weak.json": "b89dd0f5d2e9c2e3b9065618302a38af7b67c5539c3bf2fb5d449d65c016967f",
+    "tasks/x2p_stimulus_mapping_v1/spec.md": "5db27859766165fe0df5ec56120a77a3ce42d262c6233ae69061c38a56ce2421",
+    "tasks/x2p_stimulus_mapping_v1/task.json": "793eee6794cfe65a8f125ad20848ed1e9bdf524e2cda04cf6b1052d15a6e9946",
+    "tasks/x2p_stimulus_mapping_v1/workspace/stimulus.json": "d611f192a221fb5ad3a48c4d41dc18df2232a58b7e63ab51f83c2c0a39939375",
+    "tasks/x2p_stimulus_timing_v1/spec.md": "9b3b72256c8d1cc0a1f75f8c016e6b5a5affe32b6f0a6f8f8621a2c9851e4a97",
+    "tasks/x2p_stimulus_timing_v1/task.json": "b97d11cbfebc9a2c362b78c539067ce3414635667557415531983f4a3e9ab9b1",
+    "tasks/x2p_stimulus_timing_v1/workspace/stimulus.json": "d611f192a221fb5ad3a48c4d41dc18df2232a58b7e63ab51f83c2c0a39939375",
+    "verifier/campaign.py": "e8d8de32dae810e6778862c8ff6fec54dd60b643ab02813c4093a2996aa3630f",
+    "verifier/stimulus/campaign.py": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+    "verifier/stimulus/quality.py": "93eb717c3daa94786bd991c1a693e0ab3e3a07374a32dee9cf226797494106e5",
+    "verifier/v3/tb.sv": "ea748112e20f84fcfa7a3267376989636be13bc88d8b0428991e21f51c87203b",
+    "verifier/v3/vip.sv": "4a165c9531912d92a4cfa0270aff3297bdafddff880cef7034965a500fa95d04"
+  }
+}

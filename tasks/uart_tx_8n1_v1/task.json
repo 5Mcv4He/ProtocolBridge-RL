@@ -1,0 +1,15 @@
+{
+  "schema": "finite-uart-task-v1",
+  "task_id": "uart_tx_8n1_v1",
+  "version": 1,
+  "deliverable": "uart_tx.sv",
+  "type": "rtl-repair",
+  "terminal_verifier": "verifier.uart_tx.campaign",
+  "initial_source_origin": "controlled mutation, not historical model output",
+  "capabilities": [
+    "serial-framing",
+    "fixed-baud-cycle-accounting",
+    "ready-valid-capture"
+  ],
+  "admission": "external version-bound evidence required"
+}

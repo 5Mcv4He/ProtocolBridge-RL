@@ -1,0 +1,15 @@
+{
+  "schema": "structured-stimulus-task-v1",
+  "task_id": "x2p_stimulus_mapping_v1",
+  "version": 1,
+  "deliverable": "stimulus.json",
+  "type": "verification-stimulus-generation",
+  "terminal_verifier": "verifier.stimulus.campaign",
+  "capabilities": [
+    "valid-stimulus-construction",
+    "positive-and-negative-dut-discrimination",
+    "mapping-defect-exposure"
+  ],
+  "initial_source_origin": "minimal incomplete test plan",
+  "admission": "external source-bound evidence required"
+}

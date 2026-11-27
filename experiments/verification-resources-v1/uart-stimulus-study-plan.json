@@ -1,0 +1,118 @@
+{
+  "schema": "bounded-artifact-study-plan-v2",
+  "study_id": "uart-stimulus-calibration-v1",
+  "frozen_at_utc": "2026-11-27T09:07:55.257856+00:00",
+  "source_files": {
+    "environment/artifact_task/dispatch.py": "f306c1de6add27aad3933a4250a68e919bc3e2434036f25d0e57e7c68644691c",
+    "environment/artifact_task/runner_v2.py": "0d04104d08cac1e3b34609863a6f4c4464e87a7352757e475a404c079fa33263",
+    "environment/artifact_task/session_v2.py": "5deaafe3a0c7bd0ddd381b80e4bd5cc19420aa282c1ccf230acaedfb973cfae4",
+    "environment/control_bank.py": "94e54345db10801006977bb8370d4eb58269bda4e0abcc3d39cc14aadf61ada6",
+    "environment/policy.py": "3a06fe89b8744a4773db477eedf4ee2b6c88a0a229f8ad0a409c8139b5e943dd",
+    "environment/remote_backend.py": "13ec548ae78a046394ee3d547c1dfa60388b5769b93c386719fc179c736e82f7",
+    "environment/utm_sandbox.sh": "652a593dff127a82b499019304940cf54326b601c275bc86171fee08335531e1",
+    "environment/utm_worker.py": "a2d05ae3ea49698701a362af78171c709648093cd20f8d2cb951c022431e7625",
+    "experiments/verification-resources-v1/artifact-phase-acceptance.json": "e7487f82906fd80b4ecbc9a58ef2e5f1c6f9ded78ce3a10e98821df44749b6c4",
+    "experiments/verification-resources-v1/stimulus-quality.json": "e3088bb73b37fc5c9dc0e67f2f338068bbde0ffa7ba9275c4c1a29190ec088a4",
+    "experiments/verification-resources-v1/uart-quality.json": "e101f66ffc30a8b90945ccf3df70f5d0c2752a07efa133f3d51853ac7be16d5e",
+    "fixtures/bad_address.sv": "81f8909ad76623f15a5490da479f3f11e70f9809527b40ffa13beccf407913e4",
+    "fixtures/bad_backpressure.sv": "ec068963d9ef4b08989fba0db7b58f7b13f9ece415bd323c9795d4ea1b1a6c98",
+    "fixtures/bad_early_read.sv": "1c446bbf0272386d5afcc2718813b173e9561e08c1c29522dd2b59ad7a876e2f",
+    "fixtures/bad_error.sv": "13fdcea7c734b4e7a135ea3f9d15ed7b5c9e73471fc9740a076a87381504d3bd",
+    "fixtures/bad_read_data.sv": "5c8ae3c9495ad9eaf3c3228b6c4074e7d62f8967d2e1609b18886ae3a4f00624",
+    "fixtures/bad_strobe.sv": "4e84159cddebe88267911dc42d88ec652f2744ebda47846253fadcd7957fce53",
+    "fixtures/bad_wait.sv": "252b5d1d047f72fe9a57d861a7cb87f80db472b8f5a54908980a81a2908837d8",
+    "fixtures/reference.sv": "09061d9b8498fa2365123d88d4301871a3da347ad92f5be6e077b15554c23bc8",
+    "fixtures/stimulus/empty.json": "a8509a62a572c7a3b6ea60f9817ee3d3573138ac7cd056aa29c5b252cb6662bb",
+    "fixtures/stimulus/good_mapping.json": "a3560d7f455c7e88907125cfd6c358a8161a5f33710aacf71d827f2cbfff90bc",
+    "fixtures/stimulus/good_timing.json": "a016e3194505e11b995f2c4a7da3764650a8b70bd7467daa47436aa07a271ec2",
+    "fixtures/stimulus/heldout_strobe.sv": "96b607815dc99ed216b1c2c3c4258809f26524c66a01f589064d6ff8a0030548",
+    "fixtures/stimulus/weak.json": "b89dd0f5d2e9c2e3b9065618302a38af7b67c5539c3bf2fb5d449d65c016967f",
+    "fixtures/uart_tx/reference_8e1.sv": "e872eb3a2b5c964fb76687efadaac7d4f247a51723c315a3ca6c140fff722d1a",
+    "fixtures/uart_tx/reference_8n1.sv": "353fffebade43a18556485dda2d17964d05fcccf99ba1d49b42c5d08f1e8077e",
+    "tasks/uart_tx_8e1_v1/spec.md": "39e1fd7749ffc3f3ea6339300a360f607477781b679ffffbcd8c6ea3873c6329",
+    "tasks/uart_tx_8e1_v1/task.json": "a8bfcc0f843661897fbb60f4e208cb898a861380d762bac18038d6c2c4d0b92c",
+    "tasks/uart_tx_8e1_v1/workspace/uart_tx.sv": "02fefb27eff7afddbc2e65b64ccb7c31ef131898576d5741e176287b3e8fde37",
+    "tasks/uart_tx_8n1_v1/spec.md": "c5e1833767ba32a12bab83605dc2b7518eb5cc1e73ffe02dd60bff1f0c5b6482",
+    "tasks/uart_tx_8n1_v1/task.json": "55a5968e4bc472f4ababc1636a2f276954c3d3ae21ade95d115ea07726f73f13",
+    "tasks/uart_tx_8n1_v1/workspace/uart_tx.sv": "ff7ee2e64e25ceb29d83ae532eb8f4de64d3dcf747fac82c0604cfcb8525b10f",
+    "tasks/x2p_stimulus_mapping_v1/spec.md": "5db27859766165fe0df5ec56120a77a3ce42d262c6233ae69061c38a56ce2421",
+    "tasks/x2p_stimulus_mapping_v1/task.json": "793eee6794cfe65a8f125ad20848ed1e9bdf524e2cda04cf6b1052d15a6e9946",
+    "tasks/x2p_stimulus_mapping_v1/workspace/stimulus.json": "d611f192a221fb5ad3a48c4d41dc18df2232a58b7e63ab51f83c2c0a39939375",
+    "tasks/x2p_stimulus_timing_v1/spec.md": "9b3b72256c8d1cc0a1f75f8c016e6b5a5affe32b6f0a6f8f8621a2c9851e4a97",
+    "tasks/x2p_stimulus_timing_v1/task.json": "b97d11cbfebc9a2c362b78c539067ce3414635667557415531983f4a3e9ab9b1",
+    "tasks/x2p_stimulus_timing_v1/workspace/stimulus.json": "d611f192a221fb5ad3a48c4d41dc18df2232a58b7e63ab51f83c2c0a39939375",
+    "verifier/campaign.py": "e8d8de32dae810e6778862c8ff6fec54dd60b643ab02813c4093a2996aa3630f",
+    "verifier/independent_formal/campaign.py": "362e638452ff20e3acc41d51b5a0026f2af4c0b6b2aff8a6ed4b9562d025dcd0",
+    "verifier/stimulus/campaign.py": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+    "verifier/stimulus/quality.py": "93eb717c3daa94786bd991c1a693e0ab3e3a07374a32dee9cf226797494106e5",
+    "verifier/uart_tx/campaign.py": "f125db203808d09c890984189bbd67c4c9f87688f804d962e90d994f048f171f",
+    "verifier/uart_tx/phase_acceptance.py": "531d31c79837b17baad9e87d9bd7d3a237499340fb31a1b9fb1a3646e47d0c36",
+    "verifier/uart_tx/quality.py": "7e1d3fce497f3dab0595dafd31e0cb3654374fc6545fcd7d7f2a999f31fced1a",
+    "verifier/uart_tx/tb.sv": "e01f700acc631ed790e01e23fa66d386c88760e1202b44d5012a46395998dd56",
+    "verifier/v3/tb.sv": "ea748112e20f84fcfa7a3267376989636be13bc88d8b0428991e21f51c87203b",
+    "verifier/v3/vip.sv": "4a165c9531912d92a4cfa0270aff3297bdafddff880cef7034965a500fa95d04"
+  },
+  "model": "deepseek-flash",
+  "sampling": {
+    "reasoning": "off",
+    "max_output_tokens": 7000,
+    "seed": null,
+    "temperature": "provider default, not controlled",
+    "exact_weights": null,
+    "behavior_logprobs": null,
+    "token_ids": null
+  },
+  "max_actions": 20,
+  "max_tests": 4,
+  "max_trial_seconds": 1200,
+  "maximum_started_trials": 4,
+  "concurrency": 1,
+  "trials": [
+    {
+      "trial_id": "uart-8n1-r1",
+      "task_id": "uart_tx_8n1_v1"
+    },
+    {
+      "trial_id": "stimulus-mapping-r1",
+      "task_id": "x2p_stimulus_mapping_v1"
+    },
+    {
+      "trial_id": "uart-8e1-r1",
+      "task_id": "uart_tx_8e1_v1"
+    },
+    {
+      "trial_id": "stimulus-timing-r1",
+      "task_id": "x2p_stimulus_timing_v1"
+    }
+  ],
+  "prompts": {
+    "uart_tx.sv": "Solve the engineering task specified by spec.md. Return exactly ONE JSON object per turn, no prose or additional actions. Allowed actions: {\"tool\":\"read\",\"file\":\"spec.md\"}, {\"tool\":\"read\",\"file\":\"uart_tx.sv\"}, {\"tool\":\"edit\",\"content\":\"complete file\"}, {\"tool\":\"test\"}, {\"tool\":\"submit\"}. Read both files before edit or submit. Only uart_tx.sv can be edited. Test runs the trusted public checker against the current file. You have at most 20 total actions and 4 public tests. Rejected actions also consume an action. Submission is allowed without passing tests and ends solving. Independent terminal and held-out results are not returned. No shell, other files, reference, checker or private inputs are available. Do not combine actions.",
+    "stimulus.json": "Solve the engineering task specified by spec.md. Return exactly ONE JSON object per turn, no prose or additional actions. Allowed actions: {\"tool\":\"read\",\"file\":\"spec.md\"}, {\"tool\":\"read\",\"file\":\"stimulus.json\"}, {\"tool\":\"edit\",\"content\":\"complete file\"}, {\"tool\":\"test\"}, {\"tool\":\"submit\"}. Read both files before edit or submit. Only stimulus.json can be edited. Test runs the trusted public checker against the current file. You have at most 20 total actions and 4 public tests. Rejected actions also consume an action. Submission is allowed without passing tests and ends solving. Independent terminal and held-out results are not returned. No shell, other files, reference, checker or private inputs are available. Do not combine actions."
+  },
+  "rejection_feedback": "artifact-session-v2",
+  "stopping_rules": [
+    "Stop remaining cohort on source drift, isolation failure or indeterminate trusted checker. Preserve all started attempts; no replacements.",
+    "Each trial ends on submit, 20 actions, worker error or1200seconds.",
+    "No selective additional samples."
+  ],
+  "primary_questions": [
+    "Can different deliverable types be solved through the same four-action boundary?",
+    "Are independent correctness and defect-detection obligations satisfied?",
+    "Does public success generalize to fixed terminal and separate evaluation checks?"
+  ],
+  "offline_analysis": {
+    "intermediate_tests": "none",
+    "reserved_evaluation": "After solver stop, separately retained; never used for training selection",
+    "first_candidate": "Only actual observed tests; do not retrospectively label untested candidates"
+  },
+  "estimated_resources": {
+    "basis": "UART13controls plus4phasechecks actually completed; stimulus10checks with one shared trusted-bank compile completed; formal4realtrials show modest request counts but do not predict UART repair",
+    "maximum_model_requests": 80,
+    "token_estimate": 480000,
+    "api_currency_cost": null,
+    "maximum_eda_campaigns": 24,
+    "one_commercial_batch_at_a_time": true
+  },
+  "interpretation": "One trial per contract, exploratory task calibration, not success-rate estimation or a controlled cross-task tool-effect comparison.",
+  "controller_acceptance_scope": "Real session-v2 test budget/submit boundary, isolated installed worker probe, and unit tests. Runner multi-deliverable prompt selection is a deployment adapter; current code frozen and each real execution audited."
+}

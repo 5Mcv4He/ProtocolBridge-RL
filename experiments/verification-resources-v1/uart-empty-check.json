@@ -1,0 +1,12 @@
+{
+  "task_id": "uart_tx_8n1_v1",
+  "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "verifier_sha256": "e01f700acc631ed790e01e23fa66d386c88760e1202b44d5012a46395998dd56",
+  "grader_sha256": "f125db203808d09c890984189bbd67c4c9f87688f804d962e90d994f048f171f",
+  "reward": null,
+  "category": "invalid_submission",
+  "verification_complete": false,
+  "phase": "public",
+  "reason": "empty_or_oversized",
+  "wall_seconds": 0.0002
+}

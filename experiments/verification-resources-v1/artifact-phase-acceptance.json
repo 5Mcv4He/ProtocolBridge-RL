@@ -1,0 +1,174 @@
+{
+  "schema": "artifact-phase-acceptance-v1",
+  "accepted": true,
+  "checks": [
+    {
+      "task_id": "uart_tx_8n1_v1",
+      "phase": "terminal",
+      "result": {
+        "task_id": "uart_tx_8n1_v1",
+        "source_sha256": "353fffebade43a18556485dda2d17964d05fcccf99ba1d49b42c5d08f1e8077e",
+        "verifier_sha256": "e01f700acc631ed790e01e23fa66d386c88760e1202b44d5012a46395998dd56",
+        "grader_sha256": "f125db203808d09c890984189bbd67c4c9f87688f804d962e90d994f048f171f",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "phase": "terminal",
+        "compile_seconds": 20.8279,
+        "compile_exit": 0,
+        "simulation_seconds": 5.9352,
+        "simulation_exit": 0,
+        "frames": 256,
+        "cycle_checks": 40960,
+        "simulation_sha256": "50832ed18d4d28ad68510b747ae863d3e03b4964efe2a10972d5bb1a871647e3",
+        "wall_seconds": 28.1535
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "uart_tx_8n1_v1",
+      "phase": "evaluation",
+      "result": {
+        "task_id": "uart_tx_8n1_v1",
+        "source_sha256": "353fffebade43a18556485dda2d17964d05fcccf99ba1d49b42c5d08f1e8077e",
+        "verifier_sha256": "e01f700acc631ed790e01e23fa66d386c88760e1202b44d5012a46395998dd56",
+        "grader_sha256": "f125db203808d09c890984189bbd67c4c9f87688f804d962e90d994f048f171f",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "phase": "evaluation",
+        "compile_seconds": 19.5564,
+        "compile_exit": 0,
+        "simulation_seconds": 5.2457,
+        "simulation_exit": 0,
+        "frames": 256,
+        "cycle_checks": 40960,
+        "simulation_sha256": "363d0599e6589ec16d1a060524c4a2f9e83eec9a29a6c8635a44901333203a1d",
+        "wall_seconds": 26.0628
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "uart_tx_8e1_v1",
+      "phase": "terminal",
+      "result": {
+        "task_id": "uart_tx_8e1_v1",
+        "source_sha256": "e872eb3a2b5c964fb76687efadaac7d4f247a51723c315a3ca6c140fff722d1a",
+        "verifier_sha256": "e01f700acc631ed790e01e23fa66d386c88760e1202b44d5012a46395998dd56",
+        "grader_sha256": "f125db203808d09c890984189bbd67c4c9f87688f804d962e90d994f048f171f",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "phase": "terminal",
+        "compile_seconds": 17.8593,
+        "compile_exit": 0,
+        "simulation_seconds": 6.0587,
+        "simulation_exit": 0,
+        "frames": 256,
+        "cycle_checks": 45056,
+        "simulation_sha256": "b9a84a27d7a1c6f0b8e09390c4aeafaaa5ab25e8525ae4df6ba872d5cce7b5b7",
+        "wall_seconds": 25.196
+      },
+      "accepted": true
+    },
+    {
+      "task_id": "uart_tx_8e1_v1",
+      "phase": "evaluation",
+      "result": {
+        "task_id": "uart_tx_8e1_v1",
+        "source_sha256": "e872eb3a2b5c964fb76687efadaac7d4f247a51723c315a3ca6c140fff722d1a",
+        "verifier_sha256": "e01f700acc631ed790e01e23fa66d386c88760e1202b44d5012a46395998dd56",
+        "grader_sha256": "f125db203808d09c890984189bbd67c4c9f87688f804d962e90d994f048f171f",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "phase": "evaluation",
+        "compile_seconds": 17.762,
+        "compile_exit": 0,
+        "simulation_seconds": 6.0048,
+        "simulation_exit": 0,
+        "frames": 256,
+        "cycle_checks": 45056,
+        "simulation_sha256": "78ba7d79b2ab4d71f459b5139f70233b427477ffb0065e19cc3835e43f9b2e53",
+        "wall_seconds": 25.0325
+      },
+      "accepted": true
+    },
+    {
+      "control": "real_session_v2",
+      "accepted": true,
+      "public_calls": 1,
+      "all_calls": 2,
+      "terminal": {
+        "task_id": "x2p_stimulus_mapping_v1",
+        "source_sha256": "a3560d7f455c7e88907125cfd6c358a8161a5f33710aacf71d827f2cbfff90bc",
+        "reward": 1.0,
+        "category": "pass",
+        "phase": "terminal",
+        "verification_complete": true,
+        "controls": [
+          {
+            "reward": 1.0,
+            "category": "pass",
+            "verification_complete": true,
+            "planned": 12,
+            "checked": 12,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "reference",
+            "result_sha256": "e205a952343f58585a8f6f867ba9a54d7f89298f76cf8b9496b329e1f32debc4"
+          },
+          {
+            "reward": 0.0,
+            "category": "transaction_functional_error",
+            "verification_complete": false,
+            "planned": null,
+            "checked": null,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "bad_strobe",
+            "result_sha256": "a633d1264d5446eb24c4511dd41830aa79788a5267cb248bf368119ea650f183"
+          },
+          {
+            "reward": 0.0,
+            "category": "transaction_functional_error",
+            "verification_complete": false,
+            "planned": null,
+            "checked": null,
+            "compile_exit": null,
+            "compile_reused": true,
+            "control": "bad_read_data",
+            "result_sha256": "010a09e4609d625af857f90eae6fefda2402dbd2f552cc843da8223fbd2ec64b"
+          }
+        ],
+        "grader_sha256": "ed636b82dd643aff832a6d233eb93e9be67e6abe55705ee0b2a0f539d3cde113",
+        "control_bank_sha256": "cba3bce5dee0005f0fbe72290623e434db78f8b484735c7802c54e6199053308",
+        "suite_sha256": "f1784cbb388eb6954c208b6824693494104d1e0eda0eea991fea02f54e4680cf",
+        "actual_activity": {
+          "checked": 12,
+          "coverage": {
+            "aw_first": 0,
+            "w_first": 0,
+            "together": 6,
+            "stalls": 12,
+            "early": 0,
+            "waits": 0,
+            "resets": 0
+          },
+          "cross_bins": [
+            "strobe=0 order=0 error=0 wait=0 stall=1",
+            "strobe=1 order=0 error=0 wait=0 stall=1",
+            "strobe=15 order=0 error=0 wait=0 stall=1",
+            "strobe=2 order=0 error=0 wait=0 stall=1",
+            "strobe=4 order=0 error=0 wait=0 stall=1",
+            "strobe=8 order=0 error=0 wait=0 stall=1"
+          ]
+        },
+        "wall_seconds": 22.838
+      }
+    }
+  ],
+  "session_sha256": "5deaafe3a0c7bd0ddd381b80e4bd5cc19420aa282c1ccf230acaedfb973cfae4",
+  "runner_sha256": "d9bf979d2f29feff252debf3bb1122766f6094bf5cd71188afe3ca941e82f314",
+  "script_sha256": "531d31c79837b17baad9e87d9bd7d3a237499340fb31a1b9fb1a3646e47d0c36"
+}

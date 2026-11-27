@@ -1,0 +1,32 @@
+module uart_tx(input logic clk,rst_n,valid,input logic [7:0] data,
+               output logic ready,tx);
+  logic [9:0] sh;
+  logic [3:0] cnt;
+  logic busy;
+
+  assign busy = (cnt != 4'd0);
+  assign ready = !busy;
+  assign tx = busy ? sh[0] : 1'b1;
+
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      sh <= 10'h3FF;
+      cnt <= 4'd0;
+    end else if (!busy) begin
+      if (valid) begin
+        sh <= {1'b1, data, 1'b0};
+        cnt <= 4'd1;
+      end
+    end else begin
+      if (cnt == 4'd160) begin
+        cnt <= 4'd0;
+        sh <= 10'h3FF;
+      end else begin
+        cnt <= cnt + 4'd1;
+        if ((cnt[3:0] == 4'd15)) begin
+          sh <= {1'b1, sh[9:1]};
+        end
+      end
+    end
+  end
+endmodule
