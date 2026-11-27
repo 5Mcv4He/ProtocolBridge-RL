@@ -1,7 +1,7 @@
 """Finite engineering artifact tasks; old bridge entrypoints stay unchanged."""
 import argparse,json,shutil
 from pathlib import Path
-from .dispatch_v2 import ROOT,TASKS,graders,catalog
+from .dispatch_v3 import ROOT,TASKS,graders,catalog
 from .session_v2 import sha,save
 
 def main():

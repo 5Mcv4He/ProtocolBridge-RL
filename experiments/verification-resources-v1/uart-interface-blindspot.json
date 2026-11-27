@@ -1,0 +1,42 @@
+{
+  "schema": "same-source-verifier-recheck-v1",
+  "contract": "Fixed port names, order and widths were already required. Positional DUT instantiation failed to enforce names.",
+  "old": {
+    "task_id": "uart_tx_8n1_v1",
+    "source_sha256": "7bb1f0d6dbbbc439cbc9f1725e76e8fad431e97f60e9e4c0a0980f3588f28d13",
+    "verifier_sha256": "27bb19dd78f2f1fbb5865802caeb93fc801fa05353b4707544afcea7d1d6ddf2",
+    "grader_sha256": "1d789d9015f836018b60d66e8d2974188670dc207abfeb75d7e4f3fbf168daa5",
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "phase": "public",
+    "verifier_revision": 2,
+    "compile_seconds": 19.7515,
+    "compile_exit": 0,
+    "simulation_seconds": 5.9468,
+    "simulation_exit": 0,
+    "frames": 256,
+    "cycle_checks": 40960,
+    "simulation_sha256": "2800ad929f6ff654bb2c00dcb4ab24410415f94f6b1f7a19c5374465ca6d079b",
+    "activity": {
+      "busy_offers": 5888,
+      "adjacent_frames": 255,
+      "accepted": 256
+    },
+    "wall_seconds": 27.5325
+  },
+  "new": {
+    "task_id": "uart_tx_8n1_v1",
+    "source_sha256": "7bb1f0d6dbbbc439cbc9f1725e76e8fad431e97f60e9e4c0a0980f3588f28d13",
+    "verifier_sha256": "f87378f68abc29cece2c5afb78604c5a5c2e3308c0f6237c216a92f348b89651",
+    "grader_sha256": "c9db380c6c155df074335576346ddfb4d67a030b1c4184aadfab02c489c4299e",
+    "reward": null,
+    "category": "invalid_submission",
+    "verification_complete": false,
+    "phase": "public",
+    "verifier_revision": 3,
+    "reason": "fixed_interface_names_or_order",
+    "wall_seconds": 0.0006
+  },
+  "conclusion": "Same source accepted by revision2 is rejected before VCS by revision3. Width mismatch is separately rejected by compiled interface inspection. Historical rewards are not rewritten."
+}

@@ -1,0 +1,87 @@
+{
+  "schema": "verification-capability-map-v1",
+  "levels": {
+    "1": "installed/startup",
+    "2": "vendor example or micro-flow",
+    "3": "custom engineering object",
+    "4": "positive/negative controls and independent verdict",
+    "5": "packaged task with audited real Agent rollout"
+  },
+  "tools": [
+    {
+      "resource": "VCS + AMBA VIP/UVM",
+      "version": "O-2018.09-SP2 / R-2020.12 / UVM 1.2",
+      "level": 5,
+      "basis": "Existing X2P baseline plus fixed-control stimulus tasks",
+      "can_judge": "Observed handshake, protocol timing and project transaction model; finite input set",
+      "evidence": "stimulus-quality.json"
+    },
+    {
+      "resource": "VCS + UART VIP",
+      "version": "O-2018.09-SP2_Full64 / R-2020.12 / UVM 1.2",
+      "level": 5,
+      "basis": "Custom transmitter, passive receive Monitor, independent cycle oracle; historical and current checker versions explicitly separated",
+      "can_judge": "256 decoded payloads, exact sampled frame cycles, capture/busy/adjacent-frame obligations and fixed interface",
+      "evidence": "uart-quality-v3.json",
+      "vendor_example_raw_logs": {
+        "uart-direct-compile.log": "4d73f91c77f84ee5e6f315ad331e0ba48e84c2e3f36b54e55beb98463df9442c",
+        "uart-direct-simulation.log": "597361bc9035e278bdfd7a49c437236cad1fb932ab8b9c21b1a2f12bb96dbdb8"
+      }
+    },
+    {
+      "resource": "Formality",
+      "version": "O-2018.06-SP1",
+      "level": 5,
+      "basis": "Independent reference RTL, full compare-point checks and integer simulation anchor",
+      "can_judge": "Sequential equivalence for restricted synchronous accumulator contracts, not arbitrary reference correctness",
+      "evidence": "independent-reference-quality.json"
+    },
+    {
+      "resource": "DC",
+      "version": "O-2018.06-SP1",
+      "level": null,
+      "basis": "Historical micro-flow summary available; referenced raw files were not found in this audit",
+      "historical_claim_level": 2,
+      "new_task_backend": false
+    },
+    {
+      "resource": "PT/PX / PrimePower",
+      "version": "See historical toolchain manifests; not independently reidentified in this stage",
+      "level": null,
+      "basis": "Historical and user-reported analysis flow; no new raw verification of these flows in this stage",
+      "new_task_backend": false,
+      "restriction": "Teaching library results are not real-process PPA rewards"
+    },
+    {
+      "resource": "ICC2 / TetraMAX",
+      "version": null,
+      "level": null,
+      "basis": "User-reported startup/command evidence; no independent new place-route or ATPG flow verification",
+      "historical_claim_level": 1,
+      "new_task_backend": false
+    },
+    {
+      "resource": "Other VIP examples",
+      "version": "R-2020.12 batch",
+      "level": 2,
+      "basis": "Only suites classified as completed by raw-log audit qualify for this level; failures and short examples are not task backends",
+      "evidence": "batch-audit.json"
+    },
+    {
+      "resource": "SpyGlass / VC Formal FPV",
+      "version": null,
+      "level": null,
+      "basis": "Unavailable for this task stage; no dependence on them",
+      "new_task_backend": false
+    }
+  ],
+  "runtime": {
+    "harness": "deepseek-harness-sdk and deepseek-harness-runtime-bin 0.2.2rc2",
+    "model": "deepseek-flash",
+    "controller_python": "3.14",
+    "eda_host_python": "3.6.9",
+    "exact_model_weights": null,
+    "seed": null
+  },
+  "limits": "Level is evidence depth for the specified flow, not overall product capability. Summary-only historical claims are not promoted to independently verified depth."
+}

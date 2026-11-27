@@ -11,7 +11,7 @@ FAMILIES={
  'reference-repair':{'wrap':'accumulator_wrap_repair_v1','saturating':'accumulator_saturating_repair_v1'},
  'uart-transmit':{'8n1':'uart_tx_8n1_v1','8e1':'uart_tx_8e1_v1'},
  'stimulus-design':{'mapping':'x2p_stimulus_mapping_v1','timing':'x2p_stimulus_timing_v1'}}
-GATES={'reference-repair':'independent-reference-quality.json','uart-transmit':'uart-quality-v2.json','stimulus-design':'stimulus-quality.json'}
+GATES={'reference-repair':'independent-reference-quality.json','uart-transmit':'uart-quality-v3.json','stimulus-design':'stimulus-quality.json'}
 
 def materialize(family,variant,out):
  if family not in FAMILIES or variant not in FAMILIES[family]:raise ValueError('Unsupported engineering contract')
@@ -19,10 +19,10 @@ def materialize(family,variant,out):
  if not gate['accepted'] or any(sha(ROOT/p)!=h for p,h in gate['source_files'].items()):raise ValueError('Quality evidence no longer matches')
  out=Path(out);out.mkdir(parents=True,exist_ok=False)
  shutil.copytree(ROOT/'tasks'/task,out/'task')
- common=[ROOT/'environment/artifact_task'/n for n in ('session_v2.py','runner_v3.py','dispatch_v2.py','dispatch.py','__main__.py')]
+ common=[ROOT/'environment/artifact_task'/n for n in ('session_v2.py','runner_v4.py','dispatch_v3.py','dispatch.py','__main__.py')]
  common += [ROOT/p for p in ('environment/policy.py','environment/remote_backend.py','environment/utm_worker.py','environment/utm_sandbox.sh','verifier/independent_formal/campaign.py')]
  deps=dict(gate['source_files']);deps.update({str(p.relative_to(ROOT)):sha(p) for p in common});deps[str(gatefile.relative_to(ROOT))]=sha(gatefile)
- manifest={'schema':'finite-engineering-materialization-v2','family':family,'variant':variant,'task_id':task,'producer_sha256':sha(__file__),'verifier_revision':2 if family=='uart-transmit' else 1,
+ manifest={'schema':'finite-engineering-materialization-v3','family':family,'variant':variant,'task_id':task,'producer_sha256':sha(__file__),'verifier_revision':3 if family=='uart-transmit' else 1,
   'source_dependencies':deps,'files':{str(p.relative_to(out)):sha(p) for p in sorted(out.rglob('*')) if p.is_file()},
   'runtime':'Use a checkout satisfying source_dependencies; no compiled artifacts or commercial source is included.',
   'status':'Task checker qualified; this materialization is not a new independent engineering capability or a new model trial.'}
@@ -31,8 +31,8 @@ def materialize(family,variant,out):
 def check(package):
  package=Path(package);m=json.loads((package/'manifest.json').read_text())
  if m['family'] not in FAMILIES or FAMILIES[m['family']].get(m['variant'])!=m['task_id']:raise ValueError('Identity mismatch')
- if m['family']=='uart-transmit' and m.get('verifier_revision',1)!=2:raise ValueError('UART verifier 1 admission superseded after confirmed busy-offer blindspot')
- if m['schema']!='finite-engineering-materialization-v2':raise ValueError('Use the producer version bound to this historical package')
+ if m['family']=='uart-transmit' and m.get('verifier_revision',1)!=3:raise ValueError('UART verifier 1/2 admission superseded after confirmed activity/interface blindspots')
+ if m['schema']!='finite-engineering-materialization-v3':raise ValueError('Use the producer version bound to this historical package')
  taskroot=ROOT/'tasks'/m['task_id']
  expected={'task/'+str(p.relative_to(taskroot)):sha(p) for p in taskroot.rglob('*') if p.is_file()}
  if m['files']!=expected:raise ValueError('Package differs from the qualified task contract')

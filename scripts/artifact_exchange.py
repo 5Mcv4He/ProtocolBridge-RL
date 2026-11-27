@@ -29,7 +29,7 @@ def audit(root):
             if sha(source)!=r['source_sha256']:raise ValueError('Tool checked wrong candidate')
             return r
         cls=Session
-        if result['schema'] in ('artifact-rollout-v2','artifact-rollout-v3'):
+        if result['schema'] in ('artifact-rollout-v2','artifact-rollout-v3','artifact-rollout-v4'):
             from environment.artifact_task.session_v2 import Session as CurrentSession
             cls=CurrentSession
         elif plan.get('rejection_feedback')=='explicit-v2':
