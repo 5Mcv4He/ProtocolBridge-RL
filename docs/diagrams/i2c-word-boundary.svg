@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 370" role="img" aria-labelledby="title desc">
+<title id="title">STOP 定义组字状态的有效范围</title>
+<desc id="desc">契约示意：第一笔写入12、34、56，产生1234并在STOP丢弃56；第二笔写入AB、CD，产生ABCD。错误地把残余56带到下一笔会产生56AB。图不是实际仿真波形。</desc>
+<style>
+.bg{fill:#fbfcfe}.frame{fill:#edf0f4;stroke:#9ba8b9}.input{fill:#e6eef9;stroke:#6388b6}.output{fill:#e8f4ed;stroke:#52a371}.bad{fill:#fcf2de;stroke:#c69c55}.line{fill:none;stroke:#6388b6;stroke-width:1.8}.label{font:600 19px system-ui,'PingFang SC','Microsoft YaHei',sans-serif;fill:#1c2b3e}.small{font:15px system-ui,'PingFang SC','Microsoft YaHei',sans-serif;fill:#53647a}rect{stroke-width:1.5}text{text-anchor:middle}
+@media(prefers-color-scheme:dark){.bg{fill:#161e29}.frame{fill:#293443;stroke:#8c9bb0}.input{fill:#253951;stroke:#78a4d8}.output{fill:#203c31;stroke:#68bd87}.bad{fill:#423624;stroke:#d4ad6c}.label{fill:#edf2f8}.small{fill:#b0bdcf}.line{stroke:#78a4d8}}
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#6388b6" stroke-width="1.5"/></marker></defs>
+<rect class="bg" x="1" y="1" width="758" height="368" rx="15"/>
+<text class="label" x="380" y="33">字节接收正确，还需要判断它属于哪一笔事务</text>
+<rect class="frame" x="25" y="54" width="330" height="143" rx="12"/>
+<rect class="frame" x="405" y="54" width="330" height="143" rx="12"/>
+<text class="label" x="190" y="83">第一笔写入</text><text class="label" x="570" y="83">第二笔写入</text>
+<rect class="input" x="48" y="103" width="80" height="44" rx="9"/><text class="label" x="88" y="132">12</text>
+<rect class="input" x="142" y="103" width="80" height="44" rx="9"/><text class="label" x="182" y="132">34</text>
+<rect class="input" x="236" y="103" width="96" height="44" rx="9"/><text class="label" x="284" y="132">56</text>
+<rect class="input" x="467" y="103" width="88" height="44" rx="9"/><text class="label" x="511" y="132">AB</text>
+<rect class="input" x="583" y="103" width="88" height="44" rx="9"/><text class="label" x="627" y="132">CD</text>
+<text class="small" x="190" y="180">STOP：丢弃尚未组满的 56</text><text class="small" x="570" y="180">新 START：从空组字状态开始</text>
+<path class="line" d="M190 197V224" marker-end="url(#arrow)"/><path class="line" d="M570 197V224" marker-end="url(#arrow)"/>
+<rect class="output" x="85" y="230" width="210" height="45" rx="9"/><text class="label" x="190" y="260">交付 0x1234</text>
+<rect class="output" x="465" y="230" width="210" height="45" rx="9"/><text class="label" x="570" y="260">交付 0xABCD</text>
+<rect class="bad" x="85" y="293" width="590" height="40" rx="9"/><text class="small" x="380" y="319">错误对照：残余半字跨越 STOP，导致错误交付 0x56AB</text>
+<text class="small" x="380" y="356">契约示意，数值为十六进制；不是实际波形或模型求解记录</text>
+</svg>

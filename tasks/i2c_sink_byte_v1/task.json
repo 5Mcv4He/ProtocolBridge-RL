@@ -1,0 +1,22 @@
+{
+  "task_id": "i2c_sink_byte_v1",
+  "version": 1,
+  "family": "i2c-sink-v1",
+  "mode": "byte",
+  "deliverable": "i2c_sink.sv",
+  "capabilities": [
+    "serial-write-reception",
+    "open-drain-ack-timing"
+  ],
+  "obligations": [
+    "bit-order",
+    "address-ack",
+    "every-data-ack",
+    "ack-hold",
+    "single-cycle-delivery",
+    "delivery-latency",
+    "frame-order",
+    "reset-idle"
+  ],
+  "admission": "candidate; real independent positive/negative gate required"
+}

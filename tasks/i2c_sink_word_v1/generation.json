@@ -1,0 +1,21 @@
+{
+  "schema": "i2c-sink-generation-v1",
+  "generator_sha256": "c4ef8fcf273a227ddc6be7accdb4f6bf689c72bd3aed939ecbd850e65cccf192",
+  "template_sha256": "187cf2b5ec5f8ac610a10afde8d0d3aeaf4ee09b9b464cc982845633b0bb6f82",
+  "files": {
+    "alternate.sv": "2c9921c6282066afb467adbe2ccca8fa3a546123c8e6a150ad5baddec78b6f1b",
+    "task.json": "c36b644868dd9f8a5e1235a45598783d7612e39bf7840e30901e88a0d99c8bd7",
+    "README.md": "274d76742e51f553e2ade29df444f049fb4a64e9240e3ee79a99ef626d098e87",
+    "reference.sv": "081859fd9735d50eefff50df5fdc68aa5eea41df3b1e8c643efbc7c85fbbecd3",
+    "spec.md": "43c9624d773a05994690ef12a88cda66db3aae443aef5f43440f437daf86f4d9",
+    "workspace/i2c_sink.sv": "48ff2ad13db3afcbe89a531d0fbc8b3aedca10800cb99d700f5b0a304de3f74e",
+    "controls/no_ack.sv": "cd640f134d783a0a2475b49bc21f6356d0619e33ff461261c39ba9b703b09990",
+    "controls/byte_order.sv": "4c093eb50f4170ac540080d14aa7c4ed5b49978b5b2d2fb3aacdd748c37cad1c",
+    "controls/data_bit_loss.sv": "aebb21fdd6b8edd8cc753f84af4c9817037fbc199e889b1231486588178f670c",
+    "controls/ack_too_early.sv": "7fc83fe34996c22ac2fb7799665cf037f52d1529c93c92d55c487da7ce7fc07f",
+    "controls/wrong_address.sv": "e88b5ea62cbbc6b4d4716f5e9ebf497649809d6a5c32d571b1c75b7607bdd391",
+    "controls/reset_data_not_cleared.sv": "3070c5999e932b598787e613ec7e414916acb30d3d144f1ee62c78d91dd248de",
+    "controls/partial_word_crosses_stop.sv": "e3afae7d873035184ee608185fa64c1c48543ca8864eac8a1c6a0fb2cb530106",
+    "controls/valid_stuck.sv": "38c2e02a7f229175c76263c4bc44ab1da5574ccc9ed2310978de40f6ec357df3"
+  }
+}

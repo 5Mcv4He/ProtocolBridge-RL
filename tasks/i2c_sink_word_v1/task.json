@@ -1,0 +1,25 @@
+{
+  "task_id": "i2c_sink_word_v1",
+  "version": 1,
+  "family": "i2c-sink-v1",
+  "mode": "word",
+  "deliverable": "i2c_sink.sv",
+  "capabilities": [
+    "serial-write-reception",
+    "open-drain-ack-timing",
+    "transaction-local-word-assembly"
+  ],
+  "obligations": [
+    "bit-order",
+    "address-ack",
+    "every-data-ack",
+    "ack-hold",
+    "single-cycle-delivery",
+    "delivery-latency",
+    "frame-order",
+    "reset-idle",
+    "odd-frame-discard",
+    "word-byte-order"
+  ],
+  "admission": "candidate; real independent positive/negative gate required"
+}

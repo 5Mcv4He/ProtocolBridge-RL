@@ -1,0 +1,19 @@
+{
+  "schema": "i2c-sink-generation-v1",
+  "generator_sha256": "c4ef8fcf273a227ddc6be7accdb4f6bf689c72bd3aed939ecbd850e65cccf192",
+  "template_sha256": "187cf2b5ec5f8ac610a10afde8d0d3aeaf4ee09b9b464cc982845633b0bb6f82",
+  "files": {
+    "alternate.sv": "8a660a94e55b8827fbad3303fac72b39baf17d97e80b58c062130412e6f3bf02",
+    "task.json": "cf6642383e9f15d945af2941a04536af396ec12de0aebeebe2e1ac0a05d72988",
+    "README.md": "274d76742e51f553e2ade29df444f049fb4a64e9240e3ee79a99ef626d098e87",
+    "reference.sv": "8b739ea9a6cb6d297ff627b40e5082eb314b2508d5f0f3661b396305103242a2",
+    "spec.md": "efeee3a2f707ea4c314025d44de19a7503fffa74ea479a0491d33c95d1818b16",
+    "workspace/i2c_sink.sv": "48ff2ad13db3afcbe89a531d0fbc8b3aedca10800cb99d700f5b0a304de3f74e",
+    "controls/no_ack.sv": "d51d229c2168e2babb8efdd1507425f97b440b0aa847d2844680d5239d1f3ac6",
+    "controls/data_bit_loss.sv": "a32aa7a1e1e231871cadaf2893087327988713b326a233d648a7148eb1a51ce0",
+    "controls/ack_too_early.sv": "db4fcfc59bd52dcd34ea031a0e929fa850aadba9590dcf9fe209b974640f983b",
+    "controls/wrong_address.sv": "97b323b09a541aa78255192fa924df356b76d3098643490c14ba34337b08968f",
+    "controls/reset_data_not_cleared.sv": "4561872c5e60c69f2927222a6aa5441e135c40d886758fd4444a8b01e975f249",
+    "controls/valid_stuck.sv": "e7352936d772ac33217ee32f3f086ac38074e489c662216d7142849b7b955e20"
+  }
+}
