@@ -1,0 +1,321 @@
+{
+  "schema": "engineering-resource-runtime-acceptance-v3",
+  "accepted": true,
+  "checks": [
+    {
+      "check": "fifo_checker_d1_v1-private-read-denied",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-initial-confirmed-fail",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-feedback-allowlist",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-four-real-public-checks",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-stale-feedback-keeps-source",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-budget-reject-no-execution",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-frozen-submission",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-closed-episode",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-stop-required",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-terminal-pass",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-reserved-pass",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-expected-backend-invocations",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-phase-input-separation",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-terminal-not-observed",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-twenty-action-limit",
+      "accepted": true
+    },
+    {
+      "check": "fifo_checker_d1_v1-twenty-first-no-backend",
+      "accepted": true
+    }
+  ],
+  "real_backend_invocations": 6,
+  "task_ids": [
+    "fifo_checker_d1_v1"
+  ],
+  "backend_results": [
+    {
+      "task_id": "fifo_checker_d1_v1",
+      "phase": "public",
+      "source_sha256": "0e76011acd9e0166edf1d0f1aa4d08dc150cbe46971161e8d2b1ce53f71a311e",
+      "grader_sha256": "5312d6df3e6276c6d4d9eed6def2be94ea61607c16b8b5289d4352050656d3ea",
+      "verifier_revision": 3,
+      "model_sha256": "c90e42f6e6730054721b1465d4154b42bb07dc028bfa4d8433ef8847c877a4c6",
+      "reward": 0.0,
+      "category": "transition_mismatch",
+      "verification_complete": false,
+      "input_sha256": "5d80d5ebc7d347607623ef6da56cea03d102486d5903dce19eaaefa002524318",
+      "planned_event_obligations": {
+        "reset": 294,
+        "reset_pending": 121,
+        "push": 351,
+        "pop": 230,
+        "full_exchange": 130,
+        "overflow": 24,
+        "underflow": 96,
+        "wrong_identity": 73,
+        "sticky": 266,
+        "identity_after_reuse": 4,
+        "bad_identity_full_exchange": 5,
+        "empty_after_reuse": 24
+      },
+      "compile_exit": 0,
+      "compile_seconds": 1.8877,
+      "simulation_exit": 0,
+      "simulation_seconds": 0.9318,
+      "first_mismatch": {
+        "row": 9,
+        "expected": 1,
+        "observed": "0"
+      },
+      "simulation_sha256": "dd47ea3df4aa60e0b97ef129fd8bb4ff5ea2d7bcf569d42a9cba53135cfcbfba",
+      "wall_seconds": 4.4484
+    },
+    {
+      "task_id": "fifo_checker_d1_v1",
+      "phase": "public",
+      "source_sha256": "0e76011acd9e0166edf1d0f1aa4d08dc150cbe46971161e8d2b1ce53f71a311e",
+      "grader_sha256": "5312d6df3e6276c6d4d9eed6def2be94ea61607c16b8b5289d4352050656d3ea",
+      "verifier_revision": 3,
+      "model_sha256": "c90e42f6e6730054721b1465d4154b42bb07dc028bfa4d8433ef8847c877a4c6",
+      "reward": 0.0,
+      "category": "transition_mismatch",
+      "verification_complete": false,
+      "input_sha256": "5d80d5ebc7d347607623ef6da56cea03d102486d5903dce19eaaefa002524318",
+      "planned_event_obligations": {
+        "reset": 294,
+        "reset_pending": 121,
+        "push": 351,
+        "pop": 230,
+        "full_exchange": 130,
+        "overflow": 24,
+        "underflow": 96,
+        "wrong_identity": 73,
+        "sticky": 266,
+        "identity_after_reuse": 4,
+        "bad_identity_full_exchange": 5,
+        "empty_after_reuse": 24
+      },
+      "compile_exit": 0,
+      "compile_seconds": 2.0238,
+      "simulation_exit": 0,
+      "simulation_seconds": 1.0074,
+      "first_mismatch": {
+        "row": 9,
+        "expected": 1,
+        "observed": "0"
+      },
+      "simulation_sha256": "2780725af5988a1c6d82ea85d2948a21ab51b2084cf6f894337806f0eb7ce28d",
+      "wall_seconds": 4.3523
+    },
+    {
+      "task_id": "fifo_checker_d1_v1",
+      "phase": "public",
+      "source_sha256": "0e76011acd9e0166edf1d0f1aa4d08dc150cbe46971161e8d2b1ce53f71a311e",
+      "grader_sha256": "5312d6df3e6276c6d4d9eed6def2be94ea61607c16b8b5289d4352050656d3ea",
+      "verifier_revision": 3,
+      "model_sha256": "c90e42f6e6730054721b1465d4154b42bb07dc028bfa4d8433ef8847c877a4c6",
+      "reward": 0.0,
+      "category": "transition_mismatch",
+      "verification_complete": false,
+      "input_sha256": "5d80d5ebc7d347607623ef6da56cea03d102486d5903dce19eaaefa002524318",
+      "planned_event_obligations": {
+        "reset": 294,
+        "reset_pending": 121,
+        "push": 351,
+        "pop": 230,
+        "full_exchange": 130,
+        "overflow": 24,
+        "underflow": 96,
+        "wrong_identity": 73,
+        "sticky": 266,
+        "identity_after_reuse": 4,
+        "bad_identity_full_exchange": 5,
+        "empty_after_reuse": 24
+      },
+      "compile_exit": 0,
+      "compile_seconds": 1.8342,
+      "simulation_exit": 0,
+      "simulation_seconds": 0.9715,
+      "first_mismatch": {
+        "row": 9,
+        "expected": 1,
+        "observed": "0"
+      },
+      "simulation_sha256": "b21920d04600d2621851185b6e95cc3bdb8f14954bc09d8016b8adb3503a5d97",
+      "wall_seconds": 4.1818
+    },
+    {
+      "task_id": "fifo_checker_d1_v1",
+      "phase": "public",
+      "source_sha256": "0e76011acd9e0166edf1d0f1aa4d08dc150cbe46971161e8d2b1ce53f71a311e",
+      "grader_sha256": "5312d6df3e6276c6d4d9eed6def2be94ea61607c16b8b5289d4352050656d3ea",
+      "verifier_revision": 3,
+      "model_sha256": "c90e42f6e6730054721b1465d4154b42bb07dc028bfa4d8433ef8847c877a4c6",
+      "reward": 0.0,
+      "category": "transition_mismatch",
+      "verification_complete": false,
+      "input_sha256": "5d80d5ebc7d347607623ef6da56cea03d102486d5903dce19eaaefa002524318",
+      "planned_event_obligations": {
+        "reset": 294,
+        "reset_pending": 121,
+        "push": 351,
+        "pop": 230,
+        "full_exchange": 130,
+        "overflow": 24,
+        "underflow": 96,
+        "wrong_identity": 73,
+        "sticky": 266,
+        "identity_after_reuse": 4,
+        "bad_identity_full_exchange": 5,
+        "empty_after_reuse": 24
+      },
+      "compile_exit": 0,
+      "compile_seconds": 1.8804,
+      "simulation_exit": 0,
+      "simulation_seconds": 0.9178,
+      "first_mismatch": {
+        "row": 9,
+        "expected": 1,
+        "observed": "0"
+      },
+      "simulation_sha256": "a2367de00015d9d2d3688b9e42b6769ce5080349a03c8aa65811d9df801ba2ef",
+      "wall_seconds": 4.421
+    },
+    {
+      "task_id": "fifo_checker_d1_v1",
+      "phase": "terminal",
+      "source_sha256": "06032a6660a95f9bb36477a6859a7bbf015150b69a7c8da587676442b48a4293",
+      "grader_sha256": "5312d6df3e6276c6d4d9eed6def2be94ea61607c16b8b5289d4352050656d3ea",
+      "verifier_revision": 3,
+      "model_sha256": "c90e42f6e6730054721b1465d4154b42bb07dc028bfa4d8433ef8847c877a4c6",
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "input_sha256": "d26f542cd86cb072c646b6f30512e84120557f60b4d1515ad8e10b0589d9d243",
+      "planned_event_obligations": {
+        "reset": 294,
+        "reset_pending": 128,
+        "push": 351,
+        "pop": 223,
+        "full_exchange": 130,
+        "overflow": 24,
+        "underflow": 96,
+        "wrong_identity": 80,
+        "sticky": 280,
+        "identity_after_reuse": 4,
+        "bad_identity_full_exchange": 5,
+        "empty_after_reuse": 24
+      },
+      "compile_exit": 0,
+      "compile_seconds": 1.8484,
+      "simulation_exit": 0,
+      "simulation_seconds": 1.2035,
+      "checked_cycles": 1539,
+      "executed_event_obligations": {
+        "reset": 294,
+        "reset_pending": 128,
+        "push": 351,
+        "pop": 223,
+        "full_exchange": 130,
+        "overflow": 24,
+        "underflow": 96,
+        "wrong_identity": 80,
+        "sticky": 280,
+        "identity_after_reuse": 4,
+        "bad_identity_full_exchange": 5,
+        "empty_after_reuse": 24
+      },
+      "simulation_sha256": "60648d316be1b3331bc5d6655a72fb11622af6d8966e3a9dc1a350c88437eb0d",
+      "wall_seconds": 4.35
+    },
+    {
+      "task_id": "fifo_checker_d1_v1",
+      "phase": "evaluation",
+      "source_sha256": "06032a6660a95f9bb36477a6859a7bbf015150b69a7c8da587676442b48a4293",
+      "grader_sha256": "5312d6df3e6276c6d4d9eed6def2be94ea61607c16b8b5289d4352050656d3ea",
+      "verifier_revision": 3,
+      "model_sha256": "c90e42f6e6730054721b1465d4154b42bb07dc028bfa4d8433ef8847c877a4c6",
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "input_sha256": "f64929ffabf26261c15fcad73c3cc92421fc66232805538a45c0cb6b61c179f0",
+      "planned_event_obligations": {
+        "reset": 294,
+        "reset_pending": 135,
+        "push": 351,
+        "pop": 216,
+        "full_exchange": 130,
+        "overflow": 24,
+        "underflow": 96,
+        "wrong_identity": 87,
+        "sticky": 294,
+        "identity_after_reuse": 4,
+        "bad_identity_full_exchange": 5,
+        "empty_after_reuse": 24
+      },
+      "compile_exit": 0,
+      "compile_seconds": 1.8426,
+      "simulation_exit": 0,
+      "simulation_seconds": 0.9445,
+      "checked_cycles": 1546,
+      "executed_event_obligations": {
+        "reset": 294,
+        "reset_pending": 135,
+        "push": 351,
+        "pop": 216,
+        "full_exchange": 130,
+        "overflow": 24,
+        "underflow": 96,
+        "wrong_identity": 87,
+        "sticky": 294,
+        "identity_after_reuse": 4,
+        "bad_identity_full_exchange": 5,
+        "empty_after_reuse": 24
+      },
+      "simulation_sha256": "89d80e1d678fad3f6452811323bb21b00260486131939734b7fa99909acf9ac6",
+      "wall_seconds": 4.1525
+    }
+  ],
+  "session_sha256": "29a254b311b693b9cef32f34fe56027f12482df1c7e1e3eae2805329debc2522",
+  "controller_sha256": "4adf74b98bc862e07d3cf83d7e05aa0129c4a28cb85e59ace084db1f88894312",
+  "scope": "Real controller checks, not model trials. Remote process isolation separately probed before each model episode."
+}

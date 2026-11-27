@@ -1,0 +1,196 @@
+module rffe_register(input logic clk,rst_n,sclk,sdata,output logic sdata_out,sdata_oe);
+
+  logic [7:0] regs [16];
+
+  // Synchronizers / edge detect on sclk
+  logic sclk_d1, sclk_d2;
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      sclk_d1 <= 1'b0;
+      sclk_d2 <= 1'b0;
+    end else begin
+      sclk_d1 <= sclk;
+      sclk_d2 <= sclk_d1;
+    end
+  end
+  wire sclk_rise = sclk_d1 & ~sclk_d2;
+  wire sclk_fall = ~sclk_d1 & sclk_d2;
+
+  // Protocol FSM
+  typedef enum logic [3:0] {
+    IDLE,
+    SSC_LOW,
+    USID,
+    CMD,
+    CMD_PAR,
+    WR_DATA,
+    WR_PAR,
+    RD_WAIT,
+    RD_DATA,
+    RD_PAR,
+    RD_PARK
+  } state_t;
+
+  state_t state;
+  logic [3:0] bit_cnt;
+  logic [3:0] usid;
+  logic [7:0] cmd;
+  logic [7:0] wr_data;
+  logic [3:0] addr;
+  logic [7:0] rd_shift;
+  logic [7:0] rd_data;
+  logic [7:0] rd_par;
+
+  // Sampled data bit at sclk falling edge
+  wire samp_bit = sdata;
+
+  // Read output logic: shift register content on falling edges.
+  // Data must be established after rising edge and valid before falling edge.
+  // rd_shift[7] is presented as current output bit.
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      for (int i = 0; i < 16; i++) regs[i] <= 8'hFF;
+      state    <= IDLE;
+      bit_cnt  <= 4'd0;
+      usid     <= 4'd0;
+      cmd      <= 8'd0;
+      wr_data  <= 8'd0;
+      addr     <= 4'd0;
+      rd_shift <= 8'd0;
+      rd_data  <= 8'd0;
+      rd_par   <= 8'd0;
+    end else begin
+      case (state)
+        IDLE: begin
+          bit_cnt <= 4'd0;
+          if (sclk_rise && sdata) state <= SSC_LOW;
+        end
+
+        SSC_LOW: begin
+          if (sclk_fall) begin
+            bit_cnt <= 4'd0;
+            state   <= USID;
+          end
+        end
+
+        USID: begin
+          if (sclk_fall) begin
+            usid[3 - bit_cnt] <= samp_bit;
+            if (bit_cnt == 4'd3) begin
+              bit_cnt <= 4'd0;
+              state   <= CMD;
+            end else begin
+              bit_cnt <= bit_cnt + 4'd1;
+            end
+          end
+        end
+
+        CMD: begin
+          if (sclk_fall) begin
+            cmd[7 - bit_cnt] <= samp_bit;
+            if (bit_cnt == 4'd7) begin
+              bit_cnt <= 4'd0;
+              state   <= CMD_PAR;
+            end else begin
+              bit_cnt <= bit_cnt + 4'd1;
+            end
+          end
+        end
+
+        CMD_PAR: begin
+          if (sclk_fall) begin
+            // cmd[7:6] == 2'b01 -> write, 2'b10/11 -> read
+            addr <= cmd[3:0];
+            if (cmd[7:6] == 2'b01) begin
+              state <= WR_DATA;
+            end else begin
+              state <= RD_WAIT;
+            end
+            bit_cnt <= 4'd0;
+          end
+        end
+
+        WR_DATA: begin
+          if (sclk_fall) begin
+            wr_data[7 - bit_cnt] <= samp_bit;
+            if (bit_cnt == 4'd7) begin
+              bit_cnt <= 4'd0;
+              state   <= WR_PAR;
+            end else begin
+              bit_cnt <= bit_cnt + 4'd1;
+            end
+          end
+        end
+
+        WR_PAR: begin
+          if (sclk_fall) begin
+            regs[addr] <= regs[addr] & ~wr_data;
+            state      <= IDLE;
+            bit_cnt    <= 4'd0;
+          end
+        end
+
+        RD_WAIT: begin
+          // Master bus park: SDATA is 0 during this bit.
+          // On the rising edge (after falling-edge park sample), prepare data.
+          if (sclk_rise) begin
+            rd_data  <= regs[addr];
+            rd_shift <= regs[addr];
+            rd_par   <= {7'd0, ~(^regs[addr])};
+            bit_cnt  <= 4'd0;
+            state    <= RD_DATA;
+          end
+        end
+
+        RD_DATA: begin
+          if (sclk_fall) begin
+            // output bit for this cycle was rd_shift[7]; advance for next
+            if (bit_cnt == 4'd7) begin
+              bit_cnt  <= 4'd0;
+              rd_shift <= rd_par;
+              state    <= RD_PAR;
+            end else begin
+              bit_cnt  <= bit_cnt + 4'd1;
+              rd_shift <= {rd_shift[6:0], 1'b0};
+            end
+          end
+        end
+
+        RD_PAR: begin
+          if (sclk_fall) begin
+            state   <= RD_PARK;
+            bit_cnt <= 4'd0;
+          end
+        end
+
+        RD_PARK: begin
+          if (sclk_fall) begin
+            state <= IDLE;
+          end
+        end
+
+        default: state <= IDLE;
+      endcase
+    end
+  end
+
+  // Output drivers
+  logic drv_en;
+  logic drv_bit;
+  always_comb begin
+    if (state == RD_DATA) begin
+      drv_en  = 1'b1;
+      drv_bit = rd_shift[7];
+    end else if (state == RD_PAR) begin
+      drv_en  = 1'b1;
+      drv_bit = rd_par[0];
+    end else begin
+      drv_en  = 1'b0;
+      drv_bit = 1'b0;
+    end
+    sdata_oe  = drv_en;
+    sdata_out = drv_bit;
+  end
+
+endmodule

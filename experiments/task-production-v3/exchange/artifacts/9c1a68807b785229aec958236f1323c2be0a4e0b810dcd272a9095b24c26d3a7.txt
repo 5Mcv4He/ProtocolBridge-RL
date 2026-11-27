@@ -1,0 +1,176 @@
+module rffe_register(input logic clk,rst_n,sclk,sdata,output logic sdata_out,sdata_oe);
+
+  logic [7:0] regs [16];
+
+  // Synchronizers / edge detect on sclk
+  logic sclk_d1, sclk_d2;
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      sclk_d1 <= 1'b0;
+      sclk_d2 <= 1'b0;
+    end else begin
+      sclk_d1 <= sclk;
+      sclk_d2 <= sclk_d1;
+    end
+  end
+  wire sclk_rise = sclk_d1 & ~sclk_d2;
+  wire sclk_fall = ~sclk_d1 & sclk_d2;
+
+  typedef enum logic [3:0] {
+    IDLE,
+    SSC_LOW,
+    USID,
+    CMD,
+    CMD_PAR,
+    WR_DATA,
+    WR_PAR,
+    RD_WAIT,
+    RD_DATA,
+    RD_PAR,
+    RD_PARK
+  } state_t;
+
+  state_t state;
+  logic [3:0] bit_cnt;
+  logic [7:0] cmd;
+  logic [7:0] wr_data;
+  logic [3:0] addr;
+  logic [7:0] rd_shift;
+  logic [7:0] rd_par;
+
+  wire samp_bit = sdata;
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      for (int i = 0; i < 16; i++) regs[i] <= 8'hFF;
+      state    <= IDLE;
+      bit_cnt  <= 4'd0;
+      cmd      <= 8'd0;
+      wr_data  <= 8'd0;
+      addr     <= 4'd0;
+      rd_shift <= 8'd0;
+      rd_par   <= 8'd0;
+    end else begin
+      case (state)
+        IDLE: begin
+          bit_cnt <= 4'd0;
+          if (sclk_rise && sdata) state <= SSC_LOW;
+        end
+
+        SSC_LOW: begin
+          if (sclk_fall) begin
+            bit_cnt <= 4'd0;
+            state   <= USID;
+          end
+        end
+
+        USID: begin
+          if (sclk_fall) begin
+            if (bit_cnt == 4'd3) begin
+              bit_cnt <= 4'd0;
+              state   <= CMD;
+            end else begin
+              bit_cnt <= bit_cnt + 4'd1;
+            end
+          end
+        end
+
+        CMD: begin
+          if (sclk_fall) begin
+            cmd[7 - bit_cnt] <= samp_bit;
+            if (bit_cnt == 4'd7) begin
+              bit_cnt <= 4'd0;
+              state   <= CMD_PAR;
+            end else begin
+              bit_cnt <= bit_cnt + 4'd1;
+            end
+          end
+        end
+
+        CMD_PAR: begin
+          if (sclk_fall) begin
+            addr <= cmd[3:0];
+            if (cmd[7:6] == 2'b01) begin
+              state <= WR_DATA;
+            end else begin
+              state <= RD_WAIT;
+            end
+            bit_cnt <= 4'd0;
+          end
+        end
+
+        WR_DATA: begin
+          if (sclk_fall) begin
+            wr_data[7 - bit_cnt] <= samp_bit;
+            if (bit_cnt == 4'd7) begin
+              bit_cnt <= 4'd0;
+              state   <= WR_PAR;
+            end else begin
+              bit_cnt <= bit_cnt + 4'd1;
+            end
+          end
+        end
+
+        WR_PAR: begin
+          if (sclk_fall) begin
+            regs[addr] <= regs[addr] & ~wr_data;
+            state      <= IDLE;
+            bit_cnt    <= 4'd0;
+          end
+        end
+
+        RD_WAIT: begin
+          // Master sends bus park (SDATA=0). After the rising edge that
+          // follows the park bit's falling-edge sample, start driving read data.
+          if (sclk_rise) begin
+            rd_shift <= regs[addr];
+            rd_par   <= ~(^regs[addr]);
+            bit_cnt  <= 4'd0;
+            state    <= RD_DATA;
+          end
+        end
+
+        RD_DATA: begin
+          if (sclk_fall) begin
+            if (bit_cnt == 4'd7) begin
+              bit_cnt <= 4'd0;
+              state   <= RD_PAR;
+            end else begin
+              bit_cnt  <= bit_cnt + 4'd1;
+              rd_shift <= {rd_shift[6:0], 1'b0};
+            end
+          end
+        end
+
+        RD_PAR: begin
+          if (sclk_fall) begin
+            state   <= RD_PARK;
+            bit_cnt <= 4'd0;
+          end
+        end
+
+        RD_PARK: begin
+          if (sclk_fall) begin
+            state <= IDLE;
+          end
+        end
+
+        default: state <= IDLE;
+      endcase
+    end
+  end
+
+  always_comb begin
+    if (state == RD_DATA) begin
+      sdata_oe  = 1'b1;
+      sdata_out = rd_shift[7];
+    end else if (state == RD_PAR) begin
+      sdata_oe  = 1'b1;
+      sdata_out = rd_par[0];
+    end else begin
+      sdata_oe  = 1'b0;
+      sdata_out = 1'b0;
+    end
+  end
+
+endmodule

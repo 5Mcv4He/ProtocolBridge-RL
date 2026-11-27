@@ -1,0 +1,238 @@
+module rffe_register(input logic clk,rst_n,sclk,sdata,output logic sdata_out,sdata_oe);
+  // Registers: reset value 255, bit-wise W1C
+  logic [7:0] regs [16];
+
+  // Clock-domain / edge detection
+  logic sclk_d;
+  logic sdata_d;
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      sclk_d  <= 1'b0;
+      sdata_d <= 1'b0;
+    end else begin
+      sclk_d  <= sclk;
+      sdata_d <= sdata;
+    end
+  end
+
+  wire sclk_rise = sclk & ~sclk_d;
+  wire sclk_fall = ~sclk & sclk_d;
+
+  // Protocol FSM
+  typedef enum logic [3:0] {
+    IDLE,
+    SSC_WAIT,
+    USID,
+    CMD,
+    CMD_PAR,
+    WR_DATA,
+    WR_PAR,
+    RD_WAIT_PARK,
+    RD_DATA,
+    RD_PAR,
+    RD_BUSPARK
+  } state_t;
+
+  state_t state, next_state;
+
+  logic [3:0] bit_cnt;      // bit counter within field
+  logic [6:0] shreg;        // shift register for bits
+  logic [3:0] usid;
+  logic [7:0] cmd;
+  logic       cmd_rw;       // 0=write, 1=read
+  logic [3:0] addr;
+  logic [7:0] wr_data;
+  logic [7:0] rd_data;
+  logic       par_calc;     // running parity
+
+  // Output driving (read data) - shifted out MSB first
+  logic [7:0] rd_shift;
+  logic       rd_drv;
+  logic       rd_par_drv;
+
+  // sampled bit at falling edge of sclk
+  wire samp_bit = sdata;
+
+  always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+      for (int i = 0; i < 16; i++) regs[i] <= 8'hFF;
+      state       <= IDLE;
+      bit_cnt     <= 4'd0;
+      shreg       <= 7'd0;
+      usid        <= 4'd0;
+      cmd         <= 8'd0;
+      cmd_rw      <= 1'b0;
+      addr        <= 4'd0;
+      wr_data     <= 8'd0;
+      rd_data     <= 8'd0;
+      par_calc    <= 1'b0;
+      rd_shift    <= 8'd0;
+      rd_drv      <= 1'b0;
+      rd_par_drv  <= 1'b0;
+    end else begin
+      // Default: clear transient drive strobes each clk (recomputed comb.)
+      case (state)
+        IDLE: begin
+          bit_cnt  <= 4'd0;
+          par_calc <= 1'b0;
+          if (sclk_rise) begin
+            // SSC detection: rising edge of sclk while sdata high
+            if (sdata) state <= SSC_WAIT;
+          end
+        end
+
+        SSC_WAIT: begin
+          // Wait for falling edge, then start sampling USID
+          if (sclk_fall) begin
+            bit_cnt <= 4'd0;
+            shreg   <= 7'd0;
+            par_calc<= 1'b0;
+            state   <= USID;
+          end
+        end
+
+        USID: begin
+          if (sclk_fall) begin
+            usid[3 - bit_cnt] <= samp_bit;
+            par_calc <= par_calc ^ samp_bit;
+            if (bit_cnt == 4'd3) begin
+              bit_cnt <= 4'd0;
+              state   <= CMD;
+            end else begin
+              bit_cnt <= bit_cnt + 4'd1;
+            end
+          end
+        end
+
+        CMD: begin
+          if (sclk_fall) begin
+            cmd[7 - bit_cnt] <= samp_bit;
+            par_calc <= par_calc ^ samp_bit;
+            if (bit_cnt == 4'd7) begin
+              bit_cnt <= 4'd0;
+              state   <= CMD_PAR;
+            end else begin
+              bit_cnt <= bit_cnt + 4'd1;
+            end
+          end
+        end
+
+        CMD_PAR: begin
+          if (sclk_fall) begin
+            // cmd byte fully shifted in; latch rw and addr
+            // cmd[7:6]: 01=write, 10=read in this protocol form
+            // write cmd = 0x40+addr => bits [7:5]=010
+            // read  cmd = 0x60+addr => bits [7:5]=011
+            // Distinguish by bit6.
+            if (cmd[7:5] == 3'b010) begin
+              cmd_rw <= 1'b0; // write
+              addr   <= cmd[3:0];
+              state  <= WR_DATA;
+            end else begin
+              cmd_rw <= 1'b1; // read
+              addr   <= cmd[3:0];
+              state  <= RD_WAIT_PARK;
+            end
+            bit_cnt  <= 4'd0;
+            par_calc <= 1'b0;
+          end
+        end
+
+        WR_DATA: begin
+          if (sclk_fall) begin
+            wr_data[7 - bit_cnt] <= samp_bit;
+            par_calc <= par_calc ^ samp_bit;
+            if (bit_cnt == 4'd7) begin
+              bit_cnt <= 4'd0;
+              state   <= WR_PAR;
+            end else begin
+              bit_cnt <= bit_cnt + 4'd1;
+            end
+          end
+        end
+
+        WR_PAR: begin
+          if (sclk_fall) begin
+            // complete write: W1C
+            regs[addr] <= regs[addr] & ~wr_data;
+            state      <= IDLE;
+            bit_cnt    <= 4'd0;
+            par_calc   <= 1'b0;
+          end
+        end
+
+        RD_WAIT_PARK: begin
+          // Master drives Bus Park (0). We prepare read data.
+          // Wait for the next falling edge to begin driving read data.
+          if (sclk_rise) begin
+            rd_data  <= regs[addr];
+            rd_shift <= regs[addr];
+            bit_cnt  <= 4'd0;
+            // drive data starting after this rising edge
+            rd_drv   <= 1'b1;
+            state    <= RD_DATA;
+          end
+        end
+
+        RD_DATA: begin
+          if (sclk_fall) begin
+            // We are driving data MSB-first; advance on each falling edge.
+            if (bit_cnt == 4'd7) begin
+              bit_cnt <= 4'd0;
+              state   <= RD_PAR;
+              // shift to parity bit
+              rd_shift <= 8'h00;
+            end else begin
+              bit_cnt  <= bit_cnt + 4'd1;
+              rd_shift <= {rd_shift[6:0], 1'b0};
+            end
+          end
+        end
+
+        RD_PAR: begin
+          if (sclk_fall) begin
+            // parity bit driven; after this go to bus park
+            state <= RD_BUSPARK;
+          end
+        end
+
+        RD_BUSPARK: begin
+          if (sclk_fall) begin
+            rd_drv     <= 1'b0;
+            rd_par_drv <= 1'b0;
+            state      <= IDLE;
+          end
+        end
+
+        default: state <= IDLE;
+      endcase
+    end
+  end
+
+  // Read data output: MSB first, set on rising edges of sclk (before falling sample)
+  // We register the bit to present based on current state/bit_cnt.
+  // For simplicity, output the current MSB of rd_shift.
+  logic rd_bit;
+  always_comb begin
+    if (state == RD_DATA || state == RD_WAIT_PARK) begin
+      rd_bit = rd_shift[7];
+    end else if (state == RD_PAR) begin
+      // parity over read data: odd parity so xor of data bits and parity = 1
+      rd_bit = ~^rd_data;
+    end else begin
+      rd_bit = 1'b0;
+    end
+  end
+
+  always_comb begin
+    // Only drive during read data & parity phases (never during master drive windows)
+    if (rd_drv && (state == RD_DATA || state == RD_PAR)) begin
+      sdata_oe  = 1'b1;
+      sdata_out = rd_bit;
+    end else begin
+      sdata_oe  = 1'b0;
+      sdata_out = 1'b0;
+    end
+  end
+
+endmodule

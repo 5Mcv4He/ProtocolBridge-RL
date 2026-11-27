@@ -1,0 +1,84 @@
+{
+  "schema": "resource-study-behavior-cases-v1",
+  "scope": "Observable actions, source changes and actual checks; no model-internal reasoning inference, no offline candidate grading",
+  "cases": [
+    {
+      "trial_id": "checker-d5-r1",
+      "initial_model_candidate_sha256": "2c4f53f0872a5d698543eeabf35f23a0520799e9f50394053c41932b5c87e262",
+      "repaired_candidate_sha256": "e62f0420106df68a8f0b3e00d02b61f2c43fb94f3c76da269dcda8a37a902cfd",
+      "public_sequence": [
+        "transition_mismatch",
+        "pass"
+      ],
+      "final_reward": 1,
+      "reserved_reward": 1,
+      "observed_change": "Pop-only and simultaneous push/pop head/tail updates changed from three-bit increment to explicit index4-to0 wrap. One combinational temporary was also removed.",
+      "interpretation": "The observed change directly addresses nonbinary storage indexing; public and independent final checks pass the edited source. This is a real failed-feedback repair, not proof that category feedback alone caused the repair or that this was the only relevant edit.",
+      "feedback_limit": "Solver received category/source hash/remaining count, not the failing input row or private vectors.",
+      "first_candidate_measurement": "Actual public test requested by Agent, not posthoc testing"
+    },
+    {
+      "trial_id": "rffe-w1c-r1",
+      "submitted_sha256": "660586270a43a6f90e52aeddd911ff8a88b9a2127c45971ae757b7e30e7d93f2",
+      "initial_sha256": "660586270a43a6f90e52aeddd911ff8a88b9a2127c45971ae757b7e30e7d93f2",
+      "valid_edits": 0,
+      "public_tests_on_initial": 4,
+      "final_reward": 0,
+      "reserved_reward": 0,
+      "format_failures": [
+        {
+          "action": 1,
+          "keys": [
+            "tool"
+          ]
+        },
+        {
+          "action": 5,
+          "keys": [
+            "content",
+            "file",
+            "tool"
+          ]
+        },
+        {
+          "action": 8,
+          "keys": [
+            "content",
+            "file",
+            "tool"
+          ]
+        },
+        {
+          "action": 11,
+          "keys": [
+            "content",
+            "file",
+            "tool"
+          ]
+        }
+      ],
+      "interpretation": "The first reply contained multiple actions and was rejected atomically. Three later edit proposals added an unsupported file key and were rejected. Agent ran four tests on unchanged initial RTL, then submitted that same known-failing source. No conclusion about the functional quality of rejected proposals; none were executed or graded offline.",
+      "feedback_limit": "Generic atomic-action rejection was actually delivered; no proposal was repaired by the controller."
+    },
+    {
+      "trial_id": "i2c-completion-word-r1",
+      "submitted_sha256": "22b7f2b1e0c6cf8649e8111fa6e17285ae466f3f9b8bcbe3ebea6697d50fc5da",
+      "initial_sha256": "22b7f2b1e0c6cf8649e8111fa6e17285ae466f3f9b8bcbe3ebea6697d50fc5da",
+      "valid_edits": 0,
+      "public_tests_on_initial": 4,
+      "final_reward": 0,
+      "reserved_reward": 0,
+      "interpretation": "Six replies contained multiple JSON actions and were atomically rejected. No proposal was edited into the workspace. Four public FAILs and the final result concern the unchanged scaffold with missing delivery; they cannot measure the functional correctness of proposed assembly logic.",
+      "offline_candidate_grading": "none"
+    },
+    {
+      "trial_id": "population-r1",
+      "first_candidate_sha256": "978fab1fb0d8cb8a843cd79c632ce404c972029fa7d97e0485b3440cec2eca36",
+      "final_reward": 1,
+      "reserved_reward": 1,
+      "observed_change": "Synthetic data-dependent while loop was replaced by a bounded eight-iteration combinational accumulation.",
+      "interpretation": "First valid edit passed actual public and final independent checks. No failure-feedback repair was observed: the model repaired the stated synthesis defect before testing it.",
+      "limits": "No PPA measurement or improvement claim."
+    }
+  ]
+}

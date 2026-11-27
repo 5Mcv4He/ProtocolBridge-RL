@@ -1,0 +1,12 @@
+{
+  "schema": "artifact-study-source-provenance-v1",
+  "plans": [
+    {
+      "plan": "experiments/task-production-v3/study-plan.json",
+      "plan_sha256": "cbad1a1b03ebc33c49861ed969eadf85ca27ce16a3db7734a5e8fe5db4f999da",
+      "matching_commits": [
+        "8770756437cebbdedd4b1e7b693847d04515e653"
+      ]
+    }
+  ]
+}
