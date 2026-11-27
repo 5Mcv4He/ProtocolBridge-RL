@@ -1,5 +1,7 @@
 # Synthesis diagnostics and trusted implementation checks
 
+Scope: this page defines the historical `synthesis-tools-v1` capability for X2P. Its Formality comparison uses the candidate's own synthesized netlist and does not assign functional Reward. The later [independent-reference repair tasks](tasks/README.md) instead compare against a trusted, separately reviewed RTL reference; see the [task study](verification-resources-tasks.md) for their distinct acceptance criteria.
+
 `synthesis-tools-v1` separates three questions: can this RTL be synthesized, did synthesis preserve its behavior, and does the RTL implement the task? Only the existing private VIP/UVM verifier answers the last question and assigns terminal Reward. Task001–004 contracts and historical evidence are unchanged.
 
 ```mermaid

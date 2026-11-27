@@ -1,34 +1,50 @@
 # 人类阅读入口
 
-本目录是理解、讲解和复用项目的固定入口。001的冻结标准基线是[001 X2P](../tasks/axil_to_apb4_001/README.md)，旧 128 笔交付已废弃。研究方向与已实现能力分开阅读。
+这里帮助读者从工程问题进入机制、代码和证据。当前总览以[首页](../README.md)、[任务目录](task-catalog.md)与[交换库存](../experiments/verification-resources-v1/exchange-inventory.json)为准；研究报告中的“当前”属于各自冻结阶段。历史结果不因新功能出现而改写。
 
-| 问题 | 页面 |
-|---|---|
-| VIP 与等价工具如何成为不同交付类型的可靠任务 | [三类有限任务、漏检修正与真实试次](verification-resources-tasks.md) |
-| 怎样从已验证方法生产新的任务契约 | [路由任务族与生产方法](task-family-production.md)、[生成及执行入口](../task_families/router_v1/README.md) |
-| 容量变化怎样派生动态验证义务 | [队列任务生产](queue-family-production.md)、[队列生成器](../task_families/queue_v1/README.md)、[准入与模型研究](queue-family-evaluation.md) |
-| 路由与排队相结合会增加哪些验证义务 | [组合契约与独立检查](composed-task-production.md)、[实际工业准入](../experiments/composed-stage-v1/composed-v2/summary.json) |
-| 怎样组织综合工具并防止误用旧候选结果 | [候选版本与工程调试](engineering-lab.md)、[实际工具使用与候选回退研究](composed-environment-evaluation.md) |
-| 更多公开测试机会怎样影响验证决策与最终候选选择 | [预算对照与候选演变](verification-budget-study.md)、[版本化运行入口](../task_families/verification_budget_v1/README.md) |
-| 不同任务包怎样交付同一种可审计轨迹 | [统一轨迹入口与数据边界](task-rollout-exchange.md) |
-| 新任务是否可靠，Task002实际测到什么 | [任务质量门禁](task-quality-gate.md)、[Task002报告](task002-evaluation-report.md)、[任务包](../tasks/axil_to_apb4_router_002/README.md) |
-| 当前体系测量了什么，离训练数据还有什么差距 | [多任务研究总结](multi-task-research-report.md) |
-| 怎样观察真实握手、构造自己的工程实验 | [运行时实验接口](runtime-experiments.md)、[事件导航 v2](runtime-events-v2.md)、[原版实测研究](runtime-tools-evaluation.md) |
-| 综合、等价检查、时序功耗各自能证明什么 | [综合工具接口](synthesis-tools.md)、[验收与试次报告](synthesis-tools-evaluation.md) |
-| 编译和具体公开诊断是否帮助修复 | [受控工程工具](engineering-tools.md)、[配对修复报告](engineering-tools-evaluation.md) |
-| APB执行与AXI响应解耦引入什么能力 | [Task004报告](task004-evaluation-report.md)、[任务包](../tasks/axil_to_apb4_decoupled_004/README.md) |
-| 多请求队列测到哪些错误 | [Task003独立生成](task003-evaluation-report.md)、[同起点修复](task003-repair-report.md)、[队列任务包](../tasks/axil_to_apb4_queue_003/README.md) |
-| 怎样选择任务、复用环境和交付轨迹 | [统一任务入口](task-catalog.md)、[轨迹交换与边界](rollout-data-contract.md) |
-| 项目有什么、当前完成到哪里 | [仓库首页](../README.md)、[实测报告](../mvp-evaluation-report.md) |
-| Task、环境、验证器、评分器分别是什么 | [架构与 Scoreboard](architecture.md) |
-| DSH 在哪里，Agent 能看什么，怎样生成 Reward | [Agent 工作流](agent-workflow.md) |
-| A／C／E 可见信息与反馈怎样配置、冻结和对照 | [Observation / Feedback Policy](observation-policy.md) |
-| 真实 Policy 实验结果、失败轨迹和统计结论边界 | [Policy 实验报告](policy-evaluation-report.md)、[证据索引](../experiments/policy-v1/README.md) |
-| 批量成功率、真实反馈利用、格式失败和配对修复 | [批量实验报告](batch-evaluation-report.md)、[执行契约](batch-study.md)、[证据索引](../experiments/batch-study-001/README.md) |
-| 定向／边界／随机／复位怎样验证，覆盖是否充分 | [验证计划与缺口](verification-plan.md) |
-| 怎样安装、reset/test/submit、重放和重新调用模型 | [运行手册](mvp-running.md) |
-| OS 隔离、综合、形式验证是什么，还缺什么 | [工具与能力边界](toolchain.md) |
-| RTL 的精确契约 | [任务 001 Spec](../tasks/axil_to_apb4_001/spec.md) |
+## 先理解系统，再选择任务
+
+| 想了解什么 | 阅读入口 |
+| --- | --- |
+| 项目为什么做、完成到哪里 | [项目首页](../README.md)、[最新有限任务研究](verification-resources-tasks.md) |
+| Task、Environment、Verifier 和 Reward 怎样协作 | [架构总览与 001 Scoreboard 实例](architecture.md) |
+| 选哪个任务、使用哪条执行路径 | [任务目录](task-catalog.md)、[六个有限工程契约指南](tasks/README.md) |
+| 工具能判断什么，尚不能证明什么 | [工具与证据层次](toolchain.md)、[VIP 接入范围](vip-inventory-r2020.12.md) |
+| 怎样交付并审计真实求解轨迹 | [当前 v5/v6 入口](task-rollout-exchange.md)、[早期契约演进](rollout-data-contract.md) |
+
+## 从工程契约到可靠任务
+
+| 工程问题 | 方法与证据 |
+| --- | --- |
+| 怎样判定一个任务可以进入模型评测 | [任务质量门禁](task-quality-gate.md) |
+| 地址窗口变化会引入哪些验证义务 | [路由族生产](task-family-production.md)、[漏检与校准](router-family-evaluation.md)、[生成器入口](../task_families/router_v1/README.md) |
+| 容量变化怎样影响回绕与退休账目 | [队列族生产](queue-family-production.md)、[实际验收与模型研究](queue-family-evaluation.md)、[生成器入口](../task_families/queue_v1/README.md) |
+| 路由与排队组合会新增什么风险 | [组合契约与独立检查](composed-task-production.md)、[组合阶段研究](composed-environment-evaluation.md) |
+| UART、测试激励和参考修复如何分别评分 | [三类任务与同源码漏检复验](verification-resources-tasks.md)、[当前准入及试次索引](../experiments/verification-resources-v1/README.md) |
+
+## Agent 怎样利用工具和反馈
+
+| 研究问题 | 接口与实际结果 |
+| --- | --- |
+| 可以看到什么、获得什么测试反馈 | [Observation / Feedback Policy](observation-policy.md)、[原 Policy 实验](policy-evaluation-report.md) |
+| 编译与需求级诊断是否帮助修复 | [受控工程工具](engineering-tools.md)、[配对修复研究](engineering-tools-evaluation.md) |
+| 怎样观察握手并构造局部实验 | [运行时实验](runtime-experiments.md)、[事件导航 v2](runtime-events-v2.md)、[原版实测](runtime-tools-evaluation.md) |
+| 综合、自身网表等价与时序功耗分别说明什么 | [工具接口](synthesis-tools.md)、[验收与模型试次](synthesis-tools-evaluation.md) |
+| 如何避免将旧候选的结果当作新版本证据 | [九动作综合环境](engineering-lab.md)、[候选回退研究](composed-environment-evaluation.md) |
+| 更多测试额度是否改变最终候选选择 | [预算对照与候选演变](verification-budget-study.md)、[冻结运行入口](../task_families/verification_budget_v1/README.md) |
+
+## 按阶段核查历史结果
+
+这些页面保留当时的任务、工具、样本和结论范围，不是当前项目能力的总清单。001 的标准基线仍为 revision 3，旧 128 笔交付已废弃。
+
+| 范围 | 核查入口 |
+| --- | --- |
+| 001 revision 3 | [任务](../tasks/axil_to_apb4_001/README.md)、[验证计划](verification-plan.md)、[评估报告](../mvp-evaluation-report.md)、[历史运行手册](mvp-running.md)、[原 Agent 工作流](agent-workflow.md) |
+| 001 批量 A/C/E 与修复 | [批量研究](batch-evaluation-report.md)、[执行契约](batch-study.md)、[证据索引](../experiments/batch-study-001/README.md) |
+| 002 路由 | [任务](../tasks/axil_to_apb4_router_002/README.md)、[研究报告](task002-evaluation-report.md) |
+| 003 队列 | [任务](../tasks/axil_to_apb4_queue_003/README.md)、[独立生成](task003-evaluation-report.md)、[同起点修复](task003-repair-report.md) |
+| 004 执行／响应解耦 | [任务](../tasks/axil_to_apb4_decoupled_004/README.md)、[研究报告](task004-evaluation-report.md) |
+| 早期方法与资源 | [001–003 阶段总结](multi-task-research-report.md)、[研究设计](research-design.md)、[历史资源审计边界](vip-audit-2026-11-24.md) |
 
 ## 文档维护
 
@@ -36,10 +52,6 @@
 
 ## 新任务或版本更新时
 
-每个任务包必须提供一个 README 作为人类入口，说明 Spec、验证计划与运行步骤；后续实测报告和证据由[统一任务目录](task-catalog.md)持续链接，历史冻结任务包不回改。不能只增加 RTL、YAML 或日志。描述该任务的对象、协议边界、典型事务图、检查与奖励、Agent 权限、可复用步骤，以及已验证／未验证／未实现的区别。
+每个任务必须提供固定的人类入口，说明 Spec、验证计划与运行步骤。新包应在冻结前包含 README；已有冻结包若未包含，使用本目录 `tasks/` 下的指南并从任务目录链接，避免添加文件改变材料包身份；后续实测报告和证据由[统一任务目录](task-catalog.md)持续链接，历史冻结任务包不回改。不能只增加 RTL、YAML 或日志。描述该任务的对象、协议边界、典型事务图、检查与奖励、Agent 权限、可复用步骤，以及已验证／未验证／未实现的区别。
 
-系统公共机制放本目录，任务特有内容放任务目录并相互链接。修改共同机制时同步架构／工作流／运行文档；改变 Spec 或评分规则时更新版本和报告，保留历史结果对应的冻结版本。图表用于解释真实结构，不能把计划画成已实现。
-
-## 历史研究
-
-[研究设计](research-design.md)、[VIP 接入范围](vip-inventory-r2020.12.md)、[历史审计边界](vip-audit-2026-11-24.md)说明方向与证据等级；具体完成状态以实测报告为准。
+系统公共机制放本目录，任务特有内容放任务目录或上述外置指南，并相互链接。修改共同机制时同步架构／工作流／运行文档；改变 Spec 或评分规则时更新版本和报告，保留历史结果对应的冻结版本。图表用于解释真实结构，不能把计划画成已实现。

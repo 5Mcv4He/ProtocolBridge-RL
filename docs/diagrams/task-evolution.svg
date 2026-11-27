@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="268" viewBox="0 0 760 268" role="img" aria-labelledby="title desc">
-<title id="title">四个 RTL 任务的能力关系</title><desc id="desc">001为单事务转换；002扩展空间路由，003扩展有限队列仲裁，004进一步解耦执行与响应。</desc>
+<title id="title">X2P：四个 RTL 任务的能力关系</title><desc id="desc">适用范围为原始 X2P 任务。001为单事务转换；002扩展空间路由，003扩展有限队列仲裁，004进一步解耦执行与响应。</desc>
 <defs><marker id="arr-n" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow n" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arr-b" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow b" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arr-g" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow g" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <style>
 svg{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC",sans-serif}

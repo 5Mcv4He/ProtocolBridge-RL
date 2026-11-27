@@ -1,15 +1,33 @@
 # 当前架构：Task、环境、验证器与 Scoreboard
 
-本页描述 revision 3 实现。实际通过状态见[评估报告](../mvp-evaluation-report.md)，不要从代码存在推断已经验收。本项目当前提供单任务 Agent 评测闭环，未进行 RL 参数训练。
+项目共同的闭环是：初始化任务材料 → Agent 在权限范围内修改、验证 → 提交冻结 → 独立验收 → 保存奖励与轨迹。任务可以要求交付 RTL，也可以要求交付测试激励；**共同的是控制与审计边界，具体正确性判据由任务决定。** 当前没有进行 RL 参数训练。
 
-[文档入口](../README.md#如何理解和讲解本项目) · [Agent 与奖励](agent-workflow.md) · [验证计划](verification-plan.md) · [复用命令](mvp-running.md)
+## 先找到任务所属的执行路径
 
-## 系统分工
+| 任务范围 | Agent 交付什么 | 执行与验收入口 |
+| --- | --- | --- |
+| 四个原始 X2P 任务 | 协议桥 RTL | 根 Registry 与 `scripts/tasks.py`；各任务专用 VIP/UVM、Scoreboard 和时序检查 |
+| 七个生成 X2P 契约 | 特化路由、队列或组合桥 RTL | `scripts/tasks.py --package PACKAGE`；依赖匹配的包及工业准入 |
+| 六个有限工程契约 | UART RTL、事务 JSON 或累加器 RTL | `environment.artifact_task`；工业解码加周期模型、固定设计对照或独立参考等价 |
+
+[任务目录](task-catalog.md)列出三条路径及可复用命令，[六个有限契约的使用说明](tasks/README.md)说明各自修改范围。它们没有被合并成一个万能验证器，也不会自动继承同一工具权限。
+
+可信控制器负责动作白名单、预算、候选内容哈希、反馈投影与提交冻结。公开反馈供模型继续求解；终局验收和独立保留评估在求解结束后执行，结果分开保存。九动作综合配置目前在特定 X2P 队列上验收，六个有限契约的已发布试次使用 read/edit/test/submit；详见[综合环境](engineering-lab.md)与[有限任务运行器](../environment/artifact_task/runner_v5.py)。
+
+例如，UART 的“没有协议错误”不能证明 busy 期间不会重复装载；需要额外周期模型检查输入锁存。累加器则用候选与独立参考的状态转移等价判定，不能以候选对自身综合网表的等价代替。三种验收依据及真实缺陷见[研究报告](verification-resources-tasks.md)。
+
+## 001 revision 3：具体实现与历史验收范围
+
+下文保留单笔桥的详细配对、复位账目及复现方式，仅适用于 001。实际通过状态见[revision 3 评估报告](../mvp-evaluation-report.md)；队列、组合及有限交付不能沿用这里的单活动请求假设。
+
+[文档入口](README.md) · [Agent 与奖励](agent-workflow.md) · [验证计划](verification-plan.md) · [复用命令](mvp-running.md)
+
+### 系统分工
 
 ```mermaid
 flowchart TB
     Task["Task：Spec + 初始 RTL"] --> Controller
-    subgraph UTM["UTM Linux"]
+    subgraph UTM["Linux 执行后端"]
       subgraph Solver["低权限求解进程：独立文件系统与 PID 视图"]
         DSH["DeepSeek Harness + API 客户端"]
         Work["spec.md / bridge.sv"]
@@ -25,7 +43,7 @@ flowchart TB
     DSH <-->|"模型请求"| API["DeepSeek API"]
 ```
 
-Mac 只负责部署、发起运行与收回证据。真实 Agent 的 DSH、Python SDK、Runtime 和 API 请求均在 UTM 内执行。VCS 与可信评分器在 UTM 宿主目录执行，不在求解进程的 chroot 内。
+启动端负责发起运行与收回证据。DSH、SDK 与 API 客户端在 Linux 求解环境内执行；VCS 与可信评分器在该进程的隔离文件系统之外运行。revision 3 的具体部署和工具版本见[历史工作流](agent-workflow.md)，机器身份不是 Task 契约。
 
 | 概念 | 负责什么 | 实现入口 |
 |---|---|---|
@@ -38,7 +56,7 @@ Mac 只负责部署、发起运行与收回证据。真实 Agent 的 DSH、Pytho
 
 Python 生成激励、调度工具、解析 UVM 证据；预期数据计算与功能比对在 SystemVerilog/UVM 中完成。task.yaml 仍是描述性元数据，没有多协议自动组装器。
 
-## UVM 数据流
+### UVM 数据流
 
 ```mermaid
 flowchart LR
@@ -58,9 +76,9 @@ flowchart LR
 
 `bridge_vip_test` 创建两端 VIP、Scoreboard、内存订阅器，连接 analysis port 并管理运行阶段。普通场景共享单事务发送机制；复位 sequence 额外执行中断和恢复。case 是场景输入集合，sequence 是执行它的 UVM 对象，不能用类数量代替覆盖充分性。
 
-## Scoreboard 如何配对
+### Scoreboard 如何配对
 
-当前 Spec 只允许一笔未完成事务，所以 `bridge_scoreboard` 保存一个活动的 `expected` 请求，以及 `have_axi`、`have_apb` 两个完成标记。发送前克隆预期请求；两端 Monitor 回调到达后立即比较，不依赖回调先后顺序，不使用旧版三个 FIFO 队列。
+001 Spec 只允许一笔未完成事务，所以 `bridge_scoreboard` 保存一个活动的 `expected` 请求，以及 `have_axi`、`have_apb` 两个完成标记。发送前克隆预期请求；两端 Monitor 回调到达后立即比较，不依赖回调先后顺序，不使用旧版三个 FIFO 队列。
 
 每笔检查地址、方向、写数据、字节使能、APB 错误注入、AXI BRESP/RRESP、APB 与 AXI 读数据。两个完成标记齐全才计为 `checked`。额外或重复事务立即报错；结束时还检查完整账目。
 
@@ -76,15 +94,15 @@ APB completed = checked + aborted_after_apb_completion
 
 不能要求所有复位 case 的 AXI/APB 完成数相等：APB 已完成、AXI 响应被复位取消时，两者本来就不同。Reference Model 嵌在 Scoreboard 中，尚未拆成 predictor；实际与预期规则仍可能有共同建模错误，需靠故障对照和后续交叉验证降低风险。
 
-## 检查和评分的分工
+### 检查和评分的分工
 
 商业 VIP 检查协议；Scoreboard 检查转换语义和完整性；SVA／引脚计数器检查复位、稳定性、提前响应与 Spec 的 16 周期进展上限。每个 case 有 400,000 周期 watchdog，另有工具运行的墙钟超时。二者失败分类不同。
 
 APB 完成之外的 PRDATA/PSLVERR 被刻意扰动，避免提前采样的错误设计因目标恰好保持数据而通过。逐笔核对实际等待／背压与请求激励，最终检查必要的 576 个交叉 bin。性能统计包含接受请求至 Setup、APB 完成至 AXI VALID；没有 PPA 奖励，也没有宣称最大吞吐率已验证。
 
-具体场景、随机策略、公开／私有分层和未覆盖边界见[验证计划](verification-plan.md)。当前交付仅保留 `verifier/v3/` 后端；已删除旧 128 笔实现及其生成器。
+具体场景、随机策略、公开／私有分层和未覆盖边界见[验证计划](verification-plan.md)。001 标准基线使用 `verifier/v3/` 后端；已删除旧 128 笔实现及其生成器。
 
-## 生命周期和复用
+### 生命周期和复用
 
 `reset(work)` 创建新工作区并复制 Spec／模板；`test(work,out)` 编译当前 RTL 并跑公开集；`submit(work,out)` 保存只读快照和 SHA-256，再执行完整回归。CLI 完整回归使用公开可复现 seed；真实 Agent 的终局评分由外部控制器传入预先冻结的私有输入。
 

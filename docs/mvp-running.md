@@ -1,4 +1,6 @@
-# 配置、重复运行与证据重放
+# 001 revision 3：配置、复现与证据重放
+
+这是 001 revision 3 的历史复现手册，以下版本与部署示例保留其原始适用范围。当前项目先从[任务目录](task-catalog.md)选择执行路径；六个有限工程契约使用[独立运行说明](tasks/README.md)，不使用本页的 bridge.sv 假设。历史基线检查只核对已保存源码和证据，不代表重新完成 RTL 仿真。
 
 [架构](architecture.md) · [真实 Agent 与奖励](agent-workflow.md) · [验证计划](verification-plan.md) · [评估报告](../mvp-evaluation-report.md)
 
@@ -36,7 +38,7 @@ bash environment/setup_utm_runtime.sh /path/to/verified-ubuntu-base-archive.tar.
 
 ## 3. 标准基线检查与人工迭代 RTL
 
-先运行 `python3 -m environment.check_baseline`。它核对当前运行源码、Spec、已保存结果及轨迹的哈希和验收条件，不执行新的 EDA 仿真。`reproduce.sh` 会先执行这项检查，再运行真实 VCS 回归。修改验证契约后，应重新验收并更新 `baseline.json`，不能只刷新哈希来沿用旧结果。
+先运行 `python3 -m environment.check_baseline`。它核对当前运行源码、Spec、已保存结果及轨迹的哈希和验收条件，不执行新的 EDA 仿真。`reproduce.sh` 会先执行这项检查，再运行真实 VCS 回归。修改验证契约必须建立明确的新版本、新验收目录与证据；原 revision 3 的 `baseline.json` 和历史结果保持不变，不能刷新旧哈希来授予新源码准入。
 
 ```bash
 python3 -m environment.reset .local/solve-001

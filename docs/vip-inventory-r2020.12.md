@@ -9,9 +9,11 @@
 | 多 APB 目标路由 | Task002 已验收 | [Task002 报告](task002-evaluation-report.md) |
 | 有限请求队列与执行/响应解耦 | Task003/004 已验收，模型试次仍暴露设计困难 | [Task003 报告](task003-evaluation-report.md)、[Task004 报告](task004-evaluation-report.md) |
 | 完整 AXI4 Burst、ID、拆分与跨 ID 顺序 | 不能由所用 VIP 产品名推断为已实现任务；当前尚未形成验收通过的任务契约 | 新 Spec、跨协议事务配对和正反对照仍待建立 |
-| 其他 AMBA 或非 AMBA 协议 | 未纳入当前正式 Agent 评测集合 | 必须独立证明工具、任务和奖励有效性 |
+| UART 8N1／8E1 固定速率发送 | 已有自建 DUT、VIP 接收 Monitor、独立周期判据、正反对照及真实模型试次；当前评分器修订 4 | [任务使用入口](tasks/README.md)、[漏检与分类修正证据](verification-resources-tasks.md) |
+| AMBA 测试激励生成 | 同一份结构化事务运行合法／错误桥，由固定 UVM Scoreboard 判定；不是新增协议 | [mapping](tasks/x2p_stimulus_mapping_v1.md)、[timing](tasks/x2p_stimulus_timing_v1.md) |
+| 其他尚未任务化的协议 | 厂商例程或安装状态不等于正式任务验收 | [最新批次核查与选题依据](verification-resources-tasks.md)；仍需独立对象、判据和错误对照 |
 
-现有实验使用 AMBA VIP R-2020.12，具体 VCS、UVM、Python 和 Harness 版本保存在各批次 metadata/freeze 中。不同实验的工具链身份不能互相替代，版本及能力解释见[工具链说明](toolchain.md)。
+对应实验使用 AMBA 或 UART VIP R-2020.12，具体 VCS、UVM、Python 和 Harness 版本保存在各批次 metadata/freeze 中。不同实验的工具链身份不能互相替代，版本及能力解释见[工具链说明](toolchain.md)。
 
 新增协议或任务必须通过[Task Quality Gate](task-quality-gate.md)：明确 Spec，合法参考实际通过，错误变体实际被检出，独立检查事务语义及完成账目，确认 Reward 分类与信息边界，再进入真实 Agent 评测。
 

@@ -56,6 +56,8 @@ ProtocolBridge-RL 围绕这一问题展开研究。项目以 AXI → APB 协议�
 
 Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已接受但尚未退休的请求。写地址（AW）、写数据（W）和读地址（AR）独立接收；FIFO（先进先出队列）维护各通道的请求顺序，仲裁逻辑在符合条件的读写之间选择执行对象。Outstanding 指已经发出或接受、但尚未完成的事务；在本任务中，直到相应写响应（B）或读响应（R）被请求方握手消费，才释放对应的未退休名额。这条规格将在后面的真实调试案例中再次出现。
 
+除下文 X2P 样板外，当前另有 [UART 发送、测试激励生成与独立参考修复六个契约](docs/tasks/README.md)。它们分别交付 RTL 或事务表，使用不同的可信判据；共同方法仍是明确规格、独立验收与真实求解。
+
 ### 工程能力怎样逐步扩展
 
 <p align="center"><img src="docs/diagrams/task-evolution.svg" alt="001 基础转换分支到 002 多目标路由与 003 有限队列仲裁；003 进一步扩展为 004 执行与响应解耦。" width="760"></p>
@@ -89,7 +91,7 @@ Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已�
 
 <p align="center"><img src="docs/diagrams/verifier-architecture.svg" alt="VCS 运行主动 AXI/APB VIP 与候选 DUT；场景规划与 Monitor 事务进入独立 Scoreboard，综合功能、协议、时序和覆盖证据产生 Reward。" width="760"></p>
 
-验证器把候选 RTL 当作待测电路（DUT），让它在实际的协议激励下运行。VCS 是执行 SystemVerilog 仿真的工具；Synopsys AMBA VIP（Verification IP，验证知识产权组件）负责模拟协议通信双方、产生请求与响应，并监测协议行为；UVM 是组织可复用验证环境的方法学。
+上图以 X2P 为具体例子：验证器把候选 RTL 当作待测电路（DUT），让它在实际的协议激励下运行。VCS 是执行 SystemVerilog 仿真的工具；Synopsys AMBA VIP（Verification IP，验证知识产权组件）负责模拟协议通信双方、产生请求与响应，并监测协议行为；UVM 是组织可复用验证环境的方法学。
 
 项目在这个环境中建立了独立的 Scoreboard（事务记分板 / 检查器）：根据规格和实际接受的请求计算预期行为，再与两侧观察到的事务进行比较，核对地址、数据、字节使能、响应、顺序及事务账目。
 
@@ -104,8 +106,10 @@ Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已�
 | Reward | 终局含义 |
 | :--- | :--- |
 | `1.0` | 所有必要测试、检查与覆盖条件完整通过 |
-| `0.0` | 已确认候选 RTL 编译、功能、协议或时序错误 |
+| `0.0` | 有效交付已确认不满足任务：例如 RTL 编译／功能错误，或激励未触发必要活动、未检出必要缺陷 |
 | `null` | 无有效提交、验证不完整或基础设施问题，无法可靠判定 |
+
+测试生成中的编译失败或超时不能算成功检出错误 DUT；参考修复还须检查等价比较是否完整。具体分类见[六个契约的判据](docs/tasks/README.md)。
 
 `null` 不是数值零，无法归因的超时不直接记为 RTL 失败；Reward=1 也不是对任意输入的正确性证明。
 
@@ -231,7 +235,7 @@ Task 是可重复使用的工程问题；Rollout 则是模型在某个任务和�
 
 队列任务族此前进行了三条预先规定的探索：一名额基础 E 失败，三名额基础 E 在收到失败反馈并修改后通过，三名额加事件实验失败。最后一条的首候选事后通过公开 21 case，却在后续未经测试的编辑中引入调度回归；仅看最终 Reward=0 会遗漏这个过程。每种条件只有一条，不能把它们作为容量难度排序或工具效果结论。见[具体代码变化、反馈与证据](docs/queue-family-evaluation.md)。
 
-本阶段又完成三条限定试次：同一起点的基础诊断／综合工具修复，以及组合任务的独立求解。三条都有效提交、没有动作格式错误，终局与保留评分均为 0。综合条件确实查询了局部周期信息，但未修复；基础诊断条件则放弃了一份事后通过公开 21 case 的中间候选，回到已失败版本。这个 PASS 当时没有反馈给模型，也未测中间候选的私有正确性，因此最终奖励保持不变。[完整研究](docs/composed-environment-evaluation.md)将信息曝光、实际修改、局部进展和终局结果分开分析；每种条件 n=1，不能据此判断工具优劣。
+组合与综合环境阶段另完成三条限定试次：同一起点的基础诊断／综合工具修复，以及组合任务的独立求解。三条都有效提交、没有动作格式错误，终局与保留评分均为 0。综合条件确实查询了局部周期信息，但未修复；基础诊断条件则放弃了一份事后通过公开 21 case 的中间候选，回到已失败版本。这个 PASS 当时没有反馈给模型，也未测中间候选的私有正确性，因此最终奖励保持不变。[完整研究](docs/composed-environment-evaluation.md)将信息曝光、实际修改、局部进展和终局结果分开分析；每种条件 n=1，不能据此判断工具优劣。
 
 这些结果为什么值得研究？当一个任务对某个模型过于简单时，多次求解可能全部得到 Reward=1；过难时则可能全部为 0。对于依赖组内相对奖励差异的训练方法（例如使用组内相对优势估计的 GRPO），同组二值奖励没有变化时，这部分奖励信号缺乏区分度。
 
@@ -277,6 +281,8 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 例如，一条同周期插入修复虽然改对了尾部索引，却将“响应退休时移位”改为“队列非空就移位”，提前丢掉队头。模型多次收到失败反馈后仍未修复，最后用完动作而未提交。这个具体失败说明更多观察机会与正确理解状态更新并不是同一件事。[预算研究报告](docs/verification-budget-study.md)连接源码、实际反馈、独立结果与成本；终局和保留评估分别统计，没有用私有结果替模型选择中间版本。
 
 ### 验证资源能否支持不同形式的工程任务？
+
+六个契约的[逐任务指南](docs/tasks/README.md)提供 Spec、修改范围与执行命令。它们的已发布试次开放 read/edit/test/submit，不自动继承上文 X2P 的九动作综合配置。
 
 X2P 要求模型交付桥接 RTL，但芯片工程还有另一类工作：编写能暴露缺陷的测试，或在保持明确行为的条件下修复数据通路。本阶段增加三类、每类两个有限契约：UART 发送器的无校验／偶校验，X2P 映射／时序测试生成，回绕／饱和累加器的独立参考修复。原 X2P 集合与历史结果保持不变。
 
@@ -345,12 +351,12 @@ ProtocolBridge-RL/
 
 | 阅读目的 | 建议入口 |
 | :--- | :--- |
-| 复用任务与运行流程 | [Task Catalog](docs/task-catalog.md) · [统一 CLI](scripts/tasks.py) |
-| 生成并验收任务实例 | [路由任务族](docs/task-family-production.md) · [队列任务族](docs/queue-family-production.md) · [生成器用法](task_families/queue_v1/README.md) |
+| 复用任务与运行流程 | [Task Catalog](docs/task-catalog.md) · [原始／生成 X2P CLI](scripts/tasks.py) |
+| 生成并验收任务实例 | [路由任务族](docs/task-family-production.md) · [队列任务族](docs/queue-family-production.md) · [六个有限契约及运行方法](docs/tasks/README.md) |
 | 理解核心源码 | [任务](tasks/) · [环境](environment/) · [验证器](verifier/) |
-| 查阅工程与验证方法 | [架构](docs/architecture.md) · [质量门禁](docs/task-quality-gate.md) · [运行手册](docs/mvp-running.md) |
+| 查阅工程与验证方法 | [架构](docs/architecture.md) · [质量门禁](docs/task-quality-gate.md) · [001 历史运行手册](docs/mvp-running.md) |
 | 查阅研究证据 | [文档索引](docs/README.md) · [实验目录](experiments/) |
-| 复用数据交换 | [Rollout Data Contract](docs/rollout-data-contract.md) |
+| 复用数据交换 | [当前 v5/v6 入口](docs/task-rollout-exchange.md) · [历史契约演进](docs/rollout-data-contract.md) |
 
 ## 8. 快速开始
 
@@ -359,13 +365,14 @@ ProtocolBridge-RL/
 ```bash
 git clone https://github.com/5Mcv4He/ProtocolBridge-RL.git
 cd ProtocolBridge-RL
-python3 scripts/tasks.py list
+python3 scripts/tasks.py list  # 四个原始 X2P 任务
+python3 -m environment.artifact_task list  # 六个有限工程契约
 python3 scripts/tasks.py show axil_to_apb4_queue_003
 python3 -m environment.check_baseline
 python3 -m unittest discover -s tests -v
 ```
 
-工业验证需要合法授权的 VCS、AMBA SVT VIP、UVM 与对应 Linux 环境；真实试次另需 DSH Runtime 和模型 API 配置。参见[配置示例](environment/config.example.json)、[运行手册](docs/mvp-running.md)及[工具链说明](docs/toolchain.md)。
+X2P 工业验证需要合法授权的 VCS、AMBA SVT VIP、UVM 与对应 Linux 环境；UART 使用对应 UART VIP，独立参考修复使用 Formality。真实试次另需 DSH Runtime 和模型 API 配置。工具需求按任务选择，不是每个任务都需要全部工具。参见[配置示例](environment/config.example.json)、[001 历史运行手册](docs/mvp-running.md)及[工具链说明](docs/toolchain.md)。
 
 <details>
 <summary><strong>实际运行 Task003：reset / test / submit / quality / rollout</strong></summary>
@@ -398,13 +405,15 @@ python3 scripts/tasks.py rollout axil_to_apb4_queue_003 -- \
 
 | 已建立 | 研究方向 |
 | :--- | :--- |
-| 四个原始任务、两类任务族及一个路由／队列组合契约 | 扩展经验证的能力组合与难度梯度 |
+| 11 个 X2P 契约与 6 个有限工程契约（UART、激励生成、参考修复） | 复用生产方法，校准不同交付类型与工程能力 |
 | 独立 Verifier 与质量门禁 | 补足验证盲区，探索可信奖励 |
 | 九种动作的综合配置、事件导航 v2 与候选版本绑定 | 研究实际定位、有效修复及回归控制 |
 | 固定模型 Rollout 与失败归因 | 更多错误起点、模型及推理条件对照 |
 | 离线轨迹交换 | 在线采集、资源调度、训练接口及收益评估 |
 
-任意契约的通用任务生成、完整自建 Testbench、全设计形式属性证明、工业 PPA 奖励及模型参数训练尚未实现。当前生产器接受三种经审阅的路由配置、三种队列配置和一个固定组合契约，不支持任意工程能力组合。有限仿真和正反对照不能证明验证器完备，公开 Spec、参考实现及验证代码也存在预训练污染可能。
+任意契约的通用任务生成、完整自建 Testbench、全设计形式属性证明、工业 PPA 奖励及模型参数训练尚未实现。X2P 生产路径接受三种经审阅的路由配置、三种队列配置和一个固定组合契约；有限工程交付生产器另外提供 UART、激励生成、参考修复三类各两个已审阅契约。它们不支持任意工程能力组合。有限仿真和正反对照不能证明验证器完备，公开 Spec、参考实现及验证代码也存在预训练污染可能。
+
+下一项有限任务研究可围绕 busy 期间输入干扰与反馈后的修复展开，先匹配起点、版本和成本，再扩大样本；组合任务的交互覆盖缺口仍需独立补证。
 
 ### 项目的长期价值
 

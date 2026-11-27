@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="374" viewBox="0 0 760 374" role="img" aria-labelledby="title desc">
-<title id="title">工业验证与奖励</title><desc id="desc">场景规划驱动两端 VIP 并提供预期事务，独立 Scoreboard 根据 Monitor 事务检查跨协议语义，评分器汇总功能、协议、时序与覆盖证据。</desc>
+<title id="title">X2P：工业验证与奖励</title><desc id="desc">适用范围为原始 X2P 任务。场景规划驱动两端 VIP 并提供预期事务，独立 Scoreboard 根据 Monitor 事务检查跨协议语义，评分器汇总功能、协议、时序与覆盖证据。</desc>
 <defs><marker id="arr-n" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow n" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arr-b" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow b" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arr-g" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow g" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
 <style>
 svg{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC",sans-serif}
