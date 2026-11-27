@@ -1,0 +1,152 @@
+{
+  "schema": "reviewed-exchange-inventory-v3",
+  "base_inventory": "experiments/verification-budget-v1/exchange-inventory.json",
+  "base_sha256": "480d93ffb6d415755b49262b151074caec7af27dbd3a17d4fece2948f153b9c5",
+  "records": 121,
+  "available_tool_trajectories": 81,
+  "new_model_trials": 14,
+  "new_tool_trajectories": 14,
+  "exports": [
+    {
+      "manifest": "experiments/verification-resources-v1/formal-exchange-v1/manifest.json",
+      "sha256": "d5892844542dfa786957bf15843e3c59caff909f86e4a6dfcac99aa7d08ced8f",
+      "records": 2,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/verification-resources-v1/formal-exchange-v2/manifest.json",
+      "sha256": "5ac6850f5dfffca85fca2389bb5631e7ae4908fb5451e009f4d65b11b707d9e2",
+      "records": 2,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/verification-resources-v1/uart-stimulus-exchange/manifest.json",
+      "sha256": "7d4dc5507cfc37405db77bdb046a58ffcbed469069ac413f520eb48f5eee9362",
+      "records": 4,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/verification-resources-v1/uart-verifier2-exchange/manifest.json",
+      "sha256": "3a8238e48a4380f466dda1b9b2aadfb58eec6d40da9ebea143a85f7cafa0f101",
+      "records": 2,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/verification-resources-v1/uart-verifier3-exchange/manifest.json",
+      "sha256": "3a6fb979960d49038e464a1aa0a83f2c0e7453ccbae1433649446a66b60a828f",
+      "records": 2,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/verification-resources-v1/uart-verifier4-exchange/manifest.json",
+      "sha256": "a36c1cb831ad3a0bc624449c95e9f5323d296343735c75513d57fe72099db949",
+      "records": 2,
+      "content_hashes_verified": true
+    }
+  ],
+  "uses": [
+    {
+      "trial_id": "formal-wrap-v2-r1",
+      "task_id": "accumulator_wrap_repair_v1",
+      "status": "candidate_for_training_review_not_proven_training_value",
+      "terminal_reward": 1.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "formal-saturating-v2-r1",
+      "task_id": "accumulator_saturating_repair_v1",
+      "status": "candidate_for_training_review_not_proven_training_value",
+      "terminal_reward": 1.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "formal-wrap-r1",
+      "task_id": "accumulator_wrap_repair_v1",
+      "status": "candidate_for_training_review_not_proven_training_value",
+      "terminal_reward": 1.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "formal-saturating-r1",
+      "task_id": "accumulator_saturating_repair_v1",
+      "status": "unsubmitted_or_indeterminate",
+      "terminal_reward": null,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "uart-8n1-r1",
+      "task_id": "uart_tx_8n1_v1",
+      "status": "historical_verifier_only",
+      "terminal_reward": 0.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "stimulus-mapping-r1",
+      "task_id": "x2p_stimulus_mapping_v1",
+      "status": "candidate_for_training_review_not_proven_training_value",
+      "terminal_reward": 1.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "uart-8e1-r1",
+      "task_id": "uart_tx_8e1_v1",
+      "status": "historical_verifier_only",
+      "terminal_reward": 1.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "stimulus-timing-r1",
+      "task_id": "x2p_stimulus_timing_v1",
+      "status": "candidate_for_training_review_not_proven_training_value",
+      "terminal_reward": 1.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "uart-8n1-verifier2-r1",
+      "task_id": "uart_tx_8n1_v1",
+      "status": "historical_verifier_only",
+      "terminal_reward": 1.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "uart-8e1-verifier2-r1",
+      "task_id": "uart_tx_8e1_v1",
+      "status": "historical_verifier_only",
+      "terminal_reward": 1.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "uart-8n1-verifier3-r1",
+      "task_id": "uart_tx_8n1_v1",
+      "status": "historical_verifier_only",
+      "terminal_reward": 1.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "uart-8e1-verifier3-r1",
+      "task_id": "uart_tx_8e1_v1",
+      "status": "historical_verifier_only",
+      "terminal_reward": null,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "uart-8n1-verifier4-r1",
+      "task_id": "uart_tx_8n1_v1",
+      "status": "candidate_for_training_review_not_proven_training_value",
+      "terminal_reward": 1.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    },
+    {
+      "trial_id": "uart-8e1-verifier4-r1",
+      "task_id": "uart_tx_8e1_v1",
+      "status": "candidate_for_training_review_not_proven_training_value",
+      "terminal_reward": 1.0,
+      "reason": "Verifier version and terminal validity only; held-out result is not a selection input."
+    }
+  ],
+  "notes": [
+    "Includes stopped/unsubmitted episodes and superseded checker versions, never pooled as one success rate.",
+    "Interrupted records retain unknown solver-stop state and absence of terminal evaluation.",
+    "Tool-trajectory inventory is not the count of valid training candidates."
+  ]
+}

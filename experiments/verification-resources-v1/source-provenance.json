@@ -1,0 +1,76 @@
+{
+  "schema": "artifact-source-provenance-v1",
+  "plans": [
+    {
+      "plan": "experiments/verification-resources-v1/formal-study-plan-v2.json",
+      "plan_sha256": "bd4c1f1807c1eae94fe6982d4ed823526d7f67d4c4d2ccbe00c2ee1b5fac5426",
+      "study_id": "independent-reference-rejection-feedback-v2",
+      "source_files": 30,
+      "matching_commits": [
+        "05f2e1ccca77677c9d345052613a2b5393b05af0",
+        "ce774eb12f351d4d8b1d6baa0896b8012df984b2",
+        "ccbe9397bb8aaa4ad7b69ce10a92b64322ffb00d",
+        "07064562a650c08025b9f310fc8a1ea16605f3f9",
+        "c88ea3790f8ba7deb80a9d55ca0ca88a1acf35cc"
+      ]
+    },
+    {
+      "plan": "experiments/verification-resources-v1/formal-study-plan.json",
+      "plan_sha256": "0b8b63d62c7a62de6e1df79234418c12ec3463d24ce126d3d81959fb6382de76",
+      "study_id": "independent-reference-calibration-v1",
+      "source_files": 29,
+      "matching_commits": [
+        "05f2e1ccca77677c9d345052613a2b5393b05af0",
+        "ce774eb12f351d4d8b1d6baa0896b8012df984b2",
+        "ccbe9397bb8aaa4ad7b69ce10a92b64322ffb00d",
+        "07064562a650c08025b9f310fc8a1ea16605f3f9",
+        "c88ea3790f8ba7deb80a9d55ca0ca88a1acf35cc"
+      ]
+    },
+    {
+      "plan": "experiments/verification-resources-v1/uart-stimulus-study-plan.json",
+      "plan_sha256": "648d3c60f8369e9ce231a00a1867a09e82f61bbe40390a48e582efd2ded50b8a",
+      "study_id": "uart-stimulus-calibration-v1",
+      "source_files": 48,
+      "matching_commits": [
+        "ce774eb12f351d4d8b1d6baa0896b8012df984b2",
+        "ccbe9397bb8aaa4ad7b69ce10a92b64322ffb00d",
+        "07064562a650c08025b9f310fc8a1ea16605f3f9",
+        "c88ea3790f8ba7deb80a9d55ca0ca88a1acf35cc"
+      ]
+    },
+    {
+      "plan": "experiments/verification-resources-v1/uart-verifier2-study-plan.json",
+      "plan_sha256": "d503e204a17773b1b206aeb9f5596d0e88e5834c8fa103585679d97f33863151",
+      "study_id": "uart-verifier2-calibration-v1",
+      "source_files": 26,
+      "matching_commits": [
+        "ccbe9397bb8aaa4ad7b69ce10a92b64322ffb00d",
+        "07064562a650c08025b9f310fc8a1ea16605f3f9",
+        "c88ea3790f8ba7deb80a9d55ca0ca88a1acf35cc"
+      ]
+    },
+    {
+      "plan": "experiments/verification-resources-v1/uart-verifier3-study-plan.json",
+      "plan_sha256": "e950e5e42b4ced799336f75ccbbf0020d5dd9ba64daeb3f72a80291850858dc8",
+      "study_id": "uart-verifier3-interface-calibration-v1",
+      "source_files": 29,
+      "matching_commits": [
+        "07064562a650c08025b9f310fc8a1ea16605f3f9",
+        "c88ea3790f8ba7deb80a9d55ca0ca88a1acf35cc"
+      ]
+    },
+    {
+      "plan": "experiments/verification-resources-v1/uart-verifier4-study-plan.json",
+      "plan_sha256": "9503b7f1c41b6aa54b178ce4c2968a05687a9cec4ee3dce65c52163078b545ae",
+      "study_id": "uart-verifier4-classification-calibration-v1",
+      "source_files": 32,
+      "matching_commits": [
+        "c88ea3790f8ba7deb80a9d55ca0ca88a1acf35cc"
+      ]
+    }
+  ],
+  "all_frozen_source_hashes_resolve": true,
+  "method": "Every frozen file read from git object database and hashed; no historical hash updated.",
+  "scope_note": "artifact-phase-acceptance measured session/graders; its runner hash predates the multi-deliverable prompt patch. Actual model execution versions are identified by these plans, not that auxiliary runner hash."
+}

@@ -7,7 +7,7 @@
 ProtocolBridge-RL 围绕这一问题展开研究。项目以 AXI → APB 协议桥（X2P）为切入点，利用工业电子设计自动化工具（EDA）与独立功能验证，将数字电路设计与调试转化为模型可以反复求解、探索和验证的任务。它既关注设计是否正确，也关注如何构建有训练价值的求解过程。
 
 <p align="center">
-<strong>4 个原始 Task + 7 个生成实例</strong>　·　<strong>9 种受控动作</strong>　·　<strong>107 条研究试次</strong>　·　<strong>轨迹交换 v1–v5</strong>
+<strong>11 个 X2P Task + 6 个有限工程契约</strong>　·　<strong>X2P 九动作环境</strong>　·　<strong>121 条研究试次</strong>　·　<strong>轨迹交换 v1–v6</strong>
 </p>
 
 > **当前阶段：** 已建立任务、环境、独立奖励与固定模型 Rollout 的工程闭环；尚未进行模型参数训练或训练收益评估。保留独立工具配置，并已在三深度队列上完成九种动作联用验收。
@@ -77,7 +77,7 @@ Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已�
 
 **第二类任务族把生产方法扩展到动态状态。** 基于 Task003，生成每通道一个名额、三个名额以及读写不对称容量的三份契约。每份不仅改变队列参数，还派生占用边界、多轮存储使用与退休时刻的验证义务，并通过两种合法结构及 12–14 个错误对照。额外的引脚握手账本与 Scoreboard 相互核对：如果可信检查器错误地提前出队，评分应停止并返回不可判定，而不是给模型一个不可靠的奖励。见[生命周期与生产方法](docs/queue-family-production.md)、[真实准入及研究结果](docs/queue-family-evaluation.md)。
 
-新的[路由 × 队列组合契约](docs/composed-task-production.md)进一步检查排队请求的目标身份，以及未映射 DECERR 如何参与仲裁、背压与退休。例如，一个错误地址虽然不访问 APB，仍必须占用名额直到 AXI 消费错误响应，不能提前让队列多收一笔。该契约的验证器修订 2 已通过两种合法实现、19 个错误对照和 40 项真实机制检查。初版即使覆盖全满，仍漏掉了目标相关的复位错误；[同源码复验](docs/composed-environment-evaluation.md)记录了漏检、修正及剩余边界。当前集合包含四个原始任务、六个路由／队列生成实例和一个组合实例，共 **11 个已验收 Task ID**；参数实例数不等于独立工程能力数，生成与实际模型校准也分别记录。
+新的[路由 × 队列组合契约](docs/composed-task-production.md)进一步检查排队请求的目标身份，以及未映射 DECERR 如何参与仲裁、背压与退休。例如，一个错误地址虽然不访问 APB，仍必须占用名额直到 AXI 消费错误响应，不能提前让队列多收一笔。该契约的验证器修订 2 已通过两种合法实现、19 个错误对照和 40 项真实机制检查。初版即使覆盖全满，仍漏掉了目标相关的复位错误；[同源码复验](docs/composed-environment-evaluation.md)记录了漏检、修正及剩余边界。当前 X2P 子集合包含四个原始任务、六个路由／队列生成实例和一个组合实例，共 **11 个已验收 Task ID**；参数实例数不等于独立工程能力数，生成与实际模型校准也分别记录。
 
 **实现入口：** [Task Registry](tasks/registry.json) · [Registry Schema](tasks/registry.schema.json) · [任务目录与统一 CLI](docs/task-catalog.md)
 
@@ -276,6 +276,18 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 
 例如，一条同周期插入修复虽然改对了尾部索引，却将“响应退休时移位”改为“队列非空就移位”，提前丢掉队头。模型多次收到失败反馈后仍未修复，最后用完动作而未提交。这个具体失败说明更多观察机会与正确理解状态更新并不是同一件事。[预算研究报告](docs/verification-budget-study.md)连接源码、实际反馈、独立结果与成本；终局和保留评估分别统计，没有用私有结果替模型选择中间版本。
 
+### 验证资源能否支持不同形式的工程任务？
+
+X2P 要求模型交付桥接 RTL，但芯片工程还有另一类工作：编写能暴露缺陷的测试，或在保持明确行为的条件下修复数据通路。本阶段增加三类、每类两个有限契约：UART 发送器的无校验／偶校验，X2P 映射／时序测试生成，回绕／饱和累加器的独立参考修复。原 X2P 集合与历史结果保持不变。
+
+三者不能共用一句“工具不报错就通过”。UART 用工业接收 Monitor 解码，再核对每位时间、接受数据和完成数量；测试生成先确认合法设计通过，再要求固定 Scoreboard 检出明确功能错误；累加器由 Formality 与独立可信参考比较，并用整数状态模型检查参考本身。
+
+<p align="center"><img src="docs/diagrams/verification-bases.svg" alt="三种工程交付在提交停止后分别进入串行解码与周期模型、固定设计与事务检查、独立参考等价验收。" width="760"></p>
+
+实际调查也暴露了验收缺陷：遍历 256 个字节仍可能漏掉 busy 期间重复装载；按位置连接端口会让违规改名通过；过宽的日志匹配会把候选编译错误误判成环境故障。对应修订均保留同源码证据，旧奖励不回写。当前三类共 51 项准入检查符合预期，六份有限材料包可生成、核对依赖并初始化。
+
+新增 14 条预声明真实试次中，既有首份编辑通过，也有实际失败后修复：例如 UART 候选把 10 位帧放入 8 位寄存器，收到 FAIL 后修正位宽并重新验证。另有动作格式导致的未编辑／未提交，以及可信分类器故障导致的中断；它们没有从研究库存删除。各版本样本少且条件不同，不合并成稳定成功率。[三类任务研究报告](docs/verification-resources-tasks.md)连接工程契约、实际失败、修订、成本与复现；[当前证据入口](experiments/verification-resources-v1/README.md)保留全部批次。
+
 ### 数据生产成本
 
 收集一条专业 Agent 轨迹的成本，并不只是模型的 Token 开销：工具调用背后还需要真实的编译、仿真与独立评分。
@@ -299,14 +311,15 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 | v3 | 额外三条试次；支持综合、主动实验和运行时观测 |
 | v4 | 新队列任务的三条试次；支持生成任务身份、事件选择与真实窗口 |
 | v5 | 统一包来源与候选版本绑定；原组合阶段 4 条导出，新增预算研究 12 条真实轨迹 |
+| v6 | 三类有限工程交付的 14 条工具轨迹；支持实际反馈重放、不同制品及中断状态 |
 
-合计 **107 条研究记录、67 条已审查工具轨迹**（v2 + v3/v4/v5 的独立记录，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
+合计 **121 条研究记录、81 条已审查工具轨迹**（v2 + v3/v4/v5/v6 的独立记录，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
 
-v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-exchange/manifest.json)此前已计入研究库存，这次只是首次进入统一交换；没有增加模型调用或重复计算样本。[当前研究库存与交换集合](experiments/verification-budget-v1/exchange-inventory.json)均为 107 条，其中具备完整证据并通过审计的 67 条计为工具轨迹。新增预算试次包括未提交记录；是否适合训练仍需按具体算法的数据要求判断。
+v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-exchange/manifest.json)此前已计入研究库存，这次只是首次进入统一交换；没有增加模型调用或重复计算样本。[当前研究库存与交换集合](experiments/verification-resources-v1/exchange-inventory.json)在原 107／67 条基础上增加 14 条。库存包括未提交、中断及已被取代的验证器版本；审计通过不表示每条都有有效终局奖励，也不表示全部适合训练。当前用途另外标注，不用保留评估选择训练候选。
 
 当前交付尚缺原始模型采样、Token IDs、行为策略 Log Probability 与精确权重版本，不是无损 on-policy 训练数据。在线 Collector 与 RL 参数优化尚未接入。
 
-**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json) · [v5 统一入口](docs/task-rollout-exchange.md)
+**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json) · [v5/v6 任务交付入口](docs/task-rollout-exchange.md)
 
 ---
 
@@ -314,8 +327,9 @@ v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-ex
 
 ```text
 ProtocolBridge-RL/
-├── tasks/          # 四个任务包、Spec、初始 RTL、Registry
+├── tasks/          # 任务包、有限工程交付、Spec、初始材料、Registry
 ├── task_families/  # 路由 / 队列任务族、组合契约与共享生产步骤
+├── verification_resources/ # 实际能力审计与有限契约生产
 ├── environment/    # Agent Session、Policy、工程工具、质量门禁
 │   ├── policies/
 │   ├── synthesis/  # DC / Formality / PT 脚本

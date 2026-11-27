@@ -22,7 +22,7 @@
       "level": 5,
       "basis": "Custom transmitter, passive receive Monitor, independent cycle oracle; historical and current checker versions explicitly separated",
       "can_judge": "256 decoded payloads, exact sampled frame cycles, capture/busy/adjacent-frame obligations and fixed interface",
-      "evidence": "uart-quality-v3.json",
+      "evidence": "uart-quality-v4.json",
       "vendor_example_raw_logs": {
         "uart-direct-compile.log": "4d73f91c77f84ee5e6f315ad331e0ba48e84c2e3f36b54e55beb98463df9442c",
         "uart-direct-simulation.log": "597361bc9035e278bdfd7a49c437236cad1fb932ab8b9c21b1a2f12bb96dbdb8"

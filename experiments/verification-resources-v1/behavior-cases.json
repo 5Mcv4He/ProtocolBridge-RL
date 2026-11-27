@@ -1,0 +1,140 @@
+{
+  "schema": "artifact-behavior-review-v1",
+  "cases": [
+    {
+      "trial_id": "uart-8n1-verifier3-r1",
+      "source_review_interpretation": "First candidate selected frame[9] and shifted left: data was MSB-first. After delivered transition_mismatch, candidate-06 changed to frame[0], right shift and explicit remaining-bit control. Second public test and independent terminal/evaluation passed.",
+      "evidence_kind": "Actual source changes and actual test results; no new offline simulation and no inference of hidden model reasoning",
+      "candidates": [
+        {
+          "file": "candidate-04.sv",
+          "sha256": "32cabc3e3b99bee31d13d593496ca97a004737072a8d35504735b9f89d63f3ef"
+        },
+        {
+          "file": "candidate-06.sv",
+          "sha256": "c23d369e72f7508db94edd49b4cdcfe474a49768b008d677f8946012b2a89f6d"
+        }
+      ],
+      "actual_public_observations": [
+        {
+          "action_index": 5,
+          "observation": {
+            "status": "FAIL",
+            "category": "transition_mismatch",
+            "source_sha256": "32cabc3e3b99bee31d13d593496ca97a004737072a8d35504735b9f89d63f3ef",
+            "remaining_test_calls": 3
+          },
+          "delivered": true
+        },
+        {
+          "action_index": 7,
+          "observation": {
+            "status": "PASS",
+            "category": "pass",
+            "source_sha256": "c23d369e72f7508db94edd49b4cdcfe474a49768b008d677f8946012b2a89f6d",
+            "remaining_test_calls": 2
+          },
+          "delivered": true
+        }
+      ],
+      "historical_reward": 1.0,
+      "reserved_reward": 1.0,
+      "submitted": true
+    },
+    {
+      "trial_id": "uart-8e1-verifier3-r1",
+      "source_review_interpretation": "Candidate-04 used shift[10], the already-one stop bit, to decide completion at the first bit boundary. Candidate-06 changed tick direction but retained the same stop-bit predicate and failed again. Candidate-08 changed data to scalar yet sliced it, exposing the trusted compile-classification defect. No final submission.",
+      "evidence_kind": "Actual source changes and actual test results; no new offline simulation and no inference of hidden model reasoning",
+      "candidates": [
+        {
+          "file": "candidate-04.sv",
+          "sha256": "25ff3d4172b322516ca1fa996cf94991df2126aef9d6e63324e73ec60015bfc2"
+        },
+        {
+          "file": "candidate-06.sv",
+          "sha256": "09141eb07f74c1162a3184e6571d0b5022a81f6009288ab7166e144812e2daa0"
+        },
+        {
+          "file": "candidate-08.sv",
+          "sha256": "77a9dfabbdf079da9151157ab62b18fa44df4e9821b85f3c5d10cd74a1e42ec4"
+        }
+      ],
+      "actual_public_observations": [
+        {
+          "action_index": 5,
+          "observation": {
+            "status": "FAIL",
+            "category": "transition_mismatch",
+            "source_sha256": "25ff3d4172b322516ca1fa996cf94991df2126aef9d6e63324e73ec60015bfc2",
+            "remaining_test_calls": 3
+          },
+          "delivered": true
+        },
+        {
+          "action_index": 7,
+          "observation": {
+            "status": "FAIL",
+            "category": "transition_mismatch",
+            "source_sha256": "09141eb07f74c1162a3184e6571d0b5022a81f6009288ab7166e144812e2daa0",
+            "remaining_test_calls": 2
+          },
+          "delivered": true
+        },
+        {
+          "action_index": 9,
+          "observation": {
+            "status": "ENV_ERROR",
+            "category": "infrastructure_error",
+            "source_sha256": "77a9dfabbdf079da9151157ab62b18fa44df4e9821b85f3c5d10cd74a1e42ec4",
+            "remaining_test_calls": 1
+          },
+          "delivered": false
+        }
+      ],
+      "historical_reward": null,
+      "reserved_reward": null,
+      "submitted": false
+    },
+    {
+      "trial_id": "uart-8n1-verifier4-r1",
+      "source_review_interpretation": "Candidate-04 assigned a 10-bit framed word to an 8-bit shifter. After delivered FAIL, the Agent reread spec and source, widened it to10bits, updated shift slicing, reran public test and submitted. Public, terminal and separate evaluation passed.",
+      "evidence_kind": "Actual public tests and source review, no new offline tests",
+      "candidates": [
+        {
+          "file": "candidate-04.sv",
+          "sha256": "8a980116a1534eff26130b25d086b3e7f3754bec15f29cbde092d33faa6f1ce3"
+        },
+        {
+          "file": "candidate-08.sv",
+          "sha256": "63d00278b47384daeac8e3c1eab376b1c853ada42fe047fa6064997f22dcdd4b"
+        }
+      ],
+      "actual_public_observations": [
+        {
+          "action_index": 5,
+          "observation": {
+            "status": "FAIL",
+            "category": "transition_mismatch",
+            "source_sha256": "8a980116a1534eff26130b25d086b3e7f3754bec15f29cbde092d33faa6f1ce3",
+            "remaining_test_calls": 3
+          },
+          "delivered": true
+        },
+        {
+          "action_index": 9,
+          "observation": {
+            "status": "PASS",
+            "category": "pass",
+            "source_sha256": "63d00278b47384daeac8e3c1eab376b1c853ada42fe047fa6064997f22dcdd4b",
+            "remaining_test_calls": 2
+          },
+          "delivered": true
+        }
+      ],
+      "historical_reward": 1.0,
+      "reserved_reward": 1.0,
+      "submitted": true
+    }
+  ],
+  "selection": "Both verifier3 episodes and the only verifier4 episode with public FAIL followed by edits; no selection based on held-out results."
+}

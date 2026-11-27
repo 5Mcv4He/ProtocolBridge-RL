@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" role="img" aria-labelledby="title desc">
+<title id="title">三类工程交付，共同的求解边界，不同的独立验收依据</title>
+<desc id="desc">Agent 可编辑受控文件并运行公开检查，提交后停止。UART RTL 通过工业解码与独立周期模型验收；事务表通过合法与错误设计以及固定 Scoreboard 验收；同步 RTL 修复通过独立参考等价验收。独立评估不回流。</desc>
+<style>
+.bg{fill:#fbfcfe}.box{fill:#e6eef9;stroke:#6388b6}.tool{fill:#e8f4ed;stroke:#52a371}.boundary{fill:#edf0f4;stroke:#9ba8b9}.line{fill:none;stroke:#6388b6;stroke-width:1.8}.label{font:600 18px system-ui,'PingFang SC','Microsoft YaHei',sans-serif;fill:#1c2b3e}.small{font:15px system-ui,'PingFang SC','Microsoft YaHei',sans-serif;fill:#53647a}rect{stroke-width:1.5}text{text-anchor:middle}
+@media(prefers-color-scheme:dark){.bg{fill:#161e29}.box{fill:#253951;stroke:#78a4d8}.tool{fill:#203c31;stroke:#68bd87}.boundary{fill:#293443;stroke:#8c9bb0}.label{fill:#edf2f8}.small{fill:#b0bdcf}.line{stroke:#78a4d8}}
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L8 5L1 9" fill="none" stroke="#6388b6" stroke-width="1.5"/></marker></defs>
+<rect class="bg" x="1" y="1" width="758" height="428" rx="15"/>
+<text class="label" x="380" y="33">交付物改变，正确性的依据也随之改变</text>
+<rect class="boundary" x="28" y="53" width="704" height="58" rx="9"/>
+<text class="label" x="380" y="78">Agent：读取规格 → 修改文件 → 公开检查 → 提交</text>
+<text class="small" x="380" y="100">只收到允许的反馈；不能修改验收规则</text>
+<path class="line" d="M380 111V142" marker-end="url(#arrow)"/>
+<rect class="boundary" x="248" y="147" width="264" height="42" rx="9"/>
+<text class="label" x="380" y="174">冻结同一交付物，停止求解</text>
+<path class="line" d="M380 189V205H145V226" marker-end="url(#arrow)"/><path class="line" d="M380 205V226" marker-end="url(#arrow)"/><path class="line" d="M380 205H615V226" marker-end="url(#arrow)"/>
+<rect class="box" x="32" y="231" width="226" height="47" rx="9"/><text class="label" x="145" y="260">UART 发送 RTL</text>
+<rect class="box" x="267" y="231" width="226" height="47" rx="9"/><text class="label" x="380" y="260">X2P 测试事务表</text>
+<rect class="box" x="502" y="231" width="226" height="47" rx="9"/><text class="label" x="615" y="260">同步累加器修复</text>
+<path class="line" d="M145 278V298" marker-end="url(#arrow)"/><path class="line" d="M380 278V298" marker-end="url(#arrow)"/><path class="line" d="M615 278V298" marker-end="url(#arrow)"/>
+<rect class="tool" x="32" y="303" width="226" height="76" rx="9"/><text class="label" x="145" y="330">VIP 解码 + 周期模型</text><text class="small" x="145" y="355">字节、时序和完成账目</text>
+<rect class="tool" x="267" y="303" width="226" height="76" rx="9"/><text class="label" x="380" y="330">固定设计 + Scoreboard</text><text class="small" x="380" y="355">合法不误拒，缺陷被检出</text>
+<rect class="tool" x="502" y="303" width="226" height="76" rx="9"/><text class="label" x="615" y="330">独立参考 + Formality</text><text class="small" x="615" y="355">比较完整性与行为等价</text>
+<text class="small" x="380" y="407">终局奖励、独立评估、离线分析分开保存；不宣称已经进行参数训练</text>
+</svg>

@@ -4,6 +4,7 @@
 
 | 问题 | 页面 |
 |---|---|
+| VIP 与等价工具如何成为不同交付类型的可靠任务 | [三类有限任务、漏检修正与真实试次](verification-resources-tasks.md) |
 | 怎样从已验证方法生产新的任务契约 | [路由任务族与生产方法](task-family-production.md)、[生成及执行入口](../task_families/router_v1/README.md) |
 | 容量变化怎样派生动态验证义务 | [队列任务生产](queue-family-production.md)、[队列生成器](../task_families/queue_v1/README.md)、[准入与模型研究](queue-family-evaluation.md) |
 | 路由与排队相结合会增加哪些验证义务 | [组合契约与独立检查](composed-task-production.md)、[实际工业准入](../experiments/composed-stage-v1/composed-v2/summary.json) |

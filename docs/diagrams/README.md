@@ -16,4 +16,9 @@ SVG 内含系统深色偏好样式，不支持时仍可使用浅色画布；不�
 
 [verification-budget.svg](verification-budget.svg) 表达测试额度对照的固定条件、Agent 自主验证决策与提交后的评分边界。它是实验设计图，不是成功率或模型内部推理示意。
 
+
+## 不同验收依据
+
+[verification-bases.svg](verification-bases.svg)表达三类有限工程交付在提交冻结后的不同判据：UART 的工业解码与周期模型、激励任务的合法／错误设计区分、RTL 修复的独立参考等价。并排区域表示责任不同，不表示证明强度相同。对应[研究报告](../verification-resources-tasks.md)中的实际验收与限制；沿用蓝／绿／灰／琥珀的角色语义。
+
 [返回首页](../../README.md)

@@ -51,3 +51,9 @@ python3 scripts/tasks.py rollout axil_to_apb4_queue_003 -- \
 [综合工程环境](engineering-lab.md)则复用 `x2p_queue_three_v1` 的同一 Spec。工具配置和候选版本反馈改变时，需要新的环境冻结与验收，不能增加任务数量，也不能继承旧环境的准入哈希。任务库库存、模型试次与训练候选应分别统计。
 
 [本阶段研究库存](../experiments/composed-stage-v1/task-inventory.json)逐项区分任务来源、契约差异、准入证据和模型试次状态；三条新试次及候选回退见[研究报告](composed-environment-evaluation.md)。初版组合验证曾漏掉目标相关复位错误，当前使用验证器修订 2，旧证据仍保留供核查。
+
+## 三种新的有限工程交付
+
+X2P 的 11 个任务身份保持不变。另有[有限交付 Registry](../tasks/artifact-registry.json)，列出 UART 8N1／8E1、mapping／timing 测试生成、回绕／饱和累加器修复，共六个契约。它们分别使用工业解码加周期模型、固定设计与 UVM Scoreboard、独立参考 Formality；不能沿用 X2P 的“提交 bridge.sv”假设。
+
+[任务与研究说明](verification-resources-tasks.md)解释能力边界、正反对照、真实漏检与实际模型结果。`python3 -m environment.artifact_task list` 查询有效入口；`python3 -m verification_resources.production` 提供有限生产、依赖检查和初始化。Registry 是当前证据入口，准入仍要求哈希严格匹配；任务创建时的元数据与历史结果不回填。
