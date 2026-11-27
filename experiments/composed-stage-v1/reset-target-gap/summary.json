@@ -1,0 +1,59 @@
+{
+  "schema": "same-source-verification-gap-v1",
+  "task_contract_changed": false,
+  "original_verifier_revision": 1,
+  "corrected_verifier_revision": 2,
+  "candidate_sha256": "5f4de38ef20b5d116d1f24fb142084a78d04cbe4cb23df06a3fc43eb61c2c17f",
+  "probe": "Same compiled faulty RTL, original full25 suite versus reset_5 with target2 addresses; legal reference separately compiled and passed remapped scenario.",
+  "defect": "Reset leaves Access active only when the buffered target is two.",
+  "missing_obligation": "Mapped target identity crossed with lifecycle reset, rather than reset only on target zero.",
+  "original_coverage": "45/45 required bins, still incomplete for this interaction",
+  "correction": "Existing reset3/4 exercise target1; reset5/6 target2; reset7/8 target0. Require actual active-reset target bins and reject bad_target_reset.",
+  "results": {
+    "original": {
+      "reward": 1.0,
+      "category": "pass",
+      "source_sha256": "5f4de38ef20b5d116d1f24fb142084a78d04cbe4cb23df06a3fc43eb61c2c17f",
+      "suite_sha256": "6aa67756e1b07baefe6ff4ac6b87dba9324b9d9154be154df97e27852736f3eb",
+      "failed_case": null,
+      "verification_complete": true,
+      "planned": 620,
+      "checked": 580,
+      "aborted": 40,
+      "functional_cross": {
+        "required": 45,
+        "observed": 45,
+        "missing": [],
+        "kind": "requirement_bins_not_cartesian_cross"
+      },
+      "cases_executed": 25
+    },
+    "target2": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "source_sha256": "5f4de38ef20b5d116d1f24fb142084a78d04cbe4cb23df06a3fc43eb61c2c17f",
+      "suite_sha256": "dc914e45114b2c1b800c472a4111340a1e8971f4afdb06c3ac13c6b3a3d8fc5c",
+      "failed_case": "reset_5",
+      "verification_complete": false,
+      "planned": null,
+      "checked": null,
+      "aborted": null,
+      "functional_cross": null,
+      "cases_executed": 1
+    },
+    "reference": {
+      "reward": 1.0,
+      "category": "pass",
+      "source_sha256": "cc272bf6a6dca0b7eb45cdeded06a0b3dc6580c013923b3971753c2844cdbc0b",
+      "suite_sha256": "dc914e45114b2c1b800c472a4111340a1e8971f4afdb06c3ac13c6b3a3d8fc5c",
+      "failed_case": null,
+      "verification_complete": true,
+      "planned": 12,
+      "checked": 8,
+      "aborted": 4,
+      "functional_cross": null,
+      "cases_executed": 1
+    }
+  },
+  "scope": "A demonstrated coverage gap and same-source correction; not proof of complete verification."
+}

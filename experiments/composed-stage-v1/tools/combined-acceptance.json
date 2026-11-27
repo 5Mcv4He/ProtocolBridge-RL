@@ -1,0 +1,31 @@
+{
+  "version": "engineering-lab-v1",
+  "accepted": true,
+  "checks": {
+    "pre_read_rejected": true,
+    "compile_pass": true,
+    "compile_current": true,
+    "synth_check_pass": true,
+    "synth_check_current": true,
+    "test_pass": true,
+    "test_current": true,
+    "experiment_pass": true,
+    "retirement_visible": true,
+    "edit": true,
+    "inspect_stale": true,
+    "observe_stale": true,
+    "private_read_denied": true,
+    "submit": true,
+    "closed": true,
+    "independent_terminal": true,
+    "all_nine_actions_exercised": true
+  },
+  "model_used": false,
+  "terminal": {
+    "reward": 1.0,
+    "category": "pass",
+    "source_sha256": "0ae3fadabe9a2c0606a9ff624e6bcc27354f276b332b5123c80bf83114ca3f76",
+    "suite_sha256": "84d7e71facd29dfb030734612e8fbe6112b54c2e92a00d8fb8a14344c096317d"
+  },
+  "raw_result_sha256": "bc726118847ca3c6d6447b14b941ae95f6c8b10874c65461b9ae0501747267ef"
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "offline-candidate-analysis-plan-v1",
+  "episode": "repair-diagnostic-v2",
+  "candidate": "candidate-06.sv",
+  "source_sha256": "498eb25b71e894f19d1fe0a81718f6337ef85248f6c6fe0cad70230f5ba13ca0",
+  "selection_reason": "The candidate removes the delayed RESP exit, was not tested by the solver, and is then reverted to the exact already-failed candidate04. Measure its public behavior regardless of outcome.",
+  "measurement": "One full public suite after all three planned model trials have stopped. No private reward re-scoring and no additional model calls.",
+  "solver_feedback": false,
+  "terminal_reward_unchanged": true
+}

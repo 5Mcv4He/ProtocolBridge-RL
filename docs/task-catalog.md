@@ -43,3 +43,11 @@ python3 scripts/tasks.py rollout axil_to_apb4_queue_003 -- \
 [当前任务研究索引](../experiments/engineering-stage-research-index.json)（[上一阶段索引](../experiments/task-research-index.json)保留）将每个Task的能力、协议、验证后端、版本、污染风险与各次真实实验关联，提供逐Policy样本量、0/1/null、反馈曝光、Token、耗时和来源哈希。由`scripts/research_index.py`从已审查证据生成，不合并独立生成与修复，也不授予执行准入。每次有新结果更新研究索引，保持冻结Spec/任务包不变。
 
 当前实测：[001批量研究](batch-evaluation-report.md)、[002路由](task002-evaluation-report.md)、[003独立生成](task003-evaluation-report.md)、[003同起点修复](task003-repair-report.md)、[003工程工具对照](engineering-tools-evaluation.md)、[004执行/响应解耦](task004-evaluation-report.md)。当前研究报告由此固定索引链接；历史冻结任务包不为追加结果回改。
+
+## 组合契约与环境条件分别计数
+
+[路由／退休组合契约](composed-task-production.md)增加一个 `x2p_routed_queue_v1` Task ID。两种合法结构、19 个错误对照、25 个完整 case、23 个公开 case、48 项需求覆盖和 40 项机制检查已通过[源码绑定的工业验收](../experiments/composed-stage-v1/composed-v2/summary.json)。它与四个原始任务、六个已验收生成实例构成 11 个任务身份，不等于 11 种独立工程能力。
+
+[综合工程环境](engineering-lab.md)则复用 `x2p_queue_three_v1` 的同一 Spec。工具配置和候选版本反馈改变时，需要新的环境冻结与验收，不能增加任务数量，也不能继承旧环境的准入哈希。任务库库存、模型试次与训练候选应分别统计。
+
+[本阶段研究库存](../experiments/composed-stage-v1/task-inventory.json)逐项区分任务来源、契约差异、准入证据和模型试次状态；三条新试次及候选回退见[研究报告](composed-environment-evaluation.md)。初版组合验证曾漏掉目标相关复位错误，当前使用验证器修订 2，旧证据仍保留供核查。

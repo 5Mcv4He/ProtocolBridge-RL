@@ -1,0 +1,190 @@
+{
+  "schema": "obligation-evidence-v1",
+  "task_id": "x2p_routed_queue_v1",
+  "freeze_sha256": "5ab2f1d4250ac629801c0b8ad15f6303b3263669bca19ccbb76cf449ad488094",
+  "evidence_sha256": {
+    "result.json": "79dff083df073e3996a768746a27bbea33de9551bb036a34c3a202280db36da6",
+    "reference/result.json": "c7ce05da45acfee74a8fc9f1fb1907f3aca2c70b58bf4f97b6d00576f2db3f6c",
+    "reference_shift/result.json": "39da26ab8a716c45beea00b4d55f7b74451003e2a717ba75210ea5d7cbd58466"
+  },
+  "obligations_sha256": "b5a6e1664294f16ad13e570a75a0b9e241f7e9057895ebf642d921212fe23995",
+  "reporter_sha256": "2df9b09ffaccbd89fb79e02edcc2f4b28e05e653ab193ac58a2ac6d03b53fedf",
+  "obligations": [
+    {
+      "id": "X_ROUTE_QUEUE",
+      "kind": "capability_interaction",
+      "reference_evidence": {
+        "reference": {
+          "observed_bins": [
+            "x_queued_target_0",
+            "x_queued_target_1",
+            "x_queued_target_2",
+            "x_switch",
+            "x_target_0",
+            "x_target_1",
+            "x_target_2"
+          ],
+          "completed_stimuli": [
+            "routed_identity"
+          ]
+        },
+        "reference_shift": {
+          "observed_bins": [
+            "x_queued_target_0",
+            "x_queued_target_1",
+            "x_queued_target_2",
+            "x_switch",
+            "x_target_0",
+            "x_target_1",
+            "x_target_2"
+          ],
+          "completed_stimuli": [
+            "routed_identity"
+          ]
+        }
+      },
+      "negative_evidence": {
+        "bad_target": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "failed_case": "routed_identity"
+        },
+        "bad_local": {
+          "reward": 0.0,
+          "category": "transaction_functional_error",
+          "failed_case": "routed_identity"
+        },
+        "bad_live_target": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "failed_case": "routed_identity"
+        },
+        "bad_response_mux": {
+          "reward": 0.0,
+          "category": "transaction_functional_error",
+          "failed_case": "routed_identity"
+        }
+      }
+    },
+    {
+      "id": "X_DECERR_LIFECYCLE",
+      "kind": "capability_interaction",
+      "reference_evidence": {
+        "reference": {
+          "observed_bins": [
+            "x_after_decerr_contended",
+            "x_decerr_stall",
+            "x_unmapped_read",
+            "x_unmapped_write"
+          ],
+          "completed_stimuli": [
+            "decerr_competition"
+          ]
+        },
+        "reference_shift": {
+          "observed_bins": [
+            "x_after_decerr_contended",
+            "x_decerr_stall",
+            "x_unmapped_read",
+            "x_unmapped_write"
+          ],
+          "completed_stimuli": [
+            "decerr_competition"
+          ]
+        }
+      },
+      "negative_evidence": {
+        "bad_decerr": {
+          "reward": 0.0,
+          "category": "transaction_functional_error",
+          "failed_case": "decerr_competition"
+        },
+        "bad_decerr_ar_credit": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "failed_case": "decerr_competition"
+        },
+        "bad_decerr_preference": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "failed_case": "decerr_competition"
+        }
+      }
+    },
+    {
+      "id": "X_RESET_DECERR",
+      "kind": "capability_interaction",
+      "reference_evidence": {
+        "reference": {
+          "observed_bins": [
+            "x_reset_decerr"
+          ],
+          "completed_stimuli": [
+            "reset_decerr_7",
+            "reset_decerr_8"
+          ]
+        },
+        "reference_shift": {
+          "observed_bins": [
+            "x_reset_decerr"
+          ],
+          "completed_stimuli": [
+            "reset_decerr_7",
+            "reset_decerr_8"
+          ]
+        }
+      },
+      "negative_evidence": {
+        "bad_reset_credit": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "failed_case": "reset_1"
+        }
+      }
+    },
+    {
+      "id": "X_RESET_TARGET_IDENTITY",
+      "kind": "capability_interaction",
+      "reference_evidence": {
+        "reference": {
+          "observed_bins": [
+            "x_reset_mapped_0",
+            "x_reset_mapped_1",
+            "x_reset_mapped_2"
+          ],
+          "completed_stimuli": [
+            "reset_3",
+            "reset_4",
+            "reset_5",
+            "reset_6",
+            "reset_7",
+            "reset_8"
+          ]
+        },
+        "reference_shift": {
+          "observed_bins": [
+            "x_reset_mapped_0",
+            "x_reset_mapped_1",
+            "x_reset_mapped_2"
+          ],
+          "completed_stimuli": [
+            "reset_3",
+            "reset_4",
+            "reset_5",
+            "reset_6",
+            "reset_7",
+            "reset_8"
+          ]
+        }
+      },
+      "negative_evidence": {
+        "bad_target_reset": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "failed_case": "reset_5"
+        }
+      }
+    }
+  ],
+  "scope": "Source-matched executed stimuli, observed bins and rejected functional controls. This does not grant admission or establish completeness or causal coverage attribution."
+}

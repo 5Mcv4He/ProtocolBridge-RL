@@ -1,0 +1,33 @@
+"""Interaction traffic, not merely the union of routing and queue scenarios."""
+from ._protocol_template import suite as inherited,REQUIRED_BINS as inherited_bins
+REQUIRED_BINS={'x_reset_mapped_%d'%i for i in range(3)}|set(inherited_bins)|{'x_target_%d'%i for i in range(3)}|{'x_queued_target_%d'%i for i in range(3)}|{'x_switch','x_unmapped_write','x_unmapped_read','x_decerr_stall','x_after_decerr_contended','x_reset_decerr'}
+def suite(public=False,seed=20261125):
+ cases=inherited(public,seed)
+ # Existing memory checks remain mapped; target identity is new and independent.
+ for c in cases:
+  for r in c['rows']+c['recovery']:
+   r[1]=((r[1]>>16)%3)*0x10000+(r[1]&0xffff)
+  # Reset is target-sensitive after composition. Reuse existing lifecycle
+  # stages on each mapped target; coverage requires observed active reset.
+  stage=c.get('reset_stage',0)
+  if stage in (3,4,5,6):
+   target=1 if stage in (3,4) else 2
+   for r in c['rows']+c['recovery']:r[1]=target*0x10000+(r[1]&0xffff)
+   c['requirements']+=['X_RESET_TARGET_IDENTITY']
+ def row(w,a,i,err=0):return [w,a,0x12340000+i*0x10001,i%16,0,0,4,32,err,0]
+ def add(name,rows,rec=None,stage=0):
+  cases.append({'name':name,'sequence':'queue_reset_sequence' if stage else 'queue_memory_sequence','rows':rows,'recovery':rec or [],'reset_stage':stage,'requirements':['X_ROUTE_QUEUE','X_DECERR_LIFECYCLE','X_TARGET_MEMORY'],'ready_mode':'reactive'})
+ # Distinct values at identical local addresses must not alias across slaves.
+ rows=[row(1,t*0x10000+(i%4)*4,3*i+t) for i in range(16) for t in range(3)]
+ add('routed_identity',rows,[row(0,t*0x10000+i*4,0) for t in range(3) for i in range(4)])
+ # A virtual error transaction participates in FIFO, arbitration and retirement.
+ rows=[row(i%2,[0x30000,0x10004,0x20004,0x40000,0x0004,0x1fffc][i%6],i,i%3==0) for i in range(30)]
+ add('decerr_competition',rows)
+ for stage in (7,8):
+  c=next(c for c in cases if c['name']=='reset_%d'%stage)
+  import copy
+  d=copy.deepcopy(c);d['name']='reset_decerr_%d'%stage
+  for r in d['rows']:
+   if bool(r[0])==(stage==7):r[1]+=0x30000
+  d['requirements']+=['X_RESET_DECERR'];cases.append(d)
+ return cases

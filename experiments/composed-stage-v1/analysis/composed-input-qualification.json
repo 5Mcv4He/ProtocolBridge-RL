@@ -1,0 +1,49 @@
+{
+  "schema": "exact-input-reference-qualification-v1",
+  "task_id": "x2p_routed_queue_v1",
+  "verifier_revision": 2,
+  "timing": "After all three solver sessions stopped; no feedback returned to solvers.",
+  "rows": [
+    {
+      "split": "reward",
+      "raw_result_sha256": "1bd33eee1f7c31a37ff8380e3c4918467ceea59d7fd5ae0d1e76eb56471f2166",
+      "case_count": 25,
+      "reward": 1.0,
+      "category": "pass",
+      "source_sha256": "cc272bf6a6dca0b7eb45cdeded06a0b3dc6580c013923b3971753c2844cdbc0b",
+      "suite_sha256": "b4536d26faf688a524d4455b577957831305e01a07c95ce5a5db4b380daf3830",
+      "verification_complete": true,
+      "planned": 620,
+      "checked": 580,
+      "aborted": 40,
+      "functional_cross": {
+        "required": 48,
+        "observed": 48,
+        "missing": [],
+        "kind": "requirement_bins_not_cartesian_cross"
+      }
+    },
+    {
+      "split": "evaluation",
+      "raw_result_sha256": "201aa73a98fe48567a38a067ca3815d459f9a36285eb07cf30ec61f43c819e6a",
+      "case_count": 25,
+      "reward": 1.0,
+      "category": "pass",
+      "source_sha256": "cc272bf6a6dca0b7eb45cdeded06a0b3dc6580c013923b3971753c2844cdbc0b",
+      "suite_sha256": "4db59578e9f25cb7623d4dd1235fd9082ebcfbb5c54d92e2f54caae56494d3ee",
+      "verification_complete": true,
+      "planned": 620,
+      "checked": 580,
+      "aborted": 40,
+      "functional_cross": {
+        "required": 48,
+        "observed": 48,
+        "missing": [],
+        "kind": "requirement_bins_not_cartesian_cross"
+      }
+    }
+  ],
+  "scope": "Legal reference passed the exact frozen terminal and held-out inputs used by the composed trial. Private vectors and raw logs remain private. This does not change candidate reward or establish complete correctness.",
+  "source_admission": "../composed-v2/summary.json",
+  "freeze_sha256": "5ab2f1d4250ac629801c0b8ad15f6303b3263669bca19ccbb76cf449ad488094"
+}

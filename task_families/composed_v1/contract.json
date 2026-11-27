@@ -1,0 +1,29 @@
+{
+  "task_id": "x2p_routed_queue_v1",
+  "version": 1,
+  "family": "x2p_routed_retirement_v1",
+  "capacity": {
+    "aw": 2,
+    "w": 2,
+    "ar": 2
+  },
+  "targets": [
+    [
+      0,
+      65536
+    ],
+    [
+      65536,
+      65536
+    ],
+    [
+      131072,
+      65536
+    ]
+  ],
+  "execution": "single executor held until AXI response consumption",
+  "arbitration": "round robin at buffered eligible selection, including DECERR",
+  "unmapped": "registered DECERR at selection; no APB; zero RDATA; credits retained to retirement",
+  "scope": "One reviewed composed contract; not arbitrary parameter generation",
+  "verifier_revision": 2
+}

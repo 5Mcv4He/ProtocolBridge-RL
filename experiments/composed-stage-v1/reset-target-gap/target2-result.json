@@ -1,0 +1,48 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "public": true,
+  "source_sha256": "5f4de38ef20b5d116d1f24fb142084a78d04cbe4cb23df06a3fc43eb61c2c17f",
+  "cases": [
+    {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "simulation_exit": 0,
+      "planned": 12,
+      "failures": [],
+      "timing_failures": [
+        "Synchronous reset outputs"
+      ],
+      "coverage_bins": [],
+      "reset_observations": [
+        {
+          "stage": 5,
+          "canceled": 4,
+          "aw": 2,
+          "w": 2,
+          "ar": 2,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "name": "reset_5",
+      "requirements": [
+        "Q_RESET_STAGE_5",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE"
+      ]
+    }
+  ],
+  "verification_complete": false,
+  "suite_sha256": "dc914e45114b2c1b800c472a4111340a1e8971f4afdb06c3ac13c6b3a3d8fc5c",
+  "required_cases": [
+    "reset_5"
+  ],
+  "compile_reused": true,
+  "failed_case": "reset_5",
+  "verdict_determinate": true
+}

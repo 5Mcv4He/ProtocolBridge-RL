@@ -1,0 +1,138 @@
+# AXI4-Lite to APB4 with bounded request queues — x2p_routed_queue_v1 revision 1
+
+Implement one self-contained synthesizable module `bridge`, with exactly the ports
+in the initial RTL. All signals use rising-edge `clk`; `rst_n` is active-low
+synchronous reset. Address/data widths are 32 bits, addresses are byte addresses
+aligned to four bytes. There are three APB targets with address decoding and local address translation
+defined below. There are no bursts, IDs, exclusives, clock crossings,
+interrupts, AWPROT or ARPROT ports. PPROT=000 during transfers.
+
+## Queue capacity and acceptance
+
+The requester may overlap reads and writes and may issue later requests before
+receiving earlier responses. It preserves FIFO order on each AXI request channel.
+The first accepted AW pairs with the first accepted W, the second with the second,
+and so on. AW and W may be separated by arbitrary finite gaps in either direction.
+
+- Store up to TWO accepted AW payloads and TWO accepted W payloads independently.
+  Consuming a B response retires one AW and one W credit. Until that handshake,
+  the executing write and any pending B response still consume both credits.
+- Store up to TWO accepted AR payloads. Consuming an R response retires one AR
+  credit, including requests already executed on APB but awaiting R consumption.
+- Therefore at most two writes (possibly partial) and two reads are outstanding.
+  A partial write consumes the credit of its accepted half only. Total complete
+  outstanding AXI transactions is at most four; it is not four per direction.
+- AWREADY must not depend on WVALID or the presence of the matching W half;
+  WREADY must not depend on AWVALID or AW acceptance. AR acceptance is independent
+  of writes. Acceptance must continue while APB or an AXI response is stalled if
+  the corresponding channel still has capacity.
+- Accept an offered channel within 16 cycles while its credit is available.
+  Time for which its queue is full does not count toward this bound. VALID and
+  payload are held by the requester until READY. Both conservative READY (new
+  credit visible next cycle) and same-edge response-credit reuse are legal.
+- Never accept a third unretired AW, W or AR. Do not overwrite, drop or duplicate
+  accepted requests. Read and write responses remain FIFO ordered within their
+  own direction; there is no required global order between reads and writes.
+
+## Serial APB execution and round-robin selection
+
+Only one transaction executes on APB at a time. A write is eligible when both its
+oldest unretired AW and W are buffered. A read is eligible when its oldest AR is
+buffered. A partial write must not block eligible reads.
+
+Selection uses a registered FIFO contract:
+
+1. At an edge when no transaction is executing or awaiting response consumption,
+   inspect requests buffered BEFORE that edge. Newly accepted requests at that
+   same edge become eligible at the following edge (no input-to-APB bypass).
+2. If at least one request is eligible, start its mapped APB setup (or unmapped DECERR response) during the cycle
+   immediately following that edge. With both directions eligible, choose the
+   current round-robin preference; otherwise choose the eligible direction.
+3. Preference starts with READ after reset. Every selection changes preference
+   to the opposite of the selected direction, including selections that later
+   return an APB error. No further selection occurs until its AXI response is
+   consumed. A response consumed on the current edge makes the executor idle for
+   the NEXT edge; it cannot select and consume a response on the same edge.
+
+Thus, for an otherwise idle bridge, a request accepted on edge N can first be
+selected on edge N+1, drives setup in the following cycle, and presents setup to
+the APB target on edge N+2. These explicit scheduling rules make arbitration
+observable and reproducible; they are not a requirement for speculative bypass.
+
+## APB and AXI response behavior
+
+- Each selected mapped non-aborted request produces exactly one APB setup cycle with
+  exactly the selected PSEL bit high and PENABLE=0, then Access with PENABLE=1
+  until the selected PREADY bit is high.
+- Keep address, write direction, write data, PSTRB and PPROT stable through
+  setup/access/wait. Support any finite target wait. For writes pass WDATA and
+  every WSTRB bit unchanged, including zero. For reads PSTRB=0.
+- For mapped requests, only at APB completion sample selected PRDATA and PSLVERR. Return OKAY (00) for no error
+  and SLVERR (10) for an error; RDATA must equal PRDATA even on an error.
+- For mapped requests, BVALID/RVALID cannot precede the corresponding APB completion and must assert
+  within 16 cycles after it. Preserve VALID and payload until READY, even with
+  long response backpressure or READY already high before VALID.
+- The executor holds that response until consumed. Do not start another APB
+  transfer while it is pending, even if the other response channel is ready.
+  Request queues may still fill independently during this time.
+- While no APB transfer is active, PSEL=PENABLE=0. Other APB payload outputs have
+  no functional meaning. No throughput/area optimization beyond the stated
+  scheduling and acceptance behavior is part of the reward.
+
+## Reset and target memory
+
+At every rising edge with rst_n=0, clear all queued AW/W/AR requests, partial
+writes, in-flight state, pending B/R responses and arbitration preference (READ).
+Drive PSEL/PENABLE/BVALID/RVALID low. The requester and target are reset too.
+No queued or interrupted request may generate a stale APB transfer or response
+after reset release. Accept new traffic normally after release.
+
+A write already completed on APB remains committed even if its AXI response or
+later queued requests are discarded by reset. An interrupted APB transfer has no
+memory effect. Each successful APB write updates only bytes selected by PSTRB;
+error writes do not update target memory. These are test-target behaviors, not
+requirements to implement memory inside the bridge. The target retains committed
+memory across reset.
+
+## Submission and evaluation boundary
+
+Submit only the `bridge` module. No external modules/includes, compiler directives,
+hierarchical access, string literals, initial/final blocks, DPI, file I/O or
+simulation control. System functions are limited to `$clog2` and `$bits`.
+
+Public, private reward and reserved evaluation exercise this same contract. Only
+Policy-allowed public feedback is visible during solving. Reference RTL, verifier
+source and private inputs are not available to the solving process. Formal proof,
+synthesis, complete code coverage and an assertion of all possible-input
+correctness are outside the current functional evaluation.
+
+## Routed queue contract (normative additions)
+
+Three independent APB4 targets share PADDR/PWDATA/PWRITE/PSTRB/PPROT/PENABLE.
+PSEL is a 3-bit one-hot-or-zero vector. PREADY and PSLVERR are 3-bit input
+vectors; PRDATA is 96 bits, target i in [32*i +: 32]. Only the selected target
+may complete the current transfer. Unselected input values have no meaning.
+
+Address windows (byte addresses, inclusive): target 0: 0x00000000..0x0000ffff;
+target 1: 0x00010000..0x0001ffff; target 2: 0x00020000..0x0002ffff.
+APB PADDR is the AXI address minus the selected window base. The same local
+address on different targets identifies different storage. All other addresses
+are unmapped. All accesses remain aligned 32-bit transactions with byte strobes.
+
+A mapped FIFO head follows the original registered selection/Setup/Access rules.
+Decode the scheduled buffered address, not live AXI pins. Retain target identity,
+local address and payload throughout Setup and all Access waits. Capture only
+that target's response and retain it under AXI response backpressure.
+
+An unmapped head occupies the same AW/W or AR capacity and participates in the
+same round-robin selection as a mapped head. At its registered selection edge,
+produce BVALID/BRESP=DECERR or RVALID/RRESP=DECERR/RDATA=0 immediately after the
+edge, with PSEL=0 and PENABLE=0. No APB operation occurs. Retain credits and the
+executor until the B/R response handshake, update arbitration preference on
+selection (including errors), and resume normal mapped work after retirement.
+Reset cancels mapped and unmapped queued/executing/pending requests alike.
+An unmapped request is not a bypass around older FIFO heads or arbitration.
+
+These additions replace only the original single-target address/response mapping.
+Other queue, arbitration, response-retirement and reset rules remain normative.
+No multiple APB executors, response decoupling, AXI IDs/bursts or arbitrary depths.

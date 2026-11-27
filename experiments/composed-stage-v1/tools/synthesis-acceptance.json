@@ -1,0 +1,45 @@
+{
+  "version": "synthesis-tools-v1",
+  "accepted": true,
+  "checks": {
+    "counter_status": true,
+    "syntax_status": true,
+    "latch_status": true,
+    "forbidden_status": true,
+    "latch_advisory": true,
+    "forbidden_no_execution": true,
+    "task003_synthesis": true,
+    "task004_synthesis": true,
+    "read_required": true,
+    "session_real_synthesis_0": true,
+    "session_real_synthesis_1": true,
+    "third_denied": true,
+    "private_read_denied": true,
+    "script_denied": true,
+    "synth_pass_does_not_imply_public_pass": true,
+    "submission": true,
+    "closed": true,
+    "functional_reward_independent": true,
+    "no_tool_reward": true,
+    "source_identity": true
+  },
+  "model_used": false,
+  "real_tools": [
+    "Design Compiler",
+    "VCS VIP/UVM"
+  ],
+  "trusted_extensions_requested": false,
+  "terminal_control": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "source_sha256": "bd78d58f26227411eea35ef9c9c02903be0dd28a40dc4afea2b3c1626a27aa3c",
+    "suite_sha256": "1f3a1653f596e69210eaaa0013b86fd08728c88b3a8272167a9e80b0e8f1df21",
+    "failed_case": "address_data"
+  },
+  "limits": [
+    "Synthesis acceptance includes one real functional negative control; positive task qualification remains a separate Quality Gate.",
+    "No PPA reward; teaching measurements only.",
+    "No FPV proof of queue capacity or arbitration."
+  ],
+  "raw_result_sha256": "198779f0056e4a46834ae49e626c8459712dab83d5b1ac1331ee27fc7d788f60"
+}

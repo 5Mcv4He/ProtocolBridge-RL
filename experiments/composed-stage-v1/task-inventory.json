@@ -1,0 +1,302 @@
+{
+  "schema": "reviewed-task-inventory-v1",
+  "scope": "Research inventory, not an executable admission grant. Each actual run still requires source/toolchain-matched evidence. Environment overlays do not add task IDs.",
+  "task_count": 11,
+  "tasks": [
+    {
+      "task_id": "axil_to_apb4_001",
+      "version": 3,
+      "origin": "hand_authored",
+      "capabilities": [
+        "independent-write-halves",
+        "single-outstanding-conversion",
+        "apb-wait-error",
+        "response-backpressure",
+        "reset-cancellation"
+      ],
+      "spec": "tasks/axil_to_apb4_001/spec.md",
+      "historical_admission": "original version evidence; not automatic admission on current checkout",
+      "model_evaluated": true,
+      "calibration": "existing exploratory studies; no absolute difficulty rank"
+    },
+    {
+      "task_id": "axil_to_apb4_router_002",
+      "version": 1,
+      "origin": "hand_authored",
+      "capabilities": [
+        "full-address-decode",
+        "one-hot-routing",
+        "local-address-translation",
+        "selected-response-mux",
+        "decode-error",
+        "reset-cancellation"
+      ],
+      "spec": "tasks/axil_to_apb4_router_002/spec.md",
+      "historical_admission": "original version evidence; not automatic admission on current checkout",
+      "model_evaluated": true,
+      "calibration": "existing exploratory studies; no absolute difficulty rank"
+    },
+    {
+      "task_id": "axil_to_apb4_queue_003",
+      "version": 1,
+      "origin": "hand_authored",
+      "capabilities": [
+        "independent-request-fifos",
+        "bounded-outstanding-credit",
+        "read-write-arbitration",
+        "response-ordering",
+        "reset-ledgers"
+      ],
+      "spec": "tasks/axil_to_apb4_queue_003/spec.md",
+      "historical_admission": "original version evidence; not automatic admission on current checkout",
+      "model_evaluated": true,
+      "calibration": "existing exploratory studies; no absolute difficulty rank"
+    },
+    {
+      "task_id": "axil_to_apb4_decoupled_004",
+      "version": 1,
+      "origin": "hand_authored",
+      "capabilities": [
+        "independent-apb-execution",
+        "separate-response-queues",
+        "three-credit-reservation",
+        "read-snapshot-lifetime",
+        "non-power-of-two-wrap",
+        "reset-multiple-completions"
+      ],
+      "spec": "tasks/axil_to_apb4_decoupled_004/spec.md",
+      "historical_admission": "original version evidence; not automatic admission on current checkout",
+      "model_evaluated": true,
+      "calibration": "existing exploratory studies; no absolute difficulty rank"
+    },
+    {
+      "task_id": "x2p_router_compact_v1",
+      "version": 1,
+      "origin": "generated",
+      "family": "x2p_three_target_router_v1",
+      "parameters": {
+        "purpose": "Nearby unequal windows separated by decode holes",
+        "task_id": "x2p_router_compact_v1",
+        "windows": [
+          [
+            4096,
+            4096
+          ],
+          [
+            12288,
+            8192
+          ],
+          [
+            36864,
+            4096
+          ]
+        ]
+      },
+      "capabilities": [
+        "full-address-decode",
+        "one-hot-routing",
+        "local-address-translation",
+        "selected-response-mux",
+        "decode-error",
+        "reset-cancellation"
+      ],
+      "spec": "experiments/router-family-v1/compact/spec.md",
+      "historical_admission": "experiments/router-family-v1/compact/summary.json",
+      "model_evaluated": false,
+      "calibration": "pending"
+    },
+    {
+      "task_id": "x2p_router_irregular_v1",
+      "version": 1,
+      "origin": "generated",
+      "family": "x2p_three_target_router_v1",
+      "parameters": {
+        "purpose": "Non-power-of-two window, target indices not sorted by address, high-bit decode",
+        "task_id": "x2p_router_irregular_v1",
+        "windows": [
+          [
+            135168,
+            12288
+          ],
+          [
+            4096,
+            8192
+          ],
+          [
+            2147487744,
+            4096
+          ]
+        ]
+      },
+      "capabilities": [
+        "full-address-decode",
+        "one-hot-routing",
+        "local-address-translation",
+        "selected-response-mux",
+        "decode-error",
+        "reset-cancellation"
+      ],
+      "spec": "experiments/router-family-v1/irregular/spec.md",
+      "historical_admission": "experiments/router-family-v1/irregular/summary.json",
+      "model_evaluated": true,
+      "calibration": "exploratory"
+    },
+    {
+      "task_id": "x2p_router_adjacent_v1",
+      "version": 1,
+      "origin": "generated",
+      "family": "x2p_three_target_router_v1",
+      "parameters": {
+        "purpose": "Adjacent target boundary without an unmapped gap and unequal high window",
+        "task_id": "x2p_router_adjacent_v1",
+        "windows": [
+          [
+            4096,
+            4096
+          ],
+          [
+            8192,
+            8192
+          ],
+          [
+            1073741824,
+            12288
+          ]
+        ]
+      },
+      "capabilities": [
+        "full-address-decode",
+        "one-hot-routing",
+        "local-address-translation",
+        "selected-response-mux",
+        "decode-error",
+        "reset-cancellation"
+      ],
+      "spec": "experiments/router-family-v1/adjacent/spec.md",
+      "historical_admission": "experiments/router-family-v1/adjacent/summary.json",
+      "model_evaluated": false,
+      "calibration": "pending"
+    },
+    {
+      "task_id": "x2p_queue_single_v1",
+      "version": 1,
+      "origin": "generated",
+      "family": "x2p_retirement_queues_v1",
+      "parameters": {
+        "purpose": "Independent partial-write capture and read/write arbitration with one unretired slot per direction",
+        "read_capacity": 1,
+        "task_id": "x2p_queue_single_v1",
+        "write_capacity": 1
+      },
+      "capabilities": [
+        "independent-request-fifos",
+        "bounded-outstanding-credit",
+        "read-write-arbitration",
+        "response-ordering",
+        "reset-ledgers"
+      ],
+      "spec": "experiments/queue-family-v1/single/spec.md",
+      "historical_admission": "experiments/queue-family-v1/single/summary.json",
+      "model_evaluated": true,
+      "calibration": "exploratory"
+    },
+    {
+      "task_id": "x2p_queue_three_v1",
+      "version": 1,
+      "origin": "generated",
+      "family": "x2p_retirement_queues_v1",
+      "parameters": {
+        "purpose": "Non-power-of-two queues, wrap and retained credits through response consumption",
+        "read_capacity": 3,
+        "task_id": "x2p_queue_three_v1",
+        "write_capacity": 3
+      },
+      "capabilities": [
+        "independent-request-fifos",
+        "bounded-outstanding-credit",
+        "read-write-arbitration",
+        "response-ordering",
+        "reset-ledgers"
+      ],
+      "spec": "experiments/queue-family-v1/three/spec.md",
+      "historical_admission": "experiments/queue-family-v1/three/summary.json",
+      "model_evaluated": true,
+      "calibration": "exploratory"
+    },
+    {
+      "task_id": "x2p_queue_readheavy_v1",
+      "version": 1,
+      "origin": "generated",
+      "family": "x2p_retirement_queues_v1",
+      "parameters": {
+        "purpose": "Separate read buffering from one-slot write lifecycle; asymmetric capacity management",
+        "read_capacity": 3,
+        "task_id": "x2p_queue_readheavy_v1",
+        "write_capacity": 1
+      },
+      "capabilities": [
+        "independent-request-fifos",
+        "bounded-outstanding-credit",
+        "read-write-arbitration",
+        "response-ordering",
+        "reset-ledgers"
+      ],
+      "spec": "experiments/queue-family-v1/readheavy/spec.md",
+      "historical_admission": "experiments/queue-family-v1/readheavy/summary.json",
+      "model_evaluated": false,
+      "calibration": "pending"
+    },
+    {
+      "task_id": "x2p_routed_queue_v1",
+      "version": 1,
+      "origin": "generated",
+      "family": "x2p_routed_retirement_v1",
+      "parameters": {
+        "task_id": "x2p_routed_queue_v1",
+        "version": 1,
+        "family": "x2p_routed_retirement_v1",
+        "capacity": {
+          "aw": 2,
+          "w": 2,
+          "ar": 2
+        },
+        "targets": [
+          [
+            0,
+            65536
+          ],
+          [
+            65536,
+            65536
+          ],
+          [
+            131072,
+            65536
+          ]
+        ],
+        "execution": "single executor held until AXI response consumption",
+        "arbitration": "round robin at buffered eligible selection, including DECERR",
+        "unmapped": "registered DECERR at selection; no APB; zero RDATA; credits retained to retirement",
+        "scope": "One reviewed composed contract; not arbitrary parameter generation",
+        "verifier_revision": 2
+      },
+      "capabilities": [
+        "independent-request-fifos",
+        "bounded-outstanding-credit",
+        "read-write-arbitration",
+        "response-ordering",
+        "reset-ledgers",
+        "queued_target_identity",
+        "decerr_retirement",
+        "route_queue_interactions"
+      ],
+      "spec": "experiments/composed-stage-v1/composed-v2/spec.md",
+      "historical_admission": "experiments/composed-stage-v1/composed-v2/summary.json",
+      "model_evaluated": true,
+      "calibration": "one independent diagnostic rollout: valid submission, reward0; base scheduling fails before interaction coverage; difficulty uncalibrated",
+      "verifier_revision": 2,
+      "verification_gap": "experiments/composed-stage-v1/reset-target-gap/summary.json",
+      "model_evidence": "experiments/composed-stage-v1/composed-rollout/metrics.json"
+    }
+  ]
+}

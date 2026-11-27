@@ -1,0 +1,70 @@
+{
+  "schema": "reviewed-exchange-inventory-v1",
+  "records": 95,
+  "available_tool_trajectories": 55,
+  "new_model_trials": 3,
+  "historical_router_newly_exported_not_new_trial": 1,
+  "v2_base": {
+    "validation": "experiments/trajectory-exchange-v2/validation.json",
+    "sha256": "c6708d8fdf60de62313433c2b1fa80bbc79b58ab2d9e8dd67d190ba5de531e72",
+    "records": 85,
+    "available_tool_trajectories": 45
+  },
+  "additional_counts": {
+    "pb-exchange-manifest-v3": 3,
+    "pb-exchange-manifest-v4": 3,
+    "pb-exchange-manifest-v5": 4
+  },
+  "additional_episode_identities_unique": true,
+  "additional_exports": [
+    {
+      "manifest": "experiments/runtime-tools-v1/exchange/manifest.json",
+      "manifest_sha256": "59079fdd8ceef02337bbe200b6aaa2c8401859e03d871e1913aef9e8171ea6a7",
+      "records": 3,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/queue-family-v1/exchange/episode-3/manifest.json",
+      "manifest_sha256": "a75aa1bdacfc52411eed80e529673b1432ba9b0f3e495643cdf54abc4a4d011e",
+      "records": 1,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/queue-family-v1/exchange/episode-2/manifest.json",
+      "manifest_sha256": "5f4f044531ba56013c1ebade9f83d0d1574b9577266d0dfe1110803e739b1d76",
+      "records": 1,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/queue-family-v1/exchange/episode-1/manifest.json",
+      "manifest_sha256": "d90688d9d19a86f93338abb52daff9577d3ca9001680b3b1b52cc9e69b87e7b3",
+      "records": 1,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/composed-stage-v1/historical-router-exchange/manifest.json",
+      "manifest_sha256": "de6b363d20de9d2fd2874a832a682ff9d7b1e86aaaa7523dca13d68f9385357a",
+      "records": 1,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/composed-stage-v1/repair-combined/exchange/manifest.json",
+      "manifest_sha256": "72365d2af93d98a1d0b0389479e44c8cce8224d7985707fb89fe763dec4954f3",
+      "records": 1,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/composed-stage-v1/repair-diagnostic/exchange/manifest.json",
+      "manifest_sha256": "f80be106947c1196083b3e44024e4fca8ae7211cc6e488fd67dce7676211dfa4",
+      "records": 1,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/composed-stage-v1/composed-rollout/exchange/manifest.json",
+      "manifest_sha256": "866107a58ae14bdd86fb0d5838bd5efc6b7861af8c2f560a53f4c4ccf40fb638",
+      "records": 1,
+      "content_hashes_verified": true
+    }
+  ],
+  "scope": "v2 historical validation retained; v3-v5 file hashes and episode identities checked again. Different cohorts remain separate. Re-exported historical queue trials are excluded from this inventory. No claim that all records are valid training examples or lossless on-policy data."
+}

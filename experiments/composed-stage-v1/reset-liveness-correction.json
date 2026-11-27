@@ -1,0 +1,15 @@
+{
+  "source_sha256": "3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5",
+  "before": {
+    "reward": null,
+    "category": "infrastructure_error",
+    "failed_case": "address_data"
+  },
+  "after": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "failed_case": "address_data"
+  },
+  "cause": "Checker liveness originally counted only reset-released cycles; a valid reset-output violation occurs earlier. Count actual checks during reset too. A missing observer still yields null.",
+  "after_gate_freeze_sha256": "926f81f1a879bbd40757989d1b4918b8259522bcaa3ec0fbe5e337a1eb8c5578"
+}

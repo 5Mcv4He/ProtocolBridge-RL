@@ -1,0 +1,19 @@
+{
+  "schema": "historical-exchange-compatibility-v1",
+  "router": {
+    "new_model_call": false,
+    "records": 1,
+    "episode_ids": [
+      "51d7fd3c2ad4b16a40699c74e1a890410026a24ffe9d6ae29637a38a820a193b:r01-test_diagnostic"
+    ],
+    "public_exchange": "historical-router-exchange/manifest.json"
+  },
+  "queue": {
+    "new_model_call": false,
+    "audited_export_tested": true,
+    "existing_public_exchange": "experiments/queue-family-v1/exchange/episode-3",
+    "republishing_duplicate_record": false
+  },
+  "unique_research_samples_added": 0,
+  "note": "The router record already counted in research inventory; this adds its first unified exchange. Queue v4 and tested v5 represent the same historical episode."
+}

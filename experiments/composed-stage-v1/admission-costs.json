@@ -1,0 +1,94 @@
+{
+  "scope": "Complete gate worker wall time plus reference/negative-control subprocess breakdown. The breakdown excludes template, mechanism, isolation and classification probes; the complete gate time includes them. Both exclude deployment, model trials and historical development attempts.",
+  "rows": [
+    {
+      "task_id": "x2p_routed_queue_v1",
+      "freeze_sha256": "5ab2f1d4250ac629801c0b8ad15f6303b3263669bca19ccbb76cf449ad488094",
+      "admitted": true,
+      "timed_control_campaigns": 23,
+      "timed_case_executions": 115,
+      "timing": {
+        "io": {
+          "wall_seconds": 7.216,
+          "subprocess_calls": 45
+        },
+        "simulate": {
+          "wall_seconds": 522.81,
+          "subprocess_calls": 115
+        },
+        "compile": {
+          "wall_seconds": 85.451,
+          "subprocess_calls": 1
+        }
+      },
+      "timing_artifact_sha256": {
+        "bad_write_priority/timing.json": "dc6ffdd335ecb585889f9b5f7bcf0367fa087a53c442cce7d413d739e0dc7dd2",
+        "bad_target_reset/timing.json": "21a0bd720a78be93e626ddbcb089c1460d0bcd32442c859034987a94ef5132f3",
+        "bad_over_capacity/timing.json": "c9e72ad5f4d7f723e6c64d6e82809bd0d49dc0f1f117f05e8ff01c67c8a335bb",
+        "bad_error/timing.json": "09e302a90b4a26fbc79b12caaf320f178c587928125c78bb5e44c283a57a89da",
+        "bad_same_edge/timing.json": "d8320241234bf65d3e9f1fe19b41b4a01e2ec327c0bd9aa12d6ef2993fc846fc",
+        "bad_local/timing.json": "f59a8af628ffba9866848d785fe5564aa6fb34f5842e1d069362867a9040d9fc",
+        "reference_shift-public/timing.json": "6b6ea64474fd0ca132433015f7f4a9a1d75a02e5ac1c24db7c60f78c591cb218",
+        "reference_shift/timing.json": "effdd2958483d208f2c66c2e66c8d939a263a4f8db66dbc8cc67bfefcba5e3de",
+        "bad_drops_response/timing.json": "d2343c9b9386e3d66cb05d25fcda06f9c6f453671bd9e84c7cd153b26b8d3f9a",
+        "bad_reset_credit/timing.json": "67fdf461781ef79f455665c6d8c7036214a208085deb87b732ed4458e683c314",
+        "bad_target/timing.json": "c4bdfcbffba645082b43ff1352ca4009a6abb429729aaaac41eacda620790a3c",
+        "bad_decerr_ar_credit/timing.json": "caf4ec8516e7ff3c72d3385e4820b7400de4327c29b80c9cdeddb58ba39aa50b",
+        "reference-public/timing.json": "4fe7692427be71b902084dbab98a79feb3b3cc607efde6540d7f996654bd1c02",
+        "bad_strobe/timing.json": "3be13906b0be22305941300520d06272a39e1f91b0609ea96e7629bc752e0915",
+        "bad_decerr/timing.json": "4a111bb70f40d4113c0040cad475619ca2f013e249b546c668d8e9f5c2b85e66",
+        "bad_decerr_preference/timing.json": "5b94df94b9ec5bae5273a080886143e2acb6463c5317da24429ac385c1b9c2be",
+        "bad_live_target/timing.json": "4e8be11b2b6be1380fe0eb9c651e26834107cfab47257f4e061707e995d3561b",
+        "bad_wait/timing.json": "bc55aca31e0517b6d1ee1228833cd4f275add1720b0ac700627cb1ffa6b5a499",
+        "bad_coupled_w/timing.json": "687d769a4759523b1829913d950bf29fcb4ffa77635e7d8b21c3c42ffc79d642",
+        "bad_response_mux/timing.json": "15be2b3df649af81b50bd95289821fc0909aa959a19c42a9c44bc80fd81dd417",
+        "reference/timing.json": "c9462a165ebe987b173c0cd39f773673bf95d5aaed1a73b5d26955c60d856a46",
+        "bad_blocks_reads/timing.json": "dc50068f2b4c9fcf87fa4eae32badd82545b7adfab7370daee345650eda4f577",
+        "bad_early_credit/timing.json": "9969008e10189ba7f2d74379973e0b3a5fd01176888ee00b79f29374aef0df73"
+      },
+      "complete_gate_job_wall_seconds": 869.888
+    },
+    {
+      "task_id": "x2p_queue_three_v1",
+      "freeze_sha256": "1a88fde63befd7167e973cc2440b4424c91efbc5f0fcbb6030a4182bb07873da",
+      "admitted": true,
+      "timed_control_campaigns": 18,
+      "timed_case_executions": 102,
+      "timing": {
+        "io": {
+          "wall_seconds": 3.015,
+          "subprocess_calls": 35
+        },
+        "simulate": {
+          "wall_seconds": 415.181,
+          "subprocess_calls": 102
+        },
+        "compile": {
+          "wall_seconds": 89.362,
+          "subprocess_calls": 1
+        }
+      },
+      "timing_artifact_sha256": {
+        "bad_reset_aw_credit/timing.json": "34298cd70357667470ff097ed55d5e2c8da0cb681d5ac7d20b0a336553adbe29",
+        "bad_wrap/timing.json": "282b5b290f768fc7fc72313f8624793b41ad7840b3dc8bcddb5c0f70a8aed23c",
+        "bad_write_priority/timing.json": "3b075e3ae8286357e561726d1c0a2bf106e0068fe7c5231e9da91d41f76aef1f",
+        "bad_over_capacity/timing.json": "f11802a3cca2777c6c1a044a5d35a22803d6d92373a51185b409f36eb8b5e135",
+        "bad_read_wrap/timing.json": "eb1462f14b9941531272688859d782c20898d5b179feda005b00c7279ff1a15d",
+        "bad_same_edge/timing.json": "ce132ab492b16f0f5ab1e4df1d2e8a9c95bd915bde07cc2f180a88eca6ac3097",
+        "reference_shift-public/timing.json": "9d8c81ae473c98cf68454fd18c5ce1f58ef1f17b02b5b668952dff27780639b4",
+        "reference_shift/timing.json": "c1e8540bf5251d667d45ae34462a6956bc4c15ca0ff7741ea4626af698a05aa5",
+        "bad_drops_response/timing.json": "f81fc92afdc4abee48b6a8e0969cd7b5136e9c68ba4736d72f9a81c13e7bc684",
+        "bad_wrong_address/timing.json": "7119066e6286fecc55bb72d1ee4290d26261e37bc096bc4b0b9def157da4e603",
+        "reference-public/timing.json": "e7997ab85d16c1701df11012bf57b8bd5d301c3bcfa7288b9d5512d5e7f87196",
+        "bad_coupled_w/timing.json": "d72a954fa7d339bb64f1aa0300271d57045f96fc4fbf2b42a21db20431d4a28b",
+        "bad_ignores_wait/timing.json": "a3c8cdc1b77e23e92db539b273bd4ba12f5df8092d752c7391a07c31b4a15b84",
+        "bad_strobe_loss/timing.json": "bac7ad48e45242861165332d4af19f6e38f5ae7cd92029714cf268fda269e62c",
+        "bad_error_response/timing.json": "c3e9beb9c70881c880b7bc3e2c747f09627178ca5e4e6802f8a64e841e9993ed",
+        "reference/timing.json": "951905a41260e3c99e3ad854448c195258ba783ecbaf869c9852e06e89e4b834",
+        "bad_blocks_reads/timing.json": "da4e1dc44fd14692f04a4f7ba4442e503213f7d0d4fa4838b751d0258cb4f586",
+        "bad_early_credit/timing.json": "7e4617dc132c7d51104e88a1e7e08d6e3210237a1b589af29050e9c12cf505a5"
+      },
+      "complete_gate_job_wall_seconds": 744.821
+    }
+  ]
+}

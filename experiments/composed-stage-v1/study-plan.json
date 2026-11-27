@@ -1,0 +1,32 @@
+{
+  "schema": "bounded-exploratory-study-v1",
+  "questions": [
+    "Does route plus retirement composition create independently detectable interaction errors?",
+    "Can a combined engineering environment support repair of the same observed RESP regression without confusing results from different candidates?"
+  ],
+  "planned_model_trials": 3,
+  "stop_rules": [
+    "No model calls before source-matched industrial task admission and capability acceptance.",
+    "One depth-three queue repair trial with engineering-lab-v1, followed by one diagnostic-only trial; same starting RTL, Spec, model, action protocol, total actions and paired private inputs.",
+    "One independent composed-task diagnostic trial only after task admission.",
+    "Preserve every started trial. Do not add replacement successes or combine historical cohorts.",
+    "Stop model expansion after three trials, 750000 reported tokens or an infrastructure/information-boundary failure. Per-trial token ceiling is checked between trials and is not an exact in-request limit."
+  ],
+  "repair_start": "experiments/queue-family-v1/episode-3/r01-test_diagnostic/candidate-05.sv",
+  "repair_defect": "RESP exit uses old response-valid value and delays registered selection after response retirement",
+  "model": "deepseek-flash",
+  "reasoning": "off",
+  "sampling": "SDK/provider defaults; no deterministic seed claimed",
+  "action_protocol": "text-json-atomic-v2",
+  "max_actions_per_trial": 20,
+  "public_test_calls": 2,
+  "combined_profile": "engineering-lab-v1",
+  "analysis": "Separate capability availability, actual calls, exposure, candidate-bound edits and terminal/held-out results. One paired observation cannot estimate a stable tool benefit or success rate. No parameter training.",
+  "repair_start_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+  "execution_order": [
+    "repair_combined",
+    "repair_diagnostic",
+    "composed_independent"
+  ],
+  "order_rationale": "Fixed before any new model call. The combined entry completes actual tool acceptance before its first model request; the baseline repair follows with the same task source and paired inputs."
+}

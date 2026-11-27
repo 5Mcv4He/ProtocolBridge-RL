@@ -1,0 +1,48 @@
+{
+  "scope": "Completed reference and negative-control phase of a rejected development gate; excludes initial-template check, mechanism checks and model trials.",
+  "source_freeze_sha256": "350c18f015052422cb8e5256843a95091d8fbb366b98bb0addb58a736df19917",
+  "positive_implementations": 2,
+  "positive_campaigns": 4,
+  "negative_controls": 18,
+  "case_executions": 114,
+  "timing": {
+    "io": {
+      "wall_seconds": 5.5085,
+      "subprocess_calls": 43
+    },
+    "simulate": {
+      "wall_seconds": 656.7182,
+      "subprocess_calls": 114
+    },
+    "compile": {
+      "wall_seconds": 85.1422,
+      "subprocess_calls": 1
+    }
+  },
+  "timing_artifact_sha256": {
+    "bad_blocks_reads/timing.json": "a4c8f79072d11beb8ae51cb6d349a8e0aa0b78f13cb72e4df523416019271231",
+    "bad_coupled_w/timing.json": "64154f2dc13619c421e59ee4c29519430a9738006b7053202eec83299d0698a7",
+    "bad_decerr/timing.json": "5a54f0b59838cba07b8ae27a491134626bef918651b1152173cb7c42715ccbd5",
+    "bad_decerr_ar_credit/timing.json": "c20becbe2ff55a0c5ca17ac19b0f68acd7871799a49a7f853ff7193d3bea284b",
+    "bad_decerr_preference/timing.json": "e8d1845888703b8db669ebfb0504847f27bb0d60168d48e93015c607338385b2",
+    "bad_drops_response/timing.json": "df411795c0eb28aae47172f916212e8dd8b18f18bebfeaa20c6f86ddbaa71e53",
+    "bad_early_credit/timing.json": "a48a3675183c97e3eb8442f93fb9559d2955d3f09bbc05215ad74a949941b899",
+    "bad_error/timing.json": "e01efe3d5b77be449807f1c5c4c0de534046a7dbab2327606e972f0aab51d917",
+    "bad_live_target/timing.json": "936c1d47c5d262fe834894cdf607ce0e7f85aa7b31cebe7ee378371c13293428",
+    "bad_local/timing.json": "782e5a956dedd533bde009b0bf31a959e2e647c0e2905c52f15145f4e8c48ba6",
+    "bad_over_capacity/timing.json": "4e4b59195e0555fdae1e3f04188fd2a4e4369a1b6d29d2a4cda6894a33c2e522",
+    "bad_reset_credit/timing.json": "0fc8eb4c52fba8093efea92aa3f94a74dd1c601f04fa32cb6061913f925c675d",
+    "bad_response_mux/timing.json": "b438ae7725eae8103895e5d6394becc6b3be692176c0cb7c11957266ed07b468",
+    "bad_same_edge/timing.json": "9436ce95ed96306fe4ed1ee1688376643cd097e78e5cd1e415dfa261157e468e",
+    "bad_strobe/timing.json": "6bc98eca55795756b5c5808a739231c6abd9900491a7975102827c7f06dd8222",
+    "bad_target/timing.json": "fbc5f45e2fb7edefe9b946b0ed49766992e6b8c5cc2d22edb11c583c945fccd6",
+    "bad_wait/timing.json": "04968c69bca1f6744836207710079b53f5d0a678940208989b508b9261d8d25f",
+    "bad_write_priority/timing.json": "d9df5333959e9a33f6c374ddcccfe6a6667b5120065feab09f65e22548e9c1ce",
+    "reference/timing.json": "0e62114aeea38e0d7735396b4c1ff13663dfdd9afb53aad80421ae13f9b62335",
+    "reference-public/timing.json": "297cccbed5896a20b33e0c2284ece88226b269c871935ea4079333a5bc4a5efd",
+    "reference_shift/timing.json": "60387f10af6628220a6f5b43c7f707bfb28693a24ae94d502c8133e84973910c",
+    "reference_shift-public/timing.json": "7c985b03d640f91b0e3b5abb79505a5353263b3cf3bd93b321f16c76259d29b7"
+  },
+  "inference": "After one shared bank compile, per-case simulation startup/execution dominates this measured phase. Byte deduplication alone would not remove this cost.",
+  "admitted": false
+}

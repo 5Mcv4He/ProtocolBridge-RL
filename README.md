@@ -7,10 +7,10 @@
 ProtocolBridge-RL 围绕这一问题展开研究。项目以 AXI → APB 协议桥（X2P）为切入点，利用工业电子设计自动化工具（EDA）与独立功能验证，将数字电路设计与调试转化为模型可以反复求解、探索和验证的任务。它既关注设计是否正确，也关注如何构建有训练价值的求解过程。
 
 <p align="center">
-<strong>4 个 RTL 任务 + 2 个有限任务族</strong>　·　<strong>9 种受控动作</strong>　·　<strong>92 条研究试次</strong>　·　<strong>轨迹交换 v1–v4</strong>
+<strong>4 个原始 Task + 7 个生成实例</strong>　·　<strong>9 种受控动作</strong>　·　<strong>95 条研究试次</strong>　·　<strong>轨迹交换 v1–v5</strong>
 </p>
 
-> **当前阶段：** 已建立任务、环境、独立奖励与固定模型 Rollout 的工程闭环；尚未进行模型参数训练或训练收益评估。九种动作分配置开放。
+> **当前阶段：** 已建立任务、环境、独立奖励与固定模型 Rollout 的工程闭环；尚未进行模型参数训练或训练收益评估。保留独立工具配置，并已在三深度队列上完成九种动作联用验收。
 
 [任务体系](#2-任务体系) · [验证与奖励](#3-验证与奖励) · [Agent 环境](#4-agent-工程环境) · [研究成果](#5-数据策略与研究发现) · [项目结构](#7-项目结构) · [快速开始](#8-快速开始)
 
@@ -76,6 +76,8 @@ Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已�
 这一过程中也发现了真实漏检：旧生成验证器的 27 个 case 全部通过，却没有访问非二次幂窗口的关键中间区域，使错误局部地址映射获得了 Reward=1。修正后的生成方法增加内部偏移进位激励，并用完全相同的错误 RTL 确认拒绝。这个结果说明，**任务生成必须同时生成并验收新的验证义务，不能只替换 Spec 参数。** [任务族方法与具体例子](docs/task-family-production.md)、[漏检分析与工业证据](docs/router-family-evaluation.md)解释了其机制和边界。
 
 **第二类任务族把生产方法扩展到动态状态。** 基于 Task003，生成每通道一个名额、三个名额以及读写不对称容量的三份契约。每份不仅改变队列参数，还派生占用边界、多轮存储使用与退休时刻的验证义务，并通过两种合法结构及 12–14 个错误对照。额外的引脚握手账本与 Scoreboard 相互核对：如果可信检查器错误地提前出队，评分应停止并返回不可判定，而不是给模型一个不可靠的奖励。见[生命周期与生产方法](docs/queue-family-production.md)、[真实准入及研究结果](docs/queue-family-evaluation.md)。
+
+新的[路由 × 队列组合契约](docs/composed-task-production.md)进一步检查排队请求的目标身份，以及未映射 DECERR 如何参与仲裁、背压与退休。例如，一个错误地址虽然不访问 APB，仍必须占用名额直到 AXI 消费错误响应，不能提前让队列多收一笔。该契约的验证器修订 2 已通过两种合法实现、19 个错误对照和 40 项真实机制检查。初版即使覆盖全满，仍漏掉了目标相关的复位错误；[同源码复验](docs/composed-environment-evaluation.md)记录了漏检、修正及剩余边界。当前集合包含四个原始任务、六个路由／队列生成实例和一个组合实例，共 **11 个已验收 Task ID**；参数实例数不等于独立工程能力数，生成与实际模型校准也分别记录。
 
 **实现入口：** [Task Registry](tasks/registry.json) · [Registry Schema](tasks/registry.schema.json) · [任务目录与统一 CLI](docs/task-catalog.md)
 
@@ -146,7 +148,7 @@ Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已�
 
 这些动作提供的是不同的工程认识能力：编译检查语法与结构，功能测试检查结果，运行时实验让模型主动观察特定条件下的行为。研究的目标不是增加工具数量，而是让模型有机会建立并验证关于工程对象的假设。
 
-当前使用 DeepSeek Harness（DSH）与自定义文本 JSON 动作协议；控制器解析动作并返回受控结果，并非模型 API 的原生 Tool Calling。不同工具集合以版本化 Capability Profile（能力配置）管理，尚未全部组合到同一个环境。
+当前使用 DeepSeek Harness（DSH）与自定义文本 JSON 动作协议；控制器解析动作并返回受控结果，并非模型 API 的原生 Tool Calling。不同工具集合以版本化 Capability Profile（能力配置）管理。新的 [engineering-lab-v1](docs/engineering-lab.md) 已在三深度队列上完成九种动作联用验收，并把每条开发反馈绑定到对应 RTL 版本；历史独立配置保持不变，其他任务不会自动继承这份验收。
 
 ### 从被动测试到主动实验
 
@@ -227,7 +229,9 @@ Task 是可重复使用的工程问题；Rollout 则是模型在某个任务和�
 
 新路由任务族另有一次预先选定的 irregular 契约试次：E 模式下一次编辑即通过公开、私有和保留验证，Reward=1。它证明生成包的真实求解链路可用，但没有失败诊断曝光，不能据此说明诊断帮助了修复，更不能用 1/1 判定任务饱和；该样本与上表独立统计，详见[任务族研究](docs/router-family-evaluation.md)。
 
-队列任务族又进行了三条预先规定的探索：一名额基础 E 失败，三名额基础 E 在收到失败反馈并修改后通过，三名额加事件实验失败。最后一条的首候选事后通过公开 21 case，却在后续未经测试的编辑中引入调度回归；仅看最终 Reward=0 会遗漏这个过程。每种条件只有一条，不能把它们作为容量难度排序或工具效果结论。见[具体代码变化、反馈与证据](docs/queue-family-evaluation.md)。
+队列任务族此前进行了三条预先规定的探索：一名额基础 E 失败，三名额基础 E 在收到失败反馈并修改后通过，三名额加事件实验失败。最后一条的首候选事后通过公开 21 case，却在后续未经测试的编辑中引入调度回归；仅看最终 Reward=0 会遗漏这个过程。每种条件只有一条，不能把它们作为容量难度排序或工具效果结论。见[具体代码变化、反馈与证据](docs/queue-family-evaluation.md)。
+
+本阶段又完成三条限定试次：同一起点的基础诊断／综合工具修复，以及组合任务的独立求解。三条都有效提交、没有动作格式错误，终局与保留评分均为 0。综合条件确实查询了局部周期信息，但未修复；基础诊断条件则放弃了一份事后通过公开 21 case 的中间候选，回到已失败版本。这个 PASS 当时没有反馈给模型，也未测中间候选的私有正确性，因此最终奖励保持不变。[完整研究](docs/composed-environment-evaluation.md)将信息曝光、实际修改、局部进展和终局结果分开分析；每种条件 n=1，不能据此判断工具优劣。
 
 这些结果为什么值得研究？当一个任务对某个模型过于简单时，多次求解可能全部得到 Reward=1；过难时则可能全部为 0。对于依赖组内相对奖励差异的训练方法（例如使用组内相对优势估计的 GRPO），同组二值奖励没有变化时，这部分奖励信号缺乏区分度。
 
@@ -270,7 +274,7 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 
 已发布的两条 `runtime-tools-v1` 试次合计约 **866 秒**，其中 VCS 编译约 753 秒、仿真约 64 秒、模型请求约 44 秒（含 SDK/网络开销；总耗时包含公开、实验、终局和保留执行，不含前置门禁）。在这组试次中编译是主要时间成本。未来规模化采集时，编译复用、仿真并发、任务调度和质量准入成本都会影响可获得的有效数据量。
 
-[多任务研究总结](docs/multi-task-research-report.md) · [原工程阶段索引](experiments/engineering-stage-research-index.json) · [队列任务族研究](docs/queue-family-evaluation.md) · [全部研究报告](docs/README.md)
+[多任务研究总结](docs/multi-task-research-report.md) · [原工程阶段索引](experiments/engineering-stage-research-index.json) · [队列任务族研究](docs/queue-family-evaluation.md) · [组合与综合环境研究](docs/composed-environment-evaluation.md) · [全部研究报告](docs/README.md)
 
 ## 6. Rollout 数据交付
 
@@ -286,14 +290,15 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 | v2 | 九批 85 条结果记录、45 条已审查工具轨迹；支持编译/诊断 |
 | v3 | 额外三条试次；支持综合、主动实验和运行时观测 |
 | v4 | 新队列任务的三条试次；支持生成任务身份、事件选择与真实窗口 |
+| v5 | 统一包来源与候选版本绑定；纳入一条历史路由轨迹及本阶段三条新试次 |
 
-合计 **91 条研究记录、51 条已审查工具轨迹**（v2 + 新增 v3/v4，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
+合计 **95 条研究记录、55 条已审查工具轨迹**（v2 + v3/v4/v5 的独立记录，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
 
-新任务族的一条试次另以[经审查的 Policy 轨迹](experiments/router-family-v1/README.md)发布，尚未纳入上述交换集合；项目研究试次总数因此为 92，交换集合为 91。
+v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-exchange/manifest.json)此前已计入研究库存，这次只是首次进入统一交换；没有增加模型调用或重复计算样本。[当前研究库存与交换集合](experiments/composed-stage-v1/exchange-inventory.json)均为 95 条，其中只有具备完整证据并通过审计的 55 条计为工具轨迹。
 
 当前交付尚缺原始模型采样、Token IDs、行为策略 Log Probability 与精确权重版本，不是无损 on-policy 训练数据。在线 Collector 与 RL 参数优化尚未接入。
 
-**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json)
+**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json) · [v5 统一入口](docs/task-rollout-exchange.md)
 
 ---
 
@@ -302,7 +307,7 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 ```text
 ProtocolBridge-RL/
 ├── tasks/          # 四个任务包、Spec、初始 RTL、Registry
-├── task_families/  # 路由 / 队列有限任务族、完整包生成与准入报告
+├── task_families/  # 路由 / 队列任务族、组合契约与共享生产步骤
 ├── environment/    # Agent Session、Policy、工程工具、质量门禁
 │   ├── policies/
 │   ├── synthesis/  # DC / Formality / PT 脚本
@@ -371,13 +376,13 @@ python3 scripts/tasks.py rollout axil_to_apb4_queue_003 -- \
 
 | 已建立 | 研究方向 |
 | :--- | :--- |
-| 四个任务、统一 Registry 与有限路由任务族 | 细粒度难度梯度、第二类任务族与能力组合 |
+| 四个原始任务、两类任务族及一个路由／队列组合契约 | 扩展经验证的能力组合与难度梯度 |
 | 独立 Verifier 与质量门禁 | 补足验证盲区，探索可信奖励 |
-| 分配置的九种受控动作 | 事件定位、主动实验与工具组合 |
+| 九种动作的综合配置、事件导航 v2 与候选版本绑定 | 研究实际定位、有效修复及回归控制 |
 | 固定模型 Rollout 与失败归因 | 更多错误起点、模型及推理条件对照 |
 | 离线轨迹交换 | 在线采集、资源调度、训练接口及收益评估 |
 
-任意契约的通用任务生成、完整自建 Testbench、全设计形式属性证明、工业 PPA 奖励及模型参数训练尚未实现。当前生成器仅接受三种经审阅的路由配置。有限仿真和正反对照不能证明验证器完备，公开 Spec、参考实现及验证代码也存在预训练污染可能。
+任意契约的通用任务生成、完整自建 Testbench、全设计形式属性证明、工业 PPA 奖励及模型参数训练尚未实现。当前生产器接受三种经审阅的路由配置、三种队列配置和一个固定组合契约，不支持任意工程能力组合。有限仿真和正反对照不能证明验证器完备，公开 Spec、参考实现及验证代码也存在预训练污染可能。
 
 ### 项目的长期价值
 

@@ -1,0 +1,56 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "498c9e4d41ec53a6a1450bfe8e92029040d166e74a2a7e6b0358d07c039d4ed6",
+  "suite_sha256": "f8753391ebf876e3d2f42122c2b6310245c2145cd9d5d21f9a9dc3f8fa110d12",
+  "required_cases": [
+    "intake_b_stall",
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8",
+    "routed_identity",
+    "decerr_competition",
+    "reset_decerr_7",
+    "reset_decerr_8"
+  ],
+  "failed_case": "intake_b_stall",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "intake_b_stall",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 8,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_INTAKE_WHILE_RESPONSE",
+        "Q_CAPACITY_CREDIT",
+        "Q_B_HOLD"
+      ]
+    }
+  ]
+}

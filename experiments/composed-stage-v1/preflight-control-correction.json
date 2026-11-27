@@ -1,0 +1,19 @@
+{
+  "schema": "capability-preflight-correction-v1",
+  "model_trials_started": 0,
+  "original_acceptance": false,
+  "failed_check": "functional_reward_independent",
+  "actual_terminal": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "source_sha256": "5f0a2e7bd1a7d9150c7b9b08bdae205afa34940508450f828abbc7b6be1c4e3b",
+    "suite_sha256": "1f3a1653f596e69210eaaa0013b86fd08728c88b3a8272167a9e80b0e8f1df21",
+    "failed_case": "address_data"
+  },
+  "observed_violation": "Registered FIFO grant/setup missing",
+  "cause": "A depth-specialized early-credit mutant violates registered scheduling before the capacity-specific assertion expected by this acceptance check.",
+  "correction": "Use the existing depth-specialized bad_over_capacity control; preserve capacity-specific assertion, public/terminal reward semantics and original evidence. New source freeze and industrial gate required.",
+  "original_result_sha256": "68055c29f8193501e55a08a0179a2d420215dc316f330e38972fd73ba4093c94",
+  "status": "Corrected source independently admitted; actual synthesis capability acceptance passed all20 checks before any model call.",
+  "corrected_evidence": "tools/synthesis-acceptance.json"
+}

@@ -12,4 +12,6 @@ SVG 内含系统深色偏好样式，不支持时仍可使用浅色画布；不�
 
 [queue-lifecycle-obligations.svg](queue-lifecycle-obligations.svg) 表达队列契约中的接受、APB 完成和响应退休三个事件，以及两条独立账目检查路径。图中是契约示意，不是实测波形；数量不一致与候选违例分别对应不可判定和功能失败。
 
+[composed-route-retirement.svg](composed-route-retirement.svg) 表达路由与队列组合中的两条执行路径：映射请求访问选中 APB 目标，未映射请求形成 DECERR；两者都保持名额直到 AXI 响应退休。区域包含关系表示未退休生命周期，图为契约示意。
+
 [返回首页](../../README.md)

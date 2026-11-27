@@ -1,0 +1,58 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "498c9e4d41ec53a6a1450bfe8e92029040d166e74a2a7e6b0358d07c039d4ed6",
+  "suite_sha256": "8082ef8c56cdd394404e580c9a7b763f5bb788c473926bbeea7b4adfdaab6dae",
+  "required_cases": [
+    "write_fifo",
+    "address_data",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8",
+    "routed_identity",
+    "decerr_competition",
+    "reset_decerr_7",
+    "reset_decerr_8"
+  ],
+  "failed_case": "write_fifo",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "write_fifo",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 36,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_capacity_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_WRITE_FIFO",
+        "Q_AW_CAPACITY",
+        "Q_W_CAPACITY",
+        "Q_WRAP",
+        "Q_STROBE"
+      ]
+    }
+  ]
+}

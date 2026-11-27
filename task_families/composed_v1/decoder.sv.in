@@ -1,0 +1,13 @@
+// Oracle uses independently reviewed inclusive windows, not candidate decode bits.
+function automatic int expected_target(bit[31:0] a);
+ if(a inside {[32'h00000000:32'h0000ffff]}) return 0;
+ if(a inside {[32'h00010000:32'h0001ffff]}) return 1;
+ if(a inside {[32'h00020000:32'h0002ffff]}) return 2;
+ return -1;
+endfunction
+function automatic bit[31:0] expected_local(bit[31:0] a);
+ case(expected_target(a))
+  0:return a;1:return a-32'h10000;2:return a-32'h20000;
+  default:return 0;
+ endcase
+endfunction

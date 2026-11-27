@@ -1,0 +1,7 @@
+{
+  "historical_gate_result_preserved": true,
+  "current_qualification": "superseded by accepted verifier revision 2",
+  "reason": "Target-sensitive reset gap subsequently demonstrated; initial 45 bins and 18 controls were insufficient.",
+  "evidence": "../reset-target-gap/summary.json",
+  "replacement": "../composed-v2/summary.json"
+}

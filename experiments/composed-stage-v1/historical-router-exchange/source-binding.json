@@ -1,0 +1,9 @@
+{
+  "schema": "pb-capsule-exchange-binding-v1",
+  "task_id": "x2p_router_irregular_v1",
+  "capsule_manifest_sha256": "32a3ff2fc6d6a4a6074b980f28ca119731932ac45aa19fa671b8cada5b49a9a0",
+  "experiment_sha256": "51d7fd3c2ad4b16a40699c74e1a890410026a24ffe9d6ae29637a38a820a193b",
+  "adapter_sha256": "ebf9957e8ee8a6bb8aa13d794904d14c367219fa1c40524ef38d029ca8788dd5",
+  "auditor_sha256": "637d71c238028c673e98592f38294997bb66c7724c2b5df19b3c71d7c5632785",
+  "exchange_manifest_sha256": "de6b363d20de9d2fd2874a832a682ff9d7b1e86aaaa7523dca13d68f9385357a"
+}

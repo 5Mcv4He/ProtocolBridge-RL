@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="542" viewBox="0 0 760 542" role="img" aria-labelledby="title desc">
+<title id="title">地址路由与事务退休的组合契约</title>
+<desc id="desc">接受的请求占用有限名额。仲裁选择缓存队首后，映射请求执行选中目标的 APB 事务，未映射请求直接产生 DECERR。两条路径都必须等到 AXI 响应消费才释放名额。检查事务身份、目标归属和独立握手账目。</desc>
+<defs><marker id="arr-n" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow n" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arr-b" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow b" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arr-g" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow g" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<style>
+svg{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC",sans-serif}
+.canvas{fill:#fbfcfe;stroke:#dce3ec;stroke-width:1.5}
+.node,.frame{stroke-width:1.5}
+.node.b{fill:#e6eef9;stroke:#6388b6}
+.node.g{fill:#e8f4ed;stroke:#52a371}
+.node.n{fill:#edf0f4;stroke:#9ba8b9}
+.node.a{fill:#fcf2de;stroke:#c69c55}
+.node.w{fill:#ffffff;stroke:#d6dde7}
+.node.f{fill:#f4f6f9;stroke:#a8b3c2}
+.frame.b{fill:#f6f9fe;stroke:#6388b6}.frame.g{fill:#f4faf6;stroke:#52a371}.frame.n{fill:#f7f9fc;stroke:#9ba8b9}
+.ink{fill:#1c2b3e}.muted{fill:#53647a}.blueink{fill:#416da3}.greenink{fill:#257749}
+.line.n,.arrow.n{stroke:#8290a2}.line.b,.arrow.b{stroke:#6388b6}.line.g,.arrow.g{stroke:#52a371}
+@media(prefers-color-scheme:dark){
+.canvas{fill:#161e29;stroke:#39465a}
+.node.b{fill:#253951;stroke:#78a4d8}
+.node.g{fill:#203c31;stroke:#68bd87}
+.node.n{fill:#293443;stroke:#8c9bb0}
+.node.a{fill:#423624;stroke:#d4ad6c}
+.node.w{fill:#202a37;stroke:#53647b}
+.node.f{fill:#232d3b;stroke:#7f8ea3}
+.frame.b{fill:#1b293b;stroke:#78a4d8}.frame.g{fill:#1b3028;stroke:#68bd87}.frame.n{fill:#1c2633;stroke:#65748a}
+.ink{fill:#edf2f8}.muted{fill:#b0bdcf}.blueink{fill:#9bc3f1}.greenink{fill:#8bd3a3}
+.line.n,.arrow.n{stroke:#a1b0c2}.line.b,.arrow.b{stroke:#78a4d8}.line.g,.arrow.g{stroke:#68bd87}
+}
+</style>
+<rect class="canvas" x="1" y="1" width="758" height="540" rx="15"/>
+<text class="ink" x="30" y="36" font-size="19" font-weight="600">错误地址也有完整的事务生命周期</text>
+<text class="muted" x="730" y="62" text-anchor="end" font-size="14">契约示意 · 单执行器 · 无 Burst / ID</text>
+<rect class="frame b" x="30" y="83" width="700" height="354" rx="12"/>
+<text class="blueink" x="50" y="109" font-size="16">从接受到响应退休：始终占用 AW / W 或 AR 名额</text>
+<rect class="node b" x="50" y="132" width="186" height="74" rx="9"/>
+<text class="ink" x="143" y="162" text-anchor="middle" font-size="18">独立接受与缓存</text>
+<text class="muted" x="143" y="188" text-anchor="middle" font-size="15">AW / W / AR 各 2 个</text>
+<rect class="node n" x="286" y="132" width="204" height="74" rx="9"/>
+<text class="ink" x="388" y="162" text-anchor="middle" font-size="18">仲裁与队首译码</text>
+<text class="muted" x="388" y="188" text-anchor="middle" font-size="15">使用缓存地址，不用实时引脚</text>
+<path class="line n" d="M236 169 H280" fill="none" stroke-width="1.8" marker-end="url(#arr-n)"/>
+<rect class="node g" x="50" y="257" width="260" height="78" rx="9"/>
+<text class="ink" x="180" y="287" text-anchor="middle" font-size="18">目标 0 / 1 / 2 的 APB 访问</text>
+<text class="muted" x="180" y="314" text-anchor="middle" font-size="15">保留目标身份 · 等待选中目标完成</text>
+<rect class="node b" x="350" y="257" width="220" height="78" rx="9"/>
+<text class="ink" x="460" y="287" text-anchor="middle" font-size="18">未映射 → DECERR</text>
+<text class="muted" x="460" y="314" text-anchor="middle" font-size="15">不访问 APB · 不提前释放名额</text>
+<path class="line n" d="M340 206 V231 H180 V251" fill="none" stroke-width="1.8" marker-end="url(#arr-n)"/>
+<path class="line n" d="M460 206 V251" fill="none" stroke-width="1.8" marker-end="url(#arr-n)"/>
+<rect class="node b" x="231" y="370" width="338" height="46" rx="9"/>
+<text class="ink" x="400" y="399" text-anchor="middle" font-size="18">B / R 握手消费 → 退休 → 释放名额</text>
+<path class="line n" d="M180 335 V393 H225" fill="none" stroke-width="1.8" marker-end="url(#arr-n)"/>
+<path class="line n" d="M460 335 V364" fill="none" stroke-width="1.8" marker-end="url(#arr-n)"/>
+<text class="muted" x="710" y="287" text-anchor="end" font-size="15">响应背压</text>
+<text class="muted" x="710" y="311" text-anchor="end" font-size="15">两条路径都保持</text>
+<text class="ink" x="30" y="474" font-size="17">组合后的检查：队首身份 × 目标归属 × 错误响应退休</text>
+<text class="muted" x="30" y="504" font-size="15">UVM 事务核对 + 独立握手账本；复位取消所有尚未退休请求。</text>
+</svg>

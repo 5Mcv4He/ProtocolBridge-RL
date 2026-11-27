@@ -1,0 +1,185 @@
+{
+  "capabilities": [
+    "independent-request-fifos",
+    "bounded-outstanding-credit",
+    "read-write-arbitration",
+    "response-ordering",
+    "reset-ledgers",
+    "queued_target_identity",
+    "decerr_retirement",
+    "route_queue_interactions"
+  ],
+  "family": {
+    "arbitration": "round robin at buffered eligible selection, including DECERR",
+    "capacity": {
+      "ar": 2,
+      "aw": 2,
+      "w": 2
+    },
+    "execution": "single executor held until AXI response consumption",
+    "family": "x2p_routed_retirement_v1",
+    "scope": "One reviewed composed contract; not arbitrary parameter generation",
+    "targets": [
+      [
+        0,
+        65536
+      ],
+      [
+        65536,
+        65536
+      ],
+      [
+        131072,
+        65536
+      ]
+    ],
+    "task_id": "x2p_routed_queue_v1",
+    "unmapped": "registered DECERR at selection; no APB; zero RDATA; credits retained to retirement",
+    "verifier_revision": 2,
+    "version": 1
+  },
+  "initial_rtl": "workspace/bridge.sv",
+  "quality": {
+    "mechanism_module": "environment.task003_mechanism",
+    "minimum_negative_controls": 10,
+    "negative_controls": [
+      {
+        "first_case": "write_fifo",
+        "source": "fixtures/task003/bad_over_capacity.sv",
+        "violation": "Exceeds accepted unretired capacity"
+      },
+      {
+        "first_case": "partial_w",
+        "source": "fixtures/task003/bad_coupled_w.sv",
+        "violation": "W depends on AW"
+      },
+      {
+        "first_case": "partial_aw",
+        "source": "fixtures/task003/bad_blocks_reads.sv",
+        "violation": "Partial write blocks read"
+      },
+      {
+        "first_case": "round_robin",
+        "source": "fixtures/task003/bad_write_priority.sv",
+        "violation": "Violates read/write preference"
+      },
+      {
+        "first_case": "intake_b_stall",
+        "source": "fixtures/task003/bad_early_credit.sv",
+        "violation": "Releases AW before response retirement"
+      },
+      {
+        "first_case": "intake_b_stall",
+        "source": "fixtures/task003/bad_drops_response.sv",
+        "violation": "Drops stalled response"
+      },
+      {
+        "first_case": "write_fifo",
+        "source": "fixtures/task003/bad_strobe.sv",
+        "violation": "Loses byte enables"
+      },
+      {
+        "first_case": "wait_error_memory",
+        "source": "fixtures/task003/bad_error.sv",
+        "violation": "Drops target error"
+      },
+      {
+        "first_case": "read_fifo",
+        "source": "fixtures/task003/bad_wait.sv",
+        "violation": "Uses unselected ready"
+      },
+      {
+        "first_case": "routed_identity",
+        "source": "fixtures/task003/bad_target.sv",
+        "violation": "Queued write loses target identity"
+      },
+      {
+        "first_case": "routed_identity",
+        "source": "fixtures/task003/bad_local.sv",
+        "violation": "Forwards global address"
+      },
+      {
+        "first_case": "routed_identity",
+        "source": "fixtures/task003/bad_live_target.sv",
+        "violation": "Target follows live AW instead of scheduled head"
+      },
+      {
+        "first_case": "routed_identity",
+        "source": "fixtures/task003/bad_response_mux.sv",
+        "violation": "Read result comes from target zero"
+      },
+      {
+        "first_case": "decerr_competition",
+        "source": "fixtures/task003/bad_decerr.sv",
+        "violation": "Unmapped write is reported OKAY"
+      },
+      {
+        "first_case": "decerr_competition",
+        "source": "fixtures/task003/bad_decerr_ar_credit.sv",
+        "violation": "Unmapped read releases credit on selection"
+      },
+      {
+        "first_case": "decerr_competition",
+        "source": "fixtures/task003/bad_decerr_preference.sv",
+        "violation": "Unmapped read does not update arbitration preference"
+      },
+      {
+        "first_case": "reset_1",
+        "source": "fixtures/task003/bad_reset_credit.sv",
+        "violation": "Reset leaves phantom AW credit"
+      },
+      {
+        "first_case": "reset_5",
+        "source": "fixtures/task003/bad_target_reset.sv",
+        "violation": "Reset fails to clear Access when buffered target is two"
+      },
+      {
+        "first_case": "write_fifo",
+        "source": "fixtures/task003/bad_same_edge.sv",
+        "violation": "Simultaneous shift and insertion lose new AW"
+      }
+    ],
+    "references": [
+      "fixtures/task003/reference.sv",
+      "fixtures/task003/reference_shift.sv"
+    ],
+    "required_cross_bins": 48,
+    "required_requirements": [
+      "Q_WRITE_FIFO",
+      "Q_READ_FIFO",
+      "Q_AW_CAPACITY",
+      "Q_W_CAPACITY",
+      "Q_AR_CAPACITY",
+      "Q_ROUND_ROBIN",
+      "Q_INDEPENDENT_HALVES",
+      "Q_INTAKE_WHILE_RESPONSE",
+      "Q_RESET_CREDITS",
+      "Q_RESET_MEMORY",
+      "X_ROUTE_QUEUE",
+      "X_DECERR_LIFECYCLE",
+      "X_RESET_DECERR",
+      "X_RESET_TARGET_IDENTITY"
+    ],
+    "spec_review": {
+      "arbitration": "Registered head selection with explicit before-edge eligibility and read initial preference",
+      "blind_spots": [
+        "Concurrent driver/reset behavior is toolchain-bound; other VIP versions require fresh positive-control validation",
+        "No formal proof or synthesis signoff",
+        "Finite random sampling cannot prove all interleavings",
+        "Requirement bins are not a complete Cartesian functional or code coverage closure"
+      ],
+      "bounds": "Three 64KiB targets; two AW/W/AR unretired credits each; mapped and DECERR share retirement-coupled executor",
+      "ports": "Original single-target AXI4-Lite/APB4 widths",
+      "reset": "Queue/partial/executing/response cancellation with committed target memory retained",
+      "status": "reviewed_before_admission",
+      "unsupported": "Bursts, IDs, multiple APB execution, routing, CDC and interrupts"
+    }
+  },
+  "spec": "spec.md",
+  "status": "candidate",
+  "task_id": "x2p_routed_queue_v1",
+  "title": "Queued multi-target AXI4-Lite to APB4",
+  "verifier": "verifier.task003.campaign",
+  "verifier_revision": 2,
+  "version": 1
+}

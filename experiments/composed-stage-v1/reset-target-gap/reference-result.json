@@ -1,0 +1,82 @@
+{
+  "reward": 1.0,
+  "category": "pass",
+  "public": true,
+  "source_sha256": "cc272bf6a6dca0b7eb45cdeded06a0b3dc6580c013923b3971753c2844cdbc0b",
+  "cases": [
+    {
+      "reward": 1.0,
+      "category": "pass",
+      "simulation_exit": 0,
+      "planned": 12,
+      "failures": [],
+      "timing_failures": [],
+      "scoreboard": {
+        "planned": 12,
+        "axi": 8,
+        "apb": 8,
+        "checked": 8,
+        "aborted": 4,
+        "aborted_apb": 0,
+        "errors": 0
+      },
+      "credits": {
+        "aw": 4,
+        "w": 4,
+        "ar": 8,
+        "retired_w": 2,
+        "retired_r": 6,
+        "canceled_aw": 2,
+        "canceled_w": 2,
+        "canceled_ar": 2,
+        "resets": 1,
+        "grants": 9
+      },
+      "coverage_bins": [
+        "apb_wait",
+        "ar_full",
+        "aw_full",
+        "b_stall",
+        "both_eligible",
+        "r_stall",
+        "read_write_overlap",
+        "reset_queued",
+        "reset_read_preference",
+        "strobe_15",
+        "w_full",
+        "x_target_2"
+      ],
+      "reset_observations": [
+        {
+          "stage": 5,
+          "canceled": 4,
+          "aw": 2,
+          "w": 2,
+          "ar": 2,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "vip_protocol_errors": [],
+      "name": "reset_5",
+      "requirements": [
+        "Q_RESET_STAGE_5",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE"
+      ]
+    }
+  ],
+  "verification_complete": true,
+  "suite_sha256": "dc914e45114b2c1b800c472a4111340a1e8971f4afdb06c3ac13c6b3a3d8fc5c",
+  "required_cases": [
+    "reset_5"
+  ],
+  "compile_exit": 0,
+  "planned": 12,
+  "checked": 8,
+  "aborted": 4,
+  "verdict_determinate": true
+}

@@ -1,0 +1,203 @@
+{
+  "schema": "capsule-production-footprint-v1",
+  "packages": [
+    {
+      "task_id": "x2p_router_compact_v1",
+      "family": null,
+      "files": 1795,
+      "logical_source_bytes": 8686104,
+      "bytes_by_top_level": {
+        ".gitignore": 647,
+        "AGENTS.md": 2816,
+        "README.md": 656,
+        "docs": 269089,
+        "environment": 180092,
+        "experiments": 7629766,
+        "fixtures": 159303,
+        "generation-check.json": 48,
+        "mvp-evaluation-report.md": 9813,
+        "schemas": 10274,
+        "scripts": 131209,
+        "tasks": 64756,
+        "tests": 54778,
+        "verifier": 172857
+      },
+      "admission": "not_inferred_from_generation",
+      "calibration": "not_inferred_from_generation"
+    },
+    {
+      "task_id": "x2p_router_adjacent_v1",
+      "family": null,
+      "files": 1795,
+      "logical_source_bytes": 8686279,
+      "bytes_by_top_level": {
+        ".gitignore": 647,
+        "AGENTS.md": 2816,
+        "README.md": 657,
+        "docs": 269089,
+        "environment": 180102,
+        "experiments": 7629766,
+        "fixtures": 159496,
+        "generation-check.json": 48,
+        "mvp-evaluation-report.md": 9813,
+        "schemas": 10274,
+        "scripts": 131213,
+        "tasks": 64842,
+        "tests": 54784,
+        "verifier": 172732
+      },
+      "admission": "not_inferred_from_generation",
+      "calibration": "not_inferred_from_generation"
+    },
+    {
+      "task_id": "x2p_router_irregular_v1",
+      "family": null,
+      "files": 1795,
+      "logical_source_bytes": 8686908,
+      "bytes_by_top_level": {
+        ".gitignore": 647,
+        "AGENTS.md": 2816,
+        "README.md": 658,
+        "docs": 269089,
+        "environment": 180112,
+        "experiments": 7629766,
+        "fixtures": 159544,
+        "generation-check.json": 48,
+        "mvp-evaluation-report.md": 9813,
+        "schemas": 10274,
+        "scripts": 131217,
+        "tasks": 64871,
+        "tests": 54833,
+        "verifier": 173220
+      },
+      "admission": "not_inferred_from_generation",
+      "calibration": "not_inferred_from_generation"
+    },
+    {
+      "task_id": "x2p_queue_single_v1",
+      "family": "x2p_retirement_queues_v1",
+      "files": 251,
+      "logical_source_bytes": 1084634,
+      "bytes_by_top_level": {
+        ".gitignore": 647,
+        "AGENTS.md": 2816,
+        "README.md": 306,
+        "environment": 183541,
+        "experiments": 299627,
+        "fixtures": 149522,
+        "generation-check.json": 37,
+        "mvp-evaluation-report.md": 9813,
+        "schemas": 10274,
+        "scripts": 137186,
+        "tasks": 63438,
+        "tests": 54796,
+        "verifier": 172631
+      },
+      "admission": "not_inferred_from_generation",
+      "calibration": "not_inferred_from_generation"
+    },
+    {
+      "task_id": "x2p_queue_three_v1",
+      "family": "x2p_retirement_queues_v1",
+      "files": 253,
+      "logical_source_bytes": 1090409,
+      "bytes_by_top_level": {
+        ".gitignore": 647,
+        "AGENTS.md": 2816,
+        "README.md": 305,
+        "environment": 183520,
+        "experiments": 299627,
+        "fixtures": 154850,
+        "generation-check.json": 37,
+        "mvp-evaluation-report.md": 9813,
+        "schemas": 10274,
+        "scripts": 137180,
+        "tasks": 63916,
+        "tests": 54793,
+        "verifier": 172631
+      },
+      "admission": "not_inferred_from_generation",
+      "calibration": "not_inferred_from_generation"
+    },
+    {
+      "task_id": "x2p_queue_readheavy_v1",
+      "family": "x2p_retirement_queues_v1",
+      "files": 252,
+      "logical_source_bytes": 1087640,
+      "bytes_by_top_level": {
+        ".gitignore": 647,
+        "AGENTS.md": 2816,
+        "README.md": 309,
+        "environment": 183604,
+        "experiments": 299627,
+        "fixtures": 152186,
+        "generation-check.json": 37,
+        "mvp-evaluation-report.md": 9813,
+        "schemas": 10274,
+        "scripts": 137204,
+        "tasks": 63687,
+        "tests": 54805,
+        "verifier": 172631
+      },
+      "admission": "not_inferred_from_generation",
+      "calibration": "not_inferred_from_generation"
+    },
+    {
+      "task_id": "x2p_routed_queue_v1",
+      "family": "x2p_routed_retirement_v1",
+      "files": 255,
+      "logical_source_bytes": 1103845,
+      "bytes_by_top_level": {
+        ".gitignore": 647,
+        "AGENTS.md": 2816,
+        "README.md": 132,
+        "environment": 180349,
+        "experiments": 299627,
+        "fixtures": 171336,
+        "generation-check.json": 37,
+        "mvp-evaluation-report.md": 9813,
+        "schemas": 10274,
+        "scripts": 131199,
+        "tasks": 66882,
+        "tests": 54843,
+        "verifier": 175890
+      },
+      "admission": "not_inferred_from_generation",
+      "calibration": "not_inferred_from_generation"
+    },
+    {
+      "task_id": "x2p_queue_three_v1",
+      "family": "x2p_retirement_queues_v1",
+      "files": 256,
+      "logical_source_bytes": 1128794,
+      "bytes_by_top_level": {
+        ".gitignore": 647,
+        "AGENTS.md": 2816,
+        "README.md": 305,
+        "environment-parent.json": 29261,
+        "environment": 191505,
+        "experiments": 299627,
+        "fixtures": 154850,
+        "generation-check.json": 37,
+        "mvp-evaluation-report.md": 9813,
+        "schemas": 10274,
+        "scripts": 138261,
+        "tasks": 63916,
+        "tests": 54793,
+        "verifier": 172689
+      },
+      "admission": "not_inferred_from_generation",
+      "calibration": "not_inferred_from_generation"
+    }
+  ],
+  "distinct_task_ids": 7,
+  "file_entries": 6652,
+  "distinct_content_hashes": 1666,
+  "logical_source_bytes": 31554613,
+  "unique_content_bytes": 9123235,
+  "limitations": [
+    "Identical bytes measure storage duplication, not interchangeable semantic dependencies.",
+    "No compiler cache or industrial admission is inferred from this calculation.",
+    "Toolchain, task semantics and execution dependencies still require binding."
+  ]
+}

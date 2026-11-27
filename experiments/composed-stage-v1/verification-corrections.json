@@ -1,0 +1,55 @@
+{
+  "schema": "same-source-verifier-correction-v1",
+  "source": "Three preserved real VCS/VIP runs; controller and VIP integration changed, candidate RTL did not.",
+  "runs": [
+    {
+      "revision": "dev2",
+      "original_reward": 0.0,
+      "original_category": "transaction_functional_error",
+      "failed_case": "address_data",
+      "verification_complete": false,
+      "completed_case_results": 1,
+      "candidate_sha256": "cc272bf6a6dca0b7eb45cdeded06a0b3dc6580c013923b3971753c2844cdbc0b",
+      "verifier_inputs": {
+        "scoreboard.sv": "3d618480330eeda86b9fedc82e58c369c6a8a213890cc0d9bb780982ca35e514",
+        "tb.sv": "8eebd419587390acfe9a02ac5ced0053a1754317371c172ca249881bed133550",
+        "vip.sv": "deea82a50cd5abf8c2f843b97da21caa9f421d097d41480af8d5cdb4b10f5502"
+      },
+      "interpret_source_sha256": "17efd157156f5a797091b51a252efad88d64d57cdb0991c39b12f2d044207874",
+      "reviewed_diagnosis": "Verifier integration fault: cycle scoreboard handle was not installed; original reward 0 was a false rejection."
+    },
+    {
+      "revision": "dev3",
+      "original_reward": null,
+      "original_category": "infrastructure_error",
+      "failed_case": "reset_3",
+      "verification_complete": false,
+      "completed_case_results": 14,
+      "candidate_sha256": "cc272bf6a6dca0b7eb45cdeded06a0b3dc6580c013923b3971753c2844cdbc0b",
+      "verifier_inputs": {
+        "scoreboard.sv": "3d618480330eeda86b9fedc82e58c369c6a8a213890cc0d9bb780982ca35e514",
+        "tb.sv": "8eebd419587390acfe9a02ac5ced0053a1754317371c172ca249881bed133550",
+        "vip.sv": "748e828b647950e70febd909339c2dd8a6622363660368f5564c7fa29754a1e8"
+      },
+      "interpret_source_sha256": "1553dd6675cdd23ebcbd2eeff7d0a5a019882d680390dbfe2f4187e1758baed9",
+      "reviewed_diagnosis": "Verifier stimulus fault: requester reset did not cancel queued pre-reset transactions; original result correctly remained null."
+    },
+    {
+      "revision": "dev4",
+      "original_reward": 1.0,
+      "original_category": "pass",
+      "failed_case": null,
+      "verification_complete": true,
+      "completed_case_results": 23,
+      "candidate_sha256": "cc272bf6a6dca0b7eb45cdeded06a0b3dc6580c013923b3971753c2844cdbc0b",
+      "verifier_inputs": {
+        "scoreboard.sv": "3d618480330eeda86b9fedc82e58c369c6a8a213890cc0d9bb780982ca35e514",
+        "tb.sv": "8eebd419587390acfe9a02ac5ced0053a1754317371c172ca249881bed133550",
+        "vip.sv": "e51c3db27019c94af2ae98ff0ac0c3295738eec7c86e4315b96b655c2ad21699"
+      },
+      "interpret_source_sha256": "1553dd6675cdd23ebcbd2eeff7d0a5a019882d680390dbfe2f4187e1758baed9",
+      "reviewed_diagnosis": "Observer connection and full requester epoch cancellation restored; same reference RTL passed all public cases."
+    }
+  ],
+  "limitation": "Positive-reference false rejections and their correction; not proof of all verifier fault modes."
+}

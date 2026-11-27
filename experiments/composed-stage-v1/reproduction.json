@@ -1,0 +1,21 @@
+{
+  "scope": "Fresh deterministic source generation compared with frozen evaluated packages; not new RTL verification",
+  "checks": [
+    {
+      "task_id": "x2p_routed_queue_v1",
+      "family": "x2p_routed_retirement_v1",
+      "file_count": 256,
+      "manifest_identical": true,
+      "producer_hashes_identical": true,
+      "industrial_simulation_rerun": false
+    },
+    {
+      "task_id": "x2p_queue_three_v1",
+      "family": "x2p_retirement_queues_v1",
+      "file_count": 256,
+      "manifest_identical": true,
+      "producer_hashes_identical": true,
+      "industrial_simulation_rerun": false
+    }
+  ]
+}

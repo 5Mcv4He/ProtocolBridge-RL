@@ -1,0 +1,67 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "498c9e4d41ec53a6a1450bfe8e92029040d166e74a2a7e6b0358d07c039d4ed6",
+  "suite_sha256": "99dde3cd28114be71038d14de7a5cec0c71f85cca8f98022a281551bba0da12d",
+  "required_cases": [
+    "reset_5",
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_6",
+    "reset_7",
+    "reset_8",
+    "routed_identity",
+    "decerr_competition",
+    "reset_decerr_7",
+    "reset_decerr_8"
+  ],
+  "failed_case": "reset_5",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "reset_5",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 12,
+      "coverage_bins": [],
+      "reset_observations": [
+        {
+          "stage": 5,
+          "canceled": 4,
+          "aw": 2,
+          "w": 2,
+          "ar": 2,
+          "apb_completed": 0
+        }
+      ],
+      "sequence": [
+        "queue_reset_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_RESET_STAGE_5",
+        "Q_RESET_CREDITS",
+        "Q_RESET_MEMORY",
+        "Q_RESET_PREFERENCE",
+        "X_RESET_TARGET_IDENTITY"
+      ]
+    }
+  ]
+}

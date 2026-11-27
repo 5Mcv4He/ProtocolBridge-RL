@@ -1,0 +1,47 @@
+{
+  "schema": "composition-stage-validation-v1",
+  "root_unit_tests": {
+    "passed": 128,
+    "failed": 0,
+    "command": "python3 -m unittest discover -s tests"
+  },
+  "historical_revision3_check": {
+    "status": "pass",
+    "scope": "saved evidence and source consistency; no simulation"
+  },
+  "industrial_gates": {
+    "composed_v2": {
+      "accepted": true,
+      "positive_controls": 2,
+      "negative_controls": 19,
+      "mechanism_checks": 40
+    },
+    "queue_lab": {
+      "accepted": true,
+      "positive_controls": 2,
+      "negative_controls": 14,
+      "mechanism_checks": 40
+    }
+  },
+  "tool_acceptance": {
+    "runtime": 29,
+    "synthesis": 20,
+    "combined_workflow": 17
+  },
+  "actual_new_model_trials": 3,
+  "actual_new_model_audits_accepted": 3,
+  "exact_composed_reward_and_heldout_inputs_reference_pass": true,
+  "private_inputs_published": false,
+  "v5_file_hashes_verified": true,
+  "documentation": {
+    "local_markdown_preview": true,
+    "widths_px": [
+      1000,
+      390
+    ],
+    "important_svgs_light_dark_reviewed": true,
+    "github_actual_rendering_checked": false,
+    "broken_local_links": 0
+  },
+  "scope": "Actual completed checks; source/manifest validation is distinct from RTL simulation. No proof of completeness or training benefit."
+}

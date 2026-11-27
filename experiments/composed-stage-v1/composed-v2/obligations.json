@@ -1,0 +1,80 @@
+[
+  {
+    "controls": [
+      "bad_target",
+      "bad_local",
+      "bad_live_target",
+      "bad_response_mux"
+    ],
+    "coverage": [
+      "x_target_0",
+      "x_target_1",
+      "x_target_2",
+      "x_queued_target_0",
+      "x_queued_target_1",
+      "x_queued_target_2",
+      "x_switch"
+    ],
+    "id": "X_ROUTE_QUEUE",
+    "kind": "capability_interaction",
+    "oracle": "Queued identity, independently decoded target and local address; selected VIP monitor and poisoned unselected response buses",
+    "stimulus": [
+      "routed_identity"
+    ]
+  },
+  {
+    "controls": [
+      "bad_decerr",
+      "bad_decerr_ar_credit",
+      "bad_decerr_preference"
+    ],
+    "coverage": [
+      "x_unmapped_write",
+      "x_unmapped_read",
+      "x_decerr_stall",
+      "x_after_decerr_contended"
+    ],
+    "id": "X_DECERR_LIFECYCLE",
+    "kind": "capability_interaction",
+    "oracle": "Virtual error grant; external handshake credit ledger; no APB side effect; FIFO and preference history",
+    "stimulus": [
+      "decerr_competition"
+    ]
+  },
+  {
+    "controls": [
+      "bad_reset_credit"
+    ],
+    "coverage": [
+      "x_reset_decerr"
+    ],
+    "id": "X_RESET_DECERR",
+    "kind": "capability_interaction",
+    "oracle": "Canceled unretired credits and zero virtual APB completion count",
+    "stimulus": [
+      "reset_decerr_7",
+      "reset_decerr_8"
+    ]
+  },
+  {
+    "controls": [
+      "bad_target_reset"
+    ],
+    "coverage": [
+      "x_reset_mapped_0",
+      "x_reset_mapped_1",
+      "x_reset_mapped_2"
+    ],
+    "id": "X_RESET_TARGET_IDENTITY",
+    "kind": "capability_interaction",
+    "oracle": "At active reset, independently decoded buffered target; reset quiescence and canceled-credit ledger",
+    "stimulus": [
+      "reset_3",
+      "reset_4",
+      "reset_5",
+      "reset_6",
+      "reset_7",
+      "reset_8"
+    ]
+  }
+]

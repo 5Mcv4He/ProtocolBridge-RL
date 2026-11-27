@@ -1,0 +1,125 @@
+{
+  "kind": "derived_view_of_actual_delivered_feedback",
+  "action_index": 14,
+  "tool": "experiment",
+  "source_sha256": "dcadeefab886c4499bc99181001f227a4d239df56b16646589105013a149a757",
+  "first_error": {
+    "cycle": 17,
+    "phase": "post"
+  },
+  "original_observation_sha256": "1cc070d952946f291215966b00408f0dd8aa551be7ea0ab01ab8a90b85194f03",
+  "rows": [
+    {
+      "cycle": 15,
+      "phase": "pre",
+      "events": [
+        "AW",
+        "W",
+        "APB_SETUP"
+      ],
+      "unretired": [
+        3,
+        3,
+        0
+      ],
+      "pins": {
+        "bvalid": 0,
+        "bready": 1,
+        "psel": 1,
+        "penable": 0,
+        "paddr": 0
+      }
+    },
+    {
+      "cycle": 15,
+      "phase": "post",
+      "events": [],
+      "unretired": [
+        3,
+        3,
+        0
+      ],
+      "pins": {
+        "bvalid": 0,
+        "bready": 1,
+        "psel": 1,
+        "penable": 1,
+        "paddr": 0
+      }
+    },
+    {
+      "cycle": 16,
+      "phase": "pre",
+      "events": [
+        "APB_COMPLETE"
+      ],
+      "unretired": [
+        3,
+        3,
+        0
+      ],
+      "pins": {
+        "bvalid": 0,
+        "bready": 1,
+        "psel": 1,
+        "penable": 1,
+        "paddr": 0
+      }
+    },
+    {
+      "cycle": 16,
+      "phase": "post",
+      "events": [],
+      "unretired": [
+        3,
+        3,
+        0
+      ],
+      "pins": {
+        "bvalid": 1,
+        "bready": 1,
+        "psel": 0,
+        "penable": 0,
+        "paddr": 0
+      }
+    },
+    {
+      "cycle": 17,
+      "phase": "pre",
+      "events": [
+        "B"
+      ],
+      "unretired": [
+        2,
+        2,
+        0
+      ],
+      "pins": {
+        "bvalid": 1,
+        "bready": 1,
+        "psel": 0,
+        "penable": 0,
+        "paddr": 0
+      }
+    },
+    {
+      "cycle": 17,
+      "phase": "post",
+      "events": [],
+      "unretired": [
+        2,
+        2,
+        0
+      ],
+      "pins": {
+        "bvalid": 0,
+        "bready": 1,
+        "psel": 1,
+        "penable": 0,
+        "paddr": 0
+      }
+    }
+  ],
+  "terminal_failure": "APB setup without eligible scheduled request",
+  "note": "Public model-visible experiment window; not a private test vector or invented timing example."
+}

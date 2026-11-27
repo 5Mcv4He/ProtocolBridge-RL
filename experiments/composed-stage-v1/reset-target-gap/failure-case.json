@@ -1,0 +1,32 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "simulation_exit": 0,
+  "planned": 12,
+  "failures": [],
+  "timing_failures": [
+    "Synchronous reset outputs"
+  ],
+  "coverage_bins": [],
+  "reset_observations": [
+    {
+      "stage": 5,
+      "canceled": 4,
+      "aw": 2,
+      "w": 2,
+      "ar": 2,
+      "apb_completed": 0
+    }
+  ],
+  "sequence": [
+    "queue_reset_sequence"
+  ],
+  "vip_protocol_errors": [],
+  "name": "reset_5",
+  "requirements": [
+    "Q_RESET_STAGE_5",
+    "Q_RESET_CREDITS",
+    "Q_RESET_MEMORY",
+    "Q_RESET_PREFERENCE"
+  ]
+}
