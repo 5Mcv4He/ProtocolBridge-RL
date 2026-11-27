@@ -1,6 +1,6 @@
 {
   "schema": "finite-artifact-registry-v1",
-  "scope": "Ten finite contracts. Evidence pointers require matching dependencies; historical records remain frozen. UART revision5 and FIFO checker revision2 supersede incomplete earlier checks.",
+  "scope": "Twelve finite contracts. Evidence pointers require matching dependencies; historical records remain frozen. I2C generation/quality revision2 rejects compilation-only negative evidence; runtime9 uses session3.",
   "tasks": [
     {
       "task_id": "accumulator_wrap_repair_v1",
@@ -171,6 +171,39 @@
         "write-one-to-clear",
         "per-bit-hardware-software-priority",
         "synchronous-state-update"
+      ]
+    },
+    {
+      "task_id": "i2c_sink_byte_v1",
+      "contract_version": 1,
+      "metadata": "tasks/i2c_sink_byte_v1/task.json",
+      "spec": "tasks/i2c_sink_byte_v1/spec.md",
+      "initial_artifact": "tasks/i2c_sink_byte_v1/workspace/i2c_sink.sv",
+      "deliverable": "i2c_sink.sv",
+      "effective_verifier": "verifier.i2c_sink.campaign",
+      "verifier_revision": 1,
+      "quality_evidence": "experiments/i2c-sink-v1/quality.json",
+      "runtime": "environment.artifact_task.runner_v9",
+      "capabilities": [
+        "serial-write-reception",
+        "open-drain-ack-timing"
+      ]
+    },
+    {
+      "task_id": "i2c_sink_word_v1",
+      "contract_version": 1,
+      "metadata": "tasks/i2c_sink_word_v1/task.json",
+      "spec": "tasks/i2c_sink_word_v1/spec.md",
+      "initial_artifact": "tasks/i2c_sink_word_v1/workspace/i2c_sink.sv",
+      "deliverable": "i2c_sink.sv",
+      "effective_verifier": "verifier.i2c_sink.campaign",
+      "verifier_revision": 1,
+      "quality_evidence": "experiments/i2c-sink-v1/quality.json",
+      "runtime": "environment.artifact_task.runner_v9",
+      "capabilities": [
+        "serial-write-reception",
+        "open-drain-ack-timing",
+        "transaction-local-word-assembly"
       ]
     }
   ]

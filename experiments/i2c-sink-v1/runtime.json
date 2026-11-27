@@ -1,0 +1,120 @@
+{
+  "schema": "i2c-sink-runtime-acceptance-v1",
+  "accepted": true,
+  "checks": [
+    {
+      "check": "i2c_sink_byte_v1-qualified",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-changed-package-refused",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-initial-fail",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-projected-fields",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-old-feedback-identity",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-budget-reject-no-backend",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-submit-frozen",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-closed-action",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-requires-solver-stop",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-terminal-pass",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-heldout-pass",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-private-not-in-observation",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-separate-inputs",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_byte_v1-two-session-calls",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-qualified",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-changed-package-refused",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-initial-fail",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-projected-fields",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-old-feedback-identity",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-budget-reject-no-backend",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-submit-frozen",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-closed-action",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-requires-solver-stop",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-terminal-pass",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-heldout-pass",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-private-not-in-observation",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-separate-inputs",
+      "accepted": true
+    },
+    {
+      "check": "i2c_sink_word_v1-two-session-calls",
+      "accepted": true
+    }
+  ],
+  "real_vcs_runs": 6,
+  "scope": "Actual public/terminal/heldout paths; existing OS isolation separately probed before model calls"
+}

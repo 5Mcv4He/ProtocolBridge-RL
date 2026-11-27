@@ -1,19 +1,19 @@
 {
-  "schema": "i2c-sink-generation-v1",
-  "generator_sha256": "c4ef8fcf273a227ddc6be7accdb4f6bf689c72bd3aed939ecbd850e65cccf192",
+  "schema": "i2c-sink-generation-v2",
+  "generator_sha256": "d58c587862b7344af6b74bf10125ed292712b9c66c9a7b629bac2381da96acbb",
   "template_sha256": "187cf2b5ec5f8ac610a10afde8d0d3aeaf4ee09b9b464cc982845633b0bb6f82",
   "files": {
-    "alternate.sv": "8a660a94e55b8827fbad3303fac72b39baf17d97e80b58c062130412e6f3bf02",
+    "alternate.sv": "46a902bae8f9dc113377720fb5b071fe06f5c699fe08266b5222c4c5597b31f9",
     "task.json": "cf6642383e9f15d945af2941a04536af396ec12de0aebeebe2e1ac0a05d72988",
     "README.md": "274d76742e51f553e2ade29df444f049fb4a64e9240e3ee79a99ef626d098e87",
-    "reference.sv": "8b739ea9a6cb6d297ff627b40e5082eb314b2508d5f0f3661b396305103242a2",
+    "reference.sv": "5a5a9497b08710756c004266e8d657fa7a37f1d658029fb4d951a0c5c1d57dd4",
     "spec.md": "efeee3a2f707ea4c314025d44de19a7503fffa74ea479a0491d33c95d1818b16",
     "workspace/i2c_sink.sv": "48ff2ad13db3afcbe89a531d0fbc8b3aedca10800cb99d700f5b0a304de3f74e",
-    "controls/no_ack.sv": "d51d229c2168e2babb8efdd1507425f97b440b0aa847d2844680d5239d1f3ac6",
-    "controls/data_bit_loss.sv": "a32aa7a1e1e231871cadaf2893087327988713b326a233d648a7148eb1a51ce0",
-    "controls/ack_too_early.sv": "db4fcfc59bd52dcd34ea031a0e929fa850aadba9590dcf9fe209b974640f983b",
-    "controls/wrong_address.sv": "97b323b09a541aa78255192fa924df356b76d3098643490c14ba34337b08968f",
-    "controls/reset_data_not_cleared.sv": "4561872c5e60c69f2927222a6aa5441e135c40d886758fd4444a8b01e975f249",
-    "controls/valid_stuck.sv": "e7352936d772ac33217ee32f3f086ac38074e489c662216d7142849b7b955e20"
+    "controls/no_ack.sv": "7bfce8fc593212819aea6cbed34b3a037ebe4938058c1ab9465fc52b802bb45b",
+    "controls/data_bit_loss.sv": "30a062900216c1e4ff9e3201ed7644ae603eb942948cb9dc727ff75f96eea1e3",
+    "controls/ack_too_early.sv": "6ecedb82558e0595a8ba6d0003d7d7de54b83fb2cdeff27e57dd73580a0710bf",
+    "controls/wrong_address.sv": "14b94f8327a6c2e3891378ae35a1c570fb819e42b92ddc1a446414d5e303865b",
+    "controls/reset_data_not_cleared.sv": "594d87640497f276bcc998523aefc2149d3225e4a5b2b4367b57c2c45abef0de",
+    "controls/valid_stuck.sv": "70a974392203fd4de0c15cfaad65ddf0f8e0d8523b733a150877dacbaab745ea"
   }
 }

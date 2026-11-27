@@ -1,7 +1,7 @@
 """Explicit source-matched admission; generated candidates are not automatically tasks."""
 import json,tempfile
 from pathlib import Path
-from .generate import generate,MODES
+from .generate_v2 import generate,MODES
 from task_families.fifo_checker_v1.qualification import files,ROOT
 from environment.artifact_task.session_v2 import sha
 GATE='experiments/i2c-sink-v1/quality.json'

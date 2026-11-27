@@ -1,0 +1,96 @@
+{
+  "schema": "runtime-dependency-completeness-v3",
+  "producer": "verification_resources.production_v4",
+  "producer_sha256": "3bf6f5220be2e7ce733bcea5a7413aed12793a19b42c2f8d61b845699bc3333a",
+  "schema_version": "finite-engineering-materialization-v7",
+  "rows": [
+    {
+      "task_id": "accumulator_wrap_repair_v1",
+      "dependency_count": 60,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "c418b2e58ea27f620ef75211a207d16d67de187e64822acc8e78aa809e7f15eb"
+    },
+    {
+      "task_id": "accumulator_saturating_repair_v1",
+      "dependency_count": 60,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "c121e531bb6dd8cdce368eace39344dda3caaa0ba1e46577249e921e62a65d30"
+    },
+    {
+      "task_id": "uart_tx_8n1_v1",
+      "dependency_count": 58,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "184c02618a48db69f4e04b98f089609a91ce01bb24edde8ee6b3b1644ee312ee"
+    },
+    {
+      "task_id": "uart_tx_8e1_v1",
+      "dependency_count": 58,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "ae29d3e8b25ec2c8c5a99791a0725b74694d272688ec752a56774b6b850cd58b"
+    },
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "dependency_count": 64,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "a09df0ce3bd704e374a8b0497609bb1d8aaf6e8c0bfdb24d2021f1b335bd9e8f"
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "dependency_count": 64,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "56169c2f3b8ad64a404427af2fe688c6349ac12d4eb9953a6c86c15ae1b857d3"
+    },
+    {
+      "task_id": "i2c_sink_byte_v1",
+      "dependency_count": 73,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "eb34e2620a6a8a19202c3cfe8435d265dc8d195a29df02973ffc9f185c5fe1c4"
+    },
+    {
+      "task_id": "i2c_sink_word_v1",
+      "dependency_count": 73,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "c0554ba7e5370da6aced4f38ab2598299f0b8cc211ec07d4371d39d5d2742541"
+    },
+    {
+      "task_id": "fifo_checker_d2_v1",
+      "dependency_count": 43,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "69aa6f20486286ab3e3798e28c78973f64e3265d63beef230d64350ec33c0ef4"
+    },
+    {
+      "task_id": "fifo_checker_d3_v1",
+      "dependency_count": 43,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "ed2632e92850c45b98692f3762b8b8f2904843ce7a3583d6f0cbaebf6e40b6b9"
+    },
+    {
+      "task_id": "status_set_dominant_repair_v1",
+      "dependency_count": 70,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "1b745181355707de1bf6241b5084eee2a9dacf242da1239691b412dda2a72f0b"
+    },
+    {
+      "task_id": "status_clear_dominant_repair_v1",
+      "dependency_count": 70,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "ff108c9d387e31a10fe3301a517bf8d8d626567358c04f02c357711f4e241dab"
+    }
+  ],
+  "omission_probes": 736,
+  "accepted": true,
+  "simulation_executed": false,
+  "scope": "Twelve source-qualified task packages; exact runtime dependencies and every single omission; local reset exposes only Spec,initial artifact,identity."
+}

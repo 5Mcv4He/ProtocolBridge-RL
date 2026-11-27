@@ -37,7 +37,7 @@ module i2c_sink(input logic clk,rst_n,scl,sda,output logic sda_drive_low,item_va
         end
         DATA:if(rise)begin
           shift<={shift[6:0],sda_q};
-          if(bits==7)begin item_data<={8'b0,shift[6:0],sda_q};item_valid<=1;state<=ACK_DATA;ack_phase<=0;bits<=0;end
+          if(bits==7)begin item_data<={8'b0,shift[6:0],sda_q};item_valid<=1; state<=ACK_DATA;ack_phase<=0;bits<=0;end
           else bits<=bits+1;
         end
         ACK_DATA:begin

@@ -1,7 +1,7 @@
 import unittest
 from verifier.i2c_sink.campaign import interpret,source_policy
 from verifier.i2c_sink.corpus import corpus,encode
-from task_families.i2c_sink_v1.generate import rtl,controls
+from task_families.i2c_sink_v1.generate_v2 import rtl,controls
 
 class I2CSinkTest(unittest.TestCase):
     def test_complete_requires_activity_and_clean_vip(self):

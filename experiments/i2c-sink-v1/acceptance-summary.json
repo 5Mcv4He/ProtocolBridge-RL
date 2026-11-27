@@ -1,0 +1,25 @@
+{
+  "schema": "i2c-sink-acceptance-summary-v1",
+  "unit_tests": {
+    "tests": 171,
+    "passed": true,
+    "log_sha256": "0db4281eb275fd5ff914a87cd16df5f01ff22b5bdfab75eb595af83a2ca8078e"
+  },
+  "historical_baseline": {
+    "command": "python3 -m environment.check_baseline",
+    "passed": true,
+    "result_sha256": "b31fa79b8973050b0c112b9ddbedc8723018fc3bc4a094de589fad10690de75d",
+    "scope": "Historical source/evidence hashes only; no new RTL simulation"
+  },
+  "quality": {
+    "evidence": "quality.json",
+    "sha256": "f23d5b064c400bae26440e325a0553e71eecdc54a89fd379e9e603a77f2cb13e",
+    "accepted": true
+  },
+  "materialization": {
+    "evidence": "materialization.json",
+    "sha256": "a5798cdbef74c06cca7155fb84192b128d2b582757c3165075e074dc998360fa",
+    "packages": 12,
+    "omission_rejections": 736
+  }
+}

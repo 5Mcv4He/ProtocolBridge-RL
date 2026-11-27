@@ -31,6 +31,7 @@ RUNTIME = 'environment.artifact_task.runner_v9'
 COMMON = (
     'environment/artifact_task/runner_v9.py',
     'environment/artifact_task/__main__.py',
+    'tasks/artifact-registry.json',
     'environment/utm_worker.py',
     'environment/utm_sandbox.sh',
     'verification_resources/production_v4.py',

@@ -1,0 +1,20 @@
+{
+  "schema": "i2c-task-toolchain-v1",
+  "vcs": [
+    "O-2018.09-SP2_Full64"
+  ],
+  "uvm": [
+    "1.1d"
+  ],
+  "vip_i2c": [
+    "R-2020.12"
+  ],
+  "controller_python": "3.14.5",
+  "worker_identity": "Per-trial sandbox and worker hashes recorded by runner_v9; worker Python version not separately sampled here",
+  "simulation_logs": 29,
+  "sampling_scope": "Versions parsed from actual current quality-run simulation headers; not installation inventory",
+  "tool_scripts": {
+    "campaign_sha256": "cbeb9687a2466ba286cd48e120313c1bba655e47353532de2a9125cf08a36c04",
+    "tb_sha256": "9e8d8d8606078e4e9412bbfd352086d26442018e9e3d715f35ec3b5abe1a67e5"
+  }
+}
