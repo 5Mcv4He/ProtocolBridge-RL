@@ -1,0 +1,30 @@
+{
+  "schema": "trusted-classifier-defect-v1",
+  "trial_id": "uart-8e1-verifier3-r1",
+  "historical_terminal": {
+    "reward": null,
+    "category": "infrastructure_error",
+    "exception_type": "RuntimeError",
+    "solver_stop_confirmed": false
+  },
+  "historical_public_result": {
+    "task_id": "uart_tx_8e1_v1",
+    "source_sha256": "77a9dfabbdf079da9151157ab62b18fa44df4e9821b85f3c5d10cd74a1e42ec4",
+    "verifier_sha256": "f87378f68abc29cece2c5afb78604c5a5c2e3308c0f6237c216a92f348b89651",
+    "grader_sha256": "c9db380c6c155df074335576346ddfb4d67a030b1c4184aadfab02c489c4299e",
+    "reward": null,
+    "category": "infrastructure_error",
+    "verification_complete": false,
+    "phase": "public",
+    "verifier_revision": 3,
+    "compile_seconds": 5.6183,
+    "compile_exit": 255,
+    "wall_seconds": 6.8715
+  },
+  "finding": "Candidate scalar data sliced as a vector produced an explicit VCS candidate compile error. The classifier matched the word license in ordinary tool boilerplate and misclassified it as infrastructure_error. The runner stopped under its predeclared rule.",
+  "classification": "trusted_verifier_defect_not_external_resource_failure",
+  "trial_not_resumed": true,
+  "raw_records_preserved": true,
+  "new_control_origin": "Actual candidate-08 from this trial, not a synthetic mutation",
+  "repair": "Versioned verifier4 scopes infrastructure detection to actual failure patterns and adds this candidate plus syntax-error controls. Historical null is not converted to 0 or continued."
+}

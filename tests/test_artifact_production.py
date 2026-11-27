@@ -17,7 +17,7 @@ class Production(unittest.TestCase):
    p=Path(t)/'p';materialize('uart-transmit','8n1',p);m=json.loads((p/'manifest.json').read_text())
    m['verifier_revision']=1;(p/'manifest.json').write_text(json.dumps(m))
    with self.assertRaises(ValueError):check(p)
-   m['verifier_revision']=3;m['source_dependencies'].pop('verifier/uart_tx/tb_v3.sv');(p/'manifest.json').write_text(json.dumps(m))
+   m['verifier_revision']=4;m['source_dependencies'].pop('verifier/uart_tx/tb_v3.sv');(p/'manifest.json').write_text(json.dumps(m))
    with self.assertRaises(ValueError):check(p)
  def test_unknown_combination_rejected(self):
   with tempfile.TemporaryDirectory() as t:

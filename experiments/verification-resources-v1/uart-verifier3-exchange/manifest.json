@@ -1,0 +1,21 @@
+{
+  "schema": "pb-exchange-manifest-v6",
+  "records": 2,
+  "exporter_sha256": "12ae81c3ffacc5e08db1249f1bda47cf5348a506d169551f5c75959a516ac0a0",
+  "files": {
+    "analysis/offline.jsonl": "4b590cca326518124822b9e41f5da356d31d31bffec227c850c04bc8922c28a5",
+    "artifacts/02fefb27eff7afddbc2e65b64ccb7c31ef131898576d5741e176287b3e8fde37.txt": "02fefb27eff7afddbc2e65b64ccb7c31ef131898576d5741e176287b3e8fde37",
+    "artifacts/09141eb07f74c1162a3184e6571d0b5022a81f6009288ab7166e144812e2daa0.txt": "09141eb07f74c1162a3184e6571d0b5022a81f6009288ab7166e144812e2daa0",
+    "artifacts/25ff3d4172b322516ca1fa996cf94991df2126aef9d6e63324e73ec60015bfc2.txt": "25ff3d4172b322516ca1fa996cf94991df2126aef9d6e63324e73ec60015bfc2",
+    "artifacts/32cabc3e3b99bee31d13d593496ca97a004737072a8d35504735b9f89d63f3ef.txt": "32cabc3e3b99bee31d13d593496ca97a004737072a8d35504735b9f89d63f3ef",
+    "artifacts/39e1fd7749ffc3f3ea6339300a360f607477781b679ffffbcd8c6ea3873c6329.txt": "39e1fd7749ffc3f3ea6339300a360f607477781b679ffffbcd8c6ea3873c6329",
+    "artifacts/77a9dfabbdf079da9151157ab62b18fa44df4e9821b85f3c5d10cd74a1e42ec4.txt": "77a9dfabbdf079da9151157ab62b18fa44df4e9821b85f3c5d10cd74a1e42ec4",
+    "artifacts/c23d369e72f7508db94edd49b4cdcfe474a49768b008d677f8946012b2a89f6d.sv": "c23d369e72f7508db94edd49b4cdcfe474a49768b008d677f8946012b2a89f6d",
+    "artifacts/c23d369e72f7508db94edd49b4cdcfe474a49768b008d677f8946012b2a89f6d.txt": "c23d369e72f7508db94edd49b4cdcfe474a49768b008d677f8946012b2a89f6d",
+    "artifacts/c5e1833767ba32a12bab83605dc2b7518eb5cc1e73ffe02dd60bff1f0c5b6482.txt": "c5e1833767ba32a12bab83605dc2b7518eb5cc1e73ffe02dd60bff1f0c5b6482",
+    "artifacts/ff7ee2e64e25ceb29d83ae532eb8f4de64d3dcf747fac82c0604cfcb8525b10f.txt": "ff7ee2e64e25ceb29d83ae532eb8f4de64d3dcf747fac82c0604cfcb8525b10f",
+    "evaluation/heldout.jsonl": "91868e7b741a28d02b441a194dc9d763f4dd87844cddb2337be058c240fbf656",
+    "training/rollouts.jsonl": "57a4db67568657995e05d62e77174aa32f09443ca12e25c21eb31af974c91c93"
+  },
+  "scope": "Reviewed tool interactions; raw model replies preserved privately and used for replay audit. No token-level on-policy training claim."
+}

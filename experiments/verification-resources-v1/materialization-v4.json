@@ -1,0 +1,92 @@
+{
+  "schema": "finite-materialization-validation-v4",
+  "producer_sha256": "50ac26f230becb292c723de86684c282f5bf8de9bd60c320999b4524384eb2ac",
+  "rows": [
+    {
+      "family": "reference-repair",
+      "variant": "wrap",
+      "task_id": "accumulator_wrap_repair_v1",
+      "manifest_sha256": "77df2fc6b93c7dffddec1fd37e8e323499f1503faecd9a812bae88d634302f6f",
+      "generated": true,
+      "dependency_check": true,
+      "reset": {
+        "task_id": "accumulator_wrap_repair_v1",
+        "initialized": true
+      },
+      "files_bytes": 7570,
+      "dependency_count": 30
+    },
+    {
+      "family": "reference-repair",
+      "variant": "saturating",
+      "task_id": "accumulator_saturating_repair_v1",
+      "manifest_sha256": "404657df4fa3e5cfaedfc030b5024df6cf1c0065ca015ad44a96650b6baf2e6a",
+      "generated": true,
+      "dependency_check": true,
+      "reset": {
+        "task_id": "accumulator_saturating_repair_v1",
+        "initialized": true
+      },
+      "files_bytes": 7652,
+      "dependency_count": 30
+    },
+    {
+      "family": "uart-transmit",
+      "variant": "8n1",
+      "task_id": "uart_tx_8n1_v1",
+      "manifest_sha256": "a09b9e6f1f97e258ac3df272511eba6f6033080f55c4bb4969fcad27cf4c7d1b",
+      "generated": true,
+      "dependency_check": true,
+      "reset": {
+        "task_id": "uart_tx_8n1_v1",
+        "initialized": true
+      },
+      "files_bytes": 7900,
+      "dependency_count": 33
+    },
+    {
+      "family": "uart-transmit",
+      "variant": "8e1",
+      "task_id": "uart_tx_8e1_v1",
+      "manifest_sha256": "8735b3535f62e30a8b4e97ecc1f63df1c98814ec5bf4521e08066ba8e4a7c597",
+      "generated": true,
+      "dependency_check": true,
+      "reset": {
+        "task_id": "uart_tx_8e1_v1",
+        "initialized": true
+      },
+      "files_bytes": 8027,
+      "dependency_count": 33
+    },
+    {
+      "family": "stimulus-design",
+      "variant": "mapping",
+      "task_id": "x2p_stimulus_mapping_v1",
+      "manifest_sha256": "e6842054e3d6bc6aa631197bcc84524eb39670dff8e674b54c02d02a7783816a",
+      "generated": true,
+      "dependency_check": true,
+      "reset": {
+        "task_id": "x2p_stimulus_mapping_v1",
+        "initialized": true
+      },
+      "files_bytes": 9009,
+      "dependency_count": 36
+    },
+    {
+      "family": "stimulus-design",
+      "variant": "timing",
+      "task_id": "x2p_stimulus_timing_v1",
+      "manifest_sha256": "5b335bf388030a358d703f7320adb38bc92a14f9a3462b26b988b296bc8d8114",
+      "generated": true,
+      "dependency_check": true,
+      "reset": {
+        "task_id": "x2p_stimulus_timing_v1",
+        "initialized": true
+      },
+      "files_bytes": 9103,
+      "dependency_count": 36
+    }
+  ],
+  "accepted": true,
+  "note": "Six reviewed contracts, not six independent protocol capabilities; runtime source dependencies are shared, not commercial libraries or binary cache."
+}

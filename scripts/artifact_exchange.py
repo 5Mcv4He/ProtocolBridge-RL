@@ -29,7 +29,7 @@ def audit(root):
             if sha(source)!=r['source_sha256']:raise ValueError('Tool checked wrong candidate')
             return r
         cls=Session
-        if result['schema'] in ('artifact-rollout-v2','artifact-rollout-v3','artifact-rollout-v4'):
+        if result['schema'] in ('artifact-rollout-v2','artifact-rollout-v3','artifact-rollout-v4','artifact-rollout-v5'):
             from environment.artifact_task.session_v2 import Session as CurrentSession
             cls=CurrentSession
         elif plan.get('rejection_feedback')=='explicit-v2':
@@ -53,8 +53,13 @@ def audit(root):
         if replay.submitted:
             frozen=root/'session/submission'/task['deliverable']
             if sha(frozen)!=sha(work/task['deliverable']) or result['terminal'].get('source_sha256')!=sha(frozen):raise ValueError('Final candidate mismatch')
-        if not result['solver_stop_confirmed'] or not result['frozen_sources_unchanged']:raise ValueError('Unconfirmed independent evaluation boundary')
-    return {'accepted':True,'trial_id':result['trial_id'],'actions':len(trace),'tokens':tokens,'protocol_errors':protocol_errors+schema_errors,'reply_parse_errors':protocol_errors,'action_schema_errors':schema_errors,
+        if not result['frozen_sources_unchanged']:raise ValueError('Frozen sources changed')
+        if not result['solver_stop_confirmed']:
+            # Preserve interrupted records without claiming a confirmed terminal
+            # boundary. No independent scoring may have run in this state.
+            if result['terminal'].get('reward') is not None or result['terminal'].get('category')!='infrastructure_error' or result['reserved_evaluation'] is not None or (root/'session/terminal').exists():
+                raise ValueError('Scoring occurred without confirmed solver stop')
+    return {'accepted':True,'solver_stop_confirmed':result['solver_stop_confirmed'],'terminal_evaluation_performed':(root/'session/terminal').exists(),'trial_id':result['trial_id'],'actions':len(trace),'tokens':tokens,'protocol_errors':protocol_errors+schema_errors,'reply_parse_errors':protocol_errors,'action_schema_errors':schema_errors,
             'public_check_wall_seconds':round(tool_seconds,4),'checks':['raw_action_replay','feedback_whitelist_and_projection','candidate_hash_binding','budgets','actual_feedback_delivery','submission_identity','solver_stop_and_freeze'],
             'limits':'Exit and freeze claims are controller evidence, not independent OS attestation; no model hidden reasoning inference.'}
 

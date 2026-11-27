@@ -1,0 +1,93 @@
+{
+  "schema": "bounded-artifact-study-plan-v5",
+  "study_id": "uart-verifier4-classification-calibration-v1",
+  "frozen_at_utc": "2026-11-27T10:05:17.415760+00:00",
+  "source_files": {
+    "fixtures/uart_tx/bad_busy_accept.sv": "8fb39dbdbdbee8b1fa094818458876ee38c871daefe55f7cbe13b359e89a8333",
+    "fixtures/uart_tx/model_scalar_slice.sv": "77a9dfabbdf079da9151157ab62b18fa44df4e9821b85f3c5d10cd74a1e42ec4",
+    "fixtures/uart_tx/reference_8e1.sv": "e872eb3a2b5c964fb76687efadaac7d4f247a51723c315a3ca6c140fff722d1a",
+    "fixtures/uart_tx/reference_8n1.sv": "353fffebade43a18556485dda2d17964d05fcccf99ba1d49b42c5d08f1e8077e",
+    "tasks/uart_tx_8e1_v1/spec.md": "39e1fd7749ffc3f3ea6339300a360f607477781b679ffffbcd8c6ea3873c6329",
+    "tasks/uart_tx_8e1_v1/task.json": "a8bfcc0f843661897fbb60f4e208cb898a861380d762bac18038d6c2c4d0b92c",
+    "tasks/uart_tx_8e1_v1/workspace/uart_tx.sv": "02fefb27eff7afddbc2e65b64ccb7c31ef131898576d5741e176287b3e8fde37",
+    "tasks/uart_tx_8n1_v1/spec.md": "c5e1833767ba32a12bab83605dc2b7518eb5cc1e73ffe02dd60bff1f0c5b6482",
+    "tasks/uart_tx_8n1_v1/task.json": "55a5968e4bc472f4ababc1636a2f276954c3d3ae21ade95d115ea07726f73f13",
+    "tasks/uart_tx_8n1_v1/workspace/uart_tx.sv": "ff7ee2e64e25ceb29d83ae532eb8f4de64d3dcf747fac82c0604cfcb8525b10f",
+    "verifier/uart_tx/campaign.py": "f125db203808d09c890984189bbd67c4c9f87688f804d962e90d994f048f171f",
+    "verifier/uart_tx/campaign_v2.py": "1d789d9015f836018b60d66e8d2974188670dc207abfeb75d7e4f3fbf168daa5",
+    "verifier/uart_tx/campaign_v3.py": "c9db380c6c155df074335576346ddfb4d67a030b1c4184aadfab02c489c4299e",
+    "verifier/uart_tx/campaign_v4.py": "13ab973663108a76b3451a7eb01efd57acc8521280df55d6857fe7b9d8f3f477",
+    "verifier/uart_tx/phase_acceptance.py": "531d31c79837b17baad9e87d9bd7d3a237499340fb31a1b9fb1a3646e47d0c36",
+    "verifier/uart_tx/quality.py": "7e1d3fce497f3dab0595dafd31e0cb3654374fc6545fcd7d7f2a999f31fced1a",
+    "verifier/uart_tx/quality_v2.py": "c849ebb7c6fef3133ed8f8fb89700414a8e66e4bcf94b1d5b32574071ec33638",
+    "verifier/uart_tx/quality_v3.py": "25371553e60273ca8b7c75d68bd15423d0222d836d60f31a513b30c18f687cc0",
+    "verifier/uart_tx/quality_v4.py": "4293df0ddaa073c53b83ca21a40412894180cfc8599b97dba3c519bfe305d66d",
+    "verifier/uart_tx/tb.sv": "e01f700acc631ed790e01e23fa66d386c88760e1202b44d5012a46395998dd56",
+    "verifier/uart_tx/tb_v2.sv": "27bb19dd78f2f1fbb5865802caeb93fc801fa05353b4707544afcea7d1d6ddf2",
+    "verifier/uart_tx/tb_v3.sv": "f87378f68abc29cece2c5afb78604c5a5c2e3308c0f6237c216a92f348b89651",
+    "environment/artifact_task/session_v2.py": "5deaafe3a0c7bd0ddd381b80e4bd5cc19420aa282c1ccf230acaedfb973cfae4",
+    "environment/artifact_task/runner_v5.py": "15358b8987c626dbc372231ff5eef63ffeca34c1c43ccdb176ae36e1d5e41239",
+    "environment/artifact_task/dispatch_v4.py": "d1140fa468c34d19e23897dd64aa991dc0eb8b13ed31ba1735fd2e06eb17cc22",
+    "environment/policy.py": "3a06fe89b8744a4773db477eedf4ee2b6c88a0a229f8ad0a409c8139b5e943dd",
+    "environment/utm_worker.py": "a2d05ae3ea49698701a362af78171c709648093cd20f8d2cb951c022431e7625",
+    "environment/utm_sandbox.sh": "652a593dff127a82b499019304940cf54326b601c275bc86171fee08335531e1",
+    "environment/remote_backend.py": "13ec548ae78a046394ee3d547c1dfa60388b5769b93c386719fc179c736e82f7",
+    "verifier/independent_formal/campaign.py": "362e638452ff20e3acc41d51b5a0026f2af4c0b6b2aff8a6ed4b9562d025dcd0",
+    "experiments/verification-resources-v1/uart-quality-v4.json": "1f9958f9b9339701572677cea7cce64585aad735f9636f654fa7b880ea2be7db",
+    "experiments/verification-resources-v1/uart-classification-recheck.json": "e3787c5a60c9af92ae986b55fd8e4d0a00ced763b256bf6b49d8c2580dbf3bb5"
+  },
+  "model": "deepseek-flash",
+  "sampling": {
+    "reasoning": "off",
+    "max_output_tokens": 7000,
+    "seed": null,
+    "temperature": "provider default, not controlled",
+    "exact_weights": null,
+    "behavior_logprobs": null,
+    "token_ids": null
+  },
+  "max_actions": 20,
+  "max_tests": 4,
+  "max_trial_seconds": 1200,
+  "maximum_started_trials": 2,
+  "concurrency": 1,
+  "trials": [
+    {
+      "trial_id": "uart-8n1-verifier4-r1",
+      "task_id": "uart_tx_8n1_v1"
+    },
+    {
+      "trial_id": "uart-8e1-verifier4-r1",
+      "task_id": "uart_tx_8e1_v1"
+    }
+  ],
+  "prompts": {
+    "uart_tx.sv": "Solve the engineering task specified by spec.md. Return exactly ONE JSON object per turn, no prose or additional actions. Allowed actions: {\"tool\":\"read\",\"file\":\"spec.md\"}, {\"tool\":\"read\",\"file\":\"uart_tx.sv\"}, {\"tool\":\"edit\",\"content\":\"complete file\"}, {\"tool\":\"test\"}, {\"tool\":\"submit\"}. Read both files before edit or submit. Only uart_tx.sv can be edited. Test runs the trusted public checker against the current file. You have at most 20 total actions and 4 public tests. Rejected actions also consume an action. Submission is allowed without passing tests and ends solving. Independent terminal and held-out results are not returned. No shell, other files, reference, checker or private inputs are available. Do not combine actions."
+  },
+  "rejection_feedback": "artifact-session-v2",
+  "effective_verifier_revision": 4,
+  "reason": "Trusted classifier failure stopped the second verifier3 trial. New cohort follows actual classifier acceptance, preserves all old attempts and does not select replacement successes.",
+  "fixed_conditions": "Same task contracts, starting RTL, worker/model, prompt, feedback and budgets as verifier3; only compile-classification correction, version identity and independent model sampling differ.",
+  "stopping_rules": [
+    "Stop affected cohort on source drift, isolation failure or indeterminate trusted verification. Retain all started attempts, no replacement.",
+    "Stop each trial on submit,20actions,worker error or1200seconds.",
+    "This is the last two-trial cohort for this stage regardless of outcomes; total stage trial cap remains16, expected14. Any new trusted defect stops the affected cohort; no additional samples in this delivery."
+  ],
+  "primary_questions": [
+    "Can the corrected checker run isolated repair trials with determinate functional or compile failure feedback?",
+    "Do actual edits after failure repair the contract?"
+  ],
+  "offline_analysis": {
+    "old_final_submissions": "none",
+    "intermediate_candidates": "none",
+    "training_selection": "No use of held-out results to select candidates"
+  },
+  "estimated_resources": {
+    "maximum_model_requests": 40,
+    "token_estimate": 120000,
+    "eda_seconds_estimate": 400,
+    "basis": "Previous UART trial costs and actual revision2 control runs; finite bound, no adaptive expansion",
+    "api_currency_cost": null
+  },
+  "interpretation": "Two new exploratory trials, not replacement samples, not a tool-effect success-rate comparison. Reliability improvement rests on the controlled same-source defect recheck."
+}

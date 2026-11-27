@@ -1,6 +1,6 @@
 {
   "schema": "finite-artifact-registry-v1",
-  "scope": "Six reviewed contracts; historical metadata remains frozen. These evidence pointers do not grant admission without source hash checks. UART verifier1/2 evidence is superseded, not rewritten.",
+  "scope": "Six reviewed contracts; historical metadata remains frozen. These evidence pointers do not grant admission without source hash checks. UART verifier1/2/3 evidence is superseded, not rewritten.",
   "tasks": [
     {
       "task_id": "accumulator_wrap_repair_v1",
@@ -12,7 +12,7 @@
       "effective_verifier": "verifier.independent_formal.campaign",
       "verifier_revision": 1,
       "quality_evidence": "experiments/verification-resources-v1/independent-reference-quality.json",
-      "runtime": "environment.artifact_task.runner_v4",
+      "runtime": "environment.artifact_task.runner_v5",
       "capabilities": [
         "synchronous-state-update",
         "reset-load-enable-priority",
@@ -29,7 +29,7 @@
       "effective_verifier": "verifier.independent_formal.campaign",
       "verifier_revision": 1,
       "quality_evidence": "experiments/verification-resources-v1/independent-reference-quality.json",
-      "runtime": "environment.artifact_task.runner_v4",
+      "runtime": "environment.artifact_task.runner_v5",
       "capabilities": [
         "synchronous-state-update",
         "reset-load-enable-priority",
@@ -43,10 +43,10 @@
       "spec": "tasks/uart_tx_8n1_v1/spec.md",
       "initial_artifact": "tasks/uart_tx_8n1_v1/workspace/uart_tx.sv",
       "deliverable": "uart_tx.sv",
-      "effective_verifier": "verifier.uart_tx.campaign_v3",
-      "verifier_revision": 3,
-      "quality_evidence": "experiments/verification-resources-v1/uart-quality-v3.json",
-      "runtime": "environment.artifact_task.runner_v4",
+      "effective_verifier": "verifier.uart_tx.campaign_v4",
+      "verifier_revision": 4,
+      "quality_evidence": "experiments/verification-resources-v1/uart-quality-v4.json",
+      "runtime": "environment.artifact_task.runner_v5",
       "capabilities": [
         "serial-framing",
         "fixed-baud-cycle-accounting",
@@ -60,10 +60,10 @@
       "spec": "tasks/uart_tx_8e1_v1/spec.md",
       "initial_artifact": "tasks/uart_tx_8e1_v1/workspace/uart_tx.sv",
       "deliverable": "uart_tx.sv",
-      "effective_verifier": "verifier.uart_tx.campaign_v3",
-      "verifier_revision": 3,
-      "quality_evidence": "experiments/verification-resources-v1/uart-quality-v3.json",
-      "runtime": "environment.artifact_task.runner_v4",
+      "effective_verifier": "verifier.uart_tx.campaign_v4",
+      "verifier_revision": 4,
+      "quality_evidence": "experiments/verification-resources-v1/uart-quality-v4.json",
+      "runtime": "environment.artifact_task.runner_v5",
       "capabilities": [
         "serial-framing",
         "fixed-baud-cycle-accounting",
@@ -81,7 +81,7 @@
       "effective_verifier": "verifier.stimulus.campaign",
       "verifier_revision": 1,
       "quality_evidence": "experiments/verification-resources-v1/stimulus-quality.json",
-      "runtime": "environment.artifact_task.runner_v4",
+      "runtime": "environment.artifact_task.runner_v5",
       "capabilities": [
         "valid-stimulus-construction",
         "positive-and-negative-dut-discrimination",
@@ -98,7 +98,7 @@
       "effective_verifier": "verifier.stimulus.campaign",
       "verifier_revision": 1,
       "quality_evidence": "experiments/verification-resources-v1/stimulus-quality.json",
-      "runtime": "environment.artifact_task.runner_v4",
+      "runtime": "environment.artifact_task.runner_v5",
       "capabilities": [
         "valid-stimulus-construction",
         "positive-and-negative-dut-discrimination",
