@@ -1,0 +1,14 @@
+{
+  "accepted": true,
+  "trials": [
+    {
+      "trial": "r01-test_diagnostic",
+      "actions": 20,
+      "public_calls": 4,
+      "policy": "test_diagnostic"
+    }
+  ],
+  "errors": [],
+  "audit_scope": "Full local trace, exact Harness user/system/context inputs, request parameters, worker identities, budgets, submissions, runtime hashes and paired suites; no new simulation.",
+  "common_sdk_observation": "Fixed helpful-software-engineer system prompt and the fresh solver working directory only."
+}

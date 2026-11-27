@@ -1,0 +1,96 @@
+{
+  "schema": "reviewed-exchange-inventory-v2",
+  "records": 107,
+  "available_tool_trajectories": 67,
+  "base_inventory": "experiments/composed-stage-v1/exchange-inventory.json",
+  "base_sha256": "3c5fb00cc5b23a8f34c216d8a61c5348df6b159b6f72596652113f84c42ee8fa",
+  "new_model_trials": 12,
+  "new_tool_trajectories": 12,
+  "exports": [
+    {
+      "trial": "r1-resp_schedule-test2",
+      "manifest": "experiments/verification-budget-v1/trials/r1-resp_schedule-test2/exchange/manifest.json",
+      "sha256": "ae8f74109439224472e1863c90b2622df978372c196d52b4bf85cd0f9005b6ce",
+      "episode_id": "6f31e63bf113123171576b7b937499cd67b40846e64d433ec669f847261b5aa6:r01-test_diagnostic",
+      "content_hashes_verified": true
+    },
+    {
+      "trial": "r1-resp_schedule-test6",
+      "manifest": "experiments/verification-budget-v1/trials/r1-resp_schedule-test6/exchange/manifest.json",
+      "sha256": "d23dcbd5666193f3614c1e819ee344269527e060e5a5a2712f3b0bf681b3d2e3",
+      "episode_id": "435a6abf9e38793ac8abce9c73065cd2aaec5760ff1f7b2edbef6131682c1977:r01-test_diagnostic",
+      "content_hashes_verified": true
+    },
+    {
+      "trial": "r1-same_edge_insert-test6",
+      "manifest": "experiments/verification-budget-v1/trials/r1-same_edge_insert-test6/exchange/manifest.json",
+      "sha256": "e20fc934dfab28f6795dc3bcf70ff246e1ec3261ce76c22d90aefde97867ce44",
+      "episode_id": "496f4f4fde9fa28a25d0410ac60c1a9cac991db4991d3e62a5237735a58fe84e:r01-test_diagnostic",
+      "content_hashes_verified": true
+    },
+    {
+      "trial": "r1-same_edge_insert-test2",
+      "manifest": "experiments/verification-budget-v1/trials/r1-same_edge_insert-test2/exchange/manifest.json",
+      "sha256": "4f687dcfdf314101946af8df60856ce71de449c958c7fb36f6d89eafac569d0b",
+      "episode_id": "e5b84c33cc4f8dbca2522a1d1b5c29834172e2dbe796766f0d6cc0d7c0aceb5e:r01-test_diagnostic",
+      "content_hashes_verified": true
+    },
+    {
+      "trial": "r1-fifo_wrap-test2",
+      "manifest": "experiments/verification-budget-v1/trials/r1-fifo_wrap-test2/exchange/manifest.json",
+      "sha256": "80f0fee0f0493cb26895c944ee1ac4fe03cac61f4ae21a980f0f242d07279a37",
+      "episode_id": "e3f8d7bc8f4c7000a22c5435716639a99ffa9224fdb31a6ce3283cf4fb1ca4c7:r01-test_diagnostic",
+      "content_hashes_verified": true
+    },
+    {
+      "trial": "r1-fifo_wrap-test6",
+      "manifest": "experiments/verification-budget-v1/trials/r1-fifo_wrap-test6/exchange/manifest.json",
+      "sha256": "df313ee995eb901781c3e15fd7229cc19d801c21ad333f865f4c84dcb3e09c7a",
+      "episode_id": "21a2228bccc627a242092873fbebaf44892b583998caa4809afee4fe9bfdf363:r01-test_diagnostic",
+      "content_hashes_verified": true
+    },
+    {
+      "trial": "r2-fifo_wrap-test6",
+      "manifest": "experiments/verification-budget-v1/trials/r2-fifo_wrap-test6/exchange/manifest.json",
+      "sha256": "8a98dbd9deddc8d1dc7a6525c6d1d519b93de2b7338471d191c21da7a6bd3138",
+      "episode_id": "2b45f472e21e694ed6cec2465a7e5161b31c7dd412157281f6edb198f08f3cac:r01-test_diagnostic",
+      "content_hashes_verified": true
+    },
+    {
+      "trial": "r2-fifo_wrap-test2",
+      "manifest": "experiments/verification-budget-v1/trials/r2-fifo_wrap-test2/exchange/manifest.json",
+      "sha256": "7b5b984aa53df57ad07b1545474095217ab96a34ccc893b08daf6792cba0c803",
+      "episode_id": "33db2494ab49943cb476ad6012ec24933fd4d5fb772d4265cf388ae83eb07f4d:r01-test_diagnostic",
+      "content_hashes_verified": true
+    },
+    {
+      "trial": "r2-resp_schedule-test2",
+      "manifest": "experiments/verification-budget-v1/trials/r2-resp_schedule-test2/exchange/manifest.json",
+      "sha256": "85310a369aa028bb7df7c4c5e99bf3c610cfddb29e3841fe9b13f5b8652c5522",
+      "episode_id": "25aa5dc6b49a332e62e73b2e9d4189afa3f2a5b956717feb80c7a82f29de838f:r01-test_diagnostic",
+      "content_hashes_verified": true
+    },
+    {
+      "trial": "r2-resp_schedule-test6",
+      "manifest": "experiments/verification-budget-v1/trials/r2-resp_schedule-test6/exchange/manifest.json",
+      "sha256": "ead0e012ad66a7745b0d78afc1a86196f86098777e7ed8a2ac71d047ae144875",
+      "episode_id": "35c5e9c1599c368d9f09f5ecec77573a17a64ceb6e86c0fdac8c8cfd84fdcd0c:r01-test_diagnostic",
+      "content_hashes_verified": true
+    },
+    {
+      "trial": "r2-same_edge_insert-test6",
+      "manifest": "experiments/verification-budget-v1/trials/r2-same_edge_insert-test6/exchange/manifest.json",
+      "sha256": "50a64d588e17b70f7cd4551e99f13d0c7bd5d408e3c02cbff5ad30a8036ea446",
+      "episode_id": "e3c7927d6a1d486802ec2da16904bbdebce6744134981b0dc9ad227ffc585023:r01-test_diagnostic",
+      "content_hashes_verified": true
+    },
+    {
+      "trial": "r2-same_edge_insert-test2",
+      "manifest": "experiments/verification-budget-v1/trials/r2-same_edge_insert-test2/exchange/manifest.json",
+      "sha256": "d739d01e8ed82d098b3d1be5293e8fa5f87c6471df62967c3366171a88c2dadb",
+      "episode_id": "59c2625aed404c616e2e8ed1475f3264b0926c1ccd09e28dca17a35e14ebf4b8:r01-test_diagnostic",
+      "content_hashes_verified": true
+    }
+  ],
+  "scope": "Historical inventory preserved. New full trajectories include unsuccessful and no-submit episodes; export availability does not establish training utility. No aggregate success rate across different conditions."
+}

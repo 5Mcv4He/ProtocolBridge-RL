@@ -1,0 +1,2169 @@
+{
+  "schema": "verification-budget-results-v1",
+  "planned": 12,
+  "model_started": 12,
+  "completed": 12,
+  "distinct_sessions_checked": true,
+  "rows": [
+    {
+      "id": "r1-resp_schedule-test2",
+      "repeat": 1,
+      "start": "resp_schedule",
+      "budget": 2,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 2,
+        "actions": 12,
+        "submitted": true,
+        "submission_validity": "confirmed",
+        "terminal": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "verification_complete": false,
+          "source_sha256": "064c4b62f6497219947ba9d458257cc6a9101abf055857fd756cca3ece4909f5",
+          "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "held_out": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "verification_complete": false,
+          "source_sha256": "064c4b62f6497219947ba9d458257cc6a9101abf055857fd756cca3ece4909f5",
+          "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "initial_source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+        "final_source_sha256": "064c4b62f6497219947ba9d458257cc6a9101abf055857fd756cca3ece4909f5",
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "kind": "start"
+          },
+          {
+            "action": 6,
+            "sha256": "5510d67d3fc3ba454be1491cab24ca22b4cbfa27df4d5de50f738d9571ab4be5",
+            "kind": "edit"
+          },
+          {
+            "action": 11,
+            "sha256": "064c4b62f6497219947ba9d458257cc6a9101abf055857fd756cca3ece4909f5",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 6,
+            "before_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "source_sha256": "5510d67d3fc3ba454be1491cab24ca22b4cbfa27df4d5de50f738d9571ab4be5",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              7
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 11,
+            "before_sha256": "5510d67d3fc3ba454be1491cab24ca22b4cbfa27df4d5de50f738d9571ab4be5",
+            "source_sha256": "064c4b62f6497219947ba9d458257cc6a9101abf055857fd756cca3ece4909f5",
+            "changed_bytes": true,
+            "later_public_test_actions": [],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 3,
+            "source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 7,
+            "source_sha256": "5510d67d3fc3ba454be1491cab24ca22b4cbfa27df4d5de50f738d9571ab4be5",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 2
+          }
+        ],
+        "extra_public_tests_used": 0,
+        "unused_test_allowance": 0,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "UNTESTED",
+        "final_delivered_public_status": "UNOBSERVED",
+        "submitted_previously_failed_source": false,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [],
+        "final_delivered_functional_failure_tools": [],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 1,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [
+          "064c4b62f6497219947ba9d458257cc6a9101abf055857fd756cca3ece4909f5"
+        ],
+        "offline_first_candidate": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "verification_complete": false,
+          "source_sha256": "5510d67d3fc3ba454be1491cab24ca22b4cbfa27df4d5de50f738d9571ab4be5",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 10125,
+          "outputTokens": 4413,
+          "cacheReadTokens": 77440,
+          "cacheWriteTokens": 0,
+          "totalTokens": 91978
+        },
+        "model_request_wall_seconds": 21.865,
+        "api_cost": null,
+        "wall_seconds": 486.14,
+        "compile_wall_seconds": 427.6615139730129,
+        "simulation_wall_seconds": 33.137872769999376,
+        "protocol_errors": 0,
+        "actions": 12,
+        "edits": 2,
+        "public_test_calls": 2,
+        "compilation_processes": 5,
+        "simulation_processes": 6
+      },
+      "tools": {
+        "compile_calls": 0,
+        "synth_calls": 0,
+        "inspect_calls": 2,
+        "experiment_calls": 2,
+        "observe_calls": 1
+      },
+      "first_failure_category": "protocol_timing_error",
+      "delivered_public_pass_sources": [],
+      "final_differs_from_a_delivered_pass": false
+    },
+    {
+      "id": "r1-resp_schedule-test6",
+      "repeat": 1,
+      "start": "resp_schedule",
+      "budget": 6,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 6,
+        "actions": 18,
+        "submitted": true,
+        "submission_validity": "confirmed",
+        "terminal": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "verification_complete": false,
+          "source_sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+          "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "held_out": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "verification_complete": false,
+          "source_sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+          "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "initial_source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+        "final_source_sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "kind": "start"
+          },
+          {
+            "action": 7,
+            "sha256": "d0ec0219c69f5c47bdacf846c41dfcd0eaa86867ca0717c0cdadb2714456f073",
+            "kind": "edit"
+          },
+          {
+            "action": 13,
+            "sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 7,
+            "before_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "source_sha256": "d0ec0219c69f5c47bdacf846c41dfcd0eaa86867ca0717c0cdadb2714456f073",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              8
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 13,
+            "before_sha256": "d0ec0219c69f5c47bdacf846c41dfcd0eaa86867ca0717c0cdadb2714456f073",
+            "source_sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              14,
+              16
+            ],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 3,
+            "source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 8,
+            "source_sha256": "d0ec0219c69f5c47bdacf846c41dfcd0eaa86867ca0717c0cdadb2714456f073",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 2
+          },
+          {
+            "action": 14,
+            "source_sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 3
+          },
+          {
+            "action": 16,
+            "source_sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 4
+          }
+        ],
+        "extra_public_tests_used": 2,
+        "unused_test_allowance": 2,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "FAIL",
+        "final_delivered_public_status": "FAIL",
+        "submitted_previously_failed_source": true,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [
+          {
+            "action": 14,
+            "tool": "test",
+            "source_sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+            "status": "FAIL",
+            "delivered": true,
+            "new_execution": true
+          },
+          {
+            "action": 16,
+            "tool": "test",
+            "source_sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+            "status": "FAIL",
+            "delivered": true,
+            "new_execution": true
+          },
+          {
+            "action": 17,
+            "tool": "experiment",
+            "source_sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+            "status": "FAIL",
+            "delivered": true,
+            "new_execution": true
+          }
+        ],
+        "final_delivered_functional_failure_tools": [
+          "experiment",
+          "test"
+        ],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 0,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [],
+        "offline_first_candidate": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "verification_complete": false,
+          "source_sha256": "d0ec0219c69f5c47bdacf846c41dfcd0eaa86867ca0717c0cdadb2714456f073",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 17418,
+          "outputTokens": 3932,
+          "cacheReadTokens": 172672,
+          "cacheWriteTokens": 0,
+          "totalTokens": 194022
+        },
+        "model_request_wall_seconds": 23.99,
+        "api_cost": null,
+        "wall_seconds": 598.422,
+        "compile_wall_seconds": 522.3468511659958,
+        "simulation_wall_seconds": 47.04197280600056,
+        "protocol_errors": 0,
+        "actions": 18,
+        "edits": 2,
+        "public_test_calls": 4,
+        "compilation_processes": 6,
+        "simulation_processes": 9
+      },
+      "tools": {
+        "compile_calls": 0,
+        "synth_calls": 0,
+        "inspect_calls": 2,
+        "experiment_calls": 3,
+        "observe_calls": 4
+      },
+      "first_failure_category": "protocol_timing_error",
+      "delivered_public_pass_sources": [],
+      "final_differs_from_a_delivered_pass": false
+    },
+    {
+      "id": "r1-same_edge_insert-test6",
+      "repeat": 1,
+      "start": "same_edge_insert",
+      "budget": 6,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 6,
+        "actions": 7,
+        "submitted": true,
+        "submission_validity": "confirmed",
+        "terminal": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "a5c942624cae3841605b3f4d76bf2dbbe194e4091afe9798c41a720b6d5f5b98",
+          "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+          "planned": 568,
+          "checked": 520,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "held_out": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "a5c942624cae3841605b3f4d76bf2dbbe194e4091afe9798c41a720b6d5f5b98",
+          "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+          "planned": 568,
+          "checked": 520,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "initial_source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+        "final_source_sha256": "a5c942624cae3841605b3f4d76bf2dbbe194e4091afe9798c41a720b6d5f5b98",
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "kind": "start"
+          },
+          {
+            "action": 5,
+            "sha256": "a5c942624cae3841605b3f4d76bf2dbbe194e4091afe9798c41a720b6d5f5b98",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 5,
+            "before_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "source_sha256": "a5c942624cae3841605b3f4d76bf2dbbe194e4091afe9798c41a720b6d5f5b98",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              6
+            ],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 3,
+            "source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 6,
+            "source_sha256": "a5c942624cae3841605b3f4d76bf2dbbe194e4091afe9798c41a720b6d5f5b98",
+            "status": "PASS",
+            "delivered": true,
+            "ordinal": 2
+          }
+        ],
+        "extra_public_tests_used": 0,
+        "unused_test_allowance": 4,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "PASS",
+        "final_delivered_public_status": "PASS",
+        "submitted_previously_failed_source": false,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [
+          {
+            "action": 6,
+            "tool": "test",
+            "source_sha256": "a5c942624cae3841605b3f4d76bf2dbbe194e4091afe9798c41a720b6d5f5b98",
+            "status": "PASS",
+            "delivered": true,
+            "new_execution": true
+          }
+        ],
+        "final_delivered_functional_failure_tools": [],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 0,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [],
+        "offline_first_candidate": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "a5c942624cae3841605b3f4d76bf2dbbe194e4091afe9798c41a720b6d5f5b98",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": 272,
+          "checked": 224,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 5056,
+          "outputTokens": 1198,
+          "cacheReadTokens": 25728,
+          "cacheWriteTokens": 0,
+          "totalTokens": 31982
+        },
+        "model_request_wall_seconds": 11.290999999999999,
+        "api_cost": null,
+        "wall_seconds": 561.468,
+        "compile_wall_seconds": 258.0334812969959,
+        "simulation_wall_seconds": 287.86898260193993,
+        "protocol_errors": 0,
+        "actions": 7,
+        "edits": 1,
+        "public_test_calls": 2,
+        "compilation_processes": 3,
+        "simulation_processes": 69
+      },
+      "tools": {
+        "compile_calls": 0,
+        "synth_calls": 0,
+        "inspect_calls": 0,
+        "experiment_calls": 1,
+        "observe_calls": 0
+      },
+      "first_failure_category": "pass",
+      "delivered_public_pass_sources": [
+        "a5c942624cae3841605b3f4d76bf2dbbe194e4091afe9798c41a720b6d5f5b98"
+      ],
+      "final_differs_from_a_delivered_pass": false
+    },
+    {
+      "id": "r1-same_edge_insert-test2",
+      "repeat": 1,
+      "start": "same_edge_insert",
+      "budget": 2,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 2,
+        "actions": 8,
+        "submitted": true,
+        "submission_validity": "confirmed",
+        "terminal": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+          "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+          "planned": 568,
+          "checked": 520,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "held_out": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+          "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+          "planned": 568,
+          "checked": 520,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "initial_source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+        "final_source_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "kind": "start"
+          },
+          {
+            "action": 6,
+            "sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 6,
+            "before_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "source_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              7
+            ],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 3,
+            "source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 7,
+            "source_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+            "status": "PASS",
+            "delivered": true,
+            "ordinal": 2
+          }
+        ],
+        "extra_public_tests_used": 0,
+        "unused_test_allowance": 0,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "PASS",
+        "final_delivered_public_status": "PASS",
+        "submitted_previously_failed_source": false,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [
+          {
+            "action": 7,
+            "tool": "test",
+            "source_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+            "status": "PASS",
+            "delivered": true,
+            "new_execution": true
+          }
+        ],
+        "final_delivered_functional_failure_tools": [],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 0,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [],
+        "offline_first_candidate": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": 272,
+          "checked": 224,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 8321,
+          "outputTokens": 1192,
+          "cacheReadTokens": 37504,
+          "cacheWriteTokens": 0,
+          "totalTokens": 47017
+        },
+        "model_request_wall_seconds": 11.323,
+        "api_cost": null,
+        "wall_seconds": 561.857,
+        "compile_wall_seconds": 255.9328753919981,
+        "simulation_wall_seconds": 291.3623741490155,
+        "protocol_errors": 0,
+        "actions": 8,
+        "edits": 1,
+        "public_test_calls": 2,
+        "compilation_processes": 3,
+        "simulation_processes": 69
+      },
+      "tools": {
+        "compile_calls": 0,
+        "synth_calls": 0,
+        "inspect_calls": 0,
+        "experiment_calls": 1,
+        "observe_calls": 1
+      },
+      "first_failure_category": "pass",
+      "delivered_public_pass_sources": [
+        "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86"
+      ],
+      "final_differs_from_a_delivered_pass": false
+    },
+    {
+      "id": "r1-fifo_wrap-test2",
+      "repeat": 1,
+      "start": "fifo_wrap",
+      "budget": 2,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 2,
+        "actions": 7,
+        "submitted": true,
+        "submission_validity": "confirmed",
+        "terminal": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "214f7cf350b284eca50e28e425d6c47d53aa0cf4cb9fab83bd5e9d2f362a8e7e",
+          "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+          "planned": 568,
+          "checked": 520,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "held_out": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "214f7cf350b284eca50e28e425d6c47d53aa0cf4cb9fab83bd5e9d2f362a8e7e",
+          "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+          "planned": 568,
+          "checked": 520,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "initial_source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+        "final_source_sha256": "214f7cf350b284eca50e28e425d6c47d53aa0cf4cb9fab83bd5e9d2f362a8e7e",
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "kind": "start"
+          },
+          {
+            "action": 5,
+            "sha256": "214f7cf350b284eca50e28e425d6c47d53aa0cf4cb9fab83bd5e9d2f362a8e7e",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 5,
+            "before_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "source_sha256": "214f7cf350b284eca50e28e425d6c47d53aa0cf4cb9fab83bd5e9d2f362a8e7e",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              6
+            ],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 3,
+            "source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 6,
+            "source_sha256": "214f7cf350b284eca50e28e425d6c47d53aa0cf4cb9fab83bd5e9d2f362a8e7e",
+            "status": "PASS",
+            "delivered": true,
+            "ordinal": 2
+          }
+        ],
+        "extra_public_tests_used": 0,
+        "unused_test_allowance": 0,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "PASS",
+        "final_delivered_public_status": "PASS",
+        "submitted_previously_failed_source": false,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [
+          {
+            "action": 6,
+            "tool": "test",
+            "source_sha256": "214f7cf350b284eca50e28e425d6c47d53aa0cf4cb9fab83bd5e9d2f362a8e7e",
+            "status": "PASS",
+            "delivered": true,
+            "new_execution": true
+          }
+        ],
+        "final_delivered_functional_failure_tools": [],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 0,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [],
+        "offline_first_candidate": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "214f7cf350b284eca50e28e425d6c47d53aa0cf4cb9fab83bd5e9d2f362a8e7e",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": 272,
+          "checked": 224,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 4128,
+          "outputTokens": 1195,
+          "cacheReadTokens": 23680,
+          "cacheWriteTokens": 0,
+          "totalTokens": 29003
+        },
+        "model_request_wall_seconds": 8.825000000000001,
+        "api_cost": null,
+        "wall_seconds": 500.452,
+        "compile_wall_seconds": 171.9685577850032,
+        "simulation_wall_seconds": 316.50379438500386,
+        "protocol_errors": 0,
+        "actions": 7,
+        "edits": 1,
+        "public_test_calls": 2,
+        "compilation_processes": 2,
+        "simulation_processes": 68
+      },
+      "tools": {
+        "compile_calls": 0,
+        "synth_calls": 0,
+        "inspect_calls": 1,
+        "experiment_calls": 0,
+        "observe_calls": 0
+      },
+      "first_failure_category": "pass",
+      "delivered_public_pass_sources": [
+        "214f7cf350b284eca50e28e425d6c47d53aa0cf4cb9fab83bd5e9d2f362a8e7e"
+      ],
+      "final_differs_from_a_delivered_pass": false
+    },
+    {
+      "id": "r1-fifo_wrap-test6",
+      "repeat": 1,
+      "start": "fifo_wrap",
+      "budget": 6,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 6,
+        "actions": 6,
+        "submitted": true,
+        "submission_validity": "confirmed",
+        "terminal": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+          "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+          "planned": 568,
+          "checked": 520,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "held_out": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+          "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+          "planned": 568,
+          "checked": 520,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "initial_source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+        "final_source_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "kind": "start"
+          },
+          {
+            "action": 4,
+            "sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 4,
+            "before_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "source_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              5
+            ],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 3,
+            "source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 5,
+            "source_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+            "status": "PASS",
+            "delivered": true,
+            "ordinal": 2
+          }
+        ],
+        "extra_public_tests_used": 0,
+        "unused_test_allowance": 4,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "PASS",
+        "final_delivered_public_status": "PASS",
+        "submitted_previously_failed_source": false,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [
+          {
+            "action": 5,
+            "tool": "test",
+            "source_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+            "status": "PASS",
+            "delivered": true,
+            "new_execution": true
+          }
+        ],
+        "final_delivered_functional_failure_tools": [],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 0,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [],
+        "offline_first_candidate": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": 272,
+          "checked": 224,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 3754,
+          "outputTokens": 1209,
+          "cacheReadTokens": 19328,
+          "cacheWriteTokens": 0,
+          "totalTokens": 24291
+        },
+        "model_request_wall_seconds": 12.673000000000002,
+        "api_cost": null,
+        "wall_seconds": 537.498,
+        "compile_wall_seconds": 181.99491545500496,
+        "simulation_wall_seconds": 338.34159537801315,
+        "protocol_errors": 0,
+        "actions": 6,
+        "edits": 1,
+        "public_test_calls": 2,
+        "compilation_processes": 2,
+        "simulation_processes": 68
+      },
+      "tools": {
+        "compile_calls": 0,
+        "synth_calls": 0,
+        "inspect_calls": 0,
+        "experiment_calls": 0,
+        "observe_calls": 0
+      },
+      "first_failure_category": "pass",
+      "delivered_public_pass_sources": [
+        "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce"
+      ],
+      "final_differs_from_a_delivered_pass": false
+    },
+    {
+      "id": "r2-fifo_wrap-test6",
+      "repeat": 2,
+      "start": "fifo_wrap",
+      "budget": 6,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 6,
+        "actions": 20,
+        "submitted": false,
+        "submission_validity": "not_submitted",
+        "terminal": {
+          "reward": null,
+          "category": "agent_incomplete",
+          "verification_complete": null,
+          "source_sha256": null,
+          "suite_sha256": null,
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": null
+        },
+        "held_out": null,
+        "initial_source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+        "final_source_sha256": null,
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "kind": "start"
+          },
+          {
+            "action": 7,
+            "sha256": "4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859",
+            "kind": "edit"
+          },
+          {
+            "action": 9,
+            "sha256": "f5c13e0a690c9cd790d9a1f1515f019ff1b66d2ff5b3b1e9d13f57af803532b3",
+            "kind": "edit"
+          },
+          {
+            "action": 13,
+            "sha256": "8252d6432e2c47d9ee2a8a967f6c88397db4833f8b687b0cbac96a2481c63062",
+            "kind": "edit"
+          },
+          {
+            "action": 17,
+            "sha256": "420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977",
+            "kind": "edit"
+          },
+          {
+            "action": 20,
+            "sha256": "734d0e4cfe6a2a456166a968cab1e99e0a9f077563d04ce94e2d3b562f394f3e",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 7,
+            "before_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "source_sha256": "4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859",
+            "changed_bytes": true,
+            "later_public_test_actions": [],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 9,
+            "before_sha256": "4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859",
+            "source_sha256": "f5c13e0a690c9cd790d9a1f1515f019ff1b66d2ff5b3b1e9d13f57af803532b3",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              10
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 13,
+            "before_sha256": "f5c13e0a690c9cd790d9a1f1515f019ff1b66d2ff5b3b1e9d13f57af803532b3",
+            "source_sha256": "8252d6432e2c47d9ee2a8a967f6c88397db4833f8b687b0cbac96a2481c63062",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              14
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 17,
+            "before_sha256": "8252d6432e2c47d9ee2a8a967f6c88397db4833f8b687b0cbac96a2481c63062",
+            "source_sha256": "420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              18,
+              19
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 20,
+            "before_sha256": "420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977",
+            "source_sha256": "734d0e4cfe6a2a456166a968cab1e99e0a9f077563d04ce94e2d3b562f394f3e",
+            "changed_bytes": true,
+            "later_public_test_actions": [],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 3,
+            "source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 10,
+            "source_sha256": "f5c13e0a690c9cd790d9a1f1515f019ff1b66d2ff5b3b1e9d13f57af803532b3",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 2
+          },
+          {
+            "action": 14,
+            "source_sha256": "8252d6432e2c47d9ee2a8a967f6c88397db4833f8b687b0cbac96a2481c63062",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 3
+          },
+          {
+            "action": 18,
+            "source_sha256": "420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 4
+          },
+          {
+            "action": 19,
+            "source_sha256": "420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 5
+          }
+        ],
+        "extra_public_tests_used": 3,
+        "unused_test_allowance": 1,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "NOT_SUBMITTED",
+        "final_delivered_public_status": "NOT_SUBMITTED",
+        "submitted_previously_failed_source": false,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [],
+        "final_delivered_functional_failure_tools": [],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 2,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [
+          "4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859",
+          "734d0e4cfe6a2a456166a968cab1e99e0a9f077563d04ce94e2d3b562f394f3e"
+        ],
+        "offline_first_candidate": {
+          "reward": 0.0,
+          "category": "compile_error",
+          "verification_complete": false,
+          "source_sha256": "4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": null
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 12979,
+          "outputTokens": 10424,
+          "cacheReadTokens": 233728,
+          "cacheWriteTokens": 0,
+          "totalTokens": 257131
+        },
+        "model_request_wall_seconds": 56.284000000000006,
+        "api_cost": null,
+        "wall_seconds": 704.211,
+        "compile_wall_seconds": 603.5947227040015,
+        "simulation_wall_seconds": 37.33321402299771,
+        "protocol_errors": 0,
+        "actions": 20,
+        "edits": 5,
+        "public_test_calls": 5,
+        "compilation_processes": 8,
+        "simulation_processes": 8
+      },
+      "tools": {
+        "compile_calls": 2,
+        "synth_calls": 0,
+        "inspect_calls": 2,
+        "experiment_calls": 3,
+        "observe_calls": 1
+      },
+      "first_failure_category": "agent_incomplete",
+      "delivered_public_pass_sources": [],
+      "final_differs_from_a_delivered_pass": false
+    },
+    {
+      "id": "r2-fifo_wrap-test2",
+      "repeat": 2,
+      "start": "fifo_wrap",
+      "budget": 2,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 2,
+        "actions": 10,
+        "submitted": true,
+        "submission_validity": "confirmed",
+        "terminal": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "4667d6734b28f0010cda9d6a1a7e4590b31e7e55a47c73881be3d62bb468f202",
+          "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+          "planned": 568,
+          "checked": 520,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "held_out": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "4667d6734b28f0010cda9d6a1a7e4590b31e7e55a47c73881be3d62bb468f202",
+          "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+          "planned": 568,
+          "checked": 520,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "initial_source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+        "final_source_sha256": "4667d6734b28f0010cda9d6a1a7e4590b31e7e55a47c73881be3d62bb468f202",
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "kind": "start"
+          },
+          {
+            "action": 8,
+            "sha256": "4667d6734b28f0010cda9d6a1a7e4590b31e7e55a47c73881be3d62bb468f202",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 8,
+            "before_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "source_sha256": "4667d6734b28f0010cda9d6a1a7e4590b31e7e55a47c73881be3d62bb468f202",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              9
+            ],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 5,
+            "source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 9,
+            "source_sha256": "4667d6734b28f0010cda9d6a1a7e4590b31e7e55a47c73881be3d62bb468f202",
+            "status": "PASS",
+            "delivered": true,
+            "ordinal": 2
+          }
+        ],
+        "extra_public_tests_used": 0,
+        "unused_test_allowance": 0,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "PASS",
+        "final_delivered_public_status": "PASS",
+        "submitted_previously_failed_source": false,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [
+          {
+            "action": 9,
+            "tool": "test",
+            "source_sha256": "4667d6734b28f0010cda9d6a1a7e4590b31e7e55a47c73881be3d62bb468f202",
+            "status": "PASS",
+            "delivered": true,
+            "new_execution": true
+          }
+        ],
+        "final_delivered_functional_failure_tools": [],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 0,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [],
+        "offline_first_candidate": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "source_sha256": "4667d6734b28f0010cda9d6a1a7e4590b31e7e55a47c73881be3d62bb468f202",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": 272,
+          "checked": 224,
+          "aborted": 48,
+          "failed_case": null
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 5842,
+          "outputTokens": 1320,
+          "cacheReadTokens": 39552,
+          "cacheWriteTokens": 0,
+          "totalTokens": 46714
+        },
+        "model_request_wall_seconds": 16.116,
+        "api_cost": null,
+        "wall_seconds": 675.896,
+        "compile_wall_seconds": 256.5835027639987,
+        "simulation_wall_seconds": 398.2550972420213,
+        "protocol_errors": 1,
+        "actions": 10,
+        "edits": 1,
+        "public_test_calls": 2,
+        "compilation_processes": 3,
+        "simulation_processes": 69
+      },
+      "tools": {
+        "compile_calls": 0,
+        "synth_calls": 0,
+        "inspect_calls": 1,
+        "experiment_calls": 1,
+        "observe_calls": 0
+      },
+      "first_failure_category": "pass",
+      "delivered_public_pass_sources": [
+        "4667d6734b28f0010cda9d6a1a7e4590b31e7e55a47c73881be3d62bb468f202"
+      ],
+      "final_differs_from_a_delivered_pass": false
+    },
+    {
+      "id": "r2-resp_schedule-test2",
+      "repeat": 2,
+      "start": "resp_schedule",
+      "budget": 2,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 2,
+        "actions": 15,
+        "submitted": true,
+        "submission_validity": "confirmed",
+        "terminal": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "verification_complete": false,
+          "source_sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+          "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "held_out": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "verification_complete": false,
+          "source_sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+          "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "initial_source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+        "final_source_sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "kind": "start"
+          },
+          {
+            "action": 7,
+            "sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+            "kind": "edit"
+          },
+          {
+            "action": 13,
+            "sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 7,
+            "before_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "source_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              8
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 13,
+            "before_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+            "source_sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+            "changed_bytes": true,
+            "later_public_test_actions": [],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 3,
+            "source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 8,
+            "source_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 2
+          }
+        ],
+        "extra_public_tests_used": 0,
+        "unused_test_allowance": 0,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "UNTESTED",
+        "final_delivered_public_status": "UNOBSERVED",
+        "submitted_previously_failed_source": false,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [
+          {
+            "action": 14,
+            "tool": "experiment",
+            "source_sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+            "status": "FAIL",
+            "delivered": true,
+            "new_execution": true
+          }
+        ],
+        "final_delivered_functional_failure_tools": [
+          "experiment"
+        ],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 1,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [
+          "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8"
+        ],
+        "offline_first_candidate": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "verification_complete": false,
+          "source_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 15718,
+          "outputTokens": 4108,
+          "cacheReadTokens": 127872,
+          "cacheWriteTokens": 0,
+          "totalTokens": 147698
+        },
+        "model_request_wall_seconds": 24.362000000000002,
+        "api_cost": null,
+        "wall_seconds": 577.173,
+        "compile_wall_seconds": 516.5609776359925,
+        "simulation_wall_seconds": 33.29933440301102,
+        "protocol_errors": 0,
+        "actions": 15,
+        "edits": 2,
+        "public_test_calls": 2,
+        "compilation_processes": 6,
+        "simulation_processes": 7
+      },
+      "tools": {
+        "compile_calls": 0,
+        "synth_calls": 0,
+        "inspect_calls": 2,
+        "experiment_calls": 3,
+        "observe_calls": 3
+      },
+      "first_failure_category": "protocol_timing_error",
+      "delivered_public_pass_sources": [],
+      "final_differs_from_a_delivered_pass": false
+    },
+    {
+      "id": "r2-resp_schedule-test6",
+      "repeat": 2,
+      "start": "resp_schedule",
+      "budget": 6,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 6,
+        "actions": 20,
+        "submitted": false,
+        "submission_validity": "not_submitted",
+        "terminal": {
+          "reward": null,
+          "category": "agent_incomplete",
+          "verification_complete": null,
+          "source_sha256": null,
+          "suite_sha256": null,
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": null
+        },
+        "held_out": null,
+        "initial_source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+        "final_source_sha256": null,
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "kind": "start"
+          },
+          {
+            "action": 7,
+            "sha256": "88f8f4e8e4fc81372aab92b7abfafe31e38df33e566fc2377d669941ac8a4dbd",
+            "kind": "edit"
+          },
+          {
+            "action": 12,
+            "sha256": "3b25b073e7ab1598d5164f8b5ac8c9fe54e8fa0eecb57303c14ef7cc2cc6af86",
+            "kind": "edit"
+          },
+          {
+            "action": 16,
+            "sha256": "5e73e3a92484cb6439d7ace058047a379b865fb5f0e720ad1a0c2765ed776568",
+            "kind": "edit"
+          },
+          {
+            "action": 20,
+            "sha256": "708197c6d8255e28676c78571ad0216c65e3f53c80ada6fb33cf277c7164c9a5",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 7,
+            "before_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "source_sha256": "88f8f4e8e4fc81372aab92b7abfafe31e38df33e566fc2377d669941ac8a4dbd",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              8
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 12,
+            "before_sha256": "88f8f4e8e4fc81372aab92b7abfafe31e38df33e566fc2377d669941ac8a4dbd",
+            "source_sha256": "3b25b073e7ab1598d5164f8b5ac8c9fe54e8fa0eecb57303c14ef7cc2cc6af86",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              13
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 16,
+            "before_sha256": "3b25b073e7ab1598d5164f8b5ac8c9fe54e8fa0eecb57303c14ef7cc2cc6af86",
+            "source_sha256": "5e73e3a92484cb6439d7ace058047a379b865fb5f0e720ad1a0c2765ed776568",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              17,
+              19
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 20,
+            "before_sha256": "5e73e3a92484cb6439d7ace058047a379b865fb5f0e720ad1a0c2765ed776568",
+            "source_sha256": "708197c6d8255e28676c78571ad0216c65e3f53c80ada6fb33cf277c7164c9a5",
+            "changed_bytes": true,
+            "later_public_test_actions": [],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 3,
+            "source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 8,
+            "source_sha256": "88f8f4e8e4fc81372aab92b7abfafe31e38df33e566fc2377d669941ac8a4dbd",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 2
+          },
+          {
+            "action": 13,
+            "source_sha256": "3b25b073e7ab1598d5164f8b5ac8c9fe54e8fa0eecb57303c14ef7cc2cc6af86",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 3
+          },
+          {
+            "action": 17,
+            "source_sha256": "5e73e3a92484cb6439d7ace058047a379b865fb5f0e720ad1a0c2765ed776568",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 4
+          },
+          {
+            "action": 19,
+            "source_sha256": "5e73e3a92484cb6439d7ace058047a379b865fb5f0e720ad1a0c2765ed776568",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 5
+          }
+        ],
+        "extra_public_tests_used": 3,
+        "unused_test_allowance": 1,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "NOT_SUBMITTED",
+        "final_delivered_public_status": "NOT_SUBMITTED",
+        "submitted_previously_failed_source": false,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [],
+        "final_delivered_functional_failure_tools": [],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 1,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [
+          "708197c6d8255e28676c78571ad0216c65e3f53c80ada6fb33cf277c7164c9a5"
+        ],
+        "offline_first_candidate": {
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "verification_complete": false,
+          "source_sha256": "88f8f4e8e4fc81372aab92b7abfafe31e38df33e566fc2377d669941ac8a4dbd",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 18477,
+          "outputTokens": 9293,
+          "cacheReadTokens": 238336,
+          "cacheWriteTokens": 0,
+          "totalTokens": 266106
+        },
+        "model_request_wall_seconds": 50.802,
+        "api_cost": null,
+        "wall_seconds": 711.34,
+        "compile_wall_seconds": 594.7918489939839,
+        "simulation_wall_seconds": 62.10101722100808,
+        "protocol_errors": 0,
+        "actions": 20,
+        "edits": 4,
+        "public_test_calls": 5,
+        "compilation_processes": 7,
+        "simulation_processes": 8
+      },
+      "tools": {
+        "compile_calls": 0,
+        "synth_calls": 0,
+        "inspect_calls": 2,
+        "experiment_calls": 3,
+        "observe_calls": 4
+      },
+      "first_failure_category": "agent_incomplete",
+      "delivered_public_pass_sources": [],
+      "final_differs_from_a_delivered_pass": false
+    },
+    {
+      "id": "r2-same_edge_insert-test6",
+      "repeat": 2,
+      "start": "same_edge_insert",
+      "budget": 6,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 6,
+        "actions": 20,
+        "submitted": false,
+        "submission_validity": "not_submitted",
+        "terminal": {
+          "reward": null,
+          "category": "agent_incomplete",
+          "verification_complete": null,
+          "source_sha256": null,
+          "suite_sha256": null,
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": null
+        },
+        "held_out": null,
+        "initial_source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+        "final_source_sha256": null,
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "kind": "start"
+          },
+          {
+            "action": 7,
+            "sha256": "430d9fbcc9b998ff0e5e06c56cd23f008620f89eaded026d177ac3ee49ab04a0",
+            "kind": "edit"
+          },
+          {
+            "action": 11,
+            "sha256": "e3641acc45d9c3cff6e8a6cb969d0c348e9033e8b30754a28c50bd9cf43c737c",
+            "kind": "edit"
+          },
+          {
+            "action": 14,
+            "sha256": "809b9c92fd0024bb77b47b2303343cc149c2d997a5a27e96bc4fb47593598510",
+            "kind": "edit"
+          },
+          {
+            "action": 18,
+            "sha256": "809b9c92fd0024bb77b47b2303343cc149c2d997a5a27e96bc4fb47593598510",
+            "kind": "edit"
+          },
+          {
+            "action": 20,
+            "sha256": "16c35d00b32f82fa1dfda39855bc001abaaa3662408d7f6fff37c08db79b3992",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 7,
+            "before_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "source_sha256": "430d9fbcc9b998ff0e5e06c56cd23f008620f89eaded026d177ac3ee49ab04a0",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              8
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 11,
+            "before_sha256": "430d9fbcc9b998ff0e5e06c56cd23f008620f89eaded026d177ac3ee49ab04a0",
+            "source_sha256": "e3641acc45d9c3cff6e8a6cb969d0c348e9033e8b30754a28c50bd9cf43c737c",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              12
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 14,
+            "before_sha256": "e3641acc45d9c3cff6e8a6cb969d0c348e9033e8b30754a28c50bd9cf43c737c",
+            "source_sha256": "809b9c92fd0024bb77b47b2303343cc149c2d997a5a27e96bc4fb47593598510",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              15
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 18,
+            "before_sha256": "809b9c92fd0024bb77b47b2303343cc149c2d997a5a27e96bc4fb47593598510",
+            "source_sha256": "809b9c92fd0024bb77b47b2303343cc149c2d997a5a27e96bc4fb47593598510",
+            "changed_bytes": false,
+            "later_public_test_actions": [],
+            "prior_public_test_actions": [
+              15
+            ]
+          },
+          {
+            "action": 20,
+            "before_sha256": "809b9c92fd0024bb77b47b2303343cc149c2d997a5a27e96bc4fb47593598510",
+            "source_sha256": "16c35d00b32f82fa1dfda39855bc001abaaa3662408d7f6fff37c08db79b3992",
+            "changed_bytes": true,
+            "later_public_test_actions": [],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 3,
+            "source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 8,
+            "source_sha256": "430d9fbcc9b998ff0e5e06c56cd23f008620f89eaded026d177ac3ee49ab04a0",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 2
+          },
+          {
+            "action": 12,
+            "source_sha256": "e3641acc45d9c3cff6e8a6cb969d0c348e9033e8b30754a28c50bd9cf43c737c",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 3
+          },
+          {
+            "action": 15,
+            "source_sha256": "809b9c92fd0024bb77b47b2303343cc149c2d997a5a27e96bc4fb47593598510",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 4
+          }
+        ],
+        "extra_public_tests_used": 2,
+        "unused_test_allowance": 2,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "NOT_SUBMITTED",
+        "final_delivered_public_status": "NOT_SUBMITTED",
+        "submitted_previously_failed_source": false,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [],
+        "final_delivered_functional_failure_tools": [],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 2,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [
+          "16c35d00b32f82fa1dfda39855bc001abaaa3662408d7f6fff37c08db79b3992"
+        ],
+        "offline_first_candidate": {
+          "reward": 0.0,
+          "category": "transaction_functional_error",
+          "verification_complete": false,
+          "source_sha256": "430d9fbcc9b998ff0e5e06c56cd23f008620f89eaded026d177ac3ee49ab04a0",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 10930,
+          "outputTokens": 11952,
+          "cacheReadTokens": 182144,
+          "cacheWriteTokens": 0,
+          "totalTokens": 205026
+        },
+        "model_request_wall_seconds": 62.49199999999998,
+        "api_cost": null,
+        "wall_seconds": 614.949,
+        "compile_wall_seconds": 511.6030454209904,
+        "simulation_wall_seconds": 35.45567207701242,
+        "protocol_errors": 2,
+        "actions": 20,
+        "edits": 5,
+        "public_test_calls": 4,
+        "compilation_processes": 6,
+        "simulation_processes": 7
+      },
+      "tools": {
+        "compile_calls": 0,
+        "synth_calls": 0,
+        "inspect_calls": 2,
+        "experiment_calls": 3,
+        "observe_calls": 0
+      },
+      "first_failure_category": "agent_incomplete",
+      "delivered_public_pass_sources": [],
+      "final_differs_from_a_delivered_pass": false
+    },
+    {
+      "id": "r2-same_edge_insert-test2",
+      "repeat": 2,
+      "start": "same_edge_insert",
+      "budget": 2,
+      "state": "complete",
+      "model_started": true,
+      "decisions": {
+        "schema": "candidate-verification-decisions-v1",
+        "budget": 2,
+        "actions": 13,
+        "submitted": true,
+        "submission_validity": "confirmed",
+        "terminal": {
+          "reward": 0.0,
+          "category": "transaction_functional_error",
+          "verification_complete": false,
+          "source_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+          "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "held_out": {
+          "reward": 0.0,
+          "category": "transaction_functional_error",
+          "verification_complete": false,
+          "source_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+          "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "initial_source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+        "final_source_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+        "versions": [
+          {
+            "action": 0,
+            "sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "kind": "start"
+          },
+          {
+            "action": 6,
+            "sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+            "kind": "edit"
+          },
+          {
+            "action": 11,
+            "sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+            "kind": "edit"
+          }
+        ],
+        "edits": [
+          {
+            "action": 6,
+            "before_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "source_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+            "changed_bytes": true,
+            "later_public_test_actions": [
+              7
+            ],
+            "prior_public_test_actions": []
+          },
+          {
+            "action": 11,
+            "before_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+            "source_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+            "changed_bytes": true,
+            "later_public_test_actions": [],
+            "prior_public_test_actions": []
+          }
+        ],
+        "public_tests": [
+          {
+            "action": 3,
+            "source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 1
+          },
+          {
+            "action": 7,
+            "source_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+            "status": "FAIL",
+            "delivered": true,
+            "ordinal": 2
+          }
+        ],
+        "extra_public_tests_used": 0,
+        "unused_test_allowance": 0,
+        "conflicting_public_verdict_sources": [],
+        "final_public_status": "UNTESTED",
+        "final_delivered_public_status": "UNOBSERVED",
+        "submitted_previously_failed_source": false,
+        "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+        "final_development_evidence": [
+          {
+            "action": 12,
+            "tool": "compile",
+            "source_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+            "status": "PASS",
+            "delivered": true,
+            "new_execution": true
+          }
+        ],
+        "final_delivered_functional_failure_tools": [],
+        "edited_after_delivered_pass": [],
+        "observed_public_regressions": [],
+        "untested_edit_versions": 1,
+        "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+        "never_publicly_tested_edited_sources": [
+          "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f"
+        ],
+        "offline_first_candidate": {
+          "reward": 0.0,
+          "category": "transaction_functional_error",
+          "verification_complete": false,
+          "source_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+          "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+          "planned": null,
+          "checked": null,
+          "aborted": null,
+          "failed_case": "address_data"
+        },
+        "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+      },
+      "resources": {
+        "tokens": {
+          "inputTokens": 8593,
+          "outputTokens": 3025,
+          "cacheReadTokens": 77568,
+          "cacheWriteTokens": 0,
+          "totalTokens": 89186
+        },
+        "model_request_wall_seconds": 23.738,
+        "api_cost": null,
+        "wall_seconds": 485.906,
+        "compile_wall_seconds": 426.2402045840063,
+        "simulation_wall_seconds": 29.74086222299229,
+        "protocol_errors": 0,
+        "actions": 13,
+        "edits": 2,
+        "public_test_calls": 2,
+        "compilation_processes": 5,
+        "simulation_processes": 7
+      },
+      "tools": {
+        "compile_calls": 1,
+        "synth_calls": 0,
+        "inspect_calls": 2,
+        "experiment_calls": 3,
+        "observe_calls": 0
+      },
+      "first_failure_category": "transaction_functional_error",
+      "delivered_public_pass_sources": [],
+      "final_differs_from_a_delivered_pass": false
+    }
+  ],
+  "groups": [
+    {
+      "start": "resp_schedule",
+      "budget": 2,
+      "planned": 2,
+      "model_started": 2,
+      "completed": 2,
+      "missing_outcomes": 0,
+      "valid_submissions": 2,
+      "terminal_successes": 0,
+      "terminal_failures": 2,
+      "terminal_null": 0,
+      "held_out_successes": 0,
+      "used_test3_to6_trials": 0,
+      "extra_test_calls": 0,
+      "final_public_statuses": {
+        "PASS": 0,
+        "FAIL": 0,
+        "UNTESTED": 2,
+        "ENV_ERROR": 0,
+        "NOT_SUBMITTED": 0
+      },
+      "resubmitted_known_failures": 0,
+      "wilson95_terminal_all_started": [
+        0,
+        0.6576280471103807
+      ]
+    },
+    {
+      "start": "resp_schedule",
+      "budget": 6,
+      "planned": 2,
+      "model_started": 2,
+      "completed": 2,
+      "missing_outcomes": 0,
+      "valid_submissions": 1,
+      "terminal_successes": 0,
+      "terminal_failures": 1,
+      "terminal_null": 1,
+      "held_out_successes": 0,
+      "used_test3_to6_trials": 2,
+      "extra_test_calls": 5,
+      "final_public_statuses": {
+        "PASS": 0,
+        "FAIL": 1,
+        "UNTESTED": 0,
+        "ENV_ERROR": 0,
+        "NOT_SUBMITTED": 1
+      },
+      "resubmitted_known_failures": 1,
+      "wilson95_terminal_all_started": [
+        0,
+        0.6576280471103807
+      ]
+    },
+    {
+      "start": "same_edge_insert",
+      "budget": 2,
+      "planned": 2,
+      "model_started": 2,
+      "completed": 2,
+      "missing_outcomes": 0,
+      "valid_submissions": 2,
+      "terminal_successes": 1,
+      "terminal_failures": 1,
+      "terminal_null": 0,
+      "held_out_successes": 1,
+      "used_test3_to6_trials": 0,
+      "extra_test_calls": 0,
+      "final_public_statuses": {
+        "PASS": 1,
+        "FAIL": 0,
+        "UNTESTED": 1,
+        "ENV_ERROR": 0,
+        "NOT_SUBMITTED": 0
+      },
+      "resubmitted_known_failures": 0,
+      "wilson95_terminal_all_started": [
+        0.09452865480086614,
+        0.9054713451991339
+      ]
+    },
+    {
+      "start": "same_edge_insert",
+      "budget": 6,
+      "planned": 2,
+      "model_started": 2,
+      "completed": 2,
+      "missing_outcomes": 0,
+      "valid_submissions": 1,
+      "terminal_successes": 1,
+      "terminal_failures": 0,
+      "terminal_null": 1,
+      "held_out_successes": 1,
+      "used_test3_to6_trials": 1,
+      "extra_test_calls": 2,
+      "final_public_statuses": {
+        "PASS": 1,
+        "FAIL": 0,
+        "UNTESTED": 0,
+        "ENV_ERROR": 0,
+        "NOT_SUBMITTED": 1
+      },
+      "resubmitted_known_failures": 0,
+      "wilson95_terminal_all_started": [
+        0.09452865480086614,
+        0.9054713451991339
+      ]
+    },
+    {
+      "start": "fifo_wrap",
+      "budget": 2,
+      "planned": 2,
+      "model_started": 2,
+      "completed": 2,
+      "missing_outcomes": 0,
+      "valid_submissions": 2,
+      "terminal_successes": 2,
+      "terminal_failures": 0,
+      "terminal_null": 0,
+      "held_out_successes": 2,
+      "used_test3_to6_trials": 0,
+      "extra_test_calls": 0,
+      "final_public_statuses": {
+        "PASS": 2,
+        "FAIL": 0,
+        "UNTESTED": 0,
+        "ENV_ERROR": 0,
+        "NOT_SUBMITTED": 0
+      },
+      "resubmitted_known_failures": 0,
+      "wilson95_terminal_all_started": [
+        0.34237195288961925,
+        1
+      ]
+    },
+    {
+      "start": "fifo_wrap",
+      "budget": 6,
+      "planned": 2,
+      "model_started": 2,
+      "completed": 2,
+      "missing_outcomes": 0,
+      "valid_submissions": 1,
+      "terminal_successes": 1,
+      "terminal_failures": 0,
+      "terminal_null": 1,
+      "held_out_successes": 1,
+      "used_test3_to6_trials": 1,
+      "extra_test_calls": 3,
+      "final_public_statuses": {
+        "PASS": 1,
+        "FAIL": 0,
+        "UNTESTED": 0,
+        "ENV_ERROR": 0,
+        "NOT_SUBMITTED": 1
+      },
+      "resubmitted_known_failures": 0,
+      "wilson95_terminal_all_started": [
+        0.09452865480086614,
+        0.9054713451991339
+      ]
+    }
+  ],
+  "limits": [
+    "Exploratory two repetitions per start and condition, not a population-level causal estimate.",
+    "A larger test allowance is not an equal-cost intervention.",
+    "Private/held-out results never choose intermediate candidates; untested versions remain unknown.",
+    "Submitted motives are not observable; report only available evidence and actual actions."
+  ]
+}

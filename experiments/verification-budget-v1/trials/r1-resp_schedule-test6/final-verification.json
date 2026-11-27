@@ -1,0 +1,132 @@
+{
+  "terminal": {
+    "raw_sha256": "6b9dd84e359063955bf411668a0c05bb1c2363c9d10fc896a5dae0d55d1fa72c",
+    "summary": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false,
+      "verdict_determinate": true,
+      "source_sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+      "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+      "required_cases": [
+        "address_data",
+        "write_fifo",
+        "read_fifo",
+        "intake_b_stall",
+        "intake_r_stall",
+        "partial_aw",
+        "partial_w",
+        "round_robin",
+        "preference_history",
+        "wait_error_memory",
+        "random_0",
+        "random_1",
+        "random_2",
+        "reset_1",
+        "reset_2",
+        "reset_3",
+        "reset_4",
+        "reset_5",
+        "reset_6",
+        "reset_7",
+        "reset_8",
+        "family_write_laps",
+        "family_read_laps"
+      ],
+      "failed_case": "address_data",
+      "compile_reused": true,
+      "cases": [
+        {
+          "name": "address_data",
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "planned": 8,
+          "coverage_bins": [],
+          "reset_observations": [],
+          "sequence": [
+            "queue_memory_sequence"
+          ],
+          "simulation_exit": 0,
+          "requirements": [
+            "Q_ADDRESS",
+            "Q_DATA"
+          ]
+        }
+      ]
+    },
+    "failure_evidence": [
+      {
+        "case": "address_data",
+        "failures": [
+          "Registered FIFO grant/setup missing"
+        ],
+        "checker_failures": []
+      }
+    ]
+  },
+  "heldout": {
+    "raw_sha256": "906413d69effaf1c225bdec51332999bc1259ae7a473b5cddf09a0e6b8be2b6f",
+    "summary": {
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false,
+      "verdict_determinate": true,
+      "source_sha256": "657c546e1b39284ea365e428c9fca6a727d4a60e010392cb97e762c3531b3786",
+      "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+      "required_cases": [
+        "address_data",
+        "write_fifo",
+        "read_fifo",
+        "intake_b_stall",
+        "intake_r_stall",
+        "partial_aw",
+        "partial_w",
+        "round_robin",
+        "preference_history",
+        "wait_error_memory",
+        "random_0",
+        "random_1",
+        "random_2",
+        "reset_1",
+        "reset_2",
+        "reset_3",
+        "reset_4",
+        "reset_5",
+        "reset_6",
+        "reset_7",
+        "reset_8",
+        "family_write_laps",
+        "family_read_laps"
+      ],
+      "failed_case": "address_data",
+      "compile_reused": true,
+      "cases": [
+        {
+          "name": "address_data",
+          "reward": 0.0,
+          "category": "protocol_timing_error",
+          "planned": 8,
+          "coverage_bins": [],
+          "reset_observations": [],
+          "sequence": [
+            "queue_memory_sequence"
+          ],
+          "simulation_exit": 0,
+          "requirements": [
+            "Q_ADDRESS",
+            "Q_DATA"
+          ]
+        }
+      ]
+    },
+    "failure_evidence": [
+      {
+        "case": "address_data",
+        "failures": [
+          "Registered FIFO grant/setup missing"
+        ],
+        "checker_failures": []
+      }
+    ]
+  }
+}

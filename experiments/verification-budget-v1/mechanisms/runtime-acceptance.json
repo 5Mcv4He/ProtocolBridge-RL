@@ -1,0 +1,59 @@
+{
+  "accepted": true,
+  "checks": {
+    "reference-write_fifo_decidable": true,
+    "reference-write_fifo_pass": true,
+    "reference-write_fifo_observed": true,
+    "reference-write_fifo_credits": true,
+    "capacity_decidable": true,
+    "capacity_failure": true,
+    "observed_overflow": true,
+    "error_window": true,
+    "verdict_no_trace": true,
+    "detailed_trace": true,
+    "custom_decidable": true,
+    "custom_pass": true,
+    "success_window_has_activity": true,
+    "event_window_retirement": true,
+    "pre_read_denied": true,
+    "private_scenario_denied": true,
+    "no_denied_execution": true,
+    "actual_session_0": true,
+    "actual_session_1": true,
+    "actual_session_2": true,
+    "fourth_denied": true,
+    "actual_query": true,
+    "event_query": true,
+    "absent_event": true,
+    "invalid_event": true,
+    "fourth_query": true,
+    "fifth_query_denied": true,
+    "submit": true,
+    "closed": true
+  },
+  "full": false,
+  "model_used": false,
+  "controls": {
+    "reference-write_fifo": {
+      "status": "PASS",
+      "source_sha256": "4b66fa55dd607f89f8406b90fa5eb60de96ffbce43cd56ad4c227e8b805fd11c",
+      "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+      "wall_seconds": 92.2332,
+      "verifier_result_sha256": "e63d1287ab1c96d692e5a6de96ba57b0925e283bc90bc682aafe8e9b55e54c23"
+    },
+    "capacity": {
+      "status": "FAIL",
+      "source_sha256": "5f0a2e7bd1a7d9150c7b9b08bdae205afa34940508450f828abbc7b6be1c4e3b",
+      "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+      "wall_seconds": 91.9699,
+      "verifier_result_sha256": "380fb816278d43d5c5049b969d49e34278174546a04208fc6aa6f25d134cb8c4"
+    },
+    "custom": {
+      "status": "PASS",
+      "source_sha256": "4b66fa55dd607f89f8406b90fa5eb60de96ffbce43cd56ad4c227e8b805fd11c",
+      "observer_sha256": "065dc5dd4641cddcdd54b155362610ed2a3dfe34259f6ce8fb54d5c63a17f4e2",
+      "wall_seconds": 4.7451,
+      "verifier_result_sha256": "fd6fa1f2417a450f5f5b22e3ade223f6f76383ec9a7a5af8ca6b2b61335337dd"
+    }
+  }
+}

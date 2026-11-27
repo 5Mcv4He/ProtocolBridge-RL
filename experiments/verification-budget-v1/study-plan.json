@@ -1,0 +1,276 @@
+{
+  "schema": "verification-budget-study-v1",
+  "question": "Does access to six rather than two public tests change repair verification decisions and the final selected candidate?",
+  "planned_model_trials": 12,
+  "task_id": "x2p_queue_three_v1",
+  "budget_conditions": {
+    "test2": {
+      "policy_version": 2,
+      "max_public_test_calls": 2
+    },
+    "test6": {
+      "policy_version": 2,
+      "max_public_test_calls": 6
+    }
+  },
+  "capabilities": "engineering-lab-v1",
+  "max_actions": 20,
+  "other_tool_budgets": {
+    "compile": 2,
+    "synth_check": 2,
+    "inspect": 2,
+    "experiment": 3,
+    "observe": 4
+  },
+  "repair_initial_test_required": "Existing repair rule retained equally; consumes one of the condition allowance. No new mandatory post-edit test or rollback.",
+  "model": "deepseek-flash",
+  "reasoning_effort": "off",
+  "protocol": "text-json-atomic-v2",
+  "sampling": {
+    "max_output_tokens_per_turn": 7000,
+    "temperature": "SDK/provider default",
+    "seed": "not available/not set",
+    "exact_weight_revision": null
+  },
+  "starts": [
+    {
+      "id": "resp_schedule",
+      "kind": "historical_agent",
+      "source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+      "obligation_to_verify": "Q_GRANT",
+      "source": "experiments/queue-family-v1/episode-3/r01-test_diagnostic/candidate-05.sv",
+      "qualification": {
+        "source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+        "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "failed_case": "address_data"
+      }
+    },
+    {
+      "id": "same_edge_insert",
+      "kind": "controlled_mutant_shift_reference",
+      "source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+      "obligation_to_verify": "G_RETIREMENT_BOUNDARY",
+      "source": "generated queue_three fixture bad_same_edge.sv",
+      "qualification": {
+        "source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+        "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+        "reward": 0.0,
+        "category": "transaction_functional_error",
+        "failed_case": "address_data"
+      }
+    },
+    {
+      "id": "fifo_wrap",
+      "kind": "controlled_mutant_ring_reference",
+      "source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+      "obligation_to_verify": "G_MULTIPLE_LAPS",
+      "source": "generated queue_three fixture bad_wrap.sv",
+      "qualification": {
+        "source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+        "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+        "reward": 0.0,
+        "category": "transaction_functional_error",
+        "failed_case": "address_data"
+      }
+    }
+  ],
+  "schedule": [
+    {
+      "id": "r1-resp_schedule-test2",
+      "repeat": 1,
+      "start": "resp_schedule",
+      "budget": 2
+    },
+    {
+      "id": "r1-resp_schedule-test6",
+      "repeat": 1,
+      "start": "resp_schedule",
+      "budget": 6
+    },
+    {
+      "id": "r1-same_edge_insert-test6",
+      "repeat": 1,
+      "start": "same_edge_insert",
+      "budget": 6
+    },
+    {
+      "id": "r1-same_edge_insert-test2",
+      "repeat": 1,
+      "start": "same_edge_insert",
+      "budget": 2
+    },
+    {
+      "id": "r1-fifo_wrap-test2",
+      "repeat": 1,
+      "start": "fifo_wrap",
+      "budget": 2
+    },
+    {
+      "id": "r1-fifo_wrap-test6",
+      "repeat": 1,
+      "start": "fifo_wrap",
+      "budget": 6
+    },
+    {
+      "id": "r2-fifo_wrap-test6",
+      "repeat": 2,
+      "start": "fifo_wrap",
+      "budget": 6
+    },
+    {
+      "id": "r2-fifo_wrap-test2",
+      "repeat": 2,
+      "start": "fifo_wrap",
+      "budget": 2
+    },
+    {
+      "id": "r2-resp_schedule-test2",
+      "repeat": 2,
+      "start": "resp_schedule",
+      "budget": 2
+    },
+    {
+      "id": "r2-resp_schedule-test6",
+      "repeat": 2,
+      "start": "resp_schedule",
+      "budget": 6
+    },
+    {
+      "id": "r2-same_edge_insert-test6",
+      "repeat": 2,
+      "start": "same_edge_insert",
+      "budget": 6
+    },
+    {
+      "id": "r2-same_edge_insert-test2",
+      "repeat": 2,
+      "start": "same_edge_insert",
+      "budget": 2
+    }
+  ],
+  "pairing": "Same starting bytes, Spec, verifier, public suite, private reward inputs, held-out inputs and source capsule across both budgets and repetitions; separate model sessions. No claim of paired random samples.",
+  "limits": {
+    "max_model_trials": 12,
+    "max_concurrent_licensed_trials": 1,
+    "between_trial_tokens": 3000000,
+    "between_trial_seconds": 14400,
+    "resource_check": "Before every trial: >=4 GiB free disk and no active commercial-tool process.",
+    "accounting": "Token/time limits checked between trials; a bounded 20-action in-progress trial may exceed the remaining limit. No currency bill available; never buy services."
+  },
+  "estimate": {
+    "basis": "Prior combined repair:155130 reported tokens and668.401 seconds, excluding preflight",
+    "twelve_times_prior_tokens": 1861560,
+    "twelve_times_prior_episode_seconds": 8020.812,
+    "uncertainty": "Additional full tests can add substantial simulation time. Four-hour between-trial ceiling may stop the fixed schedule; no result-dependent replacement."
+  },
+  "stop_rules": [
+    "Stop expansion to additional trials on infrastructure/ENV_ERROR, audit failure, conflicting PASS/FAIL for identical candidate/public suite, source or input drift, information-boundary fault or resource limit. Preserve all started trials.",
+    "No substitution or outcome-dependent extra trials. All failure/incomplete/null records stay in denominators.",
+    "A pre-model trusted-environment failure requires correction and a new frozen source/plan before any affected model experiment."
+  ],
+  "primary_metrics": [
+    "terminal reward and held-out result separately",
+    "actual test3-6 use",
+    "public tests of edited/current/final source identities",
+    "final delivered public status PASS/FAIL/UNOBSERVED",
+    "resubmission of already failed identical source",
+    "edits after delivered PASS and subsequent validation",
+    "unused allowance versus exhausted allowance",
+    "observed matched-public regression; otherwise unmeasured change",
+    "tool counts,tokens,API request wall,compilation count/time,simulation time,episode wall"
+  ],
+  "offline_analysis": {
+    "selection": "Existing controller: first valid edited candidate only, measured after solver stop if no matching actual public test; at most one extra full public suite per trial. No other untested intermediate candidates will be graded in this study.",
+    "max_additional_public_suites": 12,
+    "private_selection": "No intermediate private/held-out grading or candidate selection.",
+    "scope": "Post-hoc measurements never become solver observations or replace final reward."
+  },
+  "data_use": "Audited tool trajectories and terminal reward; held-out evaluation and post-hoc analysis remain separate. No token IDs, behavior log probabilities, exact weight version or training-benefit claim.",
+  "validity_definition": "Report submitted separately. Confirmed admissible submissions have determinate reward0/1; invalid_submission is invalid; submitted infrastructure/null remains unresolved.",
+  "source_manifest_sha256": "f9511e8b9dae370f084df2149d7fbaf71631252d9905e15db74a47194afd3f12",
+  "admission_freeze_sha256": "d2ab935abc3ca9f75b6c2fe3934881ef225eb120ab0457f39e4ba1cde2688d47",
+  "input_sha256": {
+    "reward": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+    "evaluation": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa"
+  },
+  "frozen_at_utc": "2026-11-27T03:10:40.462763+00:00",
+  "runner_files": {
+    "scripts/verification_budget_study.py": "55f5326424462936a5d3d72b8663daf30bc6ea7750905648ec14e15eeba0de64",
+    "scripts/candidate_decisions.py": "28ca0af1bd569ea84b53ebf093b67f06fcf7c36b141203dac6c91ffacc8407db",
+    "scripts/summarize_verification_budget.py": "fb39f7f0f77c969a15c5b5b77348e5f94afaac675d7de593f78938ecfb10ad6d",
+    "scripts/export_task_rollouts.py": "ebf9957e8ee8a6bb8aa13d794904d14c367219fa1c40524ef38d029ca8788dd5",
+    "scripts/rollout_exchange_v5.py": "fef98646fdc08276fd63660446a9dabaf71e4a7aeea599c8f51f968454746b2b"
+  },
+  "conditions": {
+    "2": {
+      "policy": {
+        "policy_id": "test_diagnostic",
+        "version": 2,
+        "allowed_tools": [
+          "read",
+          "edit",
+          "test",
+          "submit"
+        ],
+        "readable_files": [
+          "spec.md",
+          "bridge.sv"
+        ],
+        "writable_files": [
+          "bridge.sv"
+        ],
+        "feedback_level": "diagnostic",
+        "max_agent_actions": 20,
+        "max_public_test_calls": 2,
+        "max_feedback_chars": 512,
+        "final_reward_visibility": "none",
+        "submission_requirements": {
+          "read_spec_and_rtl": true,
+          "public_test_required": false
+        }
+      },
+      "prompt_sha256": "dba973795c64c03dfc75448bb5f8ec6bbbb3f75c98c457db124fe6eb6965d6c0"
+    },
+    "6": {
+      "policy": {
+        "policy_id": "test_diagnostic",
+        "version": 2,
+        "allowed_tools": [
+          "read",
+          "edit",
+          "test",
+          "submit"
+        ],
+        "readable_files": [
+          "spec.md",
+          "bridge.sv"
+        ],
+        "writable_files": [
+          "bridge.sv"
+        ],
+        "feedback_level": "diagnostic",
+        "max_agent_actions": 20,
+        "max_public_test_calls": 6,
+        "max_feedback_chars": 512,
+        "final_reward_visibility": "none",
+        "submission_requirements": {
+          "read_spec_and_rtl": true,
+          "public_test_required": false
+        }
+      },
+      "prompt_sha256": "8fe8cc84f69f31045c927af26757ea8407dc101aa357fd19d140bd7bae4dd7fb"
+    }
+  },
+  "toolchain": {
+    "vcs": "O-2018.09-SP2",
+    "vip": "R-2020.12",
+    "uvm": "1.2",
+    "python": "3.6.9 (controller); 3.10.12 (worker)",
+    "harness": "0.2.2rc2",
+    "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+  },
+  "public_suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+  "functional_dependencies_sha256": "4349320e1570ac2fd51456afcfb867dee24bd8f26cd9934164e71df3370663a1"
+}

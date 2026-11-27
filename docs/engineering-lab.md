@@ -56,3 +56,5 @@ python3 scripts/tasks.py --package .local/queue-lab \
 本版总动作预算为 20，公开测试最多 2 次；另有 compile 2 次、synth_check 2 次、inspect 2 次、experiment 3 次、observe 4 次，全部共享总动作上限。尝试和拒绝按对应工具的原规则记账。综合环境属于新的实验条件，不与历史单工具条件合并计算成功率。
 
 [`engineering_lab.py`](../environment/engineering_lab.py)组合既有 Session；[环境生产器](../task_families/engineering_lab_v1/generate.py)绑定升级后的控制器、Prompt 和审计器。历史包和历史配置不会被就地升级。
+
+后续[公开验证预算研究](verification-budget-study.md)复用这套工具和版本绑定，单独定义 test 上限为 2／6 的条件；两组仍共享 20 次总动作和相同其他预算。该研究不改变本页历史 `engineering-lab-v1` 的默认额度，也不增加控制器自动验证或回退。

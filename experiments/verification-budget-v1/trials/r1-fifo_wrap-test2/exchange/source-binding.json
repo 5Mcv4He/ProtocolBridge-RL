@@ -1,0 +1,9 @@
+{
+  "schema": "pb-capsule-exchange-binding-v1",
+  "task_id": "x2p_queue_three_v1",
+  "capsule_manifest_sha256": "f9511e8b9dae370f084df2149d7fbaf71631252d9905e15db74a47194afd3f12",
+  "experiment_sha256": "e3f8d7bc8f4c7000a22c5435716639a99ffa9224fdb31a6ce3283cf4fb1ca4c7",
+  "adapter_sha256": "ebf9957e8ee8a6bb8aa13d794904d14c367219fa1c40524ef38d029ca8788dd5",
+  "auditor_sha256": "6646ec346d417d455bb351c5a5c5946bca8c8c744092e3b3ed677fb61d4b8507",
+  "exchange_manifest_sha256": "80f0fee0f0493cb26895c944ee1ac4fe03cac61f4ae21a980f0f242d07279a37"
+}

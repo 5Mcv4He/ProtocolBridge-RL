@@ -1,0 +1,92 @@
+{
+  "available": true,
+  "totals": {
+    "inputTokens": 4128,
+    "outputTokens": 1195,
+    "cacheReadTokens": 23680,
+    "cacheWriteTokens": 0,
+    "totalTokens": 29003
+  },
+  "cost": null,
+  "events": [
+    {
+      "event_file": "harness-00.json",
+      "event_seq": 10,
+      "usage": {
+        "inputTokens": 211,
+        "outputTokens": 10,
+        "cacheReadTokens": 1024,
+        "cacheWriteTokens": 0,
+        "totalTokens": 1245
+      }
+    },
+    {
+      "event_file": "harness-01.json",
+      "event_seq": 18,
+      "usage": {
+        "inputTokens": 1623,
+        "outputTokens": 11,
+        "cacheReadTokens": 1152,
+        "cacheWriteTokens": 0,
+        "totalTokens": 2786
+      }
+    },
+    {
+      "event_file": "harness-02.json",
+      "event_seq": 26,
+      "usage": {
+        "inputTokens": 1271,
+        "outputTokens": 5,
+        "cacheReadTokens": 2688,
+        "cacheWriteTokens": 0,
+        "totalTokens": 3964
+      }
+    },
+    {
+      "event_file": "harness-03.json",
+      "event_seq": 34,
+      "usage": {
+        "inputTokens": 278,
+        "outputTokens": 6,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "totalTokens": 4124
+      }
+    },
+    {
+      "event_file": "harness-04.json",
+      "event_seq": 42,
+      "usage": {
+        "inputTokens": 240,
+        "outputTokens": 1153,
+        "cacheReadTokens": 4096,
+        "cacheWriteTokens": 0,
+        "totalTokens": 5489
+      }
+    },
+    {
+      "event_file": "harness-05.json",
+      "event_seq": 50,
+      "usage": {
+        "inputTokens": 236,
+        "outputTokens": 5,
+        "cacheReadTokens": 5376,
+        "cacheWriteTokens": 0,
+        "totalTokens": 5617
+      }
+    },
+    {
+      "event_file": "harness-06.json",
+      "event_seq": 58,
+      "usage": {
+        "inputTokens": 269,
+        "outputTokens": 5,
+        "cacheReadTokens": 5504,
+        "cacheWriteTokens": 0,
+        "totalTokens": 5778
+      }
+    }
+  ],
+  "method": "Sum unique (session_id, seq) assistant/message.data.usage events only; exclude stream chunks and duplicated notifications.",
+  "semantics": "SDK inputTokens excludes separately reported cacheReadTokens in these records; totalTokens is the SDK total, not unique context size. No billed currency cost is provided."
+}

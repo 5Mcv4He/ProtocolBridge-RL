@@ -1,0 +1,284 @@
+{
+  "schema": "budget-human-tool-summary-v1",
+  "raw_trace_sha256": "3845cc2db0450a106258d72af2b9fb9a2f16b444bbe55e916e96ae146af33354",
+  "events": [
+    {
+      "action_index": 1,
+      "action": {
+        "tool": "read",
+        "file": "spec.md"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {}
+    },
+    {
+      "action_index": 2,
+      "action": {
+        "tool": "read",
+        "file": "bridge.sv"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {}
+    },
+    {
+      "action_index": 3,
+      "action": {
+        "tool": "test"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "category": "protocol_timing_error",
+        "diagnostic": "A protocol timing or stability requirement failed.",
+        "first_failed_case": "address_data",
+        "remaining_test_calls": 1,
+        "candidate_binding": {
+          "current_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+          "result_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 4,
+      "action": {
+        "tool": "inspect"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_GRANT",
+          "message": "A buffered eligible head at the idle selection edge must produce APB setup immediately after that edge."
+        },
+        "candidate_binding": {
+          "current_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+          "result_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 5,
+      "action": {
+        "tool": "experiment",
+        "scenario": "address_data"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_GRANT",
+          "message": "A buffered eligible head at the idle selection edge must produce APB setup immediately after that edge."
+        },
+        "candidate_binding": {
+          "current_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+          "result_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 6,
+      "action": {
+        "tool": "observe",
+        "start": 16,
+        "count": 12
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_GRANT",
+          "message": "A buffered eligible head at the idle selection edge must produce APB setup immediately after that edge."
+        },
+        "candidate_binding": {
+          "current_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+          "result_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 7,
+      "action": {
+        "tool": "edit"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "EDITED",
+        "candidate_binding": {
+          "current_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "result_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 8,
+      "action": {
+        "tool": "test"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "category": "protocol_timing_error",
+        "diagnostic": "A protocol timing or stability requirement failed.",
+        "first_failed_case": "address_data",
+        "remaining_test_calls": 0,
+        "candidate_binding": {
+          "current_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "result_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 9,
+      "action": {
+        "tool": "inspect"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_GRANT",
+          "message": "A buffered eligible head at the idle selection edge must produce APB setup immediately after that edge."
+        },
+        "candidate_binding": {
+          "current_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "result_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 10,
+      "action": {
+        "tool": "experiment",
+        "scenario": "address_data"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_GRANT",
+          "message": "A buffered eligible head at the idle selection edge must produce APB setup immediately after that edge."
+        },
+        "candidate_binding": {
+          "current_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "result_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 11,
+      "action": {
+        "tool": "observe",
+        "start": 0,
+        "count": 10
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_GRANT",
+          "message": "A buffered eligible head at the idle selection edge must produce APB setup immediately after that edge."
+        },
+        "candidate_binding": {
+          "current_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "result_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 12,
+      "action": {
+        "tool": "observe",
+        "start": 12,
+        "count": 8
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_GRANT",
+          "message": "A buffered eligible head at the idle selection edge must produce APB setup immediately after that edge."
+        },
+        "candidate_binding": {
+          "current_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "result_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 13,
+      "action": {
+        "tool": "edit"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "EDITED",
+        "candidate_binding": {
+          "current_sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+          "result_sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 14,
+      "action": {
+        "tool": "experiment",
+        "scenario": "address_data"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_GRANT",
+          "message": "A buffered eligible head at the idle selection edge must produce APB setup immediately after that edge."
+        },
+        "candidate_binding": {
+          "current_sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+          "result_sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 15,
+      "action": {
+        "tool": "submit"
+      },
+      "executed": true,
+      "observation_delivered": false,
+      "observation": {
+        "status": "SUBMITTED",
+        "candidate_binding": {
+          "current_sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+          "result_sha256": "f40ce10e1aa444013974561216175c62288c7ccd31c941d9a8c2d148af5946b8",
+          "is_current": true
+        }
+      }
+    }
+  ],
+  "scope": "Readable projection of actual events, not a replacement for complete v5 feedback/artifacts. Edit/read content and runtime rows remain in the exchange."
+}

@@ -1,0 +1,17 @@
+{
+  "terminal": {
+    "raw_sha256": "2725d92459dbe852bbb59cc5c7efd8f5c6671b90dd9b36708f36ad8305167ff9",
+    "summary": {
+      "reward": null,
+      "category": "agent_incomplete",
+      "cases": []
+    },
+    "failure_evidence": [],
+    "executed": false,
+    "reason": "Agent exhausted 20 actions without submitting; this is a controller outcome, not a terminal RTL grade."
+  },
+  "heldout": {
+    "executed": false,
+    "reason": "No submitted candidate; independent held-out evaluation was not run."
+  }
+}

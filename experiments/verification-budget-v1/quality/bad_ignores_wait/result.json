@@ -1,0 +1,55 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "abb2152470750d4110f8293304cb79041294b139ce5696ab3d95ac1524638cbb",
+  "suite_sha256": "2f6c0f16f01ec79182b53328529913b687794abff566753e490d54b7e4e75781",
+  "required_cases": [
+    "wait_error_memory",
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "random_0",
+    "random_1",
+    "random_2",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8",
+    "family_write_laps",
+    "family_read_laps"
+  ],
+  "failed_case": "wait_error_memory",
+  "compile_reused": true,
+  "cases": [
+    {
+      "name": "wait_error_memory",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 68,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_memory_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_SELECTED_WAIT",
+        "Q_ERROR_RESPONSE",
+        "Q_MEMORY_ORDER",
+        "Q_ERROR_NO_WRITE"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "verification-budget-mechanisms-v1",
+  "before_first_model": true,
+  "rows": {
+    "runtime-acceptance": {
+      "checks": 29,
+      "accepted": true,
+      "raw_result_sha256": "72f581b37e684f5e268b37adca5fa10ef14cba170b34988f6b7882d0789c2070",
+      "wall_seconds": 201.99720764160156
+    },
+    "synthesis-acceptance": {
+      "checks": 20,
+      "accepted": true,
+      "raw_result_sha256": "224ddfdf2fc4b1cbdb4432313486c0afd00e9f489a5458a1fac38ea83cab2081",
+      "wall_seconds": 184.70895981788635
+    },
+    "lab-acceptance": {
+      "checks": 17,
+      "accepted": true,
+      "raw_result_sha256": "bc726118847ca3c6d6447b14b941ae95f6c8b10874c65461b9ae0501747267ef",
+      "wall_seconds": 483.3358974456787
+    },
+    "mechanism": {
+      "checks": 40,
+      "accepted": true,
+      "raw_result_sha256": "71b425351a0bca19e9045bd854e3111fd1eac6a787eb3217e1cdf1d901b2dc8f",
+      "wall_seconds": 148.22709584236145
+    },
+    "budget-acceptance": {
+      "checks": 21,
+      "accepted": true,
+      "raw_result_sha256": "8a508a49c51305edb951cfd28f91113a527f2ce52c591d725134969e5d685f3b",
+      "wall_seconds": 218.12703108787537
+    }
+  },
+  "actual_budget_verifier_calls": 10
+}

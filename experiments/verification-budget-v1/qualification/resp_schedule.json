@@ -1,0 +1,51 @@
+{
+  "reward": 0.0,
+  "category": "protocol_timing_error",
+  "verification_complete": false,
+  "verdict_determinate": true,
+  "source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+  "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+  "required_cases": [
+    "address_data",
+    "write_fifo",
+    "read_fifo",
+    "intake_b_stall",
+    "intake_r_stall",
+    "partial_aw",
+    "partial_w",
+    "round_robin",
+    "preference_history",
+    "wait_error_memory",
+    "random_0",
+    "reset_1",
+    "reset_2",
+    "reset_3",
+    "reset_4",
+    "reset_5",
+    "reset_6",
+    "reset_7",
+    "reset_8",
+    "family_write_laps",
+    "family_read_laps"
+  ],
+  "failed_case": "address_data",
+  "compile_exit": 0,
+  "cases": [
+    {
+      "name": "address_data",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "planned": 8,
+      "coverage_bins": [],
+      "reset_observations": [],
+      "sequence": [
+        "queue_memory_sequence"
+      ],
+      "simulation_exit": 0,
+      "requirements": [
+        "Q_ADDRESS",
+        "Q_DATA"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "schema": "candidate-verification-decisions-v1",
+  "budget": 6,
+  "actions": 20,
+  "submitted": false,
+  "submission_validity": "not_submitted",
+  "terminal": {
+    "reward": null,
+    "category": "agent_incomplete",
+    "verification_complete": null,
+    "source_sha256": null,
+    "suite_sha256": null,
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": null
+  },
+  "held_out": null,
+  "initial_source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+  "final_source_sha256": null,
+  "versions": [
+    {
+      "action": 0,
+      "sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+      "kind": "start"
+    },
+    {
+      "action": 7,
+      "sha256": "4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859",
+      "kind": "edit"
+    },
+    {
+      "action": 9,
+      "sha256": "f5c13e0a690c9cd790d9a1f1515f019ff1b66d2ff5b3b1e9d13f57af803532b3",
+      "kind": "edit"
+    },
+    {
+      "action": 13,
+      "sha256": "8252d6432e2c47d9ee2a8a967f6c88397db4833f8b687b0cbac96a2481c63062",
+      "kind": "edit"
+    },
+    {
+      "action": 17,
+      "sha256": "420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977",
+      "kind": "edit"
+    },
+    {
+      "action": 20,
+      "sha256": "734d0e4cfe6a2a456166a968cab1e99e0a9f077563d04ce94e2d3b562f394f3e",
+      "kind": "edit"
+    }
+  ],
+  "edits": [
+    {
+      "action": 7,
+      "before_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+      "source_sha256": "4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859",
+      "changed_bytes": true,
+      "later_public_test_actions": [],
+      "prior_public_test_actions": []
+    },
+    {
+      "action": 9,
+      "before_sha256": "4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859",
+      "source_sha256": "f5c13e0a690c9cd790d9a1f1515f019ff1b66d2ff5b3b1e9d13f57af803532b3",
+      "changed_bytes": true,
+      "later_public_test_actions": [
+        10
+      ],
+      "prior_public_test_actions": []
+    },
+    {
+      "action": 13,
+      "before_sha256": "f5c13e0a690c9cd790d9a1f1515f019ff1b66d2ff5b3b1e9d13f57af803532b3",
+      "source_sha256": "8252d6432e2c47d9ee2a8a967f6c88397db4833f8b687b0cbac96a2481c63062",
+      "changed_bytes": true,
+      "later_public_test_actions": [
+        14
+      ],
+      "prior_public_test_actions": []
+    },
+    {
+      "action": 17,
+      "before_sha256": "8252d6432e2c47d9ee2a8a967f6c88397db4833f8b687b0cbac96a2481c63062",
+      "source_sha256": "420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977",
+      "changed_bytes": true,
+      "later_public_test_actions": [
+        18,
+        19
+      ],
+      "prior_public_test_actions": []
+    },
+    {
+      "action": 20,
+      "before_sha256": "420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977",
+      "source_sha256": "734d0e4cfe6a2a456166a968cab1e99e0a9f077563d04ce94e2d3b562f394f3e",
+      "changed_bytes": true,
+      "later_public_test_actions": [],
+      "prior_public_test_actions": []
+    }
+  ],
+  "public_tests": [
+    {
+      "action": 3,
+      "source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+      "status": "FAIL",
+      "delivered": true,
+      "ordinal": 1
+    },
+    {
+      "action": 10,
+      "source_sha256": "f5c13e0a690c9cd790d9a1f1515f019ff1b66d2ff5b3b1e9d13f57af803532b3",
+      "status": "FAIL",
+      "delivered": true,
+      "ordinal": 2
+    },
+    {
+      "action": 14,
+      "source_sha256": "8252d6432e2c47d9ee2a8a967f6c88397db4833f8b687b0cbac96a2481c63062",
+      "status": "FAIL",
+      "delivered": true,
+      "ordinal": 3
+    },
+    {
+      "action": 18,
+      "source_sha256": "420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977",
+      "status": "FAIL",
+      "delivered": true,
+      "ordinal": 4
+    },
+    {
+      "action": 19,
+      "source_sha256": "420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977",
+      "status": "FAIL",
+      "delivered": true,
+      "ordinal": 5
+    }
+  ],
+  "extra_public_tests_used": 3,
+  "unused_test_allowance": 1,
+  "conflicting_public_verdict_sources": [],
+  "final_public_status": "NOT_SUBMITTED",
+  "final_delivered_public_status": "NOT_SUBMITTED",
+  "submitted_previously_failed_source": false,
+  "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+  "final_development_evidence": [],
+  "final_delivered_functional_failure_tools": [],
+  "edited_after_delivered_pass": [],
+  "observed_public_regressions": [],
+  "untested_edit_versions": 2,
+  "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+  "never_publicly_tested_edited_sources": [
+    "4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859",
+    "734d0e4cfe6a2a456166a968cab1e99e0a9f077563d04ce94e2d3b562f394f3e"
+  ],
+  "offline_first_candidate": {
+    "reward": 0.0,
+    "category": "compile_error",
+    "verification_complete": false,
+    "source_sha256": "4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859",
+    "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": null
+  },
+  "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+}

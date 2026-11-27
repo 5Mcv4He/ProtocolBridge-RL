@@ -14,4 +14,6 @@ SVG 内含系统深色偏好样式，不支持时仍可使用浅色画布；不�
 
 [composed-route-retirement.svg](composed-route-retirement.svg) 表达路由与队列组合中的两条执行路径：映射请求访问选中 APB 目标，未映射请求形成 DECERR；两者都保持名额直到 AXI 响应退休。区域包含关系表示未退休生命周期，图为契约示意。
 
+[verification-budget.svg](verification-budget.svg) 表达测试额度对照的固定条件、Agent 自主验证决策与提交后的评分边界。它是实验设计图，不是成功率或模型内部推理示意。
+
 [返回首页](../../README.md)

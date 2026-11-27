@@ -1,0 +1,8 @@
+{
+  "schema": "budget-capsule-reproduction-v1",
+  "manifest_identical": true,
+  "files_checked": 260,
+  "producer_files_checked": 4,
+  "manifest_sha256": "f9511e8b9dae370f084df2149d7fbaf71631252d9905e15db74a47194afd3f12",
+  "scope": "Fresh deterministic source regeneration; not another RTL simulation or model trial."
+}

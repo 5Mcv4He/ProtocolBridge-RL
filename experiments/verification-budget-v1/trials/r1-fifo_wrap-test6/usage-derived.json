@@ -1,0 +1,81 @@
+{
+  "available": true,
+  "totals": {
+    "inputTokens": 3754,
+    "outputTokens": 1209,
+    "cacheReadTokens": 19328,
+    "cacheWriteTokens": 0,
+    "totalTokens": 24291
+  },
+  "cost": null,
+  "events": [
+    {
+      "event_file": "harness-00.json",
+      "event_seq": 10,
+      "usage": {
+        "inputTokens": 212,
+        "outputTokens": 10,
+        "cacheReadTokens": 1024,
+        "cacheWriteTokens": 0,
+        "totalTokens": 1246
+      }
+    },
+    {
+      "event_file": "harness-01.json",
+      "event_seq": 18,
+      "usage": {
+        "inputTokens": 1624,
+        "outputTokens": 11,
+        "cacheReadTokens": 1152,
+        "cacheWriteTokens": 0,
+        "totalTokens": 2787
+      }
+    },
+    {
+      "event_file": "harness-02.json",
+      "event_seq": 26,
+      "usage": {
+        "inputTokens": 1272,
+        "outputTokens": 5,
+        "cacheReadTokens": 2688,
+        "cacheWriteTokens": 0,
+        "totalTokens": 3965
+      }
+    },
+    {
+      "event_file": "harness-03.json",
+      "event_seq": 34,
+      "usage": {
+        "inputTokens": 279,
+        "outputTokens": 1173,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "totalTokens": 5292
+      }
+    },
+    {
+      "event_file": "harness-04.json",
+      "event_seq": 42,
+      "usage": {
+        "inputTokens": 167,
+        "outputTokens": 5,
+        "cacheReadTokens": 5248,
+        "cacheWriteTokens": 0,
+        "totalTokens": 5420
+      }
+    },
+    {
+      "event_file": "harness-05.json",
+      "event_seq": 50,
+      "usage": {
+        "inputTokens": 200,
+        "outputTokens": 5,
+        "cacheReadTokens": 5376,
+        "cacheWriteTokens": 0,
+        "totalTokens": 5581
+      }
+    }
+  ],
+  "method": "Sum unique (session_id, seq) assistant/message.data.usage events only; exclude stream chunks and duplicated notifications.",
+  "semantics": "SDK inputTokens excludes separately reported cacheReadTokens in these records; totalTokens is the SDK total, not unique context size. No billed currency cost is provided."
+}

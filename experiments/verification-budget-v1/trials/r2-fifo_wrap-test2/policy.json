@@ -1,0 +1,26 @@
+{
+  "policy_id": "test_diagnostic",
+  "version": 2,
+  "allowed_tools": [
+    "read",
+    "edit",
+    "test",
+    "submit"
+  ],
+  "readable_files": [
+    "spec.md",
+    "bridge.sv"
+  ],
+  "writable_files": [
+    "bridge.sv"
+  ],
+  "feedback_level": "diagnostic",
+  "max_agent_actions": 20,
+  "max_public_test_calls": 2,
+  "max_feedback_chars": 512,
+  "final_reward_visibility": "none",
+  "submission_requirements": {
+    "read_spec_and_rtl": true,
+    "public_test_required": false
+  }
+}

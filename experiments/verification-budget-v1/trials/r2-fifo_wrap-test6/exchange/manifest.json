@@ -1,0 +1,24 @@
+{
+  "schema": "pb-exchange-manifest-v5",
+  "exporter_sha256": "fef98646fdc08276fd63660446a9dabaf71e4a7aeea599c8f51f968454746b2b",
+  "completed": true,
+  "records": 1,
+  "available_tool_trajectories": 1,
+  "source_experiment_sha256": [
+    "2b45f472e21e694ed6cec2465a7e5161b31c7dd412157281f6edb198f08f3cac"
+  ],
+  "scope": "Audit-required complete raw cohorts. Tool feedback only; no private vectors, raw SDK reasoning, netlists or trusted implementation results. Not lossless on-policy training data.",
+  "files": {
+    "analysis/offline.jsonl": "4154234781ace42be7107a8c0a33c5640c6872e149db206182f70b3bbf7a1088",
+    "artifacts/020956304f6997e82a6fdc9497cbb9bd651fe4004fbbf373a43f03da34f7d96b.txt": "020956304f6997e82a6fdc9497cbb9bd651fe4004fbbf373a43f03da34f7d96b",
+    "artifacts/420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977.sv": "420dae7069a3ed3c9bd637afc74e91923477991cc46c4596be5ad08f6f338977",
+    "artifacts/4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859.sv": "4c41cddf4352f191790025e47ee3e2fc567915ea942a89a01d84abe0633c5859",
+    "artifacts/734d0e4cfe6a2a456166a968cab1e99e0a9f077563d04ce94e2d3b562f394f3e.sv": "734d0e4cfe6a2a456166a968cab1e99e0a9f077563d04ce94e2d3b562f394f3e",
+    "artifacts/8252d6432e2c47d9ee2a8a967f6c88397db4833f8b687b0cbac96a2481c63062.sv": "8252d6432e2c47d9ee2a8a967f6c88397db4833f8b687b0cbac96a2481c63062",
+    "artifacts/8fe8cc84f69f31045c927af26757ea8407dc101aa357fd19d140bd7bae4dd7fb.txt": "8fe8cc84f69f31045c927af26757ea8407dc101aa357fd19d140bd7bae4dd7fb",
+    "artifacts/a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb.txt": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+    "artifacts/f5c13e0a690c9cd790d9a1f1515f019ff1b66d2ff5b3b1e9d13f57af803532b3.sv": "f5c13e0a690c9cd790d9a1f1515f019ff1b66d2ff5b3b1e9d13f57af803532b3",
+    "evaluation/heldout.jsonl": "5d8927f06f99224e9456b50bf528dc1bb6d9a4d8ad45f7317b3253700d721b76",
+    "training/rollouts.jsonl": "e49cb99ffe912d8a8692a2a80895ead3689cc2b822ebadc810f1d51df2bddc00"
+  }
+}

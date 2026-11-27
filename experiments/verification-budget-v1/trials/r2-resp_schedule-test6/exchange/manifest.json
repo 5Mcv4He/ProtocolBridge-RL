@@ -1,0 +1,23 @@
+{
+  "schema": "pb-exchange-manifest-v5",
+  "exporter_sha256": "fef98646fdc08276fd63660446a9dabaf71e4a7aeea599c8f51f968454746b2b",
+  "completed": true,
+  "records": 1,
+  "available_tool_trajectories": 1,
+  "source_experiment_sha256": [
+    "35c5e9c1599c368d9f09f5ecec77573a17a64ceb6e86c0fdac8c8cfd84fdcd0c"
+  ],
+  "scope": "Audit-required complete raw cohorts. Tool feedback only; no private vectors, raw SDK reasoning, netlists or trusted implementation results. Not lossless on-policy training data.",
+  "files": {
+    "analysis/offline.jsonl": "481b8fdd36f9b2a258029667bfeab5a713d8ed2650faf8d7a02784e33bed9566",
+    "artifacts/020956304f6997e82a6fdc9497cbb9bd651fe4004fbbf373a43f03da34f7d96b.txt": "020956304f6997e82a6fdc9497cbb9bd651fe4004fbbf373a43f03da34f7d96b",
+    "artifacts/3b25b073e7ab1598d5164f8b5ac8c9fe54e8fa0eecb57303c14ef7cc2cc6af86.sv": "3b25b073e7ab1598d5164f8b5ac8c9fe54e8fa0eecb57303c14ef7cc2cc6af86",
+    "artifacts/5e73e3a92484cb6439d7ace058047a379b865fb5f0e720ad1a0c2765ed776568.sv": "5e73e3a92484cb6439d7ace058047a379b865fb5f0e720ad1a0c2765ed776568",
+    "artifacts/708197c6d8255e28676c78571ad0216c65e3f53c80ada6fb33cf277c7164c9a5.sv": "708197c6d8255e28676c78571ad0216c65e3f53c80ada6fb33cf277c7164c9a5",
+    "artifacts/88f8f4e8e4fc81372aab92b7abfafe31e38df33e566fc2377d669941ac8a4dbd.sv": "88f8f4e8e4fc81372aab92b7abfafe31e38df33e566fc2377d669941ac8a4dbd",
+    "artifacts/8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5.txt": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+    "artifacts/8fe8cc84f69f31045c927af26757ea8407dc101aa357fd19d140bd7bae4dd7fb.txt": "8fe8cc84f69f31045c927af26757ea8407dc101aa357fd19d140bd7bae4dd7fb",
+    "evaluation/heldout.jsonl": "97fbdf07a59bef9eba17b6d349bfd1ab66bed3dc9bfdd02560d2ecc71b343032",
+    "training/rollouts.jsonl": "62dc1377e07d9fff195e373478f961c4594bfdc99cc8c81570267c2f82e5bb84"
+  }
+}

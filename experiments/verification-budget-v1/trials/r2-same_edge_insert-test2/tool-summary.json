@@ -1,0 +1,235 @@
+{
+  "schema": "budget-human-tool-summary-v1",
+  "raw_trace_sha256": "81d1d58a845a559f7b74c5ad584af0b786fdb0404132fd7fa19a3126e60b88a6",
+  "events": [
+    {
+      "action_index": 1,
+      "action": {
+        "tool": "read",
+        "file": "spec.md"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {}
+    },
+    {
+      "action_index": 2,
+      "action": {
+        "tool": "read",
+        "file": "bridge.sv"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {}
+    },
+    {
+      "action_index": 3,
+      "action": {
+        "tool": "test"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "category": "transaction_functional_error",
+        "diagnostic": "Transaction mapping, data, response or completion accounting failed.",
+        "first_failed_case": "address_data",
+        "remaining_test_calls": 1,
+        "candidate_binding": {
+          "current_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "result_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 4,
+      "action": {
+        "tool": "inspect"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_HEAD",
+          "message": "The APB setup must select the oldest eligible request according to the specified round-robin rule."
+        },
+        "candidate_binding": {
+          "current_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "result_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 5,
+      "action": {
+        "tool": "experiment",
+        "scenario": "address_data"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_HEAD",
+          "message": "The APB setup must select the oldest eligible request according to the specified round-robin rule."
+        },
+        "candidate_binding": {
+          "current_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "result_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 6,
+      "action": {
+        "tool": "edit"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "EDITED",
+        "candidate_binding": {
+          "current_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+          "result_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 7,
+      "action": {
+        "tool": "test"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "category": "transaction_functional_error",
+        "diagnostic": "Transaction mapping, data, response or completion accounting failed.",
+        "first_failed_case": "address_data",
+        "remaining_test_calls": 0,
+        "candidate_binding": {
+          "current_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+          "result_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 8,
+      "action": {
+        "tool": "inspect"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_HEAD",
+          "message": "The APB setup must select the oldest eligible request according to the specified round-robin rule."
+        },
+        "candidate_binding": {
+          "current_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+          "result_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 9,
+      "action": {
+        "tool": "experiment",
+        "scenario": "address_data"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_HEAD",
+          "message": "The APB setup must select the oldest eligible request according to the specified round-robin rule."
+        },
+        "candidate_binding": {
+          "current_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+          "result_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 10,
+      "action": {
+        "tool": "experiment",
+        "scenario": "write_fifo"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_HEAD",
+          "message": "The APB setup must select the oldest eligible request according to the specified round-robin rule."
+        },
+        "candidate_binding": {
+          "current_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+          "result_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 11,
+      "action": {
+        "tool": "edit"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "EDITED",
+        "candidate_binding": {
+          "current_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+          "result_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 12,
+      "action": {
+        "tool": "compile"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [],
+        "candidate_binding": {
+          "current_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+          "result_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 13,
+      "action": {
+        "tool": "submit"
+      },
+      "executed": true,
+      "observation_delivered": false,
+      "observation": {
+        "status": "SUBMITTED",
+        "candidate_binding": {
+          "current_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+          "result_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+          "is_current": true
+        }
+      }
+    }
+  ],
+  "scope": "Readable projection of actual events, not a replacement for complete v5 feedback/artifacts. Edit/read content and runtime rows remain in the exchange."
+}

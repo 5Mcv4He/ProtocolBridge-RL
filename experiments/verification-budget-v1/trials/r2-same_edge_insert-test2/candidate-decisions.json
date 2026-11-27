@@ -1,0 +1,121 @@
+{
+  "schema": "candidate-verification-decisions-v1",
+  "budget": 2,
+  "actions": 13,
+  "submitted": true,
+  "submission_validity": "confirmed",
+  "terminal": {
+    "reward": 0.0,
+    "category": "transaction_functional_error",
+    "verification_complete": false,
+    "source_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+    "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "held_out": {
+    "reward": 0.0,
+    "category": "transaction_functional_error",
+    "verification_complete": false,
+    "source_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+    "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "initial_source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+  "final_source_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+  "versions": [
+    {
+      "action": 0,
+      "sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+      "kind": "start"
+    },
+    {
+      "action": 6,
+      "sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+      "kind": "edit"
+    },
+    {
+      "action": 11,
+      "sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+      "kind": "edit"
+    }
+  ],
+  "edits": [
+    {
+      "action": 6,
+      "before_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+      "source_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+      "changed_bytes": true,
+      "later_public_test_actions": [
+        7
+      ],
+      "prior_public_test_actions": []
+    },
+    {
+      "action": 11,
+      "before_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+      "source_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+      "changed_bytes": true,
+      "later_public_test_actions": [],
+      "prior_public_test_actions": []
+    }
+  ],
+  "public_tests": [
+    {
+      "action": 3,
+      "source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+      "status": "FAIL",
+      "delivered": true,
+      "ordinal": 1
+    },
+    {
+      "action": 7,
+      "source_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+      "status": "FAIL",
+      "delivered": true,
+      "ordinal": 2
+    }
+  ],
+  "extra_public_tests_used": 0,
+  "unused_test_allowance": 0,
+  "conflicting_public_verdict_sources": [],
+  "final_public_status": "UNTESTED",
+  "final_delivered_public_status": "UNOBSERVED",
+  "submitted_previously_failed_source": false,
+  "known_failure_definition": "Identical final source with latest delivered full-public-test verdict FAIL; local experiment evidence is listed separately.",
+  "final_development_evidence": [
+    {
+      "action": 12,
+      "tool": "compile",
+      "source_sha256": "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f",
+      "status": "PASS",
+      "delivered": true,
+      "new_execution": true
+    }
+  ],
+  "final_delivered_functional_failure_tools": [],
+  "edited_after_delivered_pass": [],
+  "observed_public_regressions": [],
+  "untested_edit_versions": 1,
+  "untested_edit_versions_definition": "Edit actions without a later full public test of that source; an identical earlier tested source can still have known evidence.",
+  "never_publicly_tested_edited_sources": [
+    "7e46dbb768667eed8b9cb8168d5f972708ab50cd7ce46d7f4f180c1d2466a22f"
+  ],
+  "offline_first_candidate": {
+    "reward": 0.0,
+    "category": "transaction_functional_error",
+    "verification_complete": false,
+    "source_sha256": "6dc20419f811237ef6ad8486116975c9954b081f150b58d5e85d7d08a3de3ffe",
+    "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+    "planned": null,
+    "checked": null,
+    "aborted": null,
+    "failed_case": "address_data"
+  },
+  "limits": "Untested does not mean incorrect. Same SHA is identity, not correctness. Private/held-out outcomes never select intermediate candidates. Submit motives are not observable from atomic action replies."
+}

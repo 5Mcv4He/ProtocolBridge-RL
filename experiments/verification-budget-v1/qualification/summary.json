@@ -1,0 +1,47 @@
+{
+  "schema": "budget-start-and-input-qualification-v1",
+  "before_model_sampling": true,
+  "rows": {
+    "reference-reward": {
+      "raw_result_sha256": "a9b833ff36037088bbf0409734b355045a4b00b09605ea6a93ff5d65e5f8d9a6",
+      "source_sha256": "4b66fa55dd607f89f8406b90fa5eb60de96ffbce43cd56ad4c227e8b805fd11c",
+      "suite_sha256": "f94f0e093874a8572ead96ec7e92f5330c418ec60aa3d54edd4e55105fd9f339",
+      "reward": 1.0,
+      "category": "pass",
+      "failed_case": null
+    },
+    "resp_schedule": {
+      "raw_result_sha256": "dd89662d6ca7767c789fb2b50a807f46130e7b714da6e1a81e04c7db9224645a",
+      "source_sha256": "8d56862e411e3f6602518acc7270ad5e7120ecc8b9924249162e5a6ce837c4e5",
+      "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "failed_case": "address_data"
+    },
+    "same_edge_insert": {
+      "raw_result_sha256": "934910281e3b78c90552086271ff06d85c24c0aff0ba299169d65b2a6cb9f903",
+      "source_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+      "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "failed_case": "address_data"
+    },
+    "fifo_wrap": {
+      "raw_result_sha256": "09d801ab7996db3dbfec30468aae94adb24606ac0f18175cc7ea5c31e11d9c11",
+      "source_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+      "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "failed_case": "address_data"
+    },
+    "reference-heldout": {
+      "raw_result_sha256": "e61aab1526825ecc5c1d6aa8af35a6f9c694d9c88daa8a4bef20f6b4a31da7b1",
+      "source_sha256": "abb2152470750d4110f8293304cb79041294b139ce5696ab3d95ac1524638cbb",
+      "suite_sha256": "5525d6b9a5ad3b74f1bbac44f75cf939386392eefcb1aececca1a82d6783fdfa",
+      "reward": 1.0,
+      "category": "pass",
+      "evidence": "../quality/reference/result.json"
+    }
+  },
+  "scope": "Actual VCS/VIP/UVM grades. Private input bytes and EDA logs stay private. First failed case does not exclude additional defects."
+}

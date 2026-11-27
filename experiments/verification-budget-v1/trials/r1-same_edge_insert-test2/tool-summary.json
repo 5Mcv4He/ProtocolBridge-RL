@@ -1,0 +1,142 @@
+{
+  "schema": "budget-human-tool-summary-v1",
+  "raw_trace_sha256": "ddf04480b039ad5c7aa44a08163309829cf92aa7073ddc85249aec9666ef7506",
+  "events": [
+    {
+      "action_index": 1,
+      "action": {
+        "tool": "read",
+        "file": "spec.md"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {}
+    },
+    {
+      "action_index": 2,
+      "action": {
+        "tool": "read",
+        "file": "bridge.sv"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {}
+    },
+    {
+      "action_index": 3,
+      "action": {
+        "tool": "test"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "category": "transaction_functional_error",
+        "diagnostic": "Transaction mapping, data, response or completion accounting failed.",
+        "first_failed_case": "address_data",
+        "remaining_test_calls": 1,
+        "candidate_binding": {
+          "current_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "result_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 4,
+      "action": {
+        "tool": "experiment",
+        "scenario": "address_data"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_HEAD",
+          "message": "The APB setup must select the oldest eligible request according to the specified round-robin rule."
+        },
+        "candidate_binding": {
+          "current_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "result_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 5,
+      "action": {
+        "tool": "observe",
+        "start": 0,
+        "count": 12
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "invariant": {
+          "code": "Q_HEAD",
+          "message": "The APB setup must select the oldest eligible request according to the specified round-robin rule."
+        },
+        "candidate_binding": {
+          "current_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "result_sha256": "c521ff07f337c629eca9013d33e1a307e030cc8694a71b7069a7d2fa0b2d1bf5",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 6,
+      "action": {
+        "tool": "edit"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "EDITED",
+        "candidate_binding": {
+          "current_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+          "result_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 7,
+      "action": {
+        "tool": "test"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "PASS",
+        "category": "pass",
+        "diagnostic": "Public verification completed successfully.",
+        "first_failed_case": null,
+        "remaining_test_calls": 0,
+        "candidate_binding": {
+          "current_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+          "result_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 8,
+      "action": {
+        "tool": "submit"
+      },
+      "executed": true,
+      "observation_delivered": false,
+      "observation": {
+        "status": "SUBMITTED",
+        "candidate_binding": {
+          "current_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+          "result_sha256": "df023e9d2482e556c631f532aea4687aff8ffa61937f66cceb1799e2b1fcfd86",
+          "is_current": true
+        }
+      }
+    }
+  ],
+  "scope": "Readable projection of actual events, not a replacement for complete v5 feedback/artifacts. Edit/read content and runtime rows remain in the exchange."
+}

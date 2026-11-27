@@ -1,0 +1,99 @@
+{
+  "schema": "budget-human-tool-summary-v1",
+  "raw_trace_sha256": "1cdac36845fffc875aebd39619caddaab3877daeb94fed91ad104e9d1aac477d",
+  "events": [
+    {
+      "action_index": 1,
+      "action": {
+        "tool": "read",
+        "file": "spec.md"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {}
+    },
+    {
+      "action_index": 2,
+      "action": {
+        "tool": "read",
+        "file": "bridge.sv"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {}
+    },
+    {
+      "action_index": 3,
+      "action": {
+        "tool": "test"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "FAIL",
+        "category": "transaction_functional_error",
+        "diagnostic": "Transaction mapping, data, response or completion accounting failed.",
+        "first_failed_case": "address_data",
+        "remaining_test_calls": 5,
+        "candidate_binding": {
+          "current_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+          "result_sha256": "a28ae75f05cdb8ee2914afe37456dbafa783d224576c41619537c56a9e7ad5bb",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 4,
+      "action": {
+        "tool": "edit"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "EDITED",
+        "candidate_binding": {
+          "current_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+          "result_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 5,
+      "action": {
+        "tool": "test"
+      },
+      "executed": true,
+      "observation_delivered": true,
+      "observation": {
+        "status": "PASS",
+        "category": "pass",
+        "diagnostic": "Public verification completed successfully.",
+        "first_failed_case": null,
+        "remaining_test_calls": 4,
+        "candidate_binding": {
+          "current_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+          "result_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+          "is_current": true
+        }
+      }
+    },
+    {
+      "action_index": 6,
+      "action": {
+        "tool": "submit"
+      },
+      "executed": true,
+      "observation_delivered": false,
+      "observation": {
+        "status": "SUBMITTED",
+        "candidate_binding": {
+          "current_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+          "result_sha256": "17fbc466fc7df873ec60360e7f479a69545c96c9b6e90b5e60e1ba0a0231d9ce",
+          "is_current": true
+        }
+      }
+    }
+  ],
+  "scope": "Readable projection of actual events, not a replacement for complete v5 feedback/artifacts. Edit/read content and runtime rows remain in the exchange."
+}

@@ -1,0 +1,12 @@
+{
+  "version": "verification-preflight-v1",
+  "source_record_sha256": "98d5187f568a973690b9433293b68e664bf4529e2a71e83ce6a61e4946800647",
+  "evidence_files": {
+    "runtime-acceptance/result.json": "72f581b37e684f5e268b37adca5fa10ef14cba170b34988f6b7882d0789c2070",
+    "synthesis-acceptance/result.json": "224ddfdf2fc4b1cbdb4432313486c0afd00e9f489a5458a1fac38ea83cab2081",
+    "lab-acceptance/result.json": "bc726118847ca3c6d6447b14b941ae95f6c8b10874c65461b9ae0501747267ef",
+    "mechanism/result.json": "71b425351a0bca19e9045bd854e3111fd1eac6a787eb3217e1cdf1d901b2dc8f",
+    "budget-acceptance/result.json": "8a508a49c51305edb951cfd28f91113a527f2ce52c591d725134969e5d685f3b"
+  },
+  "scope": "Same source/toolchain common checks including both public budgets; no model or terminal result reused."
+}

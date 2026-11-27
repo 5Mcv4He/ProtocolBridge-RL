@@ -1,0 +1,80 @@
+{
+  "version": "verification-budget-v1",
+  "accepted": true,
+  "checks": {
+    "only_budget_prompt_difference": true,
+    "test2_test_1_actual_fail": true,
+    "test2_test_2_actual_fail": true,
+    "test2_overflow_no_backend": true,
+    "test2_old_feedback_identity": true,
+    "test2_submit_no_private_run": true,
+    "test2_closed": true,
+    "test2_terminal_actual_failure": true,
+    "test2_total_20": true,
+    "test6_test_1_actual_fail": true,
+    "test6_test_2_actual_fail": true,
+    "test6_test_3_actual_fail": true,
+    "test6_test_4_actual_fail": true,
+    "test6_test_5_actual_fail": true,
+    "test6_test_6_actual_fail": true,
+    "test6_overflow_no_backend": true,
+    "test6_old_feedback_identity": true,
+    "test6_submit_no_private_run": true,
+    "test6_closed": true,
+    "test6_terminal_actual_failure": true,
+    "test6_total_20": true
+  },
+  "actual_verifier_calls": [
+    {
+      "source_sha256": "712f780447963029f00ffa27843282a05302813a176467540b22332bc39e597d",
+      "public": true,
+      "destination": "public-03"
+    },
+    {
+      "source_sha256": "712f780447963029f00ffa27843282a05302813a176467540b22332bc39e597d",
+      "public": true,
+      "destination": "public-04"
+    },
+    {
+      "source_sha256": "46cc74fd26244e989c5bef81011cc1b9eb8aff3d64b0e4c45f8cf9bf3abea02d",
+      "public": false,
+      "destination": "grade"
+    },
+    {
+      "source_sha256": "712f780447963029f00ffa27843282a05302813a176467540b22332bc39e597d",
+      "public": true,
+      "destination": "public-03"
+    },
+    {
+      "source_sha256": "712f780447963029f00ffa27843282a05302813a176467540b22332bc39e597d",
+      "public": true,
+      "destination": "public-04"
+    },
+    {
+      "source_sha256": "712f780447963029f00ffa27843282a05302813a176467540b22332bc39e597d",
+      "public": true,
+      "destination": "public-05"
+    },
+    {
+      "source_sha256": "712f780447963029f00ffa27843282a05302813a176467540b22332bc39e597d",
+      "public": true,
+      "destination": "public-06"
+    },
+    {
+      "source_sha256": "712f780447963029f00ffa27843282a05302813a176467540b22332bc39e597d",
+      "public": true,
+      "destination": "public-07"
+    },
+    {
+      "source_sha256": "712f780447963029f00ffa27843282a05302813a176467540b22332bc39e597d",
+      "public": true,
+      "destination": "public-08"
+    },
+    {
+      "source_sha256": "46cc74fd26244e989c5bef81011cc1b9eb8aff3d64b0e4c45f8cf9bf3abea02d",
+      "public": false,
+      "destination": "grade"
+    }
+  ],
+  "model_used": false
+}

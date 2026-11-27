@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560" role="img" aria-labelledby="title desc">
+<title id="title">验证机会与候选选择的对照研究</title>
+<desc id="desc">同一任务、错误起点、模型与九种工具，公开测试额度分别为二次和六次；总动作均为二十次。求解中由模型自行决定编辑、验证和提交，反馈绑定源码哈希。提交冻结候选并停止求解，独立终局奖励、保留评估和事后测量分开保存，不返回求解过程。</desc>
+<defs><marker id="arr-n" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow n" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arr-b" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow b" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arr-g" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow g" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<style>
+svg{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC",sans-serif}
+.canvas{fill:#fbfcfe;stroke:#dce3ec;stroke-width:1.5}
+.node,.frame{stroke-width:1.5}
+.node.b{fill:#e6eef9;stroke:#6388b6}
+.node.g{fill:#e8f4ed;stroke:#52a371}
+.node.n{fill:#edf0f4;stroke:#9ba8b9}
+.node.a{fill:#fcf2de;stroke:#c69c55}
+.node.w{fill:#ffffff;stroke:#d6dde7}
+.node.f{fill:#f4f6f9;stroke:#a8b3c2}
+.frame.b{fill:#f6f9fe;stroke:#6388b6}.frame.g{fill:#f4faf6;stroke:#52a371}.frame.n{fill:#f7f9fc;stroke:#9ba8b9}
+.ink{fill:#1c2b3e}.muted{fill:#53647a}.blueink{fill:#416da3}.greenink{fill:#257749}
+.line.n,.arrow.n{stroke:#8290a2}.line.b,.arrow.b{stroke:#6388b6}.line.g,.arrow.g{stroke:#52a371}
+@media(prefers-color-scheme:dark){
+.canvas{fill:#161e29;stroke:#39465a}
+.node.b{fill:#253951;stroke:#78a4d8}
+.node.g{fill:#203c31;stroke:#68bd87}
+.node.n{fill:#293443;stroke:#8c9bb0}
+.node.a{fill:#423624;stroke:#d4ad6c}
+.node.w{fill:#202a37;stroke:#53647b}
+.node.f{fill:#232d3b;stroke:#7f8ea3}
+.frame.b{fill:#1b293b;stroke:#78a4d8}.frame.g{fill:#1b3028;stroke:#68bd87}.frame.n{fill:#1c2633;stroke:#65748a}
+.ink{fill:#edf2f8}.muted{fill:#b0bdcf}.blueink{fill:#9bc3f1}.greenink{fill:#8bd3a3}
+.line.n,.arrow.n{stroke:#a1b0c2}.line.b,.arrow.b{stroke:#78a4d8}.line.g,.arrow.g{stroke:#68bd87}
+}
+</style>
+<rect class="canvas" x="1" y="1" width="758" height="558" rx="15"/>
+<text class="ink" x="30" y="38" font-size="19" font-weight="600">只改变测试机会，不替 Agent 做验证决策</text>
+<text class="muted" x="30" y="67" font-size="15">相同任务、起点、模型、工具与输入；每条试次均最多 20 次动作</text>
+<rect class="node b" x="30" y="90" width="330" height="65" rx="9"/>
+<text class="ink" x="195" y="118" text-anchor="middle" font-size="19">test 上限 2 次</text>
+<text class="muted" x="195" y="142" text-anchor="middle" font-size="14">3 个起点 × 2 次独立重复</text>
+<rect class="node b" x="400" y="90" width="330" height="65" rx="9"/>
+<text class="ink" x="565" y="118" text-anchor="middle" font-size="19">test 上限 6 次</text>
+<text class="muted" x="565" y="142" text-anchor="middle" font-size="14">3 个起点 × 2 次独立重复</text>
+<path class="line n" d="M195 155 V182" fill="none" stroke-width="1.8" marker-end="url(#arr-n)"/>
+<path class="line n" d="M565 155 V182" fill="none" stroke-width="1.8" marker-end="url(#arr-n)"/>
+<rect class="frame g" x="30" y="190" width="700" height="190" rx="12"/>
+<text class="greenink" x="50" y="218" font-size="16">求解阶段：选择权保留给 Agent</text>
+<rect class="node g" x="50" y="239" width="172" height="65" rx="9"/>
+<text class="ink" x="136" y="267" text-anchor="middle" font-size="18">编辑候选</text>
+<text class="muted" x="136" y="291" text-anchor="middle" font-size="14">保留源码及 SHA-256</text>
+<rect class="node g" x="294" y="239" width="172" height="65" rx="9"/>
+<text class="ink" x="380" y="267" text-anchor="middle" font-size="18">选择是否验证</text>
+<text class="muted" x="380" y="291" text-anchor="middle" font-size="14">test / 局部实验 / 检查</text>
+<rect class="node g" x="538" y="239" width="172" height="65" rx="9"/>
+<text class="ink" x="624" y="267" text-anchor="middle" font-size="18">观察与决定</text>
+<text class="muted" x="624" y="291" text-anchor="middle" font-size="14">反馈属于实际被测源码</text>
+<path class="line g" d="M222 271 H288" fill="none" stroke-width="1.8" marker-end="url(#arr-g)"/>
+<path class="line g" d="M466 271 H532" fill="none" stroke-width="1.8" marker-end="url(#arr-g)"/>
+<path class="line g" d="M624 304 V340 H136 V310" fill="none" stroke-width="1.8" marker-end="url(#arr-g)"/>
+<text class="muted" x="380" y="367" text-anchor="middle" font-size="14">继续修改或提交；没有强制改后测试、自动排名或自动回退</text>
+<path class="line n" d="M624 380 V407" fill="none" stroke-width="1.8" marker-end="url(#arr-n)"/>
+<rect class="node n" x="30" y="414" width="700" height="48" rx="9"/>
+<text class="ink" x="380" y="444" text-anchor="middle" font-size="18">submit：冻结最终候选并停止求解</text>
+<path class="line n" d="M380 462 V484" fill="none" stroke-width="1.8" marker-end="url(#arr-n)"/>
+<text class="ink" x="380" y="511" text-anchor="middle" font-size="17">终局奖励  ｜  独立保留评估  ｜  预声明的事后测量</text>
+<text class="muted" x="380" y="539" text-anchor="middle" font-size="14">分别记录；不回流、不替换最终提交、不替 Agent 选择候选</text>
+</svg>

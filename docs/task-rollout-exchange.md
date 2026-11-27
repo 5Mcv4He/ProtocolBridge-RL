@@ -27,4 +27,6 @@ python3 scripts/export_task_rollouts.py \
 
 实现：[统一入口](../scripts/export_task_rollouts.py) · [v5 导出器](../scripts/rollout_exchange_v5.py)。Task 的执行与准入继续使用[任务目录入口](task-catalog.md)。
 
-[当前交换库存](../experiments/composed-stage-v1/exchange-inventory.json)保留分版本计数及文件哈希核查依据：95 条记录中 55 条具备完整工具轨迹。本轮新增 3 条模型试次，另有 1 条历史路由轨迹首次导出；后者不增加研究样本数。
+[当前交换库存](../experiments/verification-budget-v1/exchange-inventory.json)引用并保留历史清单：107 条研究记录中 67 条具备完整工具轨迹。预算研究新增 12 条真实试次，全部经源包审计后导出，不新增交换 Schema，也不重写历史 v1–v5。
+
+本轮有三条未 submit 的完整交互轨迹，终局记录为 `agent_incomplete`、Reward=null，保留评估未运行；没有用最后一次编辑伪造提交或补评 0。`candidate-decisions.json` 是另外的离线版本关系分析，`tool-summary.json` 是供人阅读的实际事件投影，均不冒充模型收到的新反馈。核查模型实际可见内容应回到 v5 工具事件、送达标记和源码制品。[预算研究](verification-budget-study.md)进一步解释实际测试、最终版本和事后测量的区别。

@@ -1,0 +1,10 @@
+{
+  "schema": "budget-offline-audit-controls-v1",
+  "checks": {
+    "valid_subset": true,
+    "prompt_tamper": true,
+    "policy_budget_tamper": true,
+    "source_identity_tamper": true
+  },
+  "scope": "Real completed record copied into a temporary directory, then corrupted; original raw evidence unchanged. No simulator or model call."
+}

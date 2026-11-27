@@ -1,0 +1,158 @@
+{
+  "schema": "verification-budget-descriptive-costs-v1",
+  "source_results_sha256": "0b3dfccbed3ee10c0d0da13b1eaf5229ec425fcff8ddf2089328303f331904f5",
+  "groups": [
+    {
+      "budget": 2,
+      "started": 6,
+      "valid_submissions": 6,
+      "reward_distribution": {
+        "0.0": 3,
+        "1.0": 3
+      },
+      "terminal_success_fraction_all_started": [
+        3,
+        6
+      ],
+      "wilson95_all_started": [
+        0.18761280689940868,
+        0.8123871931005913
+      ],
+      "terminal_success_fraction_valid": [
+        3,
+        6
+      ],
+      "wilson95_valid": [
+        0.18761280689940868,
+        0.8123871931005913
+      ],
+      "heldout_executed": 6,
+      "heldout_successes": 3,
+      "final_public_statuses": {
+        "UNTESTED": 3,
+        "PASS": 3
+      },
+      "extra_test_exposed_trials": 0,
+      "extra_tests": 0,
+      "same_source_repeated_public_tests": 0,
+      "edit_actions": 9,
+      "byte_changing_edits": 9,
+      "edits_with_later_matching_full_test": 6,
+      "distinct_edited_sources_within_trials": 9,
+      "distinct_edited_sources_never_full_tested": 3,
+      "post_pass_edits": 0,
+      "known_failed_full_test_submissions": 0,
+      "offline_first_candidate_passes": 3,
+      "resource_totals": {
+        "wall_seconds": 3287.424,
+        "model_request_wall_seconds": 106.229,
+        "compile_wall_seconds": 2054.9476321340117,
+        "simulation_wall_seconds": 1102.2993351720434,
+        "compilation_processes": 24,
+        "simulation_processes": 226,
+        "protocol_errors": 1,
+        "actions": 65
+      },
+      "tokens": {
+        "inputTokens": 52727,
+        "outputTokens": 15253,
+        "cacheReadTokens": 383616,
+        "cacheWriteTokens": 0,
+        "totalTokens": 451596
+      },
+      "executed_tools": {
+        "read": 12,
+        "test": 12,
+        "inspect": 8,
+        "experiment": 10,
+        "edit": 9,
+        "observe": 5,
+        "submit": 6,
+        "compile": 1
+      },
+      "rejection_reasons": {
+        "invalid_action_format": 1,
+        "no_public_result": 1
+      }
+    },
+    {
+      "budget": 6,
+      "started": 6,
+      "valid_submissions": 3,
+      "reward_distribution": {
+        "0.0": 1,
+        "1.0": 2,
+        "null": 3
+      },
+      "terminal_success_fraction_all_started": [
+        2,
+        6
+      ],
+      "wilson95_all_started": [
+        0.09676933255921683,
+        0.7000116786584712
+      ],
+      "terminal_success_fraction_valid": [
+        2,
+        3
+      ],
+      "wilson95_valid": [
+        0.2076549551264879,
+        0.9385096847238394
+      ],
+      "heldout_executed": 3,
+      "heldout_successes": 2,
+      "final_public_statuses": {
+        "FAIL": 1,
+        "PASS": 2,
+        "NOT_SUBMITTED": 3
+      },
+      "extra_test_exposed_trials": 4,
+      "extra_tests": 10,
+      "same_source_repeated_public_tests": 3,
+      "edit_actions": 18,
+      "byte_changing_edits": 17,
+      "edits_with_later_matching_full_test": 13,
+      "distinct_edited_sources_within_trials": 17,
+      "distinct_edited_sources_never_full_tested": 4,
+      "post_pass_edits": 0,
+      "known_failed_full_test_submissions": 1,
+      "offline_first_candidate_passes": 2,
+      "resource_totals": {
+        "wall_seconds": 3727.888,
+        "model_request_wall_seconds": 217.53199999999998,
+        "compile_wall_seconds": 2672.3648650369723,
+        "simulation_wall_seconds": 808.1424541069719,
+        "compilation_processes": 32,
+        "simulation_processes": 169,
+        "protocol_errors": 2,
+        "actions": 91
+      },
+      "tokens": {
+        "inputTokens": 68614,
+        "outputTokens": 38008,
+        "cacheReadTokens": 871936,
+        "cacheWriteTokens": 0,
+        "totalTokens": 978558
+      },
+      "executed_tools": {
+        "read": 12,
+        "test": 22,
+        "inspect": 8,
+        "experiment": 13,
+        "observe": 9,
+        "edit": 18,
+        "submit": 3,
+        "compile": 2
+      },
+      "rejection_reasons": {
+        "no_experiment_result": 1,
+        "invalid_action_format": 2,
+        "experiment_budget_exhausted": 1
+      }
+    }
+  ],
+  "api_currency_cost": null,
+  "resource_scope": "Per-episode measured model/tool/terminal/heldout and scheduled first-candidate measurement; common preflight and industrial gate excluded. Sum of episode wall durations, not whole campaign elapsed. Compile/simulation are process wall time, not CPU time. DSH totalTokens includes cache-read tokens.",
+  "definitions": "Edit coverage is action-level; repeated identical edit is separately marked. Source counts are deduplicated within each trial, not across independent trials. Heldout remains independent; no candidate selection uses it. Wilson intervals are descriptive small-sample binomial intervals, not paired causal inference."
+}

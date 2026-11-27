@@ -1,0 +1,209 @@
+{
+  "version": "synthesis-tools-v1",
+  "accepted": true,
+  "checks": {
+    "counter_status": true,
+    "syntax_status": true,
+    "latch_status": true,
+    "forbidden_status": true,
+    "latch_advisory": true,
+    "forbidden_no_execution": true,
+    "task003_synthesis": true,
+    "task004_synthesis": true,
+    "read_required": true,
+    "session_real_synthesis_0": true,
+    "session_real_synthesis_1": true,
+    "third_denied": true,
+    "private_read_denied": true,
+    "script_denied": true,
+    "synth_pass_does_not_imply_public_pass": true,
+    "submission": true,
+    "closed": true,
+    "functional_reward_independent": true,
+    "no_tool_reward": true,
+    "source_identity": true
+  },
+  "controls": {
+    "counter": {
+      "source_sha256": "b6d1d7ff2d2390004225c10aa9d1f9fe7b1b1bd780a32d2230751536a1bd2ca9",
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [
+          {
+            "code": "LINT-1",
+            "message": "Unconnected or unused design connection."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "formal": null,
+      "measurement": null,
+      "reward": null,
+      "wall_seconds": 2.5207,
+      "evidence_sha256": {
+        "mapped.sdc": "68c719a1d61d2a716c3560b99027f5638baeaf911c2218d32497009bcbe38ae1",
+        "bridge.sv": "b6d1d7ff2d2390004225c10aa9d1f9fe7b1b1bd780a32d2230751536a1bd2ca9",
+        "mapped.v": "4a06714a0828f11bca21893754df294931b40e9bdc22e84d4c5eb460503f8c7f",
+        "execution.json": "70e05177af4c1ad6c78c7a6e1ddefe522cc0e8b1894e8ed3c6d6c166a8c53de0",
+        "dc.log": "40e1cc4193452f147d5bde44dd5be668277d25dfb38b5824e0fa2303aec7fd5f",
+        "mapping.svf": "3711c8bd29abbeecebc5d587033e8635152c9dd01bac99a9698c89faba45d2b7"
+      }
+    },
+    "syntax": {
+      "source_sha256": "61d43eb909fc7409fa3fc1a48876661970f4e186d5d5af18cd7c3c40d687a4e5",
+      "observation": {
+        "status": "FAIL",
+        "diagnostics": [
+          {
+            "code": "RTL_ANALYSIS",
+            "message": "Candidate RTL could not be analyzed."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "formal": null,
+      "measurement": null,
+      "reward": null,
+      "wall_seconds": 0.7123,
+      "evidence_sha256": {
+        "bridge.sv": "61d43eb909fc7409fa3fc1a48876661970f4e186d5d5af18cd7c3c40d687a4e5",
+        "execution.json": "ad7d036fa569dc834714059f111595f33749f27e7a240d815867a1ef82438de2",
+        "dc.log": "bdf55e3e70a076f8c091511626dff0535a36d3b2f1675aa3fa509022c90bf1ec"
+      }
+    },
+    "latch": {
+      "source_sha256": "039b4bc91fffeb20e896d3259e3e7ab69916dd0c66ae95644c7e67b477880c2d",
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [
+          {
+            "code": "LATCH_INFERRED",
+            "message": "Level-sensitive storage was inferred; check whether this is intended."
+          },
+          {
+            "code": "LINT-28",
+            "message": "Design port is not connected to any nets."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "formal": null,
+      "measurement": null,
+      "reward": null,
+      "wall_seconds": 1.0216,
+      "evidence_sha256": {
+        "mapped.sdc": "6406e16eba504229e4c0c7979a1ad87c0cccdcd4926fbe3787c4dfb2d4375590",
+        "bridge.sv": "039b4bc91fffeb20e896d3259e3e7ab69916dd0c66ae95644c7e67b477880c2d",
+        "mapped.v": "0ea91209a8e57dfc7d03a35854a2213ae23023a26271a227d85d14850914647e",
+        "execution.json": "fd7b71ce73ccfd1f52c5ee3a43fd05a48e2d153528f46ae105fa8976bdd43a21",
+        "dc.log": "79db63756207d685c4851d252b53ccdea5f6eec14923c0293354a0d329a70f5e",
+        "mapping.svf": "33b764fb3855c6cc104e2d19e54e6b8655b1f8de3ff9fd519802c047a21a5a8c"
+      }
+    },
+    "forbidden": {
+      "source_sha256": "f1790df703146bb877d6874ae6601f8c56474eac6131da033183295c5b2abe04",
+      "observation": {
+        "status": "INVALID",
+        "diagnostics": [],
+        "functional_correctness_checked": false
+      },
+      "formal": null,
+      "measurement": null,
+      "reward": null,
+      "wall_seconds": 0.0,
+      "evidence_sha256": null
+    },
+    "task003": {
+      "source_sha256": "4b66fa55dd607f89f8406b90fa5eb60de96ffbce43cd56ad4c227e8b805fd11c",
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [
+          {
+            "code": "LINT-1",
+            "message": "Unconnected or unused design connection."
+          },
+          {
+            "code": "LINT-31",
+            "message": "Port or cell connection requires review."
+          },
+          {
+            "code": "LINT-52",
+            "message": "Constant-driven connection requires review."
+          },
+          {
+            "code": "SYNTH_WARNING",
+            "message": "Synthesis reported a structural warning; functional correctness is not established."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "formal": null,
+      "measurement": null,
+      "reward": null,
+      "wall_seconds": 17.9244,
+      "evidence_sha256": {
+        "mapped.sdc": "c2386ca83aaa5a355ac5a6258fa3abcea89a24a44516433b409afba5acb995c0",
+        "bridge.sv": "4b66fa55dd607f89f8406b90fa5eb60de96ffbce43cd56ad4c227e8b805fd11c",
+        "mapped.v": "0b98f71408d6f255e3c2ad9579ed03ce6f93a1b35e6da7517e6bb37bc43afd41",
+        "execution.json": "d814c382076bec2b17aa5690282a57b5ebc82ede5c931ba29740cbff3ea39be2",
+        "dc.log": "a33a4fe0199c5ceb510cc76c5fb164f8717431685ac2dd2fe0b9f2b4770d51e3",
+        "mapping.svf": "41dd20221c6e57429a1910b53ad0975740cc706b729f46b960b1b683f59a9674"
+      }
+    },
+    "task004": {
+      "source_sha256": "fd2364ed15d189dee596bc302fdee1cafed61fae2f5c7ff5d621b43cc074a418",
+      "observation": {
+        "status": "PASS",
+        "diagnostics": [
+          {
+            "code": "SYNTH_WARNING",
+            "message": "Synthesis reported a structural warning; functional correctness is not established."
+          },
+          {
+            "code": "LINT-1",
+            "message": "Unconnected or unused design connection."
+          },
+          {
+            "code": "LINT-31",
+            "message": "Port or cell connection requires review."
+          },
+          {
+            "code": "LINT-52",
+            "message": "Constant-driven connection requires review."
+          }
+        ],
+        "functional_correctness_checked": false
+      },
+      "formal": null,
+      "measurement": null,
+      "reward": null,
+      "wall_seconds": 31.4794,
+      "evidence_sha256": {
+        "mapped.sdc": "c78d2f8591e00c55fe292d2b22d84ff4ba24dbfe00ecd05344fb48c636af1b91",
+        "bridge.sv": "fd2364ed15d189dee596bc302fdee1cafed61fae2f5c7ff5d621b43cc074a418",
+        "mapped.v": "84401cda20224cee40d552b6e41051132cd7ecc97618fe0ee056bc366c0a805a",
+        "execution.json": "70ef62f1b886adf3f2c781984a343fe7c1a4e7802776282414d320877f800326",
+        "dc.log": "1b4193a8a6b3be32c63042d0f8daabcbfa0a3feaa9565c0c733d1ad2ea1978b5",
+        "mapping.svf": "a1dc0ae239b2b0d0e155001803bddad5f033c47378b05cd8e57e414aacfcaf74"
+      }
+    }
+  },
+  "real_tools": [
+    "Design Compiler",
+    "VCS VIP/UVM"
+  ],
+  "model_used": false,
+  "trusted_extensions_requested": false,
+  "terminal_control": {
+    "reward": 0.0,
+    "category": "protocol_timing_error",
+    "source_sha256": "bd78d58f26227411eea35ef9c9c02903be0dd28a40dc4afea2b3c1626a27aa3c",
+    "suite_sha256": "1f3a1653f596e69210eaaa0013b86fd08728c88b3a8272167a9e80b0e8f1df21",
+    "failed_case": "address_data"
+  },
+  "limits": [
+    "Synthesis acceptance includes one real functional negative control; positive task qualification remains a separate Quality Gate.",
+    "No PPA reward; teaching measurements only.",
+    "No FPV proof of queue capacity or arbitration."
+  ]
+}

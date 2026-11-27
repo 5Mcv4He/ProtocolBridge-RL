@@ -1,0 +1,189 @@
+{
+  "groups": {
+    "test_diagnostic": {
+      "started": 1,
+      "effective_edit": 1,
+      "submitted": 1,
+      "successes": 0,
+      "success_rate_all_started": 0.0,
+      "wilson95": [
+        0,
+        0.7934567085261071
+      ],
+      "feedback_exposed": 1,
+      "edited_after_feedback": 1,
+      "reward_distribution": {
+        "0": 1,
+        "1": 0,
+        "null": 0
+      },
+      "protocol_error_actions": 0,
+      "total_actions": 15,
+      "conditional": {
+        "effective_edit": {
+          "n": 1,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.7934567085261071
+          ]
+        },
+        "valid_submission": {
+          "n": 1,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.7934567085261071
+          ]
+        },
+        "feedback": {
+          "n": 1,
+          "successes": 0,
+          "rate": 0.0,
+          "wilson95": [
+            0,
+            0.7934567085261071
+          ]
+        }
+      },
+      "determinate_binary_reward_entropy_bits": 0.0,
+      "entropy_excludes_null": true,
+      "measurements": {
+        "trials": 1,
+        "json_parse_errors": 0,
+        "schema_or_argument_errors": 0,
+        "compilation_processes": 6,
+        "simulation_processes": 7,
+        "edits": 2,
+        "public_calls": 2,
+        "failed_feedback_trials": 1,
+        "changed_after_feedback": 1,
+        "changed_after_failed_feedback": 1,
+        "protocol_errors_without_candidate": 0,
+        "terminal_categories": {
+          "protocol_timing_error": 1
+        },
+        "primary_outcomes": {
+          "protocol_timing_error": 1
+        },
+        "first_candidate_public_pass": 0,
+        "first_candidate_public_fail": 1,
+        "first_candidate_unmeasured": 0,
+        "final_public_pass_private_fail": 0,
+        "held_out_successes": 0,
+        "terminal_held_out_disagreements": 0,
+        "trials_with_protocol_errors": 0,
+        "failure_labels_nonexclusive": {
+          "protocol_timing_error": 1,
+          "repair_after_feedback_failed": 1
+        },
+        "tokens": {
+          "inputTokens": 15718,
+          "outputTokens": 4108,
+          "cacheReadTokens": 127872,
+          "cacheWriteTokens": 0,
+          "totalTokens": 147698
+        },
+        "seconds": {
+          "wall_seconds": 577.173,
+          "model_request_wall_seconds": 24.362,
+          "compile_wall_seconds": 516.561,
+          "simulation_wall_seconds": 33.299
+        },
+        "timing_observed_trials": {
+          "wall_seconds": 1,
+          "model_request_wall_seconds": 1,
+          "compile_wall_seconds": 1,
+          "simulation_wall_seconds": 1
+        },
+        "api_currency_cost": null
+      }
+    }
+  },
+  "rows": [
+    {
+      "trial": "r01-test_diagnostic",
+      "repeat": 1,
+      "policy": "test_diagnostic",
+      "reward": 0.0,
+      "held_out": 0.0,
+      "infrastructure": false,
+      "environment_error_locations": [],
+      "protocol_errors": 0,
+      "parse_errors": 0,
+      "schema_or_argument_errors": 0,
+      "actions": 15,
+      "edits": 2,
+      "effective_edit": true,
+      "submitted": true,
+      "valid_submission": true,
+      "feedback": true,
+      "failed_feedback": true,
+      "edited_after_feedback": true,
+      "changed_after_feedback": true,
+      "changed_after_failed_feedback": true,
+      "public_verdicts": [
+        "FAIL",
+        "FAIL"
+      ],
+      "terminal_category": "protocol_timing_error",
+      "primary_outcome": "protocol_timing_error",
+      "rejected_edit_replies": 0,
+      "model_request_wall_seconds": 24.362000000000002,
+      "labels": [
+        "protocol_timing_error",
+        "repair_after_feedback_failed"
+      ],
+      "tokens": {
+        "inputTokens": 15718,
+        "outputTokens": 4108,
+        "cacheReadTokens": 127872,
+        "cacheWriteTokens": 0,
+        "totalTokens": 147698
+      },
+      "wall_seconds": 577.173,
+      "model_session_span_seconds": 478.086,
+      "compile_wall_seconds": 516.5609776359925,
+      "simulation_wall_seconds": 33.29933440301102,
+      "public_test_calls": 2,
+      "final_candidate_public": null,
+      "first_candidate_public": {
+        "reward": 0.0,
+        "category": "protocol_timing_error",
+        "verification_complete": false,
+        "source_sha256": "07fe909b6c5354447f47ddc3d4e5c60a8afc095c2176f0b209ec91c6294e07ee",
+        "suite_sha256": "038cbfc3f0189c2c937c1abab9aeb0352c97cbe85d2926c462e53f795b092c52",
+        "planned": null,
+        "checked": null,
+        "aborted": null,
+        "failed_case": "address_data"
+      },
+      "case_counts": {
+        "terminal": 1,
+        "held_out": 1,
+        "offline_first_candidate": null,
+        "public": 2
+      },
+      "compilation_processes": 6,
+      "simulation_processes": 7,
+      "api_cost": null
+    }
+  ],
+  "quality_gate": {
+    "passed": true,
+    "reasons": []
+  },
+  "protocol": "text-json-atomic-v2",
+  "labels_are_nonexclusive": true,
+  "interval_note": "Descriptive Wilson 95%; small samples and paired/time effects prevent causal ranking.",
+  "parameter_training": false,
+  "batch_span_seconds": 577.3446264266968,
+  "analysis_code_sha256": {
+    "scripts/batch_analysis.py": "86e757a33e9a3e455bb366bdf0beaacf6c989027c599e02afd8c5a38ac952a99",
+    "scripts/batch_tables.py": "d57e8e363d16c1dce1953cddf289c6d40ce38c4a3f0128b4e9b3be7c5ab0bae2",
+    "scripts/analyze_policy.py": "f94db4176fde3710d272dea5019167fe9b31d85d119deb38b22d101e2c1a36bb",
+    "scripts/audit_policy.py": "6646ec346d417d455bb351c5a5c5946bca8c8c744092e3b3ed677fb61d4b8507"
+  }
+}
