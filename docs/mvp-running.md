@@ -1,6 +1,6 @@
 # 001 revision 3：配置、复现与证据重放
 
-这是 001 revision 3 的历史复现手册，以下版本与部署示例保留其原始适用范围。当前项目先从[任务目录](task-catalog.md)选择执行路径；六个有限工程契约使用[独立运行说明](tasks/README.md)，不使用本页的 bridge.sv 假设。历史基线检查只核对已保存源码和证据，不代表重新完成 RTL 仿真。
+这是 001 revision 3 的历史复现手册，以下版本与部署示例保留其原始适用范围。当前项目先从[任务目录](task-catalog.md)选择执行路径；十个有限工程契约使用[独立运行说明](tasks/README.md)，不使用本页的 bridge.sv 假设。历史基线检查只核对已保存源码和证据，不代表重新完成 RTL 仿真。
 
 [架构](architecture.md) · [真实 Agent 与奖励](agent-workflow.md) · [验证计划](verification-plan.md) · [评估报告](../mvp-evaluation-report.md)
 

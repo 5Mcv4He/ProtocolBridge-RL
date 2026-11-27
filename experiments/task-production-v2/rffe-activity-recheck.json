@@ -1,0 +1,24 @@
+{
+  "compile_exit": 0,
+  "compile_seconds": 64.37688537500799,
+  "simulation_exit": 0,
+  "simulation_seconds": 3.3195044999883976,
+  "schema": "vip-activity-recheck-v1",
+  "suite": "MIPI RFFE",
+  "vip_version": "R-2020.12",
+  "vcs_version": "O-2018.09-SP2",
+  "uvm_version": "1.1d",
+  "test": "basic_write_read_test",
+  "random_seed": 123,
+  "report_counts": {
+    "UVM_WARNING": 0,
+    "UVM_ERROR": 0,
+    "UVM_FATAL": 0
+  },
+  "simulated_time_ps": 3464980,
+  "matched_read_data_messages": 1,
+  "compile_log_sha256": "45f11b6d7b721d9e74154e69673141038dc13e034558a965bfeb6daf10e12ba8",
+  "simulation_log_sha256": "f2a8d9498141adf18917bd1d8d86c6b7c1420f3d4b2fcbafb57db7e865f135c2",
+  "level": 2,
+  "interpretation": "Fresh vendor example compile and actual register readback comparison. Does not establish custom DUT correctness, negative control rejection, task admission or Agent rollout. Earlier base_test zero-report run lasted only10000ps and was not activity evidence."
+}

@@ -7,7 +7,7 @@
 ProtocolBridge-RL 围绕这一问题展开研究。项目以 AXI → APB 协议桥（X2P）为切入点，利用工业电子设计自动化工具（EDA）与独立功能验证，将数字电路设计与调试转化为模型可以反复求解、探索和验证的任务。它既关注设计是否正确，也关注如何构建有训练价值的求解过程。
 
 <p align="center">
-<strong>11 个 X2P Task + 6 个有限工程契约</strong>　·　<strong>X2P 九动作环境</strong>　·　<strong>121 条研究试次</strong>　·　<strong>轨迹交换 v1–v6</strong>
+<strong>11 个 X2P Task + 10 个有限工程契约</strong>　·　<strong>X2P 九动作环境</strong>　·　<strong>125 条研究试次</strong>　·　<strong>轨迹交换 v1–v7</strong>
 </p>
 
 > **当前阶段：** 已建立任务、环境、独立奖励与固定模型 Rollout 的工程闭环；尚未进行模型参数训练或训练收益评估。保留独立工具配置，并已在三深度队列上完成九种动作联用验收。
@@ -56,7 +56,7 @@ ProtocolBridge-RL 围绕这一问题展开研究。项目以 AXI → APB 协议�
 
 Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已接受但尚未退休的请求。写地址（AW）、写数据（W）和读地址（AR）独立接收；FIFO（先进先出队列）维护各通道的请求顺序，仲裁逻辑在符合条件的读写之间选择执行对象。Outstanding 指已经发出或接受、但尚未完成的事务；在本任务中，直到相应写响应（B）或读响应（R）被请求方握手消费，才释放对应的未退休名额。这条规格将在后面的真实调试案例中再次出现。
 
-除下文 X2P 样板外，当前另有 [UART 发送、测试激励生成与独立参考修复六个契约](docs/tasks/README.md)。它们分别交付 RTL 或事务表，使用不同的可信判据；共同方法仍是明确规格、独立验收与真实求解。
+除下文 X2P 样板外，当前另有 [UART、测试激励生成、参考修复、Checker 设计与状态寄存器十个契约](docs/tasks/README.md)。它们分别交付 RTL 或事务表，使用不同的可信判据；共同方法仍是明确规格、独立验收与真实求解。
 
 ### 工程能力怎样逐步扩展
 
@@ -109,7 +109,7 @@ Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已�
 | `0.0` | 有效交付已确认不满足任务：例如 RTL 编译／功能错误，或激励未触发必要活动、未检出必要缺陷 |
 | `null` | 无有效提交、验证不完整或基础设施问题，无法可靠判定 |
 
-测试生成中的编译失败或超时不能算成功检出错误 DUT；参考修复还须检查等价比较是否完整。具体分类见[六个契约的判据](docs/tasks/README.md)。
+测试生成中的编译失败或超时不能算成功检出错误 DUT；参考修复还须检查等价比较是否完整。具体分类见[有限工程契约的判据](docs/tasks/README.md)。
 
 `null` 不是数值零，无法归因的超时不直接记为 RTL 失败；Reward=1 也不是对任意输入的正确性证明。
 
@@ -282,17 +282,25 @@ Task003 的未退休容量必须保留到相应 AXI 响应握手。多个真实�
 
 ### 验证资源能否支持不同形式的工程任务？
 
-六个契约的[逐任务指南](docs/tasks/README.md)提供 Spec、修改范围与执行命令。它们的已发布试次开放 read/edit/test/submit，不自动继承上文 X2P 的九动作综合配置。
+十个契约的[逐任务指南](docs/tasks/README.md)提供 Spec、修改范围与执行命令。它们的已发布试次开放 read/edit/test/submit，不自动继承上文 X2P 的九动作综合配置。
 
-X2P 要求模型交付桥接 RTL，但芯片工程还有另一类工作：编写能暴露缺陷的测试，或在保持明确行为的条件下修复数据通路。本阶段增加三类、每类两个有限契约：UART 发送器的无校验／偶校验，X2P 映射／时序测试生成，回绕／饱和累加器的独立参考修复。原 X2P 集合与历史结果保持不变。
+X2P 要求模型交付桥接 RTL，但芯片工程还有另一类工作：编写能暴露缺陷的测试，或在保持明确行为的条件下修复数据通路。第一轮资源任务研究增加三类、每类两个有限契约：UART 发送器的无校验／偶校验，X2P 映射／时序测试生成，回绕／饱和累加器的独立参考修复。原 X2P 集合与历史结果保持不变。
 
 三者不能共用一句“工具不报错就通过”。UART 用工业接收 Monitor 解码，再核对每位时间、接受数据和完成数量；测试生成先确认合法设计通过，再要求固定 Scoreboard 检出明确功能错误；累加器由 Formality 与独立可信参考比较，并用整数状态模型检查参考本身。
 
 <p align="center"><img src="docs/diagrams/verification-bases.svg" alt="三种工程交付在提交停止后分别进入串行解码与周期模型、固定设计与事务检查、独立参考等价验收。" width="760"></p>
 
-实际调查也暴露了验收缺陷：遍历 256 个字节仍可能漏掉 busy 期间重复装载；按位置连接端口会让违规改名通过；过宽的日志匹配会把候选编译错误误判成环境故障。对应修订均保留同源码证据，旧奖励不回写。当前三类共 51 项准入检查符合预期，六份有限材料包可生成、核对依赖并初始化。
+实际调查也暴露了验收缺陷：遍历 256 个字节仍可能漏掉 busy 期间重复装载；按位置连接端口会让违规改名通过；过宽的日志匹配会把候选编译错误误判成环境故障。对应修订均保留同源码证据，旧奖励不回写。该阶段三类共 51 项准入检查符合预期。后续又发现停止位最后边界和材料包依赖集合缺口；当前采用独立版本修正，历史证据保留，见下文。
 
-新增 14 条预声明真实试次中，既有首份编辑通过，也有实际失败后修复：例如 UART 候选把 10 位帧放入 8 位寄存器，收到 FAIL 后修正位宽并重新验证。另有动作格式导致的未编辑／未提交，以及可信分类器故障导致的中断；它们没有从研究库存删除。各版本样本少且条件不同，不合并成稳定成功率。[三类任务研究报告](docs/verification-resources-tasks.md)连接工程契约、实际失败、修订、成本与复现；[当前证据入口](experiments/verification-resources-v1/README.md)保留全部批次。
+新增 14 条预声明真实试次中，既有首份编辑通过，也有实际失败后修复：例如 UART 候选把 10 位帧放入 8 位寄存器，收到 FAIL 后修正位宽并重新验证。另有动作格式导致的未编辑／未提交，以及可信分类器故障导致的中断；它们没有从研究库存删除。各版本样本少且条件不同，不合并成稳定成功率。[三类任务研究报告](docs/verification-resources-tasks.md)连接工程契约、实际失败、修订、成本与复现；[该阶段证据入口](experiments/verification-resources-v1/README.md)保留全部批次。
+
+### 从写电路到写检查器与共享状态修复
+
+新的[任务生产阶段](docs/task-production-stage-v2.md)增加四份契约：深度 2／3 的 FIFO 身份检查器，以及硬件置位／软件清除优先的状态寄存器。前者把检查器本身作为被测对象，由独立事件模型评价误报与漏报；后者由独立参考 Formality 和逐位真值表共同核查软硬件同时更新的语义。分别完成 36 与 39 项门禁，并运行四条预声明真实试次。
+
+一条 Checker 轨迹连续三次遗漏单独退休时的身份比较，第四个候选修复后通过公开与终局检查；另一条状态寄存器轨迹始终没有有效编辑，最终提交已知错误起点。四条均保留并审计，不能将后者解释为已经尝试修复却不具备 RTL 能力。两族仅各两个样本，不给稳定成功率或训练收益结论。
+
+任务生产本身也接受反例检验：UART 修订 5 拒绝了停止位结束边界提前接受的同源码错误；Checker 修订 2 补上“回绕后错误身份”的交互激励。当前十份有限契约完成严格材料化和 520 次依赖遗漏拒绝检查。RFFE 新补测确认了实际厂商读回事务，仍停留在例程层，尚未作为任务评分后端。[方法、成本、真实失败与复现入口](docs/task-production-stage-v2.md)。
 
 ### 数据生产成本
 
@@ -318,14 +326,15 @@ X2P 要求模型交付桥接 RTL，但芯片工程还有另一类工作：编写
 | v4 | 新队列任务的三条试次；支持生成任务身份、事件选择与真实窗口 |
 | v5 | 统一包来源与候选版本绑定；原组合阶段 4 条导出，新增预算研究 12 条真实轨迹 |
 | v6 | 三类有限工程交付的 14 条工具轨迹；支持实际反馈重放、不同制品及中断状态 |
+| v7 | Checker 与状态寄存器的 4 条真实轨迹；沿用候选绑定和分区，记录当前运行器来源 |
 
-合计 **121 条研究记录、81 条已审查工具轨迹**（v2 + v3/v4/v5/v6 的独立记录，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
+合计 **125 条研究记录、85 条已审查工具轨迹**（v2 + v3/v4/v5/v6/v7 的独立记录，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
 
-v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-exchange/manifest.json)此前已计入研究库存，这次只是首次进入统一交换；没有增加模型调用或重复计算样本。[当前研究库存与交换集合](experiments/verification-resources-v1/exchange-inventory.json)在原 107／67 条基础上增加 14 条。库存包括未提交、中断及已被取代的验证器版本；审计通过不表示每条都有有效终局奖励，也不表示全部适合训练。当前用途另外标注，不用保留评估选择训练候选。
+v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-exchange/manifest.json)此前已计入研究库存，这次只是首次进入统一交换；没有增加模型调用或重复计算样本。[当前研究库存与交换集合](experiments/task-production-v2/exchange-inventory.json)在原 121／81 条基础上增加 4 条。库存包括未提交、中断及已被取代的验证器版本；审计通过不表示每条都有有效终局奖励，也不表示全部适合训练。当前用途另外标注，不用保留评估选择训练候选。
 
 当前交付尚缺原始模型采样、Token IDs、行为策略 Log Probability 与精确权重版本，不是无损 on-policy 训练数据。在线 Collector 与 RL 参数优化尚未接入。
 
-**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json) · [v5/v6 任务交付入口](docs/task-rollout-exchange.md)
+**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json) · [v5–v7 任务交付入口](docs/task-rollout-exchange.md)
 
 ---
 
@@ -352,11 +361,11 @@ ProtocolBridge-RL/
 | 阅读目的 | 建议入口 |
 | :--- | :--- |
 | 复用任务与运行流程 | [Task Catalog](docs/task-catalog.md) · [原始／生成 X2P CLI](scripts/tasks.py) |
-| 生成并验收任务实例 | [路由任务族](docs/task-family-production.md) · [队列任务族](docs/queue-family-production.md) · [六个有限契约及运行方法](docs/tasks/README.md) |
+| 生成并验收任务实例 | [路由任务族](docs/task-family-production.md) · [队列任务族](docs/queue-family-production.md) · [十个有限契约及运行方法](docs/tasks/README.md) |
 | 理解核心源码 | [任务](tasks/) · [环境](environment/) · [验证器](verifier/) |
 | 查阅工程与验证方法 | [架构](docs/architecture.md) · [质量门禁](docs/task-quality-gate.md) · [001 历史运行手册](docs/mvp-running.md) |
 | 查阅研究证据 | [文档索引](docs/README.md) · [实验目录](experiments/) |
-| 复用数据交换 | [当前 v5/v6 入口](docs/task-rollout-exchange.md) · [历史契约演进](docs/rollout-data-contract.md) |
+| 复用数据交换 | [当前 v5–v7 入口](docs/task-rollout-exchange.md) · [历史契约演进](docs/rollout-data-contract.md) |
 
 ## 8. 快速开始
 
@@ -366,7 +375,7 @@ ProtocolBridge-RL/
 git clone https://github.com/5Mcv4He/ProtocolBridge-RL.git
 cd ProtocolBridge-RL
 python3 scripts/tasks.py list  # 四个原始 X2P 任务
-python3 -m environment.artifact_task list  # 六个有限工程契约
+python3 -m environment.artifact_task list  # 十个有限工程契约
 python3 scripts/tasks.py show axil_to_apb4_queue_003
 python3 -m environment.check_baseline
 python3 -m unittest discover -s tests -v
@@ -405,15 +414,15 @@ python3 scripts/tasks.py rollout axil_to_apb4_queue_003 -- \
 
 | 已建立 | 研究方向 |
 | :--- | :--- |
-| 11 个 X2P 契约与 6 个有限工程契约（UART、激励生成、参考修复） | 复用生产方法，校准不同交付类型与工程能力 |
+| 11 个 X2P 契约与 10 个有限工程契约（新增 Checker 与状态寄存器） | 复用生产方法，校准不同交付类型与工程能力 |
 | 独立 Verifier 与质量门禁 | 补足验证盲区，探索可信奖励 |
 | 九种动作的综合配置、事件导航 v2 与候选版本绑定 | 研究实际定位、有效修复及回归控制 |
 | 固定模型 Rollout 与失败归因 | 更多错误起点、模型及推理条件对照 |
 | 离线轨迹交换 | 在线采集、资源调度、训练接口及收益评估 |
 
-任意契约的通用任务生成、完整自建 Testbench、全设计形式属性证明、工业 PPA 奖励及模型参数训练尚未实现。X2P 生产路径接受三种经审阅的路由配置、三种队列配置和一个固定组合契约；有限工程交付生产器另外提供 UART、激励生成、参考修复三类各两个已审阅契约。它们不支持任意工程能力组合。有限仿真和正反对照不能证明验证器完备，公开 Spec、参考实现及验证代码也存在预训练污染可能。
+任意契约的通用任务生成、完整自建 Testbench、全设计形式属性证明、工业 PPA 奖励及模型参数训练尚未实现。X2P 生产路径接受三种经审阅的路由配置、三种队列配置和一个固定组合契约；有限工程交付生产器另外提供 UART、激励生成、累加器参考修复、Checker、状态寄存器五类各两个已审阅契约。Checker 生成器允许更多深度，但当前准入只覆盖 2、3。它们不支持任意工程能力组合。有限仿真和正反对照不能证明验证器完备，公开 Spec、参考实现及验证代码也存在预训练污染可能。
 
-下一项有限任务研究可围绕 busy 期间输入干扰与反馈后的修复展开，先匹配起点、版本和成本，再扩大样本；组合任务的交互覆盖缺口仍需独立补证。
+下一项优先把 RFFE 已确认的事务观察推进为有限寄存器对象的独立验收，先完成合法与错误对照，再决定是否采样。交互失败与候选选择仍需分开研究；组合任务的交互覆盖缺口也需独立补证。
 
 ### 项目的长期价值
 

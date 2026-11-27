@@ -1,6 +1,6 @@
 # 轨迹交换与训练数据准备
 
-本页保留早期交换契约及 v1–v4 的演进说明；下文 77 条是原六批的历史分母。当前 v5/v6 统一导出和隔离规则见[任务轨迹交付](task-rollout-exchange.md)，全量已审查研究库存见[版本化清单](../experiments/verification-resources-v1/exchange-inventory.json)。旧格式不会因新增格式而被重写，导出成功不表示具备完整训练采样信息。
+本页保留早期交换契约及 v1–v4 的演进说明；下文 77 条是原六批的历史分母。当前 v5–v7 统一导出和隔离规则见[任务轨迹交付](task-rollout-exchange.md)，全量已审查研究库存见[版本化清单](../experiments/task-production-v2/exchange-inventory.json)。旧格式不会因新增格式而被重写，导出成功不表示具备完整训练采样信息。
 
 这里的77条来自六个明确列出的研究批次，不声称涵盖项目所有历史smoke或其他Policy试次。
 

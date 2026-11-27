@@ -29,7 +29,7 @@ python3 -m environment.artifact_task test x2p_stimulus_timing_v1 .local/timing-w
 python3 -m environment.artifact_task submit x2p_stimulus_timing_v1 .local/timing-work .local/timing-submit
 ```
 
-需要带依赖清单的材料包时，使用 `python3 -m verification_resources.production produce stimulus-design timing .local/timing-package`，再按[共同说明](README.md)核对和初始化。人工 CLI 的完整研究输出不应直接作为 Agent 工具反馈；真实试次由受控运行器投影反馈并执行预算。
+需要带依赖清单的材料包时，使用 `python3 -m verification_resources.production_v3 produce stimulus-design timing .local/timing-package`，再按[共同说明](README.md)核对和初始化。人工 CLI 的完整研究输出不应直接作为 Agent 工具反馈；真实试次由受控运行器投影反馈并执行预算。
 
 ## 已有什么证据，仍不能说明什么
 

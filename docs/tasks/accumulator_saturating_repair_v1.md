@@ -29,7 +29,7 @@ python3 -m environment.artifact_task test accumulator_saturating_repair_v1 .loca
 python3 -m environment.artifact_task submit accumulator_saturating_repair_v1 .local/saturating-work .local/saturating-submit
 ```
 
-需要带依赖清单的材料包时，使用 `python3 -m verification_resources.production produce reference-repair saturating .local/saturating-package`，再按[共同说明](README.md)核对和初始化。人工 CLI 的完整研究输出不应直接作为 Agent 工具反馈；真实试次由受控运行器投影反馈并执行预算。
+需要带依赖清单的材料包时，使用 `python3 -m verification_resources.production_v3 produce reference-repair saturating .local/saturating-package`，再按[共同说明](README.md)核对和初始化。人工 CLI 的完整研究输出不应直接作为 Agent 工具反馈；真实试次由受控运行器投影反馈并执行预算。
 
 ## 已有什么证据，仍不能说明什么
 

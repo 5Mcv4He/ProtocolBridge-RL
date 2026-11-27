@@ -1,0 +1,30 @@
+{
+  "schema": "reviewed-exchange-inventory-v4",
+  "base_inventory": "experiments/verification-resources-v1/exchange-inventory.json",
+  "base_sha256": "06a2d06ea091aa9260bac4e74de3ad5c7cecf2eaf9098fb40154be6184b2cf07",
+  "records": 125,
+  "available_tool_trajectories": 85,
+  "new_model_trials": 4,
+  "exports": [
+    {
+      "manifest": "experiments/task-production-v2/checker-exchange/manifest.json",
+      "sha256": "feea125e2c87077610e50f250c36027a6b1192a9b42d2718eb9f7547ca671dff",
+      "records": 2,
+      "content_hashes_verified": true
+    },
+    {
+      "manifest": "experiments/task-production-v2/status-exchange/manifest.json",
+      "sha256": "869c760b1fa4f2621edb05b9923dea33f431c5b2453c45edfc8eb83defd77842",
+      "records": 2,
+      "content_hashes_verified": true
+    }
+  ],
+  "historical_use_updates": [
+    {
+      "scope": "All UART verifier1\u20134 records",
+      "use": "historical_research_only_pending_current_validation",
+      "reason": "Revision5 confirmed an uncovered stop-boundary interaction. Old rewards remain unchanged; no final or intermediate candidate has been retroactively selected using heldout."
+    }
+  ],
+  "uses": "New four records are audited research/tool-interaction candidates, including one unchanged wrong submission. Training value is not established; heldout never selects training records."
+}

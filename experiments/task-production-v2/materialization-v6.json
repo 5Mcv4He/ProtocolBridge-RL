@@ -1,0 +1,82 @@
+{
+  "schema": "runtime-dependency-completeness-v2",
+  "producer": "verification_resources.production_v3",
+  "producer_sha256": "8e6aa54567ab53c10c55592deae5e842cbb576e190b66d9b440a518955ec553f",
+  "schema_version": "finite-engineering-materialization-v6",
+  "rows": [
+    {
+      "task_id": "accumulator_wrap_repair_v1",
+      "dependency_count": 53,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "a1eba801bcba36d967dd21587d825179a0b7bd67955b4764af9b1f992cd3368d"
+    },
+    {
+      "task_id": "accumulator_saturating_repair_v1",
+      "dependency_count": 53,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "9b759319c847f5c7b7971ba87cb5583306b16cc475eb627846aebfe6b547eeb6"
+    },
+    {
+      "task_id": "uart_tx_8n1_v1",
+      "dependency_count": 51,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "38498f64e134a51eb8504c9286e99207b041e4feac41ed87cd7a544ce8d60323"
+    },
+    {
+      "task_id": "uart_tx_8e1_v1",
+      "dependency_count": 51,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "630658bc7607f311f19f4b13fde9032c091283c5bb37c906487042c550c9e447"
+    },
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "dependency_count": 57,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "86781d45c14d3dd4821be494dee1628594edd80bdacbe8d0d0ccffc08fcf65f8"
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "dependency_count": 57,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "3440e692862d39584720e43ddd08fe03752960637158bf60129701cfce7f5d24"
+    },
+    {
+      "task_id": "fifo_checker_d2_v1",
+      "dependency_count": 36,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "3b3976a200626b01f178cb8973fe8bc743835f91e8fa4eaf829d6535eaae7447"
+    },
+    {
+      "task_id": "fifo_checker_d3_v1",
+      "dependency_count": 36,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "4779b84c98d7d479d6f8cb2122870447c1ba500db45573bc804d94e5f4832105"
+    },
+    {
+      "task_id": "status_set_dominant_repair_v1",
+      "dependency_count": 63,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "091db95eecab15fb0814abae7213c2474e78155a5e36a48e7fad86bfd233e4d7"
+    },
+    {
+      "task_id": "status_clear_dominant_repair_v1",
+      "dependency_count": 63,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "950d686ca23c117c5562e576f93e1f7b08590a7304dce974e757595e5919a02c"
+    }
+  ],
+  "omission_probes": 520,
+  "accepted": true,
+  "simulation_executed": false,
+  "scope": "Ten source-qualified task packages; exact runtime dependencies and every single omission; local reset exposes only Spec,initial artifact,identity."
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "status-register-generation-v1",
+  "generator_sha256": "bfd3846e6541619a5d62aa81b5e50f8222f608daa1956be8edda49b632b4db60",
+  "files": {
+    "alternate.sv": "ae33dd5a92c8aff6ab6d284a8fed8f4eb5a731406f95aab3e7e3fcf6c78e5794",
+    "task.json": "27efd8f472e4dbecf39436d1eda7508fe26c80704b4b6263199c9b7ea363f5d7",
+    "README.md": "a41b7b2d2007bebb42e1af17d026c81a8b2a6e4ad4da3a2d85ee2514c6bd03c7",
+    "reference.sv": "e45586873b749fdddf4dbc264d22634e27f3a42b7017272e3e64f48d0cd756e4",
+    "spec.md": "503348ff0f4150df48daf448e542e10f975097ff304f4ee629a517f65e10a22b",
+    "workspace/status_register.sv": "c3c5a3e66b9de539d72bd95e4141facf5ec4b76f0a17d4842380cd747b57efbc",
+    "controls/wrong_priority.sv": "c3c5a3e66b9de539d72bd95e4141facf5ec4b76f0a17d4842380cd747b57efbc",
+    "controls/reset_ignored.sv": "f525d943b10ca3cb2580e71488154c7439e973baf52e715be81bddb5a5551944",
+    "controls/clear_without_write.sv": "e166d3e478125be0e29952b93082c17dbd7afd4bed757add6c9d85ee798b16c4",
+    "controls/lost_hardware_bits.sv": "3f49c3d2781e053e153428c6311dfb0505c6e628e4a0f5c2b4d21afc8f679b1a",
+    "controls/clear_all_bits.sv": "510cad970d03f361a6de371d93a873b535e57c0dbc2b20af4a4573bab93ee7eb",
+    "controls/async_reset.sv": "dc446e3f1f1e99f5338f4a32bebcaf7b94877262b35190ac9d4caeb698cec886"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "task_id": "status_clear_dominant_repair_v1",
+  "version": 1,
+  "family": "status-register-v1",
+  "mode": "clear_dominant",
+  "deliverable": "status_register.sv",
+  "capabilities": [
+    "write-one-to-clear",
+    "per-bit-hardware-software-priority",
+    "synchronous-state-update"
+  ],
+  "obligations": [
+    "same-bit-conflict",
+    "cross-bit-independence",
+    "write-enable-mask",
+    "hold-and-repeated-set",
+    "reset-priority",
+    "no-asynchronous-reset"
+  ],
+  "initial_origin": "controlled wrong-priority mutation",
+  "admission": "candidate; independent controls and source-matched gate required"
+}

@@ -1,6 +1,6 @@
 # 001 revision 3：历史 Agent 工作流
 
-本页保留 001 原始入口的执行规则，不是所有任务的当前工作流。新读者先看[项目架构](architecture.md)和[任务选择](task-catalog.md)：X2P 的可配置权限见 [Policy](observation-policy.md)，九动作配置见[综合环境](engineering-lab.md)，六个有限交付见[使用说明](tasks/README.md)。各版本的提交条件与停止顺序以对应控制器及冻结证据为准；不要将下文的旧入口规则套用到新试次。
+本页保留 001 原始入口的执行规则，不是所有任务的当前工作流。新读者先看[项目架构](architecture.md)和[任务选择](task-catalog.md)：X2P 的可配置权限见 [Policy](observation-policy.md)，九动作配置见[综合环境](engineering-lab.md)，十个有限交付见[使用说明](tasks/README.md)。各版本的提交条件与停止顺序以对应控制器及冻结证据为准；不要将下文的旧入口规则套用到新试次。
 
 [项目入口](../README.md) · [架构](architecture.md) · [验证计划](verification-plan.md) · [运行](mvp-running.md) · [实测报告](../mvp-evaluation-report.md)
 

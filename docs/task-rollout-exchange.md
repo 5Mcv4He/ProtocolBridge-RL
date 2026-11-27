@@ -45,3 +45,14 @@ python3 -m scripts.analyze_artifact_study NEW_ANALYSIS.json RAW_TRIAL_1 RAW_TRIA
 需要原始本地交互记录，公开摘要不能代替重放输入。v6 中的公开制品不是原始采样数据，仍缺 Token IDs、行为概率和精确模型权重；终局奖励与独立评估分离，事后测量不写回模型观察。各版本保留历史用途，不能自动把所有导出记录当成当前训练候选。
 
 对于在可信分类器故障后中断的试次，v6 保留实际动作和已送达反馈，明确 `solver_stop_confirmed=false`、未执行终局与保留评分。审计不把未知的停止状态改为成功；只有确认没有越界评分后，才允许作为不完整研究记录导出。
+
+## Checker 与状态寄存器的 v7 记录
+
+[当前有限交付导出器](../scripts/artifact_exchange_v2.py)识别新运行器，保持单动作重放、实际反馈曝光、候选绑定和停止后评分的职责。Checker 的首份导出使用 `68e6d97` 中的导出器；当前版本另识别状态寄存器运行器，旧 manifest 的导出器哈希与文件保持不变。
+
+```bash
+python3 -m scripts.artifact_exchange_v2 NEW_EXCHANGE RAW_TRIAL_1 RAW_TRIAL_2
+python3 -m scripts.check_artifact_audit_v2 RAW_SUBMITTED_TRIAL NEW_AUDIT.json
+```
+
+[新增四条记录](../experiments/task-production-v2/exchange-inventory.json)使研究库存达到 125 条、可审计工具轨迹达到 85 条。成功、已知错误原样提交、实际修复分别解释，不以导出成功授予训练价值。终局奖励、独立评估和源码事后解释仍分开；未取得的 Token IDs、行为概率与权重版本保持缺失。UART 旧验证器存在已确认边界漏检，其历史记录保留，但不能自动继承当前训练用途状态。

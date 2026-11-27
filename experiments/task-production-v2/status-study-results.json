@@ -1,0 +1,76 @@
+{
+  "schema": "status-calibration-results-v1",
+  "started": 2,
+  "trials": [
+    {
+      "trial_id": "status-set-r1",
+      "task_id": "status_set_dominant_repair_v1",
+      "actions": 7,
+      "edits": 1,
+      "public_test_calls": 1,
+      "wall_seconds": 43.715,
+      "model_request_seconds": 21.5487,
+      "terminal_reward": 1.0,
+      "heldout_reward": 1.0,
+      "tokens": 7266,
+      "protocol_errors": 1,
+      "other_rejections": 1,
+      "public_verdicts": [
+        "PASS"
+      ],
+      "feedback_delivered": [
+        true
+      ],
+      "final_tested_hash": true,
+      "formal_seconds": 4.2453,
+      "compiles": 3,
+      "compile_seconds": 5.8928,
+      "simulation_seconds": 3.0373,
+      "audit_accepted": true
+    },
+    {
+      "trial_id": "status-clear-r1",
+      "task_id": "status_clear_dominant_repair_v1",
+      "actions": 15,
+      "edits": 0,
+      "public_test_calls": 3,
+      "wall_seconds": 40.2081,
+      "model_request_seconds": 17.5043,
+      "terminal_reward": 0.0,
+      "heldout_reward": 0.0,
+      "tokens": 33938,
+      "protocol_errors": 6,
+      "other_rejections": 2,
+      "public_verdicts": [
+        "FAIL",
+        "FAIL",
+        "FAIL"
+      ],
+      "feedback_delivered": [
+        true,
+        true,
+        true
+      ],
+      "final_tested_hash": true,
+      "formal_seconds": 7.5943,
+      "compiles": 1,
+      "compile_seconds": 1.8511,
+      "simulation_seconds": 1.0033,
+      "audit_accepted": true
+    }
+  ],
+  "terminal_successes": 1,
+  "heldout_successes": 1,
+  "tokens": 41204,
+  "api_currency_cost": null,
+  "offline_candidate_simulations": 0,
+  "observations": {
+    "status-set-r1": "One accepted edit, public PASS and same-hash submission; one parse rejection and edit-before-both-reads rejection.",
+    "status-clear-r1": "No accepted edit; repeated malformed replies and premature submit rejection; three public FAIL results on initial source; ultimately submits unchanged known-failing initial source. Not evidence of attempted RTL repair failure."
+  },
+  "limits": [
+    "Two exploratory sessions; no difficulty ordering or stable tool effect.",
+    "Do not remove unchanged submissions from the denominator.",
+    "Heldout separate; no model training performed."
+  ]
+}

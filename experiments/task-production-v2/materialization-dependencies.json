@@ -1,0 +1,58 @@
+{
+  "schema": "runtime-dependency-completeness-v1",
+  "legacy_probe": {
+    "probe": "omitted_common_runtime",
+    "omitted": "environment/artifact_task/runner_v5.py",
+    "legacy_verdict": "accepted"
+  },
+  "new_producer": "verification_resources.production_v2",
+  "schema_version": "finite-engineering-materialization-v5",
+  "rows": [
+    {
+      "task_id": "accumulator_wrap_repair_v1",
+      "dependency_count": 40,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "434d57134f94da545089f528481bb980871271155f6e4fc12f0215f8a981a424"
+    },
+    {
+      "task_id": "accumulator_saturating_repair_v1",
+      "dependency_count": 40,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "53beeca09d2c6bb6362f008c101563f3cd7880f008a5a88ff606a3454e2f6e47"
+    },
+    {
+      "task_id": "uart_tx_8n1_v1",
+      "dependency_count": 38,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "6f1730d2e35b9f71fdd9d664695748ffd22e4ee668a776ceab5254674013fda7"
+    },
+    {
+      "task_id": "uart_tx_8e1_v1",
+      "dependency_count": 38,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "4311a46e51c8193fbd725ea21f6d25ecbf7637bd46e32c8663e89e102bf50311"
+    },
+    {
+      "task_id": "x2p_stimulus_mapping_v1",
+      "dependency_count": 44,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "0f6fc8b52b3a9f99a5998a0834d407666bf3f9f8c81d1e21217ae5c00f941bd4"
+    },
+    {
+      "task_id": "x2p_stimulus_timing_v1",
+      "dependency_count": 44,
+      "every_omission_rejected": true,
+      "check_and_reset_passed": true,
+      "manifest_sha256": "672655c6c3148f34473bfa2ee3001c7b8df5790ac263063223d40bf702c7323a"
+    }
+  ],
+  "omission_probes": 244,
+  "accepted": true,
+  "simulation_executed": false,
+  "qualification_scope": "Real production/check/reset and exhaustive single-dependency omissions; local AST imports are conservative, dynamic code and non-Python assets need explicit gate declarations."
+}

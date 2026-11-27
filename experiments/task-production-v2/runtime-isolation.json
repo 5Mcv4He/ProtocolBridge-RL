@@ -1,0 +1,86 @@
+{
+  "schema": "artifact-runtime-isolation-v2",
+  "trials": [
+    {
+      "trial_id": "checker-d2-r1",
+      "plan_sha256": "a0dcde3d3eace9b5a856f3eb1b47c76a8fb74c8f6a4a35e8884551b37638c721",
+      "checks": {
+        "uid": 1101,
+        "pid": 1,
+        "host_home_visible": false,
+        "host_verifier_visible": false,
+        "no_new_privs": "1",
+        "effective_capabilities": "0000000000000000",
+        "chroot_escape_denied": true,
+        "worker_write_denied": true
+      },
+      "runtime_hashes": [
+        "a2d05ae3ea49698701a362af78171c709648093cd20f8d2cb951c022431e7625",
+        "652a593dff127a82b499019304940cf54326b601c275bc86171fee08335531e1"
+      ],
+      "solver_stop_confirmed": true,
+      "freeze_unchanged": true
+    },
+    {
+      "trial_id": "checker-d3-r1",
+      "plan_sha256": "a0dcde3d3eace9b5a856f3eb1b47c76a8fb74c8f6a4a35e8884551b37638c721",
+      "checks": {
+        "uid": 1101,
+        "pid": 1,
+        "host_home_visible": false,
+        "host_verifier_visible": false,
+        "no_new_privs": "1",
+        "effective_capabilities": "0000000000000000",
+        "chroot_escape_denied": true,
+        "worker_write_denied": true
+      },
+      "runtime_hashes": [
+        "a2d05ae3ea49698701a362af78171c709648093cd20f8d2cb951c022431e7625",
+        "652a593dff127a82b499019304940cf54326b601c275bc86171fee08335531e1"
+      ],
+      "solver_stop_confirmed": true,
+      "freeze_unchanged": true
+    },
+    {
+      "trial_id": "status-set-r1",
+      "plan_sha256": "2b283e1baa71cac3e2fa38ebfa6cd260fbaecf8348e9b6596ae05bee0427354e",
+      "checks": {
+        "uid": 1101,
+        "pid": 1,
+        "host_home_visible": false,
+        "host_verifier_visible": false,
+        "no_new_privs": "1",
+        "effective_capabilities": "0000000000000000",
+        "chroot_escape_denied": true,
+        "worker_write_denied": true
+      },
+      "runtime_hashes": [
+        "a2d05ae3ea49698701a362af78171c709648093cd20f8d2cb951c022431e7625",
+        "652a593dff127a82b499019304940cf54326b601c275bc86171fee08335531e1"
+      ],
+      "solver_stop_confirmed": true,
+      "freeze_unchanged": true
+    },
+    {
+      "trial_id": "status-clear-r1",
+      "plan_sha256": "2b283e1baa71cac3e2fa38ebfa6cd260fbaecf8348e9b6596ae05bee0427354e",
+      "checks": {
+        "uid": 1101,
+        "pid": 1,
+        "host_home_visible": false,
+        "host_verifier_visible": false,
+        "no_new_privs": "1",
+        "effective_capabilities": "0000000000000000",
+        "chroot_escape_denied": true,
+        "worker_write_denied": true
+      },
+      "runtime_hashes": [
+        "a2d05ae3ea49698701a362af78171c709648093cd20f8d2cb951c022431e7625",
+        "652a593dff127a82b499019304940cf54326b601c275bc86171fee08335531e1"
+      ],
+      "solver_stop_confirmed": true,
+      "freeze_unchanged": true
+    }
+  ],
+  "scope": "Actual per-trial OS probe from the existing worker; shared low-privilege UID/root remains, no claim of cross-trial OS isolation or offline network isolation."
+}

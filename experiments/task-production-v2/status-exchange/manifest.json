@@ -1,0 +1,18 @@
+{
+  "schema": "pb-exchange-manifest-v7",
+  "records": 2,
+  "exporter_sha256": "a5c9d476b3c863776d8967b09aabd5a92def18b7370ee12bf68244a0773d5ca3",
+  "files": {
+    "analysis/offline.jsonl": "523c9f8fa776d65337dc56e81021072c84ed4aa631078ba27fe32151ed96ec8a",
+    "artifacts/36af72361ae0c6612deaf8dcdfabe5a1710945f671816ff931c94c046ac66708.txt": "36af72361ae0c6612deaf8dcdfabe5a1710945f671816ff931c94c046ac66708",
+    "artifacts/503348ff0f4150df48daf448e542e10f975097ff304f4ee629a517f65e10a22b.txt": "503348ff0f4150df48daf448e542e10f975097ff304f4ee629a517f65e10a22b",
+    "artifacts/98ea893e60711d6bd0d8210df8c4022dee2063c26a9e4b59872ac9152cc3b8fd.sv": "98ea893e60711d6bd0d8210df8c4022dee2063c26a9e4b59872ac9152cc3b8fd",
+    "artifacts/98ea893e60711d6bd0d8210df8c4022dee2063c26a9e4b59872ac9152cc3b8fd.txt": "98ea893e60711d6bd0d8210df8c4022dee2063c26a9e4b59872ac9152cc3b8fd",
+    "artifacts/c3c5a3e66b9de539d72bd95e4141facf5ec4b76f0a17d4842380cd747b57efbc.sv": "c3c5a3e66b9de539d72bd95e4141facf5ec4b76f0a17d4842380cd747b57efbc",
+    "artifacts/c3c5a3e66b9de539d72bd95e4141facf5ec4b76f0a17d4842380cd747b57efbc.txt": "c3c5a3e66b9de539d72bd95e4141facf5ec4b76f0a17d4842380cd747b57efbc",
+    "artifacts/e45586873b749fdddf4dbc264d22634e27f3a42b7017272e3e64f48d0cd756e4.txt": "e45586873b749fdddf4dbc264d22634e27f3a42b7017272e3e64f48d0cd756e4",
+    "evaluation/heldout.jsonl": "a4b2821079032fdcfb82390c60987675bc9a03595ebadb9b0c86a4a2bfb8f4e3",
+    "training/rollouts.jsonl": "273d82cebb8fdeb7f1ac4143a036107b6af7a252fa60d7d66a5a7f509de11ac1"
+  },
+  "scope": "Reviewed tool interactions; raw model replies preserved privately and used for replay audit. No token-level on-policy training claim."
+}
