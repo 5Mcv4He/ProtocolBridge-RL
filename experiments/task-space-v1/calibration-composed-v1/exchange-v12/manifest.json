@@ -1,0 +1,31 @@
+{
+  "schema": "pb-exchange-manifest-v12",
+  "records": 1,
+  "started_records": 1,
+  "not_audited": 0,
+  "exporter_sha256": "b777b7aaca53c34589598f6b1f4a739b5119cf21f33c3d28b468b260441ad00a",
+  "replay_auditor_sha256": "9830f802a2af32e45b45fc2f42021b28e17da92fc4b1412e3d31cdc56cf92e98",
+  "grade_auditor_sha256": "d175d7180caa64c0594eff5bb5fdb4177e84fb89b91073deb2bdd456a1d3791a",
+  "files": {
+    "research/started.jsonl": "2131b89289aa654fae1a1fc80a2298fa4efc6bba56c30368e5277e685cec93af",
+    "artifacts/a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6.sv": "a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6",
+    "artifacts/3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5.sv": "3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5",
+    "artifacts/a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6.txt": "a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6",
+    "artifacts/69a35aaec833b00f282595d5194dc6e447f97f96d6dc8a579aef508d38e1e428.json": "69a35aaec833b00f282595d5194dc6e447f97f96d6dc8a579aef508d38e1e428",
+    "artifacts/3405db5876ffc6ca65f5e6e8b8a8158818d0b0494d90f33c5aa7aac23df1c468.json": "3405db5876ffc6ca65f5e6e8b8a8158818d0b0494d90f33c5aa7aac23df1c468",
+    "artifacts/3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5.txt": "3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5",
+    "artifacts/ceac7ad1b767a998cec02a963c4368757903d3ca4fabcecc55eda544dffc2d95.json": "ceac7ad1b767a998cec02a963c4368757903d3ca4fabcecc55eda544dffc2d95",
+    "artifacts/100e4a353c0ee002ae85e4ebffed0b83987c5f4b8672b1fcdc81e0c84253244b.txt": "100e4a353c0ee002ae85e4ebffed0b83987c5f4b8672b1fcdc81e0c84253244b",
+    "artifacts/dd021f3accaf3c9f8fb28c98f637fb3048f809b96e27676fbd2f424b76623c1f.txt": "dd021f3accaf3c9f8fb28c98f637fb3048f809b96e27676fbd2f424b76623c1f",
+    "artifacts/dd923c5f0632ea0887711d8ca5da6222fd4056970517c0705246a40239766690.json": "dd923c5f0632ea0887711d8ca5da6222fd4056970517c0705246a40239766690",
+    "artifacts/28b7ab3e95ed45b22da84986906606ffc237c79f880bbfcb9a26d92b3ea62b44.json": "28b7ab3e95ed45b22da84986906606ffc237c79f880bbfcb9a26d92b3ea62b44",
+    "artifacts/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "artifacts/f0d4f92e400fd4c0652c173f334ca4c21f6c06937d0fbcb55eca94cfab4c904a.txt": "f0d4f92e400fd4c0652c173f334ca4c21f6c06937d0fbcb55eca94cfab4c904a",
+    "artifacts/f0e6ea9045ce3f6e12e4b0222b5c8527d0594ccb5aa701a746ad53fd140a765f.json": "f0e6ea9045ce3f6e12e4b0222b5c8527d0594ccb5aa701a746ad53fd140a765f",
+    "artifacts/d7ba3cd3360247fe25b3a7a3d97f6c587f477554d1ffe51db0a3608aa185f383.txt": "d7ba3cd3360247fe25b3a7a3d97f6c587f477554d1ffe51db0a3608aa185f383",
+    "analysis/offline.json": "bf27b6dcae2b76b53a492ae3b3374ba109ff69de6a64b9e4395a54c2f9700556",
+    "training/rollouts.jsonl": "bf842875664e89963a9cce95bbd2866cb6d75fc0cc4193a0fa4ef4741d571090",
+    "evaluation/heldout.jsonl": "fe8d190c544a92f70ed0281f9b65869c90715f3d334519f2a0d2439e5b4a9281"
+  },
+  "scope": "Actual native proposals and feedback, including failed/incomplete episodes. Exchange is not proof of training utility; evaluation is separate."
+}

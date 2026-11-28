@@ -1,0 +1,21 @@
+{
+  "checks": [
+    {
+      "challenge": "candidate",
+      "rejected": true,
+      "reason": "Sealed execution evidence differs"
+    },
+    {
+      "challenge": "feedback",
+      "rejected": true,
+      "reason": "Sealed execution evidence differs"
+    },
+    {
+      "challenge": "reward",
+      "rejected": true,
+      "reason": "Sealed execution evidence differs"
+    }
+  ],
+  "original_evidence_unchanged": true,
+  "new_model_or_eda_calls": 0
+}

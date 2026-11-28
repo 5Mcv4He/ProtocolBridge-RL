@@ -10,7 +10,7 @@
 | Task、Environment、Verifier 和 Reward 怎样协作 | [架构总览与 001 Scoreboard 实例](architecture.md) |
 | 选哪个任务、使用哪条执行路径 | [任务目录](task-catalog.md)、[有限工程任务指南](tasks/README.md) |
 | 工具能判断什么，尚不能证明什么 | [工具与证据层次](toolchain.md)、[VIP 接入范围](vip-inventory-r2020.12.md) |
-| 怎样交付并审计真实求解轨迹 | [当前 v5–v11 入口](task-rollout-exchange.md)、[早期契约演进](rollout-data-contract.md) |
+| 怎样交付并审计真实求解轨迹 | [当前 v5–v12 入口](task-rollout-exchange.md)、[早期契约演进](rollout-data-contract.md) |
 
 [I²C 历史研究](i2c-sink-evaluation.md)连接串行时序、事务边界、被拒绝的生成版本、实际修复和成本；[此前 Checker 与状态寄存器研究](task-production-stage-v2.md)保留各自冻结范围。
 
@@ -24,7 +24,7 @@
 | 怎样从此前不存在的合法契约生产可运行任务 | [两轮生产、分层准入与成本](task-space-production.md)、[生成包实际求解](generated-task-calibration.md) |
 | 地址窗口变化会引入哪些验证义务 | [路由族生产](task-family-production.md)、[漏检与校准](router-family-evaluation.md)、[生成器入口](../task_families/router_v1/README.md) |
 | 容量变化怎样影响回绕与退休账目 | [队列族生产](queue-family-production.md)、[实际验收与模型研究](queue-family-evaluation.md)、[生成器入口](../task_families/queue_v1/README.md) |
-| 路由与排队组合会新增什么风险 | [组合契约与独立检查](composed-task-production.md)、[组合阶段研究](composed-environment-evaluation.md) |
+| 路由与排队组合会新增什么风险 | [组合契约与独立检查](composed-task-production.md)、[组合阶段研究](composed-environment-evaluation.md)、[新组合实例运行闭环](composed-runtime-calibration.md) |
 | UART、测试激励和参考修复如何分别评分 | [三类任务与同源码漏检复验](verification-resources-tasks.md)、[首轮准入及试次索引](../experiments/verification-resources-v1/README.md) |
 | 检查器自己怎样接受评价，状态更新怎样独立核验 | [新生产方法与真实修复](task-production-stage-v2.md)、[当前阶段证据](../experiments/task-production-v2/README.md) |
 

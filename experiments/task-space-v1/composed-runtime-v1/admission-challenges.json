@@ -1,0 +1,22 @@
+[
+  {
+    "field": "task_id",
+    "rejected": true,
+    "reason": "Admission domain changed"
+  },
+  {
+    "field": "package_manifest_sha256",
+    "rejected": true,
+    "reason": "Admission dependency changed"
+  },
+  {
+    "field": "config_sha256",
+    "rejected": true,
+    "reason": "Admission configuration changed"
+  },
+  {
+    "field": "schema",
+    "rejected": true,
+    "reason": "No admission"
+  }
+]

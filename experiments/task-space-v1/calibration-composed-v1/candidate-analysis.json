@@ -1,0 +1,58 @@
+{
+  "schema": "composed-observed-candidate-analysis-v1",
+  "selection": "All actual edited versions; no extra EDA measurements",
+  "steps": [
+    {
+      "action": 3,
+      "status": "edited_not_tested"
+    },
+    {
+      "action": 4,
+      "source_sha256": "dd021f3accaf3c9f8fb28c98f637fb3048f809b96e27676fbd2f424b76623c1f",
+      "measured_at_action": 5,
+      "actual_public_category": "transaction_functional_error",
+      "offline_first_failure": "Wrong response channel",
+      "delivered_to_model": [
+        "FAIL",
+        "transaction_functional_error",
+        "remaining_test_calls=1",
+        "candidate SHA-256"
+      ]
+    },
+    {
+      "action": 6,
+      "source_sha256": "f0d4f92e400fd4c0652c173f334ca4c21f6c06937d0fbcb55eca94cfab4c904a",
+      "measured_at_action": 7,
+      "actual_public_category": "protocol_timing_error",
+      "offline_first_failure": "Registered FIFO grant/setup missing",
+      "source_change": "sel_addr changed from 32 bits to an implicit 1-bit wire",
+      "delivered_to_model": [
+        "FAIL",
+        "protocol_timing_error",
+        "remaining_test_calls=0",
+        "candidate SHA-256"
+      ]
+    },
+    {
+      "action": 8,
+      "source_sha256": "a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6",
+      "submitted_at_action": 9,
+      "publicly_tested": false,
+      "source_change": "sel_addr restored to 32 bits; inverted response-channel expressions retained",
+      "independent_terminal_category": "transaction_functional_error"
+    }
+  ],
+  "root_cause": {
+    "source": "a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6",
+    "evidence": "iswrite receives sel_we; BVALID uses !iswrite and RVALID uses iswrite. The first public test and final independent grade reject the response channel.",
+    "scope": "Source relation and actual failure agree; other potential defects were not separately isolated or graded."
+  },
+  "not_claimed": [
+    "Candidate-03 was correct",
+    "Extra test budget would repair it",
+    "Restoring one signal width made the design correct",
+    "The model saw detailed log messages",
+    "A successful repair or a full-case PASS-to-FAIL regression"
+  ],
+  "heldout_used_for_selection": false
+}

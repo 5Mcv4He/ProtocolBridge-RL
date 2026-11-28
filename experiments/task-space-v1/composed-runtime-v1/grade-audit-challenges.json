@@ -1,0 +1,27 @@
+{
+  "actual_source_sha256": "b6742126a2d3c226efd6d1d43724603ad7b0e1f64d8f127187ec7c139f7c52c3",
+  "original_result_sha256": "ad0604ca63127d9129146ad802588e78a4e08512b1ae49a2299c43f9054c972e",
+  "checks": [
+    {
+      "challenge": "source",
+      "rejected": true,
+      "reason": "Actual source or input differs"
+    },
+    {
+      "challenge": "vector",
+      "rejected": true,
+      "reason": "Per-case record or stimulus differs"
+    },
+    {
+      "challenge": "case-verdict",
+      "rejected": true,
+      "reason": "Per-case record or stimulus differs"
+    },
+    {
+      "challenge": "wrong-role",
+      "rejected": true,
+      "reason": "Graded source or role differs"
+    }
+  ],
+  "new_eda_or_model_calls": 0
+}

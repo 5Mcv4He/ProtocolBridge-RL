@@ -1,0 +1,31 @@
+{
+  "schema": "generated-trajectory-use-policy-v1",
+  "expected_complete_records": 5,
+  "all_started_records": 6,
+  "separately_audited_interrupted_records": 1,
+  "training_exports": [
+    {
+      "manifest": "experiments/task-space-v1/calibration-v2/exchange-v10/manifest.json",
+      "sha256": "54179832f2623c781ae2b31a124a14004bd6ae3727740ab27be9a8c23e1f0331"
+    },
+    {
+      "manifest": "experiments/task-space-v1/calibration-word-v1/exchange-v10/manifest.json",
+      "sha256": "70c57d084c33b4707d4f67388aeef4ec810efea6b3e7b48b3eb3af95bf7d87aa"
+    },
+    {
+      "manifest": "experiments/task-space-v1/calibration-register-v1/exchange-v11/manifest.json",
+      "sha256": "a0c6cabf8257b1a5d6a66fe7134d48a0b1eb7870ca82563f65b83a9511bcc1b0"
+    },
+    {
+      "manifest": "experiments/task-space-v1/calibration-composed-v1/exchange-v12/manifest.json",
+      "sha256": "dfbb7c40ec3fb7e7048c7763a1a1dd6fceafc33df2ed49a8923d7a92526db879"
+    }
+  ],
+  "interrupted_sources": [
+    {
+      "summary": "experiments/task-space-v1/interrupted-v1/summary.json",
+      "sha256": "c0614e9e04c7eb93f66b495fb9d20363795b675948e826cde498cd7a22f5ec4a"
+    }
+  ],
+  "scope": "Entire bounded six-start task-space stage; one original null interruption remains a separate research record. No heldout or posthoc candidate grades used to select data."
+}

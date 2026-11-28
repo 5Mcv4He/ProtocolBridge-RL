@@ -1,0 +1,351 @@
+{
+  "schema": "generated-trajectory-use-review-v1",
+  "rules_sha256": "95d948c8f5b5d703cf67356ce11d8c3420248fa4f6b59cfc0ee702931b7e924e",
+  "reused_rules_sha256": "77453720bfb8fd4275ff8b3fea56068bb8cd823154b02fbf6515017553cdc5bc",
+  "policy_sha256": "ae9e3bafb18de04630a00903aaf896bf7a10eb888f811f616c350c22ee729de6",
+  "complete_records": 5,
+  "all_started_in_declared_stage": 6,
+  "separately_audited_interrupted_records": 1,
+  "use_counts": {
+    "historical_outcome_analysis": 5,
+    "observed_tool_behavior": 5,
+    "failure_feedback_analysis": 3,
+    "implementation_demonstration_review": 3,
+    "multi_step_repair_demonstration_review": 1
+  },
+  "rows": [
+    {
+      "episode_id": "8ed68adfeddcefce1f6fa85bbb78799af8d35b68487f2d01483849e12fe06131:x2p_router_batcha_v1-r1",
+      "task_id": "x2p_router_batcha_v1",
+      "manifest_sha256": "54179832f2623c781ae2b31a124a14004bd6ae3727740ab27be9a8c23e1f0331",
+      "cohort": {
+        "study": "generated-router-production-calibration-v2",
+        "model": "deepseek-flash",
+        "protocol": "native-router-package-rollout-v2",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 2,
+        "max_requests": 20
+      },
+      "reward": 0.0,
+      "terminal_category": "protocol_timing_error",
+      "valid_submission_reported": true,
+      "final_source_sha256": "759fe2b44d9eec444d1ec69b8fa353de536873ab8d220a21f44d589dbbef5388",
+      "final_artifact_available": true,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 3,
+      "changed_edits": 3,
+      "rejections": [],
+      "public_tests": [
+        {
+          "action": 4,
+          "sha256": "022fe1c771ca9855faafc8e161d78889f948415a322eaa7dbf1c15a9140768e2",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "protocol_timing_error"
+        },
+        {
+          "action": 7,
+          "sha256": "57574b3b084d6239d36f6d708858858e8b6af602e934881da85963bc925396c5",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "protocol_timing_error"
+        }
+      ],
+      "final_public_status": "not_observed",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": false,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "failure_feedback_analysis"
+      ],
+      "cost": {
+        "reported_tokens": 63692,
+        "wall_seconds": 512.4073,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "actual_public_feedback_exposure": 2,
+      "final_candidate_publicly_measured": false,
+      "next_research_candidate": "Fixed-error debugging/feedback study; no successful-repair claim"
+    },
+    {
+      "episode_id": "8ed68adfeddcefce1f6fa85bbb78799af8d35b68487f2d01483849e12fe06131:x2p_router_batche_v1-r1",
+      "task_id": "x2p_router_batche_v1",
+      "manifest_sha256": "54179832f2623c781ae2b31a124a14004bd6ae3727740ab27be9a8c23e1f0331",
+      "cohort": {
+        "study": "generated-router-production-calibration-v2",
+        "model": "deepseek-flash",
+        "protocol": "native-router-package-rollout-v2",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 2,
+        "max_requests": 20
+      },
+      "reward": 1.0,
+      "terminal_category": "pass",
+      "valid_submission_reported": true,
+      "final_source_sha256": "dec5ea49b4085daece1284eaa992cc8c448cfdeac4dce45fc1f0db060a79d9d2",
+      "final_artifact_available": true,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 2,
+      "changed_edits": 2,
+      "rejections": [],
+      "public_tests": [
+        {
+          "action": 4,
+          "sha256": "5e9be0e3ff09fb7399b2cb333754c6e23b5a6f49865e5a86c9bc47ae63a9c491",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "protocol_timing_error"
+        },
+        {
+          "action": 6,
+          "sha256": "dec5ea49b4085daece1284eaa992cc8c448cfdeac4dce45fc1f0db060a79d9d2",
+          "binding": "explicit",
+          "status": "PASS",
+          "delivered": true,
+          "category": "pass"
+        }
+      ],
+      "final_public_status": "PASS",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": false,
+      "repair_evidence": [
+        {
+          "before_action": 4,
+          "after_action": 6,
+          "before_sha256": "5e9be0e3ff09fb7399b2cb333754c6e23b5a6f49865e5a86c9bc47ae63a9c491",
+          "after_sha256": "dec5ea49b4085daece1284eaa992cc8c448cfdeac4dce45fc1f0db060a79d9d2",
+          "binding": "explicit"
+        }
+      ],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "failure_feedback_analysis",
+        "implementation_demonstration_review",
+        "multi_step_repair_demonstration_review"
+      ],
+      "cost": {
+        "reported_tokens": 30196,
+        "wall_seconds": 935.2689,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "actual_public_feedback_exposure": 2,
+      "final_candidate_publicly_measured": true,
+      "next_research_candidate": "Review actual failure-to-PASS repair with its original conditions"
+    },
+    {
+      "episode_id": "a7a5ef95ec98dd07e824d2553c3b6c059a81f1a8fa5ddc2ad32bc73c65f3a9e3:x2p_router_roundwordn_v1-r1",
+      "task_id": "x2p_router_roundwordn_v1",
+      "manifest_sha256": "70c57d084c33b4707d4f67388aeef4ec810efea6b3e7b48b3eb3af95bf7d87aa",
+      "cohort": {
+        "study": "word-aperture-production-calibration-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-router-package-rollout-v2",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 2,
+        "max_requests": 20
+      },
+      "reward": 1.0,
+      "terminal_category": "pass",
+      "valid_submission_reported": true,
+      "final_source_sha256": "2e9d9e313db0bc6d745033d32540c0f86440b952c1baea3830be77b76f59e6df",
+      "final_artifact_available": true,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 2,
+      "changed_edits": 2,
+      "rejections": [],
+      "public_tests": [
+        {
+          "action": 5,
+          "sha256": "2e9d9e313db0bc6d745033d32540c0f86440b952c1baea3830be77b76f59e6df",
+          "binding": "explicit",
+          "status": "PASS",
+          "delivered": true,
+          "category": "pass"
+        }
+      ],
+      "final_public_status": "PASS",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": false,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "implementation_demonstration_review"
+      ],
+      "cost": {
+        "reported_tokens": 24131,
+        "wall_seconds": 778.9222,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "actual_public_feedback_exposure": 1,
+      "final_candidate_publicly_measured": true,
+      "next_research_candidate": "More evidence required; do not infer unmeasured candidate quality"
+    },
+    {
+      "episode_id": "64f7018331e10d8d495cc8d76ba817376cf1188216f89fd57a9dca1a735843e5:apb_register_mixed_v1-r1",
+      "task_id": "apb_register_mixed_v1",
+      "manifest_sha256": "a0c6cabf8257b1a5d6a66fe7134d48a0b1eb7870ca82563f65b83a9511bcc1b0",
+      "cohort": {
+        "study": "register-material-native-calibration-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-register-material-rollout-v1",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 2,
+        "max_requests": 20
+      },
+      "reward": 1.0,
+      "terminal_category": "pass",
+      "valid_submission_reported": true,
+      "final_source_sha256": "a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b",
+      "final_artifact_available": true,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 1,
+      "changed_edits": 1,
+      "rejections": [],
+      "public_tests": [
+        {
+          "action": 4,
+          "sha256": "a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b",
+          "binding": "explicit",
+          "status": "PASS",
+          "delivered": true,
+          "category": "pass"
+        }
+      ],
+      "final_public_status": "PASS",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": true,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "implementation_demonstration_review"
+      ],
+      "cost": {
+        "reported_tokens": 7823,
+        "wall_seconds": 118.0801,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "actual_public_feedback_exposure": 1,
+      "final_candidate_publicly_measured": true,
+      "next_research_candidate": "Sample another semantic combination before assuming this first-edit PASS generalizes"
+    },
+    {
+      "episode_id": "972d2b969360395ee52b77647cd412b78bcfe62552146d0a2c49a1951bacb1ad:x2p_composed_shifted_v2-r1",
+      "task_id": "x2p_composed_shifted_v2",
+      "manifest_sha256": "dfbb7c40ec3fb7e7048c7763a1a1dd6fceafc33df2ed49a8923d7a92526db879",
+      "cohort": {
+        "study": "generated-composition-calibration-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-composed-package-rollout-v1",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 2,
+        "max_requests": 20
+      },
+      "reward": 0.0,
+      "terminal_category": "transaction_functional_error",
+      "valid_submission_reported": true,
+      "final_source_sha256": "a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6",
+      "final_artifact_available": true,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 4,
+      "changed_edits": 4,
+      "rejections": [],
+      "public_tests": [
+        {
+          "action": 5,
+          "sha256": "dd021f3accaf3c9f8fb28c98f637fb3048f809b96e27676fbd2f424b76623c1f",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "transaction_functional_error"
+        },
+        {
+          "action": 7,
+          "sha256": "f0d4f92e400fd4c0652c173f334ca4c21f6c06937d0fbcb55eca94cfab4c904a",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "protocol_timing_error"
+        }
+      ],
+      "final_public_status": "not_observed",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": false,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "failure_feedback_analysis"
+      ],
+      "cost": {
+        "reported_tokens": 63090,
+        "wall_seconds": 430.4662,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "actual_public_feedback_exposure": 2,
+      "final_candidate_publicly_measured": false,
+      "next_research_candidate": "Fixed-error debugging/feedback study; no successful-repair claim"
+    }
+  ],
+  "not_read": [
+    "evaluation partitions",
+    "private vectors"
+  ],
+  "not_used": [
+    "held-out rewards",
+    "offline candidate measurements"
+  ],
+  "scope": "Candidate research uses, not proven training benefit. Different contracts and study profiles are not pooled into one success rate. No replacement sampling authorized."
+}

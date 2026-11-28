@@ -1,0 +1,32 @@
+{
+  "schema": "curated-composed-calibration-v1",
+  "files": {
+    "audit-challenges.json": "45feb036b0bd70925294a23f9cbefc021c4616aec80e712735b3f50377c69617",
+    "behavior.json": "ff688f58a6a3648a9512c73a2d5919f2ebf67e6c916b22e2bc737451799839c5",
+    "candidate-analysis.json": "968e14a2e3f7d3b8b260e0ddfff987e9924b825234de3c79c5ce1be15781500b",
+    "exchange-v12/analysis/offline.json": "bf27b6dcae2b76b53a492ae3b3374ba109ff69de6a64b9e4395a54c2f9700556",
+    "exchange-v12/artifacts/100e4a353c0ee002ae85e4ebffed0b83987c5f4b8672b1fcdc81e0c84253244b.txt": "100e4a353c0ee002ae85e4ebffed0b83987c5f4b8672b1fcdc81e0c84253244b",
+    "exchange-v12/artifacts/28b7ab3e95ed45b22da84986906606ffc237c79f880bbfcb9a26d92b3ea62b44.json": "28b7ab3e95ed45b22da84986906606ffc237c79f880bbfcb9a26d92b3ea62b44",
+    "exchange-v12/artifacts/3405db5876ffc6ca65f5e6e8b8a8158818d0b0494d90f33c5aa7aac23df1c468.json": "3405db5876ffc6ca65f5e6e8b8a8158818d0b0494d90f33c5aa7aac23df1c468",
+    "exchange-v12/artifacts/3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5.sv": "3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5",
+    "exchange-v12/artifacts/3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5.txt": "3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5",
+    "exchange-v12/artifacts/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "exchange-v12/artifacts/69a35aaec833b00f282595d5194dc6e447f97f96d6dc8a579aef508d38e1e428.json": "69a35aaec833b00f282595d5194dc6e447f97f96d6dc8a579aef508d38e1e428",
+    "exchange-v12/artifacts/a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6.sv": "a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6",
+    "exchange-v12/artifacts/a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6.txt": "a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6",
+    "exchange-v12/artifacts/ceac7ad1b767a998cec02a963c4368757903d3ca4fabcecc55eda544dffc2d95.json": "ceac7ad1b767a998cec02a963c4368757903d3ca4fabcecc55eda544dffc2d95",
+    "exchange-v12/artifacts/d7ba3cd3360247fe25b3a7a3d97f6c587f477554d1ffe51db0a3608aa185f383.txt": "d7ba3cd3360247fe25b3a7a3d97f6c587f477554d1ffe51db0a3608aa185f383",
+    "exchange-v12/artifacts/dd021f3accaf3c9f8fb28c98f637fb3048f809b96e27676fbd2f424b76623c1f.txt": "dd021f3accaf3c9f8fb28c98f637fb3048f809b96e27676fbd2f424b76623c1f",
+    "exchange-v12/artifacts/dd923c5f0632ea0887711d8ca5da6222fd4056970517c0705246a40239766690.json": "dd923c5f0632ea0887711d8ca5da6222fd4056970517c0705246a40239766690",
+    "exchange-v12/artifacts/f0d4f92e400fd4c0652c173f334ca4c21f6c06937d0fbcb55eca94cfab4c904a.txt": "f0d4f92e400fd4c0652c173f334ca4c21f6c06937d0fbcb55eca94cfab4c904a",
+    "exchange-v12/artifacts/f0e6ea9045ce3f6e12e4b0222b5c8527d0594ccb5aa701a746ad53fd140a765f.json": "f0e6ea9045ce3f6e12e4b0222b5c8527d0594ccb5aa701a746ad53fd140a765f",
+    "exchange-v12/evaluation/heldout.jsonl": "fe8d190c544a92f70ed0281f9b65869c90715f3d334519f2a0d2439e5b4a9281",
+    "exchange-v12/manifest.json": "dfbb7c40ec3fb7e7048c7763a1a1dd6fceafc33df2ed49a8923d7a92526db879",
+    "exchange-v12/research/started.jsonl": "2131b89289aa654fae1a1fc80a2298fa4efc6bba56c30368e5277e685cec93af",
+    "exchange-v12/training/rollouts.jsonl": "bf842875664e89963a9cce95bbd2866cb6d75fc0cc4193a0fa4ef4741d571090",
+    "replay.json": "7797360c667631b312c910b83531c2056bed20a02a089323d2f9e5793bdcebbc",
+    "study-design.json": "6c70124ead36fd88301dc4494adc9508023740f1beee17c0b48598bbe3bee4f8",
+    "summary.json": "7df049428ee7f9ed973da7bc5bc94828080cf2bad43f19d5dc6df47aacda6666"
+  },
+  "scope": "Actual prespecified trial, source evolution, delivered feedback, separate terminal/heldout and offline analysis. No private input contents or deployment logs."
+}

@@ -52,4 +52,4 @@ python3 -m environment.instance_controls controls --domain task003
 
 首次候选的源码审查发现：响应等待阶段的六个复位负例先写入 `VALID <= 1`，随后在同一个时序过程里执行正常的 `VALID <= 0`。后一次非阻塞赋值覆盖前一次，预期缺陷实际上未生效。相关工业队列在启动前停止，原候选与计划保留，没有产生错误的工业准入声明。
 
-[控制生成修订 v3](reset_controls_v3.py)将条件性违规赋值放在正常复位赋值之后。它不改变 Spec 或可信功能判据，不把修订候选计作新工程契约。[实际定向仿真](../../experiments/task-space-v1/composition/shifted-controls-v1.json)已经确认：合法实现通过、原失效负例通过、修订负例被协议／时序检查拒绝。随后[两份新契约](../../experiments/task-space-v1/composition/manifest.json)均完成两种合法结构各 44 个完整与 42 个公开 case，每份 38 个错误对照全部被功能或时序检查拒绝，并分别审计 210 条真实仿真及输入记录。两份整项验收耗时约 1071 与 1035 秒；第一份额外包含定向负例资格实验。两者都不能直接继承单事务路由任务的运行准入，尚未进行新组合实例的 Agent 求解。
+[控制生成修订 v3](reset_controls_v3.py)将条件性违规赋值放在正常复位赋值之后。它不改变 Spec 或可信功能判据，不把修订候选计作新工程契约。[实际定向仿真](../../experiments/task-space-v1/composition/shifted-controls-v1.json)已经确认：合法实现通过、原失效负例通过、修订负例被协议／时序检查拒绝。随后[两份新契约](../../experiments/task-space-v1/composition/manifest.json)均完成两种合法结构各 44 个完整与 42 个公开 case，每份 38 个错误对照全部被功能或时序检查拒绝，并分别审计 210 条真实仿真及输入记录。两份整项验收耗时约 1071 与 1035 秒；第一份额外包含定向负例资格实验。两者随后在独立组合适配路径上完成运行准入，未继承单事务路由任务的通过凭据。[运行与求解报告](../../docs/composed-runtime-calibration.md)说明共享机制、具体实例证据和模型测量的区别。

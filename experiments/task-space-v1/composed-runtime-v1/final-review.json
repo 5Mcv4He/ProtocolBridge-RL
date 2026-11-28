@@ -1,0 +1,43 @@
+{
+  "schema": "composed-delivery-review-v1",
+  "unit_tests": 306,
+  "unit_result": "PASS",
+  "unit_wall_seconds": 68.256,
+  "unit_log_sha256": "4a0255d8ae1dec092923bed8964f51319afe7ebbde53875d0f5b0402b7cd5020",
+  "actual_runtime_checks": 14,
+  "current_source_matched_tasks": 9,
+  "completed_batch_resume_reused_sealed_result": true,
+  "additional_model_or_eda_calls_on_resume": 0,
+  "historical_exchange_reproductions": [
+    {
+      "domain": "register",
+      "result": {
+        "records": 1,
+        "started_records": 1,
+        "manifest_sha256": "a0c6cabf8257b1a5d6a66fe7134d48a0b1eb7870ca82563f65b83a9511bcc1b0"
+      },
+      "new_model_or_eda_calls": 0
+    },
+    {
+      "domain": "router",
+      "result": {
+        "records": 1,
+        "started_records": 1,
+        "manifest_sha256": "70c57d084c33b4707d4f67388aeef4ec810efea6b3e7b48b3eb3af95bf7d87aa"
+      },
+      "new_model_or_eda_calls": 0
+    }
+  ],
+  "document_review": {
+    "local_html_render": [
+      "README desktop light",
+      "new report desktop light",
+      "new report390pxdark",
+      "results table"
+    ],
+    "images_loaded": true,
+    "local_stylesheet_not_github_server": true,
+    "original_diagram_reused": true
+  },
+  "disclosure": "Unit tests include mocked mechanisms; industrial and model counts above come from separate real execution evidence."
+}

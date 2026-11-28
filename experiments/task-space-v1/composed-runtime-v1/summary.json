@@ -1,0 +1,255 @@
+{
+  "schema": "composed-runtime-public-evidence-v1",
+  "passed": true,
+  "checks": [
+    {
+      "name": "initial_functional_rejection",
+      "passed": true,
+      "category": "protocol_timing_error"
+    },
+    {
+      "name": "standalone_reference_public",
+      "passed": true
+    },
+    {
+      "name": "old_feedback_identity",
+      "passed": true
+    },
+    {
+      "name": "third_test_no_grading",
+      "passed": true
+    },
+    {
+      "name": "submit_same_source",
+      "passed": true
+    },
+    {
+      "name": "closed_after_submit",
+      "passed": true
+    },
+    {
+      "name": "terminal_requires_stop",
+      "passed": true
+    },
+    {
+      "name": "standalone_reference_terminal",
+      "passed": true
+    },
+    {
+      "name": "standalone_reference_heldout",
+      "passed": true
+    },
+    {
+      "name": "private_results_not_in_feedback",
+      "passed": true
+    },
+    {
+      "name": "source_policy_invalid",
+      "passed": true
+    },
+    {
+      "name": "compile_error_is_not_infrastructure",
+      "passed": true
+    },
+    {
+      "name": "infrastructure_is_not_rtl_failure",
+      "passed": true
+    },
+    {
+      "name": "grading_roles",
+      "passed": true
+    }
+  ],
+  "seconds": 1087.65102483402,
+  "source_freeze_sha256": "fe57ae406107b02eb2f14e2e7aafe0c035827ee251f7fb21fa80aa117d2f3567",
+  "acceptance_result_sha256": "e713073892732cdde373b276b6c513e1119d1c98c0b01eedc237764133868e5a",
+  "qualification_sha256": "23a59aa050a91be291d78d3db45746285f9d76b99133f7c2c182048e9681c302",
+  "source_files": {
+    "environment/composed_acceptance_v1.py": "93daddd0d8b9f6ed2d5f7df0e2d19cb5bdaf34db0f001b2d4d57c1227fc14510",
+    "environment/composed_backend_v1.py": "13d4893eb03a77a4dfd4c4a84c6b8788fea29ec221c26e1e679a1b6e6bd8aaf6",
+    "environment/composed_inputs_v1.py": "baa33ef53c4e2a5fb2d0e8c6571c3f72e0d4f49e7ad440b2183793fd28bdf1de",
+    "environment/composed_grade_entry_v1.py": "c4ab5652977aa4455daab5e1791ca47ad066df3e572a2548c29bbfb32da1700a",
+    "environment/package_session.py": "09cbc36133774ce2a9be68a7023379d64cfa06d722d9e89136111fe259d18538",
+    "task_families/package.py": "8fe85be80f26ca25a9cc18e49b2b5589830dc4bad7b8654aa88fd99916c2c475",
+    "task_families/router_v3/toolchain.py": "ec23dad5f99a08c4bd3f7dc1f8be4f94913100fb35343e670cd53505b6c24a15",
+    "environment/native_tools/acceptance_v5.py": "d095c41d9466229a34060fff436a649989aa0fff1b79984d7b759910a6dd1446",
+    "environment/artifact_task/session_v4.py": "46ae123777acf2df679c0956c21d60a4dc96b12da548ed643f3fb5e8f3ce1119",
+    "environment/native_tools/worker_v5.py": "adab4e553610ce4ff46d97da0eb418e1017e85fa7744e42d0acbd9a75add6453",
+    "environment/native_tools/tools_v5.mjs": "a6ae830957a8b7e7a8969c1a83ec1c5900378c25f201c95043a884dd2a4709ad",
+    "environment/native_tools/launch_v5.sh": "a2a6635696fb5cb68cf2ef4f1c5cd7c5e1fb55d15042a8f8abcadf75bcbe9d5d",
+    "environment/native_tools/controller.py": "cd0299db9c53793501250cae33c16c84e80426c2aa0a9b0d345dd64678c3cb80",
+    "environment/native_tools/controller_v2.py": "1b7529b81b69fd31a1a5bcc1dd88ffa4c606ec5760cf3cf62fdf22e61313e199",
+    "environment/native_tools/controller_v3.py": "37ce38f233e6e395738841facb7b1929b1d9cfbf508322d9f554fb17bd52ec50",
+    "environment/composed_admission_v1.py": "0226dc9bc9d785f03bf3a821d12b21c46c02c3e7d8bf0715a6a63b6a24d2b781",
+    "environment/instance_control_audit.py": "0f9f580bf463aa51ed91cb2e973f66714748d02e2e6049b44fd9723a67ae5903",
+    "environment/control_bank.py": "94e54345db10801006977bb8370d4eb58269bda4e0abcc3d39cc14aadf61ada6",
+    "environment/environment_identity.py": "20d6d7979a9d10c861a5f39e3e5706601d9b19e738dfe27170cedf3b74c320eb",
+    "scripts/composed_grade_audit.py": "d175d7180caa64c0594eff5bb5fdb4177e84fb89b91073deb2bdd456a1d3791a"
+  },
+  "actual_grades": [
+    {
+      "source_sha256": "3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5",
+      "role": "public",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false,
+      "case_count": 1,
+      "wall_seconds": 102.628447916999,
+      "result_sha256": "76a4ddc49b39f93595c131fb233bad1ba3515cec81b238ec7d7978a888fe96ae",
+      "cost": {
+        "compile_attempts": 1,
+        "compile_cpu_seconds_reported": 92.588,
+        "simulation_attempts": 1,
+        "simulation_cpu_seconds_reported": 0.73,
+        "simulation_cpu_reports": 1,
+        "adapter_wall_seconds": 102.6128144999966,
+        "compile_wall_seconds": null,
+        "simulation_wall_seconds": null,
+        "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+      }
+    },
+    {
+      "source_sha256": "b6742126a2d3c226efd6d1d43724603ad7b0e1f64d8f127187ec7c139f7c52c3",
+      "role": "public",
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "case_count": 42,
+      "wall_seconds": 336.24360741698183,
+      "result_sha256": "ad0604ca63127d9129146ad802588e78a4e08512b1ae49a2299c43f9054c972e",
+      "cost": {
+        "compile_attempts": 1,
+        "compile_cpu_seconds_reported": 86.21300000000001,
+        "simulation_attempts": 42,
+        "simulation_cpu_seconds_reported": 25.669999999999998,
+        "simulation_cpu_reports": 42,
+        "adapter_wall_seconds": 336.226422458014,
+        "compile_wall_seconds": null,
+        "simulation_wall_seconds": null,
+        "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+      },
+      "planned": 572,
+      "checked": 460,
+      "aborted": 112
+    },
+    {
+      "source_sha256": "b6742126a2d3c226efd6d1d43724603ad7b0e1f64d8f127187ec7c139f7c52c3",
+      "role": "terminal",
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "case_count": 44,
+      "wall_seconds": 320.2305094579933,
+      "result_sha256": "87e9a161cf1639a97c2edf045f2a01e149db66f8aeb316bd05a136c63885db4d",
+      "cost": {
+        "compile_attempts": 1,
+        "compile_cpu_seconds_reported": 88.267,
+        "simulation_attempts": 44,
+        "simulation_cpu_seconds_reported": 27.89,
+        "simulation_cpu_reports": 44,
+        "adapter_wall_seconds": 320.2124760830193,
+        "compile_wall_seconds": null,
+        "simulation_wall_seconds": null,
+        "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+      },
+      "planned": 868,
+      "checked": 756,
+      "aborted": 112,
+      "functional_cross": {
+        "required": 66,
+        "observed": 66,
+        "missing": [],
+        "kind": "requirement_bins_not_cartesian_cross"
+      }
+    },
+    {
+      "source_sha256": "b6742126a2d3c226efd6d1d43724603ad7b0e1f64d8f127187ec7c139f7c52c3",
+      "role": "heldout",
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "case_count": 44,
+      "wall_seconds": 323.2722056249622,
+      "result_sha256": "a0605fbbfbf819c53ef2113c06cd6027126bd466bd4d472d1ee21285d6f3b6c9",
+      "cost": {
+        "compile_attempts": 1,
+        "compile_cpu_seconds_reported": 91.783,
+        "simulation_attempts": 44,
+        "simulation_cpu_seconds_reported": 28.33,
+        "simulation_cpu_reports": 44,
+        "adapter_wall_seconds": 323.25614754197886,
+        "compile_wall_seconds": null,
+        "simulation_wall_seconds": null,
+        "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+      },
+      "planned": 868,
+      "checked": 756,
+      "aborted": 112,
+      "functional_cross": {
+        "required": 66,
+        "observed": 66,
+        "missing": [],
+        "kind": "requirement_bins_not_cartesian_cross"
+      }
+    },
+    {
+      "source_sha256": "7b4d0bcd3affafb94d1b58cd5f86b9fcfe19573204e7867d20476a8df0fb0889",
+      "role": "public",
+      "reward": null,
+      "category": "invalid_submission",
+      "verification_complete": false,
+      "case_count": 0,
+      "wall_seconds": 0.0763184999814257,
+      "result_sha256": "7d63f7e9722d0f4c99f9e28fd0e7c804c1e6bade4f61f81a6ef57eb06553aff9",
+      "cost": {
+        "compile_attempts": 0,
+        "compile_cpu_seconds_reported": null,
+        "simulation_attempts": 0,
+        "simulation_cpu_seconds_reported": null,
+        "simulation_cpu_reports": 0,
+        "adapter_wall_seconds": 0.06001541705336422,
+        "compile_wall_seconds": null,
+        "simulation_wall_seconds": null,
+        "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+      }
+    },
+    {
+      "source_sha256": "b3164f7fe550d6ad1dfa686a9b96df5dfbc732dbed06059b3803d7395a7a646f",
+      "role": "public",
+      "reward": 0.0,
+      "category": "compile_error",
+      "verification_complete": false,
+      "case_count": 0,
+      "wall_seconds": 4.475007959001232,
+      "result_sha256": "8d57b88474fca66ff4db2186e21dbf2e4ee073c3226eb6dbc1b4b830dbb9980b",
+      "cost": {
+        "compile_attempts": 1,
+        "compile_cpu_seconds_reported": null,
+        "simulation_attempts": 0,
+        "simulation_cpu_seconds_reported": null,
+        "simulation_cpu_reports": 0,
+        "adapter_wall_seconds": 4.459815709036775,
+        "compile_wall_seconds": null,
+        "simulation_wall_seconds": null,
+        "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+      }
+    }
+  ],
+  "toolchain": {
+    "vcs": "O-2018.09-SP2",
+    "vip": "R-2020.12",
+    "uvm": "1.1d.Synopsys",
+    "python": "3.6.9 (controller); 3.10.12 (worker)",
+    "harness": "0.2.2rc2",
+    "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+  },
+  "model_inference_requests": 0,
+  "shared_native_dependencies": 9,
+  "native_reuse_scope": "Byte-identical mechanism only; no router task verdict inheritance",
+  "root_unit_tests_passed": 301,
+  "additional_targeted_tests_passed": 7,
+  "limitations": [
+    "Trusted locally generated capsules only; manifest integrity is not third-party code security.",
+    "Ephemeral solver work/tmp, fixed shared UID and shared network namespace; no claim of complete adversarial OS isolation."
+  ]
+}

@@ -1,0 +1,180 @@
+module bridge(
+ input logic clk,rst_n,
+ input logic [31:0] s_awaddr, input logic s_awvalid, output logic s_awready,
+ input logic [31:0] s_wdata, input logic [3:0] s_wstrb, input logic s_wvalid, output logic s_wready,
+ output logic [1:0] s_bresp, output logic s_bvalid, input logic s_bready,
+ input logic [31:0] s_araddr, input logic s_arvalid, output logic s_arready,
+ output logic [31:0] s_rdata, output logic [1:0] s_rresp, output logic s_rvalid, input logic s_rready,
+ output logic [31:0] paddr,pwdata, output logic [3:0] pstrb, output logic [2:0] pprot,
+ output logic [2:0] psel, input logic [95:0] prdata, input logic [2:0] pready,pslverr, output logic penable,pwrite
+);
+ // queues
+ reg [31:0] aw_q [0:1];
+ reg [31:0] wd_q [0:1];
+ reg [3:0]  ws_q [0:1];
+ reg [31:0] ar_q [0:1];
+ reg [1:0] awc, wc, arc;
+ reg awptr, wptr, arptr;
+ reg aw_tail, w_tail, ar_tail;
+
+ localparam [1:0] IDLE=2'd0, SETUP=2'd1, ACCESS=2'd2, RESP=2'd3;
+ reg [1:0] state;
+ reg iswrite;
+ reg mapped;
+ reg [31:0] cur_addr, cur_wdata;
+ reg [3:0] cur_strb;
+ reg [2:0] cur_psel;
+ reg [1:0] resp_code;
+ reg [31:0] rdata_reg;
+ reg resp_dec;
+ reg pref_read;
+
+ wire aw_avail = (awc != 2'd0);
+ wire w_avail  = (wc  != 2'd0);
+ wire ar_avail = (arc != 2'd0);
+ wire we_elig  = aw_avail && w_avail;
+ wire re_elig  = ar_avail;
+
+ function automatic [1:0] dec_map(input [31:0] a);
+   begin
+     if (a >= 32'h0001_0004 && a <= 32'h0002_0003) dec_map = 2'd1;
+     else if (a >= 32'h8004_000c && a <= 32'h8005_000b) dec_map = 2'd2;
+     else if (a >= 32'h0005_0008 && a <= 32'h0006_0007) dec_map = 2'd3;
+     else dec_map = 2'd0;
+   end
+ endfunction
+
+ function automatic [31:0] dec_base(input [1:0] m);
+   begin
+     case (m)
+       2'd1: dec_base = 32'h0001_0004;
+       2'd2: dec_base = 32'h8004_000c;
+       2'd3: dec_base = 32'h0005_0008;
+       default: dec_base = 32'h0;
+     endcase
+   end
+ endfunction
+
+ assign s_awready = (awc != 2'd2);
+ assign s_wready  = (wc  != 2'd2);
+ assign s_arready = (arc != 2'd2);
+
+ assign s_bvalid = (state == RESP) && !iswrite;
+ assign s_rvalid = (state == RESP) &&  iswrite;
+ assign s_bresp  = resp_dec ? 2'b11 : resp_code;
+ assign s_rresp  = resp_dec ? 2'b11 : resp_code;
+ assign s_rdata  = rdata_reg;
+
+ assign penable = (state == ACCESS);
+ assign psel    = (state == SETUP || state == ACCESS) ? cur_psel : 3'b000;
+ assign pwrite  = iswrite && (state == SETUP || state == ACCESS);
+ assign paddr   = (state == SETUP || state == ACCESS) ? (cur_addr - dec_base(dec_map(cur_addr))) : 32'h0;
+ assign pwdata  = cur_wdata;
+ assign pstrb   = (iswrite && (state == SETUP || state == ACCESS)) ? cur_strb : 4'h0;
+ assign pprot   = 3'b000;
+
+ wire b_fire = s_bvalid && s_bready;
+ wire r_fire = s_rvalid && s_rready;
+ wire [1:0] cur_target = dec_map(cur_addr);
+
+ // selection decision
+ wire do_sel = (state == IDLE) && (we_elig || re_elig);
+ wire sel_we = do_sel && we_elig && (!re_elig || !pref_read);
+ wire sel_re = do_sel && re_elig && (sel_we ? 1'b0 : 1'b1);
+ wire [31:0] sel_addr  = sel_we ? aw_q[awptr] : ar_q[arptr];
+ wire [1:0]  sel_map   = dec_map(sel_addr);
+
+ integer i;
+
+ always @(posedge clk) begin
+   if (!rst_n) begin
+     awc <= 2'd0; wc <= 2'd0; arc <= 2'd0;
+     awptr <= 1'b0; wptr <= 1'b0; arptr <= 1'b0;
+     aw_tail <= 1'b0; w_tail <= 1'b0; ar_tail <= 1'b0;
+     state <= IDLE;
+     iswrite <= 1'b0;
+     mapped <= 1'b0;
+     cur_addr <= 32'h0; cur_wdata <= 32'h0; cur_strb <= 4'h0;
+     cur_psel <= 3'b000;
+     resp_code <= 2'b00; rdata_reg <= 32'h0;
+     resp_dec <= 1'b0;
+     pref_read <= 1'b1;
+   end else begin
+     // acceptance
+     if (s_awvalid && s_awready) begin
+       aw_q[aw_tail] <= s_awaddr;
+       aw_tail <= ~aw_tail;
+       awc <= awc + 2'd1;
+     end
+     if (s_wvalid && s_wready) begin
+       wd_q[w_tail] <= s_wdata;
+       ws_q[w_tail] <= s_wstrb;
+       w_tail <= ~w_tail;
+       wc <= wc + 2'd1;
+     end
+     if (s_arvalid && s_arready) begin
+       ar_q[ar_tail] <= s_araddr;
+       ar_tail <= ~ar_tail;
+       arc <= arc + 2'd1;
+     end
+
+     // retire
+     if (b_fire) begin
+       awptr <= ~awptr; wptr <= ~wptr;
+       awc <= awc - 2'd1; wc <= wc - 2'd1;
+     end else if (r_fire) begin
+       arptr <= ~arptr;
+       arc <= arc - 2'd1;
+     end
+
+     // executor
+     case (state)
+       IDLE: begin
+         if (do_sel) begin
+           iswrite <= sel_we;
+           if (sel_we) begin
+             cur_addr  <= aw_q[awptr];
+             cur_wdata <= wd_q[wptr];
+             cur_strb  <= ws_q[wptr];
+           end else begin
+             cur_addr  <= ar_q[arptr];
+             cur_wdata <= 32'h0;
+             cur_strb  <= 4'h0;
+           end
+           mapped   <= (sel_map != 2'd0);
+           cur_psel <= (sel_map == 2'd1) ? 3'b001 :
+                       (sel_map == 2'd2) ? 3'b010 :
+                       (sel_map == 2'd3) ? 3'b100 : 3'b000;
+           resp_dec <= 1'b0;
+           pref_read <= sel_we; // opposite of selected: if write selected -> prefer read
+           state <= SETUP;
+         end
+       end
+       SETUP: begin
+         if (!mapped) begin
+           state <= RESP;
+           resp_dec <= 1'b1;
+           resp_code <= 2'b11;
+         end else begin
+           state <= ACCESS;
+         end
+       end
+       ACCESS: begin
+         if (pready[cur_target]) begin
+           rdata_reg <= prdata[32*cur_target +: 32];
+           resp_code <= pslverr[cur_target] ? 2'b10 : 2'b00;
+           resp_dec  <= 1'b0;
+           state <= RESP;
+         end
+       end
+       RESP: begin
+         if (b_fire || r_fire) begin
+           state <= IDLE;
+         end
+       end
+       default: state <= IDLE;
+     endcase
+   end
+ end
+
+endmodule

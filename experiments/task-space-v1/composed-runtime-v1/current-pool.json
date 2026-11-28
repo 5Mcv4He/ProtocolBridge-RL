@@ -1,0 +1,193 @@
+{
+  "schema": "public-source-matched-pool-v2",
+  "count": 9,
+  "tasks": [
+    {
+      "task_id": "x2p_router_batcha_v1",
+      "family": "x2p_three_target_router_v5",
+      "capabilities": [
+        "full-address-decode",
+        "one-hot-routing",
+        "local-address-translation",
+        "selected-response-mux",
+        "decode-error",
+        "reset-cancellation"
+      ],
+      "admission_sha256": "c21be1aafd882fab606a3b7055936759fccf64937c2302e0f97a6d5a1379a9d4",
+      "package_manifest_sha256": "59eae858a076b91cbdd853c733792a6d3963fdd206e847f639cb0ce2d8a362fc",
+      "initial_sha256": "62ce122ad4dcedf12e91516ea69deaac23bfd9074ce1d0a9d282842c173bfebb",
+      "deliverable": "bridge.sv",
+      "task_form": "rtl_implementation",
+      "runner": "environment.native_tools.run_package_v2",
+      "status": "source_matched_admitted",
+      "difficulty": "not_inferred_from_admission"
+    },
+    {
+      "task_id": "x2p_router_batche_v1",
+      "family": "x2p_three_target_router_v5",
+      "capabilities": [
+        "full-address-decode",
+        "one-hot-routing",
+        "local-address-translation",
+        "selected-response-mux",
+        "decode-error",
+        "reset-cancellation"
+      ],
+      "admission_sha256": "e0f6f27647ee255b64770a33e740cc3a97b7ecbca3bdd31f82fe36ff671006ce",
+      "package_manifest_sha256": "a299d4708d4ba0e6a1ece3f1103bfd5bf4fedd13245bedf20d445fb8e6207e57",
+      "initial_sha256": "62ce122ad4dcedf12e91516ea69deaac23bfd9074ce1d0a9d282842c173bfebb",
+      "deliverable": "bridge.sv",
+      "task_form": "rtl_implementation",
+      "runner": "environment.native_tools.run_package_v2",
+      "status": "source_matched_admitted",
+      "difficulty": "not_inferred_from_admission"
+    },
+    {
+      "task_id": "x2p_router_roundworda_v1",
+      "family": "x2p_three_target_router_v5",
+      "capabilities": [
+        "full-address-decode",
+        "one-hot-routing",
+        "local-address-translation",
+        "selected-response-mux",
+        "decode-error",
+        "reset-cancellation"
+      ],
+      "admission_sha256": "a73695863e757ab7254a2afe74ab85cac89af8db0b06e2a7d93e89df62eded3c",
+      "package_manifest_sha256": "6c23f08f038b2904fefbd87121b536e2b30b1d31f123d2716843071f18d90d97",
+      "initial_sha256": "62ce122ad4dcedf12e91516ea69deaac23bfd9074ce1d0a9d282842c173bfebb",
+      "deliverable": "bridge.sv",
+      "task_form": "rtl_implementation",
+      "runner": "environment.native_tools.run_package_v2",
+      "status": "source_matched_admitted",
+      "difficulty": "not_inferred_from_admission"
+    },
+    {
+      "task_id": "x2p_router_roundwordn_v1",
+      "family": "x2p_three_target_router_v5",
+      "capabilities": [
+        "full-address-decode",
+        "one-hot-routing",
+        "local-address-translation",
+        "selected-response-mux",
+        "decode-error",
+        "reset-cancellation"
+      ],
+      "admission_sha256": "6773dc0e2f6a6ef3fad3d86bcfdaaf17c53a7fae232ba8718c72a9e437ca1298",
+      "package_manifest_sha256": "6cef90bf26db12decf7c8cf8b76893c2ff959705925dd953ce94ef1fe37e3bcc",
+      "initial_sha256": "62ce122ad4dcedf12e91516ea69deaac23bfd9074ce1d0a9d282842c173bfebb",
+      "deliverable": "bridge.sv",
+      "task_form": "rtl_implementation",
+      "runner": "environment.native_tools.run_package_v2",
+      "status": "source_matched_admitted",
+      "difficulty": "not_inferred_from_admission"
+    },
+    {
+      "task_id": "x2p_router_roundwordq_v1",
+      "family": "x2p_three_target_router_v5",
+      "capabilities": [
+        "full-address-decode",
+        "one-hot-routing",
+        "local-address-translation",
+        "selected-response-mux",
+        "decode-error",
+        "reset-cancellation"
+      ],
+      "admission_sha256": "07e04c4c4b72291f2fccdab8164116f038bbd22f31aed42a10f55c56883949c7",
+      "package_manifest_sha256": "00cfe85377c6d71d3bc3ff91595f8df03a5603c50056005d748e5486ab693a9d",
+      "initial_sha256": "62ce122ad4dcedf12e91516ea69deaac23bfd9074ce1d0a9d282842c173bfebb",
+      "deliverable": "bridge.sv",
+      "task_form": "rtl_implementation",
+      "runner": "environment.native_tools.run_package_v2",
+      "status": "source_matched_admitted",
+      "difficulty": "not_inferred_from_admission"
+    },
+    {
+      "task_id": "apb_register_mixed_v1",
+      "family": "apb-register-contract-v1",
+      "capabilities": [
+        "apb4_slave",
+        "exact_address_decode",
+        "byte_strobes",
+        "idle_reset",
+        "exact_access_waits",
+        "ro",
+        "rw",
+        "w1c"
+      ],
+      "admission_sha256": "9446959c959459b0ce0c94aec37888bf425dc9dade838d9a5b8a0a1b6a683c12",
+      "package_manifest_sha256": "a94422c9eeb16f02d86334193af106124275eeaa86940ad36af216a161bc230b",
+      "initial_sha256": "90d4f24b15435b63af2fafd7745ba886516ef1f686be05787973af9bc1c1988a",
+      "deliverable": "bridge.sv",
+      "task_form": "rtl_implementation",
+      "runner": "environment.native_tools.run_register_v1",
+      "status": "source_matched_admitted",
+      "difficulty": "not_inferred_from_admission"
+    },
+    {
+      "task_id": "apb_register_status_v1",
+      "family": "apb-register-contract-v1",
+      "capabilities": [
+        "apb4_slave",
+        "exact_address_decode",
+        "byte_strobes",
+        "idle_reset",
+        "exact_access_waits",
+        "rw"
+      ],
+      "admission_sha256": "a01a97070fe9277912c111156e7d4d6d92468466f211231587ffd4e19cf5dc63",
+      "package_manifest_sha256": "c3551b3006156cac62ca1c3f96e3b31fcf17670913973c1d36d3234a891d70e9",
+      "initial_sha256": "90d4f24b15435b63af2fafd7745ba886516ef1f686be05787973af9bc1c1988a",
+      "deliverable": "bridge.sv",
+      "task_form": "rtl_implementation",
+      "runner": "environment.native_tools.run_register_v1",
+      "status": "source_matched_admitted",
+      "difficulty": "not_inferred_from_admission"
+    },
+    {
+      "task_id": "x2p_composed_shifted_v2",
+      "family": "routed_retirement_windows_v2",
+      "capabilities": [
+        "independent-request-fifos",
+        "bounded-outstanding-credit",
+        "read-write-arbitration",
+        "response-ordering",
+        "reset-ledgers",
+        "queued_target_identity",
+        "decerr_retirement",
+        "route_queue_interactions"
+      ],
+      "admission_sha256": "6cba6f72a94fdb97014b9a463df3bb09ca63a93edd16730b869db498507f6ff8",
+      "package_manifest_sha256": "e9e61ac61b768aaafa6c8e5ccdbbc8edbcce6c35a28103dba75bf602c40270d6",
+      "initial_sha256": "3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5",
+      "deliverable": "bridge.sv",
+      "task_form": "rtl_implementation",
+      "runner": "environment.native_tools.run_composed_v1",
+      "status": "source_matched_admitted",
+      "difficulty": "not_inferred_from_admission"
+    },
+    {
+      "task_id": "x2p_composed_adjacent_v2",
+      "family": "routed_retirement_windows_v2",
+      "capabilities": [
+        "independent-request-fifos",
+        "bounded-outstanding-credit",
+        "read-write-arbitration",
+        "response-ordering",
+        "reset-ledgers",
+        "queued_target_identity",
+        "decerr_retirement",
+        "route_queue_interactions"
+      ],
+      "admission_sha256": "9267150dbacd22d43d2beda4f4da500b28757dc246278bda97dc0236b0b444b3",
+      "package_manifest_sha256": "4310ca2864b3873aa9f9ee67b5eb4014831588784244a2a8098a49a7c9520d91",
+      "initial_sha256": "3b93e6431856da8a28bf354a14b6e1a1871909bf935c288f53302ab164a76fc5",
+      "deliverable": "bridge.sv",
+      "task_form": "rtl_implementation",
+      "runner": "environment.native_tools.run_composed_v1",
+      "status": "source_matched_admitted",
+      "difficulty": "not_inferred_from_admission"
+    }
+  ],
+  "note": "Local admission/configuration paths withheld; all nine records were source-matched during this review. Historical evidence cannot authorize changed sources."
+}

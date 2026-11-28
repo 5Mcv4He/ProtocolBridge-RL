@@ -1,0 +1,54 @@
+{
+  "schema": "composed-calibration-design-v1",
+  "declared_at": "2026-11-28T20:13:31.636030+00:00",
+  "research_question": "Can the existing native four-action lifecycle execute and audit one generated routing plus retirement-held queue contract without task-specific solver changes?",
+  "selection_rule": "First of the two previously generated and industrially controlled composed contracts, shifted; selected by fixed production order before model calls.",
+  "task_id": "x2p_composed_shifted_v2",
+  "sample_count": 1,
+  "stage_trials_already_started": 5,
+  "stage_trial_cap": 6,
+  "model": "deepseek-flash",
+  "reasoning_effort": "off",
+  "sampling_seed": null,
+  "sampling_temperature": "provider/DSH default; not explicitly set",
+  "exact_model_weights": null,
+  "max_actions": 20,
+  "max_requests": 20,
+  "max_tests": 2,
+  "max_output_tokens": 4096,
+  "max_solver_seconds": 3600,
+  "max_terminal_grader_seconds": 2400,
+  "max_heldout_grader_seconds": 2400,
+  "tools": [
+    "read",
+    "edit",
+    "test",
+    "submit"
+  ],
+  "candidate_start": "unchanged generated blank interface",
+  "estimated_tokens": {
+    "based_on_prior_observed_range": [
+      7823,
+      63692
+    ],
+    "maximum_requests": 20,
+    "maximum_output_tokens_per_request": 4096,
+    "monetary_cost": "unavailable; no paid service expansion"
+  },
+  "eda_limit": "one process group at a time; up to four fresh candidate grades; no model launch with active EDA or less than 4GiB free",
+  "stop_rules": [
+    "Do not launch before runtime and concrete controls qualify.",
+    "Stop on trusted execution/information boundary failure.",
+    "No replacement sample for model failure, unsubmitted episode, or infrastructure interruption.",
+    "No additional stage API trial after this one."
+  ],
+  "primary_measures": [
+    "actual edits and delivered feedback",
+    "public-test use and candidate identity",
+    "terminal reward separately from heldout",
+    "source evolution",
+    "tokens and actual EDA cost"
+  ],
+  "offline_analysis": "Replay logs and source transitions only; no new intermediate candidate grades, no heldout-based candidate or data selection.",
+  "scope": "One exploratory task/rollout; no stable success rate, no cross-family causal comparison, no parameter training."
+}

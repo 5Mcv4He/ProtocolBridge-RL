@@ -1,0 +1,12 @@
+{
+  "schema": "curated-composed-runtime-evidence-v1",
+  "files": {
+    "admission-challenges.json": "9b29937af1e5891b1ed3eb6a72e6fbbdfdca08e857085045de99806cc88198fb",
+    "admitted.json": "b9247b10a27d72f31b78049210bc088bd7cccf2a3f2d56e36fe634b8cc1e6436",
+    "current-pool.json": "4aa45b6155a28952ef255630d43301b4409ceae14edef7c7e88d632ee075c9b4",
+    "grade-audit-challenges.json": "ed8324b521774ef2c420a5b62f163ef323bd60a388fda909ece36672dec567f1",
+    "summary.json": "02eecf2129dbf3b938fa0141f9a88d8c09a9ebc4345a13d1aa9ad35a9a715d1e",
+    "final-review.json": "557c2be42f8b4d7c79745a5c10746d3fd9e33befabf5c3fc31d1468bb9e6ce40"
+  },
+  "scope": "Actual deterministic runtime acceptance and independently audited concrete controls; not model performance evidence."
+}

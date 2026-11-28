@@ -1,0 +1,62 @@
+[
+  {
+    "task_id": "x2p_composed_shifted_v2",
+    "admitted": true,
+    "package_manifest_sha256": "e9e61ac61b768aaafa6c8e5ccdbbc8edbcce6c35a28103dba75bf602c40270d6",
+    "admission_sha256": "6cba6f72a94fdb97014b9a463df3bb09ca63a93edd16730b869db498507f6ff8",
+    "runtime_qualification_sha256": "23a59aa050a91be291d78d3db45746285f9d76b99133f7c2c182048e9681c302",
+    "control_audit": {
+      "schema": "component-control-audit-v1",
+      "task_id": "x2p_composed_shifted_v2",
+      "domain": "task003",
+      "control_layer_qualified": true,
+      "admitted": false,
+      "positive_runs": 4,
+      "negative_controls": 38,
+      "simulation_records_replayed": 210,
+      "environment_entry_sha256": "1c1e7d6f3ea940134da7f7572cfeb3d720650dfb48420479bf67a505334427bd",
+      "runtime_identities": [
+        {
+          "vcs_compiler": "O-2018.09-SP2_Full64",
+          "vcs_runtime": "O-2018.09-SP2_Full64",
+          "uvm": "1.1d.Synopsys"
+        }
+      ],
+      "package_manifest_sha256": "e9e61ac61b768aaafa6c8e5ccdbbc8edbcce6c35a28103dba75bf602c40270d6",
+      "control_report_sha256": "08d03dfcea1cfcf6ec6708df9df0f25a604d2b3c63064b501188098ae004761c",
+      "auditor_sha256": "0f9f580bf463aa51ed91cb2e973f66714748d02e2e6049b44fd9723a67ae5903",
+      "scope": "Recorded execution/input/source consistency; not an independent proof of oracle semantics or runtime admission"
+    },
+    "environment_binding_kind": "reproduced_outputs_same_file_content"
+  },
+  {
+    "task_id": "x2p_composed_adjacent_v2",
+    "admitted": true,
+    "package_manifest_sha256": "4310ca2864b3873aa9f9ee67b5eb4014831588784244a2a8098a49a7c9520d91",
+    "admission_sha256": "9267150dbacd22d43d2beda4f4da500b28757dc246278bda97dc0236b0b444b3",
+    "runtime_qualification_sha256": "23a59aa050a91be291d78d3db45746285f9d76b99133f7c2c182048e9681c302",
+    "control_audit": {
+      "schema": "component-control-audit-v1",
+      "task_id": "x2p_composed_adjacent_v2",
+      "domain": "task003",
+      "control_layer_qualified": true,
+      "admitted": false,
+      "positive_runs": 4,
+      "negative_controls": 38,
+      "simulation_records_replayed": 210,
+      "environment_entry_sha256": "1c1e7d6f3ea940134da7f7572cfeb3d720650dfb48420479bf67a505334427bd",
+      "runtime_identities": [
+        {
+          "vcs_compiler": "O-2018.09-SP2_Full64",
+          "vcs_runtime": "O-2018.09-SP2_Full64",
+          "uvm": "1.1d.Synopsys"
+        }
+      ],
+      "package_manifest_sha256": "4310ca2864b3873aa9f9ee67b5eb4014831588784244a2a8098a49a7c9520d91",
+      "control_report_sha256": "0bfd188ccfc6b426ac5147e26fc861e76648c0c18a5b66f78c15a25da1894d02",
+      "auditor_sha256": "0f9f580bf463aa51ed91cb2e973f66714748d02e2e6049b44fd9723a67ae5903",
+      "scope": "Recorded execution/input/source consistency; not an independent proof of oracle semantics or runtime admission"
+    },
+    "environment_binding_kind": "reproduced_outputs_same_file_content"
+  }
+]

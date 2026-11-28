@@ -134,4 +134,13 @@ python3 -m scripts.register_exchange FROZEN_PLAN RAW_RUNS NEW_EXCHANGE
 
 重放过程不调用模型或 EDA；它核对原生参数、Session 状态、候选源码、实际送达反馈、评分输入和日志支持的判定。编译与仿真实际子进程耗时分开记录，保留评估开销不混入训练侧成本。缺失的 Token IDs、行为概率、精确模型权重和货币费用仍标为不可取得。
 
-[追加库存](../experiments/task-space-v1/exchange-inventory-v2.json)保留前版哈希，现为 **146 条研究记录、105 条完整交付工具轨迹，另有 1 条单独审计的中断研究记录**。模型调用前的一次启动检查失败不计为模型试次；完整试次均保留，不因成功与否筛选。[研究说明](register-family-runtime.md)解释这条记录为何可用于实现行为研究，却不能证明调试收益或稳定成功率。
+[追加库存](../experiments/task-space-v1/exchange-inventory-v2.json)保留前版哈希，截至该轮为 **146 条研究记录、105 条完整交付工具轨迹，另有 1 条单独审计的中断研究记录**。模型调用前的一次启动检查失败不计为模型试次；完整试次均保留，不因成功与否筛选。[研究说明](register-family-runtime.md)解释这条记录为何可用于实现行为研究，却不能证明调试收益或稳定成功率。
+
+
+## 组合任务的 v12 与统一导出
+
+[v12](../scripts/composed_exchange.py)交付一条真实组合任务失败轨迹：9 动作、4 编辑、2 次实际 FAIL，最终提交未公开测试，独立终局与保留分别为 0。它先验证封存文件，再重放原生动作与反馈，逐条核对实际输入、编译身份及场景判定；三项轨迹篡改挑战被拒绝。[证据与候选分析](../experiments/task-space-v1/calibration-composed-v1/manifest.json)不包含私有向量或部署日志。
+
+统一入口 `python3 -m scripts.generated_exchange STUDY_PLAN RUNS OUT` 按冻结研究配置选择 v10／v11／v12 专用审计器，不根据 Task ID 导入任意代码。路由和寄存器历史记录通过该入口重新导出，清单哈希与已发布版本完全一致；这不是新增试次或重新评分。
+
+[本轮追加库存](../experiments/task-space-v1/exchange-inventory-v3.json)为 **147 条研究记录、106 条完整工具轨迹，另有 1 条单独审计的中断研究记录**；之前库存保持不变。[数据用途规则](../research/generated_trajectory_uses.py)对本阶段五条完整记录核对真实反馈曝光、候选与终局，另记原始中断分母。它输出需要人工复核的研究用途，不宣称训练价值已经得到证明，也不使用保留奖励筛选训练材料。

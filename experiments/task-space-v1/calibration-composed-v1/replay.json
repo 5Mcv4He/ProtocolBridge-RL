@@ -1,0 +1,46 @@
+{
+  "trial_id": "x2p_composed_shifted_v2-r1",
+  "accepted": true,
+  "scope": "completed_runtime",
+  "training_eligible": null,
+  "sdk_audit": {
+    "schema": "native-action-audit-v2",
+    "accepted": true,
+    "generated_calls": 9,
+    "executed_operations": 9,
+    "sdk_results": 9,
+    "observations_in_completed_model_requests": 8,
+    "model_responses": 8,
+    "submitted": true
+  },
+  "grade_audits": [
+    {
+      "category": "transaction_functional_error",
+      "reward": 0.0,
+      "simulation_records": 1,
+      "environment_entry_sha256": "088b691d27fea1a55c25ec3b4980943bcb7c09c8427ccf54a9b5ffebe8e48061"
+    },
+    {
+      "category": "protocol_timing_error",
+      "reward": 0.0,
+      "simulation_records": 1,
+      "environment_entry_sha256": "088b691d27fea1a55c25ec3b4980943bcb7c09c8427ccf54a9b5ffebe8e48061"
+    },
+    {
+      "category": "transaction_functional_error",
+      "reward": 0.0,
+      "simulation_records": 1,
+      "environment_entry_sha256": "088b691d27fea1a55c25ec3b4980943bcb7c09c8427ccf54a9b5ffebe8e48061"
+    },
+    {
+      "category": "transaction_functional_error",
+      "reward": 0.0,
+      "simulation_records": 1,
+      "environment_entry_sha256": "088b691d27fea1a55c25ec3b4980943bcb7c09c8427ccf54a9b5ffebe8e48061"
+    }
+  ],
+  "actions": 9,
+  "public_results_replayed": 2,
+  "new_model_or_eda_calls": 0,
+  "terminal_reward": 0.0
+}

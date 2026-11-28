@@ -1,0 +1,150 @@
+{
+  "schema": "audited-composed-behavior-v1",
+  "trial_id": "x2p_composed_shifted_v2-r1",
+  "task_id": "x2p_composed_shifted_v2",
+  "result_sha256": "e7d9279d9742cbec435bfa109e67376fd3402da57e3b726848fbd99a2c215277",
+  "replay": {
+    "trial_id": "x2p_composed_shifted_v2-r1",
+    "accepted": true,
+    "scope": "completed_runtime",
+    "training_eligible": null,
+    "sdk_audit": {
+      "schema": "native-action-audit-v2",
+      "accepted": true,
+      "generated_calls": 9,
+      "executed_operations": 9,
+      "sdk_results": 9,
+      "observations_in_completed_model_requests": 8,
+      "model_responses": 8,
+      "submitted": true
+    },
+    "grade_audits": [
+      {
+        "category": "transaction_functional_error",
+        "reward": 0.0,
+        "simulation_records": 1,
+        "environment_entry_sha256": "088b691d27fea1a55c25ec3b4980943bcb7c09c8427ccf54a9b5ffebe8e48061"
+      },
+      {
+        "category": "protocol_timing_error",
+        "reward": 0.0,
+        "simulation_records": 1,
+        "environment_entry_sha256": "088b691d27fea1a55c25ec3b4980943bcb7c09c8427ccf54a9b5ffebe8e48061"
+      },
+      {
+        "category": "transaction_functional_error",
+        "reward": 0.0,
+        "simulation_records": 1,
+        "environment_entry_sha256": "088b691d27fea1a55c25ec3b4980943bcb7c09c8427ccf54a9b5ffebe8e48061"
+      },
+      {
+        "category": "transaction_functional_error",
+        "reward": 0.0,
+        "simulation_records": 1,
+        "environment_entry_sha256": "088b691d27fea1a55c25ec3b4980943bcb7c09c8427ccf54a9b5ffebe8e48061"
+      }
+    ],
+    "actions": 9,
+    "public_results_replayed": 2,
+    "new_model_or_eda_calls": 0,
+    "terminal_reward": 0.0
+  },
+  "analyzer_sha256": "22cc58afdc8a613cae352785c6b4801a5556a12d73ee361bc14917ef648e8676",
+  "edits": [
+    {
+      "action_index": 3,
+      "source_sha256": "d7ba3cd3360247fe25b3a7a3d97f6c587f477554d1ffe51db0a3608aa185f383"
+    },
+    {
+      "action_index": 4,
+      "source_sha256": "dd021f3accaf3c9f8fb28c98f637fb3048f809b96e27676fbd2f424b76623c1f"
+    },
+    {
+      "action_index": 6,
+      "source_sha256": "f0d4f92e400fd4c0652c173f334ca4c21f6c06937d0fbcb55eca94cfab4c904a"
+    },
+    {
+      "action_index": 8,
+      "source_sha256": "a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6"
+    }
+  ],
+  "public_tests": [
+    {
+      "action_index": 5,
+      "source_sha256": "dd021f3accaf3c9f8fb28c98f637fb3048f809b96e27676fbd2f424b76623c1f",
+      "verdict": "FAIL",
+      "feedback_observation": {
+        "status": "FAIL",
+        "category": "transaction_functional_error",
+        "source_sha256": "dd021f3accaf3c9f8fb28c98f637fb3048f809b96e27676fbd2f424b76623c1f",
+        "remaining_test_calls": 1
+      },
+      "transport_returned": true,
+      "model_receipt_confirmed": true
+    },
+    {
+      "action_index": 7,
+      "source_sha256": "f0d4f92e400fd4c0652c173f334ca4c21f6c06937d0fbcb55eca94cfab4c904a",
+      "verdict": "FAIL",
+      "feedback_observation": {
+        "status": "FAIL",
+        "category": "protocol_timing_error",
+        "source_sha256": "f0d4f92e400fd4c0652c173f334ca4c21f6c06937d0fbcb55eca94cfab4c904a",
+        "remaining_test_calls": 0
+      },
+      "transport_returned": true,
+      "model_receipt_confirmed": true
+    }
+  ],
+  "final_source_sha256": "a3034d92e8e70b5afee0d65ee5ebaeedc9307eed991f32452e7701f333bd7aa6",
+  "final_public_verdict": "UNTESTED",
+  "submitted_known_public_failure": false,
+  "edits_after_last_public_test": 1,
+  "public_case_regressions": [],
+  "terminal_reward": 0.0,
+  "terminal_category": "transaction_functional_error",
+  "costs": {
+    "reported_tokens": 63090,
+    "whole_trial_wall_seconds": 430.4662,
+    "public": [
+      {
+        "action_index": 5,
+        "compile_attempts": 1,
+        "compile_cpu_seconds_reported": 91.54899999999999,
+        "simulation_attempts": 1,
+        "simulation_cpu_seconds_reported": 0.62,
+        "simulation_cpu_reports": 1,
+        "adapter_wall_seconds": 101.14059454196831,
+        "compile_wall_seconds": null,
+        "simulation_wall_seconds": null,
+        "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+      },
+      {
+        "action_index": 7,
+        "compile_attempts": 1,
+        "compile_cpu_seconds_reported": 88.65899999999999,
+        "simulation_attempts": 1,
+        "simulation_cpu_seconds_reported": 0.58,
+        "simulation_cpu_reports": 1,
+        "adapter_wall_seconds": 97.81343679199927,
+        "compile_wall_seconds": null,
+        "simulation_wall_seconds": null,
+        "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+      }
+    ],
+    "terminal": {
+      "compile_attempts": 1,
+      "compile_cpu_seconds_reported": 86.431,
+      "simulation_attempts": 1,
+      "simulation_cpu_seconds_reported": 0.57,
+      "simulation_cpu_reports": 1,
+      "adapter_wall_seconds": 95.68269329098985,
+      "compile_wall_seconds": null,
+      "simulation_wall_seconds": null,
+      "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+    },
+    "model_request_wall_seconds": null,
+    "api_currency_cost": null
+  },
+  "scope": "Offline analysis of actual public executions and final training-side grade. No held-out outcomes, new candidate tests, candidate ranking or training selection. Model request timing and currency cost unavailable in this profile."
+}

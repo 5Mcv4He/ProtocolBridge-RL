@@ -1,0 +1,18 @@
+{
+  "schema": "reviewed-exchange-inventory-v12",
+  "base_inventory": "experiments/task-space-v1/exchange-inventory-v2.json",
+  "base_sha256": "de2e00cb91fceeed5cccea45960dc865675acc22bb25964400c88465c13b03ba",
+  "records": 147,
+  "available_tool_trajectories": 106,
+  "additional_interrupted_research_reviews": 1,
+  "new_model_trials": 1,
+  "new_complete_exchange_records": 1,
+  "exports": [
+    {
+      "manifest": "experiments/task-space-v1/calibration-composed-v1/exchange-v12/manifest.json",
+      "sha256": "dfbb7c40ec3fb7e7048c7763a1a1dd6fceafc33df2ed49a8923d7a92526db879",
+      "records": 1
+    }
+  ],
+  "scope": "Append one prespecified composed rollout including confirmed functional failure. Previous146/105 inventory remains immutable; no outcome-based filtering."
+}
