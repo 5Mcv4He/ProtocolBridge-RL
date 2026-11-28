@@ -1,0 +1,28 @@
+{
+  "schema": "native-use-policy-v1",
+  "expected_records": 9,
+  "training_exports": [
+    {
+      "manifest": "experiments/task-production-v4/native-v2-exchange/manifest.json",
+      "sha256": "2310c89ddb99748293fbf3aff6617fae3169f0ac7e47ef9dee8f9200e20d8a9d"
+    },
+    {
+      "manifest": "experiments/task-production-v4/native-v3-exchange/manifest.json",
+      "sha256": "af2af9eaeb35ee4c05346c7f27d0a517cc28800b813a11940d5a6a1726b4f128"
+    },
+    {
+      "manifest": "experiments/register-checker-v1/exchange/manifest.json",
+      "sha256": "897310a31952a420f42f18b5962839ce02b1c9f255fdf5a16e690818b4990691"
+    },
+    {
+      "manifest": "experiments/swd-read-v1/exchange/manifest.json",
+      "sha256": "76ce913b282d37f76b56138a2af0972a91d4a4de83d8fbbee046b23f943702ac"
+    },
+    {
+      "manifest": "experiments/bitfold-optimization-v1/exchange/manifest.json",
+      "sha256": "98b4f3a9afeb619421c5a729f09687b42f7a712ebf804c075a7b912e08af9acc"
+    }
+  ],
+  "selection_basis": "Actual delivered feedback, tested candidate hashes and terminal training outcome only; separate cohorts and task forms. No heldout selection.",
+  "limits": "Historical132 review remains frozen. Demonstration candidates require human engineering review, not automatic training admission."
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "verification-capability-update-v2",
+  "base_map": "experiments/swd-read-v1/capability-map.json",
+  "scope": "Adds fixed-flow mapped-instance optimization; no physical PPA, FPV or additional product claim.",
+  "capabilities": [
+    {
+      "capability": "function-preserving-mapped-instance-budget",
+      "verified_level": 5,
+      "task_ids": [
+        "bitfold_cell_budget_v1"
+      ],
+      "toolchain": {
+        "vcs": "O-2018.09-SP2",
+        "dc": "O-2018.06-SP1",
+        "formality": "O-2018.06-SP1",
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89"
+      },
+      "evidence": [
+        {
+          "path": "experiments/bitfold-optimization-v1/quality.json",
+          "sha256": "7c45634123d44dc5b1e41fb42ca6d571315434db2af7731cc92ad36e1b95d43d"
+        },
+        {
+          "path": "experiments/bitfold-optimization-v1/study-results.json",
+          "sha256": "03094370cf2a73378d1ad14d3b1afa4f3f7474d5404332d1e4fa9ab03a1b2b24"
+        },
+        {
+          "path": "experiments/bitfold-optimization-v1/replay-audit.json",
+          "sha256": "2eaf9b10541a9be02b57fcd908498e040be87ad88f08811ff6571cecb4adf55d"
+        }
+      ],
+      "model_trials": 1,
+      "successful_model_trials": 0,
+      "scope": "8-bit population count, full finite input function, no state, fixed teaching-library mapping count <=22."
+    }
+  ]
+}

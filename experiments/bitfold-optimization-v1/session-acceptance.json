@@ -1,0 +1,47 @@
+{
+  "schema": "structural-feedback-acceptance-v1",
+  "observations": [
+    {
+      "status": "FAIL",
+      "category": "synthesis_error",
+      "source_sha256": "1e9d19f6c057ae92ea9dd66781cbbb6d713c1660a52c933d098dc9ca6bf329d9",
+      "remaining_test_calls": 1,
+      "measurement": {
+        "mapped_cell_count": 33,
+        "limit": 22,
+        "functional_checks_passed": true
+      }
+    },
+    {
+      "status": "PASS",
+      "category": "pass",
+      "source_sha256": "fa4f18ac9b23d4dc68994f86e9115b08598a2945846679b44f99097840dc9c92",
+      "remaining_test_calls": 0,
+      "measurement": {
+        "mapped_cell_count": 22,
+        "limit": 22,
+        "functional_checks_passed": true
+      }
+    },
+    {
+      "status": "REJECTED",
+      "reason": "test_budget_exhausted"
+    }
+  ],
+  "actual_grader_calls": 2,
+  "different_candidates": true,
+  "submission_sha256": "fa4f18ac9b23d4dc68994f86e9115b08598a2945846679b44f99097840dc9c92",
+  "post_submit_edit_rejected": true,
+  "materialization_mutations": [
+    {
+      "mutation": "missing_dependency",
+      "rejected": true
+    },
+    {
+      "mutation": "missing_file",
+      "rejected": true
+    }
+  ],
+  "unit_checks": 4,
+  "scope": "Two real full-tool grades through Session v6; budget refusal makes zero further grader calls. Native SDK boundary unchanged and separately accepted."
+}

@@ -65,4 +65,8 @@ python3 -m verification_resources.production_v5 reset .local/uart-package .local
 
 ## SWD有限读响应
 
-[研究报告](../swd-read-evaluation.md)解释双向驱动权、请求捕获和独立引脚判据；[复现入口](../../experiments/swd-read-v1/README.md)使用cli_v3与run_v5。当前共有23个有限身份，新入口不改变旧任务的源码准入。
+[研究报告](../swd-read-evaluation.md)解释双向驱动权、请求捕获和独立引脚判据；[复现入口](../../experiments/swd-read-v1/README.md)使用cli_v3与run_v5。SWD阶段共有23个有限身份，新入口不改变旧任务的源码准入。
+
+## 功能保持与结构预算
+
+[结构优化任务](../bitfold-optimization-evaluation.md)以功能正确但超额的位计数实现为起点。[复现入口](../../experiments/bitfold-optimization-v1/README.md)使用cli_v4、production_v8与run_v6；当前有限身份为24个。测量只在完整功能通过后反馈，不改变此前任务条件。

@@ -1,0 +1,445 @@
+{
+  "schema": "structure-feasibility-probe-v1",
+  "plan_sha256": "6a3e3a4badb4d9a903a3ea00560f0b964b61524e37a40df4ed593087c2bcf86c",
+  "records": [
+    {
+      "variant": "serial_sum",
+      "label": "serial_sum",
+      "result": {
+        "task_id": "bitfold_population_repair_v1",
+        "phase": "public",
+        "source_sha256": "c43582cb556597c789df46853f2a8e9ab79656375a49a5f8d44a9a6cb1d5dca3",
+        "reference_sha256": "c43582cb556597c789df46853f2a8e9ab79656375a49a5f8d44a9a6cb1d5dca3",
+        "grader_sha256": "637826d862d3b93c5c3349cb2f726de729286d7d6e6585cff2e39269fdfcbc40",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "anchor_only": false,
+        "reference_only": false,
+        "input_sha256": "3578deca8fe4cc53ae0ead436e2dada6bc80e799ba16dea1424504f5dcac8264",
+        "trusted_scripts": {
+          "dc.tcl": "4cb4c43ea19c320b0fbd92e92a9626eabff7ae892a5a90e1b0d406baa2bffeac",
+          "proof.tcl": "faa56ce9c23586407ce904313f0e3f5fa30415929ffcfd37a244aa0e5902db6c",
+          "netlist.tcl": "64254b1d19101456cbfc72e40f7e640ad555e06bc03f03d0536b6e98f3250a9d",
+          "tb.sv": "5f4eff846d7de7cd87f4e8ba11699e6a937e443ae3e28635b1d0d29daad0afaf"
+        },
+        "compile_seconds": 2.1262,
+        "compile_exit": 0,
+        "compile_log_sha256": "2f5f02df8ff1419b3fed771324bf0467d72ab621e2da867183048371f0072781",
+        "simulation_seconds": 0.9749,
+        "simulation_exit": 0,
+        "simulation_log_sha256": "358063fa73a6cf25156efcca096121beffbe15a6520ff66a55bf4b18c27f8d5e",
+        "integer_oracle": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "checked_inputs": 768
+        },
+        "synthesis_seconds": 4.0957,
+        "synthesis_exit": 0,
+        "synthesis_log_sha256": "b231b79541629b62ad0a6b5d456064c9c278305748ffd550b83414e43909e1f6",
+        "synthesis": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "registers": 0,
+          "unmapped": 0
+        },
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "netlist_sha256": "74adc1d44845264223a342de0d94bd6ce843e4134d6043372b69763b9cfef8f4",
+        "independent_reference_seconds": 2.5643,
+        "independent_reference_exit": 0,
+        "independent_reference_log_sha256": "511dadf6804cbb8210aa2d5821bfbf1785074c1209950e9ffd5ba3c0b5980eba",
+        "independent_reference": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "own_netlist_seconds": 1.4963,
+        "own_netlist_exit": 0,
+        "own_netlist_log_sha256": "616065488d218fab741a993d3d9693d151670f1cf5c0783267227d265ed05861",
+        "own_netlist": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "wall_seconds": 13.4635
+      },
+      "cells": 23
+    },
+    {
+      "variant": "truth_table",
+      "label": "truth_table",
+      "result": {
+        "task_id": "bitfold_population_repair_v1",
+        "phase": "public",
+        "source_sha256": "eee93358fde8744463bf70089dbd62e8301181c96367dfcad05e7991b9575659",
+        "reference_sha256": "c43582cb556597c789df46853f2a8e9ab79656375a49a5f8d44a9a6cb1d5dca3",
+        "grader_sha256": "637826d862d3b93c5c3349cb2f726de729286d7d6e6585cff2e39269fdfcbc40",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "anchor_only": false,
+        "reference_only": false,
+        "input_sha256": "3578deca8fe4cc53ae0ead436e2dada6bc80e799ba16dea1424504f5dcac8264",
+        "trusted_scripts": {
+          "dc.tcl": "4cb4c43ea19c320b0fbd92e92a9626eabff7ae892a5a90e1b0d406baa2bffeac",
+          "proof.tcl": "faa56ce9c23586407ce904313f0e3f5fa30415929ffcfd37a244aa0e5902db6c",
+          "netlist.tcl": "64254b1d19101456cbfc72e40f7e640ad555e06bc03f03d0536b6e98f3250a9d",
+          "tb.sv": "5f4eff846d7de7cd87f4e8ba11699e6a937e443ae3e28635b1d0d29daad0afaf"
+        },
+        "compile_seconds": 1.8647,
+        "compile_exit": 0,
+        "compile_log_sha256": "1157ed1b50f33871a08036cea2c23e17463d6c66f921cac58bd8c7924c46c6ef",
+        "simulation_seconds": 0.9188,
+        "simulation_exit": 0,
+        "simulation_log_sha256": "e26943c37afdff75ad44bf9f17d3c645fe144a8e29fc7a4c901e804cd2440844",
+        "integer_oracle": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "checked_inputs": 768
+        },
+        "synthesis_seconds": 2.9122,
+        "synthesis_exit": 0,
+        "synthesis_log_sha256": "877656341e8441e24173c5109696c2dc43368a39557ecbf663b9fd882b519e60",
+        "synthesis": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "registers": 0,
+          "unmapped": 0
+        },
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "netlist_sha256": "32887d6ccabe22a83ca9e4c00b9dad364ec523033d3e296f313e82db07508b3b",
+        "independent_reference_seconds": 1.5219,
+        "independent_reference_exit": 0,
+        "independent_reference_log_sha256": "f2138e2a1c2c6241d9a3e1b0fd664caf9a4efef087e6f78ba7df64781fa0036a",
+        "independent_reference": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "own_netlist_seconds": 1.5434,
+        "own_netlist_exit": 0,
+        "own_netlist_log_sha256": "1e73e48508a58f96ff1e612da16d6510fbab75b68b84e5a322112856f302c11a",
+        "own_netlist": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "wall_seconds": 10.8675
+      },
+      "cells": 19
+    },
+    {
+      "variant": "balanced_tree",
+      "label": "balanced_tree",
+      "result": {
+        "task_id": "bitfold_population_repair_v1",
+        "phase": "public",
+        "source_sha256": "fa4f18ac9b23d4dc68994f86e9115b08598a2945846679b44f99097840dc9c92",
+        "reference_sha256": "c43582cb556597c789df46853f2a8e9ab79656375a49a5f8d44a9a6cb1d5dca3",
+        "grader_sha256": "637826d862d3b93c5c3349cb2f726de729286d7d6e6585cff2e39269fdfcbc40",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "anchor_only": false,
+        "reference_only": false,
+        "input_sha256": "3578deca8fe4cc53ae0ead436e2dada6bc80e799ba16dea1424504f5dcac8264",
+        "trusted_scripts": {
+          "dc.tcl": "4cb4c43ea19c320b0fbd92e92a9626eabff7ae892a5a90e1b0d406baa2bffeac",
+          "proof.tcl": "faa56ce9c23586407ce904313f0e3f5fa30415929ffcfd37a244aa0e5902db6c",
+          "netlist.tcl": "64254b1d19101456cbfc72e40f7e640ad555e06bc03f03d0536b6e98f3250a9d",
+          "tb.sv": "5f4eff846d7de7cd87f4e8ba11699e6a937e443ae3e28635b1d0d29daad0afaf"
+        },
+        "compile_seconds": 1.8101,
+        "compile_exit": 0,
+        "compile_log_sha256": "96740a4ef36b2b0b64c93f5d63848ab0037ecd0947a552a84d07b574cb21b6ac",
+        "simulation_seconds": 0.9431,
+        "simulation_exit": 0,
+        "simulation_log_sha256": "e736145f512c2e543de09ac9141da92a89e8c7f4d3b297be1cd0ed7d41384090",
+        "integer_oracle": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "checked_inputs": 768
+        },
+        "synthesis_seconds": 1.6281,
+        "synthesis_exit": 0,
+        "synthesis_log_sha256": "f2981e426800088142f76d08e8c51c87e757ba02a00704b0493fa5f25ac3cba9",
+        "synthesis": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "registers": 0,
+          "unmapped": 0
+        },
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "netlist_sha256": "36b143e91420ff1c591c2cad541c9e18e55ca5cc0e432b16d6ec6b738370b03f",
+        "independent_reference_seconds": 1.5961,
+        "independent_reference_exit": 0,
+        "independent_reference_log_sha256": "53ee12a82cdf484434e2b9c167a62e932d69ffa28c45e268f24c42bd845ebdb4",
+        "independent_reference": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "own_netlist_seconds": 1.3461,
+        "own_netlist_exit": 0,
+        "own_netlist_log_sha256": "ac42fddf5e2f8b9185a43ce4bb8054aa9d58627b75e3c871e8d296ce2d16256e",
+        "own_netlist": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "wall_seconds": 9.8248
+      },
+      "cells": 22
+    },
+    {
+      "variant": "parallel_bits",
+      "label": "parallel_bits",
+      "result": {
+        "task_id": "bitfold_population_repair_v1",
+        "phase": "public",
+        "source_sha256": "1e9d19f6c057ae92ea9dd66781cbbb6d713c1660a52c933d098dc9ca6bf329d9",
+        "reference_sha256": "c43582cb556597c789df46853f2a8e9ab79656375a49a5f8d44a9a6cb1d5dca3",
+        "grader_sha256": "637826d862d3b93c5c3349cb2f726de729286d7d6e6585cff2e39269fdfcbc40",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "anchor_only": false,
+        "reference_only": false,
+        "input_sha256": "3578deca8fe4cc53ae0ead436e2dada6bc80e799ba16dea1424504f5dcac8264",
+        "trusted_scripts": {
+          "dc.tcl": "4cb4c43ea19c320b0fbd92e92a9626eabff7ae892a5a90e1b0d406baa2bffeac",
+          "proof.tcl": "faa56ce9c23586407ce904313f0e3f5fa30415929ffcfd37a244aa0e5902db6c",
+          "netlist.tcl": "64254b1d19101456cbfc72e40f7e640ad555e06bc03f03d0536b6e98f3250a9d",
+          "tb.sv": "5f4eff846d7de7cd87f4e8ba11699e6a937e443ae3e28635b1d0d29daad0afaf"
+        },
+        "compile_seconds": 1.8576,
+        "compile_exit": 0,
+        "compile_log_sha256": "5b91b1b404ec022abb93d9a8925c699390a71ef473356fe69d95d1ecde0d7264",
+        "simulation_seconds": 1.1292,
+        "simulation_exit": 0,
+        "simulation_log_sha256": "1ac2f0c9eba11f392a98fd396a94d357b5f76fe62c3814c8e8125030ceaa55e0",
+        "integer_oracle": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "checked_inputs": 768
+        },
+        "synthesis_seconds": 1.8045,
+        "synthesis_exit": 0,
+        "synthesis_log_sha256": "69629f06a69d46442fdf8ab7fb1c1a819cc807cb66058f81f2293afe2e6dca45",
+        "synthesis": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "registers": 0,
+          "unmapped": 0
+        },
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "netlist_sha256": "e6f6e331474147502c2834613991e5eeb936899efd03e3abb395b2a1f867406f",
+        "independent_reference_seconds": 1.434,
+        "independent_reference_exit": 0,
+        "independent_reference_log_sha256": "9dab47aff6798f8c4cca4aaf525a8118539b68ee9ce5d4e30a66b2d9ecd0ac63",
+        "independent_reference": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "own_netlist_seconds": 1.3937,
+        "own_netlist_exit": 0,
+        "own_netlist_log_sha256": "a8cd54b5ad100aeaf8b281b23a07fdb38b0051a044f42cda055c90c04519d2d2",
+        "own_netlist": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "wall_seconds": 9.6521
+      },
+      "cells": 33
+    },
+    {
+      "variant": "parallel_bits",
+      "label": "repeat-high",
+      "result": {
+        "task_id": "bitfold_population_repair_v1",
+        "phase": "public",
+        "source_sha256": "1e9d19f6c057ae92ea9dd66781cbbb6d713c1660a52c933d098dc9ca6bf329d9",
+        "reference_sha256": "c43582cb556597c789df46853f2a8e9ab79656375a49a5f8d44a9a6cb1d5dca3",
+        "grader_sha256": "637826d862d3b93c5c3349cb2f726de729286d7d6e6585cff2e39269fdfcbc40",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "anchor_only": false,
+        "reference_only": false,
+        "input_sha256": "3578deca8fe4cc53ae0ead436e2dada6bc80e799ba16dea1424504f5dcac8264",
+        "trusted_scripts": {
+          "dc.tcl": "4cb4c43ea19c320b0fbd92e92a9626eabff7ae892a5a90e1b0d406baa2bffeac",
+          "proof.tcl": "faa56ce9c23586407ce904313f0e3f5fa30415929ffcfd37a244aa0e5902db6c",
+          "netlist.tcl": "64254b1d19101456cbfc72e40f7e640ad555e06bc03f03d0536b6e98f3250a9d",
+          "tb.sv": "5f4eff846d7de7cd87f4e8ba11699e6a937e443ae3e28635b1d0d29daad0afaf"
+        },
+        "compile_seconds": 1.8089,
+        "compile_exit": 0,
+        "compile_log_sha256": "5194f2a92a164c8e58f70cb046d914d81c2ff8852e7e7acec95f01fff31075e1",
+        "simulation_seconds": 0.9511,
+        "simulation_exit": 0,
+        "simulation_log_sha256": "a83f79a75f3af36fe20b2c8d882e6d7407d20abc4d7d94a03b393024e9d40062",
+        "integer_oracle": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "checked_inputs": 768
+        },
+        "synthesis_seconds": 1.5902,
+        "synthesis_exit": 0,
+        "synthesis_log_sha256": "87ce7297d8d0be9e5566c5aaabc5e7340a4e9b39b5add5e8de9bb9c9efd34f77",
+        "synthesis": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "registers": 0,
+          "unmapped": 0
+        },
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "netlist_sha256": "730f6bd4a3da25e65d1dd9e80c062d0d623637fd6fff82f9ed3f25091cfff840",
+        "independent_reference_seconds": 1.3886,
+        "independent_reference_exit": 0,
+        "independent_reference_log_sha256": "5383bcc88b514c585c17d346badaf04fb0c4d50d5e4a7bfa002a3a84cc09373d",
+        "independent_reference": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "own_netlist_seconds": 1.4122,
+        "own_netlist_exit": 0,
+        "own_netlist_log_sha256": "ce96124f3aa794b8abc0ad33b3a5a03c6d1e2fdc6c47dda9b79b5a7bf27c2705",
+        "own_netlist": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "wall_seconds": 9.5271
+      },
+      "cells": 33
+    },
+    {
+      "variant": "truth_table",
+      "label": "repeat-low",
+      "result": {
+        "task_id": "bitfold_population_repair_v1",
+        "phase": "public",
+        "source_sha256": "eee93358fde8744463bf70089dbd62e8301181c96367dfcad05e7991b9575659",
+        "reference_sha256": "c43582cb556597c789df46853f2a8e9ab79656375a49a5f8d44a9a6cb1d5dca3",
+        "grader_sha256": "637826d862d3b93c5c3349cb2f726de729286d7d6e6585cff2e39269fdfcbc40",
+        "reward": 1.0,
+        "category": "pass",
+        "verification_complete": true,
+        "anchor_only": false,
+        "reference_only": false,
+        "input_sha256": "3578deca8fe4cc53ae0ead436e2dada6bc80e799ba16dea1424504f5dcac8264",
+        "trusted_scripts": {
+          "dc.tcl": "4cb4c43ea19c320b0fbd92e92a9626eabff7ae892a5a90e1b0d406baa2bffeac",
+          "proof.tcl": "faa56ce9c23586407ce904313f0e3f5fa30415929ffcfd37a244aa0e5902db6c",
+          "netlist.tcl": "64254b1d19101456cbfc72e40f7e640ad555e06bc03f03d0536b6e98f3250a9d",
+          "tb.sv": "5f4eff846d7de7cd87f4e8ba11699e6a937e443ae3e28635b1d0d29daad0afaf"
+        },
+        "compile_seconds": 1.806,
+        "compile_exit": 0,
+        "compile_log_sha256": "fb76d75345482ee344469e60f21ace9f889ce01d2c826c9ceba45064721f8a4e",
+        "simulation_seconds": 1.0811,
+        "simulation_exit": 0,
+        "simulation_log_sha256": "fa71892b6de22bb2d49715639ccfe401ec939ff7f9b2872edfdd235c02f634ed",
+        "integer_oracle": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "checked_inputs": 768
+        },
+        "synthesis_seconds": 2.6519,
+        "synthesis_exit": 0,
+        "synthesis_log_sha256": "385cf1e1c196b1e9d74c99194f2fb9f35ec6e82e5bea1a8afd115873e87f0804",
+        "synthesis": {
+          "reward": 1.0,
+          "category": "pass",
+          "verification_complete": true,
+          "registers": 0,
+          "unmapped": 0
+        },
+        "library_sha256": "3bfd6dc6041095c7a15815a6f95762fd24a19d6836cfbe7994515532b41caa89",
+        "netlist_sha256": "5be1c91d683a7b15370560fe6e557fcecb613a8d4aafb1fa525be1a871de2f20",
+        "independent_reference_seconds": 1.5569,
+        "independent_reference_exit": 0,
+        "independent_reference_log_sha256": "caf9d0bea19aa6d0c49c9898134d674811438a76ae43c85e1307c9c2fc8283bb",
+        "independent_reference": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "own_netlist_seconds": 1.7257,
+        "own_netlist_exit": 0,
+        "own_netlist_log_sha256": "6225a2302466ede9990e5195257ec2a391d0438a5cf72ddff3e61e4ddba383d1",
+        "own_netlist": {
+          "reward": 1.0,
+          "category": "pass",
+          "equivalent": true,
+          "verification_complete": true,
+          "exit_code": 0,
+          "passing_points": 4,
+          "failing_points": 0
+        },
+        "wall_seconds": 10.9407
+      },
+      "cells": 19
+    }
+  ],
+  "scope": "Feasibility only; no new task or reward admitted."
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "structural-task-release-review-v1",
+  "industrial_gate_checks": 15,
+  "actual_session_grades": 2,
+  "local_tests": {
+    "optimization": 4,
+    "native_use_rules": 5,
+    "historical_use_rules": 7,
+    "native_controllers": 30,
+    "register_and_swd": 12
+  },
+  "study_trials_started": 1,
+  "offline_replay": "experiments/bitfold-optimization-v1/replay-audit.json",
+  "frozen_study_manifests_checked": 5,
+  "source_mismatches": 0,
+  "links": "All touched Markdown local paths exist",
+  "rendering": "Local Chromium preview: report opening, overview table, SVG light/dark and narrow; original-size link and prose supplied for small text. Not GitHub-render acceptance.",
+  "public_scope": "Source, finite controls, gate summaries, actual native exchange, data-use review and cost. No commercial files, private vectors, deployment or raw EDA logs.",
+  "limitations": [
+    "One model sample; no causal improvement or stable success-rate claim",
+    "Fixed teaching-library mapping structure, not industrial PPA",
+    "Exact source/library checks do not resolve every internal tool binary dependency",
+    "Common runtime UID/network remain; no complete malicious multi-tenant isolation proof"
+  ]
+}

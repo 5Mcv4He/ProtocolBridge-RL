@@ -1,0 +1,14 @@
+{
+  "schema": "native-offline-replay-v4",
+  "auditor_sha256": "a5aa1fadb5f22276dda633d055dd923d68b8041f96d9150aa403198846aabf76",
+  "results": [
+    {
+      "trial_id": "bitfold-structure-r1",
+      "accepted": true,
+      "actions": 16,
+      "public_results_replayed": 4,
+      "new_model_or_eda_calls": 0,
+      "terminal_reward": 0.0
+    }
+  ]
+}

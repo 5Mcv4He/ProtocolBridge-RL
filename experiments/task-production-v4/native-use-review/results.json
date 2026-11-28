@@ -1,0 +1,744 @@
+{
+  "schema": "native-trajectory-use-rules-v1",
+  "rules_sha256": "149461bf2bfb02bfd1ea8af595713b9de766c235620958b7845d9ecd8d15fd40",
+  "policy_sha256": "7fa5ba3c17a43e5f6c543dc99973d0b9c2dab501af60f810b340817cdf1eac4f",
+  "records": 9,
+  "use_counts": {
+    "historical_outcome_analysis": 9,
+    "observed_tool_behavior": 9,
+    "interaction_failure_analysis": 3,
+    "failure_feedback_analysis": 3,
+    "implementation_demonstration_review": 2,
+    "verified_functional_regression_analysis": 1
+  },
+  "rows": [
+    {
+      "episode_id": "e72a6156b377ae081b0ab4f10fd625888f8ca2e0917c1e66dd12f38ce370696a:native-checker-d5-r1",
+      "task_id": "fifo_checker_d5_v1",
+      "manifest_sha256": "2310c89ddb99748293fbf3aff6617fae3169f0ac7e47ef9dee8f9200e20d8a9d",
+      "cohort": {
+        "study": "controlled-native-delivery-calibration-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-artifact-rollout-v2",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 4,
+        "max_requests": 20
+      },
+      "reward": null,
+      "terminal_category": "agent_incomplete",
+      "valid_submission_reported": false,
+      "final_source_sha256": null,
+      "final_artifact_available": false,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 1,
+      "changed_edits": 1,
+      "rejections": [],
+      "public_tests": [
+        {
+          "action": 4,
+          "sha256": "39d7b80b8b9b69968c3c84eadd32273cce2e67ae0e0781c7919b2079c58b9b8e",
+          "binding": "explicit",
+          "status": "PASS",
+          "delivered": true,
+          "category": "pass"
+        }
+      ],
+      "final_public_status": "not_observed",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": false,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior"
+      ],
+      "cost": {
+        "reported_tokens": 6514,
+        "wall_seconds": 27.5976,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "functional_measurements": [],
+      "functional_regression_evidence": [],
+      "native_receipt_crosscheck": true,
+      "unsubmitted_public_pass": true
+    },
+    {
+      "episode_id": "e72a6156b377ae081b0ab4f10fd625888f8ca2e0917c1e66dd12f38ce370696a:native-rffe-w1c-r1",
+      "task_id": "rffe_register_w1c_v1",
+      "manifest_sha256": "2310c89ddb99748293fbf3aff6617fae3169f0ac7e47ef9dee8f9200e20d8a9d",
+      "cohort": {
+        "study": "controlled-native-delivery-calibration-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-artifact-rollout-v2",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 4,
+        "max_requests": 20
+      },
+      "reward": 0.0,
+      "terminal_category": "transaction_mismatch",
+      "valid_submission_reported": true,
+      "final_source_sha256": "660586270a43a6f90e52aeddd911ff8a88b9a2127c45971ae757b7e30e7d93f2",
+      "final_artifact_available": true,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 0,
+      "changed_edits": 0,
+      "rejections": [
+        {
+          "action": 3,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 4,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 5,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 6,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 7,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 9,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 10,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 11,
+          "reason": "invalid_action_format"
+        }
+      ],
+      "public_tests": [],
+      "final_public_status": "not_observed",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": false,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "interaction_failure_analysis"
+      ],
+      "cost": {
+        "reported_tokens": 78224,
+        "wall_seconds": 101.5419,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "functional_measurements": [],
+      "functional_regression_evidence": [],
+      "native_receipt_crosscheck": true,
+      "unsubmitted_public_pass": false
+    },
+    {
+      "episode_id": "e72a6156b377ae081b0ab4f10fd625888f8ca2e0917c1e66dd12f38ce370696a:native-i2c-word-r1",
+      "task_id": "i2c_completion_word_v1",
+      "manifest_sha256": "2310c89ddb99748293fbf3aff6617fae3169f0ac7e47ef9dee8f9200e20d8a9d",
+      "cohort": {
+        "study": "controlled-native-delivery-calibration-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-artifact-rollout-v2",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 4,
+        "max_requests": 20
+      },
+      "reward": null,
+      "terminal_category": "agent_incomplete",
+      "valid_submission_reported": false,
+      "final_source_sha256": null,
+      "final_artifact_available": false,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 0,
+      "changed_edits": 0,
+      "rejections": [
+        {
+          "action": 3,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 4,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 5,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 6,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 7,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 8,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 10,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 11,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 13,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 14,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 15,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 16,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 17,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 18,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 19,
+          "reason": "invalid_action_format"
+        },
+        {
+          "action": 20,
+          "reason": "invalid_action_format"
+        }
+      ],
+      "public_tests": [],
+      "final_public_status": "not_observed",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": false,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "interaction_failure_analysis"
+      ],
+      "cost": {
+        "reported_tokens": 230036,
+        "wall_seconds": 58.9579,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "functional_measurements": [],
+      "functional_regression_evidence": [],
+      "native_receipt_crosscheck": true,
+      "unsubmitted_public_pass": false
+    },
+    {
+      "episode_id": "affcc49863771597bfb737a683ee0ff838c059d35e4d824ce8bac872c4d4df80:fixed-file-rffe-w1c-r1",
+      "task_id": "rffe_register_w1c_v1",
+      "manifest_sha256": "af2af9eaeb35ee4c05346c7f27d0a517cc28800b813a11940d5a6a1726b4f128",
+      "cohort": {
+        "study": "fixed-file-native-edit-followup-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-artifact-rollout-v3",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 4,
+        "max_requests": 20
+      },
+      "reward": 0.0,
+      "terminal_category": "transaction_mismatch",
+      "valid_submission_reported": true,
+      "final_source_sha256": "36b2c2708a16a1096087aaac295f9284404242ff04114ab2d7136f436cdea32d",
+      "final_artifact_available": true,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 7,
+      "changed_edits": 7,
+      "rejections": [],
+      "public_tests": [
+        {
+          "action": 6,
+          "sha256": "5c968eb9497123ca0d797bcc450e52eaff5fac0c4647fcc473680e2ec0f44fff",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "transaction_mismatch"
+        },
+        {
+          "action": 8,
+          "sha256": "57197bd28a017e147f68d8ef9eca68678b434dd95dbacbd5ce5d4db3ef40ddfb",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "transaction_mismatch"
+        },
+        {
+          "action": 10,
+          "sha256": "c9b0917f9d3ef7070b5de740c2e6c7a6884c533d5c43580db12382d80c38494b",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "transaction_mismatch"
+        },
+        {
+          "action": 12,
+          "sha256": "cacbb0d7dc1e7f614f1144eda5061e4cb5ed1b73bd90fc2fcc8d7e7b4186f89f",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "transaction_mismatch"
+        }
+      ],
+      "final_public_status": "not_observed",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": false,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "failure_feedback_analysis"
+      ],
+      "cost": {
+        "reported_tokens": 116901,
+        "wall_seconds": 264.932,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "functional_measurements": [],
+      "functional_regression_evidence": [],
+      "native_receipt_crosscheck": true,
+      "unsubmitted_public_pass": false
+    },
+    {
+      "episode_id": "affcc49863771597bfb737a683ee0ff838c059d35e4d824ce8bac872c4d4df80:fixed-file-i2c-word-r1",
+      "task_id": "i2c_completion_word_v1",
+      "manifest_sha256": "af2af9eaeb35ee4c05346c7f27d0a517cc28800b813a11940d5a6a1726b4f128",
+      "cohort": {
+        "study": "fixed-file-native-edit-followup-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-artifact-rollout-v3",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 4,
+        "max_requests": 20
+      },
+      "reward": null,
+      "terminal_category": "agent_incomplete",
+      "valid_submission_reported": false,
+      "final_source_sha256": null,
+      "final_artifact_available": false,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 1,
+      "changed_edits": 1,
+      "rejections": [],
+      "public_tests": [
+        {
+          "action": 4,
+          "sha256": "16027d609782e240930f7958c0259ba56c667766c07cb6380fa7844cbadd58c3",
+          "binding": "explicit",
+          "status": "PASS",
+          "delivered": true,
+          "category": "pass"
+        }
+      ],
+      "final_public_status": "not_observed",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": false,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior"
+      ],
+      "cost": {
+        "reported_tokens": 12342,
+        "wall_seconds": 74.3618,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "functional_measurements": [],
+      "functional_regression_evidence": [],
+      "native_receipt_crosscheck": true,
+      "unsubmitted_public_pass": true
+    },
+    {
+      "episode_id": "43fa2ff2c54d0423f85f07c55c43e398c0bdb403e28423f772821b310dd3acfe:register-rw-r1",
+      "task_id": "register_checker_rw_v1",
+      "manifest_sha256": "897310a31952a420f42f18b5962839ce02b1c9f255fdf5a16e690818b4990691",
+      "cohort": {
+        "study": "register-checker-native-calibration-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-artifact-rollout-v4",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 4,
+        "max_requests": 20
+      },
+      "reward": 1.0,
+      "terminal_category": "pass",
+      "valid_submission_reported": true,
+      "final_source_sha256": "30f26f9ef621f5ad8d4f3934a61b91f79a8b87ccdf7ce4e8fafd9c4ac94edd50",
+      "final_artifact_available": true,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 1,
+      "changed_edits": 1,
+      "rejections": [],
+      "public_tests": [
+        {
+          "action": 4,
+          "sha256": "30f26f9ef621f5ad8d4f3934a61b91f79a8b87ccdf7ce4e8fafd9c4ac94edd50",
+          "binding": "explicit",
+          "status": "PASS",
+          "delivered": true,
+          "category": "pass"
+        }
+      ],
+      "final_public_status": "PASS",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": true,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "implementation_demonstration_review"
+      ],
+      "cost": {
+        "reported_tokens": 6269,
+        "wall_seconds": 22.1956,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "functional_measurements": [],
+      "functional_regression_evidence": [],
+      "native_receipt_crosscheck": true,
+      "unsubmitted_public_pass": false
+    },
+    {
+      "episode_id": "43fa2ff2c54d0423f85f07c55c43e398c0bdb403e28423f772821b310dd3acfe:register-w1c-r1",
+      "task_id": "register_checker_w1c_v1",
+      "manifest_sha256": "897310a31952a420f42f18b5962839ce02b1c9f255fdf5a16e690818b4990691",
+      "cohort": {
+        "study": "register-checker-native-calibration-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-artifact-rollout-v4",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 4,
+        "max_requests": 20
+      },
+      "reward": 1.0,
+      "terminal_category": "pass",
+      "valid_submission_reported": true,
+      "final_source_sha256": "3b5f5a1efcf7b6ddab031a565d05b478241dd6173f352d03229eb6cd7c70e369",
+      "final_artifact_available": true,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 1,
+      "changed_edits": 1,
+      "rejections": [],
+      "public_tests": [
+        {
+          "action": 4,
+          "sha256": "3b5f5a1efcf7b6ddab031a565d05b478241dd6173f352d03229eb6cd7c70e369",
+          "binding": "explicit",
+          "status": "PASS",
+          "delivered": true,
+          "category": "pass"
+        }
+      ],
+      "final_public_status": "PASS",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": true,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "implementation_demonstration_review"
+      ],
+      "cost": {
+        "reported_tokens": 6312,
+        "wall_seconds": 21.3096,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "functional_measurements": [],
+      "functional_regression_evidence": [],
+      "native_receipt_crosscheck": true,
+      "unsubmitted_public_pass": false
+    },
+    {
+      "episode_id": "381c6df732e5c68d7adf0e0c81ea53f5c585596439ce8d4ce23e4b70c5728cdc:swd-read-r1",
+      "task_id": "swd_read_v1",
+      "manifest_sha256": "76ce913b282d37f76b56138a2af0972a91d4a4de83d8fbbee046b23f943702ac",
+      "cohort": {
+        "study": "swd-read-native-calibration-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-artifact-rollout-v5",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 4,
+        "max_requests": 20
+      },
+      "reward": 0.0,
+      "terminal_category": "protocol_timing_error",
+      "valid_submission_reported": true,
+      "final_source_sha256": "91b65155b3852bd3105b0a7ce6be8c3dc92c3212402ca3f00c056667d577cf60",
+      "final_artifact_available": true,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 8,
+      "changed_edits": 8,
+      "rejections": [],
+      "public_tests": [
+        {
+          "action": 5,
+          "sha256": "4451e58b4f2db2ae184a6d4c7bfa9dbfc64815ac708af102f479cdb95d4cd0ea",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "protocol_timing_error"
+        },
+        {
+          "action": 7,
+          "sha256": "2c05fd282443acd79d9c4d3464a8c3ed0c6f416a4bcbf205bdc8c95ed4f22489",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "protocol_timing_error"
+        },
+        {
+          "action": 12,
+          "sha256": "eb460c301f159045d7c080c88291eed3b4101dcb6f9f4e26aa9360c044cebab1",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "protocol_timing_error"
+        },
+        {
+          "action": 14,
+          "sha256": "2c844150b5ecd47e1a4508844392b7acfb1e4fdba09ff964f4636f5df5767a30",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "protocol_timing_error"
+        }
+      ],
+      "final_public_status": "not_observed",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": false,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "failure_feedback_analysis"
+      ],
+      "cost": {
+        "reported_tokens": 97216,
+        "wall_seconds": 179.2258,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "functional_measurements": [],
+      "functional_regression_evidence": [],
+      "native_receipt_crosscheck": true,
+      "unsubmitted_public_pass": false
+    },
+    {
+      "episode_id": "0cb7aaa77077d95cdcf5ceff1180b689c2f851e9506d33ca7682392fed9c0394:bitfold-structure-r1",
+      "task_id": "bitfold_cell_budget_v1",
+      "manifest_sha256": "98b4f3a9afeb619421c5a729f09687b42f7a712ebf804c075a7b912e08af9acc",
+      "cohort": {
+        "study": "bitfold-structure-native-calibration-v1",
+        "model": "deepseek-flash",
+        "protocol": "native-artifact-rollout-v6",
+        "reasoning": "off",
+        "max_actions": 20,
+        "max_tests": 4,
+        "max_requests": 20
+      },
+      "reward": 0.0,
+      "terminal_category": "transaction_mismatch",
+      "valid_submission_reported": true,
+      "final_source_sha256": "2077614118c135f2f25bb611cc3c1454437c8601d5a55132bd4fa4aeae48de88",
+      "final_artifact_available": true,
+      "trajectory_available": true,
+      "historical_only": false,
+      "effective_edits": 8,
+      "changed_edits": 8,
+      "rejections": [
+        {
+          "action": 10,
+          "reason": "invalid_action_format"
+        }
+      ],
+      "public_tests": [
+        {
+          "action": 4,
+          "sha256": "82def319fe35d0bf20d50751333c82ebe0e8f3967c9f5c75e2bfa344a4483c85",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "synthesis_error"
+        },
+        {
+          "action": 8,
+          "sha256": "e90550cca430b4dd3ff2f8b00ee5deab770e215877a7669f012ae162f20f9d9c",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "transaction_mismatch"
+        },
+        {
+          "action": 12,
+          "sha256": "6aaac5bf025047e356d34a796c9cf53e8a5711b2577b6f8061d1b206eca51e0d",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "transaction_mismatch"
+        },
+        {
+          "action": 14,
+          "sha256": "1304bef1b23dd57ac8cdf12e76f120f1e003f8efea7ad6e8208801d9534b2776",
+          "binding": "explicit",
+          "status": "FAIL",
+          "delivered": true,
+          "category": "transaction_mismatch"
+        }
+      ],
+      "final_public_status": "not_observed",
+      "submitted_known_failed_source": false,
+      "first_edit_final_terminal_pass": false,
+      "repair_evidence": [],
+      "regression_evidence": [],
+      "binding_issues": [],
+      "potential_uses": [
+        "historical_outcome_analysis",
+        "observed_tool_behavior",
+        "interaction_failure_analysis",
+        "failure_feedback_analysis",
+        "verified_functional_regression_analysis"
+      ],
+      "cost": {
+        "reported_tokens": 44927,
+        "wall_seconds": 65.9522,
+        "api_cost": null
+      },
+      "limits": [
+        "No heldout or posthoc candidate measurement used",
+        "Review candidates, not proven training value",
+        "Historical terminal reward is not current-source admission"
+      ],
+      "functional_measurements": [
+        {
+          "action": 4,
+          "source_sha256": "82def319fe35d0bf20d50751333c82ebe0e8f3967c9f5c75e2bfa344a4483c85",
+          "measurement": {
+            "mapped_cell_count": 23,
+            "limit": 22,
+            "functional_checks_passed": true
+          },
+          "received": true
+        }
+      ],
+      "functional_regression_evidence": [
+        {
+          "before_action": 4,
+          "after_action": 8,
+          "before_sha256": "82def319fe35d0bf20d50751333c82ebe0e8f3967c9f5c75e2bfa344a4483c85",
+          "after_sha256": "e90550cca430b4dd3ff2f8b00ee5deab770e215877a7669f012ae162f20f9d9c",
+          "scope": "Verified function preserved before edit; verified functional violation after edit. Resource success is not implied."
+        },
+        {
+          "before_action": 4,
+          "after_action": 12,
+          "before_sha256": "82def319fe35d0bf20d50751333c82ebe0e8f3967c9f5c75e2bfa344a4483c85",
+          "after_sha256": "6aaac5bf025047e356d34a796c9cf53e8a5711b2577b6f8061d1b206eca51e0d",
+          "scope": "Verified function preserved before edit; verified functional violation after edit. Resource success is not implied."
+        },
+        {
+          "before_action": 4,
+          "after_action": 14,
+          "before_sha256": "82def319fe35d0bf20d50751333c82ebe0e8f3967c9f5c75e2bfa344a4483c85",
+          "after_sha256": "1304bef1b23dd57ac8cdf12e76f120f1e003f8efea7ad6e8208801d9534b2776",
+          "scope": "Verified function preserved before edit; verified functional violation after edit. Resource success is not implied."
+        }
+      ],
+      "native_receipt_crosscheck": true,
+      "unsubmitted_public_pass": false
+    }
+  ],
+  "not_read": [
+    "evaluation partitions",
+    "offline analyses",
+    "private grades",
+    "posthoc candidate measurements"
+  ],
+  "scope": "Review candidates and research evidence, not demonstrated training benefit. Cohorts remain separate."
+}

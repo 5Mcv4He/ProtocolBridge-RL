@@ -1,0 +1,16 @@
+{
+  "schema": "reviewed-exchange-inventory-v9",
+  "base_inventory": "experiments/swd-read-v1/exchange-inventory.json",
+  "base_sha256": "d0465ac332206a4ad11bdf727493c467b03a8c241b0a1c0b97d7a49cc675e91f",
+  "records": 141,
+  "available_tool_trajectories": 101,
+  "new_model_trials": 1,
+  "exports": [
+    {
+      "manifest": "experiments/bitfold-optimization-v1/exchange/manifest.json",
+      "sha256": "98b4f3a9afeb619421c5a729f09687b42f7a712ebf804c075a7b912e08af9acc",
+      "records": 1
+    }
+  ],
+  "scope": "One new structural optimization rollout, including actual functional regression and failure. Historical cohorts retained unchanged."
+}

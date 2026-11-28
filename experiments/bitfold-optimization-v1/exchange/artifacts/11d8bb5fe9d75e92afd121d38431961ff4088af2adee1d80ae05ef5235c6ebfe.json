@@ -1,0 +1,1 @@
+{"file": "bitfold.sv", "content": "module bitfold(input logic [7:0] data,output logic [3:0] result);\nalways_comb begin\n  result = 4'd0;\n  for (int i = 0; i < 8; i++)\n    result = result + {3'd0, data[i]};\nend\nendmodule\n"}

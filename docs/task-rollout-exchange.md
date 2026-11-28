@@ -99,4 +99,6 @@ python3 -m scripts.native_exchange FROZEN_PLAN.json RAW_RUNS NEW_EXCHANGE
 
 寄存器检查器随后增加[两条v9记录](../experiments/register-checker-v1/exchange/manifest.json)，该阶段库存为139条研究记录、99条已审查工具轨迹。rollout v4增加新任务分派和明确提交说明，底层工具契约仍是native v3；[重放审计v2](../scripts/check_native_replay_v2.py)识别该执行版本。两条均为首编辑通过并提交，不能标作多轮修复成功，旧132条数据用途集合也不自动扩大。
 
-[SWD后续一条v9记录](../experiments/swd-read-v1/exchange/manifest.json)由[重放v3](../scripts/check_native_replay_v3.py)识别run_v5，工具契约和反馈格式未改变。当前库存为140条研究记录、100条已审查轨迹；8次编辑、4次实际FAIL反馈及失败提交全部保留。未测试的中间源码不补造评分，具体[数据用途判断](../experiments/swd-read-v1/behavior-analysis.json)只使用训练侧证据。
+[SWD后续一条v9记录](../experiments/swd-read-v1/exchange/manifest.json)由[重放v3](../scripts/check_native_replay_v3.py)识别run_v5，工具契约和反馈格式未改变。SWD阶段库存为140条研究记录、100条已审查轨迹；8次编辑、4次实际FAIL反馈及失败提交全部保留。未测试的中间源码不补造评分，具体[数据用途判断](../experiments/swd-read-v1/behavior-analysis.json)只使用训练侧证据。
+
+[结构优化新增一条v9记录](../experiments/bitfold-optimization-v1/exchange/manifest.json)，当前库存为141／101。[重放v4](../scripts/check_native_replay_v4.py)识别run_v6与Session v6；公开工具观察保留实际送达的结构数量，完整评分与成本另有来源绑定的研究摘要。训练终局奖励与独立保留仍分区，未测中间版本不评分。新9条原生记录的[用途审查](trajectory-data-uses.md#原生轨迹的独立用途审查)不改写旧132条清单。

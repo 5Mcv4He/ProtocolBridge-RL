@@ -40,3 +40,5 @@ I²C 写入任务另以 VCS O-2018.09-SP2、VIP R-2020.12、UVM 1.1d 完成自�
 新增 RFFE 与 I²C 补全使用 VIP R-2020.12／UVM 1.1d；综合修复使用 DC 与 Formality O-2018.06-SP1。版本来自本阶段实际日志头，[清单](../experiments/task-production-v3/toolchain.json)与[任务解释](tasks/bitfold-synthesis-repair.md)分开记录功能等价和自身网表等价。教学库只用于明确结构条件，没有 PPA 奖励。
 
 [此前能力映射](../experiments/task-production-v3/capability-map.json)把 RFFE、综合修复、Checker 扩展与 I²C 补全的门禁和真实模型轨迹分别绑定到具体任务；未采样的同族实例不会自动获得模型结论。该阶段SPMI／SWD只有例程证据。SWD后续已形成[有限读响应任务](swd-read-evaluation.md)：VCS O-2018.09-SP2、VIP R-2020.12、UVM 1.1d，19项工业门禁及一条真实失败轨迹，见[增量映射](../experiments/swd-read-v1/capability-map.json)。SPMI仍保持例程层级；不把有限SWD切片外推为完整DP。
+
+[固定流程结构优化](bitfold-optimization-evaluation.md)进一步把DC映射实例数作为受限工程条件，前提是完整功能、独立参考与自身网表等价均通过。15项门禁和一条真实失败试次绑定[新能力映射](../experiments/bitfold-optimization-v1/capability-map.json)；不是面积、时序或功耗奖励，也不改变此前物理流程的能力状态。

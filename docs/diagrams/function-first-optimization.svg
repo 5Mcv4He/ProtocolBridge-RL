@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 472" role="img" aria-labelledby="title desc">
+<title id="title">先验证功能，再评价结构数量</title>
+<desc id="desc">候选经过完整整数检查、综合结构检查、独立参考等价与自身网表等价，全部通过后才比较22单元预算。功能错误没有有效资源评分，工具不可判定返回null。</desc>
+<style>
+:root{--bg:#fbfcfe;--text:#1c2b3e;--sub:#53647a;--blue:#e6eef9;--bs:#6388b6;--green:#e8f4ed;--gs:#52a371;--gray:#edf0f4;--ss:#9ba8b9}
+@media(prefers-color-scheme:dark){:root{--bg:#161e29;--text:#edf2f8;--sub:#b0bdcf;--blue:#253951;--bs:#78a4d8;--green:#203c31;--gs:#68bd87;--gray:#293443;--ss:#8c9bb0}}
+text{fill:var(--text);font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;font-size:16px} .small{font-size:14px;fill:var(--sub)} .head{font-size:19px;font-weight:600} .box{stroke-width:1.5;rx:9} .line{fill:none;stroke:var(--ss);stroke-width:1.8;stroke-linejoin:round;marker-end:url(#arrow)}
+</style>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M1 1L7 4L1 7" fill="none" stroke="var(--ss)" stroke-width="1.5"/></marker></defs>
+<rect width="760" height="472" rx="15" fill="var(--bg)"/>
+<text x="30" y="38" class="head">一个优化任务，两种不能互相替代的判断</text>
+<text x="30" y="65" class="small">功能保持是前提；更小的错误电路不能通过</text>
+<rect x="30" y="91" width="700" height="222" rx="12" fill="var(--gray)" stroke="var(--ss)"/>
+<text x="50" y="120" class="head">可信前置检查 · 同一份候选源码</text>
+<g text-anchor="middle">
+<rect class="box" x="50" y="141" width="310" height="64" fill="var(--green)" stroke="var(--gs)"/>
+<text x="205" y="167">独立整数判据</text><text x="205" y="190" class="small">全部 256 输入 × 三种顺序</text>
+<rect class="box" x="400" y="141" width="310" height="64" fill="var(--green)" stroke="var(--gs)"/>
+<text x="555" y="167">综合结构条件</text><text x="555" y="190" class="small">无状态 · 完整映射</text>
+<rect class="box" x="50" y="225" width="310" height="64" fill="var(--blue)" stroke="var(--bs)"/>
+<text x="205" y="251">候选 ↔ 独立参考</text><text x="205" y="274" class="small">检查指定功能是否保持</text>
+<rect class="box" x="400" y="225" width="310" height="64" fill="var(--blue)" stroke="var(--bs)"/>
+<text x="555" y="251">候选 ↔ 自身网表</text><text x="555" y="274" class="small">检查综合变换是否一致</text>
+</g>
+<path class="line" d="M380 313V356"/>
+<text x="395" y="339" class="small">全部完整通过</text>
+<rect class="box" x="160" y="363" width="440" height="66" fill="var(--blue)" stroke="var(--bs)"/>
+<text x="380" y="391" text-anchor="middle" class="head">固定库与脚本：映射实例数 ≤ 22</text>
+<text x="380" y="415" text-anchor="middle" class="small">满足为 1 · 超额为 0 · 不可判定为 null</text>
+<text x="30" y="453" class="small">教学库结构度量，不是工业工艺面积、时序或功耗收益</text>
+</svg>

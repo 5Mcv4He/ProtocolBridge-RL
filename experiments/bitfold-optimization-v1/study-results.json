@@ -1,0 +1,92 @@
+{
+  "schema": "bitfold-structure-study-results-v1",
+  "plan_sha256": "0cb7aaa77077d95cdcf5ceff1180b689c2f851e9506d33ca7682392fed9c0394",
+  "started": 1,
+  "planned": 1,
+  "trials": [
+    {
+      "trial_id": "bitfold-structure-r1",
+      "task_id": "bitfold_cell_budget_v1",
+      "actions": 16,
+      "edits": 8,
+      "public_test_calls": 4,
+      "submitted": true,
+      "reported_tokens": 44927,
+      "wall_seconds": 65.9522,
+      "solver_stop_confirmed": true,
+      "error": null,
+      "terminal_reward": 0.0,
+      "terminal_category": "transaction_mismatch",
+      "heldout_reward": 0.0,
+      "final_sha256": "2077614118c135f2f25bb611cc3c1454437c8601d5a55132bd4fa4aeae48de88",
+      "public_observations": [
+        {
+          "action": 4,
+          "status": "FAIL",
+          "category": "synthesis_error",
+          "source_sha256": "82def319fe35d0bf20d50751333c82ebe0e8f3967c9f5c75e2bfa344a4483c85",
+          "measurement": {
+            "mapped_cell_count": 23,
+            "limit": 22,
+            "functional_checks_passed": true
+          }
+        },
+        {
+          "action": 8,
+          "status": "FAIL",
+          "category": "transaction_mismatch",
+          "source_sha256": "e90550cca430b4dd3ff2f8b00ee5deab770e215877a7669f012ae162f20f9d9c"
+        },
+        {
+          "action": 12,
+          "status": "FAIL",
+          "category": "transaction_mismatch",
+          "source_sha256": "6aaac5bf025047e356d34a796c9cf53e8a5711b2577b6f8061d1b206eca51e0d"
+        },
+        {
+          "action": 14,
+          "status": "FAIL",
+          "category": "transaction_mismatch",
+          "source_sha256": "1304bef1b23dd57ac8cdf12e76f120f1e003f8efea7ad6e8208801d9534b2776"
+        }
+      ],
+      "final_public_status": "UNTESTED",
+      "actual_edits": [
+        {
+          "action": 3,
+          "sha256": "82def319fe35d0bf20d50751333c82ebe0e8f3967c9f5c75e2bfa344a4483c85"
+        },
+        {
+          "action": 5,
+          "sha256": "b21433daf4f3ac572097b2b3dcb60ee51307addf51a2092a3abaf0d2efda718a"
+        },
+        {
+          "action": 6,
+          "sha256": "d30761e0fa984f5c255b8a77195e5a78d3ed0873e50f3c2c434a3fb3f36e8b1c"
+        },
+        {
+          "action": 7,
+          "sha256": "e90550cca430b4dd3ff2f8b00ee5deab770e215877a7669f012ae162f20f9d9c"
+        },
+        {
+          "action": 9,
+          "sha256": "3d502685c22ac0560f9e2e04399d061362b8884cf855be00984ec89a97c779c9"
+        },
+        {
+          "action": 11,
+          "sha256": "6aaac5bf025047e356d34a796c9cf53e8a5711b2577b6f8061d1b206eca51e0d"
+        },
+        {
+          "action": 13,
+          "sha256": "1304bef1b23dd57ac8cdf12e76f120f1e003f8efea7ad6e8208801d9534b2776"
+        },
+        {
+          "action": 15,
+          "sha256": "2077614118c135f2f25bb611cc3c1454437c8601d5a55132bd4fa4aeae48de88"
+        }
+      ]
+    }
+  ],
+  "no_posthoc_grading": true,
+  "statistical_scope": "One exploratory rollout; no stable rate or causal tool effect."
+}

@@ -1,14 +1,14 @@
 # 多任务入口与准入
 
-当前研究集合有 **11 个 X2P 与 23 个有限工程任务身份**。其中两个 I²C 补全任务复用已有功能契约；34 个身份不等于 34 种独立能力，也不表示它们具有相同的模型样本量或难度。
+当前研究集合有 **11 个 X2P 与 24 个有限工程任务身份**。其中两个 I²C 补全任务复用已有功能契约；35 个身份不等于 35 种独立能力，也不表示它们具有相同的模型样本量或难度。
 
 | 要复用什么 | 身份与材料来源 | 查询和运行路径 |
 | --- | --- | --- |
 | 原始单笔、路由、队列、解耦桥（4 个） | 根 [Registry](../tasks/registry.json) | `python3 scripts/tasks.py list`，下文给出生命周期命令 |
 | 路由族、队列族、组合桥（7 个） | 各生成包及来源清单 | `python3 scripts/tasks.py --package PACKAGE list`，包内独立准入 |
-| UART／I²C／RFFE／SWD、测试生成、参考修复、Checker、综合修复（23 个） | [追加 Registry（含原目录）](../tasks/artifact-registry-v3.json) | `python3 -m environment.artifact_task.cli_v3 list`；[逐任务说明与命令](tasks/README.md) |
+| UART／I²C／RFFE／SWD、测试生成、参考修复、Checker、综合修复与结构优化（24 个） | [追加 Registry（含原目录）](../tasks/artifact-registry-v4.json) | `python3 -m environment.artifact_task.cli_v4 list`；[逐任务说明与命令](tasks/README.md) |
 
-这些入口复用控制与审计方法，但没有合并成同一个 CLI。根 `scripts/tasks.py list` 只列四个原始任务，不能用它的输出作为项目任务总数。完整研究记录与已审查轨迹的分母见[当前交换库存](../experiments/swd-read-v1/exchange-inventory.json)，它不是任务准入证书。
+这些入口复用控制与审计方法，但没有合并成同一个 CLI。根 `scripts/tasks.py list` 只列四个原始任务，不能用它的输出作为项目任务总数。完整研究记录与已审查轨迹的分母见[当前交换库存](../experiments/bitfold-optimization-v1/exchange-inventory.json)，它不是任务准入证书。
 
 ## 四个原始 X2P 任务
 
@@ -86,6 +86,10 @@ X2P 的 11 个任务身份保持不变。另有[有限交付 Registry](../tasks/
 
 ## SWD：有限双向传输的新工程对象
 
-[SWD读响应规格](../tasks/swd_read_v1/spec.md)要求目标正确识别线复位与请求、捕获载荷并按阶段取得和释放数据线。它完成19项工业准入及一条真实失败轨迹，见[实际证据与限制](swd-read-evaluation.md)。当前总量为34个任务身份、32个去重功能／结构契约；新增的是一个有限传输契约，不是完整DP。
+[SWD读响应规格](../tasks/swd_read_v1/spec.md)要求目标正确识别线复位与请求、捕获载荷并按阶段取得和释放数据线。它完成19项工业准入及一条真实失败轨迹，见[实际证据与限制](swd-read-evaluation.md)。SWD阶段总量为34个任务身份、32个去重功能／结构契约；新增的是一个有限传输契约，不是完整DP。
 
-[追加目录v3](../tasks/artifact-registry-v3.json)保留旧目录；cli_v3列出23个有限任务。此契约目前为人工审阅样板，production_v7进行严格材料化，不宣称已能自动生成任意SWD任务。
+[该阶段追加目录v3](../tasks/artifact-registry-v3.json)保留旧目录；cli_v3列出23个有限任务。此契约目前为人工审阅样板，production_v7进行严格材料化，不宣称已能自动生成任意SWD任务。
+
+## 功能保持的固定流程结构优化
+
+[位计数预算任务](bitfold-optimization-evaluation.md)新增资源约束，要求完整功能与两类等价通过后，映射单元数不超过22。15项门禁与一条真实回归失败轨迹已完成。当前合计35个身份、33个去重功能／结构契约；[目录v4](../tasks/artifact-registry-v4.json)与cli_v4列出24个有限任务。production_v8只材料化这份经审阅契约，不宣称任意PPA任务生成。

@@ -1,0 +1,14 @@
+module bitfold(input logic [7:0] data,output logic [3:0] result);
+logic [3:0] p0,p1,p2,p3;
+logic [4:0] r;
+always_comb begin
+  for (int i = 0; i < 4; i++) begin
+    p0[i] = data[2*i] ^ data[2*i+1];
+    p1[i] = data[2*i] & data[2*i+1];
+  end
+  p2 = {p1[3], p1[3]|p1[2], p1[3]|p1[2]|p1[1], 1'b0};
+  p3 = {1'b0,p1[3:1]} + {1'b0,p1[2:0]};
+  r = {1'b0,p0} + {1'b0,p3} + {1'b0,p2};
+  result = r[3:0];
+end
+endmodule

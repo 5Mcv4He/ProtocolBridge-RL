@@ -43,3 +43,18 @@ python3 -m unittest discover -s tests -p test_trajectory_uses.py
 分析工具使用 Python 3.10 或更新版本。当前用途策略绑定指定历史库存和旧判据说明；库存变化时先复审并建立新策略，不能无条件扩大排除范围或继承标签。
 
 对下一批生产，当前证据支持先补充“有有效交付、有实际反馈、有再次验证”的专业任务轨迹，而不是只提高总记录数。新原生试次提示提交闭环仍有缺口，RFFE 又显示有效编辑之后的串行功能问题；这两类问题应分别记录和研究，不能都归为模型不会写 RTL。
+
+## 原生轨迹的独立用途审查
+
+后续9条原生工程试次采用[新规则](../research/native_trajectory_uses.py)与[独立清单](../experiments/task-production-v4/native-use-review/policy.json)，不改写历史132条的选择结果。新规则交叉核对实际模型收取反馈的证据；仅在测试确认完整功能之后，又对另一编辑版本实际确认功能失败时，标记“已验证功能回归”。因此结构优化中“功能正确但资源超额”的FAIL不会与功能FAIL混为同类。
+
+[结果](../experiments/task-production-v4/native-use-review/results.json)含2条实现示范待审查候选、3条实际失败反馈分析轨迹与1条功能回归轨迹，类别可重叠，没有新增成功多轮修复示范。规则不读取保留分区、私有评分或离线候选测量。5项单元检查覆盖反馈收取一致性、缺少功能测量、未测试修改及保留结果不影响选择。
+
+```bash
+python3 -m research.native_trajectory_uses \
+  experiments/task-production-v4/native-use-review/policy.json \
+  .local/new-native-use-review.json
+python3 -m unittest tests.test_native_trajectory_uses
+```
+
+这组用途清单为[下一轮采样选择](task-production-stage-v4.md#成本与下一轮选择)提供证据，仍需要工程复审；不能把导出、审计或规则匹配等同于训练有效性。

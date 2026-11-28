@@ -1,0 +1,29 @@
+{
+  "schema": "bitfold-structure-costs-v1",
+  "quality_gate": {
+    "records": 15,
+    "compiles": 12,
+    "compile_seconds": 23.0395,
+    "simulation_seconds": 11.1954,
+    "wall_seconds": 100.239,
+    "synthesis_seconds": 16.546,
+    "independent_reference_seconds": 12.1361,
+    "own_netlist_seconds": 12.0549
+  },
+  "model_trial_including_heldout": {
+    "records": 6,
+    "compiles": 6,
+    "compile_seconds": 13.3216,
+    "simulation_seconds": 6.0909,
+    "wall_seconds": 39.8794,
+    "synthesis_seconds": 5.2326,
+    "independent_reference_seconds": 1.3892,
+    "own_netlist_seconds": 1.8074
+  },
+  "reported_model_tokens": 44927,
+  "episode_wall_seconds": 65.9522,
+  "api_currency_cost": null,
+  "development_probe_count": 6,
+  "session_acceptance_actual_grades": 2,
+  "model_step_wall_seconds": 14.103
+}

@@ -1,0 +1,24 @@
+{
+  "task_id": "bitfold_cell_budget_v1",
+  "version": 1,
+  "family": "bitfold-structure-v1",
+  "deliverable": "bitfold.sv",
+  "verifier": "verifier.bitfold_optimization.campaign",
+  "capabilities": [
+    "function-preserving-restructure",
+    "fixed-flow-resource-budget",
+    "full-input-functional-equivalence",
+    "measurement-informed-editing"
+  ],
+  "obligations": [
+    "all-256-inputs",
+    "independent-reference-equivalence",
+    "zero-state",
+    "complete-mapping",
+    "own-netlist-equivalence",
+    "mapped-instance-count-at-most22",
+    "library-and-script-identity"
+  ],
+  "source_origin": "Functionally correct controlled baseline; optimization feasibility independently measured before task definition",
+  "admission": "candidate; requires exact-source industrial quality evidence"
+}
