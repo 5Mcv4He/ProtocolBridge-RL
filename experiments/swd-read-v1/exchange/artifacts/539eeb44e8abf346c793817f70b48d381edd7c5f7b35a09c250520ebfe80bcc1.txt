@@ -1,0 +1,98 @@
+module swd_read(input wire clk,rst_n,swclk,swdio,input wire [31:0] read_value,output wire dout,oe);
+
+  reg swing;
+  reg [8:0] risecnt;     // rising edges since last observed "line idle" (0)
+  reg [3:0] bitcnt;
+  reg req_active;
+  reg in_txn;
+  reg [5:0] phase;       // 1..38
+  reg [31:0] data_sh;
+  reg dout_r, oe_r;
+  reg dout_c;            // combinationally computed target bit
+  reg oe_c;
+  reg capture;
+
+  assign dout = oe ? dout_r : 1'b0;
+  assign oe = oe_r;
+
+  wire rise  = swclk & ~swing;
+  wire fall  = ~swclk & swing;
+
+  wire [5:0] next_phase = phase + 6'd1;
+  wire next_data = (next_phase <= 6'd37) ? data_sh[0] : ^data_sh;
+
+  always @* begin
+    dout_c = 1'b0;
+    oe_c = 1'b0;
+    capture = 1'b0;
+    if (in_txn) begin
+      if (phase >= 6'd1 && phase <= 6'd3) begin
+        dout_c = (phase == 6'd2);
+        oe_c = 1'b1;
+      end else if (phase >= 6'd4 && phase <= 6'd37) begin
+        dout_c = data_sh[0];
+        oe_c = 1'b1;
+        capture = 1'b1;
+      end
+    end
+  end
+
+  always @(posedge clk) begin
+    if (!rst_n) begin
+      swing <= 1'b0;
+      risecnt <= 9'd0;
+      bitcnt <= 4'd0;
+      req_active <= 1'b0;
+      in_txn <= 1'b0;
+      phase <= 6'd0;
+      data_sh <= 32'd0;
+      dout_r <= 1'b0;
+      oe_r <= 1'b0;
+    end else begin
+      swing <= swclk;
+      // infer the bit driven between the previous rising edge and now,
+      // and register it on the next rising edge
+      if (swclk && !swing) begin
+      end
+      // track request status with rising-edge events
+      if (rise) begin
+        if (!in_txn) begin
+          if (!req_active) begin
+            if (swdio) begin
+              bitcnt <= 4'd1;
+              req_active <= 1'b1;
+            end else begin
+              bitcnt <= 4'd0;
+            end
+          end else begin
+            if (bitcnt == 4'd7) begin
+              req_active <= 1'b0;
+              bitcnt <= 4'd0;
+              in_txn <= 1'b1;
+              phase <= 6'd1;
+              data_sh <= read_value;
+              oe_r <= 1'b0;
+              dout_r <= 1'b0;
+            end else begin
+              bitcnt <= bitcnt + 4'd1;
+            end
+          end
+        end else begin
+          if (phase == 6'd38) begin
+            oe_r <= 1'b0;
+            dout_r <= 1'b0;
+            in_txn <= 1'b0;
+            phase <= 6'd0;
+          end else begin
+            oe_r <= oe_c;
+            dout_r <= dout_c;
+            if (capture) begin
+              data_sh <= {1'b0, data_sh[31:1]};
+            end
+            phase <= phase + 6'd1;
+          end
+        end
+      end
+    end
+  end
+endmodule

@@ -1,0 +1,87 @@
+{
+  "schema": "swd-read-study-results-v1",
+  "plan_sha256": "381c6df732e5c68d7adf0e0c81ea53f5c585596439ce8d4ce23e4b70c5728cdc",
+  "started": 1,
+  "planned": 1,
+  "trials": [
+    {
+      "trial_id": "swd-read-r1",
+      "task_id": "swd_read_v1",
+      "actions": 16,
+      "edits": 8,
+      "public_test_calls": 4,
+      "submitted": true,
+      "reported_tokens": 97216,
+      "wall_seconds": 179.2258,
+      "solver_stop_confirmed": true,
+      "error": null,
+      "terminal_reward": 0.0,
+      "terminal_category": "protocol_timing_error",
+      "heldout_reward": 0.0,
+      "final_sha256": "91b65155b3852bd3105b0a7ce6be8c3dc92c3212402ca3f00c056667d577cf60",
+      "public_observations": [
+        {
+          "action": 5,
+          "status": "FAIL",
+          "category": "protocol_timing_error",
+          "source_sha256": "4451e58b4f2db2ae184a6d4c7bfa9dbfc64815ac708af102f479cdb95d4cd0ea"
+        },
+        {
+          "action": 7,
+          "status": "FAIL",
+          "category": "protocol_timing_error",
+          "source_sha256": "2c05fd282443acd79d9c4d3464a8c3ed0c6f416a4bcbf205bdc8c95ed4f22489"
+        },
+        {
+          "action": 12,
+          "status": "FAIL",
+          "category": "protocol_timing_error",
+          "source_sha256": "eb460c301f159045d7c080c88291eed3b4101dcb6f9f4e26aa9360c044cebab1"
+        },
+        {
+          "action": 14,
+          "status": "FAIL",
+          "category": "protocol_timing_error",
+          "source_sha256": "2c844150b5ecd47e1a4508844392b7acfb1e4fdba09ff964f4636f5df5767a30"
+        }
+      ],
+      "final_public_status": "UNTESTED",
+      "actual_edits": [
+        {
+          "action": 3,
+          "sha256": "62f28779b2dcc687d0d3bf2e3cab4e14dc9c67acea3d997a4a93fcda9eea892c"
+        },
+        {
+          "action": 4,
+          "sha256": "4451e58b4f2db2ae184a6d4c7bfa9dbfc64815ac708af102f479cdb95d4cd0ea"
+        },
+        {
+          "action": 6,
+          "sha256": "2c05fd282443acd79d9c4d3464a8c3ed0c6f416a4bcbf205bdc8c95ed4f22489"
+        },
+        {
+          "action": 8,
+          "sha256": "3d6e625363abd1b9fb598800d1c169d7ef6468b84abf60b8e6f4878be5ce9f74"
+        },
+        {
+          "action": 9,
+          "sha256": "539eeb44e8abf346c793817f70b48d381edd7c5f7b35a09c250520ebfe80bcc1"
+        },
+        {
+          "action": 11,
+          "sha256": "eb460c301f159045d7c080c88291eed3b4101dcb6f9f4e26aa9360c044cebab1"
+        },
+        {
+          "action": 13,
+          "sha256": "2c844150b5ecd47e1a4508844392b7acfb1e4fdba09ff964f4636f5df5767a30"
+        },
+        {
+          "action": 15,
+          "sha256": "91b65155b3852bd3105b0a7ce6be8c3dc92c3212402ca3f00c056667d577cf60"
+        }
+      ]
+    }
+  ],
+  "no_posthoc_grading": true,
+  "statistical_scope": "One exploratory rollout; no stable rate or causal tool effect."
+}

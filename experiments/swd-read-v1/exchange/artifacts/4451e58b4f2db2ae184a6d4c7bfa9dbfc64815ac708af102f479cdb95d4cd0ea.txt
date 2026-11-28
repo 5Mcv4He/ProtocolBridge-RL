@@ -1,0 +1,85 @@
+module swd_read(input wire clk,rst_n,swclk,swdio,input wire [31:0] read_value,output wire dout,oe);
+
+  reg swclk_q;
+  reg [2:0] bitcnt;      // request bit index 0..7
+  reg [7:0] req_sh;
+  reg req_active;
+  reg in_txn;
+  reg [5:0] phase;       // counts rising edges from Park: 1..38
+  reg [31:0] data_sh;
+  reg dout_r, oe_r;
+
+  assign dout = dout_r;
+  assign oe = oe_r;
+
+  wire rise  = swclk & ~swclk_q;
+  wire fall  = ~swclk & swclk_q;
+  wire park  = (bitcnt == 3'd7) & rise;
+
+  always @(posedge clk) begin
+    if (!rst_n) begin
+      swclk_q <= 1'b0;
+      bitcnt <= 3'd0;
+      req_sh <= 8'd0;
+      req_active <= 1'b0;
+      in_txn <= 1'b0;
+      phase <= 6'd0;
+      data_sh <= 32'd0;
+      dout_r <= 1'b0;
+      oe_r <= 1'b0;
+    end else begin
+      swclk_q <= swclk;
+      if (fall) begin
+        oe_r <= 1'b0;
+        dout_r <= 1'b0;
+      end
+      if (rise) begin
+        if (!in_txn) begin
+          if (!req_active) begin
+            if (swdio) begin
+              req_sh <= {req_sh[6:0], swdio};
+              bitcnt <= 3'd1;
+              req_active <= 1'b1;
+            end
+          end else begin
+            req_sh <= {req_sh[6:0], swdio};
+            if (park) begin
+              req_active <= 1'b0;
+              bitcnt <= 3'd0;
+              in_txn <= 1'b1;
+              phase <= 6'd1;
+              data_sh <= read_value;
+              oe_r <= 1'b0;
+              dout_r <= 1'b0;
+            end else begin
+              bitcnt <= bitcnt + 3'd1;
+            end
+          end
+        end else begin
+          if (phase == 6'd38) begin
+            oe_r <= 1'b0;
+            dout_r <= 1'b0;
+            in_txn <= 1'b0;
+            phase <= 6'd0;
+            bitcnt <= 3'd0;
+          end else if (phase >= 6'd1 && phase <= 6'd3) begin
+            oe_r <= 1'b1;
+            dout_r <= (phase == 6'd3) ? 1'b0 : 1'b1; // phase2=1, 3=0, 4=0
+            phase <= phase + 6'd1;
+          end else if (phase >= 6'd4 && phase <= 6'd36) begin
+            oe_r <= 1'b1;
+            dout_r <= data_sh[0];
+            data_sh <= {1'b0, data_sh[31:1]};
+            phase <= phase + 6'd1;
+          end else if (phase == 6'd37) begin
+            oe_r <= 1'b1;
+            dout_r <= ^data_sh;
+            phase <= phase + 6'd1;
+          end else begin
+            phase <= phase + 6'd1;
+          end
+        end
+      end
+    end
+  end
+endmodule

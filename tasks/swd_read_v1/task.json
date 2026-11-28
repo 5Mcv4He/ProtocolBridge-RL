@@ -1,0 +1,27 @@
+{
+  "task_id": "swd_read_v1",
+  "version": 1,
+  "family": "swd-read-slice-v1",
+  "deliverable": "target.sv",
+  "verifier": "verifier.swd_read.campaign",
+  "capabilities": [
+    "bidirectional-bus-ownership",
+    "request-payload-capture",
+    "lsb-first-serialization",
+    "even-parity",
+    "repeated-transactions",
+    "idle-reset-recovery"
+  ],
+  "obligations": [
+    "request-no-drive",
+    "one-cycle-turnaround",
+    "ack-ok",
+    "all-payload-bits",
+    "payload-captured-at-request",
+    "parity-and-release",
+    "repeat-without-reset",
+    "line-and-physical-reset-between-requests"
+  ],
+  "source_origin": "empty implementation; synthetic negative controls",
+  "admission": "candidate; requires exact-source quality evidence"
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "reviewed-exchange-inventory-v9",
+  "base_inventory": "experiments/register-checker-v1/exchange-inventory.json",
+  "base_sha256": "99f59ddb41119f6a71d9a2dce9e1df245be8aeeee4ce3670afb9be479e1c5216",
+  "records": 140,
+  "available_tool_trajectories": 100,
+  "new_model_trials": 1,
+  "exports": [
+    {
+      "manifest": "experiments/swd-read-v1/exchange/manifest.json",
+      "sha256": "76ce913b282d37f76b56138a2af0972a91d4a4de83d8fbbee046b23f943702ac",
+      "records": 1
+    }
+  ],
+  "scope": "One new SWD task start including actual failure; prior cohorts unchanged. Not added retroactively to historical132 selection."
+}

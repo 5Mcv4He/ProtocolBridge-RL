@@ -27,7 +27,7 @@ SpyGlass、ICC2、TetraMAX 等未接入当前已验收的 Agent 工具配置或�
 
 ## 隔离与证明的边界
 
-Agent 的隔离探针已确认低权限 UID、进程命名空间、不可见宿主 home／评分器目录、不可改写 worker 程序、无有效 capabilities、禁止提权。网络仍用于调用模型服务；这不是完整的网络沙箱。多个试次目前共用该低权限 UID 和根文件系统，因此尚未实现试次之间的 OS 文件隔离；文件读取动作受当前试次的材料白名单限制；支持 observe 等动作的 X2P 配置另经受控接口查询公开实验，不能任意读取日志或可信目录。有限任务的已发布配置仅开放 read/edit/test/submit。
+Agent 的隔离探针已确认低权限 UID、进程命名空间、不可见宿主 home／评分器目录、不可改写 worker 程序、无有效 capabilities、禁止提权。网络仍用于调用模型服务；这不是完整的网络沙箱。历史文本worker共用该低权限UID和根文件系统，未隔离试次目录；新原生worker已验收独立工作／临时目录和PID／IPC命名空间，但仍共用UID与网络命名空间，不能称为完整恶意多租户隔离。详见[原生交付验收](native-tool-delivery-evaluation.md)。文件读取动作受当前试次的材料白名单限制；支持 observe 等动作的 X2P 配置另经受控接口查询公开实验，不能任意读取日志或可信目录。有限任务的已发布配置仅开放 read/edit/test/submit。
 
 候选 RTL 另有受限语法检查和执行超时。当前不能把这些描述为已完成恶意编译器输入审计或所有形式的沙箱逃逸防护。
 
@@ -39,4 +39,4 @@ I²C 写入任务另以 VCS O-2018.09-SP2、VIP R-2020.12、UVM 1.1d 完成自�
 
 新增 RFFE 与 I²C 补全使用 VIP R-2020.12／UVM 1.1d；综合修复使用 DC 与 Formality O-2018.06-SP1。版本来自本阶段实际日志头，[清单](../experiments/task-production-v3/toolchain.json)与[任务解释](tasks/bitfold-synthesis-repair.md)分开记录功能等价和自身网表等价。教学库只用于明确结构条件，没有 PPA 奖励。
 
-[当前能力映射](../experiments/task-production-v3/capability-map.json)把 RFFE、综合修复、Checker 扩展与 I²C 补全的门禁和真实模型轨迹分别绑定到具体任务；未采样的同族实例不会自动获得模型结论。SPMI／SWD 仍只有例程证据。
+[此前能力映射](../experiments/task-production-v3/capability-map.json)把 RFFE、综合修复、Checker 扩展与 I²C 补全的门禁和真实模型轨迹分别绑定到具体任务；未采样的同族实例不会自动获得模型结论。该阶段SPMI／SWD只有例程证据。SWD后续已形成[有限读响应任务](swd-read-evaluation.md)：VCS O-2018.09-SP2、VIP R-2020.12、UVM 1.1d，19项工业门禁及一条真实失败轨迹，见[增量映射](../experiments/swd-read-v1/capability-map.json)。SPMI仍保持例程层级；不把有限SWD切片外推为完整DP。

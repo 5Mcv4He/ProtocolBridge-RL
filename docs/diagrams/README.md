@@ -36,3 +36,5 @@ SVG 内含系统深色偏好样式，不支持时仍可使用浅色画布；不�
 - [native-delivery.svg](native-delivery.svg)：区分原始提案、实际执行、SDK 结果与后续模型请求曝光；提交后终局及保留评估另行执行。对应[原生交付研究](../native-tool-delivery-evaluation.md)。
 
 - [register-checker-boundary.svg](register-checker-boundary.svg)：寄存器事件源、候选检查器与独立逐位状态模型；对应[寄存器任务研究](../register-checker-evaluation.md)。
+
+- [swd-read-boundary.svg](swd-read-boundary.svg)：SWD主机／目标分段交接驱动权，以及VIP接收与独立引脚检查的职责。对应[有限SWD研究](../swd-read-evaluation.md)，不表示完整DP实现。

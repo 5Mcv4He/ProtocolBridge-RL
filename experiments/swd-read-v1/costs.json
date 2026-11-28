@@ -1,0 +1,34 @@
+{
+  "schema": "swd-costs-v1",
+  "rejected_gate_v1": {
+    "records": 19,
+    "compiles": 16,
+    "compile_seconds": 219.7053,
+    "simulation_seconds": 95.4851,
+    "wall_seconds": 359.1021
+  },
+  "accepted_gate_v2": {
+    "records": 19,
+    "compiles": 16,
+    "compile_seconds": 220.4642,
+    "simulation_seconds": 119.3037,
+    "wall_seconds": 384.1421
+  },
+  "model_trial_including_heldout": {
+    "records": 6,
+    "compiles": 6,
+    "compile_seconds": 93.4003,
+    "simulation_seconds": 32.775,
+    "wall_seconds": 142.1384
+  },
+  "reported_model_tokens": 97216,
+  "episode_wall_seconds": 179.2258,
+  "api_currency_cost": null,
+  "pre_gate_development": "Two VIP transport builds and two qualification probes, recorded separately in private evidence; no model inference.",
+  "materialization": {
+    "task_id": "swd_read_v1",
+    "accepted": true,
+    "source_dependency_count": 92,
+    "task_file_count": 14
+  }
+}

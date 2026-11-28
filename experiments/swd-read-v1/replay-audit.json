@@ -1,0 +1,14 @@
+{
+  "schema": "native-offline-replay-v3",
+  "auditor_sha256": "519ea20cd987bd452aeb874fb4b1c5a4a5875ebe70613fcb29b19ff7e3efe2a6",
+  "results": [
+    {
+      "trial_id": "swd-read-r1",
+      "accepted": true,
+      "actions": 16,
+      "public_results_replayed": 4,
+      "new_model_or_eda_calls": 0,
+      "terminal_reward": 0.0
+    }
+  ]
+}

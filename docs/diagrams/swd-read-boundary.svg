@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 454" role="img" aria-labelledby="title desc">
+<title id="title">SWD有限读响应的总线所有权与独立判断</title>
+<desc id="desc">主机发八位请求后释放线；一个方向切换周期后目标依次发送三位ACK、32位数据、校验位，再释放一个周期。工业VIP接收与独立引脚检查同时核对同一候选。</desc>
+<style>
+:root{--bg:#fbfcfe;--text:#1c2b3e;--sub:#53647a;--blue:#e6eef9;--bs:#6388b6;--green:#e8f4ed;--gs:#52a371;--gray:#edf0f4;--ss:#9ba8b9}
+@media(prefers-color-scheme:dark){:root{--bg:#161e29;--text:#edf2f8;--sub:#b0bdcf;--blue:#253951;--bs:#78a4d8;--green:#203c31;--gs:#68bd87;--gray:#293443;--ss:#8c9bb0}}
+text{fill:var(--text);font-family:system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;font-size:16px} .small{font-size:14px;fill:var(--sub)} .head{font-size:19px;font-weight:600} .box{stroke-width:1.5;rx:9} .line{fill:none;stroke:var(--ss);stroke-width:1.8;stroke-linejoin:round;marker-end:url(#arrow)}
+</style>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M1 1L7 4L1 7" fill="none" stroke="var(--ss)" stroke-width="1.5"/></marker></defs>
+<rect width="760" height="454" rx="15" fill="var(--bg)"/>
+<text x="30" y="36" class="head">同一根线，分阶段交接驱动权</text>
+<text x="30" y="61" class="small">这里只实现一个合法 DP 读请求；不代表完整 Debug Port</text>
+<g text-anchor="middle">
+<rect class="box" x="30" y="88" width="132" height="70" fill="var(--green)" stroke="var(--gs)"/>
+<text x="96" y="116">主机请求</text><text x="96" y="140" class="small">8 位 · 目标不驱动</text>
+<rect class="box" x="182" y="88" width="84" height="70" fill="var(--gray)" stroke="var(--ss)"/>
+<text x="224" y="116">换向</text><text x="224" y="140" class="small">1 周期</text>
+<rect class="box" x="286" y="88" width="90" height="70" fill="var(--blue)" stroke="var(--bs)"/>
+<text x="331" y="116">ACK</text><text x="331" y="140" class="small">1 → 0 → 0</text>
+<rect class="box" x="396" y="88" width="216" height="70" fill="var(--blue)" stroke="var(--bs)"/>
+<text x="504" y="116">捕获的数据 + 偶校验</text><text x="504" y="140" class="small">32 位 · LSB first → 校验</text>
+<rect class="box" x="632" y="88" width="98" height="70" fill="var(--gray)" stroke="var(--ss)"/>
+<text x="681" y="116">释放换向</text><text x="681" y="140" class="small">1 周期</text>
+</g>
+<path class="line" d="M162 123H180M266 123H284M376 123H394M612 123H630"/>
+<path d="M286 170V178H612V170" fill="none" stroke="var(--bs)" stroke-width="1.5"/>
+<text x="449" y="200" text-anchor="middle" class="small">仅这一段允许目标驱动；载荷变化不能改变已捕获的数据</text>
+<rect x="30" y="225" width="700" height="193" rx="12" fill="var(--gray)" stroke="var(--ss)" stroke-width="1.5"/>
+<text x="50" y="253" class="head">可信侧核对同一次真实传输</text>
+<g text-anchor="middle">
+<rect class="box" x="50" y="274" width="195" height="70" fill="var(--green)" stroke="var(--gs)"/>
+<text x="147" y="302">工业 SWD 主机</text><text x="147" y="326" class="small">发请求 · 接收响应</text>
+<rect class="box" x="283" y="274" width="194" height="70" fill="var(--blue)" stroke="var(--bs)"/>
+<text x="380" y="302">候选 RTL</text><text x="380" y="326" class="small">swdio / dout / oe</text>
+<rect class="box" x="515" y="274" width="195" height="70" fill="var(--green)" stroke="var(--gs)"/>
+<text x="612" y="302">独立引脚检查</text><text x="612" y="326" class="small">数据 · 所有权 · 时序</text>
+</g>
+<path class="line" marker-start="url(#arrow)" d="M245 309H281"/><path class="line" d="M477 309H513"/>
+<text x="380" y="377" text-anchor="middle">两侧账目与独立期望一致，才允许完整通过</text>
+<text x="380" y="400" text-anchor="middle" class="small">候选不能修改激励、判据或奖励；终局评分在求解停止后运行</text>
+</svg>

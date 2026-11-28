@@ -1,0 +1,44 @@
+{
+  "schema": "swd-admission-challenges-v1",
+  "gate_sha256": "50dbd61f3fc29d96c4078215113fd08d5dbe8a5674aec725009d121b458a8ab3",
+  "materialization": {
+    "task_id": "swd_read_v1",
+    "accepted": true,
+    "source_dependency_count": 92,
+    "task_file_count": 14
+  },
+  "checks": [
+    {
+      "mutation": "missing_dependency",
+      "rejected": true
+    },
+    {
+      "mutation": "missing_file",
+      "rejected": true
+    },
+    {
+      "mutation": "changed_spec",
+      "rejected": true
+    },
+    {
+      "mutation": "missing_gate_dependency",
+      "rejected": true
+    },
+    {
+      "mutation": "negative_only_compile_failure",
+      "rejected": true
+    },
+    {
+      "mutation": "missing_positive",
+      "rejected": true
+    }
+  ],
+  "mechanism_reuse": {
+    "session": "environment/artifact_task/session_v4.py",
+    "controller": "environment/native_tools/controller_v3.py",
+    "worker": "environment/native_tools/worker_v3.py",
+    "acceptance": "experiments/register-checker-v1/session-acceptance.json",
+    "runtime_acceptance": "experiments/task-production-v4/native-runtime-acceptance.json",
+    "reason": "Exact unchanged session/controller/worker, new grader separately qualified; no new tool permissions or budgets."
+  }
+}

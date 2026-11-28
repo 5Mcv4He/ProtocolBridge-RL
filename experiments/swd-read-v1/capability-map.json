@@ -1,0 +1,40 @@
+{
+  "schema": "verification-capability-update-v2",
+  "base_map": "experiments/task-production-v3/capability-map.json",
+  "scope": "Incremental finite SWD task only; no upgrade of other installed VIP. Level5 means real audited rollout, not model success.",
+  "capabilities": [
+    {
+      "capability": "swd-dp-read-transport-slice",
+      "verified_level": 5,
+      "task_ids": [
+        "swd_read_v1"
+      ],
+      "toolchain": {
+        "vcs": "O-2018.09-SP2",
+        "vip": "R-2020.12",
+        "uvm": "1.1d"
+      },
+      "evidence": [
+        {
+          "path": "experiments/swd-read-v1/quality.json",
+          "sha256": "50dbd61f3fc29d96c4078215113fd08d5dbe8a5674aec725009d121b458a8ab3"
+        },
+        {
+          "path": "experiments/swd-read-v1/study-results.json",
+          "sha256": "5e39018febf862ec786dbecd95203e13eb514712da004840e7f79ff07835f8b0"
+        },
+        {
+          "path": "experiments/swd-read-v1/replay-audit.json",
+          "sha256": "9bca9ea2af9fcba83a25f1cc4aab8c4b0adc374429371f5a223729684e82a88c"
+        }
+      ],
+      "model_trials": 1,
+      "successful_model_trials": 0,
+      "scope": "Single legal DP0 read, fixed clock and turnaround, latched32bitpayload; no complete DebugPort or AP semantics."
+    }
+  ],
+  "unchanged_example_only": [
+    "SPMI"
+  ],
+  "other_resources": "No new claim for SPI, I2S or other VIP."
+}

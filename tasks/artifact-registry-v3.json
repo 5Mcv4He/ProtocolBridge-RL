@@ -1,0 +1,26 @@
+{
+  "schema": "finite-artifact-registry-v3",
+  "base_registry": "tasks/artifact-registry-v2.json",
+  "additional_tasks": [
+    {
+      "task_id": "swd_read_v1",
+      "metadata": "tasks/swd_read_v1/task.json",
+      "spec": "tasks/swd_read_v1/spec.md",
+      "initial_artifact": "tasks/swd_read_v1/workspace/target.sv",
+      "deliverable": "target.sv",
+      "effective_verifier": "verifier.swd_read.campaign",
+      "quality_evidence": "experiments/swd-read-v1/quality.json",
+      "runtime": "environment.native_tools.run_v5",
+      "capabilities": [
+        "bidirectional-bus-ownership",
+        "request-payload-capture",
+        "lsb-first-serialization",
+        "even-parity",
+        "repeated-transactions",
+        "idle-reset-recovery"
+      ]
+    }
+  ],
+  "total_finite_task_identities": 23,
+  "scope": "Append-only identity; admission requires exact current dependency match. Materialization of one reviewed manual contract is not parameterized task generation."
+}

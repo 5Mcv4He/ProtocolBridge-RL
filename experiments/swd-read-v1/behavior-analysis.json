@@ -1,0 +1,46 @@
+{
+  "schema": "swd-behavior-analysis-v1",
+  "training_record": "381c6df732e5c68d7adf0e0c81ea53f5c585596439ce8d4ce23e4b70c5728cdc:swd-read-r1",
+  "terminal_training_reward": 0,
+  "all_test_feedback_receipts_confirmed": true,
+  "tested_candidates": 4,
+  "edited_candidates": 8,
+  "untested_intermediate_candidates": 3,
+  "untested_final_candidate": true,
+  "first_edited_candidate_correctness": "unmeasured",
+  "first_tested_candidate_result": "FAIL",
+  "no_posthoc_candidate_grading": true,
+  "trusted_offline_findings": [
+    {
+      "public_action": 5,
+      "observed_failure": "simultaneous bus drivers",
+      "failure_time_ps": 11615000,
+      "source_sha256": "4451e58b4f2db2ae184a6d4c7bfa9dbfc64815ac708af102f479cdb95d4cd0ea",
+      "context": "During the initial LINE_RESET, before a legal read request. Candidate counted eight samples after any high bit without qualifying the request header."
+    },
+    {
+      "public_action": 7,
+      "observed_failure": "output changed outside rising-edge allowance",
+      "failure_time_ps": 12015000,
+      "source_sha256": "2c05fd282443acd79d9c4d3464a8c3ed0c6f416a4bcbf205bdc8c95ed4f22489",
+      "context": "Candidate changed output handling, but no successful functional repair was observed."
+    }
+  ],
+  "final_source_findings": [
+    "Any high level can start the request counter; full A5 header and line reset are not qualified.",
+    "The final implementation clears output and output enable on falling edges, contrary to the explicit rising-edge/stability contract.",
+    "Final terminal execution confirms a bus ownership violation; this does not identify every latent defect."
+  ],
+  "agent_visible_detail": "Only status, error category, candidate hash and remaining tests. The phase and first-failure details above were trusted offline analysis, not model feedback.",
+  "data_use": {
+    "review_candidate": [
+      "failure_feedback_analysis",
+      "verification_decision_analysis"
+    ],
+    "not_demonstrated": [
+      "successful_repair",
+      "correct_implementation"
+    ],
+    "selection_inputs": "Actual training-side public feedback, actions, candidate source and terminal result only; heldout not used for selection."
+  }
+}

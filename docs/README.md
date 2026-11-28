@@ -1,6 +1,6 @@
 # 人类阅读入口
 
-这里帮助读者从工程问题进入机制、代码和证据。当前总览以[首页](../README.md)、[任务目录](task-catalog.md)与[交换库存](../experiments/register-checker-v1/exchange-inventory.json)为准；研究报告中的“当前”属于各自冻结阶段。历史结果不因新功能出现而改写。
+这里帮助读者从工程问题进入机制、代码和证据。当前总览以[首页](../README.md)、[任务目录](task-catalog.md)与[交换库存](../experiments/swd-read-v1/exchange-inventory.json)为准；研究报告中的“当前”属于各自冻结阶段。历史结果不因新功能出现而改写。
 
 ## 先理解系统，再选择任务
 
@@ -53,6 +53,8 @@
 | 003 队列 | [任务](../tasks/axil_to_apb4_queue_003/README.md)、[独立生成](task003-evaluation-report.md)、[同起点修复](task003-repair-report.md) |
 | 004 执行／响应解耦 | [任务](../tasks/axil_to_apb4_decoupled_004/README.md)、[研究报告](task004-evaluation-report.md) |
 | 早期方法与资源 | [001–003 阶段总结](multi-task-research-report.md)、[研究设计](research-design.md)、[历史资源审计边界](vip-audit-2026-11-24.md) |
+
+[SWD有限读响应研究](swd-read-evaluation.md)展示新协议资源怎样推进到独立评分，并保留一条有效编辑后持续失败的轨迹。
 
 ## 文档维护
 

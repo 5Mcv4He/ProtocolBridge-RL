@@ -20,9 +20,10 @@
 | [RFFE RW／W1C 寄存器](rffe-register.md) | `rffe_register.sv` | `rffe-register` / `rw`、`w1c` |
 | [置位计数／末尾零综合修复](bitfold-synthesis-repair.md) | `bitfold.sv` | `bitfold-synthesis` / `population`、`trailing-zero` |
 | [I²C 字节／组字骨架补全](i2c-completion.md) | `i2c_sink.sv` | `i2c-completion` / `byte`、`word` |
+| [SWD有限读响应](../swd-read-evaluation.md) | `target.sv` | production_v7：`dp0-latched` |
 | [寄存器RW／W1C检查器](../register-checker-evaluation.md) | `checker.sv` | production_v6：`rw`、`w1c` |
 
-[全项目任务目录](../task-catalog.md)包含另 11 个 X2P 契约；这里二十二个有限任务身份对应[追加 Registry（含原目录）](../../tasks/artifact-registry-v2.json)。其中两个 I²C 补全起点复用已有功能契约，不计作新增协议能力。指南放在冻结任务目录之外，不改变材料包的完整文件清单。
+[全项目任务目录](../task-catalog.md)包含另 11 个 X2P 契约；这里二十三个有限任务身份对应[追加 Registry（含原目录）](../../tasks/artifact-registry-v3.json)。其中两个 I²C 补全起点复用已有功能契约，不计作新增协议能力。指南放在冻结任务目录之外，不改变材料包的完整文件清单。
 
 ## Agent 能看到什么
 
@@ -61,3 +62,7 @@ python3 -m verification_resources.production_v5 reset .local/uart-package .local
 ## 寄存器事件检查器
 
 [RW与W1C检查器](../register-checker-evaluation.md)要求交付判断读回是否正确的状态模型。候选检查器由独立事件判据评价，既检查漏报也检查误报；不继承串行VIP的准入。两份新包及真实模型记录使有限任务身份达到22个，新版[CLI与复现入口](../../experiments/register-checker-v1/README.md)保留此前接口。
+
+## SWD有限读响应
+
+[研究报告](../swd-read-evaluation.md)解释双向驱动权、请求捕获和独立引脚判据；[复现入口](../../experiments/swd-read-v1/README.md)使用cli_v3与run_v5。当前共有23个有限身份，新入口不改变旧任务的源码准入。

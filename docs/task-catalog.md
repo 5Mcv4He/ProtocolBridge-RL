@@ -1,14 +1,14 @@
 # 多任务入口与准入
 
-当前研究集合有 **11 个 X2P 与 22 个有限工程任务身份**。其中两个 I²C 补全任务复用已有功能契约；33 个身份不等于 33 种独立能力，也不表示它们具有相同的模型样本量或难度。
+当前研究集合有 **11 个 X2P 与 23 个有限工程任务身份**。其中两个 I²C 补全任务复用已有功能契约；34 个身份不等于 34 种独立能力，也不表示它们具有相同的模型样本量或难度。
 
 | 要复用什么 | 身份与材料来源 | 查询和运行路径 |
 | --- | --- | --- |
 | 原始单笔、路由、队列、解耦桥（4 个） | 根 [Registry](../tasks/registry.json) | `python3 scripts/tasks.py list`，下文给出生命周期命令 |
 | 路由族、队列族、组合桥（7 个） | 各生成包及来源清单 | `python3 scripts/tasks.py --package PACKAGE list`，包内独立准入 |
-| UART／I²C／RFFE、测试生成、参考修复、Checker、综合修复（22 个） | [追加 Registry（含原目录）](../tasks/artifact-registry-v2.json) | `python3 -m environment.artifact_task.cli_v2 list`；[逐任务说明与命令](tasks/README.md) |
+| UART／I²C／RFFE／SWD、测试生成、参考修复、Checker、综合修复（23 个） | [追加 Registry（含原目录）](../tasks/artifact-registry-v3.json) | `python3 -m environment.artifact_task.cli_v3 list`；[逐任务说明与命令](tasks/README.md) |
 
-这些入口复用控制与审计方法，但没有合并成同一个 CLI。根 `scripts/tasks.py list` 只列四个原始任务，不能用它的输出作为项目任务总数。完整研究记录与已审查轨迹的分母见[当前交换库存](../experiments/register-checker-v1/exchange-inventory.json)，它不是任务准入证书。
+这些入口复用控制与审计方法，但没有合并成同一个 CLI。根 `scripts/tasks.py list` 只列四个原始任务，不能用它的输出作为项目任务总数。完整研究记录与已审查轨迹的分母见[当前交换库存](../experiments/swd-read-v1/exchange-inventory.json)，它不是任务准入证书。
 
 ## 四个原始 X2P 任务
 
@@ -82,4 +82,10 @@ X2P 的 11 个任务身份保持不变。另有[有限交付 Registry](../tasks/
 
 新增[RW](../tasks/register_checker_rw_v1/spec.md)与[W1C](../tasks/register_checker_w1c_v1/spec.md)两种契约，使用VCS逐拍检查候选的状态预测与错误报告，不执行串行VIP。两者均完成工业准入及各一条真实原生工具试次，详见[研究与证据](register-checker-evaluation.md)。
 
-项目现为11个X2P加22个有限任务身份，共33个身份、31个去重功能／结构契约。[追加目录](../tasks/artifact-registry-v2.json)引用原目录而不改写历史；`python3 -m environment.artifact_task.cli_v2 list`列出22个有限任务，旧CLI仍列此前20个。新任务的reset/test/submit、材料化及Rollout命令见[复现入口](../experiments/register-checker-v1/README.md)。
+寄存器阶段为11个X2P加22个有限任务身份，共33个身份、31个去重功能／结构契约。[当时追加目录](../tasks/artifact-registry-v2.json)引用原目录而不改写历史；当时cli_v2列出22个有限任务，最早CLI仍列此前20个。新任务的reset/test/submit、材料化及Rollout命令见[复现入口](../experiments/register-checker-v1/README.md)。
+
+## SWD：有限双向传输的新工程对象
+
+[SWD读响应规格](../tasks/swd_read_v1/spec.md)要求目标正确识别线复位与请求、捕获载荷并按阶段取得和释放数据线。它完成19项工业准入及一条真实失败轨迹，见[实际证据与限制](swd-read-evaluation.md)。当前总量为34个任务身份、32个去重功能／结构契约；新增的是一个有限传输契约，不是完整DP。
+
+[追加目录v3](../tasks/artifact-registry-v3.json)保留旧目录；cli_v3列出23个有限任务。此契约目前为人工审阅样板，production_v7进行严格材料化，不宣称已能自动生成任意SWD任务。
