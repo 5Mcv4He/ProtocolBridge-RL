@@ -32,3 +32,5 @@ SVG 内含系统深色偏好样式，不支持时仍可使用浅色画布；不�
 [i2c-word-boundary.svg](i2c-word-boundary.svg) 用两个事务区域说明残余半字不能跨 STOP；数值为契约示意，不是实际波形。对应 [I²C 任务研究](../i2c-sink-evaluation.md)。
 
 [functional-structural-acceptance.svg](functional-structural-acceptance.svg) 将综合修复的功能判据与结构判据分成两个区域：独立整数模型、独立参考等价、综合结构以及自身网表等价分别承担不同职责。四项都是必要条件，图不表示执行并行，也不赋予教学库 PPA 奖励。见[任务解释](../tasks/bitfold-synthesis-repair.md)。
+
+- [native-delivery.svg](native-delivery.svg)：区分原始提案、实际执行、SDK 结果与后续模型请求曝光；提交后终局及保留评估另行执行。对应[原生交付研究](../native-tool-delivery-evaluation.md)。

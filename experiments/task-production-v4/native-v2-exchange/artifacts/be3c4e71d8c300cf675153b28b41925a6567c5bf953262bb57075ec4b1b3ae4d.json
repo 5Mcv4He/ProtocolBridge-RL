@@ -1,0 +1,1 @@
+{"content": "module rffe_register(input logic clk,rst_n,sclk,sdata,output logic sdata_out,sdata_oe);\nendmodule\n", "file": "rffe_register.sv"}

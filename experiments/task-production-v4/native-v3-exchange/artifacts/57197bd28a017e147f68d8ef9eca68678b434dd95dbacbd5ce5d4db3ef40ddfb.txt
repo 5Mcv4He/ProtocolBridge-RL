@@ -1,0 +1,193 @@
+module rffe_register(
+  input  logic clk,
+  input  logic rst_n,
+  input  logic sclk,
+  input  logic sdata,
+  output logic sdata_out,
+  output logic sdata_oe
+);
+
+  // RFFE register slave with W1C semantics.
+  logic [7:0] regs [0:15];
+
+  // Synchronizers (2-stage)
+  logic sclk_meta, sclk_sync;
+  logic sdat_meta, sdat_sync;
+  logic sclk_d;
+
+  typedef enum logic [3:0] {
+    ST_IDLE,
+    ST_USID,
+    ST_CMD,
+    ST_CPAR,
+    ST_WDATA,
+    ST_WPAR,
+    ST_WPARK,
+    ST_RPARK,
+    ST_RDRV,
+    ST_RBIT,
+    ST_RPAR,
+    ST_RPARK2,
+    ST_REL
+  } state_t;
+
+  state_t state;
+  logic [3:0] bitcnt;
+  logic [3:0] usid;
+  logic [7:0] cmd;
+  logic [7:0] wdata;
+  logic [7:0] shift_r;
+  logic par_acc;
+
+  wire sclk_rise = (sclk_sync == 1'b1) && (sclk_d == 1'b0);
+  wire sclk_fall = (sclk_sync == 1'b0) && (sclk_d == 1'b1);
+
+  integer i;
+
+  always_ff @(posedge clk) begin
+    if (!rst_n) begin
+      sclk_meta <= 1'b0;
+      sclk_sync <= 1'b0;
+      sdat_meta <= 1'b0;
+      sdat_sync <= 1'b0;
+      sclk_d    <= 1'b0;
+      state     <= ST_IDLE;
+      bitcnt    <= 4'd0;
+      usid      <= 4'd0;
+      cmd       <= 8'd0;
+      wdata     <= 8'd0;
+      shift_r   <= 8'd0;
+      par_acc   <= 1'b0;
+      sdata_out <= 1'b0;
+      sdata_oe  <= 1'b0;
+      for (i = 0; i < 16; i = i + 1)
+        regs[i] <= 8'hFF;
+    end else begin
+      sclk_meta <= sclk;
+      sclk_sync <= sclk_meta;
+      sdat_meta <= sdata;
+      sdat_sync <= sdat_meta;
+      sclk_d    <= sclk_sync;
+
+      if (sclk_rise) begin
+        case (state)
+          ST_IDLE: begin
+            if (sdat_sync) begin
+              state   <= ST_USID;
+              bitcnt  <= 4'd0;
+              par_acc <= 1'b0;
+              usid    <= 4'd0;
+              cmd     <= 8'd0;
+            end
+          end
+          ST_USID: begin
+            usid   <= {usid[2:0], sdat_sync};
+            bitcnt <= bitcnt + 4'd1;
+            if (bitcnt == 4'd3) begin
+              state   <= ST_CMD;
+              bitcnt  <= 4'd0;
+              par_acc <= 1'b0;
+            end
+          end
+          ST_CMD: begin
+            cmd     <= {cmd[6:0], sdat_sync};
+            par_acc <= par_acc ^ sdat_sync;
+            bitcnt  <= bitcnt + 4'd1;
+            if (bitcnt == 4'd7) begin
+              state  <= ST_CPAR;
+              bitcnt <= 4'd0;
+            end
+          end
+          ST_CPAR: begin
+            if (cmd[7:6] == 2'b01) begin
+              state   <= ST_WDATA;
+              bitcnt  <= 4'd0;
+              wdata   <= 8'd0;
+              par_acc <= 1'b0;
+            end else begin
+              state   <= ST_RPARK;
+              bitcnt  <= 4'd0;
+            end
+          end
+          ST_WDATA: begin
+            wdata   <= {wdata[6:0], sdat_sync};
+            par_acc <= par_acc ^ sdat_sync;
+            bitcnt  <= bitcnt + 4'd1;
+            if (bitcnt == 4'd7) begin
+              state  <= ST_WPAR;
+              bitcnt <= 4'd0;
+            end
+          end
+          ST_WPAR: begin
+            if (cmd[3:0] <= 4'd15)
+              regs[cmd[3:0]] <= regs[cmd[3:0]] & ~wdata;
+            state <= ST_WPARK;
+          end
+          ST_WPARK: begin
+            state <= ST_IDLE;
+          end
+          ST_RPARK: begin
+            shift_r   <= regs[cmd[3:0]];
+            state     <= ST_RDRV;
+            bitcnt    <= 4'd0;
+            par_acc   <= 1'b0;
+            sdata_oe  <= 1'b1;
+            sdata_out <= regs[cmd[3:0]][7];
+          end
+          ST_RDRV: begin
+            par_acc <= par_acc ^ sdata_out;
+            shift_r <= {shift_r[6:0], 1'b0};
+            bitcnt  <= bitcnt + 4'd1;
+            state   <= ST_RBIT;
+          end
+          ST_RBIT: begin
+            par_acc <= par_acc ^ sdata_out;
+            shift_r <= {shift_r[6:0], 1'b0};
+            bitcnt  <= bitcnt + 4'd1;
+            if (bitcnt == 4'd7) begin
+              state  <= ST_RPAR;
+              bitcnt <= 4'd0;
+            end
+          end
+          ST_RPAR: begin
+            state <= ST_RPARK2;
+          end
+          ST_RPARK2: begin
+            state <= ST_REL;
+          end
+          ST_REL: begin
+            sdata_oe  <= 1'b0;
+            sdata_out <= 1'b0;
+            state     <= ST_IDLE;
+          end
+          default: state <= ST_IDLE;
+        endcase
+      end
+
+      if (sclk_fall) begin
+        case (state)
+          ST_RDRV: begin
+            // first data bit now stable; nothing extra
+          end
+          ST_RBIT: begin
+            sdata_out <= shift_r[7];
+            sdata_oe  <= 1'b1;
+          end
+          ST_RPAR: begin
+            sdata_out <= ~par_acc;
+            sdata_oe  <= 1'b1;
+          end
+          ST_RPARK2: begin
+            sdata_out <= 1'b0;
+            sdata_oe  <= 1'b0;
+          end
+          default: begin
+            sdata_oe  <= 1'b0;
+            sdata_out <= 1'b0;
+          end
+        endcase
+      end
+    end
+  end
+
+endmodule

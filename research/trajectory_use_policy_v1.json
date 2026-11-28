@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "inventory": "experiments/task-production-v3/exchange-inventory.json",
+  "inventory_sha256": "d0591ca71031bfaffd957211bfe9ded074d16c4835203f746753ba9bc4ea81da",
+  "supersession_notice": "experiments/task-production-v2/exchange-inventory.json",
+  "supersession_notice_sha256": "dba350ad476e2c6c4303b7a40a72041314981392c880be0eaa056108b0169f4f",
+  "superseded_task_ids_in_this_inventory": [
+    "uart_tx_8n1_v1",
+    "uart_tx_8e1_v1"
+  ],
+  "scope": "Only the 132-record frozen inventory. Review policy before admitting newer UART records or any new inventory."
+}

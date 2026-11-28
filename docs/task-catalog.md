@@ -8,7 +8,7 @@
 | 路由族、队列族、组合桥（7 个） | 各生成包及来源清单 | `python3 scripts/tasks.py --package PACKAGE list`，包内独立准入 |
 | UART／I²C／RFFE、测试生成、参考修复、Checker、综合修复（20 个） | [有限交付 Registry](../tasks/artifact-registry.json) | `python3 -m environment.artifact_task list`；[逐任务说明与命令](tasks/README.md) |
 
-这些入口复用控制与审计方法，但没有合并成同一个 CLI。根 `scripts/tasks.py list` 只列四个原始任务，不能用它的输出作为项目任务总数。完整研究记录与已审查轨迹的分母见[当前交换库存](../experiments/task-production-v3/exchange-inventory.json)，它不是任务准入证书。
+这些入口复用控制与审计方法，但没有合并成同一个 CLI。根 `scripts/tasks.py list` 只列四个原始任务，不能用它的输出作为项目任务总数。完整研究记录与已审查轨迹的分母见[当前交换库存](../experiments/task-production-v4/exchange-inventory.json)，它不是任务准入证书。
 
 ## 四个原始 X2P 任务
 

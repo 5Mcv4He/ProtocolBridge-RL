@@ -1,0 +1,46 @@
+{
+  "schema": "native-offline-replay-v1",
+  "auditor_sha256": "0b572ce307d4e2241ed64b7b7e844877c08cfe13c555444758ac840556a451ac",
+  "results": [
+    {
+      "trial_id": "native-checker-d5-r1",
+      "accepted": true,
+      "actions": 4,
+      "public_results_replayed": 1,
+      "new_model_or_eda_calls": 0,
+      "terminal_reward": null
+    },
+    {
+      "trial_id": "native-rffe-w1c-r1",
+      "accepted": true,
+      "actions": 12,
+      "public_results_replayed": 0,
+      "new_model_or_eda_calls": 0,
+      "terminal_reward": 0.0
+    },
+    {
+      "trial_id": "native-i2c-word-r1",
+      "accepted": true,
+      "actions": 20,
+      "public_results_replayed": 0,
+      "new_model_or_eda_calls": 0,
+      "terminal_reward": null
+    },
+    {
+      "trial_id": "fixed-file-rffe-w1c-r1",
+      "accepted": true,
+      "actions": 14,
+      "public_results_replayed": 4,
+      "new_model_or_eda_calls": 0,
+      "terminal_reward": 0.0
+    },
+    {
+      "trial_id": "fixed-file-i2c-word-r1",
+      "accepted": true,
+      "actions": 4,
+      "public_results_replayed": 1,
+      "new_model_or_eda_calls": 0,
+      "terminal_reward": null
+    }
+  ]
+}

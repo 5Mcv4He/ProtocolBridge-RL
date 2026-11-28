@@ -1,0 +1,14 @@
+{
+  "schema": "native-stage-unit-evidence-v1",
+  "native_tests": 30,
+  "data_use_tests": 7,
+  "passed": 37,
+  "model_or_eda_calls": 0,
+  "source_sha256": {
+    "tests/native_tools/test_controller_v2.py": "d465c4f5e21c9e915f7a74fdd6492e30c3db479760c252d2d393d271a4d514fc",
+    "tests/native_tools/test_audit.py": "11c1f268396bd9418568784825bce3cccffab8e22eda39ca77039f4f3ae1ce9b",
+    "tests/native_tools/test_controller_v3.py": "f39e95c90312e7930650d7d959224107087ec1f80c3c1fc56e20fe90c9c26617",
+    "tests/native_tools/test_controller.py": "bf919e3b03ebc238bc5f8b0c8379093020f81e7034e3cb92618ad60a46c16aa2",
+    "tests/test_trajectory_uses.py": "add4e0c2507f39ed7bbf7b0461182733effbf7117acfa6b3d95ff52c9d7e0b57"
+  }
+}

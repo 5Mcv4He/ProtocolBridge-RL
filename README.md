@@ -7,7 +7,7 @@
 ProtocolBridge-RL 围绕这一问题展开研究。项目以 AXI → APB 协议桥（X2P）为切入点，利用工业电子设计自动化工具（EDA）与独立功能验证，将数字电路设计与调试转化为模型可以反复求解、探索和验证的任务。它既关注设计是否正确，也关注如何构建有训练价值的求解过程。
 
 <p align="center">
-<strong>11 个 X2P + 20 个有限任务身份</strong>　·　<strong>X2P 九动作环境</strong>　·　<strong>132 条研究试次</strong>　·　<strong>轨迹交换 v1–v8</strong>
+<strong>11 个 X2P + 20 个有限任务身份</strong>　·　<strong>X2P 九动作环境</strong>　·　<strong>137 条研究试次</strong>　·　<strong>轨迹交换 v1–v9</strong>
 </p>
 
 > **当前阶段：** 已建立任务、环境、独立奖励与固定模型 Rollout 的工程闭环；尚未进行模型参数训练或训练收益评估。保留独立工具配置，并已在三深度队列上完成九种动作联用验收。
@@ -152,7 +152,9 @@ Task003 的一个关键规定是：每个 AXI 请求通道最多允许两笔已�
 
 这些动作提供的是不同的工程认识能力：编译检查语法与结构，功能测试检查结果，运行时实验让模型主动观察特定条件下的行为。研究的目标不是增加工具数量，而是让模型有机会建立并验证关于工程对象的假设。
 
-当前使用 DeepSeek Harness（DSH）与自定义文本 JSON 动作协议；控制器解析动作并返回受控结果，并非模型 API 的原生 Tool Calling。不同工具集合以版本化 Capability Profile（能力配置）管理。新的 [engineering-lab-v1](docs/engineering-lab.md) 已在三深度队列上完成九种动作联用验收，并把每条开发反馈绑定到对应 RTL 版本；历史独立配置保持不变，其他任务不会自动继承这份验收。
+X2P 与历史有限任务使用 DeepSeek Harness（DSH）和自定义文本 JSON 动作协议。新有限任务另有独立版本的[原生工具接口](docs/native-tool-delivery-evaluation.md)，已通过实际 SDK 权限、预算与隔离检查，并运行五条工程试次；它严格区分模型提案、实际执行与反馈送达，没有自动修复非法动作。不同工具集合以版本化 Capability Profile（能力配置）管理。新的 [engineering-lab-v1](docs/engineering-lab.md) 已在三深度队列上完成九种动作联用验收，并把每条开发反馈绑定到对应 RTL 版本；历史独立配置保持不变，其他任务不会自动继承这份验收。
+
+新接口研究也说明，交付可靠与求解成功必须分开：固定文件名条件下，RFFE 模型完成七次编辑和四次公开测试，功能仍失败；I²C 完成编辑并获得公开 PASS，却未提交，因此终局保持 null。具体行为与成本见[五条真实试次](docs/native-tool-delivery-evaluation.md)。
 
 ### 从被动测试到主动实验
 
@@ -344,14 +346,15 @@ X2P 要求模型交付桥接 RTL，但芯片工程还有另一类工作：编写
 | v6 | 三类有限工程交付的 14 条工具轨迹；支持实际反馈重放、不同制品及中断状态 |
 | v7 | Checker、状态寄存器及 I²C 的 6 条真实轨迹；重放实际反馈、候选身份及运行器来源 |
 | v8 | 多验证资源的 4 条分层试次及 1 条独立反馈版本试次；新增综合成本、未提交与末次反馈未送达的审计 |
+| v9 | 原生工具两批共 5 条任务试次；区分原始提案、执行与后续模型请求实际接收的反馈 |
 
-合计 **132 条研究记录、92 条已审查工具轨迹**（v2 + v3/v4/v5/v6/v7/v8 的独立记录，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
+合计 **137 条研究记录、97 条已审查工具轨迹**（v2 + v3/v4/v5/v6/v7/v8/v9 的独立记录，v1 已包含于 v2）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
 
-v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-exchange/manifest.json)此前已计入研究库存，这次只是首次进入统一交换；没有增加模型调用或重复计算样本。[当前研究库存与交换集合](experiments/task-production-v3/exchange-inventory.json)在原 121／81 条基础上先增加 Checker／状态寄存器 4 条、I²C 2 条，再增加本阶段 5 条。库存包括未提交、中断及已被取代的验证器版本；审计通过不表示每条都有有效终局奖励，也不表示全部适合训练。当前用途另外标注，不用保留评估选择训练候选。
+v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-exchange/manifest.json)此前已计入研究库存，这次只是首次进入统一交换；没有增加模型调用或重复计算样本。[当前研究库存与交换集合](experiments/task-production-v4/exchange-inventory.json)在此前 132／92 条基础上增加五条原生工具任务试次；接口夹具不作为工程任务计数。库存包括未提交、中断及已被取代的验证器版本；审计通过不表示每条都有有效终局奖励，也不表示全部适合训练。[历史用途规则](docs/trajectory-data-uses.md)在固定的 132 条历史记录中识别出 30 条实现示范待审查候选，其中 15 条有实际失败后修复证据；不使用保留评估筛选，也不把候选清单称为已证明的训练收益。
 
 当前交付尚缺原始模型采样、Token IDs、行为策略 Log Probability 与精确权重版本，不是无损 on-policy 训练数据。在线 Collector 与 RL 参数优化尚未接入。
 
-**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json) · [v5–v8 任务交付入口](docs/task-rollout-exchange.md)
+**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json) · [v5–v9 任务交付入口](docs/task-rollout-exchange.md)
 
 ---
 

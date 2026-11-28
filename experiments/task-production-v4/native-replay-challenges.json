@@ -1,0 +1,40 @@
+{
+  "schema": "native-replay-challenges-v1",
+  "source_trial": "fixed-file-rffe-w1c-r1",
+  "baseline_accepted": true,
+  "auditor_sha256": "0b572ce307d4e2241ed64b7b7e844877c08cfe13c555444758ac840556a451ac",
+  "challenge_sha256": "b97514e4eb9a6a4891969e11ba2fd24804901d38f48b14415714c96a37400a16",
+  "checks": [
+    {
+      "mutation": "receipt",
+      "rejected": true,
+      "reason": "Native dispatch or receipt replay differs"
+    },
+    {
+      "mutation": "executed",
+      "rejected": true,
+      "reason": "Native dispatch or receipt replay differs"
+    },
+    {
+      "mutation": "feedback",
+      "rejected": true,
+      "reason": "Session replay differs"
+    },
+    {
+      "mutation": "raw_arguments",
+      "rejected": true,
+      "reason": "Unbound runtime feedback"
+    },
+    {
+      "mutation": "final_artifact",
+      "rejected": true,
+      "reason": "Submitted artifact differs"
+    },
+    {
+      "mutation": "reward",
+      "rejected": true,
+      "reason": "Terminal summary differs"
+    }
+  ],
+  "new_model_or_eda_calls": 0
+}

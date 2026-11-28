@@ -1,0 +1,1 @@
+{"content": "module rffe_register(input logic clk,rst_n,sclk,sdata,output logic sdata_out,sdata_oe);\n  always_comb begin\n    sdata_out = sdata;\n    sdata_oe  = 1'b0;\n  end\nendmodule\n", "file": "rffe_register.sv"}

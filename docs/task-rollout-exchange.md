@@ -73,7 +73,7 @@ python3 -m scripts.analyze_artifact_study_v2 NEW_RESULTS.json RAW_TRIAL_1 RAW_TR
 
 [导出器修订 4](../scripts/artifact_exchange_v4.py)为 runner v10／Session v4 增加明确版本，同时保留旧导出器及冻结结果。原始回复仍在可信本地重放；公开记录保存实际动作、送达反馈、候选内容、提交及终局奖励，保留评估放在独立分区。新审计还核对控制器结果与实际评分结果文件，拒绝仅修改最终奖励的记录。
 
-综合任务的 `synthesis_error` 是明确结构条件未满足；它与编译错误、功能不一致和基础设施失败分别记录。成本分析单列 DC、独立参考 Formality 和自身网表 Formality，避免将几个不同判断揉成一个“形式通过”。首批四条真实记录已完成审计；[导出器修订 5](../scripts/artifact_exchange_v5.py)兼容 runner v11／Session v5，另交付一条动作拒绝提示改进试次。后者没有提交，保留 null，未执行终局或保留评估；末次公开检查没有送达下一轮模型请求，不能算作模型观察。两个版本不混合计算效果。当前[库存](../experiments/task-production-v3/exchange-inventory.json)为 132 条研究记录、92 条已审查工具轨迹，详见[阶段报告](task-production-stage-v3.md)。
+综合任务的 `synthesis_error` 是明确结构条件未满足；它与编译错误、功能不一致和基础设施失败分别记录。成本分析单列 DC、独立参考 Formality 和自身网表 Formality，避免将几个不同判断揉成一个“形式通过”。首批四条真实记录已完成审计；[导出器修订 5](../scripts/artifact_exchange_v5.py)兼容 runner v11／Session v5，另交付一条动作拒绝提示改进试次。后者没有提交，保留 null，未执行终局或保留评估；末次公开检查没有送达下一轮模型请求，不能算作模型观察。两个版本不混合计算效果。该阶段[库存](../experiments/task-production-v3/exchange-inventory.json)为 132 条研究记录、92 条已审查工具轨迹，详见[阶段报告](task-production-stage-v3.md)。
 
 ```bash
 python3 -m scripts.artifact_exchange_v5 NEW_EXCHANGE RAW_TRIAL_1 RAW_TRIAL_2
@@ -81,3 +81,18 @@ python3 -m scripts.analyze_artifact_study_v4 NEW_ANALYSIS_JSON RAW_TRIAL_1 RAW_T
 ```
 
 这仍是工具交互数据，不提供 Token IDs、行为概率或精确权重版本。首编辑表现只取该版本实际接受的公开检查；未执行事后测试时保持未知。独立保留评估不用于替换最终交付或挑选训练样本。
+
+## 原生调用的 v9 记录
+
+原生工具把参数放进模型工具调用块，不再依赖从正文中解析单动作 JSON。但生成、执行和接收反馈仍是不同事件：[v9 导出器](../scripts/native_exchange.py)保存原始参数制品、被拒绝的提案、实际执行、候选、SDK 结果哈希及携带反馈的后续请求。只有该请求获得模型响应才确认曝光；同一回复内的批量调用不能互相使用尚未获得的反馈。
+
+五条实际任务记录分别进入 [native v2](../experiments/task-production-v4/native-v2-exchange/manifest.json)和[固定文件名 v3](../experiments/task-production-v4/native-v3-exchange/manifest.json)。三条没有提交，保留 null 且不执行终局／保留评估。新库存为137条记录、97条已审查轨迹，四条简单接口探针不计入任务分母。完整结果见[交付研究](native-tool-delivery-evaluation.md)。
+
+```bash
+python3 -m scripts.check_native_replay RAW_TRIAL --out NEW_AUDIT.json
+python3 -m scripts.native_exchange FROZEN_PLAN.json RAW_RUNS NEW_EXCHANGE
+```
+
+前者重放原始事件和 Session、比对保存的实际公开结果，不进行新评分；后者再核对 SDK 生成与送达关系并导出。使用原始证据需要可信本地输入，公开摘要不能替代。模型消息和原始参数可核查，Token IDs、行为概率和精确权重仍不可取得。training、evaluation 与离线分析分别保存，未做的事后测试明确标记未执行。
+
+[数据用途分析](trajectory-data-uses.md)是另外一层判断，目前只绑定132条历史库存，不自动将v9新轨迹或所有Reward=1记录纳入训练材料。

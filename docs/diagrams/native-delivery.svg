@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="362" viewBox="0 0 760 362" role="img" aria-labelledby="title desc">
+<title id="title">从原始调用到实际反馈曝光</title><desc id="desc">原始参数、控制器执行、SDK结果与后续模型请求分别审计。提交结束求解，终局和保留评分不返回模型。</desc>
+<defs><marker id="arr-n" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow n" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arr-b" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow b" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker><marker id="arr-g" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="arrow g" d="M1 1 L7.5 4.5 L1 8" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<style>
+svg{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC",sans-serif}
+.canvas{fill:#fbfcfe;stroke:#dce3ec;stroke-width:1.5}
+.node,.frame{stroke-width:1.5}
+.node.b{fill:#e6eef9;stroke:#6388b6}
+.node.g{fill:#e8f4ed;stroke:#52a371}
+.node.n{fill:#edf0f4;stroke:#9ba8b9}
+.node.a{fill:#fcf2de;stroke:#c69c55}
+.node.w{fill:#ffffff;stroke:#d6dde7}
+.node.f{fill:#f4f6f9;stroke:#a8b3c2}
+.frame.b{fill:#f6f9fe;stroke:#6388b6}.frame.g{fill:#f4faf6;stroke:#52a371}.frame.n{fill:#f7f9fc;stroke:#9ba8b9}
+.ink{fill:#1c2b3e}.muted{fill:#53647a}.blueink{fill:#416da3}.greenink{fill:#257749}
+.line.n,.arrow.n{stroke:#8290a2}.line.b,.arrow.b{stroke:#6388b6}.line.g,.arrow.g{stroke:#52a371}
+@media(prefers-color-scheme:dark){
+.canvas{fill:#161e29;stroke:#39465a}
+.node.b{fill:#253951;stroke:#78a4d8}
+.node.g{fill:#203c31;stroke:#68bd87}
+.node.n{fill:#293443;stroke:#8c9bb0}
+.node.a{fill:#423624;stroke:#d4ad6c}
+.node.w{fill:#202a37;stroke:#53647b}
+.node.f{fill:#232d3b;stroke:#7f8ea3}
+.frame.b{fill:#1b293b;stroke:#78a4d8}.frame.g{fill:#1b3028;stroke:#68bd87}.frame.n{fill:#1c2633;stroke:#65748a}
+.ink{fill:#edf2f8}.muted{fill:#b0bdcf}.blueink{fill:#9bc3f1}.greenink{fill:#8bd3a3}
+.line.n,.arrow.n{stroke:#a1b0c2}.line.b,.arrow.b{stroke:#78a4d8}.line.g,.arrow.g{stroke:#68bd87}
+}
+</style>
+<rect class="canvas" x="1" y="1" width="758" height="360" rx="15"/>
+<text class="ink" x="28" y="36" font-size="19" font-weight="600">求解中的四种证据，不能互相替代</text>
+<g fill="none" stroke-width="1.8" marker-end="url(#arr-n)" class="line n">
+<path d="M188 116 H210"/><path d="M370 116 H392"/><path d="M552 116 H574"/>
+</g>
+<g font-size="18" text-anchor="middle" class="ink" font-weight="600">
+<rect class="node b" x="28" y="64" width="160" height="106" rx="9"/><text x="108" y="94">模型原始调用</text>
+<rect class="node n" x="210" y="64" width="160" height="106" rx="9"/><text x="290" y="94">控制器处理</text>
+<rect class="node g" x="392" y="64" width="160" height="106" rx="9"/><text x="472" y="94">SDK 实际结果</text>
+<rect class="node b" x="574" y="64" width="158" height="106" rx="9"/><text x="653" y="94">后续模型请求</text>
+</g>
+<g class="muted" font-size="15" text-anchor="middle">
+<text x="108" y="126">保留原始参数</text><text x="108" y="150">不修补非法提案</text>
+<text x="290" y="126">校验后执行或拒绝</text><text x="290" y="150">绑定当前候选</text>
+<text x="472" y="126">核对允许的反馈</text><text x="472" y="150">返回 ≠ 已被利用</text>
+<text x="653" y="126">携带结果并获响应</text><text x="653" y="150">才记为确认曝光</text>
+</g>
+<text class="muted" x="380" y="204" text-anchor="middle" font-size="15">同一回复内的后续调用，不视为依据该批工具反馈作出的决定。</text>
+<path d="M28 224 H732" class="line n" stroke-width="1.5" stroke-dasharray="5 5"/>
+<rect class="node n" x="28" y="248" width="204" height="68" rx="9"/>
+<rect class="node b" x="274" y="248" width="204" height="68" rx="9"/>
+<rect class="node w" x="520" y="248" width="212" height="68" rx="9"/>
+<path d="M232 282 H274" class="line n" stroke-width="1.8" fill="none" marker-end="url(#arr-n)"/>
+<path d="M478 282 H520" class="line n" stroke-width="1.8" fill="none" marker-end="url(#arr-n)"/>
+<g class="ink" font-size="18" text-anchor="middle" font-weight="600"><text x="130" y="275">submit 冻结并停止</text><text x="376" y="275">独立终局奖励</text><text x="626" y="275">独立保留评估</text></g>
+<g class="muted" font-size="15" text-anchor="middle"><text x="130" y="300">未提交保持 null</text><text x="376" y="300">只验收最终交付</text><text x="626" y="300">单独保存、不回流</text><text x="380" y="343">离线重放只核对记录与状态；不替模型补测、挑选或提交候选。</text></g>
+</svg>

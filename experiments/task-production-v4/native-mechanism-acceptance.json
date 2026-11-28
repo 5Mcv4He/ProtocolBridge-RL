@@ -1,0 +1,94 @@
+{
+  "schema": "native-mechanism-acceptance-v1",
+  "sdk": "0.2.2rc2",
+  "mechanisms": {
+    "mechanism-v2e": {
+      "checks": [
+        {
+          "label": "permissions",
+          "passed": true,
+          "error": null,
+          "actions": 11,
+          "tests": 2,
+          "edits": 1,
+          "raw_calls": 12,
+          "grader_calls": 2,
+          "seconds": 2.8159831660450436,
+          "model_inference_requests": 0,
+          "note": "SDK startup may query provider model catalog; no generation request."
+        },
+        {
+          "label": "total_budget",
+          "passed": true,
+          "error": null,
+          "actions": 20,
+          "tests": 0,
+          "edits": 0,
+          "raw_calls": 25,
+          "grader_calls": 0,
+          "seconds": 2.363560417026747,
+          "model_inference_requests": 0,
+          "note": "SDK startup may query provider model catalog; no generation request."
+        }
+      ],
+      "source_files": {
+        "environment/native_tools/worker.py": "b7129c7caebb5e3fde26383ed96b616cce9d34a81c44a397f6b74f76737f3151",
+        "environment/native_tools/launch.sh": "778435f04d3c4017c842ae657a360b8d2c83360f42b5c4ca744310ccefbe9558",
+        "environment/native_tools/controller.py": "cd0299db9c53793501250cae33c16c84e80426c2aa0a9b0d345dd64678c3cb80",
+        "environment/native_tools/worker_v2.py": "f6e6a970ccec496e0b1900136ce4cf438336242fe48d5eed6074b32399129725",
+        "environment/native_tools/launch_v2.sh": "12a77c656a73e8ffec1676ffe9a04f773752db6d17df2909bd9cc4ea370395ff",
+        "environment/native_tools/controller_v2.py": "1b7529b81b69fd31a1a5bcc1dd88ffa4c606ec5760cf3cf62fdf22e61313e199",
+        "environment/native_tools/tools.mjs": "3cbf6087ae9bf29f50391cc8da58419cc03254ba87a031737746c76d7f47897b",
+        "environment/native_tools/tools_v2.mjs": "ad7a43ac1f2e1b36c24a718f27ecf11b558be923e52ccf0d97c92b032936131a"
+      }
+    },
+    "mechanism-v3": {
+      "checks": [
+        {
+          "label": "permissions",
+          "passed": true,
+          "error": null,
+          "actions": 12,
+          "tests": 2,
+          "edits": 1,
+          "raw_calls": 13,
+          "grader_calls": 2,
+          "seconds": 3.954868874978274,
+          "model_inference_requests": 0,
+          "note": "SDK startup may query provider model catalog; no generation request."
+        },
+        {
+          "label": "total_budget",
+          "passed": true,
+          "error": null,
+          "actions": 20,
+          "tests": 0,
+          "edits": 0,
+          "raw_calls": 25,
+          "grader_calls": 0,
+          "seconds": 2.493923874979373,
+          "model_inference_requests": 0,
+          "note": "SDK startup may query provider model catalog; no generation request."
+        }
+      ],
+      "source_files": {
+        "environment/native_tools/worker.py": "b7129c7caebb5e3fde26383ed96b616cce9d34a81c44a397f6b74f76737f3151",
+        "environment/native_tools/launch.sh": "778435f04d3c4017c842ae657a360b8d2c83360f42b5c4ca744310ccefbe9558",
+        "environment/native_tools/run_v3.py": "7d7f3fac38ea58de8008153cf1795f31dfb8492de4a02d4fdfa06943ee5b32c2",
+        "environment/native_tools/run.py": "07106ffba35b8c8c00a2d70e0db0c18df7b719d1f9f24ce028e7c0451eb7baa0",
+        "environment/native_tools/controller.py": "cd0299db9c53793501250cae33c16c84e80426c2aa0a9b0d345dd64678c3cb80",
+        "environment/native_tools/audit.py": "f951c20434a3f305e2aa4536f0dcd708773764b87a8869b85f0bfebe449a69b3",
+        "environment/native_tools/worker_v3.py": "48c20995c7e1b9ba6d1d3bde4c984ef9b8aa8130e5b7974b9fc6ea9f339378e2",
+        "environment/native_tools/worker_v2.py": "605f9f738a8988f846b00decaf912f2b4a29f0b050c148151f99b5df4a67ac22",
+        "environment/native_tools/controller_v3.py": "37ce38f233e6e395738841facb7b1929b1d9cfbf508322d9f554fb17bd52ec50",
+        "environment/native_tools/launch_v2.sh": "12a77c656a73e8ffec1676ffe9a04f773752db6d17df2909bd9cc4ea370395ff",
+        "environment/native_tools/controller_v2.py": "1b7529b81b69fd31a1a5bcc1dd88ffa4c606ec5760cf3cf62fdf22e61313e199",
+        "environment/native_tools/launch_v3.sh": "d13e13364809dbd93b5bfa22d8c7487b782bdc2018cde2a204150651ecabfc8e",
+        "environment/native_tools/tools_v3.mjs": "1e3eba1855ecf5111211ce80bc596ce5b1b809c1376d393924a20a36e2cf21e0",
+        "environment/native_tools/tools.mjs": "3cbf6087ae9bf29f50391cc8da58419cc03254ba87a031737746c76d7f47897b",
+        "environment/native_tools/tools_v2.mjs": "ad7a43ac1f2e1b36c24a718f27ecf11b558be923e52ccf0d97c92b032936131a"
+      }
+    }
+  },
+  "scope": "Installed SDK executor with deterministic synthetic artifacts; real VCS verification is separately evidenced by task episodes."
+}

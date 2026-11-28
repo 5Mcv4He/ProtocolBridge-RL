@@ -1,0 +1,44 @@
+{
+  "schema": "installed-native-v3-acceptance-v1",
+  "results": [
+    {
+      "label": "permissions",
+      "passed": true,
+      "error": null,
+      "actions": 12,
+      "tests": 2,
+      "edits": 1,
+      "raw_calls": 13,
+      "grader_calls": 2,
+      "seconds": 2.6220553330495022,
+      "model_inference_requests": 0
+    },
+    {
+      "label": "total_budget",
+      "passed": true,
+      "error": null,
+      "actions": 20,
+      "tests": 0,
+      "edits": 0,
+      "raw_calls": 25,
+      "grader_calls": 0,
+      "seconds": 2.7724985419772565,
+      "model_inference_requests": 0
+    }
+  ],
+  "installed_source_sha256": [
+    "48c20995c7e1b9ba6d1d3bde4c984ef9b8aa8130e5b7974b9fc6ea9f339378e2",
+    "1e3eba1855ecf5111211ce80bc596ce5b1b809c1376d393924a20a36e2cf21e0",
+    "d13e13364809dbd93b5bfa22d8c7487b782bdc2018cde2a204150651ecabfc8e"
+  ],
+  "acceptance_sha256": "19dbd3a7dc99be81c682d26f3a68b515d0c1b099876a360c6cf044ecff508808",
+  "limits": [
+    "Shared network namespace",
+    "Common unprivileged UID; finite workload isolation, not hostile multi-tenant proof"
+  ],
+  "services_created": 0,
+  "tcp_listeners_created": 0,
+  "inference_calls": 0,
+  "eda_calls": 0,
+  "note": "SDK startup may query provider model catalogue. This is not an RTL verification result."
+}

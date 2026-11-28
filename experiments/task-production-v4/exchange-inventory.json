@@ -1,0 +1,21 @@
+{
+  "schema": "reviewed-exchange-inventory-v7",
+  "base_inventory": "experiments/task-production-v3/exchange-inventory.json",
+  "base_sha256": "d0591ca71031bfaffd957211bfe9ded074d16c4835203f746753ba9bc4ea81da",
+  "records": 137,
+  "available_tool_trajectories": 97,
+  "new_model_trials": 5,
+  "exports": [
+    {
+      "manifest": "experiments/task-production-v4/native-v2-exchange/manifest.json",
+      "sha256": "2310c89ddb99748293fbf3aff6617fae3169f0ac7e47ef9dee8f9200e20d8a9d",
+      "records": 3
+    },
+    {
+      "manifest": "experiments/task-production-v4/native-v3-exchange/manifest.json",
+      "sha256": "af2af9eaeb35ee4c05346c7f27d0a517cc28800b813a11940d5a6a1726b4f128",
+      "records": 2
+    }
+  ],
+  "scope": "Five prespecified task episodes including three without submission. Four simple native-interface probes are not counted as engineering task trials. No pooled success rate across v2/v3."
+}
