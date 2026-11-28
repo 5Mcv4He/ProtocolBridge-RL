@@ -1,0 +1,379 @@
+{
+  "schema": "router-production-plan-v2",
+  "batch": "round1",
+  "contracts": [
+    {
+      "task_id": "x2p_router_batcha_v1",
+      "windows": [
+        [
+          65536,
+          4096
+        ],
+        [
+          69632,
+          8192
+        ],
+        [
+          1073807360,
+          12288
+        ]
+      ],
+      "purpose": "Adjacent low targets and distant high target; size profile 1"
+    },
+    {
+      "task_id": "x2p_router_batchb_v1",
+      "windows": [
+        [
+          65536,
+          8192
+        ],
+        [
+          73728,
+          4096
+        ],
+        [
+          1073807360,
+          12288
+        ]
+      ],
+      "purpose": "Adjacent low targets and distant high target; size profile 2"
+    },
+    {
+      "task_id": "x2p_router_batchc_v1",
+      "windows": [
+        [
+          65536,
+          12288
+        ],
+        [
+          77824,
+          8192
+        ],
+        [
+          1073807360,
+          4096
+        ]
+      ],
+      "purpose": "Adjacent low targets and distant high target; size profile 3"
+    },
+    {
+      "task_id": "x2p_router_batchd_v1",
+      "windows": [
+        [
+          65536,
+          8192
+        ],
+        [
+          73728,
+          12288
+        ],
+        [
+          1073807360,
+          8192
+        ]
+      ],
+      "purpose": "Adjacent low targets and distant high target; size profile 4"
+    },
+    {
+      "task_id": "x2p_router_batche_v1",
+      "windows": [
+        [
+          135168,
+          4096
+        ],
+        [
+          4096,
+          8192
+        ],
+        [
+          2147549184,
+          12288
+        ]
+      ],
+      "purpose": "Unsorted targets and bit31 region; size profile 1"
+    },
+    {
+      "task_id": "x2p_router_batchf_v1",
+      "windows": [
+        [
+          135168,
+          8192
+        ],
+        [
+          4096,
+          4096
+        ],
+        [
+          2147549184,
+          12288
+        ]
+      ],
+      "purpose": "Unsorted targets and bit31 region; size profile 2"
+    },
+    {
+      "task_id": "x2p_router_batchg_v1",
+      "windows": [
+        [
+          135168,
+          12288
+        ],
+        [
+          4096,
+          8192
+        ],
+        [
+          2147549184,
+          4096
+        ]
+      ],
+      "purpose": "Unsorted targets and bit31 region; size profile 3"
+    },
+    {
+      "task_id": "x2p_router_batchh_v1",
+      "windows": [
+        [
+          135168,
+          8192
+        ],
+        [
+          4096,
+          12288
+        ],
+        [
+          2147549184,
+          8192
+        ]
+      ],
+      "purpose": "Unsorted targets and bit31 region; size profile 4"
+    },
+    {
+      "task_id": "x2p_router_batchi_v1",
+      "windows": [
+        [
+          1114112,
+          4096
+        ],
+        [
+          2162688,
+          8192
+        ],
+        [
+          3221291008,
+          12288
+        ]
+      ],
+      "purpose": "Sparse decode and high target; size profile 1"
+    },
+    {
+      "task_id": "x2p_router_batchj_v1",
+      "windows": [
+        [
+          1114112,
+          8192
+        ],
+        [
+          2162688,
+          4096
+        ],
+        [
+          3221291008,
+          12288
+        ]
+      ],
+      "purpose": "Sparse decode and high target; size profile 2"
+    },
+    {
+      "task_id": "x2p_router_batchk_v1",
+      "windows": [
+        [
+          1114112,
+          12288
+        ],
+        [
+          2162688,
+          8192
+        ],
+        [
+          3221291008,
+          4096
+        ]
+      ],
+      "purpose": "Sparse decode and high target; size profile 3"
+    },
+    {
+      "task_id": "x2p_router_batchl_v1",
+      "windows": [
+        [
+          1114112,
+          8192
+        ],
+        [
+          2162688,
+          12288
+        ],
+        [
+          3221291008,
+          8192
+        ]
+      ],
+      "purpose": "Sparse decode and high target; size profile 4"
+    },
+    {
+      "task_id": "x2p_router_batchm_v1",
+      "windows": [
+        [
+          268435456,
+          4096
+        ],
+        [
+          268439552,
+          8192
+        ],
+        [
+          268447744,
+          12288
+        ]
+      ],
+      "purpose": "Three adjacent unequal windows; size profile 1"
+    },
+    {
+      "task_id": "x2p_router_batchn_v1",
+      "windows": [
+        [
+          268435456,
+          8192
+        ],
+        [
+          268443648,
+          4096
+        ],
+        [
+          268447744,
+          12288
+        ]
+      ],
+      "purpose": "Three adjacent unequal windows; size profile 2"
+    },
+    {
+      "task_id": "x2p_router_batcho_v1",
+      "windows": [
+        [
+          268435456,
+          12288
+        ],
+        [
+          268447744,
+          8192
+        ],
+        [
+          268455936,
+          4096
+        ]
+      ],
+      "purpose": "Three adjacent unequal windows; size profile 3"
+    },
+    {
+      "task_id": "x2p_router_batchp_v1",
+      "windows": [
+        [
+          268435456,
+          8192
+        ],
+        [
+          268443648,
+          12288
+        ],
+        [
+          268455936,
+          8192
+        ]
+      ],
+      "purpose": "Three adjacent unequal windows; size profile 4"
+    },
+    {
+      "task_id": "x2p_router_batchq_v1",
+      "windows": [
+        [
+          200704,
+          4096
+        ],
+        [
+          4294901760,
+          8192
+        ],
+        [
+          65536,
+          12288
+        ]
+      ],
+      "purpose": "Near-top address region with target order inversion; size profile 1"
+    },
+    {
+      "task_id": "x2p_router_batchr_v1",
+      "windows": [
+        [
+          200704,
+          8192
+        ],
+        [
+          4294901760,
+          4096
+        ],
+        [
+          65536,
+          12288
+        ]
+      ],
+      "purpose": "Near-top address region with target order inversion; size profile 2"
+    },
+    {
+      "task_id": "x2p_router_batchs_v1",
+      "windows": [
+        [
+          200704,
+          12288
+        ],
+        [
+          4294901760,
+          8192
+        ],
+        [
+          65536,
+          4096
+        ]
+      ],
+      "purpose": "Near-top address region with target order inversion; size profile 3"
+    },
+    {
+      "task_id": "x2p_router_batcht_v1",
+      "windows": [
+        [
+          200704,
+          8192
+        ],
+        [
+          4294901760,
+          12288
+        ],
+        [
+          65536,
+          8192
+        ]
+      ],
+      "purpose": "Near-top address region with target order inversion; size profile 4"
+    }
+  ],
+  "producer_files": {
+    "task_families/router_v2/batch.py": "5be68fdc77a90bd40a7a1e4e4115ad34ccbef142aa9242bd34851f1797f801f3",
+    "task_families/router_v2/contract.py": "61c4b33309600389a6ac8fe09511abf6f12b51db09435562721217886a36c79b",
+    "task_families/router_v2/generate.py": "1ef3edfb4775775561f1ad62db276be303b8eb74f69aa34874f8a25daf7d67c6",
+    "task_families/router_v1/generate.py": "c044056347fdb7513d680e74fe59d0fedf7281540a8d0b80ec0b3640a1a401bc",
+    "task_families/router_v1/scenarios.py.in": "c8fd7fc8aceba12f9b394de8c903b881624af4c788c63140365c0f5374df955c"
+  },
+  "limits": {
+    "candidates": 20,
+    "model_trials": 0,
+    "industrial_runs": 0
+  },
+  "scope": "Twenty new parameterized contracts across five address relationships and four size profiles; not twenty independent engineering capabilities. Industrial admission separately required."
+}

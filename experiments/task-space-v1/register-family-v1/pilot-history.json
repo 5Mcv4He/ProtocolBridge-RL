@@ -1,0 +1,35 @@
+{
+  "schema": "register-verifier-development-history-v1",
+  "prior_v2": {
+    "reward": null,
+    "category": "infrastructure_error",
+    "compile_exit": 255,
+    "candidate_sha256": "592f45416c58409568479ec4123be41c1405d3c89fe095e7fa653240396b6ee0",
+    "reason": "Reserved SystemVerilog keyword used as a testbench counter; trusted compile failure, not candidate failure",
+    "evidence_sha256": "f96b2e90bdf1f912777033510245cad56f6537baae4d448444e8c5ab7990cc97"
+  },
+  "v3": {
+    "task_id": "apb_register_mixed_v1",
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "source_sha256": "592f45416c58409568479ec4123be41c1405d3c89fe095e7fa653240396b6ee0",
+    "grader_sha256": "dfe30618ec58b40a7ef9ed92745790f93cc8b487095805da80f777de94646761",
+    "input_sha256": "616771c61701598b9bfa96e023de7ddd003477757ec06bec9be584830b202d91",
+    "contract_sha256": "1a95e7d73138adcbf51b72d2c54d93c1a3bf6ba474830ddfbdf800d60b0f30b4",
+    "variant": 0,
+    "compile_wall_seconds": 19.219923432014184,
+    "compile_exit": 0,
+    "simulation_wall_seconds": 4.425378885003738,
+    "simulation_exit": 0,
+    "checked": 486,
+    "resets": 19,
+    "waits": 972,
+    "observed_bins": 51,
+    "expected_transfers": 486,
+    "expected_resets": 19,
+    "wall_seconds": 23.654978859005496
+  },
+  "same_candidate_source": true,
+  "scope": "Development qualification, zero Agent calls, old null preserved; checker counter spelling changed without changing functional rules."
+}

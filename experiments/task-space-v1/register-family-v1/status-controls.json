@@ -1,0 +1,192 @@
+{
+  "schema": "apb-register-functional-evidence-v1",
+  "task_id": "apb_register_status_v1",
+  "contract": {
+    "task_id": "apb_register_status_v1",
+    "wait_cycles": 0,
+    "registers": [
+      {
+        "address": 256,
+        "reset": 1431677610,
+        "write_mask": 4294967295,
+        "access": "rw"
+      },
+      {
+        "address": 268,
+        "reset": 4278255360,
+        "write_mask": 16711935,
+        "access": "rw"
+      }
+    ]
+  },
+  "obligations": [
+    {
+      "id": "APB_PHASE",
+      "kind": "protocol",
+      "witness": "Setup precedes Access; request stable through waits"
+    },
+    {
+      "id": "ADDRESS_IDENTITY",
+      "kind": "parameter",
+      "witness": "Read every distinct reset word; interleave writes and read all targets"
+    },
+    {
+      "id": "STROBE_STATE",
+      "kind": "interaction",
+      "witness": "All16 PSTRB values \u00d7 each writable register, readback and unaffected-peer checks"
+    },
+    {
+      "id": "UNMAPPED",
+      "kind": "functional",
+      "witness": "Aligned holes and unaligned addresses: PSLVERR, zero read, no state change"
+    },
+    {
+      "id": "IDLE_RESET",
+      "kind": "lifecycle",
+      "witness": "Reset between completed requests restores all words"
+    },
+    {
+      "id": "WAIT_ACCOUNTING",
+      "kind": "timing",
+      "witness": "Exactly configured Access edges with PREADY low for every completion"
+    },
+    {
+      "id": "RESERVED_BITS",
+      "kind": "interaction",
+      "witness": "Byte strobe and bit write mask both restrict updates; other reset bits preserved"
+    }
+  ],
+  "package_manifest_sha256": "c3551b3006156cac62ca1c3f96e3b31fcf17670913973c1d36d3234a891d70e9",
+  "producer_files": {
+    "generate.py": "123a3f64e7ed52cfc4887aa1a7acb7e8d966dddc7b8deff0f3cb549970feb541",
+    "contract.py": "97fd7915e759861e79ece9494765af7e2168b542630bbeb24b13604267fc3a0d",
+    "verification.py": "a78a6284e7b16cbe286b22029bb8664ecde6f7490c23f57bbf46fcc2c24d5cc9",
+    "tb.sv.in": "06fddff251cc04e1a930bb44dac6df4cd2f07e14aa8cf0e060a0807521323082"
+  },
+  "controls_plan_sha256": "0f6db131dc9ecf4de685af1b2495c0e924c1d76467464ed72b05bed4f9197fb4",
+  "archive_sha256": "e689d87019becd5cee9f615670ae3330c70d415b290b33a7c9b01ce4de60d0fa",
+  "functional_audit": {
+    "schema": "apb-register-control-audit-v1",
+    "task_id": "apb_register_status_v1",
+    "functional_layer_qualified": true,
+    "runtime_admitted": false,
+    "manifest_sha256": "c3551b3006156cac62ca1c3f96e3b31fcf17670913973c1d36d3234a891d70e9",
+    "control_report_sha256": "73e4b7434d0f586286acfbd21305bc247a6f0d294538c0e92cf8e94aa1b2e975",
+    "auditor_sha256": "d618b5d0d37c423332d2a163fc7d497740419866490472a675a888f21fe0f814",
+    "positive_controls": 2,
+    "negative_controls": 5,
+    "environment_entry_sha256": "30d24f3b075bd9f525bdac97d33d76e6e33eb17d6974f7d3c7a637e1f52a7d19",
+    "independently_compiled_controls": 7,
+    "positive_transfers_each": 326,
+    "positive_resets_each": 19,
+    "positive_wait_edges_each": 0,
+    "required_bins": 34,
+    "scope": "Recorded source, input, compilation and verdict consistency; not a proof of oracle completeness or Agent runtime isolation."
+  },
+  "rows": [
+    {
+      "label": "control-00",
+      "source": "fixtures/reference.sv",
+      "positive": true,
+      "accepted": true,
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "result_sha256": "8199bed2318eda361a96657c37a8b300d48b102fa802cfe0e24881a684d811f2",
+      "source_sha256": "aca8f073dda62db44e22ee92948bf54b2d6a4f72c7a0186bd744cec4d1c02798",
+      "wall_seconds": 23.330104377993848
+    },
+    {
+      "label": "control-01",
+      "source": "fixtures/reference_packed.sv",
+      "positive": true,
+      "accepted": true,
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "result_sha256": "c2872f237a42fdd642666eef504410a18b443810ceb99f1f51a52d936f432dc4",
+      "source_sha256": "d1d59c528101005f3190493745946645bb06e1794f6b0b6dfd519bba8a2da4ca",
+      "wall_seconds": 23.013248590985313
+    },
+    {
+      "label": "control-02",
+      "source": "fixtures/bad_alias.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "c8455dba5381a373c4043283e4f507c313b10254147aa1fdb43f6a5fa67d98b7",
+      "source_sha256": "f896b6f6669de0f03788db49fd6d63da1cb65030b448e9443ec5093be724f687",
+      "wall_seconds": 25.876487372996053
+    },
+    {
+      "label": "control-03",
+      "source": "fixtures/bad_ignore_strobe.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "6981d7959b515cf1ca85ee70102fb4d0ae7b993cf85e3685c4cdde5cfea2841b",
+      "source_sha256": "740fde9cf87811d5cfae6408314fdd1ba5e3e9424db4815d7401165938377afa",
+      "wall_seconds": 25.34379498101771
+    },
+    {
+      "label": "control-04",
+      "source": "fixtures/bad_no_error.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "71e2e3e0849573f2da41497b05d84499d2d95220773b81d08caaad3bbef580bc",
+      "source_sha256": "c801ca3d576b0e466e03ab61eaf31afbbc1d6ad61867f78588038a9abcd0021e",
+      "wall_seconds": 23.601624586008256
+    },
+    {
+      "label": "control-05",
+      "source": "fixtures/bad_bad_reset.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "ba0619fe912695c1eaa9f95c150d81d2f44a1a5a58209216da9c6cdd94e7c29f",
+      "source_sha256": "c56f92e93b98c60e1aa7d03f0b8ee6e555ca225086c1a13f30e5369193489a31",
+      "wall_seconds": 24.57620317200781
+    },
+    {
+      "label": "control-06",
+      "source": "fixtures/bad_reserved_write.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "2fa0e576d12f0f95b01ba16a451a2727348e4993ba5b67a8064009215aa5bc7c",
+      "source_sha256": "afc5902e439fc8e12ca4fbd26376bca93e9bf46d7d2dc2999baff895d8d48e6d",
+      "wall_seconds": 22.740690724982414
+    }
+  ],
+  "cost": {
+    "compile_calls": 7,
+    "compile_wall_seconds": 128.80391706197406,
+    "simulation_wall_seconds": 39.64908516799915,
+    "grade_wall_seconds": 168.4821538059914,
+    "job_wall_seconds": 170.21615362167358
+  },
+  "stimulus_settings": {
+    "seed": 37,
+    "random_count": 24
+  },
+  "runtime_admitted": false,
+  "agent_trials": 0,
+  "role_qualification": "../resources/apb-master-v2.json",
+  "limits": [
+    "Two implementation expressions do not guarantee independent semantic understanding",
+    "Idle reset only; no in-flight reset or externally changing status bits",
+    "Finite directed/random simulation and targeted controls are not exhaustive correctness proof",
+    "No Agent runtime admission or model trial for this family"
+  ]
+}

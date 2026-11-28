@@ -1,0 +1,88 @@
+{
+  "planned": 20,
+  "generated": 20,
+  "admitted": 0,
+  "same_engineering_contracts": true,
+  "rows": [
+    {
+      "task_id": "x2p_router_batcha_v1",
+      "manifest_sha256": "e10a7fa020c7656545d78ecf1ebb6769c557d395303c1a48d0f7a211a94e78dd"
+    },
+    {
+      "task_id": "x2p_router_batchb_v1",
+      "manifest_sha256": "525c3cc37b66387aa9b50921d87c95d39d6b0d6c57b83a66f921024670b26e64"
+    },
+    {
+      "task_id": "x2p_router_batchc_v1",
+      "manifest_sha256": "e67cc553129d914ab4ca436fad2133bdd049424848a9b2516881e330a4aeaf23"
+    },
+    {
+      "task_id": "x2p_router_batchd_v1",
+      "manifest_sha256": "a39cd771b021322a2abf85a419cbb2d5004ae4815918d3b70601c39c272a6785"
+    },
+    {
+      "task_id": "x2p_router_batche_v1",
+      "manifest_sha256": "d68975a6e8095b6790784ee157a1b74bb01fb14c73a6d581d78c3054eb859c5a"
+    },
+    {
+      "task_id": "x2p_router_batchf_v1",
+      "manifest_sha256": "f0479df4e04f6bcfbebae8bccd21493ed56282440789ec73f1d3d4f9be0d72f2"
+    },
+    {
+      "task_id": "x2p_router_batchg_v1",
+      "manifest_sha256": "fb7b5a99f0c1301138c87abc03b3b0d8985f20566ed094944d6e5e4aaee03e80"
+    },
+    {
+      "task_id": "x2p_router_batchh_v1",
+      "manifest_sha256": "813d2111460235d786db2b915de0a4a68f73837e67897aff49b89a13dfc88eb3"
+    },
+    {
+      "task_id": "x2p_router_batchi_v1",
+      "manifest_sha256": "e57081cc3a49be9185cfa619d705cb56c0c3a717785994efd1c9d6d8b86ea454"
+    },
+    {
+      "task_id": "x2p_router_batchj_v1",
+      "manifest_sha256": "58beb3e7863bd724eb170ab166b23afa2e9c7f34f2d5d91fc6d185ca669a5626"
+    },
+    {
+      "task_id": "x2p_router_batchk_v1",
+      "manifest_sha256": "844868b0c97a15a45dcc0a6c890ddcc142c3606d50233f4fb2f8dc3b2d505863"
+    },
+    {
+      "task_id": "x2p_router_batchl_v1",
+      "manifest_sha256": "ea6838773ec5d6d2a15b7150d9ff71c370c8c8083a22f6e7edff0172d1ff06cf"
+    },
+    {
+      "task_id": "x2p_router_batchm_v1",
+      "manifest_sha256": "4889371ebe34e6f5d6dafd8ac1e9f25193f2c23d189ec57f80c86299a5f6cd83"
+    },
+    {
+      "task_id": "x2p_router_batchn_v1",
+      "manifest_sha256": "44f24d447a25a48643f8ee9e0f9d96d949b28bfcc9de4e837043782a55b9c9e5"
+    },
+    {
+      "task_id": "x2p_router_batcho_v1",
+      "manifest_sha256": "00cffcfc65114159301094b3a493ea84b63c554f7310fe26aad2eebcb48902fb"
+    },
+    {
+      "task_id": "x2p_router_batchp_v1",
+      "manifest_sha256": "604e00141c4bceea8da88b373a6d3e1ead77a0e7ab493f5d6b5ee5c024769a2c"
+    },
+    {
+      "task_id": "x2p_router_batchq_v1",
+      "manifest_sha256": "e99867fc7b3d5456340516fdf736123e26f5a41eb5758092bba3921f83d7d5d6"
+    },
+    {
+      "task_id": "x2p_router_batchr_v1",
+      "manifest_sha256": "8b2f6effbd8f27a517a6a4218a98cf98fa19c5c5434b6389c02cfacd060941a9"
+    },
+    {
+      "task_id": "x2p_router_batchs_v1",
+      "manifest_sha256": "711a9d4ff3a121aba80a9d32109f7327ca11b90b37a218a8dea5390b1fb99847"
+    },
+    {
+      "task_id": "x2p_router_batcht_v1",
+      "manifest_sha256": "e3a65c4fe5b2774ed4de5b0bacabf1f60c0e649742ded0d4451e01eb3d3136ff"
+    }
+  ]
+}

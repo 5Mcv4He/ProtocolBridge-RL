@@ -1,6 +1,6 @@
 # 多任务入口与准入
 
-当前研究集合有 **11 个 X2P 与 24 个有限工程任务身份**。其中两个 I²C 补全任务复用已有功能契约；35 个身份不等于 35 种独立能力，也不表示它们具有相同的模型样本量或难度。
+历史研究集合有 **11 个 X2P 与 24 个有限工程任务身份**。其中两个 I²C 补全任务复用已有功能契约；35 个身份不等于 35 种独立能力，也不表示它们具有相同的模型样本量或难度。
 
 | 要复用什么 | 身份与材料来源 | 查询和运行路径 |
 | --- | --- | --- |
@@ -8,7 +8,19 @@
 | 路由族、队列族、组合桥（7 个） | 各生成包及来源清单 | `python3 scripts/tasks.py --package PACKAGE list`，包内独立准入 |
 | UART／I²C／RFFE／SWD、测试生成、参考修复、Checker、综合修复与结构优化（24 个） | [追加 Registry（含原目录）](../tasks/artifact-registry-v4.json) | `python3 -m environment.artifact_task.cli_v4 list`；[逐任务说明与命令](tasks/README.md) |
 
-这些入口复用控制与审计方法，但没有合并成同一个 CLI。根 `scripts/tasks.py list` 只列四个原始任务，不能用它的输出作为项目任务总数。完整研究记录与已审查轨迹的分母见[当前交换库存](../experiments/bitfold-optimization-v1/exchange-inventory.json)，它不是任务准入证书。
+这些入口复用控制与审计方法，但没有合并成同一个 CLI。根 `scripts/tasks.py list` 只列四个原始任务，不能用它的输出作为项目任务总数。完整研究记录与已审查轨迹的分母见[当前交换库存](../experiments/task-space-v1/exchange-inventory.json)，它不是任务准入证书。
+
+## 新契约生成与当前可运行池
+
+新生产研究另外生成两轮各 20 份地址契约。当前五份实例有修订后来源匹配准入：`batcha`、`batche`、`roundwordn`、`roundworda`、`roundwordq`（完整身份均为 `x2p_router_<名称>_v1`）。其余候选与历史通过版本分别记录，不自动计为当前可运行任务。[生产报告](task-space-production.md)给出工程差异、拒绝原因与实际成本；[工业证据](../experiments/task-space-v1/production/word-controls-v1/manifest.json)不能被材料生成结果代替。
+
+```sh
+python3 -m environment.package_pool_v2 PRIVATE_ADMISSIONS PRIVATE_CONFIG
+```
+
+该入口重新核对任务包及运行机制依赖，输出当前匹配的任务和准入身份；它不是把公开摘要读成永久许可证。[生产与运行说明](../task_families/router_v6/README.md)连接契约构造、静态生产、工业门禁、运行准入及原生批量求解。旧入口保持原有任务范围。
+
+两份新增[路由与队列组合实例](../task_families/composed_v2/README.md)另已完成实例功能对照，但尚未具备对应运行准入，不进入上述五份任务池。[APB 寄存器族](../task_families/apb_register_v1/README.md)的两份契约已完成设备语义正反对照，尚未取得 Agent 运行准入；角色或实例功能资格不能自动授予任务运行权限。这样可以分别查看生产能力、验证进度与真正可启动的求解任务。
 
 ## 四个原始 X2P 任务
 

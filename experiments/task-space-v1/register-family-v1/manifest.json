@@ -1,0 +1,40 @@
+{
+  "schema": "register-family-functional-evidence-manifest-v1",
+  "generated_contracts": 2,
+  "functional_layers_qualified": 2,
+  "runtime_admitted": 0,
+  "agent_trials": 0,
+  "files": {
+    "audit-challenges.json": "98fee8b198ee5e6cb27a5fce2be0888507a6fc1513e2369a9535f8fd2e8022dd",
+    "mixed-controls.json": "a18baec6aaace8b29d6f2c7b801dd82bfbfb6c70f90880cf47f50a701b2be30e",
+    "pilot-history.json": "e9a2f31ad13ddd8f191a00adac2d79e47182bfad897efb57dc5b7fa7a197d982",
+    "status-controls.json": "000d8454c493f8c5d197128f5305414de2ef73fcb2426201ca091abf5c9318ba"
+  },
+  "summary": [
+    {
+      "task_id": "apb_register_mixed_v1",
+      "positive": 2,
+      "negative": 8,
+      "cost": {
+        "compile_calls": 10,
+        "compile_wall_seconds": 189.32304865005426,
+        "simulation_wall_seconds": 53.60711583701777,
+        "grade_wall_seconds": 242.96971567108994,
+        "job_wall_seconds": 244.29058074951172
+      }
+    },
+    {
+      "task_id": "apb_register_status_v1",
+      "positive": 2,
+      "negative": 5,
+      "cost": {
+        "compile_calls": 7,
+        "compile_wall_seconds": 128.80391706197406,
+        "simulation_wall_seconds": 39.64908516799915,
+        "grade_wall_seconds": 168.4821538059914,
+        "job_wall_seconds": 170.21615362167358
+      }
+    }
+  ],
+  "scope": "New active APB role supports two independently controlled device contracts; no automatic executable Agent pool admission."
+}

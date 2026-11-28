@@ -1,0 +1,26 @@
+{
+  "schema": "native-package-offline-replay-v1",
+  "auditor_sha256": "7be157b63cb12ab35b738bb9406588ab777717b413ed435f5eb4c528f60d09a4",
+  "results": [
+    {
+      "trial_id": "x2p_router_batcha_v1-r1",
+      "accepted": true,
+      "scope": "interrupted_research_record",
+      "training_eligible": false,
+      "sdk_audit": {
+        "schema": "native-action-audit-v2",
+        "accepted": true,
+        "generated_calls": 5,
+        "executed_operations": 5,
+        "sdk_results": 5,
+        "observations_in_completed_model_requests": 4,
+        "model_responses": 4,
+        "submitted": false
+      },
+      "actions": 5,
+      "public_results_replayed": 1,
+      "new_model_or_eda_calls": 0,
+      "terminal_reward": null
+    }
+  ]
+}

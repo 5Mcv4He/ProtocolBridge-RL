@@ -1,0 +1,91 @@
+{
+  "schema": "audited-package-behavior-v1",
+  "trial_id": "x2p_router_roundwordn_v1-r1",
+  "task_id": "x2p_router_roundwordn_v1",
+  "result_sha256": "b6734918385f8f4ace3f04a127f96172feda826ad20551fe1c7b0a040ae27e96",
+  "replay": {
+    "trial_id": "x2p_router_roundwordn_v1-r1",
+    "accepted": true,
+    "scope": "completed_runtime",
+    "training_eligible": null,
+    "sdk_audit": {
+      "schema": "native-action-audit-v2",
+      "accepted": true,
+      "generated_calls": 6,
+      "executed_operations": 6,
+      "sdk_results": 6,
+      "observations_in_completed_model_requests": 5,
+      "model_responses": 5,
+      "submitted": true
+    },
+    "actions": 6,
+    "public_results_replayed": 1,
+    "new_model_or_eda_calls": 0,
+    "terminal_reward": 1.0
+  },
+  "analyzer_sha256": "17e5dbdc4b27267e4ba29061dbbb5e374dac5cf6b113ac94a60caffd8971f712",
+  "edits": [
+    {
+      "action_index": 3,
+      "source_sha256": "dfc307dfef6db2c878dc30e9d5da81a5a56be71b1811cb4c06cf4b7587914e5c"
+    },
+    {
+      "action_index": 4,
+      "source_sha256": "2e9d9e313db0bc6d745033d32540c0f86440b952c1baea3830be77b76f59e6df"
+    }
+  ],
+  "public_tests": [
+    {
+      "action_index": 5,
+      "source_sha256": "2e9d9e313db0bc6d745033d32540c0f86440b952c1baea3830be77b76f59e6df",
+      "verdict": "PASS",
+      "feedback_observation": {
+        "status": "PASS",
+        "category": "pass",
+        "source_sha256": "2e9d9e313db0bc6d745033d32540c0f86440b952c1baea3830be77b76f59e6df",
+        "remaining_test_calls": 1
+      },
+      "transport_returned": true,
+      "model_receipt_confirmed": true
+    }
+  ],
+  "final_source_sha256": "2e9d9e313db0bc6d745033d32540c0f86440b952c1baea3830be77b76f59e6df",
+  "final_public_verdict": "PASS",
+  "submitted_known_public_failure": false,
+  "edits_after_last_public_test": 0,
+  "public_case_regressions": [],
+  "terminal_reward": 1.0,
+  "terminal_category": "pass",
+  "costs": {
+    "reported_tokens": 24131,
+    "whole_trial_wall_seconds": 778.9222,
+    "public": [
+      {
+        "action_index": 5,
+        "compile_attempts": 1,
+        "compile_cpu_seconds_reported": 90.885,
+        "simulation_attempts": 22,
+        "simulation_cpu_seconds_reported": 16.53,
+        "simulation_cpu_reports": 22,
+        "adapter_wall_seconds": 210.37049200001638,
+        "compile_wall_seconds": null,
+        "simulation_wall_seconds": null,
+        "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+      }
+    ],
+    "terminal": {
+      "compile_attempts": 1,
+      "compile_cpu_seconds_reported": 87.5,
+      "simulation_attempts": 27,
+      "simulation_cpu_seconds_reported": 44.8,
+      "simulation_cpu_reports": 27,
+      "adapter_wall_seconds": 279.53416383301374,
+      "compile_wall_seconds": null,
+      "simulation_wall_seconds": null,
+      "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+    },
+    "model_request_wall_seconds": null,
+    "api_currency_cost": null
+  },
+  "scope": "Offline analysis of actual public executions and final training-side grade. No held-out outcomes, new candidate tests, candidate ranking or training selection. Model request timing and currency cost unavailable in this profile."
+}

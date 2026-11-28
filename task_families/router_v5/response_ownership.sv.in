@@ -1,0 +1,21 @@
+ // Independent pin ledger: a write completion cannot authorize a read response.
+ // Update on transfer edges; examine settled registered outputs half a cycle
+ // later, before the VIP can terminate on the next transfer edge. This task
+ // has one global outstanding request and a synchronous reset.
+ int ownership_aw=0,ownership_w=0,ownership_ar=0;
+ always @(posedge clk) begin
+  if(!rst_n) begin ownership_aw=0;ownership_w=0;ownership_ar=0;end
+  else begin
+   if(s_awvalid && s_awready) ownership_aw++;
+   if(s_wvalid && s_wready) ownership_w++;
+   if(s_arvalid && s_arready) ownership_ar++;
+   if(s_bvalid && s_bready) begin ownership_aw--;ownership_w--;end
+   if(s_rvalid && s_rready) ownership_ar--;
+  end
+ end
+ always @(negedge clk) if(rst_n) begin
+  if(s_bvalid && (ownership_aw<=0 || ownership_w<=0))
+   `uvm_error("PB_TIMING","B response has no accepted AW/W owner")
+  if(s_rvalid && ownership_ar<=0)
+   `uvm_error("PB_TIMING","R response has no accepted AR owner")
+ end

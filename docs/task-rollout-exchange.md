@@ -101,4 +101,23 @@ python3 -m scripts.native_exchange FROZEN_PLAN.json RAW_RUNS NEW_EXCHANGE
 
 [SWD后续一条v9记录](../experiments/swd-read-v1/exchange/manifest.json)由[重放v3](../scripts/check_native_replay_v3.py)识别run_v5，工具契约和反馈格式未改变。SWD阶段库存为140条研究记录、100条已审查轨迹；8次编辑、4次实际FAIL反馈及失败提交全部保留。未测试的中间源码不补造评分，具体[数据用途判断](../experiments/swd-read-v1/behavior-analysis.json)只使用训练侧证据。
 
-[结构优化新增一条v9记录](../experiments/bitfold-optimization-v1/exchange/manifest.json)，当前库存为141／101。[重放v4](../scripts/check_native_replay_v4.py)识别run_v6与Session v6；公开工具观察保留实际送达的结构数量，完整评分与成本另有来源绑定的研究摘要。训练终局奖励与独立保留仍分区，未测中间版本不评分。新9条原生记录的[用途审查](trajectory-data-uses.md#原生轨迹的独立用途审查)不改写旧132条清单。
+[结构优化新增一条v9记录](../experiments/bitfold-optimization-v1/exchange/manifest.json)，该阶段库存为141／101。[重放v4](../scripts/check_native_replay_v4.py)识别run_v6与Session v6；公开工具观察保留实际送达的结构数量，完整评分与成本另有来源绑定的研究摘要。训练终局奖励与独立保留仍分区，未测中间版本不评分。新9条原生记录的[用途审查](trajectory-data-uses.md#原生轨迹的独立用途审查)不改写旧132条清单。
+
+## 生成任务包的 v10 记录
+
+当任务由契约生成时，仅记录 Task ID 不足以重现一次求解。同一个名称可能对应不同的验证器修订；因此新入口同时绑定任务包清单、当前准入凭据、求解运行器及实际输入。历史准入仍可作为研究证据，但不能授权已变化的执行源码。
+
+[v10 导出器](../scripts/package_exchange.py)与[当前运行器重放](../scripts/check_package_replay_v2.py)沿用原生调用的三个层次：模型生成了什么、控制器执行了什么、哪些工具结果实际进入下一次有响应的模型请求。源码制品按内容哈希保存，公开测试与终局提交分别绑定当时的候选。旧反馈不会因后续编辑而变成新候选的测试结果。
+
+```sh
+python3 -m scripts.check_package_replay_v2 PRIVATE_TRIAL_DIRECTORY
+python3 -m scripts.package_exchange PRIVATE_STUDY_PLAN PRIVATE_RUNS NEW_EXPORT_DIRECTORY
+```
+
+这两个入口需要可信侧原始记录及匹配来源，公开摘要不能代替。它们核对已有运行，不额外调用模型或 EDA，也不使用保留结果选择候选。[实际两条完整轨迹](../experiments/task-space-v1/calibration-v2/exchange-v10/manifest.json)包含失败与成功提交；[研究报告](generated-task-calibration.md)解释一条局部回归和一条失败反馈后的有效修复。该集合不能与不同验证器版本的历史结果合成成功率。
+
+还须区分“启动记录”“审计完成”和“训练用途”。较早的一条试次在可信分类异常后停止，没有提交；原始导出记录保留未通过当时导出审计的状态，后续专门重放只确认其为可追溯的中断研究记录。它不因此获得终局奖励，也不自动进入训练目录。对完整试次，导出成功同样不证明训练价值。
+
+`training` 保存真实工具交互与终局奖励，`evaluation` 保存独立保留结果，`analysis` 记录离线测量范围。[候选行为分析器](../scripts/package_behavior.py)按相同源码、相同公开输入及实际送达反馈分析修改与复验；未测试的中间候选保持未测。Token IDs、行为概率及精确权重版本继续标为不可取得。本阶段是固定模型采样，尚未进行参数训练。
+
+后续[字对齐契约的一条 v10 记录](../experiments/task-space-v1/calibration-word-v1/exchange-v10/manifest.json)独立冻结和导出，保留首候选未测试、第二候选公开 PASS 后原样提交的实际过程。当前合计 145 条研究记录、104 条交付工具轨迹及 1 条单独审计中断记录；不同批次不因此合并为成功率。

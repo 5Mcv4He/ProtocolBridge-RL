@@ -1,0 +1,36 @@
+"""Remap qualified queue traffic, then exercise every target/reset phase pair."""
+import copy
+from ._composed_template import suite as inherited, REQUIRED_BINS as inherited_bins
+WINDOWS = WINDOWS_VALUE
+REQUIRED_BINS = set(inherited_bins) | {'x_reset_t%d_s%d' % (t,s) for t in range(3) for s in range(3,9)}
+
+
+def suite(public=False, seed=20261125):
+    cases = inherited(public, seed)
+    # The inherited logical target/local identities are retained. Neither a
+    # candidate decoder nor the generated reference is used to build inputs.
+    for c in cases:
+        for r in c['rows'] + c['recovery']:
+            target, offset = divmod(r[1], 65536)
+            r[1] = WINDOWS[target][0] + offset if target < 3 else 0xf0000000 + offset
+    for target in range(3):
+        for stage in range(3, 9):
+            c = copy.deepcopy(next(c for c in cases if c['name'] == 'reset_%d' % stage))
+            c['name'] = 'target_reset_t%d_s%d' % (target, stage)
+            for r in c['rows'] + c['recovery']:
+                # Retain the inherited local identity after the first mapping.
+                local = next(r[1]-b for b,n in WINDOWS if b <= r[1] < b+n)
+                r[1] = WINDOWS[target][0] + local
+            c['requirements'] = sorted(set(c['requirements']) | {'X_TARGET_RESET_PHASE'})
+            cases.append(c)
+    rows=[]
+    for target,(base,size) in enumerate(WINDOWS):
+        offsets={0,4,size-4}
+        boundary=(base//65536+1)*65536
+        if boundary < base+size:offsets.update((boundary-base-4,boundary-base,boundary-base+4))
+        for i,offset in enumerate(sorted(offsets)):
+            for wr in (1,0):rows.append([wr,base+offset,0x12000000+target*0x10101+i,15,0,0,5,24,0,0])
+    cases.append({'name':'routed_window_boundaries','sequence':'queue_memory_sequence','rows':rows,
+                  'recovery':[],'reset_stage':0,'requirements':['X_ROUTE_QUEUE','X_WINDOW_SUBTRACTION'],
+                  'ready_mode':'reactive'})
+    return cases

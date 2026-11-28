@@ -1,0 +1,14 @@
+{
+  "schema": "pb-exchange-manifest-v10",
+  "records": 0,
+  "started_records": 1,
+  "not_audited": 1,
+  "exporter_sha256": "b6307b070139fdd1d429246087f4a08644ace776b125b07c4b6c605ef8e22c74",
+  "files": {
+    "research/started.jsonl": "a9dd1185dddd62cb279e3df3f4e43a23f1e39c135c067f8a294f2658559e1924",
+    "analysis/offline.json": "bf27b6dcae2b76b53a492ae3b3374ba109ff69de6a64b9e4395a54c2f9700556",
+    "training/rollouts.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "evaluation/heldout.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "scope": "Actual native proposals and feedback, including failed/incomplete episodes. Exchange is not proof of training utility; evaluation is separate."
+}

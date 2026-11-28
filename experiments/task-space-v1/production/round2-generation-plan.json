@@ -1,0 +1,383 @@
+{
+  "schema": "word-owner-production-v1",
+  "base_commit": "194ffbe181601e4876035a35bfa49e7242317d41",
+  "producer_files": {
+    "task_families/router_v6/batch.py": "eeade8f1e1483b4e04d8907170fc31e03ffc29b333d614046f19ef672a967bff",
+    "task_families/router_v6/upgrade.py": "7614e61946e08dad50c8533a21e140f081ae295415874a8233d6d3280a3e3cf6",
+    "task_families/router_v5/response_ownership.sv.in": "90f7898d91606946bb38758725fc318a953d87f7a7dc00081412519e1dfc5721",
+    "task_families/router_core.py": "1339f2a73f8eab4ed1f3ffa6ec78051fff9534ee4b37b1751b742dc867957575",
+    "task_families/router_v4/contract.py": "10a8e10c307b14c8cf63b21b3345cb642358b15707bc5ec31fbb30da4615dab7",
+    "task_families/router_v4/execution.py": "2340fab1c652e32f85b813f97e9f5eacd988f5deec7281a676e3e9fc4df2ea97",
+    "task_families/router_v3/materialize.py": "4ff8b3377f9a423ef57b8858fa917a12223f3290a19770d64625f8315168154c",
+    "task_families/router_v3/qualification_v2.py": "a43f9451e9c77686868981a1c1b1123ca1b56c6e835082af3964a0298e192911",
+    "task_families/router_v2/generate.py": "1ef3edfb4775775561f1ad62db276be303b8eb74f69aa34874f8a25daf7d67c6",
+    "task_families/router_v1/scenarios.py.in": "c8fd7fc8aceba12f9b394de8c903b881624af4c788c63140365c0f5374df955c",
+    "task_families/production_lock.py": "3c5a88eec48804de74f7f501450f1f76081d648b7382b30f39268e5e1954640e"
+  },
+  "contracts": [
+    {
+      "task_id": "x2p_router_roundworda_v1",
+      "windows": [
+        [
+          4100,
+          4100
+        ],
+        [
+          8200,
+          16
+        ],
+        [
+          8216,
+          64
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 0: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordb_v1",
+      "windows": [
+        [
+          4108,
+          8204
+        ],
+        [
+          12312,
+          4
+        ],
+        [
+          12316,
+          128
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 0: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordc_v1",
+      "windows": [
+        [
+          4124,
+          12292
+        ],
+        [
+          16416,
+          28
+        ],
+        [
+          16444,
+          256
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 0: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordd_v1",
+      "windows": [
+        [
+          4156,
+          16380
+        ],
+        [
+          20536,
+          64
+        ],
+        [
+          20600,
+          12
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 0: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordi_v1",
+      "windows": [
+        [
+          196612,
+          4100
+        ],
+        [
+          4100,
+          16
+        ],
+        [
+          2415919108,
+          64
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 2: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordj_v1",
+      "windows": [
+        [
+          196620,
+          8204
+        ],
+        [
+          4108,
+          4
+        ],
+        [
+          2415919116,
+          128
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 2: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordk_v1",
+      "windows": [
+        [
+          196636,
+          12292
+        ],
+        [
+          4124,
+          28
+        ],
+        [
+          2415919132,
+          256
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 2: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordl_v1",
+      "windows": [
+        [
+          196668,
+          16380
+        ],
+        [
+          4156,
+          64
+        ],
+        [
+          2415919164,
+          12
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 2: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordm_v1",
+      "windows": [
+        [
+          1048580,
+          4100
+        ],
+        [
+          4294967272,
+          16
+        ],
+        [
+          1879048196,
+          64
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 3: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordn_v1",
+      "windows": [
+        [
+          1048588,
+          8204
+        ],
+        [
+          4294967284,
+          4
+        ],
+        [
+          1879048204,
+          128
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 3: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordo_v1",
+      "windows": [
+        [
+          1048604,
+          12292
+        ],
+        [
+          4294967260,
+          28
+        ],
+        [
+          1879048220,
+          256
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 3: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordp_v1",
+      "windows": [
+        [
+          1048636,
+          16380
+        ],
+        [
+          4294967224,
+          64
+        ],
+        [
+          1879048252,
+          12
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 3: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordq_v1",
+      "windows": [
+        [
+          131076,
+          4100
+        ],
+        [
+          135180,
+          16
+        ],
+        [
+          4100,
+          64
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 4: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordr_v1",
+      "windows": [
+        [
+          131084,
+          8204
+        ],
+        [
+          139292,
+          4
+        ],
+        [
+          4108,
+          128
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 4: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwords_v1",
+      "windows": [
+        [
+          131100,
+          12292
+        ],
+        [
+          143396,
+          28
+        ],
+        [
+          4124,
+          256
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 4: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordt_v1",
+      "windows": [
+        [
+          131132,
+          16380
+        ],
+        [
+          147516,
+          64
+        ],
+        [
+          4156,
+          12
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 4: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordu_v1",
+      "windows": [
+        [
+          4100,
+          16
+        ],
+        [
+          131076,
+          4100
+        ],
+        [
+          1073741828,
+          64
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 5: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordv_v1",
+      "windows": [
+        [
+          4108,
+          4
+        ],
+        [
+          131084,
+          8204
+        ],
+        [
+          1073741836,
+          128
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 5: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordw_v1",
+      "windows": [
+        [
+          4124,
+          28
+        ],
+        [
+          131100,
+          12292
+        ],
+        [
+          1073741852,
+          256
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 5: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    },
+    {
+      "task_id": "x2p_router_roundwordx_v1",
+      "windows": [
+        [
+          4156,
+          64
+        ],
+        [
+          131132,
+          16380
+        ],
+        [
+          1073741884,
+          12
+        ]
+      ],
+      "purpose": "Word-aligned routing layout 5: exact base subtraction across a page, small-target bounds, and independently owned B/R responses."
+    }
+  ],
+  "limits": {
+    "max_candidates": 24,
+    "minimum_free_bytes": 2147483648
+  }
+}

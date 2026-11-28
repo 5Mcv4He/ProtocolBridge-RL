@@ -1,0 +1,158 @@
+{
+  "schema": "generated-package-calibration-summary-v1",
+  "new_cohort": {
+    "study_id": "generated-router-production-calibration-v2",
+    "plan_sha256": "8ed68adfeddcefce1f6fa85bbb78799af8d35b68487f2d01483849e12fe06131",
+    "declared_trials": 2,
+    "started_trials": 2,
+    "audited_trials": 2,
+    "valid_submissions": 2,
+    "terminal_successes": 1,
+    "terminal_functional_failures": 1,
+    "terminal_indeterminate": 0,
+    "model": "deepseek-flash",
+    "reasoning": "off",
+    "sampling_temperature": "provider default, not controlled",
+    "sampling_seed": null,
+    "exact_weights": null,
+    "actions": 20,
+    "public_tests": 2,
+    "source_commit": "b7788d6ba000e620cb5309bfc26abf7a53e225ea",
+    "source_state": "Base commit plus frozen additive implementation; not a clean-commit claim.",
+    "source_manifest": {
+      "environment/artifact_task/session_v4.py": "46ae123777acf2df679c0956c21d60a4dc96b12da548ed643f3fb5e8f3ce1119",
+      "environment/control_bank.py": "94e54345db10801006977bb8370d4eb58269bda4e0abcc3d39cc14aadf61ada6",
+      "environment/environment_identity.py": "20d6d7979a9d10c861a5f39e3e5706601d9b19e738dfe27170cedf3b74c320eb",
+      "environment/native_tools/acceptance_v5.py": "d095c41d9466229a34060fff436a649989aa0fff1b79984d7b759910a6dd1446",
+      "environment/native_tools/audit.py": "f951c20434a3f305e2aa4536f0dcd708773764b87a8869b85f0bfebe449a69b3",
+      "environment/native_tools/controller.py": "cd0299db9c53793501250cae33c16c84e80426c2aa0a9b0d345dd64678c3cb80",
+      "environment/native_tools/controller_v2.py": "1b7529b81b69fd31a1a5bcc1dd88ffa4c606ec5760cf3cf62fdf22e61313e199",
+      "environment/native_tools/controller_v3.py": "37ce38f233e6e395738841facb7b1929b1d9cfbf508322d9f554fb17bd52ec50",
+      "environment/native_tools/launch_v5.sh": "a2a6635696fb5cb68cf2ef4f1c5cd7c5e1fb55d15042a8f8abcadf75bcbe9d5d",
+      "environment/native_tools/package_batch_v2.py": "0ee5f6e9b924186535b3be02f8967dfd877a3b115702a48dbc370ed2d48f78e3",
+      "environment/native_tools/run_package_v2.py": "74fd2f51162c22175df6df66b42f346aba9d9f0285a115d6cbaac8d2fbc88e85",
+      "environment/native_tools/tools_v5.mjs": "a6ae830957a8b7e7a8969c1a83ec1c5900378c25f201c95043a884dd2a4709ad",
+      "environment/native_tools/worker_v5.py": "adab4e553610ce4ff46d97da0eb418e1017e85fa7744e42d0acbd9a75add6453",
+      "environment/package_acceptance_v2.py": "8f82a234aa4b2a72896afedb7cc330654cb6b810bba855faa4f6a51fd2124234",
+      "environment/package_admission_v3.py": "618ca356f959cc272a8b83799a0965a87665b229b0f02b641e6cf329e25cc255",
+      "environment/package_backend.py": "e42e68dd777b3551882c2b5f11220c4e71a97799cd0e667202caeea455ac4571",
+      "environment/package_backend_v2.py": "9eae060f9a5d01af6cc433b8f11a1f6416ba0c33d7bd101d10956deaa7a4744c",
+      "environment/package_grade_entry.py": "cb62c47a3b372944e9b56665afb53c084605a15767a1f7689476744e46947ba0",
+      "environment/package_inputs.py": "939ad55948f274ebf0591ffb280676f6f81f788a5868116c4a9a77549ede3065",
+      "environment/package_pool_v2.py": "42778c56678c6965be5bccd121ef11b9bc6790b4023ce1f3b85ea393284d6965",
+      "environment/package_session.py": "09cbc36133774ce2a9be68a7023379d64cfa06d722d9e89136111fe259d18538",
+      "task_families/production_lock.py": "3c5a88eec48804de74f7f501450f1f76081d648b7382b30f39268e5e1954640e",
+      "task_families/router_v2/generate.py": "1ef3edfb4775775561f1ad62db276be303b8eb74f69aa34874f8a25daf7d67c6",
+      "task_families/router_v3/audit_controls.py": "603b655f1a57a6559ef37521de92578bbf85e4607509f5de44d8ceb6b8ce5c72",
+      "task_families/router_v3/audit_controls_v2.py": "ff66056651fe31e8ce952401fa10ab03c21d8d076169804c75a0edb8112106a3",
+      "task_families/router_v3/toolchain.py": "ec23dad5f99a08c4bd3f7dc1f8be4f94913100fb35343e670cd53505b6c24a15"
+    },
+    "harness": {
+      "sdk_distribution": "0.2.2rc2",
+      "runtime_distribution": "0.2.2rc2",
+      "native_interface": "engineering-native-tools-v3",
+      "transport": "native-v5",
+      "controller_python": "3.14.5"
+    },
+    "trials": [
+      {
+        "task_id": "x2p_router_batcha_v1",
+        "trial_id": "x2p_router_batcha_v1-r1",
+        "actions": 9,
+        "edits": 3,
+        "public_test_calls": 2,
+        "reported_tokens": 63692,
+        "whole_trial_wall_seconds": 512.4073,
+        "model_step_wall_seconds": 23.546,
+        "terminal_reward": 0.0,
+        "terminal_category": "protocol_timing_error",
+        "heldout_reward_reported_separately": 0.0,
+        "solver_stop_confirmed": true,
+        "result_sha256": "dd9b2625076777d785b4c44356ad32560df34a0723e09e16615fa75cdd41a270",
+        "audit_sha256": "d1017806b893ac661dedc0e31676d57299f0c06e425dc76b403228682afa0b46",
+        "final_public_verdict": "UNTESTED",
+        "public_observations": [
+          {
+            "source_sha256": "022fe1c771ca9855faafc8e161d78889f948415a322eaa7dbf1c15a9140768e2",
+            "reward": 0.0,
+            "category": "protocol_timing_error",
+            "cases_executed": 11,
+            "offline_failure_case": "reset_w_only",
+            "result_sha256": "6a0eadafd4158cad4b59a5bfb50a9dc500456222772cd81e483a9a59f1c819bb"
+          },
+          {
+            "source_sha256": "57574b3b084d6239d36f6d708858858e8b6af602e934881da85963bc925396c5",
+            "reward": 0.0,
+            "category": "protocol_timing_error",
+            "cases_executed": 1,
+            "offline_failure_case": "address_data",
+            "result_sha256": "11b7b484cd401c04750b05035f661dbeaca77b50cf0270493b565dcfb1e14a80"
+          }
+        ],
+        "terminal_cases_executed": 1,
+        "heldout_cases_executed": 1
+      },
+      {
+        "task_id": "x2p_router_batche_v1",
+        "trial_id": "x2p_router_batche_v1-r1",
+        "actions": 7,
+        "edits": 2,
+        "public_test_calls": 2,
+        "reported_tokens": 30196,
+        "whole_trial_wall_seconds": 935.2689,
+        "model_step_wall_seconds": 15.734,
+        "terminal_reward": 1.0,
+        "terminal_category": "pass",
+        "heldout_reward_reported_separately": 1.0,
+        "solver_stop_confirmed": true,
+        "result_sha256": "9b26d0e4d0027fe4879fbbd66ebce69e158659c9dea6afed9259ad93fb7f9f65",
+        "audit_sha256": "b45b08a33d5ca063a1618b9e8135150f2b50a120b1c5f2e4b234cae59fd113cb",
+        "final_public_verdict": "PASS",
+        "public_observations": [
+          {
+            "source_sha256": "5e9be0e3ff09fb7399b2cb333754c6e23b5a6f49865e5a86c9bc47ae63a9c491",
+            "reward": 0.0,
+            "category": "protocol_timing_error",
+            "cases_executed": 1,
+            "offline_failure_case": "address_data",
+            "result_sha256": "d823e6efef0c4b0c2656649128922205db074300144487fffe970be909081317"
+          },
+          {
+            "source_sha256": "dec5ea49b4085daece1284eaa992cc8c448cfdeac4dce45fc1f0db060a79d9d2",
+            "reward": 1.0,
+            "category": "pass",
+            "cases_executed": 22,
+            "offline_failure_case": null,
+            "result_sha256": "5b603b9c648e942c5816815856e226a5af6c5312ba9571af416a156b16b50d58"
+          }
+        ],
+        "terminal_cases_executed": 27,
+        "heldout_cases_executed": 27
+      }
+    ],
+    "action_protocol_errors": 0
+  },
+  "prior_stopped_cohort": {
+    "separate_version": true,
+    "planned": 2,
+    "started": 1,
+    "not_started": 1,
+    "reward": null,
+    "submitted": false,
+    "reason": "public_environment_error",
+    "actions": 5,
+    "edits": 2,
+    "public_test_calls": 1,
+    "reported_tokens": 17759,
+    "result_sha256": "aa7e1e87d73d0fbc00ba3c688f4d1549ee414f57bc2bcb641a750cafda34bf56",
+    "same_source_qa_scope": "Separate triggered verifier investigation, not replacement of the original reward or candidate selection"
+  },
+  "limitations": [
+    "One trial per contract; no stable success-rate or controlled feedback-effect estimate",
+    "Case-level regression does not establish whole-candidate correctness",
+    "Black-box model weights, token IDs and behavior probabilities unavailable",
+    "Model-step wall timing is not isolated provider compute latency",
+    "Independent heldout outcomes are not used for training record selection",
+    "No parameter training or demonstrated training benefit"
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "task_id": "x2p_router_batche_v1",
+  "historical_only": true,
+  "current_admission": false,
+  "archive_sha256": "299b6602c1fae35e1ce453d5ca2d3148694d0c142adf51fe1f9f0f0a58b7a5e0",
+  "audit": {
+    "schema": "router-control-audit-v2",
+    "task_id": "x2p_router_batche_v1",
+    "control_layer_qualified": true,
+    "admitted": false,
+    "package_manifest_sha256": "d68975a6e8095b6790784ee157a1b74bb01fb14c73a6d581d78c3054eb859c5a",
+    "control_report_sha256": "af9de0d2ae8c008042118b65cf11efcf7bf8c40fc3855643c9c13a8289f06005",
+    "positive_runs": 4,
+    "negative_controls": 14,
+    "simulation_records_replayed": 113,
+    "runtime_identities": [
+      {
+        "vcs_compiler": "O-2018.09-SP2_Full64",
+        "vcs_runtime": "O-2018.09-SP2_Full64",
+        "uvm": "1.1d.Synopsys"
+      }
+    ],
+    "auditor_sha256": "ff66056651fe31e8ce952401fa10ab03c21d8d076169804c75a0edb8112106a3",
+    "limits": "Runtime/interaction qualification and standalone candidate grading acceptance remain separate. Parser replay is not an independent functional oracle.",
+    "stimulus_records_bound": 113,
+    "environment_entry_sha256": "1c1e7d6f3ea940134da7f7572cfeb3d720650dfb48420479bf67a505334427bd",
+    "parent_auditor_sha256": "603b655f1a57a6559ef37521de92578bbf85e4607509f5de44d8ceb6b8ce5c72"
+  },
+  "controls": [
+    {
+      "source": "fixtures/task002/reference.sv",
+      "label": "reference-0-full",
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "cases_executed": 27,
+      "wall_seconds": 264.03246704902267,
+      "compile_reused": false,
+      "result_sha256": "12a26fd0b44cefcee86d1c2ae4c385b37eb2e1c6899b3a921c51164e23670f0b"
+    },
+    {
+      "source": "fixtures/task002/reference.sv",
+      "label": "reference-0-public",
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "cases_executed": 22,
+      "wall_seconds": 138.79533927398734,
+      "compile_reused": true,
+      "result_sha256": "7959d68302dc4a28d9a8f3700724470be6178c9f5a2ca59ab907922ec7d17229"
+    },
+    {
+      "source": "fixtures/task002/reference_fallthrough.sv",
+      "label": "reference-1-full",
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "cases_executed": 27,
+      "wall_seconds": 182.95070171900443,
+      "compile_reused": true,
+      "result_sha256": "a4260dc0eb818521f27a610a84917f49a165b0f537d3b3df90e031c2f03e960c"
+    },
+    {
+      "source": "fixtures/task002/reference_fallthrough.sv",
+      "label": "reference-1-public",
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "cases_executed": 22,
+      "wall_seconds": 132.84981280201464,
+      "compile_reused": true,
+      "result_sha256": "db99251ace5b9403302e726911bf84c986a27cddfce765b1f23037cc44c8e051"
+    },
+    {
+      "source": "fixtures/task002/bad_wrong_target.sv",
+      "label": "negative-00",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 4.812277413002448,
+      "compile_reused": true,
+      "result_sha256": "049b29d5b4a1b428b0b561af7c1bf19b4a5f38fb091c1fd583015a0d76cd333f"
+    },
+    {
+      "source": "fixtures/task002/bad_address_alias.sv",
+      "label": "negative-01",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 9.164678569999523,
+      "compile_reused": true,
+      "result_sha256": "09e1cc39db00ec060ff1c335e791cdfdd6f3560cc5b2653bc0da731e6c01f62a"
+    },
+    {
+      "source": "fixtures/task002/bad_wrong_local_address.sv",
+      "label": "negative-02",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 3.75368046501535,
+      "compile_reused": true,
+      "result_sha256": "a3571b49ab121f88027290a1e5d0d761f4858a8d3a65e8f936f6a6c3d258b0a0"
+    },
+    {
+      "source": "fixtures/task002/bad_broadcast.sv",
+      "label": "negative-03",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 3.8316714040120132,
+      "compile_reused": true,
+      "result_sha256": "ad8ced262f58e1e36778133862d37ff2945a0cd31747dd0c4ccc289d3a4a7c4a"
+    },
+    {
+      "source": "fixtures/task002/bad_wrong_ready.sv",
+      "label": "negative-04",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 6.783032537001418,
+      "compile_reused": true,
+      "result_sha256": "66b61e6a6cb87348e67dcc067e2b52b2b2599ba40d5453dff28e7740e7ede0e2"
+    },
+    {
+      "source": "fixtures/task002/bad_wrong_read_mux.sv",
+      "label": "negative-05",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 3.789541175996419,
+      "compile_reused": true,
+      "result_sha256": "8787d8ba2e752ee7cb1156344dd04f711b3701ad0df5f55126bb9ceaca6d8a0b"
+    },
+    {
+      "source": "fixtures/task002/bad_wrong_error_mux.sv",
+      "label": "negative-06",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "cases_executed": 2,
+      "wall_seconds": 10.182807786011836,
+      "compile_reused": true,
+      "result_sha256": "40e36532d4c659849620526851bf3ee75bf3857d86000ec59b71c80d9914d570"
+    },
+    {
+      "source": "fixtures/task002/bad_miss_okay.sv",
+      "label": "negative-07",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 5.745240207994357,
+      "compile_reused": true,
+      "result_sha256": "2877a37658231a3fb1bb62077f5bcb29b7cdc4fe3704f27819495bc1c734ce5a"
+    },
+    {
+      "source": "fixtures/task002/bad_miss_side_effect.sv",
+      "label": "negative-08",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 4.81081572099356,
+      "compile_reused": true,
+      "result_sha256": "5921320e30c15fd8a95da8fa3414a37322d861e0a1f22f9d33df7b77a5a19200"
+    },
+    {
+      "source": "fixtures/task002/bad_strobe_loss.sv",
+      "label": "negative-09",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 3.76951297398773,
+      "compile_reused": true,
+      "result_sha256": "ea9044c99a3ee39a9f14510f935e1aa3c796202531aa0ae72dbe53f9be639c3d"
+    },
+    {
+      "source": "fixtures/task002/bad_independent_handshake.sv",
+      "label": "negative-10",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 5.550958933017682,
+      "compile_reused": true,
+      "result_sha256": "5a893ad3a2a6430eb2d492ccf5c475adfa2c737f1bd1ccd69a990bb3fbb32d04"
+    },
+    {
+      "source": "fixtures/task002/bad_reset_half.sv",
+      "label": "negative-11",
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 4.726884276024066,
+      "compile_reused": true,
+      "result_sha256": "4b4c5181150c838690638e6e9bada63243de636d75524d2accea236b59cf699b"
+    },
+    {
+      "source": "fixtures/task002/bad_miss_read_data.sv",
+      "label": "negative-12",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 4.763333384995349,
+      "compile_reused": true,
+      "result_sha256": "1435d0d24752feb444c01c93dba3540437ff7bb56ac1e8a1ecbae00fc097cb15"
+    },
+    {
+      "source": "fixtures/task002/bad_local_bit12.sv",
+      "label": "negative-13",
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "cases_executed": 1,
+      "wall_seconds": 7.974758561991621,
+      "compile_reused": true,
+      "result_sha256": "8b3efac23309f9c2ac3cee4a3ec55aa15dfda18c39184c3f1748693ad47a4900"
+    }
+  ],
+  "cost": {
+    "schema": "control-cost-summary-v1",
+    "task_id": "x2p_router_batche_v1",
+    "control_report_sha256": "af9de0d2ae8c008042118b65cf11efcf7bf8c40fc3855643c9c13a8289f06005",
+    "analyzer_sha256": "4fea99f92c1c7a6b350e3e9b083107a2fff4dbe28f1d14394a3954b9664c934a",
+    "controls_reported_passed": true,
+    "admission_inferred": false,
+    "grading_runs": 18,
+    "actual_compile_attempts": 1,
+    "reused_compile_runs": 17,
+    "simulation_attempts": 113,
+    "compile_cpu_seconds_reported": 90.104,
+    "simulation_cpu_seconds_reported": 139.48,
+    "compile_cpu_reports_complete": true,
+    "simulation_cpu_reports_complete": true,
+    "grade_wall_seconds": 798.2875142540724,
+    "job_wall_seconds": 798.850976228714,
+    "scope": "Actual recorded compilation and simulation work; CPU is not wall time. Whole-job wall may include setup or separately declared probes. Quality and current admission require their own audits."
+  },
+  "scope": "Fresh offline consistency review of old complete industrial records; no simulation rerun, admission renewal or reward backfill."
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "reviewed-exchange-inventory-v10",
+  "base_inventory": "experiments/bitfold-optimization-v1/exchange-inventory.json",
+  "base_sha256": "b050756e7ba0b6bcc12ebe0552b264741122226c5cfc75dfba6c3b9902eff87f",
+  "records": 145,
+  "available_tool_trajectories": 104,
+  "additional_interrupted_research_reviews": 1,
+  "new_model_trials": 4,
+  "new_complete_exchange_records": 3,
+  "new_interrupted_no_training_export": 1,
+  "exports": [
+    {
+      "manifest": "experiments/task-space-v1/calibration-v2/exchange-v10/manifest.json",
+      "sha256": "54179832f2623c781ae2b31a124a14004bd6ae3727740ab27be9a8c23e1f0331",
+      "records": 2
+    },
+    {
+      "manifest": "experiments/task-space-v1/calibration-word-v1/exchange-v10/manifest.json",
+      "sha256": "70c57d084c33b4707d4f67388aeef4ec810efea6b3e7b48b3eb3af95bf7d87aa",
+      "records": 1
+    }
+  ],
+  "interrupted_record": "experiments/task-space-v1/interrupted-v1/summary.json",
+  "scope": "Historical141/101 plus4 started trials in separate frozen studies:3 complete exported tool trajectories,1 separately audited interruption without training export. No queued/future trial counts or pooled success-rate claim."
+}

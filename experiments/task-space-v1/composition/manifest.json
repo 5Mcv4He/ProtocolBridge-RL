@@ -1,0 +1,11 @@
+{
+  "schema": "composed-control-evidence-v1",
+  "instances": 2,
+  "runtime_admitted": 0,
+  "model_trials": 0,
+  "files": {
+    "adjacent-controls-v1.json": "b58249af72940517ec466496607386d00d6205dc7ed9cb425a562cd167641ddd",
+    "shifted-controls-v1.json": "b2b1ce00b1f93628ed2b88de136009b0ac3c37a035105a2a5b771b1a8786e064"
+  },
+  "scope": "Source-bound functional qualification of two generated contracts, not Agent runtime admission. The shifted instance also includes a separately declared mutation-generation challenge."
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "curated-historical-page-controls-v1",
+  "completed": 5,
+  "remaining_unstarted": 15,
+  "rows": [
+    {
+      "task_id": "x2p_router_batcha_v1",
+      "file": "x2p_router_batcha_v1.json",
+      "sha256": "b42290e52ac9f1797f48ec9429ddcb5d472c60721cda66b28065bcd8d8184520"
+    },
+    {
+      "task_id": "x2p_router_batchb_v1",
+      "file": "x2p_router_batchb_v1.json",
+      "sha256": "d90cb8e0468ee6cef7e4b55911acb59a840a82bbed0fb159c8ec2b758f082eae"
+    },
+    {
+      "task_id": "x2p_router_batchc_v1",
+      "file": "x2p_router_batchc_v1.json",
+      "sha256": "64d87fae4ecf771da991c9b767873ca401f277879295157eda2895646edcd952"
+    },
+    {
+      "task_id": "x2p_router_batchd_v1",
+      "file": "x2p_router_batchd_v1.json",
+      "sha256": "daf226f84f5bbc96feadeb39d9745dcf49aa88aa63bc169161cd46e8014bf7be"
+    },
+    {
+      "task_id": "x2p_router_batche_v1",
+      "file": "x2p_router_batche_v1.json",
+      "sha256": "425d67958064201a4c5e30df3ab5bf5363f22e655ed20b4bad03c2ab70bf0d5e"
+    }
+  ],
+  "stop_reason": "A real candidate exposed an unclassified unsolicited response; new sampling and later production used separately qualified response ownership checks. Historical results retained."
+}

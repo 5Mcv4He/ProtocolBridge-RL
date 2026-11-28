@@ -1,0 +1,244 @@
+{
+  "schema": "apb-register-functional-evidence-v1",
+  "task_id": "apb_register_mixed_v1",
+  "contract": {
+    "task_id": "apb_register_mixed_v1",
+    "wait_cycles": 2,
+    "registers": [
+      {
+        "address": 12,
+        "reset": 305419896,
+        "write_mask": 4278255615,
+        "access": "rw"
+      },
+      {
+        "address": 32,
+        "reset": 4294902015,
+        "write_mask": 4294967295,
+        "access": "w1c"
+      },
+      {
+        "address": 48,
+        "reset": 1437243750,
+        "write_mask": 0,
+        "access": "ro"
+      }
+    ]
+  },
+  "obligations": [
+    {
+      "id": "APB_PHASE",
+      "kind": "protocol",
+      "witness": "Setup precedes Access; request stable through waits"
+    },
+    {
+      "id": "ADDRESS_IDENTITY",
+      "kind": "parameter",
+      "witness": "Read every distinct reset word; interleave writes and read all targets"
+    },
+    {
+      "id": "STROBE_STATE",
+      "kind": "interaction",
+      "witness": "All16 PSTRB values \u00d7 each writable register, readback and unaffected-peer checks"
+    },
+    {
+      "id": "UNMAPPED",
+      "kind": "functional",
+      "witness": "Aligned holes and unaligned addresses: PSLVERR, zero read, no state change"
+    },
+    {
+      "id": "IDLE_RESET",
+      "kind": "lifecycle",
+      "witness": "Reset between completed requests restores all words"
+    },
+    {
+      "id": "WAIT_ACCOUNTING",
+      "kind": "timing",
+      "witness": "Exactly configured Access edges with PREADY low for every completion"
+    },
+    {
+      "id": "W1C_STROBE",
+      "kind": "interaction",
+      "witness": "On reset-set bits: write-one clears enabled lanes, write-zero and disabled lanes preserve"
+    },
+    {
+      "id": "RO_WRITE",
+      "kind": "functional",
+      "witness": "Writes complete OK without changing read-only value"
+    },
+    {
+      "id": "RESERVED_BITS",
+      "kind": "interaction",
+      "witness": "Byte strobe and bit write mask both restrict updates; other reset bits preserved"
+    }
+  ],
+  "package_manifest_sha256": "a94422c9eeb16f02d86334193af106124275eeaa86940ad36af216a161bc230b",
+  "producer_files": {
+    "generate.py": "123a3f64e7ed52cfc4887aa1a7acb7e8d966dddc7b8deff0f3cb549970feb541",
+    "contract.py": "97fd7915e759861e79ece9494765af7e2168b542630bbeb24b13604267fc3a0d",
+    "verification.py": "a78a6284e7b16cbe286b22029bb8664ecde6f7490c23f57bbf46fcc2c24d5cc9",
+    "tb.sv.in": "06fddff251cc04e1a930bb44dac6df4cd2f07e14aa8cf0e060a0807521323082"
+  },
+  "controls_plan_sha256": "0f6db131dc9ecf4de685af1b2495c0e924c1d76467464ed72b05bed4f9197fb4",
+  "archive_sha256": "40a66743f45ae9e6a261bb379993ca484795f4a95e355a78d8b995da002fec64",
+  "functional_audit": {
+    "schema": "apb-register-control-audit-v1",
+    "task_id": "apb_register_mixed_v1",
+    "functional_layer_qualified": true,
+    "runtime_admitted": false,
+    "manifest_sha256": "a94422c9eeb16f02d86334193af106124275eeaa86940ad36af216a161bc230b",
+    "control_report_sha256": "cf9c658b2dbecf45a4c568551f03c23bf52c37b858dc645863d855e68926113c",
+    "auditor_sha256": "d618b5d0d37c423332d2a163fc7d497740419866490472a675a888f21fe0f814",
+    "positive_controls": 2,
+    "negative_controls": 8,
+    "environment_entry_sha256": "30d24f3b075bd9f525bdac97d33d76e6e33eb17d6974f7d3c7a637e1f52a7d19",
+    "independently_compiled_controls": 10,
+    "positive_transfers_each": 582,
+    "positive_resets_each": 19,
+    "positive_wait_edges_each": 1164,
+    "required_bins": 51,
+    "scope": "Recorded source, input, compilation and verdict consistency; not a proof of oracle completeness or Agent runtime isolation."
+  },
+  "rows": [
+    {
+      "label": "control-00",
+      "source": "fixtures/reference.sv",
+      "positive": true,
+      "accepted": true,
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "result_sha256": "07a2146954e6d7fd25fab9a390829058c10a8123e0b90977acf6baaa5a457a5b",
+      "source_sha256": "592f45416c58409568479ec4123be41c1405d3c89fe095e7fa653240396b6ee0",
+      "wall_seconds": 26.807066357985605
+    },
+    {
+      "label": "control-01",
+      "source": "fixtures/reference_packed.sv",
+      "positive": true,
+      "accepted": true,
+      "reward": 1.0,
+      "category": "pass",
+      "verification_complete": true,
+      "result_sha256": "cc09fa60b8a389bd6ff584631d81e92419bf90a6ce9dcbded79a40a9b27d2a6c",
+      "source_sha256": "8ee337f44af908f7486c7339eb98392f2be88a4a03107f058a70bc9b5c4d1d91",
+      "wall_seconds": 26.500393893016735
+    },
+    {
+      "label": "control-02",
+      "source": "fixtures/bad_alias.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "8a6f6d28797715139e9905cafc6709621deb2deb317779b6fa0481f33cb6e48e",
+      "source_sha256": "ffc06b0385f9eb2d0f768fff579d95da594dbbe0f38b472dc7b4123ebfab81a5",
+      "wall_seconds": 25.08854029001668
+    },
+    {
+      "label": "control-03",
+      "source": "fixtures/bad_ignore_strobe.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "439373a711d070562911adf067ed3d2bbb301bee46dab51c81dca1880991a855",
+      "source_sha256": "67c184023e3e7eee16dde167b45bcf0fe154b71f8d2d8e613cb713e97709832c",
+      "wall_seconds": 23.18171037401771
+    },
+    {
+      "label": "control-04",
+      "source": "fixtures/bad_no_error.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "7775feabc7134bf552bef573f1ff262c8041f16041001b788bcbab6abcc52c28",
+      "source_sha256": "f70e03005ec8b0107f027a69ae39988fd00d8c9f1b4e661164860e30210d920f",
+      "wall_seconds": 23.99655808400712
+    },
+    {
+      "label": "control-05",
+      "source": "fixtures/bad_bad_reset.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "f8f3b0b539e0597eff2fe31503c9b8cc24d45750f03e3c02933c2225fce6eb3f",
+      "source_sha256": "38c57b079d27486bcd1b2584f97288df0f4f82b30dfcae3ff194f85ffa85141c",
+      "wall_seconds": 22.94229370902758
+    },
+    {
+      "label": "control-06",
+      "source": "fixtures/bad_no_wait.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "protocol_timing_error",
+      "verification_complete": false,
+      "result_sha256": "b4944941a4a9c770b1ea653a1b4185e34d817ce8770c7768c5b720251dbdd516",
+      "source_sha256": "327fc24192e9241cc201c67d0c817bfac8998607cc57d4b0c36131eaedd6dba8",
+      "wall_seconds": 23.425293439009693
+    },
+    {
+      "label": "control-07",
+      "source": "fixtures/bad_w1c_rw.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "63fdbbcd7bef8140b55d649b1b50d520dffb98a844c88ec85046393c26d6fd70",
+      "source_sha256": "01a46a059e4091ad81cc139503d60da7812299317026108f108af2bbf71cdaab",
+      "wall_seconds": 23.28539101500064
+    },
+    {
+      "label": "control-08",
+      "source": "fixtures/bad_ro_write.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "5cfbc3b0a5d9b9f0e180b93226d5699561d22b0276d42d5faa0137568b887847",
+      "source_sha256": "3ab1217f87af816975d2dbab0d448cb81fab94e6f94581d7fef989e8ae25425d",
+      "wall_seconds": 22.72952672201791
+    },
+    {
+      "label": "control-09",
+      "source": "fixtures/bad_reserved_write.sv",
+      "positive": false,
+      "accepted": true,
+      "reward": 0.0,
+      "category": "transaction_functional_error",
+      "verification_complete": false,
+      "result_sha256": "d72b1b93035a854ef4df5606b221b5a552944c2869780b0b167f4cf4fa4750ad",
+      "source_sha256": "8a389fe27524ee06ec1be1edb58415d21d1562b846a0d790c626930f9308275a",
+      "wall_seconds": 25.012941786990268
+    }
+  ],
+  "cost": {
+    "compile_calls": 10,
+    "compile_wall_seconds": 189.32304865005426,
+    "simulation_wall_seconds": 53.60711583701777,
+    "grade_wall_seconds": 242.96971567108994,
+    "job_wall_seconds": 244.29058074951172
+  },
+  "stimulus_settings": {
+    "seed": 37,
+    "random_count": 24
+  },
+  "runtime_admitted": false,
+  "agent_trials": 0,
+  "role_qualification": "../resources/apb-master-v2.json",
+  "limits": [
+    "Two implementation expressions do not guarantee independent semantic understanding",
+    "Idle reset only; no in-flight reset or externally changing status bits",
+    "Finite directed/random simulation and targeted controls are not exhaustive correctness proof",
+    "No Agent runtime admission or model trial for this family"
+  ]
+}

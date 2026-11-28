@@ -1,0 +1,210 @@
+{
+  "schema": "word-owner-production-result-v1",
+  "plan_sha256": "3cb85de1b15cb8df3a8bdf7ba43e2965739b7a58d85c94d6256c4d92b55c2fe8",
+  "planned": 20,
+  "recorded": 20,
+  "generated": 20,
+  "industrially_admitted": 0,
+  "rows": [
+    {
+      "task_id": "x2p_router_roundworda_v1",
+      "status": "generated",
+      "manifest_sha256": "6c23f08f038b2904fefbd87121b536e2b30b1d31f123d2716843071f18d90d97",
+      "source_files": 1801,
+      "package_bytes": 8711044,
+      "wall_seconds": 4.029999374994077,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordb_v1",
+      "status": "generated",
+      "manifest_sha256": "890b95d4e475b7f15b64377ae4fe0577f971d0ef18fb8dc9ab564dc2122c00be",
+      "source_files": 1801,
+      "package_bytes": 8712305,
+      "wall_seconds": 3.491722667007707,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordc_v1",
+      "status": "generated",
+      "manifest_sha256": "ca001eca9e2762b205fcaac624134288fec53e9de0f7ebd3e00a5e6b05fae866",
+      "source_files": 1801,
+      "package_bytes": 8713870,
+      "wall_seconds": 3.542620165972039,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordd_v1",
+      "status": "generated",
+      "manifest_sha256": "f4edab52e8b5b40e9343e57af2e60f78726c5bf3bfa9711fe1b02d7a34307b0e",
+      "source_files": 1801,
+      "package_bytes": 8712133,
+      "wall_seconds": 3.4849234169814736,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordi_v1",
+      "status": "generated",
+      "manifest_sha256": "bc76503d6566b57855f6f02879cfa0468e50b42b683808b299662fd70105572d",
+      "source_files": 1801,
+      "package_bytes": 8712687,
+      "wall_seconds": 3.53520549996756,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordj_v1",
+      "status": "generated",
+      "manifest_sha256": "a411931484cd4923d7b5c232798720b8ae3abf05a6565d7f0caed543565ec11a",
+      "source_files": 1801,
+      "package_bytes": 8713966,
+      "wall_seconds": 3.564727709046565,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordk_v1",
+      "status": "generated",
+      "manifest_sha256": "8707a2779b7fb1636ad44a3c189325bf25c33365fa9df9a3479a5f289e9da7d3",
+      "source_files": 1801,
+      "package_bytes": 8715549,
+      "wall_seconds": 3.571700165979564,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordl_v1",
+      "status": "generated",
+      "manifest_sha256": "778ddea2a33e1e98f082a5e96c8d00d63ddbbbef56ee029ba8779aeeb8f72ebc",
+      "source_files": 1801,
+      "package_bytes": 8713676,
+      "wall_seconds": 3.5889314170344733,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordm_v1",
+      "status": "generated",
+      "manifest_sha256": "365f33187e712bc7a0042ca986f0e9b144d11cd3d1917dee06f8e97757729147",
+      "source_files": 1801,
+      "package_bytes": 8712969,
+      "wall_seconds": 3.551826125010848,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordn_v1",
+      "status": "generated",
+      "manifest_sha256": "6cef90bf26db12decf7c8cf8b76893c2ff959705925dd953ce94ef1fe37e3bcc",
+      "source_files": 1801,
+      "package_bytes": 8714226,
+      "wall_seconds": 3.549531291995663,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordo_v1",
+      "status": "generated",
+      "manifest_sha256": "ac6f86e293d7246b48e8cc01206ce7183465fb3f633ac0c41f9640a2e0e54440",
+      "source_files": 1801,
+      "package_bytes": 8715881,
+      "wall_seconds": 3.6146550420089625,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordp_v1",
+      "status": "generated",
+      "manifest_sha256": "f0cbbcf4c0a0b8c7a773049a4b3bbf89ebb33f179edb11db4ff8ed01de58b6b9",
+      "source_files": 1801,
+      "package_bytes": 8714044,
+      "wall_seconds": 3.6033932919963263,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordq_v1",
+      "status": "generated",
+      "manifest_sha256": "00cfe85377c6d71d3bc3ff91595f8df03a5603c50056005d748e5486ab693a9d",
+      "source_files": 1801,
+      "package_bytes": 8712014,
+      "wall_seconds": 3.5766351250349544,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordr_v1",
+      "status": "generated",
+      "manifest_sha256": "aed549cd6deddaf54db9d5ff00aa3aaf34c1c01933ac00fc05f7486b557f7812",
+      "source_files": 1801,
+      "package_bytes": 8713245,
+      "wall_seconds": 3.638804792019073,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwords_v1",
+      "status": "generated",
+      "manifest_sha256": "ee9a74733a3f81476323ada9e0ca991e1fcb1e0ee1ee4bff4fa99424e2d9c134",
+      "source_files": 1801,
+      "package_bytes": 8714816,
+      "wall_seconds": 3.5644000839674845,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordt_v1",
+      "status": "generated",
+      "manifest_sha256": "a6706b4eb164763f3f50b7a43b942a107dbd61253d2880847c6954a09aac8f29",
+      "source_files": 1801,
+      "package_bytes": 8713111,
+      "wall_seconds": 3.6018735420075245,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordu_v1",
+      "status": "generated",
+      "manifest_sha256": "3c7606aa0aedf146b0286f90838d57ac98c8cf371160b4f0dbc84c25d10b2981",
+      "source_files": 1801,
+      "package_bytes": 8712684,
+      "wall_seconds": 3.580000292044133,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordv_v1",
+      "status": "generated",
+      "manifest_sha256": "4a98a80245dc4f559668665437b8e7a8d0908d6e0c6df389df4337b003f6a40e",
+      "source_files": 1801,
+      "package_bytes": 8713965,
+      "wall_seconds": 3.7434153329813853,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordw_v1",
+      "status": "generated",
+      "manifest_sha256": "9973ccac751c3d7a81c51ade6afb0bd234375d281fd8cd8a7a92a4f16adc32ef",
+      "source_files": 1801,
+      "package_bytes": 8715547,
+      "wall_seconds": 3.650042375025805,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    },
+    {
+      "task_id": "x2p_router_roundwordx_v1",
+      "status": "generated",
+      "manifest_sha256": "f05592085ec7fe6ad46ad646590d31c1804ce7e896db864457c1e40f1a60d9df",
+      "source_files": 1801,
+      "package_bytes": 8713674,
+      "wall_seconds": 3.6885738329729065,
+      "industrial_admission": "not_run",
+      "model_trials": 0
+    }
+  ]
+}

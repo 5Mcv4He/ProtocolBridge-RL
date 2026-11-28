@@ -1,0 +1,23 @@
+{
+  "schema": "apb-control-audit-challenges-v1",
+  "original_evidence_unchanged": true,
+  "positive_replay_passed": true,
+  "new_eda_calls": 0,
+  "rows": [
+    {
+      "challenge": "changed_vectors",
+      "rejected": true,
+      "reason": "Actual stimulus differs"
+    },
+    {
+      "challenge": "changed_candidate",
+      "rejected": true,
+      "reason": "Wrong candidate graded"
+    },
+    {
+      "challenge": "false_verdict",
+      "rejected": true,
+      "reason": "Actual log or functional attribution differs"
+    }
+  ]
+}

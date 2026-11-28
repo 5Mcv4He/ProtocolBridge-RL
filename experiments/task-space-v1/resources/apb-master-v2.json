@@ -1,0 +1,70 @@
+{
+  "schema": "apb-active-role-qualification-summary-v2",
+  "capability": "apb4_active_master_32",
+  "qualified_within_scope": true,
+  "task_admitted": false,
+  "source": "verification_components/apb_master_v1/probe_v2.sv",
+  "source_sha256": "b6c70f45f813803b9e15965728c4df6bf99addbbf95825ff80142f0df2ac08fe",
+  "archive_sha256": "4aa25ae1e7676293b07161e348358bac99a7530f068e3c27042044cd2d0b2812",
+  "toolchain_observed": {
+    "vcs_compiler": "O-2018.09-SP2_Full64",
+    "vcs_runtime": "O-2018.09-SP2_Full64",
+    "uvm": "1.1d.Synopsys"
+  },
+  "configured_amba_vip": "R-2020.12",
+  "actual_transfers_positive": 6,
+  "actual_wait_edges_positive": 12,
+  "checks": [
+    "request address/direction/data/strobe identity",
+    "literal reset and byte-write/readback anchors",
+    "exact Access wait edges",
+    "unmapped error/read value"
+  ],
+  "control_result": {
+    "schema": "apb-active-role-probe-v2",
+    "passed": true,
+    "rows": [
+      {
+        "fault": 0,
+        "exit_code": 0,
+        "positive_complete": true,
+        "functional_or_timing_rejection": false,
+        "log_sha256": "ba154ad535dbb18f21e0414627800b7b98ed1d0cc53623a45d34cba5d862cc87"
+      },
+      {
+        "fault": 1,
+        "exit_code": 0,
+        "positive_complete": false,
+        "functional_or_timing_rejection": true,
+        "log_sha256": "e2e3b0565b37f72eac0a640b9d114ece4fa56dfebf909378104b5fa80bc32c9d"
+      },
+      {
+        "fault": 2,
+        "exit_code": 0,
+        "positive_complete": false,
+        "functional_or_timing_rejection": true,
+        "log_sha256": "a3323f80ca0a12c1ed5b2f633f581c003a5abb46e54b79e6854d44819b93a15e"
+      },
+      {
+        "fault": 3,
+        "exit_code": 0,
+        "positive_complete": false,
+        "functional_or_timing_rejection": true,
+        "log_sha256": "cb619d775a530470851f16b363aece6a5a989cb29041f1d47b2929b9a0b3b3f1"
+      }
+    ],
+    "wall_seconds": 39.832181453704834,
+    "task_admission": false
+  },
+  "prior_v1": {
+    "compiled": false,
+    "simulations": 0,
+    "classification": "testbench_interface_connection_error",
+    "archive_sha256": "4109a3a26f3aba68fa2800aaa0c8a27cf5a1892535d0b0dfc1b87e930d3908dc",
+    "preserved_source": "verification_components/apb_master_v1/probe.sv"
+  },
+  "limits": [
+    "One finite self-built register, three targeted mutations, six transactions; not arbitrary APB-device correctness",
+    "Role qualification does not establish task-specific register state semantics, runtime isolation, or model performance"
+  ]
+}

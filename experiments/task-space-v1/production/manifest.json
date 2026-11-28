@@ -1,0 +1,17 @@
+{
+  "schema": "curated-production-files-v1",
+  "files": {
+    "round1-generation-plan.json": "cada092055110f6b5f5baabe0ff165eafb270038d018fb4079ee82d517cd3c84",
+    "round1-materialization-result.json": "d606421fcb18669a5d5aaaeb975cfdd02dbeb845a561e1763e582dcc2686782f",
+    "round2-generation-plan.json": "3cb85de1b15cb8df3a8bdf7ba43e2965739b7a58d85c94d6256c4d92b55c2fe8",
+    "round2-generation-result.json": "ddbcab0073e32733e621eac0c0374f239f07bff59805d5e25b2f6a089aaa98a6",
+    "round2-selection-v2.json": "49f4fad612c43c90b86595d5117770d98bc2c7aa4af78bdfe9d2d2d48f8f68ff"
+  },
+  "scope": "Frozen generation/materialization/selection records only. Candidate count is not industrial admission; selected instance evidence is reported separately.",
+  "notes": [
+    "Round one materialization preserves the same engineering contracts; it does not count new tasks.",
+    "Round two includes20 generated candidates after4 applicability rejections.",
+    "One-word-gap selection correction preceded industrial execution.",
+    "Historical bit12 control description says at least8KiB; actual applicability is a window larger than4096bytes, and exact Spec/windows and functional checks are unchanged. This textual limitation is retained instead of editing frozen manifests."
+  ]
+}

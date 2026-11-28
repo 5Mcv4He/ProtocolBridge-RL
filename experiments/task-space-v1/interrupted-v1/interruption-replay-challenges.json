@@ -1,0 +1,12 @@
+[
+  {
+    "challenge": "candidate_mismatch",
+    "rejected": true,
+    "reason": "Candidate artifact differs"
+  },
+  {
+    "challenge": "sdk_feedback_mismatch",
+    "rejected": true,
+    "reason": "Native dispatch or receipt replay differs"
+  }
+]

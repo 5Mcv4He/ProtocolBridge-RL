@@ -1,0 +1,23 @@
+{
+  "schema": "curated-word-controls-v1",
+  "instances": 3,
+  "rows": [
+    {
+      "task_id": "x2p_router_roundwordn_v1",
+      "file": "x2p_router_roundwordn_v1.json",
+      "sha256": "fabcbee3ac36f18262560d3772b3acb26e7f06395a2baa7ecc7ac731f54695db"
+    },
+    {
+      "task_id": "x2p_router_roundworda_v1",
+      "file": "x2p_router_roundworda_v1.json",
+      "sha256": "e8c0a44a88ccdb6364865aca6fce9af2a2f0c14f05a5c816e62b3e424a192a5c"
+    },
+    {
+      "task_id": "x2p_router_roundwordq_v1",
+      "file": "x2p_router_roundwordq_v1.json",
+      "sha256": "bf6e38c40fb9cd6a0524726067db35a9dcd83d9cbed07eaefe3afbca0ddf82b5"
+    }
+  ],
+  "source_batch_sha256": "543a1a0ef68a89f3b0a6cf9a59d0759c543bf314b947f5f24b02f4ba0aae7854",
+  "scope": "Completed real industrial controls and separately source-matched runtime admission. Private inputs, deployment records and raw commercial logs excluded. Public hashes identify evidence; rerunning requires matching legal tools and inputs."
+}

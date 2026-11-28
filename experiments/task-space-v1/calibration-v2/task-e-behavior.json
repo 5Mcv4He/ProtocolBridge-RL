@@ -1,0 +1,116 @@
+{
+  "schema": "audited-package-behavior-v1",
+  "trial_id": "x2p_router_batche_v1-r1",
+  "task_id": "x2p_router_batche_v1",
+  "result_sha256": "9b26d0e4d0027fe4879fbbd66ebce69e158659c9dea6afed9259ad93fb7f9f65",
+  "replay": {
+    "trial_id": "x2p_router_batche_v1-r1",
+    "accepted": true,
+    "scope": "completed_runtime",
+    "training_eligible": null,
+    "sdk_audit": {
+      "schema": "native-action-audit-v2",
+      "accepted": true,
+      "generated_calls": 7,
+      "executed_operations": 7,
+      "sdk_results": 7,
+      "observations_in_completed_model_requests": 6,
+      "model_responses": 6,
+      "submitted": true
+    },
+    "actions": 7,
+    "public_results_replayed": 2,
+    "new_model_or_eda_calls": 0,
+    "terminal_reward": 1.0
+  },
+  "analyzer_sha256": "17e5dbdc4b27267e4ba29061dbbb5e374dac5cf6b113ac94a60caffd8971f712",
+  "edits": [
+    {
+      "action_index": 3,
+      "source_sha256": "5e9be0e3ff09fb7399b2cb333754c6e23b5a6f49865e5a86c9bc47ae63a9c491"
+    },
+    {
+      "action_index": 5,
+      "source_sha256": "dec5ea49b4085daece1284eaa992cc8c448cfdeac4dce45fc1f0db060a79d9d2"
+    }
+  ],
+  "public_tests": [
+    {
+      "action_index": 4,
+      "source_sha256": "5e9be0e3ff09fb7399b2cb333754c6e23b5a6f49865e5a86c9bc47ae63a9c491",
+      "verdict": "FAIL",
+      "feedback_observation": {
+        "status": "FAIL",
+        "category": "protocol_timing_error",
+        "source_sha256": "5e9be0e3ff09fb7399b2cb333754c6e23b5a6f49865e5a86c9bc47ae63a9c491",
+        "remaining_test_calls": 1
+      },
+      "transport_returned": true,
+      "model_receipt_confirmed": true
+    },
+    {
+      "action_index": 6,
+      "source_sha256": "dec5ea49b4085daece1284eaa992cc8c448cfdeac4dce45fc1f0db060a79d9d2",
+      "verdict": "PASS",
+      "feedback_observation": {
+        "status": "PASS",
+        "category": "pass",
+        "source_sha256": "dec5ea49b4085daece1284eaa992cc8c448cfdeac4dce45fc1f0db060a79d9d2",
+        "remaining_test_calls": 0
+      },
+      "transport_returned": true,
+      "model_receipt_confirmed": true
+    }
+  ],
+  "final_source_sha256": "dec5ea49b4085daece1284eaa992cc8c448cfdeac4dce45fc1f0db060a79d9d2",
+  "final_public_verdict": "PASS",
+  "submitted_known_public_failure": false,
+  "edits_after_last_public_test": 0,
+  "public_case_regressions": [],
+  "terminal_reward": 1.0,
+  "terminal_category": "pass",
+  "costs": {
+    "reported_tokens": 30196,
+    "whole_trial_wall_seconds": 935.2689,
+    "public": [
+      {
+        "action_index": 4,
+        "compile_attempts": 1,
+        "compile_cpu_seconds_reported": 92.28,
+        "simulation_attempts": 1,
+        "simulation_cpu_seconds_reported": 0.58,
+        "simulation_cpu_reports": 1,
+        "adapter_wall_seconds": 102.10906908399193,
+        "compile_wall_seconds": null,
+        "simulation_wall_seconds": null,
+        "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+      },
+      {
+        "action_index": 6,
+        "compile_attempts": 1,
+        "compile_cpu_seconds_reported": 86.31200000000001,
+        "simulation_attempts": 22,
+        "simulation_cpu_seconds_reported": 17.0,
+        "simulation_cpu_reports": 22,
+        "adapter_wall_seconds": 229.04180733399699,
+        "compile_wall_seconds": null,
+        "simulation_wall_seconds": null,
+        "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+      }
+    ],
+    "terminal": {
+      "compile_attempts": 1,
+      "compile_cpu_seconds_reported": 87.91,
+      "simulation_attempts": 27,
+      "simulation_cpu_seconds_reported": 45.94,
+      "simulation_cpu_reports": 27,
+      "adapter_wall_seconds": 272.6144982079859,
+      "compile_wall_seconds": null,
+      "simulation_wall_seconds": null,
+      "scope": "Reported CPU and enclosing adapter wall time; compile/simulation transport wall time was not independently instrumented."
+    },
+    "model_request_wall_seconds": null,
+    "api_currency_cost": null
+  },
+  "scope": "Offline analysis of actual public executions and final training-side grade. No held-out outcomes, new candidate tests, candidate ranking or training selection. Model request timing and currency cost unavailable in this profile."
+}

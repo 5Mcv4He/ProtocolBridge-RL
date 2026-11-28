@@ -1,0 +1,25 @@
+{
+  "schema": "curated-interrupted-cohort-v1",
+  "study_plan_sha256": "0dfd09ba3a6d20e10a614a0c4ffdb3c8adefb86a4e0890087c1d7deb00ae0800",
+  "started": 1,
+  "planned_not_started": 1,
+  "submitted": 0,
+  "original_reward": null,
+  "original_category": "public_environment_error",
+  "actions": 5,
+  "edits": 2,
+  "public_test_calls": 1,
+  "reported_tokens": 17759,
+  "wall_seconds": 129.678,
+  "generated_executed_sdk_calls": 5,
+  "feedback_observations_in_completed_model_requests": 4,
+  "later_replay_scope": "interrupted_research_record",
+  "training_exported": false,
+  "complete_raw_interaction_retained_privately": true,
+  "same_candidate_quality_investigation": {
+    "candidate_sha256": "9ce3c4ed38b67071254a67bc2bc2b23296291970b6d1ad45d66561cb8d7971ed",
+    "new_checker_category": "protocol_timing_error",
+    "scope": "Separate verifier investigation, not a revised terminal reward or solver feedback"
+  },
+  "scope": "Original incomplete export and subsequent explicit interruption review remain distinct. No terminal or heldout evaluation occurred."
+}

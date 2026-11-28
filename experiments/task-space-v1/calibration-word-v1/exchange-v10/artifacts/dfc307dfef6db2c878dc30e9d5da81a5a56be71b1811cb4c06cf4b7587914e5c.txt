@@ -1,0 +1,163 @@
+module bridge(
+ input logic clk,rst_n,
+ input logic [31:0] s_awaddr, input logic s_awvalid, output logic s_awready,
+ input logic [31:0] s_wdata, input logic [3:0] s_wstrb, input logic s_wvalid, output logic s_wready,
+ output logic [1:0] s_bresp, output logic s_bvalid, input logic s_bready,
+ input logic [31:0] s_araddr, input logic s_arvalid, output logic s_arready,
+ output logic [31:0] s_rdata, output logic [1:0] s_rresp, output logic s_rvalid, input logic s_rready,
+ output logic [31:0] paddr,pwdata, output logic [3:0] pstrb, output logic [2:0] pprot,
+ output logic [2:0] psel, output logic penable,pwrite, input logic [95:0] prdata, input logic [2:0] pready,pslverr
+);
+ localparam [1:0] ST_IDLE=2'd0, ST_SETUP=2'd1, ST_ACCESS=2'd2, ST_RESP=2'd3;
+
+ logic [1:0] state;
+ logic aw_held, w_held;
+ logic [31:0] aw_addr, w_data;
+ logic [3:0] w_strb;
+ logic [31:0] r_addr;
+ logic [1:0] sel;        // target index
+ logic mapped;
+ logic is_write;
+ logic [31:0] lat_addr;
+ logic [31:0] lat_wdata;
+ logic [3:0] lat_strb;
+ logic [1:0] resp_code;
+ logic [31:0] resp_data;
+
+ function automatic logic [1:0] decode(input logic [31:0] a);
+   if (a >= 32'h0010000c && a <= 32'h00102017) decode = 2'd0;
+   else if (a >= 32'hfffffff4 && a <= 32'hfffffff7) decode = 2'd1;
+   else if (a >= 32'h7000000c && a <= 32'h7000008b) decode = 2'd2;
+   else decode = 2'd3;
+ endfunction
+
+ function automatic logic [31:0] local_addr(input logic [31:0] a, input logic [1:0] s);
+   case (s)
+     2'd0: local_addr = a - 32'h0010000c;
+     2'd1: local_addr = a - 32'hfffffff4;
+     2'd2: local_addr = a - 32'h7000000c;
+     default: local_addr = 32'h0;
+   endcase
+ endfunction
+
+ // ready signals
+ assign s_awready = (state==ST_IDLE) && !aw_held;
+ assign s_wready  = (state==ST_IDLE) && !w_held;
+ assign s_arready = (state==ST_IDLE) && !aw_held && !w_held;
+
+ // outputs
+ assign s_bvalid = (state==ST_RESP) && is_write;
+ assign s_bresp  = resp_code;
+ assign s_rvalid = (state==ST_RESP) && !is_write;
+ assign s_rdata  = resp_data;
+ assign s_rresp  = resp_code;
+
+ assign psel = (state==ST_SETUP || state==ST_ACCESS) ? (mapped ? (3'd1 << sel) : 3'd0) : 3'd0;
+ assign penable = (state==ST_ACCESS) && mapped;
+ assign pwrite = is_write;
+ assign paddr = mapped ? local_addr(lat_addr, sel) : 32'h0;
+ assign pwdata = lat_wdata;
+ assign pstrb = is_write ? lat_strb : 4'd0;
+ assign pprot = 3'b000;
+
+ wire done_apb = mapped && (state==ST_ACCESS) && pready[sel];
+ wire selected_err = pslverr[sel];
+
+ always_ff @(posedge clk) begin
+   if (!rst_n) begin
+     state <= ST_IDLE;
+     aw_held <= 1'b0;
+     w_held <= 1'b0;
+     aw_addr <= 32'h0;
+     w_data <= 32'h0;
+     w_strb <= 4'h0;
+     r_addr <= 32'h0;
+     sel <= 2'd0;
+     mapped <= 1'b0;
+     is_write <= 1'b0;
+     lat_addr <= 32'h0;
+     lat_wdata <= 32'h0;
+     lat_strb <= 4'h0;
+     resp_code <= 2'b00;
+     resp_data <= 32'h0;
+   end else begin
+     case (state)
+       ST_IDLE: begin
+         if (s_arvalid && s_arready) begin
+           r_addr <= s_araddr;
+           lat_addr <= s_araddr;
+           lat_wdata <= 32'h0;
+           lat_strb <= 4'h0;
+           is_write <= 1'b0;
+           mapped <= (decode(s_araddr) != 2'd3);
+           sel <= decode(s_araddr);
+           if (decode(s_araddr) == 2'd3) begin
+             resp_code <= 2'b11;
+             resp_data <= 32'h0;
+             state <= ST_RESP;
+           end else begin
+             state <= ST_SETUP;
+           end
+         end else begin
+           if (s_awvalid && s_awready) begin
+             aw_held <= 1'b1;
+             aw_addr <= s_awaddr;
+           end
+           if (s_wvalid && s_wready) begin
+             w_held <= 1'b1;
+             w_data <= s_wdata;
+             w_strb <= s_wstrb;
+           end
+           if ((aw_held || (s_awvalid && s_awready)) &&
+               (w_held  || (s_wvalid && s_wready))) begin
+             lat_addr <= (aw_held || (s_awvalid && s_awready)) ? aw_addr : 32'h0;
+             if (!aw_held && s_awvalid && s_awready) begin
+               lat_addr <= s_awaddr;
+               sel <= decode(s_awaddr);
+               mapped <= (decode(s_awaddr) != 2'd3);
+             end else begin
+               sel <= decode(aw_addr);
+               mapped <= (decode(aw_addr) != 2'd3);
+             end
+             lat_wdata <= (!w_held && s_wvalid && s_wready) ? s_wdata : w_data;
+             lat_strb  <= (!w_held && s_wvalid && s_wready) ? s_wstrb : w_strb;
+             is_write <= 1'b1;
+             aw_held <= 1'b0;
+             w_held <= 1'b0;
+             if (!mapped && (decode(sel) == 2'd3)) begin
+             end
+             if ((((aw_held || (s_awvalid && s_awready)) ? decode(aw_addr) : decode(s_awaddr)) == 2'd3)) begin
+               resp_code <= 2'b11;
+               state <= ST_RESP;
+             end else begin
+               state <= ST_SETUP;
+             end
+           end
+         end
+       end
+
+       ST_SETUP: begin
+         state <= ST_ACCESS;
+       end
+
+       ST_ACCESS: begin
+         if (done_apb) begin
+           resp_code <= selected_err ? 2'b10 : 2'b00;
+           resp_data <= is_write ? 32'h0 : prdata[32*sel +: 32];
+           state <= ST_RESP;
+         end
+       end
+
+       ST_RESP: begin
+         if (is_write) begin
+           if (s_bready) state <= ST_IDLE;
+         end else begin
+           if (s_rready) state <= ST_IDLE;
+         end
+       end
+
+       default: state <= ST_IDLE;
+     endcase
+   end
+ end
+endmodule
