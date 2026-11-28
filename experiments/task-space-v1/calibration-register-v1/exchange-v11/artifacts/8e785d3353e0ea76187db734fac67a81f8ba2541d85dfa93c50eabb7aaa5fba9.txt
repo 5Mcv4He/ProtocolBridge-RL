@@ -1,0 +1,41 @@
+# Finite APB4 register bank
+
+Implement `bridge.sv` using the declared interface. This module is an APB4 slave,
+not an AXI bridge. One clock; active-low synchronous reset sampled at rising edges.
+The environment asserts reset only while idle, holds it for at least two rising
+edges, and starts the next Setup after reset is released. Reset during a pending
+transfer is outside this task. No clock crossing, bursts or sideband protection
+semantics are required. PADDR and PWDATA are32bits; PSTRB has4byte enables.
+
+A transfer completes only at a rising edge with PSEL, PENABLE and PREADY high.
+The master follows Setup/Access and holds address, direction, data and strobe
+until completion. No requirement applies to PRDATA/PSLVERR outside Access.
+PREADY must be low in reset, idle and Setup. During each Access there must be
+exactly **2** rising edges with PREADY low, followed by completion. Reset
+restores the words below. Writes change state only on completion.
+
+| Exact byte address | Reset word | Write mask | Access |
+| --- | --- | --- | --- |
+| `0x0000000c` | `0x12345678` | `0xff00ffff` | RW |
+| `0x00000020` | `0xffff00ff` | `0xffffffff` | W1C |
+| `0x00000030` | `0x55aa9966` | `0x00000000` | RO |
+
+For RW, enabled writable bits take PWDATA. For W1C, a one in PWDATA clears
+an enabled writable bit; a zero preserves it. A bit is enabled only when its
+byte PSTRB is1 AND its write-mask bit is1. All other bits retain their prior
+value, including reserved bits set by reset. RO writes complete successfully
+and preserve the value. Reads return the complete current32-bit word; PSTRB
+has no effect on reads. All mapped accesses return PSLVERR=0.
+
+All addresses other than the exact table entries, including unaligned
+addresses, complete after the same wait count with PSLVERR=1 and PRDATA=0;
+writes to these addresses change no state. Registers are independent. The
+next request may start in the immediately following Setup cycle.
+
+The submission is one self-contained synthesizable module with the fixed interface.
+No external modules, compiler directives, hierarchy access, initial/final blocks,
+assertions, delays, system tasks or file/network operations are allowed.
+
+Deliver only `bridge.sv`; do not modify the specification, trusted checks,
+references or inputs. Public development results and final evaluation are
+separate. Candidate production alone does not grant industrial admission.

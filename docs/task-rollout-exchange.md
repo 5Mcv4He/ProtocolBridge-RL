@@ -120,4 +120,18 @@ python3 -m scripts.package_exchange PRIVATE_STUDY_PLAN PRIVATE_RUNS NEW_EXPORT_D
 
 `training` 保存真实工具交互与终局奖励，`evaluation` 保存独立保留结果，`analysis` 记录离线测量范围。[候选行为分析器](../scripts/package_behavior.py)按相同源码、相同公开输入及实际送达反馈分析修改与复验；未测试的中间候选保持未测。Token IDs、行为概率及精确权重版本继续标为不可取得。本阶段是固定模型采样，尚未进行参数训练。
 
-后续[字对齐契约的一条 v10 记录](../experiments/task-space-v1/calibration-word-v1/exchange-v10/manifest.json)独立冻结和导出，保留首候选未测试、第二候选公开 PASS 后原样提交的实际过程。当前合计 145 条研究记录、104 条交付工具轨迹及 1 条单独审计中断记录；不同批次不因此合并为成功率。
+后续[字对齐契约的一条 v10 记录](../experiments/task-space-v1/calibration-word-v1/exchange-v10/manifest.json)独立冻结和导出，保留首候选未测试、第二候选公开 PASS 后原样提交的实际过程。该阶段合计 145 条研究记录、104 条交付工具轨迹及 1 条单独审计中断记录；不同批次不因此合并为成功率。
+
+
+## 寄存器任务的 v11 记录
+
+[v11 导出器](../scripts/register_exchange.py)沿用模型提案、实际执行与反馈曝光的三个层次，增加有限寄存器任务的来源及实际评分审计。[一条真实记录](../experiments/task-space-v1/calibration-register-v1/exchange-v11/manifest.json)包含首编辑公开 PASS 后原样提交，终局奖励与保留评估分别保存，没有事后中间候选测量。
+
+```bash
+python3 -m scripts.check_register_replay RAW_TRIAL --out NEW_AUDIT.json
+python3 -m scripts.register_exchange FROZEN_PLAN RAW_RUNS NEW_EXCHANGE
+```
+
+重放过程不调用模型或 EDA；它核对原生参数、Session 状态、候选源码、实际送达反馈、评分输入和日志支持的判定。编译与仿真实际子进程耗时分开记录，保留评估开销不混入训练侧成本。缺失的 Token IDs、行为概率、精确模型权重和货币费用仍标为不可取得。
+
+[追加库存](../experiments/task-space-v1/exchange-inventory-v2.json)保留前版哈希，现为 **146 条研究记录、105 条完整交付工具轨迹，另有 1 条单独审计的中断研究记录**。模型调用前的一次启动检查失败不计为模型试次；完整试次均保留，不因成功与否筛选。[研究说明](register-family-runtime.md)解释这条记录为何可用于实现行为研究，却不能证明调试收益或稳定成功率。

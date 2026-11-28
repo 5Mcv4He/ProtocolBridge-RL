@@ -1,0 +1,25 @@
+{
+  "schema": "pb-exchange-manifest-v11",
+  "records": 1,
+  "started_records": 1,
+  "not_audited": 0,
+  "exporter_sha256": "aab92a7dbfdcb229e5ef1d0798e5507533f898563ad3bab267f442a85554a72b",
+  "auditor_sha256": "a3ac28c0c74c743be168ac98f84dd9508eabf7faa3e1c1476cf73ddf7c34a3b5",
+  "grade_auditor_sha256": "cb76bbc2b9c67672e2f6970ac22795f23e1182c62b7e76d57133593e93bf698f",
+  "files": {
+    "research/started.jsonl": "08815b7c8c6c17b76b5f0b795ed6af557390b6774a293951780670d613c9facf",
+    "artifacts/90d4f24b15435b63af2fafd7745ba886516ef1f686be05787973af9bc1c1988a.sv": "90d4f24b15435b63af2fafd7745ba886516ef1f686be05787973af9bc1c1988a",
+    "artifacts/3405db5876ffc6ca65f5e6e8b8a8158818d0b0494d90f33c5aa7aac23df1c468.json": "3405db5876ffc6ca65f5e6e8b8a8158818d0b0494d90f33c5aa7aac23df1c468",
+    "artifacts/90d4f24b15435b63af2fafd7745ba886516ef1f686be05787973af9bc1c1988a.txt": "90d4f24b15435b63af2fafd7745ba886516ef1f686be05787973af9bc1c1988a",
+    "artifacts/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "artifacts/a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b.txt": "a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b",
+    "artifacts/f0e6ea9045ce3f6e12e4b0222b5c8527d0594ccb5aa701a746ad53fd140a765f.json": "f0e6ea9045ce3f6e12e4b0222b5c8527d0594ccb5aa701a746ad53fd140a765f",
+    "artifacts/df7d738db66d82dc826ce8ffa692cea293400eeb860dd44dbea953089823bdc0.json": "df7d738db66d82dc826ce8ffa692cea293400eeb860dd44dbea953089823bdc0",
+    "artifacts/a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b.sv": "a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b",
+    "artifacts/8e785d3353e0ea76187db734fac67a81f8ba2541d85dfa93c50eabb7aaa5fba9.txt": "8e785d3353e0ea76187db734fac67a81f8ba2541d85dfa93c50eabb7aaa5fba9",
+    "analysis/offline.json": "bf27b6dcae2b76b53a492ae3b3374ba109ff69de6a64b9e4395a54c2f9700556",
+    "training/rollouts.jsonl": "c28348a163dc4232eabf0fcade6ee6a25a889866dd8d4acab7900bbc534b4854",
+    "evaluation/heldout.jsonl": "ccd7caaa3c8062843bd407a744bdac91f0f50c6d6f26403358aba7852f0e2089"
+  },
+  "scope": "Actual native proposals and feedback, including failed/incomplete episodes. Exchange is not proof of training utility; evaluation is separate."
+}

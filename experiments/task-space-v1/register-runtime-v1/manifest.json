@@ -1,0 +1,7 @@
+{
+  "schema": "register-runtime-evidence-manifest-v1",
+  "files": {
+    "admission-challenges.json": "fab2084e089cfe64cb5e5f930a1aff05d6711280f0994cb4f1fc22c16177151a",
+    "summary.json": "69cbdfa34150b3a2c95462460691ae73d9fe581e4717c4e3626695f24cb19e86"
+  }
+}

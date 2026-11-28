@@ -1,0 +1,43 @@
+{
+  "auditor_sha256": "a3ac28c0c74c743be168ac98f84dd9508eabf7faa3e1c1476cf73ddf7c34a3b5",
+  "actual_copy_challenges": [
+    {
+      "name": "candidate",
+      "rejected": true,
+      "reason": "Sealed completion evidence changed"
+    },
+    {
+      "name": "feedback",
+      "rejected": true,
+      "reason": "Sealed completion evidence changed"
+    },
+    {
+      "name": "reward",
+      "rejected": true,
+      "reason": "Sealed completion evidence changed"
+    }
+  ],
+  "originals_unchanged": true,
+  "model_calls": 0,
+  "eda_calls": 0,
+  "valid_replay": {
+    "trial_id": "apb_register_mixed_v1-r1",
+    "accepted": true,
+    "scope": "completed_runtime",
+    "training_eligible": null,
+    "sdk_audit": {
+      "schema": "native-action-audit-v2",
+      "accepted": true,
+      "generated_calls": 5,
+      "executed_operations": 5,
+      "sdk_results": 5,
+      "observations_in_completed_model_requests": 4,
+      "model_responses": 4,
+      "submitted": true
+    },
+    "actions": 5,
+    "public_results_replayed": 1,
+    "new_model_or_eda_calls": 0,
+    "terminal_reward": 1.0
+  }
+}

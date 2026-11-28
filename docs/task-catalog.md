@@ -20,7 +20,13 @@ python3 -m environment.package_pool_v2 PRIVATE_ADMISSIONS PRIVATE_CONFIG
 
 该入口重新核对任务包及运行机制依赖，输出当前匹配的任务和准入身份；它不是把公开摘要读成永久许可证。[生产与运行说明](../task_families/router_v6/README.md)连接契约构造、静态生产、工业门禁、运行准入及原生批量求解。旧入口保持原有任务范围。
 
-两份新增[路由与队列组合实例](../task_families/composed_v2/README.md)另已完成实例功能对照，但尚未具备对应运行准入，不进入上述五份任务池。[APB 寄存器族](../task_families/apb_register_v1/README.md)的两份契约已完成设备语义正反对照，尚未取得 Agent 运行准入；角色或实例功能资格不能自动授予任务运行权限。这样可以分别查看生产能力、验证进度与真正可启动的求解任务。
+两份新增[路由与队列组合实例](../task_families/composed_v2/README.md)另已完成实例功能对照，但尚未具备对应运行准入，不进入上述五份任务池。[APB 寄存器族](../task_families/apb_register_v1/README.md)的两份契约后来完成了设备语义对照与独立运行准入；mixed 另有一条真实模型求解，status 尚未模型校准。[跨域入口](../environment/task_pool_v1.py)通过私有准入／配置索引核对五份路由加两份寄存器，共七份当前匹配的环境。角色或实例功能资格本身仍不能自动授予任务运行权限。这样可以分别查看生产能力、验证进度与真正可启动的求解任务。
+
+```sh
+python3 -m environment.task_pool_v1 PRIVATE_POOL_INDEX.json
+```
+
+新寄存器的验收、启动与审计命令见[运行说明](register-family-runtime.md#怎样复用运行入口)。两份仅有功能层资格的组合任务仍不计入当前池。
 
 ## 四个原始 X2P 任务
 

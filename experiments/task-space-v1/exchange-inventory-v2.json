@@ -1,0 +1,19 @@
+{
+  "schema": "reviewed-exchange-inventory-v11",
+  "base_inventory": "experiments/task-space-v1/exchange-inventory.json",
+  "base_sha256": "e57d34d9ff15179072f218f3d747890a9d42bbe68f86f79eee13ad30dba224f3",
+  "records": 146,
+  "available_tool_trajectories": 105,
+  "additional_interrupted_research_reviews": 1,
+  "new_model_trials": 1,
+  "new_complete_exchange_records": 1,
+  "pre_model_preflight_failures_not_trials": 1,
+  "exports": [
+    {
+      "manifest": "experiments/task-space-v1/calibration-register-v1/exchange-v11/manifest.json",
+      "sha256": "a0c6cabf8257b1a5d6a66fe7134d48a0b1eb7870ca82563f65b83a9511bcc1b0",
+      "records": 1
+    }
+  ],
+  "scope": "Append one prespecified register rollout; earlier145/104 inventory remains unchanged. Complete native audit is not evidence of training benefit."
+}

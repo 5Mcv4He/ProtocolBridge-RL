@@ -7,7 +7,7 @@
 ProtocolBridge-RL 围绕这一问题展开研究。项目以 AXI → APB 协议桥（X2P）为切入点，利用工业电子设计自动化工具（EDA）与独立功能验证，将数字电路设计与调试转化为模型可以反复求解、探索和验证的任务。它既关注设计是否正确，也关注如何构建有训练价值的求解过程。
 
 <p align="center">
-<strong>35 个历史任务身份 + 5 个新准入生成实例</strong>　·　<strong>X2P 九动作环境</strong>　·　<strong>145 条研究试次</strong>　·　<strong>轨迹交换 v1–v10</strong>
+<strong>35 个历史任务身份 + 7 个新准入生成实例</strong>　·　<strong>X2P 九动作环境</strong>　·　<strong>146 条研究试次</strong>　·　<strong>轨迹交换 v1–v11</strong>
 </p>
 
 > **当前阶段：** 已建立任务、环境、独立奖励与固定模型 Rollout 的工程闭环；尚未进行模型参数训练或训练收益评估。保留独立工具配置，并已在三深度队列上完成九种动作联用验收。
@@ -15,6 +15,8 @@ ProtocolBridge-RL 围绕这一问题展开研究。项目以 AXI → APB 协议�
 [任务体系](#2-任务体系) · [验证与奖励](#3-验证与奖励) · [Agent 环境](#4-agent-工程环境) · [研究成果](#5-数据策略与研究发现) · [项目结构](#7-项目结构) · [快速开始](#8-快速开始)
 
 **任务生产开始接受新契约。** 新生产链以合法地址窗口为输入，无需为每个实例增加 Task ID 分支，就能装配规格、初始材料、独立检查和正反对照。两轮各生成 20 份新契约；当前仅五份完成修订后来源匹配准入，不能把 40 份候选都算作可采样任务。例如，从 `0x100c` 开始、跨页的窗口要求精确减去基址，旧的低位截取不能替代。这引入新的边界义务，而非仅换随机种子。[两轮生产、真实成本及边界](docs/task-space-production.md)解释第二轮如何使用前一轮的质量与耗时证据选择工业样本。
+
+**新验证角色也进入了同一生产方法。** 主动 APB Master 配合独立设备状态模型，支持生成普通读写、只读与 W1C（写一清零）寄存器契约。两份实例在各自正反对照之外完成运行准入，一条预声明模型试次首编辑通过并提交；这为新工程域复用交互机制提供了实际证据。[寄存器运行闭环](docs/register-family-runtime.md)解释判据分工、有限结论和成本。
 
 ---
 
@@ -352,14 +354,15 @@ X2P 要求模型交付桥接 RTL，但芯片工程还有另一类工作：编写
 | v8 | 多验证资源的 4 条分层试次及 1 条独立反馈版本试次；新增综合成本、未提交与末次反馈未送达的审计 |
 | v9 | 原生交付研究 5 条、寄存器检查器 2 条、SWD 1 条与结构优化 1 条试次；区分原始提案、执行与实际反馈曝光 |
 | v10 | 生成包求解新增 4 条启动记录：3 条完整交换轨迹，1 条单独审计的中断研究记录，不导入训练目录 |
+| v11 | 新 APB 寄存器契约 1 条完整求解；实际候选、反馈、终局评分与独立保留评估分别审计 |
 
-合计 **145 条研究记录，104 条已交付审查工具轨迹，另有 1 条单独审计的中断研究记录**（历史 v1 已包含于 v2，旧记录不重复计数）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
+合计 **146 条研究记录，105 条已交付审查工具轨迹，另有 1 条单独审计的中断研究记录**（历史 v1 已包含于 v2，旧记录不重复计数）。保留失败与不可判定记录，不根据统计补造轨迹，也不混合不同实验条件计算成功率。
 
-v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-exchange/manifest.json)此前已计入研究库存，这次只是首次进入统一交换；没有增加模型调用或重复计算样本。[当前研究库存与交换集合](experiments/task-space-v1/exchange-inventory.json)逐层保留此前 141／101 条库存，再增加三条完整生成任务求解和一条中断记录；后者有实际操作审计，但没有终局提交或训练导出。接口夹具不作为工程任务计数。库存包括未提交、中断及已被取代的验证器版本；审计通过不表示每条都有有效终局奖励，也不表示全部适合训练。[历史用途规则](docs/trajectory-data-uses.md)在固定的 132 条历史记录中识别出 30 条实现示范待审查候选，其中 15 条有实际失败后修复证据；不使用保留评估筛选，也不把候选清单称为已证明的训练收益。
+v5 中的[历史路由记录](experiments/composed-stage-v1/historical-router-exchange/manifest.json)此前已计入研究库存，这次只是首次进入统一交换；没有增加模型调用或重复计算样本。[当前研究库存与交换集合](experiments/task-space-v1/exchange-inventory-v2.json)逐层保留历史库存，新生产阶段有三条完整路由求解、一条中断研究记录，随后新增一条寄存器任务求解；中断记录有实际操作审计，但没有终局提交或训练导出。接口夹具不作为工程任务计数。库存包括未提交、中断及已被取代的验证器版本；审计通过不表示每条都有有效终局奖励，也不表示全部适合训练。[历史用途规则](docs/trajectory-data-uses.md)在固定的 132 条历史记录中识别出 30 条实现示范待审查候选，其中 15 条有实际失败后修复证据；不使用保留评估筛选，也不把候选清单称为已证明的训练收益。
 
 当前交付尚缺原始模型采样、Token IDs、行为策略 Log Probability 与精确权重版本，不是无损 on-policy 训练数据。在线 Collector 与 RL 参数优化尚未接入。
 
-**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json) · [v5–v10 任务交付入口](docs/task-rollout-exchange.md)
+**实现入口：** [数据契约](docs/rollout-data-contract.md) · [导出器](scripts/export_rollout_exchange.py) · [v3 导出](scripts/rollout_exchange_v3.py) · [v2 验收](experiments/trajectory-exchange-v2/validation.json) · [v3 证据](experiments/runtime-tools-v1/exchange/manifest.json) · [v4 核对](experiments/queue-family-v1/exchange/validation.json) · [v5–v11 任务交付入口](docs/task-rollout-exchange.md)
 
 ---
 
@@ -404,7 +407,7 @@ ProtocolBridge-RL/
 | 理解核心源码 | [任务](tasks/) · [环境](environment/) · [验证器](verifier/) |
 | 查阅工程与验证方法 | [架构](docs/architecture.md) · [质量门禁](docs/task-quality-gate.md) · [001 历史运行手册](docs/mvp-running.md) |
 | 查阅研究证据 | [文档索引](docs/README.md) · [实验目录](experiments/) |
-| 复用数据交换 | [当前 v5–v10 入口](docs/task-rollout-exchange.md) · [历史契约演进](docs/rollout-data-contract.md) |
+| 复用数据交换 | [当前 v5–v11 入口](docs/task-rollout-exchange.md) · [历史契约演进](docs/rollout-data-contract.md) |
 
 ## 8. 快速开始
 
@@ -463,7 +466,7 @@ python3 scripts/tasks.py rollout axil_to_apb4_queue_003 -- \
 
 [此前分层研究](docs/task-production-stage-v3.md)观察到深度 5 Checker 修正回绕后通过、位计数综合修复首候选通过，也保留了两条没有有效编辑的失败提交。仅增强动作拒绝提示的独立 RFFE 试次完成三次编辑和测试，却未修复或提交，Reward 为 null。五条共消耗 351,210 Token；这些不同条件的小样本不合并为稳定成功率。
 
-当前已实际验证原生动作交付与控制银行的严格来源绑定编译复用；两份新路由与队列组合契约也已通过目标身份与生命周期的功能质量挑战，仍待独立运行准入；APB 主动角色及两份新寄存器契约也已通过有限功能对照，下一步补齐这些任务域的运行准入，再据真实成本选择扩张范围。I²C 受控引脚反馈、更广工程角色与任务域仍需独立证据。没有将有限生成域、可运行任务池或已导出轨迹描述为任意任务生成或已证明的训练收益。
+当前已实际验证原生动作交付与控制银行的严格来源绑定编译复用；两份新路由与队列组合契约也已通过目标身份与生命周期的功能质量挑战，仍待独立运行准入；APB 主动角色及两份新寄存器契约现已完成有限功能对照和独立运行准入，其中一份完成首编辑通过的真实模型求解。下一步优先补齐组合任务域的运行闭环，再据真实成本选择扩张范围。I²C 受控引脚反馈、更广工程角色与任务域仍需独立证据。没有将有限生成域、可运行任务池或已导出轨迹描述为任意任务生成或已证明的训练收益。
 
 ### 项目的长期价值
 

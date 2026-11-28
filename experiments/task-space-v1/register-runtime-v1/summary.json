@@ -1,0 +1,168 @@
+{
+  "schema": "register-runtime-acceptance-summary-v1",
+  "passed": true,
+  "checks": [
+    {
+      "name": "initial_functional_rejection",
+      "passed": true
+    },
+    {
+      "name": "reference_public_pass",
+      "passed": true
+    },
+    {
+      "name": "old_feedback_identity",
+      "passed": true
+    },
+    {
+      "name": "third_test_no_execution",
+      "passed": true
+    },
+    {
+      "name": "forbidden_files",
+      "passed": true
+    },
+    {
+      "name": "submit_same_source",
+      "passed": true
+    },
+    {
+      "name": "closed_after_submit",
+      "passed": true
+    },
+    {
+      "name": "terminal_requires_stop",
+      "passed": true
+    },
+    {
+      "name": "reference_terminal_pass",
+      "passed": true
+    },
+    {
+      "name": "reference_heldout_pass",
+      "passed": true
+    },
+    {
+      "name": "private_results_not_feedback",
+      "passed": true
+    },
+    {
+      "name": "source_policy_before_eda",
+      "passed": true
+    },
+    {
+      "name": "candidate_compile_error",
+      "passed": true
+    },
+    {
+      "name": "environment_not_rtl_failure",
+      "passed": true
+    },
+    {
+      "name": "all_roles_executed",
+      "passed": true
+    },
+    {
+      "name": "twenty_action_bound",
+      "passed": true
+    },
+    {
+      "name": "recovery_without_regrading",
+      "passed": true
+    }
+  ],
+  "wall_seconds": 183.24920833297074,
+  "model_inference_requests": 0,
+  "source_files": {
+    "environment/artifact_task/session_v4.py": "46ae123777acf2df679c0956c21d60a4dc96b12da548ed643f3fb5e8f3ce1119",
+    "environment/durable_job.py": "2d659efc2beabb3299d4bace56b4065cd644b72ae48678b230a771887442fb37",
+    "environment/package_session.py": "09cbc36133774ce2a9be68a7023379d64cfa06d722d9e89136111fe259d18538",
+    "environment/register_acceptance_v1.py": "9d41c4eaab54757f7b212d19d50563b2c804147cbadd4ac756096fe88c965223",
+    "environment/register_backend_v1.py": "d84398394a2aa91aca9a3de230c08c4d0c5b70dacc292b08dc7cef41e3395de2",
+    "environment/register_inputs_v1.py": "fd85351f6542f80023a739bd1f82f9f02f89b5445ed3b3b74c543d8306056bd7",
+    "environment/register_instance_controls.py": "88c375aae11d3f9856495974f98998879521c1a92e78380ffb9e05aff68fe821",
+    "environment/register_remote_v1.py": "3aa49c8fe009fd003013312bdc13c1cff6c51adea4f28a5c58b2f7d117fce662",
+    "task_families/apb_register_v1/__init__.py": "c2364e3272f9bf95acb4832898a6aa22f1d3e21b2a71f59f1ee87588f6094f88",
+    "task_families/apb_register_v1/campaign.py": "dfe30618ec58b40a7ef9ed92745790f93cc8b487095805da80f777de94646761",
+    "task_families/apb_register_v1/contract.py": "97fd7915e759861e79ece9494765af7e2168b542630bbeb24b13604267fc3a0d",
+    "task_families/apb_register_v1/generate.py": "123a3f64e7ed52cfc4887aa1a7acb7e8d966dddc7b8deff0f3cb549970feb541",
+    "task_families/apb_register_v1/results.py": "eeb9693b2e4b8e008d349f9d61ded7439533c58ba42933e4b9c38649e6eac246",
+    "task_families/apb_register_v1/tb.sv.in": "06fddff251cc04e1a930bb44dac6df4cd2f07e14aa8cf0e060a0807521323082",
+    "task_families/apb_register_v1/verification.py": "a78a6284e7b16cbe286b22029bb8664ecde6f7490c23f57bbf46fcc2c24d5cc9",
+    "task_families/router_v3/toolchain.py": "ec23dad5f99a08c4bd3f7dc1f8be4f94913100fb35343e670cd53505b6c24a15"
+  },
+  "runtime_qualification_sha256": "2eb0df9c3bc7d3b28c5e5303f1f6724edba6f835cebcfcc2c9afa6829153c669",
+  "qualification_sources": {
+    "environment/artifact_task/session_v4.py": "46ae123777acf2df679c0956c21d60a4dc96b12da548ed643f3fb5e8f3ce1119",
+    "environment/durable_job.py": "2d659efc2beabb3299d4bace56b4065cd644b72ae48678b230a771887442fb37",
+    "environment/native_tools/acceptance_v5.py": "d095c41d9466229a34060fff436a649989aa0fff1b79984d7b759910a6dd1446",
+    "environment/native_tools/controller.py": "cd0299db9c53793501250cae33c16c84e80426c2aa0a9b0d345dd64678c3cb80",
+    "environment/native_tools/controller_v2.py": "1b7529b81b69fd31a1a5bcc1dd88ffa4c606ec5760cf3cf62fdf22e61313e199",
+    "environment/native_tools/controller_v3.py": "37ce38f233e6e395738841facb7b1929b1d9cfbf508322d9f554fb17bd52ec50",
+    "environment/native_tools/launch_v5.sh": "a2a6635696fb5cb68cf2ef4f1c5cd7c5e1fb55d15042a8f8abcadf75bcbe9d5d",
+    "environment/native_tools/tools_v5.mjs": "a6ae830957a8b7e7a8969c1a83ec1c5900378c25f201c95043a884dd2a4709ad",
+    "environment/native_tools/worker_v5.py": "adab4e553610ce4ff46d97da0eb418e1017e85fa7744e42d0acbd9a75add6453",
+    "environment/package_session.py": "09cbc36133774ce2a9be68a7023379d64cfa06d722d9e89136111fe259d18538",
+    "environment/register_acceptance_v1.py": "9d41c4eaab54757f7b212d19d50563b2c804147cbadd4ac756096fe88c965223",
+    "environment/register_admission_v1.py": "f3bdda5f4626d3b51fe805a43abe7336cce110208e4b648b0ab86e456b5b0c10",
+    "environment/register_backend_v1.py": "d84398394a2aa91aca9a3de230c08c4d0c5b70dacc292b08dc7cef41e3395de2",
+    "environment/register_inputs_v1.py": "fd85351f6542f80023a739bd1f82f9f02f89b5445ed3b3b74c543d8306056bd7",
+    "environment/register_instance_controls.py": "88c375aae11d3f9856495974f98998879521c1a92e78380ffb9e05aff68fe821",
+    "environment/register_remote_v1.py": "3aa49c8fe009fd003013312bdc13c1cff6c51adea4f28a5c58b2f7d117fce662",
+    "scripts/audit_register_controls.py": "d618b5d0d37c423332d2a163fc7d497740419866490472a675a888f21fe0f814",
+    "task_families/apb_register_v1/__init__.py": "c2364e3272f9bf95acb4832898a6aa22f1d3e21b2a71f59f1ee87588f6094f88",
+    "task_families/apb_register_v1/campaign.py": "dfe30618ec58b40a7ef9ed92745790f93cc8b487095805da80f777de94646761",
+    "task_families/apb_register_v1/contract.py": "97fd7915e759861e79ece9494765af7e2168b542630bbeb24b13604267fc3a0d",
+    "task_families/apb_register_v1/generate.py": "123a3f64e7ed52cfc4887aa1a7acb7e8d966dddc7b8deff0f3cb549970feb541",
+    "task_families/apb_register_v1/results.py": "eeb9693b2e4b8e008d349f9d61ded7439533c58ba42933e4b9c38649e6eac246",
+    "task_families/apb_register_v1/tb.sv.in": "06fddff251cc04e1a930bb44dac6df4cd2f07e14aa8cf0e060a0807521323082",
+    "task_families/apb_register_v1/verification.py": "a78a6284e7b16cbe286b22029bb8664ecde6f7490c23f57bbf46fcc2c24d5cc9",
+    "task_families/router_v3/toolchain.py": "ec23dad5f99a08c4bd3f7dc1f8be4f94913100fb35343e670cd53505b6c24a15"
+  },
+  "toolchain": {
+    "vcs": "O-2018.09-SP2",
+    "vip": "R-2020.12",
+    "uvm": "1.1d.Synopsys",
+    "python": "3.6.9 (controller); 3.10.12 (worker)",
+    "harness": "0.2.2rc2",
+    "os": "Ubuntu 18.04.6 (host); Ubuntu Base 22.04 (worker)"
+  },
+  "native_mechanism_reused": {
+    "same_sources": true,
+    "scope": "Unchanged native SDK mechanism plus actual finite-register adapter/session acceptance; no inheritance of router task verdicts."
+  },
+  "instance_admissions": [
+    {
+      "task_id": "apb_register_mixed_v1",
+      "admitted": true,
+      "package_manifest_sha256": "a94422c9eeb16f02d86334193af106124275eeaa86940ad36af216a161bc230b",
+      "admission_sha256": "9446959c959459b0ce0c94aec37888bf425dc9dade838d9a5b8a0a1b6a683c12",
+      "positive_controls": 2,
+      "negative_controls": 8
+    },
+    {
+      "task_id": "apb_register_status_v1",
+      "admitted": true,
+      "package_manifest_sha256": "c3551b3006156cac62ca1c3f96e3b31fcf17670913973c1d36d3234a891d70e9",
+      "admission_sha256": "a01a97070fe9277912c111156e7d4d6d92468466f211231587ffd4e19cf5dc63",
+      "positive_controls": 2,
+      "negative_controls": 5
+    }
+  ],
+  "predecessor_acceptance": {
+    "passed": false,
+    "passed_checks": 16,
+    "category": "recovery_archive_identity",
+    "result_sha256": "34d79e53bed31f3bd16f7768c07940fe4961ab87e0dd9bf52db59f5ef1647199",
+    "reference_public_terminal_heldout_rewards": [
+      1,
+      1,
+      1
+    ],
+    "historical_result_unchanged": true
+  },
+  "limitations": [
+    "Trusted locally produced materials only.",
+    "Ephemeral solver work/tmp; shared fixed UID and network namespace. No complete adversarial OS-isolation claim."
+  ]
+}

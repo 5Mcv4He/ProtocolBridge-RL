@@ -1,0 +1,62 @@
+{
+  "schema": "register-candidate-behavior-v1",
+  "trial_id": "apb_register_mixed_v1-r1",
+  "result_sha256": "0e7b0b247f4ff9ddace3ddde177a7b84c280ecfbcb9c446cdbecff4afe06a000",
+  "replay": {
+    "trial_id": "apb_register_mixed_v1-r1",
+    "accepted": true,
+    "scope": "completed_runtime",
+    "training_eligible": null,
+    "sdk_audit": {
+      "schema": "native-action-audit-v2",
+      "accepted": true,
+      "generated_calls": 5,
+      "executed_operations": 5,
+      "sdk_results": 5,
+      "observations_in_completed_model_requests": 4,
+      "model_responses": 4,
+      "submitted": true
+    },
+    "actions": 5,
+    "public_results_replayed": 1,
+    "new_model_or_eda_calls": 0,
+    "terminal_reward": 1.0
+  },
+  "edits": [
+    {
+      "action_index": 3,
+      "source_sha256": "a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b",
+      "publicly_tested_identical_source": true
+    }
+  ],
+  "public_tests": [
+    {
+      "action_index": 4,
+      "source_sha256": "a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b",
+      "verdict": "PASS",
+      "actual_feedback": {
+        "status": "PASS",
+        "category": "pass",
+        "source_sha256": "a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b",
+        "remaining_test_calls": 1
+      },
+      "model_receipt_confirmed": true,
+      "cost": {
+        "compile_attempts": 1,
+        "simulation_attempts": 1,
+        "compile_wall_seconds": 19.777531011990504,
+        "simulation_wall_seconds": 4.464214527019067,
+        "grade_wall_seconds": 24.248156337009277,
+        "scope": "Measured subprocess wall time on the licensed host; transfer/collection excluded."
+      }
+    }
+  ],
+  "final_source_sha256": "a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b",
+  "final_public_verdict": "PASS",
+  "edits_after_last_test": 0,
+  "submitted_known_public_failure": false,
+  "terminal_reward": 1.0,
+  "reported_tokens": 7823,
+  "actual_failure_feedback_received": false,
+  "scope": "Actual public feedback and final training-side result only. Untested edits remain unmeasured; no held-out selection."
+}

@@ -10,7 +10,7 @@
 | 新路由与排队关系通过功能挑战 | [两份组合契约](composition/manifest.json) | 功能层资格，不包含新组合实例的 Agent 运行准入 |
 | 生成任务包实际完成模型求解 | [首批两条完整交换轨迹](calibration-v2/exchange-v10/manifest.json)与[行为分析](../../docs/generated-task-calibration.md) | 两个不同契约各一次，不合并为稳定策略收益 |
 | 新字对齐契约可以完整求解 | [一条独立校准](calibration-word-v1/summary.json)及[交换记录](calibration-word-v1/exchange-v10/manifest.json) | 首候选未测；通过后提交，不是失败反馈修复 |
-| 新资源角色可以支持不同设备语义 | [主动 APB 角色](resources/apb-master-v2.json)、[两份寄存器契约](register-family-v1/manifest.json) | 功能层对照通过，尚无 Agent 运行准入与试次 |
+| 新资源角色可以支持不同设备语义 | [主动 APB 角色](resources/apb-master-v2.json)、[两份寄存器契约](register-family-v1/manifest.json) | 功能层对照、[独立运行准入](register-runtime-v1/manifest.json)及[一条真实试次](calibration-register-v1/manifest.json)分别留证 |
 | 分类问题导致的中断没有被删除 | [中断研究记录](interrupted-v1/summary.json) | 原 null 不变；独立复验不是模型当时获得的反馈 |
 
 组合验收还包含一个针对错误生成器的反例：原先注入的响应复位错误被同周期后续赋值覆盖，因而原负例实际上通过。修订注入后，同一个定向场景拒绝该错误行为。这说明“生成了一份负例文件”不足以证明它具有区分力，必须确认预期违例实际生效。
@@ -21,4 +21,4 @@
 
 交换目录把求解时实际送达的反馈、最终训练侧奖励和独立保留评估分开。`analysis/offline.json` 明确是否存在事后候选测量，未测版本不会被补写成成功或回归。原始模型的 Token IDs、行为概率和精确权重版本仍不可取得；导出成功不表示数据已经具备训练收益，也不表示可以无损用于 on-policy 优化。
 
-后续追加试次独立冻结、独立保存；不修改本目录已有试次的候选、奖励或观察。累计分母见[研究库存](exchange-inventory.json)，并按各实验条件分别分析。
+后续追加试次独立冻结、独立保存；不修改本目录已有试次的候选、奖励或观察。累计分母见[研究库存](exchange-inventory-v2.json)，并按各实验条件分别分析。

@@ -1,0 +1,182 @@
+{
+  "schema": "register-production-calibration-summary-v1",
+  "planned": 1,
+  "started": 1,
+  "completed": 1,
+  "pre_model_preflight_failures": 1,
+  "pre_model_api_calls": 0,
+  "plan_sha256": "64f7018331e10d8d495cc8d76ba817376cf1188216f89fd57a9dca1a735843e5",
+  "design_sha256": "77d406d2aa9fcd3698ac9a3510900705e3c8d1b9a3c78649b140c440ec6787e0",
+  "model": "deepseek-flash",
+  "reasoning": "off",
+  "sampling_temperature": "provider/DSH default; not explicitly set",
+  "sampling_seed": null,
+  "exact_model_weights": null,
+  "harness": {
+    "sdk_distribution": "0.2.2rc2",
+    "runtime_distribution": "0.2.2rc2",
+    "native_interface": "engineering-native-tools-v3",
+    "transport": "native-v5",
+    "controller_python": "3.14.5"
+  },
+  "source_commit": "a2a0f2ccb8d33c983d519abc23c4008a5b4979e7",
+  "source_state": "Additive runtime with pre-inference environment-digest parser correction; prior freeze retained; no previously started register model trial.",
+  "source_files": {
+    "environment/native_tools/controller_v2.py": "1b7529b81b69fd31a1a5bcc1dd88ffa4c606ec5760cf3cf62fdf22e61313e199",
+    "task_families/apb_register_v1/contract.py": "97fd7915e759861e79ece9494765af7e2168b542630bbeb24b13604267fc3a0d",
+    "task_families/apb_register_v1/tb.sv.in": "06fddff251cc04e1a930bb44dac6df4cd2f07e14aa8cf0e060a0807521323082",
+    "environment/native_tools/run_register_v1.py": "23277814f587afc1577008d81a6511331e44ff6ab66b2757594364f8b7fcc9c9",
+    "environment/register_inputs_v1.py": "fd85351f6542f80023a739bd1f82f9f02f89b5445ed3b3b74c543d8306056bd7",
+    "task_families/apb_register_v1/__init__.py": "c2364e3272f9bf95acb4832898a6aa22f1d3e21b2a71f59f1ee87588f6094f88",
+    "environment/register_remote_v1.py": "3aa49c8fe009fd003013312bdc13c1cff6c51adea4f28a5c58b2f7d117fce662",
+    "environment/package_session.py": "09cbc36133774ce2a9be68a7023379d64cfa06d722d9e89136111fe259d18538",
+    "environment/native_tools/worker_v5.py": "adab4e553610ce4ff46d97da0eb418e1017e85fa7744e42d0acbd9a75add6453",
+    "environment/native_tools/tools_v5.mjs": "a6ae830957a8b7e7a8969c1a83ec1c5900378c25f201c95043a884dd2a4709ad",
+    "task_families/apb_register_v1/campaign.py": "dfe30618ec58b40a7ef9ed92745790f93cc8b487095805da80f777de94646761",
+    "environment/register_backend_v1.py": "d84398394a2aa91aca9a3de230c08c4d0c5b70dacc292b08dc7cef41e3395de2",
+    "environment/native_tools/controller_v3.py": "37ce38f233e6e395738841facb7b1929b1d9cfbf508322d9f554fb17bd52ec50",
+    "environment/register_acceptance_v1.py": "9d41c4eaab54757f7b212d19d50563b2c804147cbadd4ac756096fe88c965223",
+    "environment/durable_job.py": "2d659efc2beabb3299d4bace56b4065cd644b72ae48678b230a771887442fb37",
+    "task_families/apb_register_v1/verification.py": "a78a6284e7b16cbe286b22029bb8664ecde6f7490c23f57bbf46fcc2c24d5cc9",
+    "scripts/audit_register_controls.py": "d618b5d0d37c423332d2a163fc7d497740419866490472a675a888f21fe0f814",
+    "environment/native_tools/controller.py": "cd0299db9c53793501250cae33c16c84e80426c2aa0a9b0d345dd64678c3cb80",
+    "task_families/apb_register_v1/results.py": "eeb9693b2e4b8e008d349f9d61ded7439533c58ba42933e4b9c38649e6eac246",
+    "environment/native_tools/audit.py": "f951c20434a3f305e2aa4536f0dcd708773764b87a8869b85f0bfebe449a69b3",
+    "environment/artifact_task/session_v4.py": "46ae123777acf2df679c0956c21d60a4dc96b12da548ed643f3fb5e8f3ce1119",
+    "environment/register_admission_v1.py": "f3bdda5f4626d3b51fe805a43abe7336cce110208e4b648b0ab86e456b5b0c10",
+    "task_families/router_v3/toolchain.py": "ec23dad5f99a08c4bd3f7dc1f8be4f94913100fb35343e670cd53505b6c24a15",
+    "environment/register_instance_controls.py": "88c375aae11d3f9856495974f98998879521c1a92e78380ffb9e05aff68fe821",
+    "task_families/apb_register_v1/generate.py": "123a3f64e7ed52cfc4887aa1a7acb7e8d966dddc7b8deff0f3cb549970feb541",
+    "environment/native_tools/acceptance_v5.py": "d095c41d9466229a34060fff436a649989aa0fff1b79984d7b759910a6dd1446",
+    "environment/native_tools/launch_v5.sh": "a2a6635696fb5cb68cf2ef4f1c5cd7c5e1fb55d15042a8f8abcadf75bcbe9d5d"
+  },
+  "limits": {
+    "max_actions": 20,
+    "max_tests": 2,
+    "max_requests": 20,
+    "max_output_tokens": 4096,
+    "max_solver_seconds": 3600,
+    "max_terminal_grader_seconds": 2400,
+    "max_heldout_grader_seconds": 2400
+  },
+  "selection": "One fixed mixed register contract; selected before model sampling; no replacements; preflight issue fixed before any model bootstrap",
+  "result": {
+    "task_id": "apb_register_mixed_v1",
+    "trial_id": "apb_register_mixed_v1-r1",
+    "actions": 5,
+    "edits": 1,
+    "public_test_calls": 1,
+    "reported_tokens": 7823,
+    "wall_seconds": 118.0801,
+    "submitted": true,
+    "solver_stop_confirmed": true,
+    "error": null
+  },
+  "terminal": {
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "source_sha256": "a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b",
+    "input_sha256": "25dc1632cc2aeaa240259d0598ea89d5f5aba56584844a0b84ae9758d7dc6c57",
+    "grader_sha256": "dfe30618ec58b40a7ef9ed92745790f93cc8b487095805da80f777de94646761",
+    "compile_exit": 0,
+    "simulation_exit": 0,
+    "compile_wall_seconds": 18.784354955976596,
+    "simulation_wall_seconds": 4.382868032989791,
+    "wall_seconds": 23.173455871990882,
+    "frozen_input_sha256": "5e33da092e305f5fbe0e9c6d638f0170ef17617641348a0e4ee106fc87528bbf",
+    "package_manifest_sha256": "a94422c9eeb16f02d86334193af106124275eeaa86940ad36af216a161bc230b",
+    "evaluation_role": "terminal"
+  },
+  "heldout_separate": {
+    "reward": 1.0,
+    "category": "pass",
+    "verification_complete": true,
+    "source_sha256": "a275ec8d8d21130ea6c646f4484cc9babc47b70d8ba283532e8fe3970b73978b",
+    "input_sha256": "961104b798865ec405f024f74120a9af55154ffc9a5ca2f6871c5c99d76ba144",
+    "grader_sha256": "dfe30618ec58b40a7ef9ed92745790f93cc8b487095805da80f777de94646761",
+    "compile_exit": 0,
+    "simulation_exit": 0,
+    "compile_wall_seconds": 18.66654421199928,
+    "simulation_wall_seconds": 4.527643644018099,
+    "wall_seconds": 23.198880765994545,
+    "frozen_input_sha256": "17de92eb6ee014c33831344525905eea739023d870847152eab25526dae9031f",
+    "package_manifest_sha256": "a94422c9eeb16f02d86334193af106124275eeaa86940ad36af216a161bc230b",
+    "evaluation_role": "heldout"
+  },
+  "resources": {
+    "reported_tokens": 7823,
+    "tokens": 7823,
+    "actions": 5,
+    "edits": 1,
+    "public_test_calls": 1,
+    "wall_seconds": 118.0801,
+    "model_step_wall_seconds": 4.744,
+    "compile_calls_training": 2,
+    "grade_costs_training": [
+      {
+        "compile_attempts": 1,
+        "simulation_attempts": 1,
+        "compile_wall_seconds": 19.777531011990504,
+        "simulation_wall_seconds": 4.464214527019067,
+        "grade_wall_seconds": 24.248156337009277,
+        "scope": "Measured subprocess wall time on the licensed host; transfer/collection excluded.",
+        "role": "public"
+      },
+      {
+        "compile_attempts": 1,
+        "simulation_attempts": 1,
+        "compile_wall_seconds": 18.784354955976596,
+        "simulation_wall_seconds": 4.382868032989791,
+        "grade_wall_seconds": 23.173455871990882,
+        "scope": "Measured subprocess wall time on the licensed host; transfer/collection excluded.",
+        "role": "terminal"
+      }
+    ],
+    "api_cost": null
+  },
+  "heldout_cost": {
+    "compile_attempts": 1,
+    "simulation_attempts": 1,
+    "compile_wall_seconds": 18.66654421199928,
+    "simulation_wall_seconds": 4.527643644018099,
+    "grade_wall_seconds": 23.198880765994545,
+    "scope": "Measured subprocess wall time on the licensed host; transfer/collection excluded."
+  },
+  "audit": {
+    "schema": "native-action-audit-v2",
+    "accepted": true,
+    "generated_calls": 5,
+    "executed_operations": 5,
+    "sdk_results": 5,
+    "observations_in_completed_model_requests": 4,
+    "model_responses": 4,
+    "submitted": true
+  },
+  "actual_activity": {
+    "public": {
+      "checked": 534,
+      "resets": 19,
+      "waits": 1068,
+      "observed_bins": 51
+    },
+    "terminal": {
+      "checked": 582,
+      "resets": 19,
+      "waits": 1164,
+      "observed_bins": 51
+    },
+    "heldout": {
+      "checked": 582,
+      "resets": 19,
+      "waits": 1164,
+      "observed_bins": 51
+    }
+  },
+  "interpretation": [
+    "First edited source received public PASS and was submitted unchanged.",
+    "No observed failure-feedback repair or regression; no posthoc candidate measurement.",
+    "One fixed selected contract is not a stable success-rate estimate or a causal tool comparison.",
+    "Heldout results are separate and are not used for training-record selection."
+  ]
+}

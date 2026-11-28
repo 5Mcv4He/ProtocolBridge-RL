@@ -1,0 +1,27 @@
+{
+  "actual_file_challenges": [
+    {
+      "name": "wrong_task",
+      "rejected": true,
+      "reason": "Concrete task evidence differs"
+    },
+    {
+      "name": "wrong_manifest",
+      "rejected": true,
+      "reason": "Concrete task evidence differs"
+    },
+    {
+      "name": "wrong_backend",
+      "rejected": true,
+      "reason": "No register admission"
+    },
+    {
+      "name": "missing_runtime_dependency",
+      "rejected": true,
+      "reason": "Incomplete or changed qualification sources"
+    }
+  ],
+  "model_calls": 0,
+  "eda_calls": 0,
+  "original_records_unchanged": true
+}
