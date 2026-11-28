@@ -1,0 +1,16 @@
+{
+  "schema": "reviewed-exchange-inventory-v8",
+  "base_inventory": "experiments/task-production-v4/exchange-inventory.json",
+  "base_sha256": "a69235b490cc5ae3e8983b232655f39e2ea34333a3e59bd0ecafbc0310b6af13",
+  "records": 139,
+  "available_tool_trajectories": 99,
+  "new_model_trials": 2,
+  "exports": [
+    {
+      "manifest": "experiments/register-checker-v1/exchange/manifest.json",
+      "sha256": "897310a31952a420f42f18b5962839ce02b1c9f255fdf5a16e690818b4990691",
+      "records": 2
+    }
+  ],
+  "scope": "Two new register-checker starts; existing histories unchanged. Not included in the frozen historical132 data-use selection."
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "register-checker-costs-v1",
+  "gate_records": 38,
+  "gate_compiles": 35,
+  "gate_seconds": {
+    "compile_seconds": 66.8577,
+    "simulation_seconds": 33.7588,
+    "wall_seconds": 152.2785
+  },
+  "task_ids": 2,
+  "task_forms": [
+    "state-checker"
+  ],
+  "serial_protocol_vip_used": false,
+  "materialization": {
+    "files_per_task": 18,
+    "bound_shared_dependencies": 106,
+    "common_sources_copied_into_package": false
+  },
+  "pre_gate_probe": {
+    "compiles": 1,
+    "wall_seconds": 6.8734
+  },
+  "session_acceptance_grader_calls": 6,
+  "model_starts": 2,
+  "reported_model_tokens": 12581,
+  "api_currency_cost": null
+}

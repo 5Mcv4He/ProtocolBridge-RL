@@ -1,6 +1,6 @@
 # 人类阅读入口
 
-这里帮助读者从工程问题进入机制、代码和证据。当前总览以[首页](../README.md)、[任务目录](task-catalog.md)与[交换库存](../experiments/task-production-v4/exchange-inventory.json)为准；研究报告中的“当前”属于各自冻结阶段。历史结果不因新功能出现而改写。
+这里帮助读者从工程问题进入机制、代码和证据。当前总览以[首页](../README.md)、[任务目录](task-catalog.md)与[交换库存](../experiments/register-checker-v1/exchange-inventory.json)为准；研究报告中的“当前”属于各自冻结阶段。历史结果不因新功能出现而改写。
 
 ## 先理解系统，再选择任务
 
@@ -13,6 +13,8 @@
 | 怎样交付并审计真实求解轨迹 | [当前 v5–v9 入口](task-rollout-exchange.md)、[早期契约演进](rollout-data-contract.md) |
 
 [I²C 历史研究](i2c-sink-evaluation.md)连接串行时序、事务边界、被拒绝的生成版本、实际修复和成本；[此前 Checker 与状态寄存器研究](task-production-stage-v2.md)保留各自冻结范围。
+
+[寄存器检查器研究](register-checker-evaluation.md)进一步展示同一设备语义如何成为另一种交付形式：候选检查器接受独立误报／漏报评价，并完成真实模型求解。
 
 ## 从工程契约到可靠任务
 

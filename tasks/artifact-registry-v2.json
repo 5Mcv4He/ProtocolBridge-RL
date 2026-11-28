@@ -1,0 +1,42 @@
+{
+  "schema": "finite-artifact-registry-v2",
+  "base_registry": "tasks/artifact-registry.json",
+  "additional_tasks": [
+    {
+      "task_id": "register_checker_rw_v1",
+      "metadata": "tasks/register_checker_rw_v1/task.json",
+      "spec": "tasks/register_checker_rw_v1/spec.md",
+      "initial_artifact": "tasks/register_checker_rw_v1/workspace/checker.sv",
+      "deliverable": "checker.sv",
+      "effective_verifier": "verifier.register_checker.campaign",
+      "quality_evidence": "experiments/register-checker-v1/quality.json",
+      "runtime": "environment.native_tools.run_v4",
+      "capabilities": [
+        "state-prediction",
+        "address-identity",
+        "write-overwrite",
+        "false-positive-negative-control",
+        "sticky-error-reset"
+      ]
+    },
+    {
+      "task_id": "register_checker_w1c_v1",
+      "metadata": "tasks/register_checker_w1c_v1/task.json",
+      "spec": "tasks/register_checker_w1c_v1/spec.md",
+      "initial_artifact": "tasks/register_checker_w1c_v1/workspace/checker.sv",
+      "deliverable": "checker.sv",
+      "effective_verifier": "verifier.register_checker.campaign",
+      "quality_evidence": "experiments/register-checker-v1/quality.json",
+      "runtime": "environment.native_tools.run_v4",
+      "capabilities": [
+        "state-prediction",
+        "address-identity",
+        "write-one-clear",
+        "false-positive-negative-control",
+        "sticky-error-reset"
+      ]
+    }
+  ],
+  "total_finite_identities": 22,
+  "scope": "Append-only catalogue; runtime admission remains independent and exact-source-bound."
+}

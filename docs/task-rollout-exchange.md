@@ -86,7 +86,7 @@ python3 -m scripts.analyze_artifact_study_v4 NEW_ANALYSIS_JSON RAW_TRIAL_1 RAW_T
 
 原生工具把参数放进模型工具调用块，不再依赖从正文中解析单动作 JSON。但生成、执行和接收反馈仍是不同事件：[v9 导出器](../scripts/native_exchange.py)保存原始参数制品、被拒绝的提案、实际执行、候选、SDK 结果哈希及携带反馈的后续请求。只有该请求获得模型响应才确认曝光；同一回复内的批量调用不能互相使用尚未获得的反馈。
 
-五条实际任务记录分别进入 [native v2](../experiments/task-production-v4/native-v2-exchange/manifest.json)和[固定文件名 v3](../experiments/task-production-v4/native-v3-exchange/manifest.json)。三条没有提交，保留 null 且不执行终局／保留评估。新库存为137条记录、97条已审查轨迹，四条简单接口探针不计入任务分母。完整结果见[交付研究](native-tool-delivery-evaluation.md)。
+五条实际任务记录分别进入 [native v2](../experiments/task-production-v4/native-v2-exchange/manifest.json)和[固定文件名 v3](../experiments/task-production-v4/native-v3-exchange/manifest.json)。三条没有提交，保留 null 且不执行终局／保留评估。该批库存为137条记录、97条已审查轨迹，四条简单接口探针不计入任务分母。完整结果见[交付研究](native-tool-delivery-evaluation.md)。
 
 ```bash
 python3 -m scripts.check_native_replay RAW_TRIAL --out NEW_AUDIT.json
@@ -96,3 +96,5 @@ python3 -m scripts.native_exchange FROZEN_PLAN.json RAW_RUNS NEW_EXCHANGE
 前者重放原始事件和 Session、比对保存的实际公开结果，不进行新评分；后者再核对 SDK 生成与送达关系并导出。使用原始证据需要可信本地输入，公开摘要不能替代。模型消息和原始参数可核查，Token IDs、行为概率和精确权重仍不可取得。training、evaluation 与离线分析分别保存，未做的事后测试明确标记未执行。
 
 [数据用途分析](trajectory-data-uses.md)是另外一层判断，目前只绑定132条历史库存，不自动将v9新轨迹或所有Reward=1记录纳入训练材料。
+
+寄存器检查器随后增加[两条v9记录](../experiments/register-checker-v1/exchange/manifest.json)，当前库存为139条研究记录、99条已审查工具轨迹。rollout v4增加新任务分派和明确提交说明，底层工具契约仍是native v3；[重放审计v2](../scripts/check_native_replay_v2.py)识别该执行版本。两条均为首编辑通过并提交，不能标作多轮修复成功，旧132条数据用途集合也不自动扩大。

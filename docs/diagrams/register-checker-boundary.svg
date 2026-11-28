@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 490" role="img" aria-labelledby="title desc">
+<title id="title">验证组件也可以成为被评价的工程交付物</title>
+<desc id="desc">Agent 实现寄存器读回检查器。提交后，可信事件源同时输入候选与独立逐位状态模型；VCS 运行候选，固定比较器逐周期核对是否应该报错。合法及错误事件均须判断，候选不能修改独立模型与奖励。</desc>
+<style>
+.bg{fill:#fbfcfe}.box{fill:#e6eef9;stroke:#6388b6}.tool{fill:#e8f4ed;stroke:#52a371}.boundary{fill:#edf0f4;stroke:#9ba8b9}.line{fill:none;stroke:#6388b6;stroke-width:1.8}.label{font:600 18px system-ui,'PingFang SC','Microsoft YaHei',sans-serif;fill:#1c2b3e}.small{font:15px system-ui,'PingFang SC','Microsoft YaHei',sans-serif;fill:#53647a}rect{stroke-width:1.5}text{text-anchor:middle}
+@media(prefers-color-scheme:dark){.bg{fill:#161e29}.box{fill:#253951;stroke:#78a4d8}.tool{fill:#203c31;stroke:#68bd87}.boundary{fill:#293443;stroke:#8c9bb0}.label{fill:#edf2f8}.small{fill:#b0bdcf}.line{stroke:#78a4d8}}
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#6388b6" stroke-width="1.5"/></marker></defs>
+<rect class="bg" x="1" y="1" width="758" height="488" rx="15"/>
+<text class="label" x="380" y="32">谁来检查检查器？</text>
+<rect class="box" x="28" y="52" width="285" height="65" rx="9"/>
+<text class="label" x="170" y="79">Agent 交付 checker.sv</text><text class="small" x="170" y="102">提交冻结，求解停止</text>
+<rect class="boundary" x="340" y="52" width="392" height="65" rx="9"/>
+<text class="label" x="536" y="79">可信事件源</text><text class="small" x="536" y="102">读写、错误读回、地址与复位</text>
+<path class="line" d="M170 117V177" marker-end="url(#arrow)"/>
+<path class="line" d="M536 117V145H270V177" marker-end="url(#arrow)"/>
+<path class="line" d="M536 145V177" marker-end="url(#arrow)"/>
+<rect class="box" x="28" y="182" width="325" height="87" rx="9"/>
+<text class="label" x="190" y="211">VCS 运行候选检查器</text><text class="small" x="190" y="238">候选每周期输出 error</text><text class="small" x="190" y="259">它的错误判断本身是被测对象</text>
+<rect class="tool" x="407" y="182" width="325" height="87" rx="9"/>
+<text class="label" x="570" y="211">独立逐位状态模型</text><text class="small" x="570" y="238">按地址维护被置位的位集合</text><text class="small" x="570" y="259">确定本周期应不应该报错</text>
+<path class="line" d="M190 269V294H330V322" marker-end="url(#arrow)"/>
+<path class="line" d="M570 269V294H430V322" marker-end="url(#arrow)"/>
+<rect class="tool" x="182" y="327" width="396" height="65" rx="9"/>
+<text class="label" x="380" y="354">固定比较器：逐周期核对</text><text class="small" x="380" y="377">同时拒绝误报、漏报和无条件判断</text>
+<path class="line" d="M380 392V417" marker-end="url(#arrow)"/>
+<text class="label" x="380" y="442">终局 Reward：1 / 0 / null</text>
+<text class="small" x="380" y="470">保留评估单独存储；候选无权改变事件、模型或判据</text>
+</svg>

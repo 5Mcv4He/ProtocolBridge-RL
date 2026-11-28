@@ -1,0 +1,28 @@
+{
+  "schema": "register-checker-session-acceptance-v1",
+  "results": [
+    {
+      "task_id": "register_checker_rw_v1",
+      "accepted": true,
+      "actions": 7,
+      "edits": 1,
+      "public_tests": 2,
+      "reward": 1.0,
+      "heldout_reward": 1.0,
+      "terminal_source_sha256": "2a879bc954431eca7216456d9a4e342704d96a933f26c6626f4c4a824c18ca22"
+    },
+    {
+      "task_id": "register_checker_w1c_v1",
+      "accepted": true,
+      "actions": 3,
+      "edits": 0,
+      "public_tests": 0,
+      "reward": 0.0,
+      "heldout_reward": 0.0,
+      "terminal_source_sha256": "e66c66a01fd57446e3d6f0b5b1bd0942dc1d3b4f65609a79102bc5575b803c3f"
+    }
+  ],
+  "model_calls": 0,
+  "actual_grader_calls": 6,
+  "source_sha256": "c3ef66d7fa3c5118e2cf4252c6399770af3ab9c83be7f3495ce12497cdf3e3c6"
+}

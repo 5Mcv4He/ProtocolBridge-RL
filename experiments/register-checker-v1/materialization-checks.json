@@ -1,0 +1,20 @@
+{
+  "accepted_originals": 2,
+  "negative_checks": [
+    {
+      "mutation": "omit_dependency",
+      "rejected": true,
+      "reason": "Missing or changed required materialization dependency"
+    },
+    {
+      "mutation": "omit_task_file",
+      "rejected": true,
+      "reason": "Missing or changed required materialization dependency"
+    },
+    {
+      "mutation": "change_task_file",
+      "rejected": true,
+      "reason": "Materialized task differs"
+    }
+  ]
+}

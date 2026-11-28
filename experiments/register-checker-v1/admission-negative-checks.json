@@ -1,0 +1,22 @@
+{
+  "schema": "register-checker-admission-negative-v1",
+  "checks": [
+    {
+      "mutation": "missing_dependency",
+      "rejected": true,
+      "reason": "Incomplete dependency set"
+    },
+    {
+      "mutation": "functional_control_compile_error",
+      "rejected": true,
+      "reason": "Semantic control not actually detected"
+    },
+    {
+      "mutation": "missing_positive",
+      "rejected": true,
+      "reason": "Incomplete gate"
+    }
+  ],
+  "original_gate_unchanged": true,
+  "eda_or_model_calls": 0
+}

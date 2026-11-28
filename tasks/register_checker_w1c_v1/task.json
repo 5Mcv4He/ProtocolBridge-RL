@@ -1,0 +1,30 @@
+{
+  "task_id": "register_checker_w1c_v1",
+  "version": 1,
+  "family": "register-checker-v1",
+  "mode": "w1c",
+  "deliverable": "checker.sv",
+  "verifier": "verifier.register_checker.campaign",
+  "capabilities": [
+    "state-prediction",
+    "address-identity",
+    "write-one-clear",
+    "false-positive-negative-control",
+    "sticky-error-reset"
+  ],
+  "obligations": [
+    "all-addresses",
+    "each-data-bit",
+    "read-after-write",
+    "read-no-side-effect",
+    "ignored-fields",
+    "idle-no-update",
+    "back-to-back",
+    "first-error-same-cycle",
+    "sticky-until-reset",
+    "reset-dominates-active-event",
+    "address-times-update-times-reset"
+  ],
+  "source_origin": "empty checker; all negative controls are synthetic",
+  "admission": "candidate; no industrial admission implied"
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "native-offline-replay-v2",
+  "auditor_sha256": "661816bab369c21d75cb2883a3fda0ab6218b4e78b4d10c23c7b525bf3485f4c",
+  "results": [
+    {
+      "trial_id": "register-rw-r1",
+      "accepted": true,
+      "actions": 5,
+      "public_results_replayed": 1,
+      "new_model_or_eda_calls": 0,
+      "terminal_reward": 1.0
+    },
+    {
+      "trial_id": "register-w1c-r1",
+      "accepted": true,
+      "actions": 5,
+      "public_results_replayed": 1,
+      "new_model_or_eda_calls": 0,
+      "terminal_reward": 1.0
+    }
+  ]
+}

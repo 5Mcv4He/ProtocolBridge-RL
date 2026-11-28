@@ -20,14 +20,15 @@
 | [RFFE RW／W1C 寄存器](rffe-register.md) | `rffe_register.sv` | `rffe-register` / `rw`、`w1c` |
 | [置位计数／末尾零综合修复](bitfold-synthesis-repair.md) | `bitfold.sv` | `bitfold-synthesis` / `population`、`trailing-zero` |
 | [I²C 字节／组字骨架补全](i2c-completion.md) | `i2c_sink.sv` | `i2c-completion` / `byte`、`word` |
+| [寄存器RW／W1C检查器](../register-checker-evaluation.md) | `checker.sv` | production_v6：`rw`、`w1c` |
 
-[全项目任务目录](../task-catalog.md)包含另 11 个 X2P 契约；这里二十个有限任务身份对应[有限交付 Registry](../../tasks/artifact-registry.json)。其中两个 I²C 补全起点复用已有功能契约，不计作新增协议能力。指南放在冻结任务目录之外，不改变材料包的完整文件清单。
+[全项目任务目录](../task-catalog.md)包含另 11 个 X2P 契约；这里二十二个有限任务身份对应[追加 Registry（含原目录）](../../tasks/artifact-registry-v2.json)。其中两个 I²C 补全起点复用已有功能契约，不计作新增协议能力。指南放在冻结任务目录之外，不改变材料包的完整文件清单。
 
 ## Agent 能看到什么
 
 已发布有限交付试次开放 **read、edit、test、submit**，最多 20 次动作、4 次公开测试。read 只能读取本试次 Spec 与交付文件，edit 只能替换交付物；模型没有任意 shell、可信参考或评分源码读取工具。test 反馈经过控制器投影，绑定当前内容 SHA-256，旧版本 PASS 不能代表新编辑已通过。
 
-submit 冻结交付并结束求解，再运行终局与独立保留评估；私有结果不送回继续修改。终局 Reward、保留评估、事后分析分别保存。X2P 的九动作综合工具不自动适用于这些任务；真实边界见[session](../../environment/artifact_task/session_v3.py)、[当前运行器](../../environment/artifact_task/runner_v9.py)与[反馈及模型研究](../verification-resources-tasks.md)。
+submit 冻结交付并结束求解，再运行终局与独立保留评估；私有结果不送回继续修改。终局 Reward、保留评估、事后分析分别保存。X2P 的九动作综合工具不自动适用于这些任务；历史边界见[原Session](../../environment/artifact_task/session_v3.py)与[文本动作研究](../verification-resources-tasks.md)；新四动作原生接口及隔离边界见[实际验收](../native-tool-delivery-evaluation.md)，寄存器检查器使用[run_v4](../../environment/native_tools/run_v4.py)。
 
 ## 人工复现与材料包生产
 
@@ -56,3 +57,7 @@ python3 -m verification_resources.production_v5 reset .local/uart-package .local
 [多验证资源阶段](../task-production-stage-v3.md)新增八个任务身份并分别完成工业门禁。运行器修订 10／Session 4 对反馈类别与奖励一致性采用保守过滤，并记录综合错误类别；历史运行器不变。实际机制验收、材料化与新模型校准状态以该报告为准。
 
 最新 [多资源分层校准](../task-production-stage-v3.md)新增四条主试次和一条独立反馈版本试次：两条终局成功、两条未编辑失败提交、后续一条未提交。按任务与条件分别阅读，不将全部任务入口视为已经得到稳定难度校准。
+
+## 寄存器事件检查器
+
+[RW与W1C检查器](../register-checker-evaluation.md)要求交付判断读回是否正确的状态模型。候选检查器由独立事件判据评价，既检查漏报也检查误报；不继承串行VIP的准入。两份新包及真实模型记录使有限任务身份达到22个，新版[CLI与复现入口](../../experiments/register-checker-v1/README.md)保留此前接口。
